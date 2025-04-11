@@ -1,12 +1,13 @@
 import React from 'react'
 
-import { UsePopover, UsePopoverHover } from './usePopover'
-import { Arrow } from './Arrow'
-import { PopoverProps } from './Popover'
-
-import { CrossIcon } from '@/Icons'
 import { Box } from '@/Box'
 import { Button } from '@/Button'
+import { CrossIcon } from '@/Icons'
+
+import type { PopoverProps } from './Popover'
+import type { UsePopover, UsePopoverHover } from './usePopover'
+
+import { Arrow } from './Arrow'
 
 export interface ContentOptions {
   children: PopoverProps['children']
@@ -27,7 +28,7 @@ export const Content = ({ children, onClose, store }: ContentOptions) => {
     <Box position="relative">
       <Arrow store={store} />
       {children as React.ReactElement}
-      {withCloseButton && (
+      {withCloseButton ? (
         <Button
           flex="0 0 auto"
           ml="md"
@@ -41,7 +42,7 @@ export const Content = ({ children, onClose, store }: ContentOptions) => {
         >
           <CrossIcon />
         </Button>
-      )}
+      ) : null}
     </Box>
   )
 }

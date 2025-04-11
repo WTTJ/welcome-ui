@@ -1,29 +1,9 @@
-import React from 'react'
 import { act, screen } from '@testing-library/react'
 
-import { DatePicker } from '../../DatePicker'
-import { TimePicker } from '../../TimePicker'
 import { DateTimePicker } from '../'
 import { render } from '../../../../tests'
-
-// jest.mock('popper.js', () => {
-//   const PopperJS = jest.requireActual('popper.js')
-
-//   return class {
-//     static placements = PopperJS.placements
-
-//     constructor() {
-//       return {
-//         destroy: () => {
-//           return {}
-//         },
-//         scheduleUpdate: () => {
-//           return {}
-//         },
-//       }
-//     }
-//   }
-// })
+import { DatePicker } from '../../DatePicker'
+import { TimePicker } from '../../TimePicker'
 
 describe('<DateTimePicker />', () => {
   it('<DateTimePicker> renders correctly', () => {

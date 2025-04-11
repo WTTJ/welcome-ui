@@ -1,13 +1,14 @@
+import type { Locale } from 'date-fns'
+
 import React, { useEffect, useMemo, useState } from 'react'
-import { Locale } from 'date-fns'
+
+import { Button } from '@/Button'
+import { LeftIcon, RightIcon } from '@/Icons'
+import { Select } from '@/Select'
+import type { CreateWuiProps } from '@/System'
 
 import * as S from './styles'
 import { getMonths, getYears } from './utils'
-
-import { LeftIcon, RightIcon } from '@/Icons'
-import { Select } from '@/Select'
-import { Button } from '@/Button'
-import { CreateWuiProps } from '@/System'
 
 export interface CustomHeaderOptions {
   changeMonth: () => void
@@ -38,8 +39,8 @@ export const CustomHeader: React.FC<CustomHeaderProps> = ({
   locale,
   startYear,
 }) => {
-  const [month, setMonth] = useState(null)
-  const [year, setYear] = useState(null)
+  const [month, setMonth] = useState<null | string>(null)
+  const [year, setYear] = useState<null | number>(null)
 
   const months = useMemo(() => getMonths(locale), [locale])
   const years = useMemo(() => getYears(startYear, endYear), [startYear, endYear])
@@ -78,7 +79,7 @@ export const CustomHeader: React.FC<CustomHeaderProps> = ({
             onChange={changeMonth}
             options={months}
             size="sm"
-            value={month}
+            value={month || ''}
           />
         )}
         <Select
@@ -87,7 +88,7 @@ export const CustomHeader: React.FC<CustomHeaderProps> = ({
           onChange={changeYear}
           options={years}
           size="sm"
-          value={year}
+          value={year || ''}
         />
       </S.Selects>
       <Button

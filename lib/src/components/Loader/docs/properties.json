@@ -612,10 +612,10 @@
               "value": "\"lg\""
             },
             {
-              "value": "string & Record<never, never>"
+              "value": "Record<never, never> & string"
             },
             {
-              "value": "number & Record<never, never>"
+              "value": "Record<never, never> & number"
             }
           ]
         }

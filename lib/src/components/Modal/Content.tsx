@@ -1,24 +1,23 @@
-import React, { Children, cloneElement, useEffect, useMemo, useState } from 'react'
 import { useTheme } from '@xstyled/styled-components'
+import React, { Children, cloneElement, useEffect, useMemo, useState } from 'react'
+
+import { Box } from '@/Box'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
+
+import type { UseModal } from '.'
 
 import { Close } from './Close'
 
-import { UseModal } from '.'
-
-import { forwardRef } from '@/System'
-import { Box } from '@/Box'
-
-export interface ContentOptions {
-  children: React.ReactNode
-}
-
-export type ContentProps = ContentOptions & {
+export type ContentOptions = {
   store: UseModal
   /**
    * show or hide the closing button
    */
   withClosingButton?: boolean
 }
+
+export type ContentProps = CreateWuiProps<'div', ContentOptions>
 
 /**
  * @name Modal.Content
@@ -34,22 +33,22 @@ export const Content = forwardRef<'div', ContentProps>(
       () =>
         Children.map(children, child => {
           if (React.isValidElement(child)) {
-            const componentType = child.type as React.FunctionComponent | React.ComponentClass
+            const componentType = child.type as React.ComponentClass | React.FunctionComponent
             return componentType.displayName ?? componentType.name ?? ''
           }
           return ''
         }),
       [children]
     )
-    const shouldShowCloseButton = !components.includes('Header') && withClosingButton
+    const shouldShowCloseButton = !components?.includes('Header') && withClosingButton
 
     const getStyles = (name?: string) => {
       if (name === 'Header') {
         return {
           // if the Modal have a Body but not a Footer || have a Footer but not a Body
           pb:
-            (components.includes('Body') && !components.includes('Footer')) ||
-            (components.includes('Footer') && !components.includes('Body'))
+            (components?.includes('Body') && !components.includes('Footer')) ||
+            (components?.includes('Footer') && !components.includes('Body'))
               ? space.lg
               : space.xxl,
         }
@@ -57,15 +56,15 @@ export const Content = forwardRef<'div', ContentProps>(
 
       if (name === 'Body') {
         return {
-          pb: components.includes('Footer') ? space.lg : null,
-          pr: components.includes('Header') ? space.xxl : null,
+          pb: components?.includes('Footer') ? space.lg : null,
+          pr: components?.includes('Header') ? space.xxl : null,
         }
       }
 
       if (name === 'Footer') {
         return {
-          pt: components.includes('Header') || components.includes('Body') ? null : space.lg,
           borderWidth: borderOnFooter ? borderWidths.sm : '0',
+          pt: components?.includes('Header') || components?.includes('Body') ? null : space.lg,
         }
       }
 
@@ -84,7 +83,7 @@ export const Content = forwardRef<'div', ContentProps>(
     return (
       <Box ref={ref} {...rest}>
         {shouldShowCloseButton ? <Close /> : null}
-        {Children.map(children, (child: JSX.Element) => {
+        {Children.map(children as React.ReactElement, (child: JSX.Element) => {
           if (!child) return null
           const name = child?.type?.displayName || child?.type?.name
 

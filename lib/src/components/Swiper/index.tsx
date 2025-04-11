@@ -1,22 +1,13 @@
-import React, {
-  Children,
-  cloneElement,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react'
-import debounce from 'lodash.debounce'
 import { useTheme } from '@xstyled/styled-components'
+import debounce from 'lodash.debounce'
+import { Children, cloneElement, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+
+import { IconsFont } from '@/IconsFont'
+import type { CreateWuiProps } from '@/System'
 
 import { useViewportSize } from '../../utils/use-viewport'
-
-import { useInterval } from './use-interval'
 import * as S from './styles'
-
-import { CreateWuiProps } from '@/System'
-import { IconsFont } from '@/IconsFont'
+import { useInterval } from './use-interval'
 
 export interface UseSwiperProps {
   autoplay?: boolean
@@ -29,7 +20,7 @@ export interface UseSwiperProps {
   id?: string
   loop?: boolean
   /** Size of left and right navigation arrows */
-  navigationSize?: 'xs' | 'sm' | 'md' | 'lg'
+  navigationSize?: 'lg' | 'md' | 'sm' | 'xs'
   /** Number of slides to show per view */
   slidesPerView?: {
     desktop: number
@@ -62,11 +53,11 @@ export const useSwiper = (options: UseSwiperProps = {}) => {
     id = 'swiper',
     loop = false,
     navigationSize = 'md',
-    slidesPerView = { mobile: 1, tablet: 1, desktop: 1 },
+    slidesPerView = { desktop: 1, mobile: 1, tablet: 1 },
     spaceBetween = 20,
     withDarkUI = false,
-    withNavigation = { mobile: true, desktop: true },
-    withPagination = { mobile: false, desktop: false },
+    withNavigation = { desktop: true, mobile: true },
+    withPagination = { desktop: false, mobile: false },
   } = options
 
   const shouldLoop = loop || autoplay
@@ -74,47 +65,49 @@ export const useSwiper = (options: UseSwiperProps = {}) => {
   const [currentPage, setCurrentPage] = useState(0)
   const [showLeftArrow, setShowLeftArrow] = useState(false)
   const [showRightArrow, setShowRightArrow] = useState(false)
-  const ref = useRef<HTMLUListElement>()
+  const ref = useRef<HTMLUListElement | null>(null)
   const { screens } = useTheme()
 
   const currentSlidesPerView = useMemo(() => {
-    if (viewportWidth <= screens.md) {
-      return slidesPerView.mobile
-    } else if (viewportWidth <= screens.lg) {
-      return slidesPerView.tablet
-    } else if (viewportWidth >= screens['4xl'] && fullWidth) {
-      return slidesPerView.desktop + 2
+    if (viewportWidth) {
+      if (viewportWidth <= screens.md) {
+        return slidesPerView.mobile
+      } else if (viewportWidth <= screens.lg) {
+        return slidesPerView.tablet
+      } else if (viewportWidth >= screens['4xl'] && fullWidth) {
+        return slidesPerView.desktop + 2
+      } else {
+        return slidesPerView.desktop
+      }
     } else {
       return slidesPerView.desktop
     }
   }, [fullWidth, viewportWidth, screens, slidesPerView])
 
   return {
+    autoplay,
     centeredSlides,
-    firstSlideToShow,
-    currentSlidesPerView,
     currentPage,
-    setCurrentPage,
+    currentSlidesPerView,
+    duration,
+    firstSlideToShow,
     fullWidth,
     id,
     navigationSize,
-    slidesPerView,
-    spaceBetween,
-    withNavigation,
-    withPagination,
-    autoplay,
-    shouldLoop,
-    duration,
-    withDarkUI,
     ref,
+    setCurrentPage,
     setShowLeftArrow,
     setShowRightArrow,
+    shouldLoop,
     showLeftArrow,
     showRightArrow,
+    slidesPerView,
+    spaceBetween,
+    withDarkUI,
+    withNavigation,
+    withPagination,
   }
 }
-
-export type UseSwiper = ReturnType<typeof useSwiper>
 
 export type SwiperInitialProps = {
   children: JSX.Element | JSX.Element[]
@@ -123,6 +116,8 @@ export type SwiperInitialProps = {
 }
 
 export type SwiperProps = CreateWuiProps<'div', SwiperInitialProps>
+
+export type UseSwiper = ReturnType<typeof useSwiper>
 
 export const Swiper = ({ children, dataTestId, store, ...rest }: SwiperProps) => {
   const {
@@ -167,11 +162,11 @@ export const Swiper = ({ children, dataTestId, store, ...rest }: SwiperProps) =>
 
     return cloneElement(child, {
       ...child.props,
+      'aria-hidden': isHidden,
+      'aria-label': `${currentSlide} of ${slidesLength}`,
+      'aria-roledescription': 'slide',
       id: key,
       key,
-      'aria-hidden': isHidden,
-      'aria-roledescription': 'slide',
-      'aria-label': `${currentSlide} of ${slidesLength}`,
     })
   })
 
@@ -222,13 +217,13 @@ export const Swiper = ({ children, dataTestId, store, ...rest }: SwiperProps) =>
   const goTo = useCallback(
     (page: number, isFirstInit = false) => {
       const sliderContainer = ref?.current
-      const childWidth = sliderContainer?.children?.[0]?.getBoundingClientRect()?.width
+      const childWidth = sliderContainer?.children?.[0]?.getBoundingClientRect()?.width || 0
 
       sliderContainer?.scrollTo({
-        left: page * (childWidth + spaceBetween) * currentSlidesPerView,
-        top: 0,
         // We don't want to have a scroll effect when we first render the swiper
         behavior: !isFirstInit ? 'smooth' : 'auto',
+        left: page * (childWidth + spaceBetween) * currentSlidesPerView,
+        top: 0,
       })
     },
     [currentSlidesPerView, spaceBetween, ref]
@@ -257,7 +252,7 @@ export const Swiper = ({ children, dataTestId, store, ...rest }: SwiperProps) =>
         goNext()
       }
     },
-    autoplay ? duration : null
+    autoplay ? duration : 0
   )
 
   useEffect(() => {
@@ -299,7 +294,7 @@ export const Swiper = ({ children, dataTestId, store, ...rest }: SwiperProps) =>
       </S.Container>
       <S.Arrow
         aria-label="Previous slide"
-        data-testid={dataTestId && `${dataTestId}-prev-button`}
+        data-testid={dataTestId ? `${dataTestId}-prev-button` : null}
         disabled={!showLeftArrow}
         left={10}
         onClick={goPrev}
@@ -314,7 +309,7 @@ export const Swiper = ({ children, dataTestId, store, ...rest }: SwiperProps) =>
       </S.Arrow>
       <S.Arrow
         aria-label="Next slide"
-        data-testid={dataTestId && `${dataTestId}-next-button`}
+        data-testid={dataTestId ? `${dataTestId}-next-button` : null}
         disabled={!showRightArrow}
         onClick={goNext}
         position="absolute"
@@ -329,19 +324,19 @@ export const Swiper = ({ children, dataTestId, store, ...rest }: SwiperProps) =>
       </S.Arrow>
       <S.Pagination
         className="swiper-pagination"
-        data-testid={dataTestId && `${dataTestId}-pagination`}
+        data-testid={dataTestId ? `${dataTestId}-pagination` : null}
         role="tablist"
         withPagination={withPagination}
       >
         {bullets.length > 1 &&
           bullets.map((_, idx) => {
             const props = {
-              idx,
-              role: 'tab',
               'aria-controls': `${id}-${idx}`,
               'aria-label': `${idx + 1} of ${bullets.length}`,
               'aria-selected': idx === currentPage,
+              idx,
               onClick: () => goTo(idx),
+              role: 'tab',
             }
 
             return (

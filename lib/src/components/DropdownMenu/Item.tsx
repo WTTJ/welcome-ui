@@ -1,9 +1,9 @@
-import React from 'react'
 import * as Ariakit from '@ariakit/react'
 
-import * as S from './Item.styled'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
 
-import { CreateWuiProps, forwardRef } from '@/System'
+import * as S from './Item.styled'
 
 export type ItemProps = CreateWuiProps<'button', Omit<Ariakit.MenuItemProps, 'as'>>
 

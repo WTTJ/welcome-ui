@@ -1,3 +1,4 @@
+import { ResizeObserver } from '@juggle/resize-observer'
 import React, {
   Children,
   cloneElement,
@@ -7,17 +8,16 @@ import React, {
   useRef,
   useState,
 } from 'react'
-import { ResizeObserver } from '@juggle/resize-observer'
+
+import { RightIcon } from '@/Icons'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
+import type { ThemeColorTokens } from '@/theme'
 
 import { clamp } from '../../utils/clamp'
 import { throttle } from '../../utils/throttle'
-
 import { Item } from './Item'
 import * as S from './styles'
-
-import { CreateWuiProps, forwardRef } from '@/System'
-import { RightIcon } from '@/Icons'
-import { ThemeColorTokens } from '@/theme'
 
 export interface BreadcrumbOptions {
   children: React.ReactNode | React.ReactNode[]
@@ -25,7 +25,7 @@ export interface BreadcrumbOptions {
   gradientBackground?: ThemeColorTokens
   /** set clickable or not the last child */
   lastChildNotClickable?: boolean
-  separator?: string | React.ReactNode
+  separator?: React.ReactNode | string
 }
 
 export type BreadcrumbProps = CreateWuiProps<'div', BreadcrumbOptions>
@@ -42,28 +42,31 @@ export const BreadcrumbComponent = forwardRef<'div', BreadcrumbProps>(
     ref
   ) => {
     const listRef = useRef<HTMLOListElement>(null)
-    const startGradient = useRef()
-    const endGradient = useRef()
+    const startGradient = useRef<HTMLElement>(null)
+    const endGradient = useRef<HTMLElement>(null)
     const [isOverflowing, setIsOverflowing] = useState(false)
     const [initialOffset, setInitialOffset] = useState(0)
     /** removed null child */
     const childrenFiltered = Children.toArray(children).filter(Boolean)
     const childrenLength = childrenFiltered.length
 
-    const clones = childrenFiltered.map((child: React.ReactElement, index) => {
+    const clones = childrenFiltered.map((child, index) => {
       const isLastChild = childrenLength === 1 || childrenLength === index + 1
       const isActive = isLastChild && lastChildNotClickable
 
-      return cloneElement(child, {
-        // eslint-disable-next-line react/no-array-index-key
-        key: `breadcrumb-${index}`,
-        separator: isLastChild ? undefined : separator,
-        isActive,
-        ...child.props,
-      })
+      // Check if child is a React element before using cloneElement
+      if (React.isValidElement(child)) {
+        return cloneElement(child, {
+          isActive,
+          key: `breadcrumb-${index}`,
+          separator: isLastChild ? undefined : separator,
+          ...child.props,
+        })
+      }
+      return child
     })
 
-    function translate(element: HTMLElement, value: number) {
+    function translate(element: HTMLElement | null, value: number) {
       if (!element) return
       element.style.transform = `scale3d(${value}, 1, 1)`
     }
@@ -75,9 +78,10 @@ export const BreadcrumbComponent = forwardRef<'div', BreadcrumbProps>(
     }, [])
 
     const onListScroll = useCallback(() => {
-      const {
-        current: { offsetWidth, scrollLeft, scrollWidth },
-      } = listRef
+      const { current } = listRef
+      if (!current) return
+
+      const { offsetWidth, scrollLeft, scrollWidth } = current
       const diff = scrollWidth - offsetWidth
       const scroll = clamp(Math.abs(scrollLeft - initialOffset), 0, diff)
       // scroll completion Ratio between 0 (not scrolled) and 1 (fully scrolled)
@@ -85,10 +89,11 @@ export const BreadcrumbComponent = forwardRef<'div', BreadcrumbProps>(
       updateGradients(completionRatio)
     }, [initialOffset, updateGradients])
 
-    const handleResize = useMemo<(entries: ResizeObserverEntry[]) => void>(
+    const handleResize = useMemo<(...args: unknown[]) => void>(
       () =>
         throttle(
-          (entries: ResizeObserverEntry[]) => {
+          (...args: unknown[]) => {
+            const entries = args[0] as ResizeObserverEntry[]
             const [
               {
                 // Is offsetWidth really needed ?
@@ -111,7 +116,7 @@ export const BreadcrumbComponent = forwardRef<'div', BreadcrumbProps>(
 
     useEffect(() => {
       const resizeObserver = new ResizeObserver(handleResize)
-      resizeObserver.observe(listRef.current)
+      if (listRef.current) resizeObserver.observe(listRef.current)
       return () => resizeObserver.disconnect()
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
@@ -124,15 +129,15 @@ export const BreadcrumbComponent = forwardRef<'div', BreadcrumbProps>(
 
     return (
       <S.Breadcrumb as="nav" ref={ref} {...rest}>
-        {isOverflowing && (
+        {isOverflowing ? (
           <S.StartGradient gradientBackground={gradientBackground} ref={startGradient} />
-        )}
+        ) : null}
         <S.List dir="rtl" onScroll={onListScroll} ref={listRef}>
           {clones.reverse()}
         </S.List>
-        {isOverflowing && (
+        {isOverflowing ? (
           <S.EndGradient gradientBackground={gradientBackground} ref={endGradient} />
-        )}
+        ) : null}
       </S.Breadcrumb>
     )
   }

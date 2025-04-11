@@ -1,14 +1,21 @@
-import React, { Fragment, useEffect, useMemo, useState } from 'react'
-import DownshiftImport, {
-  ControllerStateAndHelpers,
-  DownshiftProps,
-  GetRootPropsOptions,
-} from 'downshift'
+import type { ControllerStateAndHelpers, DownshiftProps, GetRootPropsOptions } from 'downshift'
+
+import DownshiftImport from 'downshift'
 import { matchSorter } from 'match-sorter'
+import React, { Fragment, useEffect, useMemo, useState } from 'react'
 
-import { CreateEvent, createEvent } from '../../utils/create-event'
-import { DefaultFieldStylesProps, FIELD_ICON_SIZE } from '../../utils/field-styles'
+import { ClearButton } from '@/ClearButton'
+import { DownIcon } from '@/Icons'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
 
+import type { CreateEvent } from '../../utils/create-event'
+import type { DefaultFieldStylesProps } from '../../utils/field-styles'
+
+import { createEvent } from '../../utils/create-event'
+import { FIELD_ICON_SIZE } from '../../utils/field-styles'
+import { multipleSelections } from './multipleSelections'
+import * as S from './styles'
 import {
   getInputValue,
   getNewOptions,
@@ -20,14 +27,7 @@ import {
   itemToString,
   kebabCase,
 } from './utils'
-import { multipleSelections } from './multipleSelections'
-import * as S from './styles'
 
-import { CreateWuiProps, forwardRef } from '@/System'
-import { ClearButton } from '@/ClearButton'
-import { DownIcon } from '@/Icons'
-
-export type SelectOptionValue = string | number
 export type SelectOption = {
   disabled?: boolean
   icon?: React.ReactElement
@@ -36,14 +36,6 @@ export type SelectOption = {
 }
 export type SelectOptionGroup = { label: string; options: SelectOption[] }
 export type SelectOptionItem = SelectOption | SelectOptionGroup
-export type SelectOptionsType = Array<SelectOption | SelectOptionGroup>
-export type SelectValue =
-  | string
-  | number
-  | string[]
-  | SelectOption
-  | (string | number | SelectOption)[]
-
 export interface SelectOptions extends DefaultFieldStylesProps {
   allowUnselectFromList?: boolean
   /** We need to add `autoComplete` off to avoid select UI issues when is an input */
@@ -66,9 +58,9 @@ export interface SelectOptions extends DefaultFieldStylesProps {
   onFocus?: () => void
   options: SelectOptionsType
   placeholder?: string
-  renderCreateItem?: (inputValue: SelectValue) => void
+  renderCreateItem?: (inputValue: string) => React.ReactNode
   renderGroupHeader?: (option: SelectOptionGroup) => React.ReactNode
-  renderItem?: (item: SelectOption, isItemSelected?: boolean) => string | React.ReactElement
+  renderItem?: (item: SelectOption, isItemSelected?: boolean) => React.ReactElement | string
   renderMultiple?: (
     values: SelectOption[],
     handleRemove: (value: string) => void
@@ -76,10 +68,19 @@ export interface SelectOptions extends DefaultFieldStylesProps {
   transparent?: boolean
   value?: SelectValue
 }
+export type SelectOptionsType = Array<SelectOption | SelectOptionGroup>
+export type SelectOptionValue = number | string
+
 export type SelectProps = CreateWuiProps<
   'input',
-  SelectOptions & Omit<DownshiftProps<SelectOption>, keyof SelectOptions | 'children'>
+  Omit<DownshiftProps<SelectOption>, 'children' | keyof SelectOptions> & SelectOptions
 >
+export type SelectValue =
+  | (number | SelectOption | string)[]
+  | number
+  | SelectOption
+  | string
+  | string[]
 
 // because of this issue: https://github.com/downshift-js/downshift/issues/1505
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -120,11 +121,16 @@ export const Select = forwardRef<'input', SelectProps>(
       value: defaultSelected,
       variant,
       ...rest
-    }: SelectProps,
-    ref: React.MutableRefObject<HTMLInputElement>
+    },
+    ref
   ): JSX.Element => {
     const defaultSelecteds = useMemo(
-      () => getOptionsFromSelected(defaultSelected, defaultOptions, groupsEnabled),
+      () =>
+        getOptionsFromSelected({
+          groupsEnabled,
+          options: defaultOptions,
+          selected: defaultSelected,
+        }),
       [defaultSelected, defaultOptions, groupsEnabled]
     )
     const selectedItem = (!isMultiple && defaultSelecteds[0]) || null
@@ -146,8 +152,13 @@ export const Select = forwardRef<'input', SelectProps>(
     // Autofocus
     useEffect(() => {
       if (autoFocus) {
-        ref?.current?.focus()
-        isSearchable && setIsOpen(true)
+        if (typeof ref === 'object' && ref?.current) {
+          ref.current.focus()
+        }
+
+        if (isSearchable) {
+          setIsOpen(true)
+        }
       }
     }, [isSearchable, autoFocus, ref])
 
@@ -189,24 +200,28 @@ export const Select = forwardRef<'input', SelectProps>(
       let values: SelectOptionValue[] = []
 
       if (groupsEnabled) {
-        values = getValuesFromOptions(
-          options,
-          defaultOptions.flatMap((group: SelectOptionGroup) => group.options)
-        )
+        values =
+          getValuesFromOptions(
+            options,
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-expect-error
+            defaultOptions.flatMap((group: SelectOptionGroup) => group.options)
+          ) || []
       } else {
-        values = getValuesFromOptions(options, defaultOptions)
+        values = getValuesFromOptions(options, defaultOptions) || []
       }
 
       const value = isMultiple ? values : values[0]
       const event = createEvent({ name, value: isMultiple ? options : options[0] })
 
-      onChange && onChange(value, event)
+      onChange?.(value, event)
 
       // If there are newly-created options, call `onCreate`
       if (isCreatable) {
         const newOptions = getNewOptions(options, defaultOptions)
-        if (newOptions.length) {
-          onCreate && onCreate(newOptions[0].label, event)
+
+        if (newOptions?.length) {
+          onCreate?.(newOptions[0].label, event)
         }
       }
     }
@@ -226,7 +241,10 @@ export const Select = forwardRef<'input', SelectProps>(
         isClearInput = isMultiple
       }
 
-      isClearInput && setInputValue('')
+      if (isClearInput) {
+        setInputValue('')
+      }
+
       setOptions(defaultOptions)
       setSelected(newItems)
       handleChange(newItems)
@@ -256,13 +274,15 @@ export const Select = forwardRef<'input', SelectProps>(
 
     const inputContent = getInputValue({
       inputValue,
-      isMultiple,
-      isSearchable,
+      isMultiple: isMultiple ?? false,
+      isSearchable: isSearchable ?? false,
       options: defaultOptions as SelectOption[],
       renderItem,
     })
 
     return (
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
       <Downshift
         id={id}
         inputValue={isSearchable ? (inputContent as string) : ''}
@@ -299,7 +319,7 @@ export const Select = forwardRef<'input', SelectProps>(
           )
           const ArrowIcon = (
             <S.DropDownIndicator
-              data-testid={dataTestId && `${dataTestId}-arrow-icon`}
+              data-testid={dataTestId ? `${dataTestId}-arrow-icon` : null}
               disabled={disabled}
               isOpen={isOpen}
               size={size}
@@ -313,7 +333,7 @@ export const Select = forwardRef<'input', SelectProps>(
           )
 
           const handleInputClick = (e: React.MouseEvent<HTMLElement>) => {
-            onClick && onClick(e)
+            onClick?.(e)
             setIsOpen(!isOpen)
           }
 
@@ -326,6 +346,7 @@ export const Select = forwardRef<'input', SelectProps>(
             disabled,
             iconPlacement: icon ? 'both' : 'right',
             id,
+            isClearable,
             name,
             onBlur,
             onClick: disabled ? undefined : handleInputClick,
@@ -335,9 +356,8 @@ export const Select = forwardRef<'input', SelectProps>(
             ref,
             size,
             tabIndex: 0,
-            variant: isOpen ? 'focused' : variant,
-            isClearable,
             transparent,
+            variant: isOpen ? 'focused' : variant,
             ...rest,
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
           }) as any
@@ -351,17 +371,17 @@ export const Select = forwardRef<'input', SelectProps>(
                 ) : (
                   <S.Input {...inputProps}>{inputContent}</S.Input>
                 )}
-                {icon && (
+                {icon ? (
                   <S.IconWrapper iconPlacement="left" size={iconSize}>
                     {React.cloneElement(icon, { ...icon.props, size: iconSize })}
                   </S.IconWrapper>
-                )}
+                ) : null}
                 <S.Indicators size={size}>
-                  {isShowDeleteIcon && DeleteIcon}
+                  {isShowDeleteIcon ? DeleteIcon : null}
                   {ArrowIcon}
                 </S.Indicators>
               </S.InputWrapper>
-              {isShowMenu && (
+              {isShowMenu ? (
                 <S.Menu {...getMenuProps()}>
                   {
                     options.reduce(
@@ -375,28 +395,29 @@ export const Select = forwardRef<'input', SelectProps>(
                             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                             // @ts-ignore
                             <Fragment key={result.label}>
-                              {renderGroupHeader(result)}
-                              {result.options &&
-                                result.options.map(option => {
-                                  const index = acc.itemIndex++
-                                  const isItemSelected = isValueSelected(option.value, selected)
-                                  return (
-                                    <S.Item
-                                      allowUnselectFromList={allowUnselectFromList}
-                                      isDisabled={option.disabled}
-                                      isHighlighted={highlightedIndex === index}
-                                      isMultiple={isMultiple}
-                                      key={option.value}
-                                      {...getItemProps({
-                                        index,
-                                        isSelected: isItemSelected,
-                                        item: option,
-                                      })}
-                                    >
-                                      {renderItem(option, isItemSelected)}
-                                    </S.Item>
-                                  )
-                                })}
+                              {renderGroupHeader?.(result)}
+                              {result.options
+                                ? result.options.map(option => {
+                                    const index = acc.itemIndex++
+                                    const isItemSelected = isValueSelected(option.value, selected)
+                                    return (
+                                      <S.Item
+                                        allowUnselectFromList={allowUnselectFromList}
+                                        isDisabled={option.disabled}
+                                        isHighlighted={highlightedIndex === index}
+                                        isMultiple={isMultiple}
+                                        key={option.value}
+                                        {...getItemProps({
+                                          index,
+                                          isSelected: isItemSelected,
+                                          item: option,
+                                        })}
+                                      >
+                                        {renderItem(option, isItemSelected)}
+                                      </S.Item>
+                                    )
+                                  })
+                                : null}
                             </Fragment>
                           )
                         } else if ('value' in result) {
@@ -421,27 +442,27 @@ export const Select = forwardRef<'input', SelectProps>(
 
                         return acc
                       },
-                      { itemsToRender: [], itemIndex: 0 }
+                      { itemIndex: 0, itemsToRender: [] }
                     ).itemsToRender
                   }
-                  {isShowCreate && inputValue.length && (
+                  {isShowCreate && inputValue.length ? (
                     <S.Item
                       isHighlighted={highlightedIndex === options.length}
                       key="add"
                       {...getItemProps({
                         index: options.length,
                         item: {
-                          value: kebabCase(inputValue),
                           label: inputValue,
+                          value: kebabCase(inputValue) || '',
                         },
                       })}
                     >
                       {renderCreateItem(inputValue)}
                     </S.Item>
-                  )}
+                  ) : null}
                 </S.Menu>
-              )}
-              {isMultiple && renderMultiple(selected, handleRemove)}
+              ) : null}
+              {isMultiple ? renderMultiple(selected, handleRemove) : null}
             </S.Wrapper>
           )
         }}

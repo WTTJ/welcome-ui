@@ -1,14 +1,16 @@
 import React from 'react'
 
-import { DefaultFieldStylesProps, FIELD_ICON_SIZE } from '../../utils/field-styles'
-import { createEvent } from '../../utils/create-event'
-
-import * as S from './styles'
-
-import { CreateWuiProps, forwardRef } from '@/System'
+import { Box } from '@/Box'
 import { ClearButton } from '@/ClearButton'
 import { IconGroupWrapper, IconWrapper } from '@/Field'
-import { Box } from '@/Box'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
+
+import type { DefaultFieldStylesProps } from '../../utils/field-styles'
+
+import { createEvent } from '../../utils/create-event'
+import { FIELD_ICON_SIZE } from '../../utils/field-styles'
+import * as S from './styles'
 
 export interface InputTextOptions extends DefaultFieldStylesProps {
   autoFocus?: boolean
@@ -62,7 +64,8 @@ export const InputText = forwardRef<'input', InputTextProps>(
         name,
         value: '',
       }) as unknown as React.ChangeEvent<HTMLInputElement>
-      onChange && onChange(event)
+
+      onChange?.(event)
     }
 
     return (
@@ -88,18 +91,19 @@ export const InputText = forwardRef<'input', InputTextProps>(
           variant={variant}
           {...rest}
         />
-        {hasIcon && !hasClearButtonAndRightIcon && (
+        {hasIcon && !hasClearButtonAndRightIcon ? (
           <IconWrapper iconPlacement={iconPlacement} size={iconSize}>
             {React.cloneElement(icon, { ...icon.props, size: iconSize })}
           </IconWrapper>
-        )}
-        {isClearable && (
+        ) : null}
+        {isClearable ? (
           <IconGroupWrapper size={iconSize}>
-            {value && <ClearButton onClick={handleReset} />}
-            {iconPlacement === 'right' &&
-              React.cloneElement(icon, { ...icon.props, size: iconSize })}
+            {value ? <ClearButton onClick={handleReset} /> : null}
+            {iconPlacement === 'right' && icon
+              ? React.cloneElement(icon, { ...icon.props, size: iconSize })
+              : null}
           </IconGroupWrapper>
-        )}
+        ) : null}
       </Box>
     )
   }

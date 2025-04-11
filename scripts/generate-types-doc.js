@@ -1,9 +1,7 @@
 /* eslint-disable no-console */
-/* eslint-disable @typescript-eslint/no-var-requires */
-
-const { join, resolve } = require('path')
+/* eslint-disable @typescript-eslint/no-require-imports */
 const { accessSync, existsSync, readdirSync, writeFileSync } = require('fs')
-
+const { join, resolve } = require('path')
 const { withCustomConfig } = require('react-docgen-typescript')
 
 const tsConfigPath = join(process.cwd(), 'lib', 'tsconfig.json')
@@ -32,8 +30,8 @@ const propFilter = prop => {
 
 const { parse } = withCustomConfig(tsConfigPath, {
   propFilter,
-  shouldRemoveUndefinedFromOptional: true,
   shouldExtractValuesFromUnion: true,
+  shouldRemoveUndefinedFromOptional: true,
 })
 
 const isComponentFile = file => {
@@ -118,7 +116,6 @@ async function generateTypesDoc() {
 
   // Get all files in each component folder
   componentDirs.map(async dirent => {
-    // eslint-disable-next-line no-console
     console.log('Generating properties.json for', dirent)
     const componentDir = resolve(parentDirectory, 'lib/src/components', dirent)
     const files = await getComponentFiles(componentDir)
@@ -134,13 +131,13 @@ async function generateTypesDoc() {
 
         if (props) {
           componentProps[name] = {
-            tag: tags?.tag,
             props: Object.keys(props)
               .sort()
               .reduce((obj, key) => {
                 obj[key] = props[key]
                 return obj
               }, {}),
+            tag: tags?.tag,
           }
         }
       })

@@ -1,18 +1,18 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { ReactDatePickerProps } from 'react-datepicker'
+import type { ReactDatePickerProps } from 'react-datepicker'
 
-import { CreateWuiProps, forwardRef } from '@/System'
+import React, { useEffect, useRef, useState } from 'react'
+
+import type { CustomHeaderProps, CustomInputOptions, Focused } from '@/DateTimePickerCommon'
 import {
   CustomHeader,
-  CustomHeaderProps,
   CustomInput,
-  CustomInputOptions,
   CustomPopper,
   DEFAULT_DATE,
-  Focused,
   getDate,
   StyledDatePicker,
 } from '@/DateTimePickerCommon'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
 
 export interface DatePickerOptions {
   onBlur?: CustomInputOptions['handleBlur']
@@ -22,16 +22,16 @@ export interface DatePickerOptions {
   preventVirtualKeyboard?: boolean
   transparent?: boolean
   useWeekdaysShort?: boolean
-  value: string | Date
+  value: Date | string
 }
 
 export type DatePickerProps = CreateWuiProps<
   typeof StyledDatePicker,
-  Omit<ReactDatePickerProps, keyof DatePickerOptions | 'locale'> &
+  DatePickerOptions &
+    Omit<CustomInputOptions, 'focused' | 'handleBlur' | 'handleFocus' | 'onReset' | 'value'> &
+    Omit<ReactDatePickerProps, 'locale' | keyof DatePickerOptions> &
     Partial<Pick<CustomHeaderProps, 'endYear' | 'startYear'>> &
-    Pick<CustomHeaderProps, 'locale'> &
-    Omit<CustomInputOptions, 'handleBlur' | 'handleFocus' | 'onReset' | 'focused' | 'value'> &
-    DatePickerOptions
+    Pick<CustomHeaderProps, 'locale'>
 >
 
 export const DatePicker = forwardRef<'input', DatePickerProps>(
@@ -62,18 +62,18 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
     ref
   ) => {
     const timeIntervals = rest?.timeIntervals
-    const formatDate = (date: string | number | Date) => getDate(date, timeIntervals)
+    const formatDate = (date: Date | number | string) => getDate(date, timeIntervals)
 
     const placeholderText = placeholder || rest.placeholderText
 
     const [focused, setFocused] = useState<Focused>((autoFocus && 'date') || null)
-    const [date, setDate] = useState(formatDate(value))
-    const inputRef = useRef<HTMLInputElement>()
+    const [date, setDate] = useState<Date | null>(formatDate(value))
+    const inputRef = useRef<HTMLInputElement | null>(null)
 
     // format date at component mount
     useEffect(() => {
-      onChange && onChange(formatDate(value))
-      //eslint-disable-next-line
+      onChange?.(formatDate(value))
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     // Ensure values are controlled by parent
@@ -87,23 +87,23 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
         onChange(formattedDate)
       }
       setDate(formattedDate)
-      //eslint-disable-next-line
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value])
 
     const blur = () => inputRef.current?.blur()
 
     const handleFocus: CustomInputOptions['handleFocus'] = e => {
       setFocused('date')
-      onFocus && onFocus(e)
+      onFocus?.(e)
     }
 
     const handleBlur: CustomInputOptions['handleBlur'] = e => {
       setFocused(null)
-      onBlur && onBlur(e)
+      onBlur?.(e)
     }
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-      if (['Escape', 'Enter'].includes(e.key)) {
+      if (['Enter', 'Escape'].includes(e.key)) {
         blur()
       }
     }
@@ -112,7 +112,7 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
       e.preventDefault()
       blur()
       setDate(null)
-      onChange && onChange(null)
+      onChange?.(null)
     }
 
     const handleChange = (newDate: Date) => {
@@ -121,7 +121,7 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
 
       newDate.setHours(date.getHours(), date.getMinutes())
       setDate(newDate)
-      onChange && onChange(new Date(newDate))
+      onChange?.(new Date(newDate))
     }
 
     return (
@@ -147,7 +147,7 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
               // for external use
               if (typeof ref === 'function') {
                 ref(instance)
-              } else {
+              } else if (ref) {
                 ref.current = instance
               }
             }}
@@ -165,11 +165,12 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
         popperProps={popperProps}
         renderCustomHeader={(props: CustomHeaderProps) => (
           <CustomHeader
-            endYear={endYear}
             isMonthYearPicker={showMonthYearPicker}
             locale={locale}
-            startYear={startYear}
             {...props}
+            // Override props values with our custom ones
+            endYear={endYear}
+            startYear={startYear}
           />
         )}
         selected={date}

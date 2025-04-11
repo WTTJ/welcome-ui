@@ -1,9 +1,11 @@
 import React from 'react'
 
-import * as S from './styles'
-import { Size } from './theme'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
 
-import { CreateWuiProps, forwardRef } from '@/System'
+import type { Size } from './theme'
+
+import * as S from './styles'
 
 export type IconContent = {
   block?: string
@@ -36,7 +38,7 @@ export const Icon = forwardRef<'svg', IconProps>(
       <S.Icon
         alt={title}
         dangerouslySetInnerHTML={{ __html: content.block }}
-        data-testid={dataTestId && `icon-${dataTestId}`}
+        data-testid={dataTestId ? `icon-${dataTestId}` : null}
         isFlag={content.isFlag}
         ref={ref}
         role="img"

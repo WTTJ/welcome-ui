@@ -1,22 +1,22 @@
-import React from 'react'
 import * as Ariakit from '@ariakit/react'
+
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
 
 import * as S from './Arrow.styled'
 
-import { CreateWuiProps, forwardRef } from '@/System'
-
 const transformMap: Record<string, string> = {
-  top: 'rotateZ(180deg)',
-  right: 'rotateZ(-90deg)',
   bottom: 'rotateZ(360deg)',
   left: 'rotateZ(90deg)',
+  right: 'rotateZ(-90deg)',
+  top: 'rotateZ(180deg)',
 }
 
 export type ArrowProps = CreateWuiProps<'div', Ariakit.MenuArrowProps>
 
 export const Arrow = forwardRef<'div', ArrowProps>(({ store }, ref) => {
   const currentPlacement = store?.useState('currentPlacement')
-  const [placement] = currentPlacement.split('-')
+  const [placement] = currentPlacement?.split('-') || ['bottom']
 
   return (
     <Ariakit.MenuArrow ref={ref} render={<S.Arrow />}>

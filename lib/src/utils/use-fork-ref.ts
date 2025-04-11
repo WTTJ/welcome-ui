@@ -1,4 +1,6 @@
-import { ForwardedRef, useMemo } from 'react'
+import type { ForwardedRef } from 'react'
+
+import { useMemo } from 'react'
 
 export function setRef(ref: ForwardedRef<unknown>, value: unknown): void {
   if (typeof ref === 'function') {
@@ -19,8 +21,9 @@ export function useForkRef(
    */
   return useMemo(() => {
     if (refA == null && refB == null) {
-      return null
+      return () => {}
     }
+
     return instance => {
       setRef(refA, instance)
       setRef(refB, instance)

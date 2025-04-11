@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import { IconsFont } from '@/IconsFont'
 
 const Example = () => {

@@ -1,6 +1,7 @@
+/* eslint-disable perfectionist/sort-objects */
 export type ThemeScreens = {
-  [key: string]: number
   [key: number]: number
+  [key: string]: number
   '3xl': number
   '4xl': number
   lg: number

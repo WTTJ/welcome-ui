@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
-import capitalize from 'lodash.capitalize'
 import { act, screen } from '@testing-library/react'
+import capitalize from 'lodash.capitalize'
+import React, { useState } from 'react'
 
-import { AvatarIcon, DateIcon } from '../../Icons'
+import type { SelectOption, SelectProps } from '../'
+
+import { Select } from '../'
 import { render } from '../../../../tests'
-import { Select, SelectOption, SelectProps } from '../'
+import { AvatarIcon, DateIcon } from '../../Icons'
 
 const SelectWrapper: React.FC<SelectProps> = props => {
   const [value, setValue] = useState<SelectProps['value']>()
@@ -29,7 +31,7 @@ const MONTHS = [
   'october',
   'november',
   'december',
-].map(month => ({ label: capitalize(month), value: month, disabled: month === 'january' }))
+].map(month => ({ disabled: month === 'january', label: capitalize(month), value: month }))
 
 const MONTHS_WITH_INTEGER_VALUES = MONTHS.map((item, index) => ({
   label: item.label,
@@ -40,16 +42,16 @@ const SOCIAL_OPT_GROUP = [
   {
     label: 'Professional networks',
     options: [
-      { value: 'behance', label: 'Behance', disabled: true },
-      { value: 'dribbble', label: 'Dribbble' },
-      { value: 'github', label: 'Github' },
+      { disabled: true, label: 'Behance', value: 'behance' },
+      { label: 'Dribbble', value: 'dribbble' },
+      { label: 'Github', value: 'github' },
     ],
   },
   {
     label: 'Personal networks',
     options: [
-      { value: 'instagram', label: 'Instagram' },
-      { value: 'facebook', label: 'Facebook' },
+      { label: 'Instagram', value: 'instagram' },
+      { label: 'Facebook', value: 'facebook' },
     ],
   },
 ]
@@ -140,7 +142,7 @@ describe('<Select>', () => {
       expect.objectContaining({
         target: {
           name: 'select',
-          value: { label: 'February', value: 'february', disabled: false },
+          value: { disabled: false, label: 'February', value: 'february' },
         },
       }) // Ignore preventDefault
     )
@@ -289,7 +291,7 @@ describe('<Select>', () => {
 
     const removeButton = tags[1].querySelector('[title=Remove]')
 
-    await user.click(removeButton)
+    if (removeButton) await user.click(removeButton)
 
     tags = screen.getAllByRole('listitem')
 
@@ -325,7 +327,7 @@ describe('<Select>', () => {
         name="select"
         options={MONTHS}
         renderItem={option => (
-          <div style={{ display: 'flex', alignItems: 'center' }}>
+          <div style={{ alignItems: 'center', display: 'flex' }}>
             <DateIcon mr="xs" size="sm" title="Calendar" />
             <span>{(option as SelectOption).label}</span>
           </div>
@@ -465,7 +467,7 @@ describe('<Select>', () => {
     expect(option).toHaveTextContent(`Create "${firstItem.label}"`)
 
     // Click on 'Create' item
-    await user.click(option)
+    if (option) await user.click(option)
 
     // Expect `onCreate` callback to be called
     expect(handleCreate).toHaveBeenCalledTimes(1)
@@ -491,7 +493,7 @@ describe('<Select>', () => {
     expect(option).toHaveTextContent(`Create "${secondItem.label}"`)
 
     // Click on 'Create' item
-    await user.click(option)
+    if (option) await user.click(option)
 
     // Expect `onCreate` callback to be called
     expect(handleCreate).toHaveBeenCalledTimes(2)
@@ -527,7 +529,7 @@ describe('<Select>', () => {
     // Click on 'Create' item
     const option = screen.getByRole('listbox').querySelector('li')
 
-    await user.click(option)
+    if (option) await user.click(option)
 
     // Expect `onCreate` callback to be called
     expect(handleCreate).toHaveBeenCalledTimes(1)
@@ -572,7 +574,7 @@ describe('<Select>', () => {
     expect(option).toHaveTextContent('October')
 
     // Click on 'Create' item
-    await user.click(option)
+    if (option) await user.click(option)
 
     // Expect `onCreate` callback not to be called
     expect(handleCreate).toHaveBeenCalledTimes(0)
@@ -642,7 +644,7 @@ describe('<Select>', () => {
     expect(handleChange).toHaveBeenCalledWith(
       'dribbble',
       expect.objectContaining({
-        target: { name: 'select', value: { value: 'dribbble', label: 'Dribbble' } },
+        target: { name: 'select', value: { label: 'Dribbble', value: 'dribbble' } },
       }) // Ignore preventDefault
     )
   })

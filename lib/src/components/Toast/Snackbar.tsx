@@ -1,12 +1,13 @@
-import React from 'react'
+import { Box } from '@/Box'
+import type { ButtonProps } from '@/Button'
+import { Button } from '@/Button'
+import { CloseButton } from '@/CloseButton'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
+
+import type { ToastVariant } from './theme'
 
 import * as S from './styles'
-import { ToastVariant } from './theme'
-
-import { Box } from '@/Box'
-import { Button, ButtonProps } from '@/Button'
-import { CloseButton } from '@/CloseButton'
-import { CreateWuiProps, forwardRef } from '@/System'
 
 export interface SnackbarOptions {
   /** add correct separator for call to action
@@ -28,8 +29,8 @@ export const Snackbar = forwardRef<'div', SnackbarProps>(
     <S.Snackbar icon={icon} ref={ref} variant={variant} {...rest}>
       <Box alignItems="center" display="flex" gap="sm">
         {children}
-        {cta && <S.SnackbarSeparator variant={variant}>{cta}</S.SnackbarSeparator>}
-        {hasCloseButton && <CloseButton onClick={onClose} size="xs" />}
+        {cta ? <S.SnackbarSeparator variant={variant}>{cta}</S.SnackbarSeparator> : null}
+        {hasCloseButton ? <CloseButton onClick={onClose} size="xs" /> : null}
       </Box>
     </S.Snackbar>
   )

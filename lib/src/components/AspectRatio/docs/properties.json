@@ -19,7 +19,13 @@
         ],
         "required": false,
         "type": {
-          "name": "number"
+          "name": "enum",
+          "raw": "number",
+          "value": [
+            {
+              "value": "number"
+            }
+          ]
         }
       }
     }

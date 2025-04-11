@@ -1,5 +1,7 @@
 import { createGlobalStyle, css, th } from '@xstyled/styled-components'
 
+import type { ThemeValues } from '@/theme'
+
 import { fonts } from './font'
 
 /* stylelint-disable */
@@ -260,7 +262,7 @@ export const normalizeStyle = css`
   [type='button'],
   [type='reset'],
   [type='submit'] {
-    appearance: button;
+    appearance: auto;
     -webkit-appearance: button;
   }
 
@@ -371,9 +373,9 @@ function baseFonts() {
 }
 
 export const GlobalStyle = createGlobalStyle<{ useReset?: boolean }>(
-  ({ useReset }) => css`
+  ({ theme, useReset }) => css`
     ${normalizeStyle};
-    ${fonts()};
+    ${fonts(theme as ThemeValues)};
     ${baseFonts()};
     ${useReset ? resetStyles : baseBoxSizing};
 

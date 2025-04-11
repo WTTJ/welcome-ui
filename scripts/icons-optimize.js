@@ -1,14 +1,14 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const path = require('path')
+/* eslint-disable no-console */
+/* eslint-disable @typescript-eslint/no-require-imports */
 const fs = require('fs')
-
+const path = require('path')
 const { optimize } = require('svgo')
 
 const { FLAG_ICONS, readIconsFromAssets } = require('./utils')
 
 const svgoConfig = {
-  multipass: true,
   full: true,
+  multipass: true,
   plugins: [
     {
       name: 'preset-default',
@@ -20,8 +20,8 @@ const svgoConfig = {
       },
     },
     {
-      name: 'convertTransform',
       active: false,
+      name: 'convertTransform',
     },
     {
       name: 'mergePaths',
@@ -30,8 +30,8 @@ const svgoConfig = {
       },
     },
     {
-      name: 'removeViewBox',
       active: false,
+      name: 'removeViewBox',
     },
   ],
 }
@@ -41,13 +41,11 @@ const ICONS_PATH = path.join(ROOT_PATH, 'icons', '_assets')
 
 // Write icons
 const optimizeIcons = files => {
-  // eslint-disable-next-line no-console
   console.log('Started'.blue, 'Optimizing icons'.grey)
 
   files
     .filter(({ key }) => !FLAG_ICONS.includes(key))
     .forEach(({ content, key }) => {
-      // eslint-disable-next-line no-console
       console.log('Optimizing'.yellow, key)
       const svgPath = `${ICONS_PATH}/${key}.svg`
       const optimizedString = optimize(content, {
@@ -57,7 +55,6 @@ const optimizeIcons = files => {
       fs.writeFileSync(svgPath, optimizedString)
     })
 
-  // eslint-disable-next-line no-console
   console.log('Success'.green, 'Icons optimized')
   return files
 }

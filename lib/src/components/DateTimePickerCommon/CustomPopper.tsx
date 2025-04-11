@@ -1,5 +1,7 @@
+import type { CSSObject } from '@xstyled/styled-components'
+
+import styled, { css, th } from '@xstyled/styled-components'
 import React from 'react'
-import styled, { css, CSSObject, th } from '@xstyled/styled-components'
 
 import { datePickerStyles } from './datePickerStyles'
 import { fixAriaMessageStyle } from './styles'
@@ -97,6 +99,7 @@ const StyledCustomPopper = styled.divBox<{ popperStyles: CSSObject }>(
       background-color: beige-20;
     }
 
+    /* stylelint-disable-next-line no-descending-specificity */
     .react-datepicker__day,
     .react-datepicker__day--keyboard-selected,
     .react-datepicker__day--selected,
@@ -108,6 +111,7 @@ const StyledCustomPopper = styled.divBox<{ popperStyles: CSSObject }>(
       }
     }
 
+    /* stylelint-disable-next-line no-descending-specificity */
     .react-datepicker__month-text,
     .react-datepicker__month-text--selected,
     .react-datepicker__month-text--keyboard-selected,

@@ -17,7 +17,16 @@
         ],
         "required": false,
         "type": {
-          "name": "Element"
+          "name": "enum",
+          "raw": "Element",
+          "value": [
+            {
+              "value": "Element",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "size": {
@@ -82,22 +91,22 @@
           "raw": "Variant",
           "value": [
             {
+              "value": "\"ai\""
+            },
+            {
               "value": "\"danger\""
-            },
-            {
-              "value": "\"warning\""
-            },
-            {
-              "value": "\"success\""
-            },
-            {
-              "value": "\"info\""
             },
             {
               "value": "\"default\""
             },
             {
-              "value": "\"ai\""
+              "value": "\"info\""
+            },
+            {
+              "value": "\"success\""
+            },
+            {
+              "value": "\"warning\""
             }
           ]
         }

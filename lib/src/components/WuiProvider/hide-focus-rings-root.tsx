@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
 import { createGlobalStyle, css } from '@xstyled/styled-components'
+import React, { useEffect, useState } from 'react'
 
 export const hideFocusRingsDataAttribute = 'data-wui-hidefocusrings'
 
@@ -33,9 +33,11 @@ export const HideFocusRingsRoot: React.FC<HideFocusRingsRootProps> = ({
 
     const rootElement = document.getElementById(reactRootId)
     if (rootElement) {
-      hideFocusRings
-        ? rootElement.setAttribute(hideFocusRingsDataAttribute, 'true')
-        : rootElement.removeAttribute(hideFocusRingsDataAttribute)
+      if (hideFocusRings) {
+        rootElement.setAttribute(hideFocusRingsDataAttribute, 'true')
+      } else {
+        rootElement.removeAttribute(hideFocusRingsDataAttribute)
+      }
     }
 
     return () => {

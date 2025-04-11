@@ -17,7 +17,13 @@
         ],
         "required": false,
         "type": {
-          "name": "string"
+          "name": "enum",
+          "raw": "string",
+          "value": [
+            {
+              "value": "string"
+            }
+          ]
         }
       },
       "cta": {
@@ -36,7 +42,16 @@
         ],
         "required": false,
         "type": {
-          "name": "Element"
+          "name": "enum",
+          "raw": "Element",
+          "value": [
+            {
+              "value": "Element",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "handleClose": {
@@ -55,7 +70,16 @@
         ],
         "required": false,
         "type": {
-          "name": "() => void"
+          "name": "enum",
+          "raw": "(() => void)",
+          "value": [
+            {
+              "value": "() => void",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "icon": {
@@ -74,7 +98,19 @@
         ],
         "required": false,
         "type": {
-          "name": "Element"
+          "name": "enum",
+          "raw": "Element | null",
+          "value": [
+            {
+              "value": "null"
+            },
+            {
+              "value": "Element",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "isFullWidth": {
@@ -157,13 +193,16 @@
           "raw": "Variant",
           "value": [
             {
-              "value": "\"default\""
+              "value": "\"ai\""
+            },
+            {
+              "value": "\"beige\""
             },
             {
               "value": "\"danger\""
             },
             {
-              "value": "\"warning\""
+              "value": "\"default\""
             },
             {
               "value": "\"info\""
@@ -172,10 +211,7 @@
               "value": "\"success\""
             },
             {
-              "value": "\"beige\""
-            },
-            {
-              "value": "\"ai\""
+              "value": "\"warning\""
             }
           ]
         }

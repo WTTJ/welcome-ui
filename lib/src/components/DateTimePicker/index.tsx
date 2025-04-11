@@ -1,16 +1,19 @@
 import React, { Children, cloneElement, useEffect, useState } from 'react'
 
-import * as S from './styles'
-
-import { DatePicker, DatePickerProps } from '@/DatePicker'
-import { TimePicker, TimePickerProps } from '@/TimePicker'
+import type { DatePickerProps } from '@/DatePicker'
+import { DatePicker } from '@/DatePicker'
 import { DEFAULT_DATE, getDate } from '@/DateTimePickerCommon'
-import { CreateWuiProps, forwardRef } from '@/System'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
+import type { TimePickerProps } from '@/TimePicker'
+import { TimePicker } from '@/TimePicker'
+
+import * as S from './styles'
 
 export type DateTimePickerProps = CreateWuiProps<
   'input',
-  Pick<DatePickerProps, 'disabled' | 'locale' | 'onChange' | 'size' | 'value' | 'transparent'> &
-    Pick<TimePickerProps, 'disabled' | 'locale' | 'onChange' | 'size' | 'value' | 'transparent'>
+  Pick<DatePickerProps, 'disabled' | 'locale' | 'onChange' | 'size' | 'transparent' | 'value'> &
+    Pick<TimePickerProps, 'disabled' | 'locale' | 'onChange' | 'size' | 'transparent' | 'value'>
 >
 
 export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
@@ -30,7 +33,7 @@ export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
     const TimePickerNode =
       Children.count(children) > 1 &&
       Children.toArray(children).find(
-        (child: JSX.Element): boolean => child.type.displayName === 'TimePicker'
+        child => React.isValidElement(child) && child.type === TimePicker
       )
     const timeIntervals = React.isValidElement(TimePickerNode)
       ? TimePickerNode.props.timeIntervals
@@ -39,17 +42,17 @@ export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
     const formatDate: (date: DateTimePickerProps['value']) => ReturnType<typeof getDate> = date =>
       getDate(date, timeIntervals)
 
-    const [date, setDate] = useState(formatDate(value))
+    const [date, setDate] = useState<Date | null>(formatDate(value))
 
     const handleChange: DateTimePickerProps['onChange'] = newDate => {
       setDate(newDate || null)
-      onChange && onChange(newDate && new Date(newDate))
+      onChange?.(newDate && new Date(newDate))
     }
 
     // format date at component mount
     useEffect(() => {
-      onChange && handleChange(formatDate(value))
-      //eslint-disable-next-line
+      if (onChange) handleChange(formatDate(value))
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     // Ensure values are controlled by parent
@@ -59,25 +62,30 @@ export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
         handleChange(formattedDate)
       }
       setDate(formattedDate)
-      //eslint-disable-next-line
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value])
 
     return (
       <S.DateTimePicker data-testid={dataTestId}>
-        {children &&
-          Children.map(children, (child: React.ReactElement, i) =>
-            cloneElement(child, {
-              // eslint-disable-next-line react/no-array-index-key
-              key: i,
-              onChange: handleChange,
-              // give ref only to the first child
-              inputRef: i < 1 ? ref : null,
-              locale: locale,
-              timeIntervals,
-              value: date,
-              transparent,
+        {children
+          ? Children.map(children, (child, i) => {
+              if (React.isValidElement(child)) {
+                return cloneElement(child, {
+                  // give ref only to the first child
+                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  // @ts-expect-error
+                  inputRef: i < 1 ? ref : null,
+                  key: i,
+                  locale: locale,
+                  onChange: handleChange,
+                  timeIntervals,
+                  transparent,
+                  value: date,
+                })
+              }
+              return child
             })
-          )}
+          : null}
         {!children && (
           <>
             <DatePicker

@@ -1,16 +1,15 @@
-import React from 'react'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
 
 import * as S from './styles'
-
-import { CreateWuiProps, forwardRef } from '@/System'
 
 type FooterProps = CreateWuiProps<'div'>
 
 export const Footer = forwardRef<'div', FooterProps>((props, ref) => {
   return (
     <S.Footer
-      bottom={{ xs: 0, md: 'auto' }}
-      position={{ xs: 'sticky', md: 'static' }}
+      bottom={{ md: 'auto', xs: 0 }}
+      position={{ md: 'static', xs: 'sticky' }}
       ref={ref}
       w="100%"
       {...props}

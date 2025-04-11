@@ -1,16 +1,18 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 
-import { Range } from './Range'
-import type { Range as RangeType } from './Range'
-import * as S from './styles'
-
-import { Text } from '@/Text'
-import { InputText } from '@/InputText'
-import { CreateWuiProps, forwardRef } from '@/System'
 import { Box } from '@/Box'
 import { Hint } from '@/Hint'
+import { InputText } from '@/InputText'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
+import { Text } from '@/Text'
 
-export type Type = 'left-field' | 'right-field' | 'inline'
+import type { Range as RangeType } from './Range'
+
+import { Range } from './Range'
+import * as S from './styles'
+
+export type Type = 'inline' | 'left-field' | 'right-field'
 export type { RangeType }
 export const thumbWidth = 20
 
@@ -113,6 +115,28 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
       [min, max]
     )
 
+    const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const value = parseInt(e.target.value, 10)
+
+      // No use of the OnChange here to avoid calls at each value update
+      _setLocalValue(value)
+      setInputValue(value)
+    }
+
+    const handleSliderMouseDown = () => {
+      if (tooltip && tooltipVisible === false) {
+        setTooltipVisible(true)
+      }
+    }
+
+    const handleSliderMouseUp = () => {
+      onChange(localValue)
+
+      if (tooltip) {
+        setTooltipVisible(false)
+      }
+    }
+
     // Updates the slider range when user drag the slider
     useEffect(() => {
       if (range.current) {
@@ -137,11 +161,11 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
 
     return (
       <Box display="flex" flexDirection="column" position="relative" ref={ref}>
-        {label && (
+        {label ? (
           <Text as="label" variant="sm">
             {label}
           </Text>
-        )}
+        ) : null}
         <Box alignItems="center" display="flex" gap="sm">
           {(type === 'inline' || type === 'left-field') &&
             (type === 'left-field' ? (
@@ -168,45 +192,33 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
               list="tickmarks"
               max={max}
               min={min}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                const value = parseInt(e.target.value, 10)
-
-                // No use of the OnChange here to avoid calls at each value update
-                _setLocalValue(value)
-                setInputValue(value)
-              }}
+              onChange={handleSliderChange}
               onKeyDown={handleSliderKeyDown}
-              onMouseDown={() => {
-                tooltip && tooltipVisible === false && setTooltipVisible(true)
-              }}
-              onMouseUp={() => {
-                onChange(localValue)
-                tooltip && setTooltipVisible(false)
-              }}
+              onMouseDown={handleSliderMouseDown}
+              onMouseUp={handleSliderMouseUp}
               ref={range}
               step={step}
               type="range"
               value={localValue}
               {...rest}
             />
-            {tooltip && (
+            {tooltip ? (
               <S.Output isVisible={tooltipVisible} ref={tooltipRef}>
                 <S.Tooltip>{localValue}</S.Tooltip>
               </S.Output>
-            )}
-            {values && (
+            ) : null}
+            {values ? (
               <Box h={24} ml={10} mr={10} mt={5} position="relative">
                 {values
-                  .reduce((prev, acc) => (prev.includes(acc) ? prev : [...prev, acc]), [])
+                  .reduce<number[]>((prev, acc) => (prev.includes(acc) ? prev : [...prev, acc]), [])
                   .filter(v => v >= min && v <= max)
                   .map((el, index) => (
-                    // eslint-disable-next-line react/no-array-index-key
                     <S.Thick key={`${el}-${index}`} left={`${getPercent(el)}%`}>
                       <S.ThickLabel>{el}</S.ThickLabel>
                     </S.Thick>
                   ))}
               </Box>
-            )}
+            ) : null}
           </Box>
 
           {(type === 'inline' || type === 'right-field') &&
@@ -228,11 +240,11 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
             ))}
         </Box>
 
-        {hint && (
+        {hint ? (
           <Hint color="neutral-50" mt={0}>
             {hint}
           </Hint>
-        )}
+        ) : null}
       </Box>
     )
   }

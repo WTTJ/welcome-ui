@@ -1,6 +1,6 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 'use client'
-import { Alert, AlertProps } from '@/Alert'
+import type { AlertProps } from '@/Alert'
+import { Alert } from '@/Alert'
 
 export const Blockquote = ({ children }: { children: JSX.Element[] }) => {
   const type = children[1].props.children[0]
@@ -17,33 +17,11 @@ export const Blockquote = ({ children }: { children: JSX.Element[] }) => {
   }
 
   const childFormatted = child.reduce((prev: JSX.Element[], item: JSX.Element) => {
-    const itemStringify = JSON.stringify(item)
-
-    const isTypeFromSupernova =
-      itemStringify.includes('Yay') ||
-      itemStringify.includes('Some extra info') ||
-      itemStringify.includes('Please note')
-
-    const isDo = itemStringify.includes('DO')
-    const isDont = itemStringify.includes("DON'T")
-
     const startOfArray = prev.length === 0
     const isBr = item?.type === 'br'
 
-    if (isTypeFromSupernova) {
+    if (startOfArray && isBr) {
       return prev
-    } else if (startOfArray && isBr) {
-      return prev
-    } else if (isDont) {
-      title = 'Don’t'
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      //@ts-ignore
-      prev.push(item.replace("*DON'T\n*", ''))
-    } else if (isDo) {
-      title = 'Do'
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      //@ts-ignore
-      prev.push(item.replace('*DO\n*', ''))
     } else {
       prev.push(item)
     }
@@ -52,7 +30,7 @@ export const Blockquote = ({ children }: { children: JSX.Element[] }) => {
 
   return (
     <Alert maxW="100vw" variant={variant} w="100%">
-      {title && <Alert.Title>{title}</Alert.Title>}
+      {title ? <Alert.Title>{title}</Alert.Title> : null}
       {childFormatted}
     </Alert>
   )

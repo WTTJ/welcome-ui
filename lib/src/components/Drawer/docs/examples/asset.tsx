@@ -1,7 +1,5 @@
-import * as React from 'react'
-
-import { AssetDrawer, Drawer, useDrawer } from '@/Drawer'
 import { Button } from '@/Button'
+import { AssetDrawer, Drawer, useDrawer } from '@/Drawer'
 import { UserIcon } from '@/Icons'
 
 const Example = () => {

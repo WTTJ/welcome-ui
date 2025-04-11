@@ -2,20 +2,20 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-import { VersionSelector } from '../VersionSelector'
-import { Sidebar } from '../Sidebar'
-import { Search } from '../Search'
-
-import * as S from './styles'
-import { NavBar } from './NavBar'
-
+import { Box } from '@/Box'
+import { Button } from '@/Button'
+import { Drawer, useDrawer } from '@/Drawer'
+import { Flex } from '@/Flex'
 import { MenuIcon } from '@/Icons'
 import { WelcomeUILogo } from '@/Logo'
-import { Box } from '@/Box'
-import { Drawer, useDrawer } from '@/Drawer'
-import { Button } from '@/Button'
-import { Flex } from '@/Flex'
-import { PageTree } from '~/build-app/types'
+
+import type { PageTree } from '~/build-app/types'
+
+import { Search } from '../Search'
+import { Sidebar } from '../Sidebar'
+import { VersionSelector } from '../VersionSelector'
+import { NavBar } from './NavBar'
+import * as S from './styles'
 
 export const navigation = ['foundations', 'components', 'blog']
 
@@ -74,7 +74,7 @@ export const Header = ({ components, foundations }: HeaderProps) => {
         <Drawer display={{ lg: 'none' }} size="100%" store={drawer} withBackdrop zIndex={999}>
           <Drawer.Content pt="4xl">
             <NavBar onClick={handleCloseDrawer} />
-            {menu && <Sidebar isSubPage menu={menu} onClick={handleCloseDrawer} />}
+            {menu ? <Sidebar isSubPage menu={menu} onClick={handleCloseDrawer} /> : null}
           </Drawer.Content>
         </Drawer>
       </Flex>

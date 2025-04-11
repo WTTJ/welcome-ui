@@ -1,8 +1,5 @@
-/* eslint-disable react/iframe-missing-sandbox */
-import * as React from 'react'
-
-import { AssetModal, Modal, useModal } from '@/Modal'
 import { Button } from '@/Button'
+import { AssetModal, Modal, useModal } from '@/Modal'
 
 const Example = () => {
   const modal = useModal()

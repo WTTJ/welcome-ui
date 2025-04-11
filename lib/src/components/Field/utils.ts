@@ -1,9 +1,9 @@
-import { FieldOptions } from '.'
+import type { FieldOptions } from '.'
 
 const TYPES: { [key: string]: string } = {
   Checkbox: 'checkbox',
-  Radio: 'radio',
   InputText: 'text',
+  Radio: 'radio',
   RadioTab: 'radio',
   Select: 'text',
   Toggle: 'checkbox',
@@ -15,10 +15,15 @@ export const getVariant = ({
   error,
   success,
   warning,
-}: Pick<FieldOptions, 'error' | 'success' | 'warning'>): 'danger' | 'warning' | 'success' => {
+}: Pick<FieldOptions, 'error' | 'success' | 'warning'>):
+  | 'danger'
+  | 'success'
+  | 'warning'
+  | undefined => {
   if (error) return 'danger'
   if (warning) return 'warning'
   if (success) return 'success'
+
   return undefined
 }
 
