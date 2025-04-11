@@ -2,7 +2,9 @@
   "AspectRatio": {
     "props": {
       "ratio": {
-        "defaultValue": null,
+        "defaultValue": {
+          "value": "4 / 3"
+        },
         "description": "",
         "name": "ratio",
         "parent": {

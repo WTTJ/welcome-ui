@@ -49,16 +49,16 @@
           "raw": "Size",
           "value": [
             {
-              "value": "\"lg\""
-            },
-            {
-              "value": "\"md\""
+              "value": "\"xs\""
             },
             {
               "value": "\"sm\""
             },
             {
-              "value": "\"xs\""
+              "value": "\"md\""
+            },
+            {
+              "value": "\"lg\""
             }
           ]
         }
