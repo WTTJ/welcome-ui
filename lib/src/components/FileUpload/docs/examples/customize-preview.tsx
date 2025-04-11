@@ -32,7 +32,7 @@ const Example = () => {
         >
           <Icon mr="sm" size="lg" />
           {name}
-          {size && <Box color="beige-60">({size})</Box>}
+          {size ? <Box color="beige-60">({size})</Box> : null}
           <Button ml="xxl" onClick={onRemove} shape="square" size="sm" variant="ghost">
             <CrossIcon />
           </Button>

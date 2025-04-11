@@ -244,11 +244,11 @@ export const Range = forwardRef<'div', RangeProps>(
 
     return (
       <Box position="relative" ref={ref} w="100%">
-        {label && (
+        {label ? (
           <Text as="label" variant="sm">
             {label}
           </Text>
-        )}
+        ) : null}
 
         <Box alignItems="center" display="flex" gap="sm">
           {(type === 'inline' || type === 'fields') &&
@@ -298,7 +298,7 @@ export const Range = forwardRef<'div', RangeProps>(
             ))}
 
           <Box flexGrow="1" position="relative">
-            {tooltip && (
+            {tooltip ? (
               <>
                 <S.Output isVisible={tooltipMinVisible} ref={tooltipMinRef}>
                   <S.Tooltip>{minValue}</S.Tooltip>
@@ -307,7 +307,7 @@ export const Range = forwardRef<'div', RangeProps>(
                   <S.Tooltip>{maxValue}</S.Tooltip>
                 </S.Output>
               </>
-            )}
+            ) : null}
             <Box h={20} pb="sm" position="relative" pt="sm" w="100%">
               <S.RangeInput
                 {...restProps}
@@ -344,7 +344,7 @@ export const Range = forwardRef<'div', RangeProps>(
               <S.Track />
               <S.Range disabled={disabled} ref={range} />
             </Box>
-            {values && (
+            {values ? (
               <Box h={24} ml={10} mr={10} position="relative">
                 {values
                   .reduce<number[]>((prev, acc) => (prev.includes(acc) ? prev : [...prev, acc]), [])
@@ -355,7 +355,7 @@ export const Range = forwardRef<'div', RangeProps>(
                     </S.Thick>
                   ))}
               </Box>
-            )}
+            ) : null}
           </Box>
 
           {(type === 'inline' || type === 'fields') &&
@@ -405,11 +405,11 @@ export const Range = forwardRef<'div', RangeProps>(
             ))}
         </Box>
 
-        {hint && (
+        {hint ? (
           <Hint color="neutral-50" mt={0}>
             {hint}
           </Hint>
-        )}
+        ) : null}
       </Box>
     )
   }

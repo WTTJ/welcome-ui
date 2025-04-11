@@ -51,11 +51,11 @@ export const Sidebar = ({ display = 'flex', isSubPage, menu, onClick }: SidebarP
     >
       {menu.map(({ category, pages, parent }) => (
         <Flex as="ul" direction="column" flexShrink={0} key={`sidebar_${category}`}>
-          {category && (
+          {category ? (
             <Text mb="lg" variant="subtitle-sm">
               {getName(category)}
             </Text>
-          )}
+          ) : null}
           <Flex as="ul" direction="column" gap="lg">
             {pages.map(({ id, parent: pageParent, title }) => {
               const href = `/${parent}/${pageParent ? `${pageParent}/` : ''}${id}`

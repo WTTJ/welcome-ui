@@ -31,7 +31,7 @@ export const Growl = forwardRef<'div', GrowlProps>(
         ref={ref}
         variant={variant}
       >
-        {hasCloseButton && (
+        {hasCloseButton ? (
           <CloseButton
             dataTestId={closeButtonDataTestId}
             onClick={onClose}
@@ -39,7 +39,7 @@ export const Growl = forwardRef<'div', GrowlProps>(
             right="sm"
             top="sm"
           />
-        )}
+        ) : null}
         <Box pr="xl">{children}</Box>
       </S.Growl>
     )

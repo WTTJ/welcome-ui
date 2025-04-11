@@ -67,24 +67,25 @@ export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
 
     return (
       <S.DateTimePicker data-testid={dataTestId}>
-        {children &&
-          Children.map(children, (child, i) => {
-            if (React.isValidElement(child)) {
-              return cloneElement(child, {
-                // give ref only to the first child
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-expect-error
-                inputRef: i < 1 ? ref : null,
-                key: i,
-                locale: locale,
-                onChange: handleChange,
-                timeIntervals,
-                transparent,
-                value: date,
-              })
-            }
-            return child
-          })}
+        {children
+          ? Children.map(children, (child, i) => {
+              if (React.isValidElement(child)) {
+                return cloneElement(child, {
+                  // give ref only to the first child
+                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  // @ts-expect-error
+                  inputRef: i < 1 ? ref : null,
+                  key: i,
+                  locale: locale,
+                  onChange: handleChange,
+                  timeIntervals,
+                  transparent,
+                  value: date,
+                })
+              }
+              return child
+            })
+          : null}
         {!children && (
           <>
             <DatePicker

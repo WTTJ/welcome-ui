@@ -74,7 +74,7 @@ export const Header = ({ components, foundations }: HeaderProps) => {
         <Drawer display={{ lg: 'none' }} size="100%" store={drawer} withBackdrop zIndex={999}>
           <Drawer.Content pt="4xl">
             <NavBar onClick={handleCloseDrawer} />
-            {menu && <Sidebar isSubPage menu={menu} onClick={handleCloseDrawer} />}
+            {menu ? <Sidebar isSubPage menu={menu} onClick={handleCloseDrawer} /> : null}
           </Drawer.Content>
         </Drawer>
       </Flex>

@@ -319,7 +319,7 @@ export const Select = forwardRef<'input', SelectProps>(
           )
           const ArrowIcon = (
             <S.DropDownIndicator
-              data-testid={dataTestId && `${dataTestId}-arrow-icon`}
+              data-testid={dataTestId ? `${dataTestId}-arrow-icon` : null}
               disabled={disabled}
               isOpen={isOpen}
               size={size}
@@ -371,17 +371,17 @@ export const Select = forwardRef<'input', SelectProps>(
                 ) : (
                   <S.Input {...inputProps}>{inputContent}</S.Input>
                 )}
-                {icon && (
+                {icon ? (
                   <S.IconWrapper iconPlacement="left" size={iconSize}>
                     {React.cloneElement(icon, { ...icon.props, size: iconSize })}
                   </S.IconWrapper>
-                )}
+                ) : null}
                 <S.Indicators size={size}>
-                  {isShowDeleteIcon && DeleteIcon}
+                  {isShowDeleteIcon ? DeleteIcon : null}
                   {ArrowIcon}
                 </S.Indicators>
               </S.InputWrapper>
-              {isShowMenu && (
+              {isShowMenu ? (
                 <S.Menu {...getMenuProps()}>
                   {
                     options.reduce(
@@ -396,27 +396,28 @@ export const Select = forwardRef<'input', SelectProps>(
                             // @ts-ignore
                             <Fragment key={result.label}>
                               {renderGroupHeader?.(result)}
-                              {result.options &&
-                                result.options.map(option => {
-                                  const index = acc.itemIndex++
-                                  const isItemSelected = isValueSelected(option.value, selected)
-                                  return (
-                                    <S.Item
-                                      allowUnselectFromList={allowUnselectFromList}
-                                      isDisabled={option.disabled}
-                                      isHighlighted={highlightedIndex === index}
-                                      isMultiple={isMultiple}
-                                      key={option.value}
-                                      {...getItemProps({
-                                        index,
-                                        isSelected: isItemSelected,
-                                        item: option,
-                                      })}
-                                    >
-                                      {renderItem(option, isItemSelected)}
-                                    </S.Item>
-                                  )
-                                })}
+                              {result.options
+                                ? result.options.map(option => {
+                                    const index = acc.itemIndex++
+                                    const isItemSelected = isValueSelected(option.value, selected)
+                                    return (
+                                      <S.Item
+                                        allowUnselectFromList={allowUnselectFromList}
+                                        isDisabled={option.disabled}
+                                        isHighlighted={highlightedIndex === index}
+                                        isMultiple={isMultiple}
+                                        key={option.value}
+                                        {...getItemProps({
+                                          index,
+                                          isSelected: isItemSelected,
+                                          item: option,
+                                        })}
+                                      >
+                                        {renderItem(option, isItemSelected)}
+                                      </S.Item>
+                                    )
+                                  })
+                                : null}
                             </Fragment>
                           )
                         } else if ('value' in result) {
@@ -444,7 +445,7 @@ export const Select = forwardRef<'input', SelectProps>(
                       { itemIndex: 0, itemsToRender: [] }
                     ).itemsToRender
                   }
-                  {isShowCreate && inputValue.length && (
+                  {isShowCreate && inputValue.length ? (
                     <S.Item
                       isHighlighted={highlightedIndex === options.length}
                       key="add"
@@ -458,10 +459,10 @@ export const Select = forwardRef<'input', SelectProps>(
                     >
                       {renderCreateItem(inputValue)}
                     </S.Item>
-                  )}
+                  ) : null}
                 </S.Menu>
-              )}
-              {isMultiple && renderMultiple(selected, handleRemove)}
+              ) : null}
+              {isMultiple ? renderMultiple(selected, handleRemove) : null}
             </S.Wrapper>
           )
         }}

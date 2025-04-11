@@ -54,11 +54,11 @@ const Layout = ({ children, params }: LayoutProps) => {
           <Text mt="3xl" variant="h1">
             {title}
           </Text>
-          {description && (
+          {description ? (
             <Text color="neutral-60" pt="lg" variant="lg">
               {description}
             </Text>
-          )}
+          ) : null}
           <Flex align="center" gap="md">
             <Button
               as="a"
@@ -71,7 +71,7 @@ const Layout = ({ children, params }: LayoutProps) => {
               <GithubIcon />
               <span>Source</span>
             </Button>
-            {ariakitLink && (
+            {ariakitLink ? (
               <Button
                 as="a"
                 href={ariakitLink}
@@ -95,7 +95,7 @@ const Layout = ({ children, params }: LayoutProps) => {
                 </svg>
                 <span>Built with Ariakit</span>
               </Button>
-            )}
+            ) : null}
           </Flex>
         </Flex>
         <Tabs pages={pages} />

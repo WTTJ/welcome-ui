@@ -19,11 +19,11 @@ export type FieldGroupProps = CreateWuiProps<'fieldset', FieldGroupOptions>
 export const FieldGroup = forwardRef<'fieldset', FieldGroupProps>(
   ({ children, dataTestId, label, required }, ref) => (
     <S.FieldGroup data-testid={dataTestId} ref={ref}>
-      {label && (
+      {label ? (
         <Label as="legend" required={required}>
           {label}
         </Label>
-      )}
+      ) : null}
       {children}
     </S.FieldGroup>
   )

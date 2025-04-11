@@ -91,19 +91,19 @@ export const InputText = forwardRef<'input', InputTextProps>(
           variant={variant}
           {...rest}
         />
-        {hasIcon && !hasClearButtonAndRightIcon && (
+        {hasIcon && !hasClearButtonAndRightIcon ? (
           <IconWrapper iconPlacement={iconPlacement} size={iconSize}>
             {React.cloneElement(icon, { ...icon.props, size: iconSize })}
           </IconWrapper>
-        )}
-        {isClearable && (
+        ) : null}
+        {isClearable ? (
           <IconGroupWrapper size={iconSize}>
-            {value && <ClearButton onClick={handleReset} />}
-            {iconPlacement === 'right' &&
-              icon &&
-              React.cloneElement(icon, { ...icon.props, size: iconSize })}
+            {value ? <ClearButton onClick={handleReset} /> : null}
+            {iconPlacement === 'right' && icon
+              ? React.cloneElement(icon, { ...icon.props, size: iconSize })
+              : null}
           </IconGroupWrapper>
-        )}
+        ) : null}
       </Box>
     )
   }

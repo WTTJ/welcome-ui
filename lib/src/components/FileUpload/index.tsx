@@ -64,7 +64,7 @@ const DefaultPreview: React.FC<FileUploadPreviewProps> = ({ file, onRemove }) =>
     <Tag data-id={name} key={name} mr="sm" mt="sm" onRemove={onRemove}>
       <Icon size="md" />
       {name}
-      {size && <Box color="beige-60">({size})</Box>}
+      {size ? <Box color="beige-60">({size})</Box> : null}
     </Tag>
   )
 }
@@ -195,14 +195,15 @@ export const FileUpload = forwardRef<'input', FileUploadProps>(
           {...rest}
           type="file"
         />
-        {Preview &&
-          files.map(file => (
-            <Preview
-              file={file}
-              key={file instanceof File ? file.name : file}
-              onRemove={() => handleRemove(file)}
-            />
-          ))}
+        {Preview
+          ? files.map(file => (
+              <Preview
+                file={file}
+                key={file instanceof File ? file.name : file}
+                onRemove={() => handleRemove(file)}
+              />
+            ))
+          : null}
       </>
     )
   }

@@ -161,11 +161,11 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
 
     return (
       <Box display="flex" flexDirection="column" position="relative" ref={ref}>
-        {label && (
+        {label ? (
           <Text as="label" variant="sm">
             {label}
           </Text>
-        )}
+        ) : null}
         <Box alignItems="center" display="flex" gap="sm">
           {(type === 'inline' || type === 'left-field') &&
             (type === 'left-field' ? (
@@ -202,12 +202,12 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
               value={localValue}
               {...rest}
             />
-            {tooltip && (
+            {tooltip ? (
               <S.Output isVisible={tooltipVisible} ref={tooltipRef}>
                 <S.Tooltip>{localValue}</S.Tooltip>
               </S.Output>
-            )}
-            {values && (
+            ) : null}
+            {values ? (
               <Box h={24} ml={10} mr={10} mt={5} position="relative">
                 {values
                   .reduce<number[]>((prev, acc) => (prev.includes(acc) ? prev : [...prev, acc]), [])
@@ -218,7 +218,7 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
                     </S.Thick>
                   ))}
               </Box>
-            )}
+            ) : null}
           </Box>
 
           {(type === 'inline' || type === 'right-field') &&
@@ -240,11 +240,11 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
             ))}
         </Box>
 
-        {hint && (
+        {hint ? (
           <Hint color="neutral-50" mt={0}>
             {hint}
           </Hint>
-        )}
+        ) : null}
       </Box>
     )
   }

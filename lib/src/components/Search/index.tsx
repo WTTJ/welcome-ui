@@ -195,14 +195,14 @@ export const Search = forwardRef<'input', SearchProps>(
             <S.Wrapper {...getRootProps(rest as GetRootPropsOptions)}>
               <S.InputWrapper>
                 <S.Input {...inputProps} />
-                {icon && (
+                {icon ? (
                   <IconWrapper iconPlacement="left" size={iconSize}>
                     {React.cloneElement(icon, { ...icon.props, size: iconSize })}
                   </IconWrapper>
-                )}
-                <S.Indicators>{inputValue && DeleteIcon}</S.Indicators>
+                ) : null}
+                <S.Indicators>{inputValue ? DeleteIcon : null}</S.Indicators>
               </S.InputWrapper>
-              {isShowMenu && (
+              {isShowMenu ? (
                 <S.Menu {...getMenuProps()}>
                   {
                     (results as SearchOptionGroup[]).reduce(
@@ -213,26 +213,29 @@ export const Search = forwardRef<'input', SearchProps>(
                             // @ts-expect-error
                             <Fragment key={resultIndex}>
                               {renderGroupHeader?.(result as SearchOptionGroup)}
-                              {(result as SearchOptionGroup).options &&
-                                (result as SearchOptionGroup).options.map((option, optionIndex) => {
-                                  const index = acc.itemIndex++
-                                  return (
-                                    <S.Item
-                                      key={optionIndex}
-                                      {...getItemProps({
-                                        index,
-                                        isSelected: Boolean(
-                                          selectedItem &&
-                                            itemToString(selectedItem) === itemToString(option)
-                                        ),
-                                        item: option,
-                                      })}
-                                      isHighlighted={highlightedIndex === index}
-                                    >
-                                      {renderItem(option)}
-                                    </S.Item>
+                              {(result as SearchOptionGroup).options
+                                ? (result as SearchOptionGroup).options.map(
+                                    (option, optionIndex) => {
+                                      const index = acc.itemIndex++
+                                      return (
+                                        <S.Item
+                                          key={optionIndex}
+                                          {...getItemProps({
+                                            index,
+                                            isSelected: Boolean(
+                                              selectedItem &&
+                                                itemToString(selectedItem) === itemToString(option)
+                                            ),
+                                            item: option,
+                                          })}
+                                          isHighlighted={highlightedIndex === index}
+                                        >
+                                          {renderItem(option)}
+                                        </S.Item>
+                                      )
+                                    }
                                   )
-                                })}
+                                : null}
                             </Fragment>
                           )
                         } else {
@@ -262,7 +265,7 @@ export const Search = forwardRef<'input', SearchProps>(
                     ).itemsToRender
                   }
                 </S.Menu>
-              )}
+              ) : null}
             </S.Wrapper>
           )
         }}

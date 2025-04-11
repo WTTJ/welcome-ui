@@ -38,7 +38,7 @@ export const Icon = forwardRef<'svg', IconProps>(
       <S.Icon
         alt={title}
         dangerouslySetInnerHTML={{ __html: content.block }}
-        data-testid={dataTestId && `icon-${dataTestId}`}
+        data-testid={dataTestId ? `icon-${dataTestId}` : null}
         isFlag={content.isFlag}
         ref={ref}
         role="img"

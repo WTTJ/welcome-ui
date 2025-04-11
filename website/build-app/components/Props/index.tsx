@@ -113,19 +113,19 @@ export const Property = ({ id, name, options }: PropertyProps) => {
         pb="md"
       >
         <Code>{name}</Code>
-        {required && <Badge variant="primary">Required</Badge>}
+        {required ? <Badge variant="primary">Required</Badge> : null}
       </Flex>
       <Text color="neutral-90">
         {getType(type)}
         <Box as="span" color="neutral-70">
-          {defaultLabel && ` | undefined = ${defaultLabel}`}
+          {defaultLabel ? ` | undefined = ${defaultLabel}` : null}
         </Box>
       </Text>
-      {description && (
+      {description ? (
         <Text mt="sm" variant="sm">
           {description}
         </Text>
-      )}
+      ) : null}
     </Box>
   )
 }
@@ -147,7 +147,7 @@ export const Properties = ({ items }: PropertiesProps) => {
 
         return (
           <section key={kebabCase(`property_${name}`)}>
-            {name && <H2 mt={0}>{name}</H2>}
+            {name ? <H2 mt={0}>{name}</H2> : null}
             <Flex direction="column" gap="xl" mt="md">
               {Object.entries(properties).map(item => (
                 <Property

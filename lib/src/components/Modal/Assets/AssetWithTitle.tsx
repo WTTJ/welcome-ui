@@ -62,8 +62,8 @@ export const AssetWithTitle = forwardRef<'div', AssetWithTitleProps>(
           w="100%"
         >
           {customContent}
-          {!customContent && subtitle && <Text variant="subtitle-sm">{subtitle}</Text>}
-          {!customContent && title && <S.Title>{title}</S.Title>}
+          {!customContent && subtitle ? <Text variant="subtitle-sm">{subtitle}</Text> : null}
+          {!customContent && title ? <S.Title>{title}</S.Title> : null}
         </Box>
       </Wrapper>
     )

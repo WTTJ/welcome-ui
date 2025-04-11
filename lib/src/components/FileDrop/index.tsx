@@ -224,20 +224,20 @@ export const FileDrop = forwardRef<'div', FileDropProps>(
             openFile: open,
             wordings,
           })}
-          {!!file && (error || isEditable || isClearable) && (
+          {!!file && (error || isEditable || isClearable) ? (
             <S.Actions>
-              {(error || isEditable) && (
+              {error || isEditable ? (
                 <Button onClick={open} shape="circle" size="sm" type="button" variant="tertiary">
                   <EditIcon />
                 </Button>
-              )}
-              {isClearable && (
+              ) : null}
+              {isClearable ? (
                 <Button danger onClick={handleRemoveClick} shape="circle" size="sm" type="button">
                   <TrashIcon />
                 </Button>
-              )}
+              ) : null}
             </S.Actions>
-          )}
+          ) : null}
         </S.FilePreview>
       </S.FileDrop>
     )

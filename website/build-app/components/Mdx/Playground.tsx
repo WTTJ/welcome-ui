@@ -80,7 +80,7 @@ export const Playground = ({
           {preview}
         </Box>
       </Box>
-      {withCodeEditor && (
+      {withCodeEditor ? (
         <>
           <Box
             backgroundColor="beige-30"
@@ -123,9 +123,9 @@ export const Playground = ({
               </Tooltip>
             </Flex>
           </Box>
-          {isHighlightOpen && <Highlight>{code}</Highlight>}
+          {isHighlightOpen ? <Highlight>{code}</Highlight> : null}
         </>
-      )}
+      ) : null}
     </>
   )
 }

@@ -67,7 +67,7 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
               >
                 {item.title}
               </S.Link>
-              {item.children && (
+              {item.children ? (
                 <Flex as="ul" direction="column" gap="xs">
                   {item.children.map(child => (
                     <Box as="li" key={child.href}>
@@ -81,7 +81,7 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
                     </Box>
                   ))}
                 </Flex>
-              )}
+              ) : null}
             </Flex>
           ))}
         </Flex>

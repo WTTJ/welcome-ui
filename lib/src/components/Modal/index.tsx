@@ -90,7 +90,9 @@ const ModalComponent = forwardRef<'div', ModalProps>(
       <Ariakit.Dialog
         aria-label={ariaLabel}
         backdrop={
-          backdrop && <Backdrop backdrop={backdrop} hideOnInteractOutside={hideOnInteractOutside} />
+          !!backdrop && (
+            <Backdrop backdrop={backdrop} hideOnInteractOutside={hideOnInteractOutside} />
+          )
         }
         hideOnInteractOutside={hideOnInteractOutside}
         ref={ref}

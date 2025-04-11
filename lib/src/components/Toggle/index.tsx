@@ -22,11 +22,11 @@ export const Toggle = forwardRef<'input', ToggleProps>(
     const hasIcon = checkedIcon && uncheckedIcon
     return (
       <S.Wrapper onClick={onClick}>
-        {hasIcon && (
+        {hasIcon ? (
           <S.IconWrapper checked={checked} onClick={onClick} size={size}>
             {checked ? checkedIcon : uncheckedIcon}
           </S.IconWrapper>
-        )}
+        ) : null}
         <Checkbox {...rest} checked={checked} Component={S.Toggle} ref={ref} size={size} />
       </S.Wrapper>
     )

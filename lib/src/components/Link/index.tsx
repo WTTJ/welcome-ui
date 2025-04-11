@@ -24,7 +24,7 @@ type Variant = 'primary' | 'secondary'
 const WrapWithText: React.FC<WrapWithTextProps> = ({ children, isExternal }) => (
   <span className="wui-text">
     {children}
-    {isExternal && <ExternalLinkIcon mb="-2px" ml="sm" size="sm" />}
+    {isExternal ? <ExternalLinkIcon mb="-2px" ml="sm" size="sm" /> : null}
   </span>
 )
 

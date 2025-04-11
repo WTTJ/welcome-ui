@@ -26,7 +26,7 @@ export const WuiProvider: React.FC<WuiProviderProps> = ({
   return (
     <ThemeProvider theme={theme}>
       <>
-        {hasGlobalStyle && <S.GlobalStyle useReset={useReset} />}
+        {hasGlobalStyle ? <S.GlobalStyle useReset={useReset} /> : null}
         {shouldHideFocusRingOnClick ? (
           <HideFocusRingsRoot reactRootId={reactRootId}>{children}</HideFocusRingsRoot>
         ) : (

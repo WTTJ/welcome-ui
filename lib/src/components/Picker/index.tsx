@@ -50,7 +50,7 @@ export const Picker = forwardRef<'fieldset', PickerProps>(
           {options.map(({ element: Component, value: optValue }) => (
             <Label
               checkableField
-              dataTestId={dataTestId && `${dataTestId}-item-${name}-${optValue}`}
+              dataTestId={dataTestId ? `${dataTestId}-item-${name}-${optValue}` : undefined}
               key={`${label}-${name}-${optValue}`}
               onClick={handleClick}
             >

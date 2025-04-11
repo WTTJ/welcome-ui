@@ -37,7 +37,7 @@ export const IconsFont = iconsKeys.reduce<IconsType>((prev, name) => {
       <Icon
         {...props}
         className={`${className} wui-icon-font`}
-        data-testid={props.dataTestId && `icon-font-${props.dataTestId}`}
+        data-testid={props.dataTestId ? `icon-font-${props.dataTestId}` : null}
         name={name}
       />
     )

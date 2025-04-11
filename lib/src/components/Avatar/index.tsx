@@ -52,7 +52,7 @@ export const Avatar = forwardRef<'div', AvatarProps>(
         w={w || avatarSize}
         {...rest}
       >
-        {src && <img alt={name} src={src} />}
+        {src ? <img alt={name} src={src} /> : null}
         {!src && (
           <Box>
             <S.Text fontSize={avatarFontSize} m={0}>

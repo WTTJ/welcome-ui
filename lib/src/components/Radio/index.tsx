@@ -67,11 +67,11 @@ export const Radio = forwardRef<'input', RadioProps>(
           </S.Input>
           <S.LabelWithHint>
             <div data-testid={dataTestId ? `${dataTestId}-label` : undefined}>{label}</div>
-            {hint && (
+            {hint ? (
               <Hint data-testid={dataTestId ? `${dataTestId}-hint` : undefined} mt="0">
                 {hint}
               </Hint>
-            )}
+            ) : null}
           </S.LabelWithHint>
         </S.Wrapper>
       </S.Label>

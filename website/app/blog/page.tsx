@@ -91,7 +91,7 @@ const Home = () => {
           {posts.map(({ authors, cover, date, description, link, tags, title }) => (
             <Box as="li" key={link} mb="3xl">
               <Card>
-                {cover && <Card.Cover src={cover} />}
+                {cover ? <Card.Cover src={cover} /> : null}
                 <Card.Body>
                   <Stack direction="row" mb="xl" spacing="xxs">
                     {tags?.map(tag => (

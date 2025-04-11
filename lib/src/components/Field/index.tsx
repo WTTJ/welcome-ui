@@ -89,9 +89,9 @@ export const Field = forwardRef<'div', FieldProps>(
         withHintText={withHintText}
       >
         <S.Label>
-          {isCheckable && child}
+          {isCheckable ? child : null}
           <S.LabelWithHint>
-            {label && (
+            {label ? (
               <Label
                 checkableField={isCheckable}
                 dataTestId={dataTestId ? `${dataTestId}-label` : undefined}
@@ -103,12 +103,12 @@ export const Field = forwardRef<'div', FieldProps>(
                 withDisabledIcon={!isCheckable}
               >
                 {/* for a checkable field the variant icon is after input and before label text */}
-                {isCheckable && <VariantIcon size="sm" variant={variant} />}
+                {isCheckable ? <VariantIcon size="sm" variant={variant} /> : null}
                 {label}
               </Label>
-            )}
+            ) : null}
             {/* for a checkable field we add a hint below label name */}
-            {isCheckable && hintText && (
+            {isCheckable && hintText ? (
               <Hint
                 checkableField
                 dataTestId={dataTestId ? `${dataTestId}-hint` : undefined}
@@ -117,15 +117,15 @@ export const Field = forwardRef<'div', FieldProps>(
               >
                 {hintText}
               </Hint>
-            )}
+            ) : null}
           </S.LabelWithHint>
         </S.Label>
         {!isCheckable && child}
-        {!isCheckable && hintText && (
+        {!isCheckable && hintText ? (
           <Hint dataTestId={dataTestId ? `${dataTestId}-hint` : undefined} variant={variant}>
             {hintText}
           </Hint>
-        )}
+        ) : null}
       </S.Field>
     )
   }

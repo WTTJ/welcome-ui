@@ -56,7 +56,7 @@ export const Button = forwardRef<'button', ButtonProps>(
         variant={isDisabled ? 'disabled' : variant}
         {...rest}
       >
-        {isLoading && (
+        {isLoading ? (
           <div>
             <Box
               alignItems="center"
@@ -73,7 +73,7 @@ export const Button = forwardRef<'button', ButtonProps>(
             </Box>
             <Box opacity="0">{children}</Box>
           </div>
-        )}
+        ) : null}
         {!isLoading && children}
       </S.Button>
     )

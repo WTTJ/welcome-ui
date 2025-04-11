@@ -32,7 +32,7 @@ export const Item = forwardRef<'a', ItemProps>(
         flex="0 0 auto"
         lineHeight="normal"
       >
-        {separator && <S.Separator role="presentation">{separator}</S.Separator>}
+        {separator ? <S.Separator role="presentation">{separator}</S.Separator> : null}
         <S.Item
           aria-current={isActive ? 'page' : undefined}
           aria-disabled={!isClickable}

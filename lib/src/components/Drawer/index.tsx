@@ -51,7 +51,7 @@ const DrawerComponent = forwardRef<'div', DrawerProps>(
         {...(rest as Ariakit.DialogProps<'div'>)}
       >
         <>
-          {withCloseButton && <Close />}
+          {withCloseButton ? <Close /> : null}
           {children}
         </>
       </Ariakit.Dialog>

@@ -294,7 +294,7 @@ export const Swiper = ({ children, dataTestId, store, ...rest }: SwiperProps) =>
       </S.Container>
       <S.Arrow
         aria-label="Previous slide"
-        data-testid={dataTestId && `${dataTestId}-prev-button`}
+        data-testid={dataTestId ? `${dataTestId}-prev-button` : null}
         disabled={!showLeftArrow}
         left={10}
         onClick={goPrev}
@@ -309,7 +309,7 @@ export const Swiper = ({ children, dataTestId, store, ...rest }: SwiperProps) =>
       </S.Arrow>
       <S.Arrow
         aria-label="Next slide"
-        data-testid={dataTestId && `${dataTestId}-next-button`}
+        data-testid={dataTestId ? `${dataTestId}-next-button` : null}
         disabled={!showRightArrow}
         onClick={goNext}
         position="absolute"
@@ -324,7 +324,7 @@ export const Swiper = ({ children, dataTestId, store, ...rest }: SwiperProps) =>
       </S.Arrow>
       <S.Pagination
         className="swiper-pagination"
-        data-testid={dataTestId && `${dataTestId}-pagination`}
+        data-testid={dataTestId ? `${dataTestId}-pagination` : null}
         role="tablist"
         withPagination={withPagination}
       >

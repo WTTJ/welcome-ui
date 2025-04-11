@@ -20,7 +20,7 @@ export const ToggleButton: React.FC<ToggleButtonProps> = ({
     <Button
       aria-controls="password"
       aria-expanded={`${!isHidden}`}
-      dataTestId={dataTestId && `${dataTestId}-action`}
+      dataTestId={dataTestId ? `${dataTestId}-action` : undefined}
       onClick={onClick}
       shape="circle"
       size="xs"

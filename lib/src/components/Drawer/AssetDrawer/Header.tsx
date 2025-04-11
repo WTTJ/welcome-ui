@@ -67,11 +67,11 @@ export const Header: React.FC<HeaderProps> = ({
           {subtitle}
         </Box>
       </Box>
-      {action && (
+      {action ? (
         <Box alignItems="center" display="flex" flexShrink={0} gap="md">
           {action}
         </Box>
-      )}
+      ) : null}
     </Box>
   )
 }

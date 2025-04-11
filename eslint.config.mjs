@@ -59,6 +59,12 @@ export default tseslint.config(
           ],
         },
       ],
+      'react/jsx-no-leaked-render': ['error', { validStrategies: ['ternary', 'coerce'] }],
+    },
+    settings: {
+      react: {
+        version: 'detect',
+      },
     },
   }
 )

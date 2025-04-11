@@ -28,7 +28,7 @@ export const Content = ({ children, onClose, store }: ContentOptions) => {
     <Box position="relative">
       <Arrow store={store} />
       {children as React.ReactElement}
-      {withCloseButton && (
+      {withCloseButton ? (
         <Button
           flex="0 0 auto"
           ml="md"
@@ -42,7 +42,7 @@ export const Content = ({ children, onClose, store }: ContentOptions) => {
         >
           <CrossIcon />
         </Button>
-      )}
+      ) : null}
     </Box>
   )
 }

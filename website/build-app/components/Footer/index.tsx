@@ -107,7 +107,7 @@ export const Footer = () => {
                     textDecoration={{ hover: 'underline' }}
                   >
                     {name}
-                    {isExternal && <ExternalLinkIcon color="neutral-60" size="xs" />}
+                    {isExternal ? <ExternalLinkIcon color="neutral-60" size="xs" /> : null}
                   </Box>
                 </Box>
               ))}

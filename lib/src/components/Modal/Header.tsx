@@ -26,7 +26,7 @@ export const Header = forwardRef<'div', HeaderProps>(({ icon, subtitle, title, .
       <Text mb={subtitle ? 'lg' : 0} mt={icon ? 'xl' : 0} variant="h4">
         {title}
       </Text>
-      {subtitle && <S.HeaderSubtitle>{subtitle}</S.HeaderSubtitle>}
+      {subtitle ? <S.HeaderSubtitle>{subtitle}</S.HeaderSubtitle> : null}
     </S.Header>
   )
 })

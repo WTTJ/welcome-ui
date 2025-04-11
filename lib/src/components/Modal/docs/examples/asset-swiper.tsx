@@ -13,7 +13,7 @@ const Example = () => {
       <Modal.Trigger as={Button} store={modal}>
         Open modal
       </Modal.Trigger>
-      {isOpen && (
+      {isOpen ? (
         <Modal
           ariaLabel="asset modal example"
           as={AssetModal}
@@ -37,7 +37,7 @@ const Example = () => {
             </Swiper>
           </AssetModal.Content>
         </Modal>
-      )}
+      ) : null}
     </>
   )
 }

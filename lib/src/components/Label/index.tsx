@@ -47,9 +47,9 @@ export const Label = forwardRef<'label', LabelProps>(
         {...rest}
       >
         {!checkableField && <VariantIcon icon={icon} size="sm" variant={variant} />}
-        {disabled && withDisabledIcon && (
+        {disabled && withDisabledIcon ? (
           <S.Disabled>{disabledIcon || <LockIcon size="sm" />}</S.Disabled>
-        )}
+        ) : null}
         {content}
       </S.Label>
     )

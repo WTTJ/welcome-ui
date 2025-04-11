@@ -38,12 +38,12 @@ export const FilePreview: React.FC<FileDropChildren['wordings'] & MessageProps> 
           {size}
         </Text>
       )}
-      {isUrl && (
+      {isUrl ? (
         <Button as="a" href={file} mt="md" rel="noopener" size="sm" target="_blank">
           <span>{previewButtonText}</span>
           <ExternalLinkIcon />
         </Button>
-      )}
+      ) : null}
     </>
   )
 }
