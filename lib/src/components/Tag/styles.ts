@@ -51,6 +51,7 @@ export const Tag = styled.div.withConfig({
       }
     `}
     ${length === 1 &&
+    !hasRemoveAction &&
     css`
       justify-content: center;
       ${shapeStyles(size, w as string, h as string)};
