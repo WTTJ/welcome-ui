@@ -10,6 +10,7 @@ import type { TagProps } from '@/Tag'
 import { Tag } from '@/Tag'
 
 import { createEvent } from '../../utils/create-event'
+
 import * as S from './styles'
 
 const DEFAULT_MAX_FILE_SIZE = 2000000
@@ -37,10 +38,10 @@ export type FileUploadPreviewProps = {
 }
 export type FileUploadProps = CreateWuiProps<'input', FileUploadOptions>
 
-type FileWithPreview = {
+type FileWithPreview = File & {
   name?: string
   preview?: string
-} & File
+}
 
 type FileWithPreviewType = FileWithPreview | string
 

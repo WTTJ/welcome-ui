@@ -1,9 +1,8 @@
 import { existsSync, readdirSync, statSync } from 'fs'
 import { join } from 'path'
 
-import type { PageTree } from '../types'
-
 import { replaceMdxRegex } from '../constants/regex'
+import type { PageTree } from '../types'
 
 type Files = {
   category?: string

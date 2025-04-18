@@ -1,6 +1,5 @@
-import type { ReactDatePickerProps } from 'react-datepicker'
-
 import styled, { css, system } from '@xstyled/styled-components'
+import type { ReactDatePickerProps } from 'react-datepicker'
 import ReactDatePicker from 'react-datepicker'
 
 import { StyledButton } from '@/Button'
@@ -9,9 +8,9 @@ import { StyledIcon } from '@/Icon'
 import { StyledSelect } from '@/Select'
 
 import type { DefaultFieldStylesProps } from '../../utils/field-styles'
-import type { Focused } from './CustomInput'
-
 import { defaultFieldStyles } from '../../utils/field-styles'
+
+import type { Focused } from './CustomInput'
 
 // Workaround to this issue: https://github.com/Hacker0x01/react-datepicker/issues/3834
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment

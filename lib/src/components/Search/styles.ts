@@ -3,10 +3,10 @@ import styled, { css, th } from '@xstyled/styled-components'
 import { StyledIcon } from '@/Icon'
 import { shouldForwardProp } from '@/System'
 
-import type { SearchOptions } from './index'
-
 import { defaultFieldStyles } from '../../utils/field-styles'
 import { overflowEllipsis } from '../../utils/overflow-ellipsis'
+
+import type { SearchOptions } from './index'
 
 export const Wrapper = styled.divBox.withConfig({ shouldForwardProp })`
   position: relative;

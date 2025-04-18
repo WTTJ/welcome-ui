@@ -1,9 +1,10 @@
 import * as Ariakit from '@ariakit/react'
 import styled, { css, system, th } from '@xstyled/styled-components'
 
-import type { UseTabState } from '.'
 import type { ActiveBarReturn } from './ActiveBar'
 import type { SizeOptions } from './TabList'
+
+import type { UseTabState } from '.'
 
 export const TabList = styled(Ariakit.TabList)<{ size: SizeOptions }>(
   ({ size }) => css`

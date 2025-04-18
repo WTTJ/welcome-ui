@@ -1,5 +1,4 @@
 import type { CSSObject } from '@xstyled/styled-components'
-
 import styled, { css, th } from '@xstyled/styled-components'
 import React from 'react'
 

@@ -1,16 +1,15 @@
-import type { ToastPosition } from 'react-hot-toast/headless'
-
 import { ThemeContext, ThemeProvider } from '@xstyled/styled-components'
 import React, { useContext } from 'react'
+import type { ToastPosition } from 'react-hot-toast/headless'
 import toastRHT, { useToaster } from 'react-hot-toast/headless'
 
 import type { TextProps } from '@/Text'
 
-import type { GrowlProps } from './Growl'
-import type { SnackbarProps } from './Snackbar'
-
 import { useCreatePortal } from '../../utils/use-create-portal'
+
+import type { GrowlProps } from './Growl'
 import { Growl } from './Growl'
+import type { SnackbarProps } from './Snackbar'
 import { Snackbar, SnackbarAction } from './Snackbar'
 import * as S from './styles'
 import { ToastWrapper } from './ToastWrapper'

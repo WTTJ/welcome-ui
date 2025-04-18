@@ -4,9 +4,9 @@ import styled, { css, system, th } from '@xstyled/styled-components'
 import { Label as WUILabel } from '@/Label'
 import { shouldForwardProp } from '@/System'
 
-import type { RadioProps } from './index'
-
 import { defaultFieldStyles } from '../../utils/field-styles'
+
+import type { RadioProps } from './index'
 
 /* /!\ WARNING /!\ Don't add style after pseudo selector, it won't apply because of the dynamic color injected in the fill of the content */
 

@@ -1,5 +1,4 @@
 import type { ControllerStateAndHelpers, DownshiftProps, GetRootPropsOptions } from 'downshift'
-
 import DownshiftImport from 'downshift'
 import { matchSorter } from 'match-sorter'
 import React, { Fragment, useEffect, useMemo, useState } from 'react'
@@ -10,10 +9,10 @@ import type { CreateWuiProps } from '@/System'
 import { forwardRef } from '@/System'
 
 import type { CreateEvent } from '../../utils/create-event'
-import type { DefaultFieldStylesProps } from '../../utils/field-styles'
-
 import { createEvent } from '../../utils/create-event'
+import type { DefaultFieldStylesProps } from '../../utils/field-styles'
 import { FIELD_ICON_SIZE } from '../../utils/field-styles'
+
 import { multipleSelections } from './multipleSelections'
 import * as S from './styles'
 import {

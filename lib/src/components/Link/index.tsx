@@ -15,9 +15,9 @@ export interface LinkOptions {
 }
 
 export type LinkProps = CreateWuiProps<'a', LinkOptions & UniversalLinkOptions>
-export type WrapWithTextProps = {
+export type WrapWithTextProps = Pick<LinkOptions, 'isExternal'> & {
   children: JSX.Element | React.ReactNode
-} & Pick<LinkOptions, 'isExternal'>
+}
 
 type Variant = 'primary' | 'secondary'
 

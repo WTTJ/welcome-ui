@@ -8,13 +8,12 @@ import { Shape } from '@/Shape'
 import type { As, CreateWuiProps } from '@/System'
 import { forwardRef } from '@/System'
 
-import type { Size } from './theme'
-
 import { Assets } from './Assets'
 import { Content } from './Content'
 import { Footer } from './Footer'
 import { Header } from './Header'
 import * as S from './styles'
+import type { Size } from './theme'
 
 export interface ModalOptions extends Omit<Ariakit.DialogOptions<'div'>, 'as'> {
   ariaLabel: string
@@ -24,13 +23,13 @@ export interface ModalOptions extends Omit<Ariakit.DialogOptions<'div'>, 'as'> {
 
 export type ModalProps = CreateWuiProps<'div', ModalOptions>
 export type UseModal = Ariakit.DialogStore
-export type UseModalProps = {
+export type UseModalProps = Ariakit.DialogStoreProps & {
   /**
    * Call a function before closing the modal
    * @deprecated use onClose on <Modal /> instead
    */
   onClose?: () => void
-} & Ariakit.DialogStoreProps
+}
 export type UseModalState = Ariakit.DialogStoreState
 
 type BackdropProps = Pick<ModalOptions, 'backdrop' | 'hideOnInteractOutside'>

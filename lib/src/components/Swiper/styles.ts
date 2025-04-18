@@ -25,7 +25,7 @@ export const Swiper = styled.div`
 `
 
 export const Arrow = styled(Button)<
-  { disabled: boolean } & Pick<UseSwiper, 'withDarkUI' | 'withNavigation'>
+  Pick<UseSwiper, 'withDarkUI' | 'withNavigation'> & { disabled: boolean }
 >(
   ({ disabled, withDarkUI, withNavigation: { desktop, mobile } }) => css`
     top: 50%;
@@ -73,7 +73,7 @@ export const Pagination = styled.divBox<Pick<UseSwiper, 'withPagination'>>(
   `
 )
 
-export const Bullet = styled.div<{ active: boolean } & Pick<UseSwiper, 'withDarkUI'>>(
+export const Bullet = styled.div<Pick<UseSwiper, 'withDarkUI'> & { active: boolean }>(
   ({ active, withDarkUI }) => css`
     height: 10;
     width: 10;

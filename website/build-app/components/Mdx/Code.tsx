@@ -1,6 +1,7 @@
 import { Box } from '@/Box'
 
 import { Properties } from '../Props'
+
 import { Highlight } from './Highlight'
 
 type CodeProps = {

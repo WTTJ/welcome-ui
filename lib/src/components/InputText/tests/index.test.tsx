@@ -2,7 +2,6 @@ import { screen } from '@testing-library/react'
 import React, { useState } from 'react'
 
 import type { InputTextOptions } from '../'
-
 import { InputText } from '../'
 import { render } from '../../../../tests'
 

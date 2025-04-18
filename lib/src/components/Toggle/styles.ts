@@ -4,8 +4,9 @@ import styled, { css, system, th } from '@xstyled/styled-components'
 import type { CheckboxProps } from '@/Checkbox'
 import { shouldForwardProp } from '@/System'
 
-import type { ToggleOptions } from './index'
 import type { Size } from './theme'
+
+import type { ToggleOptions } from './index'
 
 export const Toggle = styled(Ariakit.Checkbox).withConfig({ shouldForwardProp })<ToggleOptions>(
   ({ order = '-1', size }) => css`

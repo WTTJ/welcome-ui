@@ -1,5 +1,4 @@
 import type { Theme } from '@xstyled/styled-components'
-
 import styled, { css, keyframes, system } from '@xstyled/styled-components'
 
 import { Shape } from '@/Shape'

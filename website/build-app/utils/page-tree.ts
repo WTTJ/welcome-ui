@@ -6,9 +6,9 @@ import { visit } from 'unist-util-visit'
 
 import type { PropertiesProps } from '../components/Props'
 
-export type Toc = {
+export type Toc = TocItem & {
   children?: TocItem[]
-} & TocItem
+}
 
 export type TocItem = {
   href: string

@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 
-import type { UseTabState } from '.'
-
 import { useIsomorphicLayoutEffect } from '../../utils/use-isomorphic-layout-effect'
 import { useViewportSize } from '../../utils/use-viewport'
+
 import * as S from './styles'
 import { getParentScale } from './utils'
+
+import type { UseTabState } from '.'
 
 export interface ActiveBarOptions {
   activeTab: HTMLElement | null

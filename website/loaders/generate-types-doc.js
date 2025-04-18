@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 const { existsSync, readdirSync, writeFileSync } = require('fs')
 const { join, resolve } = require('path')
+
 const docgen = require('react-docgen-typescript')
 
 const tsConfigPath = join(process.cwd(), '../lib', 'tsconfig.json')

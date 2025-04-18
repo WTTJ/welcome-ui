@@ -2,7 +2,6 @@ import { screen } from '@testing-library/react'
 import React, { useEffect, useState } from 'react'
 
 import type { UseModal } from '../'
-
 import { Modal, useModal } from '../'
 import { render } from '../../../../tests'
 

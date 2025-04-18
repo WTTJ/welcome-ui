@@ -3,18 +3,17 @@ import { Checkbox } from '@/Checkbox'
 import type { CreateWuiProps } from '@/System'
 import { forwardRef } from '@/System'
 
+import * as S from './styles'
 import type { Size } from './theme'
 
-import * as S from './styles'
-
-export type ToggleOptions = {
+export type ToggleOptions = Omit<
+  CheckboxProps,
+  'Component' | 'hasIcon' | 'iconPlacement' | 'indeterminate' | 'isClearable' | 'transparent'
+> & {
   checkedIcon?: JSX.Element
   size?: Size
   uncheckedIcon?: JSX.Element
-} & Omit<
-  CheckboxProps,
-  'Component' | 'hasIcon' | 'iconPlacement' | 'indeterminate' | 'isClearable' | 'transparent'
->
+}
 export type ToggleProps = CreateWuiProps<'input', ToggleOptions>
 
 export const Toggle = forwardRef<'input', ToggleProps>(

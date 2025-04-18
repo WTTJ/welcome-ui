@@ -7,9 +7,8 @@ import { CloseButton } from '@/CloseButton'
 import type { CreateWuiProps } from '@/System'
 import { forwardRef } from '@/System'
 
-import type { Size, Variant } from './theme'
-
 import * as S from './styles'
+import type { Size, Variant } from './theme'
 import { Title } from './Title'
 
 export interface AlertOptions {

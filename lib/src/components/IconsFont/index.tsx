@@ -1,7 +1,6 @@
 import type { IconProps } from '@/Icon'
 
 import type { StyledIconProps } from './styles'
-
 import { Icon } from './styles'
 import unicodeJson from './unicode.json'
 

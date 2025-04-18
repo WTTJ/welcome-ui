@@ -3,7 +3,6 @@ import type { CSSObject } from '@xstyled/styled-components'
 import type { ThemeValues } from '@/theme'
 
 import type { ThemeFocus } from '../../theme/focus'
-
 import { hexToRGBA } from '../../utils/hex-to-rgba'
 
 // eslint-disable-next-line perfectionist/sort-union-types
@@ -14,7 +13,7 @@ export type ThemeButtons = Record<
   Record<'ai' | 'danger' | Variant, CommonAttributesButton>
 > &
   Record<'ai' | 'danger' | Variant, CommonAttributesButton> &
-  Record<'disabled', { '&:focus': ReturnType<ThemeFocus> } & CommonAttributesButton> &
+  Record<'disabled', CommonAttributesButton & { '&:focus': ReturnType<ThemeFocus> }> &
   Record<'focus', Record<'ai' | 'danger' | Variant, unknown>> &
   Record<'hover', Record<'ai' | 'danger' | Variant, CommonAttributesButton>> &
   Record<'icon', Record<Icon, Record<Size, string>>> &

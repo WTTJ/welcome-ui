@@ -7,7 +7,6 @@ import { Text } from '@/Text'
 import type { ThemeValues } from '@/theme'
 
 import type { PageTree } from '~/build-app/types'
-
 import { getName } from '~/build-app/utils/transform-name'
 
 import * as S from './styles'

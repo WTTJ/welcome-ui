@@ -3,9 +3,8 @@ import React from 'react'
 import type { CreateWuiProps } from '@/System'
 import { forwardRef } from '@/System'
 
-import type { Size } from './theme'
-
 import * as S from './styles'
+import type { Size } from './theme'
 
 export type IconContent = {
   block?: string

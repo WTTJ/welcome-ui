@@ -1,5 +1,4 @@
 import type { Locale } from 'date-fns'
-
 import range from 'lodash.range'
 
 import type { SelectOption, SelectOptions } from '@/Select'

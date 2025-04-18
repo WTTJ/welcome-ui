@@ -1,6 +1,6 @@
-import type { ThemeValues } from '.'
-
 import { colors, getColors } from './colors'
+
+import type { ThemeValues } from '.'
 
 type RecursivePartial<T> = {
   [P in keyof T]?: RecursivePartial<T[P]> | T[P]

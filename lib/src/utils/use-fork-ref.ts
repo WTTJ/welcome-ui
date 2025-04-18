@@ -1,5 +1,4 @@
 import type { ForwardedRef } from 'react'
-
 import { useMemo } from 'react'
 
 export function setRef(ref: ForwardedRef<unknown>, value: unknown): void {

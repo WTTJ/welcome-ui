@@ -16,6 +16,7 @@ import type { ThemeColorTokens } from '@/theme'
 
 import { clamp } from '../../utils/clamp'
 import { throttle } from '../../utils/throttle'
+
 import { Item } from './Item'
 import * as S from './styles'
 

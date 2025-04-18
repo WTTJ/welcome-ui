@@ -3,10 +3,10 @@ import styled, { css, system, th } from '@xstyled/styled-components'
 import { StyledIcon } from '@/Icon'
 import type { WuiProps } from '@/System'
 
-import type { TagOptions } from './index'
-
 import { getMax } from '../../utils/get-max-width-height'
 import { overflowEllipsis } from '../../utils/overflow-ellipsis'
+
+import type { TagOptions } from './index'
 
 const shapeStyles = (size: TagOptions['size'], w: string, h: string) => css`
   ${th(`tags.shape.${size}`)}

@@ -1,4 +1,4 @@
-export type Type = ({} & string) | Types[keyof Types]
+export type Type = (string & {}) | Types[keyof Types]
 
 export interface Types {
   '7z': 'application/x-7z-compressed'

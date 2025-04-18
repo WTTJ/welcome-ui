@@ -7,6 +7,7 @@ import { forwardRef } from '@/System'
 import { VariantIcon } from '@/VariantIcon'
 
 import { useIsomorphicLayoutEffect } from '../../utils/use-isomorphic-layout-effect'
+
 import * as S from './styles'
 import { forwardedProps, generateRandomId, getBaseType, getVariant } from './utils'
 

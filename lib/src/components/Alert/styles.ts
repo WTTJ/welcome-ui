@@ -3,8 +3,9 @@ import styled, { css, system, th } from '@xstyled/styled-components'
 import { Text } from '@/Text'
 import { VariantIcon } from '@/VariantIcon'
 
-import type { AlertOptions } from './index'
 import type { AlertTitleProps } from './Title'
+
+import type { AlertOptions } from './index'
 
 export const Content = styled.divBox`
   display: flex;
