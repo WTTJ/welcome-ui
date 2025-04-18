@@ -1,7 +1,8 @@
 import type { CSSObject } from '@xstyled/styled-components'
 
-import type { ThemeValues } from '.'
 import type { Size } from '../utils/field-styles'
+
+import type { ThemeValues } from '.'
 
 export type ThemeDefaultFields = {
   checkableField: {
@@ -15,9 +16,9 @@ export type ThemeDefaultFields = {
   default: CSSObject
   disabled: CSSObject
   fieldset: CSSObject
-  focused: {
+  focused: VariantsTheme & {
     default: CSSObject
-  } & VariantsTheme
+  }
   hover: CSSObject
   iconPlacement: Record<Size, CSSObject>
   placeholder: CSSObject

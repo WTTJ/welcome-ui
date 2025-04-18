@@ -1,6 +1,5 @@
-import type { UsePopover } from './usePopover'
-
 import * as S from './styles'
+import type { UsePopover } from './usePopover'
 
 const transformMap = {
   bottom: 'rotateZ(360deg)',

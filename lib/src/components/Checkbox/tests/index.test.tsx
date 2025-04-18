@@ -2,7 +2,6 @@ import { screen } from '@testing-library/react'
 import { useState } from 'react'
 
 import type { CheckboxOptions } from '../'
-
 import { Checkbox } from '../'
 import { render } from '../../../../tests'
 

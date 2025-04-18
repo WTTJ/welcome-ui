@@ -17,6 +17,7 @@ import {
 } from '@/Icons'
 
 import { formatBytes } from '../../utils/format-bytes'
+
 import { types } from './types'
 
 export type FileType = File | string

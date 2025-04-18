@@ -2,13 +2,13 @@
 import type { ThemeValues } from '.'
 
 export type ThemeSpace = {
-  [key: number]: string
-  [key: string]: string
   '3xl': string
   '4xl': string
   '5xl': string
   '6xl': string
   '7xl': string
+  [key: number]: string
+  [key: string]: string
   lg: string
   md: string
   sm: string

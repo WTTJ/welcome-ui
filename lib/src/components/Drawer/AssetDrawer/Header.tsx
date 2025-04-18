@@ -6,6 +6,7 @@ import type { IconProps } from '@/Icon'
 import { Button } from '../../Button'
 import { ArrowLeftIcon } from '../../Icons'
 import { Text } from '../../Text'
+
 import * as S from './styles'
 
 type HeaderProps = {

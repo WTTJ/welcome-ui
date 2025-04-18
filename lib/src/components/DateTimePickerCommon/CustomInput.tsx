@@ -4,8 +4,8 @@ import { ClearButton } from '@/ClearButton'
 import { IconGroupWrapper, IconWrapper } from '@/Field'
 
 import type { DefaultFieldStylesProps } from '../../utils/field-styles'
-
 import { FIELD_ICON_SIZE } from '../../utils/field-styles'
+
 import * as S from './styles'
 
 export interface CustomInputOptions {

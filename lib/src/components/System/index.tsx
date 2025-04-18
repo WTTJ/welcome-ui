@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import isPropValid from '@emotion/is-prop-valid'
 import type { SystemProps } from '@xstyled/styled-components'
 import type { PropsWithoutRef } from 'react'
-
-import isPropValid from '@emotion/is-prop-valid'
 import React from 'react'
 
 export const shouldForwardProp = (prop: string) => isPropValid(prop)
@@ -11,7 +10,7 @@ export type As<Props = any> = React.ElementType<Props>
 
 export type CreateWuiComponent<Component extends As, Options = object> = {
   <AsComponent extends As>(
-    props: { as: AsComponent } & CreateWuiProps<AsComponent, Options>
+    props: CreateWuiProps<AsComponent, Options> & { as: AsComponent }
   ): JSX.Element
   (props: CreateWuiProps<Component, Options>): JSX.Element
   displayName?: string
@@ -20,7 +19,7 @@ export type CreateWuiComponent<Component extends As, Options = object> = {
 export type CreateWuiProps<Component extends As, Props = object> = MergeProps<
   Omit<React.ComponentProps<Component>, keyof WuiProps>,
   Props,
-  { as?: As } & WuiProps & WuiTestProps
+  WuiProps & WuiTestProps & { as?: As }
 >
 
 export type MergeProps<ComponentProps, Props, WuiProps> = RightJoinProps<ComponentProps, Props> &

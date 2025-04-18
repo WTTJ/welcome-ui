@@ -8,7 +8,6 @@ import { forwardRef } from '@/System'
 import { Text } from '@/Text'
 
 import type { Range as RangeType } from './Range'
-
 import { Range } from './Range'
 import * as S from './styles'
 

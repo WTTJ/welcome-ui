@@ -4,9 +4,9 @@ import type { WuiProps } from '@/System'
 
 import type { BadgeOptions } from '.'
 
-export type StyledBadgeProps = {
+export type StyledBadgeProps = Pick<BadgeOptions, 'disabled' | 'size' | 'variant'> & {
   length: number
-} & Pick<BadgeOptions, 'disabled' | 'size' | 'variant'>
+}
 
 export const Badge = styled.divBox<StyledBadgeProps & WuiProps>(
   ({ disabled, length, size, variant }) => css`

@@ -3,9 +3,9 @@ import type * as Ariakit from '@ariakit/react'
 import type { CreateWuiProps } from '@/System'
 import { forwardRef } from '@/System'
 
-import type { UseTab } from '.'
-
 import * as S from './styles'
+
+import type { UseTab } from '.'
 
 export type TabPanelOptions = { store: UseTab }
 export type TabPanelProps = CreateWuiProps<typeof Ariakit.TabPanel, TabPanelOptions>

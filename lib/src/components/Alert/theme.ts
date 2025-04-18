@@ -5,14 +5,14 @@ import type { ThemeValues } from '@/theme'
 // eslint-disable-next-line perfectionist/sort-union-types
 export type Size = 'sm' | 'md'
 
-export type ThemeAlerts = {
+export type ThemeAlerts = Record<Variant, AttributesState> & {
   default: CSSObject
   sizes: Record<Size, CSSObject>
   title: {
     default: CSSObject
     sizes: Record<Size, CSSObject>
   }
-} & Record<Variant, AttributesState>
+}
 
 export type Variant = 'ai' | 'beige' | 'danger' | 'default' | 'info' | 'success' | 'warning'
 

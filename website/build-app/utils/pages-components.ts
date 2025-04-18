@@ -1,7 +1,8 @@
 import { existsSync, readdirSync, readFileSync } from 'fs'
+import { join } from 'path'
+
 import matter from 'gray-matter'
 import kebabCase from 'lodash/kebabCase'
-import { join } from 'path'
 
 import type { PageTree } from '../types'
 

@@ -5,7 +5,6 @@ import type { WuiProps } from '@/System'
 import { shouldForwardProp } from '@/System'
 
 import type { DefaultFieldStylesProps } from '../../utils/field-styles'
-
 import { defaultFieldStyles } from '../../utils/field-styles'
 import { overflowEllipsis } from '../../utils/overflow-ellipsis'
 
@@ -45,12 +44,12 @@ const rowStyles = css`
 `
 
 export const Label = styled.labelBox<
-  {
+  DefaultFieldStylesProps & {
     checked?: boolean
     disabled?: boolean
     disabledIcon?: React.ReactElement
     flexDirection?: WuiProps['flexDirection']
-  } & DefaultFieldStylesProps
+  }
 >(
   ({ checked, flexDirection, size, variant }) => css`
     ${th('radioTabs.default')};

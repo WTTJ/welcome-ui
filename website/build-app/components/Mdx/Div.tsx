@@ -5,11 +5,11 @@ import { Alert } from '@/Alert'
 
 import type examples from '~/build-app/examples'
 
-import type { IconListProps } from '../IconsList'
-
 import { Colors } from '../Colors'
+import type { IconListProps } from '../IconsList'
 import { IconsList } from '../IconsList'
 import { Theme } from '../Theme'
+
 import { Playground } from './Playground'
 
 type DivProps = {

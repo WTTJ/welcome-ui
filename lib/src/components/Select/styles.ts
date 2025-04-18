@@ -7,10 +7,10 @@ import { shouldForwardProp } from '@/System'
 import { StyledTag } from '@/Tag'
 
 import type { DefaultFieldStylesProps } from '../../utils/field-styles'
-import type { SelectOptions } from './index'
-
 import { defaultFieldStyles } from '../../utils/field-styles'
 import { overflowEllipsis } from '../../utils/overflow-ellipsis'
+
+import type { SelectOptions } from './index'
 
 export const IconWrapper = styled(WUIIconWrapper)``
 

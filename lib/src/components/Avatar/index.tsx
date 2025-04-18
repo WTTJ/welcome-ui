@@ -5,9 +5,8 @@ import type { ShapeOptions } from '@/Shape'
 import type { CreateWuiProps } from '@/System'
 import { forwardRef } from '@/System'
 
-import type { AvatarColors, Size } from './theme'
-
 import * as S from './styles'
+import type { AvatarColors, Size } from './theme'
 import { getInitials as defaultGetInitials, getColorByLength } from './utils'
 
 export interface AvatarOptions {

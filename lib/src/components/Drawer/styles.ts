@@ -1,5 +1,4 @@
 import type * as Ariakit from '@ariakit/react'
-
 import styled, { css, th } from '@xstyled/styled-components'
 
 import { CloseButton as WUICloseButton } from '@/CloseButton'

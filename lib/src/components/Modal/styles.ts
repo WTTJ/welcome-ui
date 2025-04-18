@@ -4,6 +4,7 @@ import { Box } from '@/Box'
 import { Text } from '@/Text'
 
 import type { BackdropProps } from './Assets/Backdrop'
+
 import type { ModalOptions } from './index'
 
 export const Backdrop = styled.divBox.withConfig({

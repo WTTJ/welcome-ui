@@ -1,5 +1,4 @@
 import type { ChangeEvent, KeyboardEvent } from 'react'
-
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { Box } from '@/Box'
@@ -9,10 +8,10 @@ import type { CreateWuiProps } from '@/System'
 import { forwardRef } from '@/System'
 import { Text } from '@/Text'
 
-import type { SliderOptions } from './index'
-
-import { round } from './index'
 import * as S from './styles'
+
+import type { SliderOptions } from './index'
+import { round } from './index'
 
 export const thumbWidth = 20
 

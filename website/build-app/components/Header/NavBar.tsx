@@ -9,8 +9,9 @@ import { CrescentMoonIcon, GithubIcon, SunIcon } from '@/Icons'
 import { Text } from '@/Text'
 import type { ThemeValues } from '@/theme'
 
-import { navigation } from '.'
 import * as S from './styles'
+
+import { navigation } from '.'
 
 type NavBarProps = {
   display?: ThemeValues['display']

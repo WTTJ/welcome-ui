@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-
 import { ThemeProvider as NextThemeProvider } from 'next-themes'
 
 import { Box } from '@/Box'

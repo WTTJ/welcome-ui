@@ -1,6 +1,5 @@
-import type { ReactElement } from 'react'
-
 import * as Ariakit from '@ariakit/react'
+import type { ReactElement } from 'react'
 import React, { useEffect, useState } from 'react'
 
 import { Box } from '@/Box'
@@ -9,13 +8,13 @@ import { forwardRef } from '@/System'
 
 import * as S from './styles'
 
-export type TooltipOptions = {
-  children: React.ReactNode
-  content: JSX.Element | string
-  fixed?: boolean
-  withArrow?: boolean
-} & Pick<Ariakit.TooltipOptions, 'gutter'> &
-  Pick<Ariakit.TooltipStoreProps, 'placement'>
+export type TooltipOptions = Pick<Ariakit.TooltipOptions, 'gutter'> &
+  Pick<Ariakit.TooltipStoreProps, 'placement'> & {
+    children: React.ReactNode
+    content: JSX.Element | string
+    fixed?: boolean
+    withArrow?: boolean
+  }
 
 export type TooltipProps = CreateWuiProps<'div', TooltipOptions>
 

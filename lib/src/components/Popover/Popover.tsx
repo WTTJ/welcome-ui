@@ -3,11 +3,10 @@ import type * as Ariakit from '@ariakit/react'
 import type { CreateWuiProps } from '@/System'
 import { forwardRef } from '@/System'
 
-import type { UsePopover } from './usePopover'
-
 import { Content } from './Content'
 import * as S from './styles'
 import { PopoverTrigger } from './Trigger'
+import type { UsePopover } from './usePopover'
 
 export interface PopoverOptions extends Ariakit.PopoverProps {
   /** call a function when popover closed */

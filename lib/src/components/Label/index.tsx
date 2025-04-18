@@ -4,6 +4,7 @@ import { forwardRef } from '@/System'
 import { VariantIcon } from '@/VariantIcon'
 
 import { wrapChildren } from '../../utils/wrap-children'
+
 import * as S from './styles'
 
 export interface LabelOptions {

@@ -9,6 +9,7 @@ import { Text } from '@/Text'
 
 import { Code } from '../Mdx/Code'
 import { H2 } from '../Mdx/Headings'
+
 import * as TYPES from './propTypes'
 
 export type PropertiesProps = {
@@ -28,9 +29,9 @@ type PropertyProps = {
 }
 
 type Props = {
-  defaultValue: {
+  defaultValue: null | {
     value: string
-  } | null
+  }
   description: string
   required: boolean
   type: {

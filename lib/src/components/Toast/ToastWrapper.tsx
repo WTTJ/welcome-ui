@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
-import type { Toast, ToastPosition } from 'react-hot-toast/headless'
-
 import React, { cloneElement } from 'react'
+import type { Toast, ToastPosition } from 'react-hot-toast/headless'
 import toastRHT from 'react-hot-toast/headless'
 
 import * as S from './styles'

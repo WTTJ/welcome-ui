@@ -14,6 +14,7 @@ import type { PageTree } from '~/build-app/types'
 import { Search } from '../Search'
 import { Sidebar } from '../Sidebar'
 import { VersionSelector } from '../VersionSelector'
+
 import { NavBar } from './NavBar'
 import * as S from './styles'
 

@@ -6,7 +6,6 @@ import { Flex } from '@/Flex'
 import { LeftIcon, RightIcon } from '@/Icons'
 
 import type { PageTree } from '~/build-app/types'
-
 import { getName } from '~/build-app/utils/transform-name'
 
 type PrevNextPageProps = {

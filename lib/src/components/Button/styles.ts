@@ -3,9 +3,9 @@ import styled, { css, system, th } from '@xstyled/styled-components'
 
 import { shouldForwardProp } from '@/System'
 
-import type { ButtonOptions } from './index'
-
 import { hideFocusRingsDataAttribute } from '../../utils/hide-focus-rings-root'
+
+import type { ButtonOptions } from './index'
 
 const shapeStyles = (size: ButtonOptions['size'], shape: ButtonOptions['shape'] = 'square') => css`
   width: ${th(`buttons.sizes.${size}.height`)};

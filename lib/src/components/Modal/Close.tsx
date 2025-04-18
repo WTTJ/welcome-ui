@@ -4,9 +4,9 @@ import { useTheme } from '@xstyled/styled-components'
 import type { CloseButtonProps } from '@/CloseButton'
 import { CloseButton } from '@/CloseButton'
 
-type CloseProps = {
+type CloseProps = CloseButtonProps & {
   isOnHeader?: boolean
-} & CloseButtonProps
+}
 
 export const Close = ({ isOnHeader, ...rest }: CloseProps) => {
   const theme = useTheme()

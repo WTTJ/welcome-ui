@@ -9,12 +9,12 @@ import type { DefaultFieldStylesProps } from '../../utils/field-styles'
 
 import * as S from './styles'
 
-export type RadioOptions = {
+export type RadioOptions = DefaultFieldStylesProps & {
   hint?: string
   label?: string
   onChange?: (event: React.MouseEvent<HTMLLabelElement>) => void
   onClick?: (event: React.MouseEvent<HTMLLabelElement>) => void
-} & DefaultFieldStylesProps
+}
 
 export type RadioProps = CreateWuiProps<'input', LabelOptions & RadioOptions>
 

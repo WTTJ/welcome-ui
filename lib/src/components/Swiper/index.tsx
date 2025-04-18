@@ -6,6 +6,7 @@ import { IconsFont } from '@/IconsFont'
 import type { CreateWuiProps } from '@/System'
 
 import { useViewportSize } from '../../utils/use-viewport'
+
 import * as S from './styles'
 import { useInterval } from './use-interval'
 

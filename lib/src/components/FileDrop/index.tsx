@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react'
 import type {
   Accept,
   DropEvent,
@@ -6,8 +7,6 @@ import type {
   FileError,
   FileRejection,
 } from 'react-dropzone'
-
-import React, { useEffect, useState } from 'react'
 import * as reactDropzone from 'react-dropzone'
 
 // because of this issue: https://github.com/react-dropzone/react-dropzone/issues/1259
@@ -23,8 +22,8 @@ import type { CreateWuiProps } from '@/System'
 import { forwardRef } from '@/System'
 
 import type { CreateEvent } from '../../utils/create-event'
-
 import { createEvent } from '../../utils/create-event'
+
 import { Preview } from './Preview'
 import * as S from './styles'
 import { getPreviewUrl, isAnImage } from './utils'

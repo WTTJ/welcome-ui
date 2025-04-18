@@ -1,6 +1,5 @@
 'use client'
 import type { Theme } from '@xstyled/styled-components'
-
 import { useTheme } from '@xstyled/styled-components'
 
 import { Alert } from '@/Alert'

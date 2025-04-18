@@ -3,9 +3,8 @@ import { Loader } from '@/Loader'
 import type { CreateWuiProps } from '@/System'
 import { forwardRef } from '@/System'
 
-import type { Size, Variant } from './theme'
-
 import * as S from './styles'
+import type { Size, Variant } from './theme'
 
 export interface ButtonOptions {
   /** AI button with 3 variants: primary / tertiary / ghost */

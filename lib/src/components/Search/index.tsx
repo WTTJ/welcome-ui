@@ -1,5 +1,4 @@
 import type { DownshiftProps, GetRootPropsOptions } from 'downshift'
-
 import DownshiftImport from 'downshift'
 import React, { Fragment, useCallback, useMemo, useState } from 'react'
 
@@ -8,11 +7,11 @@ import { IconWrapper } from '@/Field'
 import type { CreateWuiProps } from '@/System'
 import { forwardRef } from '@/System'
 
-import type { DefaultFieldStylesProps } from '../../utils/field-styles'
-
 import { createEvent } from '../../utils/create-event'
+import type { DefaultFieldStylesProps } from '../../utils/field-styles'
 import { FIELD_ICON_SIZE } from '../../utils/field-styles'
 import { throttle as handleThrottle } from '../../utils/throttle'
+
 import * as S from './styles'
 
 const EMPTY_STRING = ''

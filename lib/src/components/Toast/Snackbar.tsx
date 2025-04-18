@@ -5,9 +5,8 @@ import { CloseButton } from '@/CloseButton'
 import type { CreateWuiProps } from '@/System'
 import { forwardRef } from '@/System'
 
-import type { ToastVariant } from './theme'
-
 import * as S from './styles'
+import type { ToastVariant } from './theme'
 
 export interface SnackbarOptions {
   /** add correct separator for call to action

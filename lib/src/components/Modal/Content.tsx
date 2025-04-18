@@ -5,9 +5,9 @@ import { Box } from '@/Box'
 import type { CreateWuiProps } from '@/System'
 import { forwardRef } from '@/System'
 
-import type { UseModal } from '.'
-
 import { Close } from './Close'
+
+import type { UseModal } from '.'
 
 export type ContentOptions = {
   store: UseModal

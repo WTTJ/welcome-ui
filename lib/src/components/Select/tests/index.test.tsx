@@ -3,7 +3,6 @@ import capitalize from 'lodash.capitalize'
 import React, { useState } from 'react'
 
 import type { SelectOption, SelectProps } from '../'
-
 import { Select } from '../'
 import { render } from '../../../../tests'
 import { AvatarIcon, DateIcon } from '../../Icons'

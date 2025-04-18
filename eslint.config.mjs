@@ -12,7 +12,7 @@ export default tseslint.config(
   tseslint.configs.recommended,
   eslintPluginPrettierRecommended,
   reactHooks.configs['recommended-latest'],
-  perfectionist.configs['recommended-alphabetical'],
+  perfectionist.configs['recommended-natural'],
   globalIgnores(['lib/dist', 'website/.next', 'website/out']),
   {
     languageOptions: {
@@ -47,13 +47,13 @@ export default tseslint.config(
             },
           },
           groups: [
-            'type',
-            ['builtin', 'external'],
+            ['builtin-type', 'builtin'],
+            ['external-type', 'external'],
             'welcome-ui',
-            'internal-type',
-            'internal',
-            ['parent-type', 'sibling-type', 'index-type'],
-            ['parent', 'sibling', 'index'],
+            ['internal-type', 'internal'],
+            ['parent-type', 'parent'],
+            ['sibling-type', 'sibling'],
+            ['index-type', 'index'],
             'object',
             'unknown',
           ],

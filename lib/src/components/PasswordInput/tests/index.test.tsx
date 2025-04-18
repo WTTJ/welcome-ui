@@ -2,7 +2,6 @@ import { screen } from '@testing-library/react'
 import React, { useState } from 'react'
 
 import type { PasswordInputOptions } from '../'
-
 import { PasswordInput } from '../'
 import { render } from '../../../../tests'
 
