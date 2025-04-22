@@ -1,5 +1,5 @@
-import * as Ariakit from '@ariakit/react'
 import styled, { css, system, th } from '@xstyled/styled-components'
+import * as Ariakit from '@ariakit/react'
 
 export const Arrow = styled(Ariakit.PopoverArrow)`
   color: ${th('popovers.default.backgroundColor')};

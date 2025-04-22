@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { Tag } from '@/Tag'
-
-import type { SelectOption } from './index'
-
 import * as S from './styles'
+
+import { SelectOption } from './index'
+
+import { Tag } from '@/Tag'
 
 export function multipleSelections(
   values: SelectOption[],

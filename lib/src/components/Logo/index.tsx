@@ -1,10 +1,10 @@
-import type { BoxProps } from '@/Box'
-
-import { SolutionsSymbol } from './Solutions'
 import { Symbol } from './Symbol'
-import { Welcome as Logo } from './Welcome'
+import { SolutionsSymbol } from './Solutions'
 import { WelcomeUI as WelcomeUILogo } from './Wui'
+import { Welcome as Logo } from './Welcome'
 
-export type LogoProps = Pick<BoxProps, 'h' | 'w'>
+import { BoxProps } from '@/Box'
 
-export { Logo, SolutionsSymbol, Symbol, WelcomeUILogo }
+export type LogoProps = Pick<BoxProps, 'w' | 'h'>
+
+export { Logo, Symbol, SolutionsSymbol, WelcomeUILogo }

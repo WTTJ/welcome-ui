@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { Badge } from '../'
 import { render } from '../../../../tests'
 import { createTheme } from '../../../theme'

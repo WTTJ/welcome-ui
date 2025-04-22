@@ -1,5 +1,7 @@
-import { Button } from '@/Button'
+import * as React from 'react'
+
 import { Drawer, useDrawer } from '@/Drawer'
+import { Button } from '@/Button'
 import { Stack } from '@/Stack'
 
 const Example = () => {

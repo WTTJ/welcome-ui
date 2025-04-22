@@ -1,11 +1,9 @@
 'use client'
 import Link from 'next/link'
 import { useParams, usePathname } from 'next/navigation'
-
 import { Tab, useTab } from '@/Tabs'
 
-import type { PageTree } from '~/build-app/types'
-
+import { PageTree } from '~/build-app/types'
 import { getName } from '~/build-app/utils/transform-name'
 
 type TabsProps = {

@@ -1,6 +1,9 @@
-import type React from 'react'
+import React from 'react'
 
-import type { IconProps } from '@/Icon'
+import { formatBytes } from '../../utils/format-bytes'
+
+import { types } from './types'
+
 import {
   AttachmentIcon,
   CameraIcon,
@@ -15,12 +18,35 @@ import {
   XlsxIcon,
   ZipIcon,
 } from '@/Icons'
+import { IconProps } from '@/Icon'
 
-import { formatBytes } from '../../utils/format-bytes'
-import { types } from './types'
+export type FileType = string | File
+export type ForceFileType = 'image' | 'audio' | 'video'
 
-export type FileType = File | string
-export type ForceFileType = 'audio' | 'image' | 'video'
+function removeQueryString(name: string): string {
+  return name.split('?')[0]
+}
+
+export function getFileName(file: FileType): string {
+  if (typeof file === 'string') {
+    return removeQueryString(file).split('/').pop()
+  } else {
+    return file.name
+  }
+}
+
+export function getMimeType(file: FileType): string {
+  if (typeof file === 'string') {
+    const fileName = getFileName(file).split('.').pop()
+    return types[fileName] || null
+  } else {
+    return file.type
+  }
+}
+
+export function getFileSize(file: FileType): string {
+  return file instanceof File && file.size ? formatBytes(file.size, 0) : null
+}
 
 export function getFileIcon(file: FileType, forceFileType?: ForceFileType): React.FC<IconProps> {
   const mimeType = getMimeType(file)
@@ -40,55 +66,29 @@ export function getFileIcon(file: FileType, forceFileType?: ForceFileType): Reac
   }
 
   switch (mimeType) {
-    case 'application/gzip':
-    case 'application/vnd.rar':
-    case 'application/x-7z-compressed':
-    case 'application/x-bzip':
-    case 'application/x-bzip2':
-    case 'application/zip':
-      return ZipIcon
-    case 'application/msword':
-      return DocIcon
     case 'application/pdf':
       return PdfIcon
+    case 'application/msword':
+      return DocIcon
+    case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
+      return DocxIcon
     case 'application/vnd.ms-excel':
       return XlsIcon
+    case 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
+      return XlsxIcon
     case 'application/vnd.ms-powerpoint':
     case 'application/vnd.openxmlformats-officedocument.presentationml.presentation':
       return PptIcon
-    case 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
-      return XlsxIcon
-    case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
-      return DocxIcon
+    case 'application/zip':
+    case 'application/x-bzip':
+    case 'application/x-bzip2':
+    case 'application/x-7z-compressed':
+    case 'application/gzip':
+    case 'application/vnd.rar':
+      return ZipIcon
     case 'text/csv':
       return CsvIcon
     default:
       return AttachmentIcon
   }
-}
-
-export function getFileName(file: FileType): string | undefined {
-  if (typeof file === 'string') {
-    return removeQueryString(file).split('/').pop()
-  } else {
-    return file.name
-  }
-}
-
-export function getFileSize(file: FileType): null | string {
-  return file instanceof File && file.size ? formatBytes(file.size, 0) : null
-}
-
-export function getMimeType(file: FileType): null | string {
-  if (typeof file === 'string') {
-    const fileName = getFileName(file)
-    const extension = fileName ? fileName.split('.').pop() : undefined
-    return (extension && types[extension]) || null
-  } else {
-    return file.type
-  }
-}
-
-function removeQueryString(name: string): string {
-  return name.split('?')[0]
 }

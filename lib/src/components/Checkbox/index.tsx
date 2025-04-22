@@ -1,15 +1,14 @@
 import React from 'react'
 
-import type { CreateWuiProps } from '@/System'
-import { forwardRef } from '@/System'
-
-import type { DefaultFieldStylesProps } from '../../utils/field-styles'
+import { DefaultFieldStylesProps } from '../../utils/field-styles'
 
 import * as S from './styles'
 
+import { CreateWuiProps, forwardRef } from '@/System'
+
 export interface CheckboxOptions extends DefaultFieldStylesProps {
-  checked?: boolean
   Component?: React.ElementType
+  checked?: boolean
   disabled?: boolean
   indeterminate?: boolean
   name?: string
@@ -35,7 +34,7 @@ export const Checkbox = forwardRef<'input', CheckboxProps>(
   ) => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       e.target.checked = !e.target.checked
-      onChange?.(e)
+      onChange && onChange(e)
     }
 
     return (

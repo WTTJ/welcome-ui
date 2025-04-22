@@ -1,9 +1,8 @@
-import type { CSSObject } from '@xstyled/styled-components'
+import { CSSObject } from '@xstyled/styled-components'
 
-import type { ThemeValues } from '@/theme'
+import { ThemeValues } from '@/theme'
 
-// eslint-disable-next-line perfectionist/sort-union-types
-export type Size = 'auto' | 'xs' | 'sm' | 'md' | 'lg'
+export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'auto'
 
 export type ThemeModals = {
   backdrop: CSSObject
@@ -23,65 +22,65 @@ export const getModals = (theme: ThemeValues): ThemeModals => {
       backgroundColor: colors.overlay,
       zIndex: 999,
     },
-    body: {
-      color: colors['neutral-90'],
-      paddingBottom: space.xxl,
-      paddingLeft: space.xxl,
-      paddingRight: space['3xl'],
-    },
-    cover: {},
     default: {
-      borderRadius: radii.md,
       zIndex: 999,
+      borderRadius: radii.md,
     },
-    footer: {
-      backgroundColor: colors['neutral-10'],
-      borderBottomLeftRadius: radii.md,
-      borderBottomRightRadius: radii.md,
-      borderTop: `solid ${colors['neutral-30']}`,
-      children: {
-        paddingBottom: space.xl,
-        paddingLeft: space.xxl,
-        paddingRight: space.xxl,
-        paddingTop: space.lg,
-      },
-      information: {
-        backgroundColor: colors['beige-20'],
-        paddingBottom: space.xxl,
-        paddingLeft: space.xxl,
-        paddingRight: space.xxl,
-        paddingTop: space.xl,
-      },
-    },
-    gutter: toRem(32),
     header: {
       backgroundColor: colors['neutral-10'],
       borderTopLeftRadius: radii.md,
       borderTopRightRadius: radii.md,
+      paddingTop: space.xxl,
+      paddingRight: space['3xl'],
       paddingBottom: space.xxl,
       paddingLeft: space.xxl,
-      paddingRight: space['3xl'],
-      paddingTop: space.xxl,
       subtitle: {
         color: colors['neutral-70'],
-        margin: 0,
         variant: 'sm',
+        margin: 0,
       },
     },
-    sizes: {
-      auto: {},
-      lg: {
-        width: toRem(730),
+    body: {
+      color: colors['neutral-90'],
+      paddingRight: space['3xl'],
+      paddingBottom: space.xxl,
+      paddingLeft: space.xxl,
+    },
+    footer: {
+      backgroundColor: colors['neutral-10'],
+      borderTop: `solid ${colors['neutral-30']}`,
+      borderBottomLeftRadius: radii.md,
+      borderBottomRightRadius: radii.md,
+      children: {
+        paddingRight: space.xxl,
+        paddingLeft: space.xxl,
+        paddingTop: space.lg,
+        paddingBottom: space.xl,
       },
-      md: {
-        width: toRem(600),
+      information: {
+        backgroundColor: colors['beige-20'],
+        paddingRight: space.xxl,
+        paddingLeft: space.xxl,
+        paddingTop: space.xl,
+        paddingBottom: space.xxl,
+      },
+    },
+    gutter: toRem(32),
+    sizes: {
+      xs: {
+        width: toRem(320),
       },
       sm: {
         width: toRem(450),
       },
-      xs: {
-        width: toRem(320),
+      md: {
+        width: toRem(600),
       },
+      lg: {
+        width: toRem(730),
+      },
+      auto: {},
     },
+    cover: {},
   }
 }

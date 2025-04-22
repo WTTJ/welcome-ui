@@ -79,6 +79,8 @@ export const openStackBlitz = ({ code, name }: { code: string; name: string }) =
 
   sdk.openProject(
     {
+      title: `${name} - Playground [Welcome UI]`,
+      template: 'node',
       files: {
         'demo.tsx': code,
         'index.html': indexHtml,
@@ -90,12 +92,10 @@ export const openStackBlitz = ({ code, name }: { code: string; name: string }) =
       settings: {
         compile: {
           action: 'npm install && npm run dev',
-          clearConsole: false,
           trigger: 'auto',
+          clearConsole: false,
         },
       },
-      template: 'node',
-      title: `${name} - Playground [Welcome UI]`,
     },
     {
       openFile: ['demo.tsx'],

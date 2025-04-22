@@ -1,11 +1,6 @@
 import { css } from '@xstyled/styled-components'
 
-import type { ThemeValues } from '@/theme'
-
-type Font = {
-  name: string
-  variation: FontVariation
-}
+import { ThemeValues } from '@/theme'
 
 type FontVariation = {
   display?: FontDisplay
@@ -17,20 +12,25 @@ type FontVariation = {
   weight?: string
 }
 
+type Font = {
+  name: string
+  variation: FontVariation
+}
+
 export function getSource(
   url: FontVariation['url'],
   extensions: FontVariation['extensions'],
   isVariable: FontVariation['isVariable']
 ) {
   /** variable icon font */
-  if (isVariable && extensions) {
+  if (isVariable) {
     return extensions
       .map((extension: string) => `url('${url}.${extension}') format('${extension}-variations')`)
       .join(', ')
   }
 
   return extensions
-    ?.map((extension: string) => `url('${url}.${extension}') format('${extension}')`)
+    .map((extension: string) => `url('${url}.${extension}') format('${extension}')`)
     .join(', ')
 }
 
@@ -48,11 +48,8 @@ function getFont({
 }: Font) {
   return css`
     @font-face {
-      /* stylelint-disable-next-line at-rule-descriptor-value-no-unknown */
-      font-family: ${String(name)};
-      /* stylelint-disable-next-line at-rule-descriptor-value-no-unknown */
+      font-family: ${name};
       src: ${getSource(url, extensions, isVariable)};
-      /* stylelint-disable-next-line at-rule-descriptor-value-no-unknown */
       font-display: ${display};
       ${weight &&
       css`
@@ -70,10 +67,12 @@ function getFont({
   `
 }
 
-export const fonts = (theme: ThemeValues): null | ReturnType<typeof css> => {
-  if (!theme || !theme.fontFaces) return null
+export const fonts =
+  () =>
+  ({ theme }: { theme: ThemeValues }): ReturnType<typeof css> => {
+    if (!theme || !theme.fontFaces) return null
 
-  return Object.entries(theme.fontFaces).map(([name, variations]) =>
-    variations.map(variation => getFont({ name, variation }))
-  )
-}
+    return Object.entries(theme.fontFaces).map(([name, variations]) =>
+      variations.map(variation => getFont({ name, variation }))
+    )
+  }

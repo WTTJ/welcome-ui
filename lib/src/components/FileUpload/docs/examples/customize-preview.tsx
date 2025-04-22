@@ -1,12 +1,11 @@
 import * as React from 'react'
 
-import { Box } from '@/Box'
+import { FileUpload, FileUploadPreviewProps } from '@/FileUpload'
 import { Button } from '@/Button'
 import { getFileIcon, getFileName, getFileSize } from '@/Files'
-import type { FileUploadPreviewProps } from '@/FileUpload'
-import { FileUpload } from '@/FileUpload'
 import { CrossIcon } from '@/Icons'
 import { Tag } from '@/Tag'
+import { Box } from '@/Box'
 
 const Example = () => {
   const handleChange = () => {
@@ -32,7 +31,7 @@ const Example = () => {
         >
           <Icon mr="sm" size="lg" />
           {name}
-          {size ? <Box color="beige-60">({size})</Box> : null}
+          {size && <Box color="beige-60">({size})</Box>}
           <Button ml="xxl" onClick={onRemove} shape="square" size="sm" variant="ghost">
             <CrossIcon />
           </Button>

@@ -1,72 +1,72 @@
-import { Box } from '@/Box'
-import { Flex } from '@/Flex'
-import { Grid } from '@/Grid'
-import { ExternalLinkIcon, HeartIcon } from '@/Icons'
-import { Logo } from '@/Logo'
-import { Text } from '@/Text'
-
 import { Section } from '../Section'
+
+import { ExternalLinkIcon, HeartIcon } from '@/Icons'
+import { Flex } from '@/Flex'
+import { Text } from '@/Text'
+import { Box } from '@/Box'
+import { Grid } from '@/Grid'
+import { Logo } from '@/Logo'
 
 const links = [
   {
-    links: [
-      {
-        isExternal: false,
-        link: '/foundations',
-        name: 'Foundations',
-      },
-      {
-        isExternal: false,
-        link: '/components',
-        name: 'Components',
-      },
-      {
-        isExternal: true,
-        link: 'https://github.com/WTTJ/welcome-ui/',
-        name: 'Source code',
-      },
-    ],
     name: 'Documentations',
-  },
-  {
     links: [
       {
-        isExternal: true,
-        link: 'https://github.com/WTTJ/welcome-ui/releases',
-        name: 'Releases',
+        name: 'Foundations',
+        link: '/foundations',
+        isExternal: false,
       },
       {
+        name: 'Components',
+        link: '/components',
+        isExternal: false,
+      },
+      {
+        name: 'Source code',
+        link: 'https://github.com/WTTJ/welcome-ui/',
         isExternal: true,
-        link: 'https://github.com/orgs/WTTJ/projects/13',
-        name: 'Project board',
       },
     ],
+  },
+  {
     name: 'Updates',
-  },
-  {
     links: [
       {
+        name: 'Releases',
+        link: 'https://github.com/WTTJ/welcome-ui/releases',
         isExternal: true,
-        link: 'https://github.com/WTTJ',
-        name: 'Github',
       },
       {
+        name: 'Project board',
+        link: 'https://github.com/orgs/WTTJ/projects/13',
         isExternal: true,
-        link: 'https://x.com/wttj_tech',
-        name: 'Twitter',
-      },
-      {
-        isExternal: true,
-        link: 'https://medium.com/wttj-tech',
-        name: 'Medium',
-      },
-      {
-        isExternal: true,
-        link: 'https://www.welcometothejungle.com/en/companies/wttj/jobs',
-        name: 'Jobs',
       },
     ],
+  },
+  {
     name: 'Community',
+    links: [
+      {
+        name: 'Github',
+        link: 'https://github.com/WTTJ',
+        isExternal: true,
+      },
+      {
+        name: 'Twitter',
+        link: 'https://x.com/wttj_tech',
+        isExternal: true,
+      },
+      {
+        name: 'Medium',
+        link: 'https://medium.com/wttj-tech',
+        isExternal: true,
+      },
+      {
+        name: 'Jobs',
+        link: 'https://www.welcometothejungle.com/en/companies/wttj/jobs',
+        isExternal: true,
+      },
+    ],
   },
 ]
 
@@ -107,7 +107,7 @@ export const Footer = () => {
                     textDecoration={{ hover: 'underline' }}
                   >
                     {name}
-                    {isExternal ? <ExternalLinkIcon color="neutral-60" size="xs" /> : null}
+                    {isExternal && <ExternalLinkIcon color="neutral-60" size="xs" />}
                   </Box>
                 </Box>
               ))}

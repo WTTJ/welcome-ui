@@ -1,13 +1,13 @@
 'use client'
 import { useEffect, useState } from 'react'
-
-import { Box } from '@/Box'
-import { Flex } from '@/Flex'
-import { Text } from '@/Text'
-
-import type { Toc } from '~/build-app/utils/page-tree'
+import NextLink from 'next/link'
 
 import * as S from './styles'
+
+import { Box } from '@/Box'
+import { Text } from '@/Text'
+import { Flex } from '@/Flex'
+import { Toc } from '~/build-app/utils/page-tree'
 
 type TableOfContentProps = {
   isSubPage?: boolean
@@ -30,6 +30,8 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
       }, [] as string[])
       .reverse()
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore FIXME
     const onScroll = () => {
       if (!ids || ids.length === 0) return null
 
@@ -41,7 +43,7 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
         return top - Number.parseInt(scrollMarginTop) - 40 <= 0
       })
 
-      return setActiveId(activeId ?? '')
+      setActiveId(activeId ?? '')
     }
 
     onScroll()
@@ -60,28 +62,34 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
         <Flex as="ul" direction="column" gap="lg">
           {tree.map(item => (
             <Flex as="li" direction="column" gap="sm" key={item.href}>
+              {/* // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore FIXME */}
               <S.Link
                 aria-current={`#${activeId}` === item.href ? 'page' : undefined}
+                as={NextLink}
                 href={item.href}
-                paddingLeft="lg"
+                pl="lg"
               >
                 {item.title}
               </S.Link>
-              {item.children ? (
+              {item.children && (
                 <Flex as="ul" direction="column" gap="xs">
                   {item.children.map(child => (
                     <Box as="li" key={child.href}>
+                      {/* // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                      // @ts-ignore FIXME */}
                       <S.Link
                         aria-current={`#${activeId}` === child.href ? 'page' : undefined}
+                        as={NextLink}
                         href={child.href}
-                        paddingLeft="xxl"
+                        pl="xxl"
                       >
                         {child.title}
                       </S.Link>
                     </Box>
                   ))}
                 </Flex>
-              ) : null}
+              )}
             </Flex>
           ))}
         </Flex>

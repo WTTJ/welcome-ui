@@ -20,7 +20,7 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "\"yellow-10\" | \"yellow-20\" | \"yellow-30\" | \"yellow-40\" | \"yellow-50\" | \"yellow-60\" | \"yellow-70\" | \"yellow-80\" | \"yellow-90\" | \"blue-40\" | \"green-30\" | \"red-orange-40\" | \"pink-40\" | ... 102 more ...",
+          "raw": "\"yellow-10\" | \"yellow-20\" | \"yellow-30\" | \"yellow-40\" | \"yellow-50\" | \"yellow-60\" | \"yellow-70\" | \"yellow-80\" | \"yellow-90\" | \"blue-40\" | \"green-30\" | \"red-orange-40\" | \"pink-40\" | ... 101 more ... | \"violet-90\"",
           "value": [
             {
               "value": "\"yellow-10\""
@@ -68,9 +68,6 @@
               "value": "\"violet-40\""
             },
             {
-              "value": "\"overlay\""
-            },
-            {
               "value": "\"primary-10\""
             },
             {
@@ -114,6 +111,9 @@
             },
             {
               "value": "\"secondary-violet\""
+            },
+            {
+              "value": "\"overlay\""
             },
             {
               "value": "\"beige-10\""
@@ -421,9 +421,6 @@
           "name": "enum",
           "raw": "ReactNode",
           "value": [
-            {
-              "value": "null"
-            },
             {
               "value": "string"
             },

@@ -1,11 +1,11 @@
-import * as Ariakit from '@ariakit/react'
 import styled, { css, system, th } from '@xstyled/styled-components'
+import * as Ariakit from '@ariakit/react'
 
-import type { CheckboxProps } from '@/Checkbox'
+import { Size } from './theme'
+
+import { ToggleOptions } from './index'
+
 import { shouldForwardProp } from '@/System'
-
-import type { ToggleOptions } from './index'
-import type { Size } from './theme'
 
 export const Toggle = styled(Ariakit.Checkbox).withConfig({ shouldForwardProp })<ToggleOptions>(
   ({ order = '-1', size }) => css`
@@ -60,14 +60,14 @@ export const Toggle = styled(Ariakit.Checkbox).withConfig({ shouldForwardProp })
   `
 )
 
-export const Wrapper = styled.divBox<{ onClick: CheckboxProps['onClick'] }>`
+export const Wrapper = styled.divBox<{ onClick: React.MouseEventHandler<HTMLInputElement> }>`
   position: relative;
   display: inline-block;
   cursor: pointer;
 `
 
 export const IconWrapper = styled.divBox.withConfig({ shouldForwardProp })<{
-  checked?: boolean
+  checked: boolean
   size: Size
 }>(
   ({ checked, size }) => css`

@@ -6,12 +6,12 @@
         "description": "Determines whether the content should animate when it is shown or hidden.\n- If `true`, the `animating` state will be `true` when the content is shown\n  or hidden and it will wait for a CSS animation/transition to end before\n  becoming `false`.\n- If it's set to a number, the `animating` state will be `true` when the\n  content is shown or hidden and it will wait for the number of\n  milliseconds to pass before becoming `false`.\n@deprecated Manually setting the `animated` prop is no longer necessary.\nThis will be removed in a future release.",
         "name": "animated",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/core/esm/disclosure/disclosure-store.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/core/cjs/disclosure/disclosure-store.d.ts",
           "name": "DisclosureStoreOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/core/esm/disclosure/disclosure-store.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/core/cjs/disclosure/disclosure-store.d.ts",
             "name": "DisclosureStoreOptions"
           }
         ],
@@ -39,12 +39,12 @@
         "description": "Whether the content should be visible by default.",
         "name": "defaultOpen",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/core/esm/disclosure/disclosure-store.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/core/cjs/disclosure/disclosure-store.d.ts",
           "name": "DisclosureStoreOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/core/esm/disclosure/disclosure-store.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/core/cjs/disclosure/disclosure-store.d.ts",
             "name": "DisclosureStoreOptions"
           }
         ],
@@ -67,30 +67,18 @@
         "description": "A reference to another disclosure store that controls another disclosure\ncomponent to keep them in sync. Element states like `contentElement` and\n`disclosureElement` won't be synced. For that, use the\n[`store`](https://ariakit.org/reference/disclosure-provider#store) prop\ninstead.\n\nLive examples:\n- [Command Menu](https://ariakit.org/examples/dialog-combobox-command-menu)",
         "name": "disclosure",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/disclosure/disclosure-store.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/disclosure/disclosure-store.d.ts",
           "name": "DisclosureStoreOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/disclosure/disclosure-store.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/disclosure/disclosure-store.d.ts",
             "name": "DisclosureStoreOptions"
           }
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "DisclosureStore | null",
-          "value": [
-            {
-              "value": "null"
-            },
-            {
-              "value": "DisclosureStore",
-              "description": "",
-              "fullComment": "",
-              "tags": {}
-            }
-          ]
+          "name": "DisclosureStore"
         }
       },
       "setMounted": {
@@ -98,27 +86,18 @@
         "description": "A callback that gets called when the `mounted` state changes.\n@example const [mounted, setMounted] = useState(false);\nconst disclosure = useDisclosureStore({ setMounted });",
         "name": "setMounted",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/disclosure/disclosure-store.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/disclosure/disclosure-store.d.ts",
           "name": "DisclosureStoreOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/disclosure/disclosure-store.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/disclosure/disclosure-store.d.ts",
             "name": "DisclosureStoreOptions"
           }
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "((mounted: boolean) => void)",
-          "value": [
-            {
-              "value": "(mounted: boolean) => void",
-              "description": "",
-              "fullComment": "",
-              "tags": {}
-            }
-          ]
+          "name": "(mounted: boolean) => void"
         }
       },
       "setOpen": {
@@ -126,27 +105,18 @@
         "description": "A callback that gets called when the\n[`open`](https://ariakit.org/reference/disclosure-provider#open) state\nchanges.\n@example const [open, setOpen] = useState(false);\nconst disclosure = useDisclosureStore({ open, setOpen });",
         "name": "setOpen",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/disclosure/disclosure-store.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/disclosure/disclosure-store.d.ts",
           "name": "DisclosureStoreOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/disclosure/disclosure-store.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/disclosure/disclosure-store.d.ts",
             "name": "DisclosureStoreOptions"
           }
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "((open: boolean) => void)",
-          "value": [
-            {
-              "value": "(open: boolean) => void",
-              "description": "",
-              "fullComment": "",
-              "tags": {}
-            }
-          ]
+          "name": "(open: boolean) => void"
         }
       }
     }

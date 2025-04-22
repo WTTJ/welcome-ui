@@ -1,7 +1,6 @@
-/* eslint-disable no-console */
-/* eslint-disable @typescript-eslint/no-require-imports */
-const fs = require('fs')
+/* eslint-disable no-console, @typescript-eslint/no-var-requires */
 const path = require('path')
+const fs = require('fs')
 const util = require('util')
 
 export const toPascalCase = str => {
@@ -33,10 +32,10 @@ const writeIconContentsJson = (outputFolder, content, key) => {
   }
 
   let fileContent = {
-    block: svgContent,
+    width: 15,
     height: 15,
     viewBox,
-    width: 15,
+    block: svgContent,
   }
 
   if (isFlag) {

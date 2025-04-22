@@ -6,13 +6,12 @@ const isValidHex = (hex: string) => /(^[0-9a-fA-F]{6}$)|(^[0-9a-fA-F]{3}$)/.test
 
 export const hexToRGB = (hex: string): string => {
   if (!hex) {
-    return ''
+    return
   }
 
   hex = hex.replace('#', '')
-
   if (!isValidHex(hex)) {
-    return ''
+    return
   }
 
   if (hex.length === 3) {

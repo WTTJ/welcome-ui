@@ -1,113 +1,51 @@
-import type {
+import {
   CSSScalar,
+  defaultTheme,
+  rpxTransformers,
   ITheme as StyledComponentDefaultTheme,
   DefaultTheme as XStyledDefaultTheme,
 } from '@xstyled/styled-components'
-
-import { defaultTheme, rpxTransformers } from '@xstyled/styled-components'
 import merge from 'ramda/src/mergeDeepRight'
 
-import type { ThemeAccordions } from '../components/Accordion/theme'
-import type { ThemeAlerts } from '../components/Alert/theme'
-import type { ThemeAvatars } from '../components/Avatar/theme'
-import type { ThemeBadges } from '../components/Badge/theme'
-import type { ThemeBreadcrumbs } from '../components/Breadcrumb/theme'
-import type { ThemeButtons } from '../components/Button/theme'
-import type { ThemeCards } from '../components/Card/theme'
-import type { ThemeCheckboxes } from '../components/Checkbox/theme'
-import type { ThemeDateTimePickerCommon } from '../components/DateTimePickerCommon/theme'
-import type { ThemeDrawers } from '../components/Drawer/theme'
-import type { ThemeDropdownMenu } from '../components/DropdownMenu/theme'
-import type { ThemeFileDrops } from '../components/FileDrop/theme'
-import type { ThemeHints } from '../components/Hint/theme'
-import type { ThemeIcons } from '../components/Icon/theme'
-import type { ThemeLabels } from '../components/Label/theme'
-import type { ThemeLinks } from '../components/Link/theme'
-import type { ThemeLoaders } from '../components/Loader/theme'
-import type { ThemeModals } from '../components/Modal/theme'
-import type { ThemePagination } from '../components/Pagination/theme'
-import type { ThemePopovers } from '../components/Popover/theme'
-import type { ThemeRadios } from '../components/Radio/theme'
-import type { ThemeRadioTabs } from '../components/RadioTab/theme'
-import type { ThemeSliders } from '../components/Slider/theme'
-import type { ThemeSwipers } from '../components/Swiper/theme'
-import type { ThemeTables } from '../components/Table/theme'
-import type { ThemeTabs } from '../components/Tabs/theme'
-import type { ThemeTags } from '../components/Tag/theme'
-import type { ThemeTextareas } from '../components/Textarea/theme'
-import type { ThemeToasts } from '../components/Toast/theme'
-import type { ThemeToggles } from '../components/Toggle/theme'
-import type { ThemeTooltips } from '../components/Tooltip/theme'
-import type { ThemeVariantIcon } from '../components/VariantIcon/theme'
-import type { ThemeBorderWidths } from './borders'
-import type { ThemeColors } from './colors'
-import type { ThemeDefaultFields } from './defaultFields'
-import type { ThemeFocus } from './focus'
-import type { ThemeFontFaces } from './fonts'
-import type { ThemeRadii } from './radii'
-import type { ThemeScreens } from './screens'
-import type { ThemeSelection } from './selection'
-import type { ThemeShadows } from './shadows'
-import type { ThemeSpace } from './space'
-import type { ThemeTimingFunction, ThemeTransitions } from './transitions'
-import type {
-  ThemeFonts,
-  ThemeFontSizes,
-  ThemeFontWeights,
-  ThemeLetterSpacings,
-  ThemeLineHeights,
-  ThemeTexts,
-  ThemeTextsFontColors,
-  ThemeTextsFontFamily,
-  ThemeTextsFontWeights,
-  ThemeTextsTextTransform,
-} from './typography'
-import type { ThemeUnderline } from './underline'
+import { getAccordions, ThemeAccordions } from '../components/Accordion/theme'
+import { getAlerts, ThemeAlerts } from '../components/Alert/theme'
+import { getAvatars, ThemeAvatars } from '../components/Avatar/theme'
+import { getBadges, ThemeBadges } from '../components/Badge/theme'
+import { getBreadcrumbs, ThemeBreadcrumbs } from '../components/Breadcrumb/theme'
+import { getButtons, ThemeButtons } from '../components/Button/theme'
+import { getCards, ThemeCards } from '../components/Card/theme'
+import {
+  getDateTimePickerCommon,
+  ThemeDateTimePickerCommon,
+} from '../components/DateTimePickerCommon/theme'
+import { getCheckboxes, ThemeCheckboxes } from '../components/Checkbox/theme'
+import { getDrawers, ThemeDrawers } from '../components/Drawer/theme'
+import { getDropdownMenu, ThemeDropdownMenu } from '../components/DropdownMenu/theme'
+import { getFileDrops, ThemeFileDrops } from '../components/FileDrop/theme'
+import { getHints, ThemeHints } from '../components/Hint/theme'
+import { getLabels, ThemeLabels } from '../components/Label/theme'
+import { getLinks, ThemeLinks } from '../components/Link/theme'
+import { getLoaders, ThemeLoaders } from '../components/Loader/theme'
+import { getIcons, ThemeIcons } from '../components/Icon/theme'
+import { getModals, ThemeModals } from '../components/Modal/theme'
+import { getPagination, ThemePagination } from '../components/Pagination/theme'
+import { getPopovers, ThemePopovers } from '../components/Popover/theme'
+import { getRadios, ThemeRadios } from '../components/Radio/theme'
+import { getRadioTabs, ThemeRadioTabs } from '../components/RadioTab/theme'
+import { getSliders, ThemeSliders } from '../components/Slider/theme'
+import { getSwipers, ThemeSwipers } from '../components/Swiper/theme'
+import { getTables, ThemeTables } from '../components/Table/theme'
+import { getTabs, ThemeTabs } from '../components/Tabs/theme'
+import { getTags, ThemeTags } from '../components/Tag/theme'
+import { getTextareas, ThemeTextareas } from '../components/Textarea/theme'
+import { getToasts, ThemeToasts } from '../components/Toast/theme'
+import { getToggles, ThemeToggles } from '../components/Toggle/theme'
+import { getTooltips, ThemeTooltips } from '../components/Tooltip/theme'
+import { getVariantIcon, ThemeVariantIcon } from '../components/VariantIcon/theme'
 
-import { getAccordions } from '../components/Accordion/theme'
-import { getAlerts } from '../components/Alert/theme'
-import { getAvatars } from '../components/Avatar/theme'
-import { getBadges } from '../components/Badge/theme'
-import { getBreadcrumbs } from '../components/Breadcrumb/theme'
-import { getButtons } from '../components/Button/theme'
-import { getCards } from '../components/Card/theme'
-import { getCheckboxes } from '../components/Checkbox/theme'
-import { getDateTimePickerCommon } from '../components/DateTimePickerCommon/theme'
-import { getDrawers } from '../components/Drawer/theme'
-import { getDropdownMenu } from '../components/DropdownMenu/theme'
-import { getFileDrops } from '../components/FileDrop/theme'
-import { getHints } from '../components/Hint/theme'
-import { getIcons } from '../components/Icon/theme'
-import { getLabels } from '../components/Label/theme'
-import { getLinks } from '../components/Link/theme'
-import { getLoaders } from '../components/Loader/theme'
-import { getModals } from '../components/Modal/theme'
-import { getPagination } from '../components/Pagination/theme'
-import { getPopovers } from '../components/Popover/theme'
-import { getRadios } from '../components/Radio/theme'
-import { getRadioTabs } from '../components/RadioTab/theme'
-import { getSliders } from '../components/Slider/theme'
-import { getSwipers } from '../components/Swiper/theme'
-import { getTables } from '../components/Table/theme'
-import { getTabs } from '../components/Tabs/theme'
-import { getTags } from '../components/Tag/theme'
-import { getTextareas } from '../components/Textarea/theme'
-import { getToasts } from '../components/Toast/theme'
-import { getToggles } from '../components/Toggle/theme'
-import { getTooltips } from '../components/Tooltip/theme'
-import { getVariantIcon } from '../components/VariantIcon/theme'
-import { borderWidths } from './borders'
-import { colors } from './colors'
 import { darkTheme } from './dark'
-import { getDefaultFields } from './defaultFields'
-import { getFocus } from './focus'
-import { fontFaces } from './fonts'
-import { getRadii } from './radii'
-import { screens } from './screens'
-import { getSelection } from './selection'
-import { shadows } from './shadows'
-import { getSpace } from './space'
-import { timingFunction, transitions } from './transitions'
+import { colors, ThemeColors } from './colors'
+import { fontFaces, ThemeFontFaces } from './fonts'
 import {
   fontWeights,
   getFonts,
@@ -119,8 +57,27 @@ import {
   getTextsFontFamily,
   getTextsFontWeights,
   getTextsTextTransform,
+  ThemeFonts,
+  ThemeFontSizes,
+  ThemeFontWeights,
+  ThemeLetterSpacings,
+  ThemeLineHeights,
+  ThemeTexts,
+  ThemeTextsFontColors,
+  ThemeTextsFontFamily,
+  ThemeTextsFontWeights,
+  ThemeTextsTextTransform,
 } from './typography'
-import { getUnderline } from './underline'
+import { ThemeTimingFunction, ThemeTransitions, timingFunction, transitions } from './transitions'
+import { getUnderline, ThemeUnderline } from './underline'
+import { getRadii, ThemeRadii } from './radii'
+import { borderWidths, ThemeBorderWidths } from './borders'
+import { screens, ThemeScreens } from './screens'
+import { shadows, ThemeShadows } from './shadows'
+import { getSpace, ThemeSpace } from './space'
+import { getSelection, ThemeSelection } from './selection'
+import { getFocus, ThemeFocus } from './focus'
+import { getDefaultFields, ThemeDefaultFields } from './defaultFields'
 
 const DEFAULT_FONT_FAMILY = 'work-sans'
 const DEFAULT_FONT_SIZE = 16
@@ -130,24 +87,25 @@ const FONTS_URL = 'https://cdn.welcome-ui.com/fonts'
 const HEADING_FONT_FAMILY = 'welcome-font'
 const ICON_FONT_FAMILY = 'welcome-icon-font'
 
-export type ThemeColorTokens = keyof ThemeColors
+type OverrideKeys =
+  | 'colors'
+  | 'radii'
+  | 'borderWidths'
+  | 'fontSizes'
+  | 'lineHeights'
+  | 'fontWeights'
+  | 'letterSpacings'
+  | 'fonts'
+  | 'sizes'
+  | 'screens'
+  | 'space'
+  | 'shadows'
+  | 'texts'
 
-export type ThemeFontsUrl =
-  | 'https://cdn.welcome-ui.com/fonts'
-  | 'https://cdn.welcometothejungle.com/fonts'
-  | string
-export type ThemeProps = {
-  [param: string]: unknown
-  defaultFontFamily?: string
-  defaultFontSize?: number
-  defaultLetterSpacing?: string
-  defaultLineHeight?: number
-  fontsUrl?: ThemeFontsUrl
-  headingFontFamily?: string
-  iconFontFamily?: string
-}
+type XStyledTheme = Omit<XStyledDefaultTheme, OverrideKeys>
+type StyledComponentsTheme = Omit<StyledComponentDefaultTheme, OverrideKeys>
 
-export interface ThemeValues extends Omit<XStyledTheme, 'transitions'>, StyledComponentsTheme {
+export interface ThemeValues extends XStyledTheme, StyledComponentsTheme {
   accordions: ThemeAccordions
   alerts: ThemeAlerts
   avatars: ThemeAvatars
@@ -167,10 +125,10 @@ export interface ThemeValues extends Omit<XStyledTheme, 'transitions'>, StyledCo
   fileDrops: ThemeFileDrops
   focus: ThemeFocus
   fontFaces: ThemeFontFaces
-  fonts: ThemeFonts
   fontSizes: ThemeFontSizes
-  fontsUrl: ThemeFontsUrl
   fontWeights: ThemeFontWeights
+  fonts: ThemeFonts
+  fontsUrl: ThemeFontsUrl
   hints: ThemeHints
   icons: ThemeIcons
   inset: ThemeSpace
@@ -201,12 +159,12 @@ export interface ThemeValues extends Omit<XStyledTheme, 'transitions'>, StyledCo
   textsFontWeights: ThemeTextsFontWeights
   textsTextTransform: ThemeTextsTextTransform
   timingFunction: ThemeTimingFunction
-  toasts: ThemeToasts
   toEm: (int: number) => string
-  toggles: ThemeToggles
-  tooltips: ThemeTooltips
   toPx: (int: number) => string
   toRem: (int: number) => string
+  toasts: ThemeToasts
+  toggles: ThemeToggles
+  tooltips: ThemeTooltips
   transformers: {
     border: (value: CSSScalar) => CSSScalar
     px: (value: CSSScalar) => CSSScalar
@@ -216,24 +174,23 @@ export interface ThemeValues extends Omit<XStyledTheme, 'transitions'>, StyledCo
   variantIcon: ThemeVariantIcon
 }
 
-type OverrideKeys =
-  | 'borderWidths'
-  | 'colors'
-  | 'fonts'
-  | 'fontSizes'
-  | 'fontWeights'
-  | 'letterSpacings'
-  | 'lineHeights'
-  | 'radii'
-  | 'screens'
-  | 'shadows'
-  | 'sizes'
-  | 'space'
-  | 'texts'
+export type ThemeFontsUrl =
+  | 'https://cdn.welcome-ui.com/fonts'
+  | 'https://cdn.welcometothejungle.com/fonts'
+  | string
 
-type StyledComponentsTheme = Omit<StyledComponentDefaultTheme, OverrideKeys>
+export type ThemeColorTokens = keyof ThemeColors
 
-type XStyledTheme = Omit<XStyledDefaultTheme, OverrideKeys>
+export type ThemeProps = {
+  [param: string]: unknown
+  defaultFontFamily?: string
+  defaultFontSize?: number
+  defaultLetterSpacing?: string
+  defaultLineHeight?: number
+  fontsUrl?: ThemeFontsUrl
+  headingFontFamily?: string
+  iconFontFamily?: string
+}
 
 export const createTheme = (options: ThemeProps = {}): ThemeValues => {
   const {

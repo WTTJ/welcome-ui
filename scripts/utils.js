@@ -1,6 +1,6 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
-const fs = require('fs')
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path')
+const fs = require('fs')
 const util = require('util')
 
 require('colors')
@@ -30,7 +30,7 @@ export const readIconsFromAssets = () => {
           const [key] = file.split('.')
           return fs
             .readFileAsync(path.join(INPUT_PATH, file), 'utf8')
-            .then(content => ({ content, key }))
+            .then(content => ({ key, content }))
         })
       )
     )

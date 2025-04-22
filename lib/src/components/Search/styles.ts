@@ -1,12 +1,12 @@
 import styled, { css, th } from '@xstyled/styled-components'
 
-import { StyledIcon } from '@/Icon'
-import { shouldForwardProp } from '@/System'
-
-import type { SearchOptions } from './index'
-
 import { defaultFieldStyles } from '../../utils/field-styles'
 import { overflowEllipsis } from '../../utils/overflow-ellipsis'
+
+import { SearchOptions } from './index'
+
+import { shouldForwardProp } from '@/System'
+import { StyledIcon } from '@/Icon'
 
 export const Wrapper = styled.divBox.withConfig({ shouldForwardProp })`
   position: relative;
@@ -19,7 +19,7 @@ export const InputWrapper = styled.div`
 export const Input = styled.inputBox.withConfig({ shouldForwardProp })<SearchOptions>(
   ({ iconPlacement, size, transparent, variant }) => css`
     position: relative;
-    ${defaultFieldStyles({ iconPlacement, isClearable: true, size, transparent, variant })};
+    ${defaultFieldStyles({ iconPlacement, size, variant, transparent, isClearable: true })};
     ${overflowEllipsis};
 
     br {

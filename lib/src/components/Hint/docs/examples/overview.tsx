@@ -1,3 +1,5 @@
+import * as React from 'react'
+
 import { Hint } from '@/Hint'
 
 const Example = () => {

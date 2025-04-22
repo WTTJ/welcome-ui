@@ -1,3 +1,5 @@
+import * as React from 'react'
+
 import { Tab, useTab } from '@/Tabs'
 
 const Example = () => {

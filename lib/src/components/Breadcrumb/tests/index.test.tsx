@@ -1,25 +1,28 @@
+import React from 'react'
+
 import { Breadcrumb } from '../'
 import { render } from '../../../../tests'
 
 describe('<Breadcrumb>', () => {
   beforeEach(() => {
-    window.MutationObserver = class MutationObserver {
-      constructor() {}
-      disconnect() {
-        return {}
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-extra-semi
+    ;(window as any).MutationObserver = function () {
+      return {
+        disconnect: () => {
+          return {}
+        },
+        observe: () => {
+          return {}
+        },
+        takeRecords: () => {
+          return {}
+        },
       }
-      observe() {
-        return {}
-      }
-      takeRecords() {
-        return {}
-      }
-    } as unknown as typeof MutationObserver
+    }
   })
 
   afterEach(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    delete (window as any).MutationObserver
+    delete window.MutationObserver
   })
 
   it('should render correctly', () => {

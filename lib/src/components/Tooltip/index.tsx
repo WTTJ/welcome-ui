@@ -1,21 +1,18 @@
-import type { ReactElement } from 'react'
-
+import React, { ReactElement, useEffect, useState } from 'react'
 import * as Ariakit from '@ariakit/react'
-import React, { useEffect, useState } from 'react'
-
-import { Box } from '@/Box'
-import type { CreateWuiProps } from '@/System'
-import { forwardRef } from '@/System'
 
 import * as S from './styles'
 
+import { Box } from '@/Box'
+import { CreateWuiProps, forwardRef } from '@/System'
+
 export type TooltipOptions = {
   children: React.ReactNode
-  content: JSX.Element | string
+  content: string | JSX.Element
   fixed?: boolean
   withArrow?: boolean
-} & Pick<Ariakit.TooltipOptions, 'gutter'> &
-  Pick<Ariakit.TooltipStoreProps, 'placement'>
+} & Pick<Ariakit.TooltipStoreProps, 'placement'> &
+  Pick<Ariakit.TooltipOptions, 'gutter'>
 
 export type TooltipProps = CreateWuiProps<'div', TooltipOptions>
 
@@ -25,14 +22,14 @@ export const Tooltip = forwardRef<'div', TooltipProps>(
       children,
       content,
       fixed = false,
-      gutter = 8,
       placement = fixed ? 'top' : 'bottom',
+      gutter = 8,
       withArrow,
       ...rest
     },
     ref
   ) => {
-    const tooltip = Ariakit.useTooltipStore({ animated: 300, placement })
+    const tooltip = Ariakit.useTooltipStore({ placement, animated: 300 })
     const [position, setPosition] = useState({ x: 0, y: 0 })
     const { render, stopAnimation } = tooltip
     const { anchorElement, currentPlacement, mounted, popoverElement } = tooltip.useState()
@@ -42,8 +39,8 @@ export const Tooltip = forwardRef<'div', TooltipProps>(
 
       Object.assign(popoverElement.style, {
         display: mounted ? 'block' : 'none',
-        left: `${position.x}px`,
         position: 'absolute',
+        left: `${position.x}px`,
         top: `${position.y + window.scrollY + 20}px`,
       })
     }
@@ -65,8 +62,6 @@ export const Tooltip = forwardRef<'div', TooltipProps>(
           anchorElement.removeEventListener('mousemove', onMouseMove)
         }
       }
-
-      return undefined // Explicit return for the case when anchorElement is falsy or fixed is true
     }, [render, fixed, anchorElement])
 
     // If no content, simply return the children

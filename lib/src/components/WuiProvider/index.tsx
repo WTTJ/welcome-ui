@@ -1,10 +1,10 @@
-import { ThemeProvider } from '@xstyled/styled-components'
 import React from 'react'
+import { ThemeProvider } from '@xstyled/styled-components'
 
-import type { ThemeValues } from '@/theme'
-
-import { HideFocusRingsRoot } from './hide-focus-rings-root'
 import * as S from './styles'
+import { HideFocusRingsRoot } from './hide-focus-rings-root'
+
+import { ThemeValues } from '@/theme'
 
 export interface WuiProviderProps {
   children?: React.ReactNode
@@ -26,7 +26,7 @@ export const WuiProvider: React.FC<WuiProviderProps> = ({
   return (
     <ThemeProvider theme={theme}>
       <>
-        {hasGlobalStyle ? <S.GlobalStyle useReset={useReset} /> : null}
+        {hasGlobalStyle && <S.GlobalStyle useReset={useReset} />}
         {shouldHideFocusRingOnClick ? (
           <HideFocusRingsRoot reactRootId={reactRootId}>{children}</HideFocusRingsRoot>
         ) : (

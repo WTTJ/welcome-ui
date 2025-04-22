@@ -1,11 +1,11 @@
 import { Text } from '@/Text'
 
+import { Tabs } from './tabs'
+
 import { Sidebar } from '~/build-app/components/Sidebar'
 import * as Documentation from '~/build-app/layouts/Documentation'
 import { getPages } from '~/build-app/utils/pages-exports'
 import { getName } from '~/build-app/utils/transform-name'
-
-import { Tabs } from './tabs'
 
 type LayoutProps = {
   children: React.ReactNode

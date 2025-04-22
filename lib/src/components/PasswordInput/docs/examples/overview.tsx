@@ -1,3 +1,5 @@
+import * as React from 'react'
+
 import { PasswordInput } from '@/PasswordInput'
 
 const Example = () => {

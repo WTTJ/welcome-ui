@@ -1,5 +1,7 @@
-import { Badge } from '@/Badge'
+import * as React from 'react'
+
 import { Box } from '@/Box'
+import { Badge } from '@/Badge'
 import { StarIcon } from '@/Icons'
 import { Text } from '@/Text'
 

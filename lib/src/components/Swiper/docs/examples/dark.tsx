@@ -1,11 +1,13 @@
-import { Box } from '@/Box'
+import * as React from 'react'
+
 import { Swiper, useSwiper } from '@/Swiper'
+import { Box } from '@/Box'
 
 const Example = () => {
   const swiper = useSwiper({
-    slidesPerView: { desktop: 4, mobile: 1, tablet: 2 },
+    slidesPerView: { mobile: 1, tablet: 2, desktop: 4 },
+    withPagination: { mobile: true, desktop: true },
     withDarkUI: true,
-    withPagination: { desktop: true, mobile: true },
   })
 
   return (

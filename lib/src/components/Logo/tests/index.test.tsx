@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { Logo, SolutionsSymbol, Symbol } from '..'
 import { render } from '../../../../tests'
 

@@ -1,12 +1,16 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "outDir": "./dist/lib",
+    "sourceMap": true,
+    "declaration": true,
+    "target": "ES6",
     "paths": {
       "@/utils": ["./src/utils"],
       "@/theme": ["./src/theme"],
       "@/fonts/*": ["./src/components/IconsFont/fonts/*"],
       "@/*": ["./src/components/*"]
     },
+    "types": ["vitest/globals", "@testing-library/jest-dom"]
   },
+  "exclude": ["**/*.json"]
 }

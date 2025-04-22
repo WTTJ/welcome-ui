@@ -1,4 +1,7 @@
-import { useMemo } from 'react'
+import React, { useMemo } from 'react'
+
+import * as S from './styles'
+import { Size, Variant } from './theme'
 
 import {
   AlertIcon,
@@ -8,12 +11,7 @@ import {
   SparklesIcon,
   SquareAlertIcon,
 } from '@/Icons'
-import type { CreateWuiProps } from '@/System'
-import { forwardRef } from '@/System'
-
-import type { Size, Variant } from './theme'
-
-import * as S from './styles'
+import { CreateWuiProps, forwardRef } from '@/System'
 
 export interface VariantIconOptions {
   icon?: JSX.Element
@@ -35,8 +33,6 @@ export const VariantIcon = forwardRef<'div', VariantIconProps>(
       if (variant === 'warning') return <AlertIcon size={size} />
       if (variant === 'danger') return <SquareAlertIcon size={size} />
       if (variant === 'ai') return <SparklesIcon size={size} />
-
-      return null
     }, [size, icon, variant])
 
     return Icon ? (

@@ -1,5 +1,4 @@
-/* eslint-disable perfectionist/sort-objects */
-import type { ThemeValues } from '.'
+import { ThemeValues } from '.'
 
 export type ThemeRadii = {
   [key: number]: string

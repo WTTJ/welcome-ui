@@ -1,6 +1,8 @@
 import styled, { css } from '@xstyled/styled-components'
 
-export const AspectRatio = styled.divBox<{ ratio: number }>(
+import { AspectRatioOptions } from '.'
+
+export const AspectRatio = styled.divBox<AspectRatioOptions>(
   ({ ratio }) => css`
     position: relative;
 

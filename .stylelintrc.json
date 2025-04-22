@@ -1,9 +1,8 @@
 {
-  "extends": ["stylelint-config-recommended"],
+  "extends": ["./node_modules/wttj-config/lib/stylelint"],
   "customSyntax": "postcss-styled-syntax",
   "rules": {
-    "declaration-property-value-no-unknown": null,
-    "media-feature-name-value-no-unknown": null,
+    "selector-type-no-unknown": [true, { "ignoreTypes": ["/-styled-mixin/", "$dummyValue"] }],
     "no-empty-source": null
   }
 }

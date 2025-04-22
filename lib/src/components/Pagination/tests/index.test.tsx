@@ -1,8 +1,9 @@
+import React from 'react'
 import { renderHook, screen } from '@testing-library/react'
 
 import { Pagination } from '../'
-import { render } from '../../../../tests'
 import { usePages } from '../utils'
+import { render } from '../../../../tests'
 
 describe('<Pagination>', () => {
   it('should render correctly', async () => {

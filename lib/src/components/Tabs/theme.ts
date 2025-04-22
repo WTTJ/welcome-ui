@@ -1,6 +1,8 @@
-import type { CSSObject } from '@xstyled/styled-components'
+import { CSSObject } from '@xstyled/styled-components'
 
-import type { ThemeValues } from '@/theme'
+import { ThemeValues } from '@/theme'
+
+type Size = 'sm' | 'md'
 
 export type ThemeTabs = {
   activeBar: {
@@ -26,13 +28,56 @@ export type ThemeTabs = {
   }
 }
 
-// eslint-disable-next-line perfectionist/sort-union-types
-type Size = 'sm' | 'md'
-
 export const getTabs = (theme: ThemeValues): ThemeTabs => {
   const { borderWidths, colors, fontSizes, fontWeights, lineHeights, space } = theme
 
   return {
+    tabsBorder: {
+      horizontal: {
+        boxShadow: `inset 0 -${borderWidths.sm} 0 ${colors['neutral-30']}`,
+      },
+      vertical: {
+        boxShadow: `inset -${borderWidths.sm} 0 0 ${colors['neutral-30']}`,
+      },
+    },
+    item: {
+      default: {
+        color: colors['neutral-70'],
+        fontWeight: fontWeights.medium,
+        textDecoration: 'none',
+        lineHeight: lineHeights.md,
+      },
+      active: {
+        color: colors['neutral-90'],
+      },
+      focus: {
+        color: colors['neutral-90'],
+      },
+      disabled: {
+        color: colors['neutral-50'],
+      },
+      size: {
+        sm: {
+          fontSize: fontSizes.sm,
+        },
+        md: {
+          fontSize: fontSizes.md,
+        },
+      },
+    },
+    panel: {
+      vertical: {
+        '&:focus': {
+          outline: 'none',
+        },
+      },
+      horizontal: {
+        marginTop: space.xl,
+        '&:focus': {
+          outline: 'none',
+        },
+      },
+    },
     activeBar: {
       horizontal: {
         background: colors['primary-40'],
@@ -43,58 +88,12 @@ export const getTabs = (theme: ThemeValues): ThemeTabs => {
         width: borderWidths.md,
       },
     },
+    icon: {
+      maxWidth: space.lg,
+      maxHeight: space.lg,
+    },
     badge: {
       maxHeight: space.lg,
-    },
-    icon: {
-      maxHeight: space.lg,
-      maxWidth: space.lg,
-    },
-    item: {
-      active: {
-        color: colors['neutral-90'],
-      },
-      default: {
-        color: colors['neutral-70'],
-        fontWeight: fontWeights.medium,
-        lineHeight: lineHeights.md,
-        textDecoration: 'none',
-      },
-      disabled: {
-        color: colors['neutral-50'],
-      },
-      focus: {
-        color: colors['neutral-90'],
-      },
-      size: {
-        md: {
-          fontSize: fontSizes.md,
-        },
-        sm: {
-          fontSize: fontSizes.sm,
-        },
-      },
-    },
-    panel: {
-      horizontal: {
-        '&:focus': {
-          outline: 'none',
-        },
-        marginTop: space.xl,
-      },
-      vertical: {
-        '&:focus': {
-          outline: 'none',
-        },
-      },
-    },
-    tabsBorder: {
-      horizontal: {
-        boxShadow: `inset 0 -${borderWidths.sm} 0 ${colors['neutral-30']}`,
-      },
-      vertical: {
-        boxShadow: `inset -${borderWidths.sm} 0 0 ${colors['neutral-30']}`,
-      },
     },
   }
 }

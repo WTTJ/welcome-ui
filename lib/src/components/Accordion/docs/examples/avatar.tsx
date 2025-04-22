@@ -1,7 +1,9 @@
-import { Accordion, useAccordion } from '@/Accordion'
-import { Avatar } from '@/Avatar'
+import * as React from 'react'
+
 import { Flex } from '@/Flex'
+import { Avatar } from '@/Avatar'
 import { Text } from '@/Text'
+import { Accordion, useAccordion } from '@/Accordion'
 
 const Example = () => {
   const accordion = useAccordion()

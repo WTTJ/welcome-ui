@@ -1,10 +1,9 @@
 'use client'
-import { DocSearchModal } from '@docsearch/react'
 import { useEffect, useState } from 'react'
+import { DocSearchModal } from '@docsearch/react'
 
-import { IconsFont } from '@/IconsFont'
 import { InputText } from '@/InputText'
-
+import { IconsFont } from '@/IconsFont'
 import '@docsearch/css'
 
 export const Search = () => {
@@ -39,7 +38,7 @@ export const Search = () => {
         size="sm"
         w={300}
       />
-      {isOpen ? (
+      {isOpen && (
         <DocSearchModal
           apiKey="32543c62b03cbc6b714a873dca1feec4"
           appId="1ZI5OZ0946"
@@ -48,7 +47,7 @@ export const Search = () => {
           onClose={() => setIsOpen(false)}
           placeholder="Search all pages"
         />
-      ) : null}
+      )}
     </>
   )
 }

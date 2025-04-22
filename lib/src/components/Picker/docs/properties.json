@@ -17,19 +17,7 @@
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "ReactElement<any, string | JSXElementConstructor<any>>",
-          "value": [
-            {
-              "value": "ReactElement<any, string | JSXElementConstructor<any>>",
-              "description": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.",
-              "fullComment": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.\n@template P The type of the props object\n@template T The type of the component or tag\n@example ```tsx\nconst element: ReactElement = <div />;\n```",
-              "tags": {
-                "template": "P The type of the props object\nT The type of the component or tag",
-                "example": "```tsx\nconst element: ReactElement = <div />;\n```"
-              }
-            }
-          ]
+          "name": "ReactElement<any, string | JSXElementConstructor<any>>"
         }
       },
       "name": {
@@ -48,13 +36,7 @@
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "string",
-          "value": [
-            {
-              "value": "string"
-            }
-          ]
+          "name": "string"
         }
       },
       "onChange": {
@@ -73,16 +55,7 @@
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "MouseEventHandler<HTMLLabelElement>",
-          "value": [
-            {
-              "value": "MouseEventHandler<HTMLLabelElement>",
-              "description": "",
-              "fullComment": "",
-              "tags": {}
-            }
-          ]
+          "name": "MouseEventHandler<HTMLLabelElement>"
         }
       },
       "options": {
@@ -99,7 +72,7 @@
             "name": "PickerOptions"
           }
         ],
-        "required": true,
+        "required": false,
         "type": {
           "name": "PickerOption[]"
         }
@@ -148,13 +121,7 @@
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "string",
-          "value": [
-            {
-              "value": "string"
-            }
-          ]
+          "name": "string"
         }
       }
     }

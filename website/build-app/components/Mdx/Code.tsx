@@ -1,10 +1,11 @@
-import { Box } from '@/Box'
-
 import { Properties } from '../Props'
+
 import { Highlight } from './Highlight'
 
+import { Box } from '@/Box'
+
 type CodeProps = {
-  children: React.ReactElement | string
+  children: string | React.ReactElement
   className?: string
 }
 

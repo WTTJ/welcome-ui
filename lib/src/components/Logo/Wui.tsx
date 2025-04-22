@@ -1,9 +1,9 @@
+import React, { forwardRef } from 'react'
 import { useTheme } from '@xstyled/styled-components'
-import { forwardRef } from 'react'
-
-import type { LogoProps } from '.'
 
 import * as S from './styles'
+
+import { LogoProps } from '.'
 
 export const WelcomeUI = forwardRef<SVGSVGElement, LogoProps>((props, ref) => {
   const theme = useTheme()

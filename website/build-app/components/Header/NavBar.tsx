@@ -1,16 +1,17 @@
-import { useTheme } from 'next-themes'
-import { usePathname } from 'next/navigation'
 import React from 'react'
+import { usePathname } from 'next/navigation'
+import { useTheme } from 'next-themes'
 
-import { Box } from '@/Box'
-import { Button } from '@/Button'
-import { Flex } from '@/Flex'
-import { CrescentMoonIcon, GithubIcon, SunIcon } from '@/Icons'
-import { Text } from '@/Text'
-import type { ThemeValues } from '@/theme'
+import * as S from './styles'
 
 import { navigation } from '.'
-import * as S from './styles'
+
+import { Box } from '@/Box'
+import { Flex } from '@/Flex'
+import { Text } from '@/Text'
+import { Button } from '@/Button'
+import { ThemeValues } from '@/theme'
+import { CrescentMoonIcon, GithubIcon, SunIcon } from '@/Icons'
 
 type NavBarProps = {
   display?: ThemeValues['display']

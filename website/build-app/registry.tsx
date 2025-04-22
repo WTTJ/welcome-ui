@@ -1,6 +1,6 @@
 'use client'
-import { useServerInsertedHTML } from 'next/navigation'
 import * as React from 'react'
+import { useServerInsertedHTML } from 'next/navigation'
 import { type IStyleSheetManager, ServerStyleSheet, StyleSheetManager } from 'styled-components'
 
 interface StyledComponentsRegistryProps {
@@ -13,9 +13,11 @@ const StyledComponentsRegistry = ({ children }: StyledComponentsRegistryProps) =
   useServerInsertedHTML(() => {
     const styles = styledComponentsStyleSheet.getStyleElement()
     styledComponentsStyleSheet.instance.clearTag()
+    // eslint-disable-next-line react/jsx-no-useless-fragment
     return <>{styles}</>
   })
 
+  // eslint-disable-next-line react/jsx-no-useless-fragment
   if (typeof window !== 'undefined') return <>{children}</>
 
   return (

@@ -1,18 +1,12 @@
 import React, { useState } from 'react'
 
-import type { UseTabState } from '.'
-
-import { useIsomorphicLayoutEffect } from '../../utils/use-isomorphic-layout-effect'
 import { useViewportSize } from '../../utils/use-viewport'
+import { useIsomorphicLayoutEffect } from '../../utils/use-isomorphic-layout-effect'
+
 import * as S from './styles'
 import { getParentScale } from './utils'
 
-export interface ActiveBarOptions {
-  activeTab: HTMLElement | null
-  listRef: React.MutableRefObject<HTMLElement | undefined>
-}
-
-export type ActiveBarProps = ActiveBarOptions & Pick<UseTabState, 'orientation'>
+import { UseTabState } from '.'
 
 export interface ActiveBarReturn {
   offset?: number
@@ -21,8 +15,8 @@ export interface ActiveBarReturn {
 }
 
 function useActiveBar(
-  listRef: React.MutableRefObject<HTMLElement | undefined>,
-  activeTab: HTMLElement | null,
+  listRef: React.MutableRefObject<HTMLElement>,
+  activeTab: HTMLElement,
   orientation: UseTabState['orientation']
 ): ActiveBarReturn {
   const [state, setState] = useState({})
@@ -40,24 +34,31 @@ function useActiveBar(
       const top = activeTabRect.top - listRect.top
       const height = activeTabRect.height
       setState({
+        size: height,
         offset: top,
         orientation,
-        size: height,
       })
     } else {
       const left = (activeTabRect.left - listRect.left + list.scrollLeft) / scale
       const width = activeTabRect.width / scale
 
       setState({
+        size: isNaN(width) ? 0 : width,
         offset: isNaN(left) ? 0 : left,
         orientation,
-        size: isNaN(width) ? 0 : width,
       })
     }
   }, [listRef, activeTab, viewportWidth, viewportHeight, orientation])
 
   return state
 }
+
+export interface ActiveBarOptions {
+  activeTab: HTMLElement
+  listRef: React.MutableRefObject<undefined>
+}
+
+export type ActiveBarProps = Pick<UseTabState, 'orientation'> & ActiveBarOptions
 
 export const ActiveBar: React.FC<ActiveBarProps> = ({ activeTab, listRef, orientation }) => {
   const activeBar = useActiveBar(listRef, activeTab, orientation)
