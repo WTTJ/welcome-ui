@@ -28,7 +28,7 @@
 
     /* React Specific */
     "jsx": "react-jsx",
-    "lib": ["dom", "esnext"],
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
 
     /* Types */
     "types": ["vitest/globals", "@testing-library/jest-dom"]
