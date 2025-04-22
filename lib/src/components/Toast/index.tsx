@@ -22,6 +22,11 @@ export type ToastOptions = {
   position?: ToastPosition
 }
 
+const toastWrapperClassName = 'wui-toast-wrapper'
+
+export const selectToastsInDocument = () =>
+  document.querySelectorAll(`.${toastWrapperClassName} > *`)
+
 type NotificationsProps = { pauseOnHover?: boolean }
 
 export const Notifications: React.FC<NotificationsProps> = ({ pauseOnHover = true }) => {
@@ -41,7 +46,12 @@ export const Notifications: React.FC<NotificationsProps> = ({ pauseOnHover = tru
     <ThemeProvider theme={themeContext || {}}>
       {
         createPortal(
-          <div data-wui-persistent onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+          <div
+            className={toastWrapperClassName}
+            data-wui-persistent
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+          >
             {toasts.map(toast => (
               <ToastWrapper
                 calculateOffset={calculateOffset}

@@ -1,4 +1,8 @@
 import { screen } from '@testing-library/react'
+import { useEffect } from 'react'
+
+import { Box } from '@/Box'
+import { Notifications, toast, Toast } from '@/Toast'
 
 import { AssetDrawer, Drawer, useDrawer } from '..'
 import { render } from '../../../../tests'
@@ -97,6 +101,57 @@ describe('<Drawer>', () => {
 
     expect(screen.queryByRole('dialog')).toHaveTextContent('test')
 
+    expect(screen.queryByRole('dialog')).toHaveTextContent('title')
+  })
+
+  it('should render correctly AssetDrawer and Toast notification simultaneously', async () => {
+    const Test = () => {
+      const drawer = useDrawer()
+
+      const id = 'toast-id'
+      useEffect(() => {
+        toast(
+          <Toast.Growl dataTestId={`toast-${id}`} zIndex="1000">
+            <Box alignItems="flex-start" display="flex" flexDirection="column" gap="sm">
+              <Toast.Title>notification</Toast.Title>
+            </Box>
+          </Toast.Growl>,
+          { duration: 5000, id, position: 'top-right' }
+        )
+      }, [])
+
+      return (
+        <>
+          <Notifications pauseOnHover={false} />
+          <AssetDrawer.Trigger store={drawer}>open</AssetDrawer.Trigger>
+          <AssetDrawer aria-label="drawer" store={drawer}>
+            <AssetDrawer.Header title="title" />
+            test
+          </AssetDrawer>
+        </>
+      )
+    }
+
+    const { user } = render(<Test />)
+
+    // Check if the drawer is closed
+    expect(screen.queryByRole('dialog')).toBeNull()
+
+    // Open the drawer
+    await user.click(screen.getByText('open'))
+
+    // Check if the drawer is open
+    expect(screen.queryByRole('dialog')).toHaveTextContent('test')
+    expect(screen.queryByRole('dialog')).toHaveTextContent('title')
+
+    // Check if the notification is visible
+    expect(screen.getByTestId('toast-toast-id')).toBeInTheDocument()
+
+    // Click on the notification
+    await user.click(screen.getByTestId('toast-toast-id-close-button'))
+
+    // Check if the drawer is still open
+    expect(screen.queryByRole('dialog')).toHaveTextContent('test')
     expect(screen.queryByRole('dialog')).toHaveTextContent('title')
   })
 })
