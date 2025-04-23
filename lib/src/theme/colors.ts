@@ -102,7 +102,6 @@ const palette = {
 
 export const getColors = (systemColors: typeof palette) => ({
   ...systemColors,
-  overlay: 'rgba(0, 0, 0, 0.55)',
   'primary-10': systemColors['yellow-10'],
   'primary-20': systemColors['yellow-20'],
   'primary-30': systemColors['yellow-30'],
@@ -118,8 +117,17 @@ export const getColors = (systemColors: typeof palette) => ({
   'secondary-pink': systemColors['pink-40'],
   'secondary-teal': systemColors['teal-40'],
   'secondary-violet': systemColors['violet-40'],
+  overlay: 'rgba(0, 0, 0, 0.55)',
 })
 
 export const colors = getColors(palette)
 export type ThemeColors = typeof colors
-export type ThemeSecondaryColors = 'blue' | 'green' | 'orange' | 'pink' | 'teal' | 'violet'
+const enum SecondaryColors {
+  'blue',
+  'green',
+  'orange',
+  'pink',
+  'teal',
+  'violet',
+}
+export type ThemeSecondaryColors = keyof typeof SecondaryColors

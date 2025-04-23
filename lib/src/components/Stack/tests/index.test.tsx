@@ -1,7 +1,8 @@
+import React from 'react'
 import { screen } from '@testing-library/react'
 
-import { Stack } from '../'
 import { render } from '../../../../tests'
+import { Stack } from '../'
 
 const content = [<div key="0">Foo</div>, <div key="1">Bar</div>]
 

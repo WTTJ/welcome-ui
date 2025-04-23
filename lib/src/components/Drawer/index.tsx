@@ -1,16 +1,18 @@
-import * as Ariakit from '@ariakit/react'
 import React from 'react'
+import * as Ariakit from '@ariakit/react'
 
-import type { As, CreateWuiProps } from '@/System'
-import { forwardRef } from '@/System'
-
-import { AssetDrawerComponent } from './AssetDrawer'
-import { Header } from './AssetDrawer/Header'
 import { Close } from './Close'
 import { Content } from './Content'
 import { Footer } from './Footer'
-import * as S from './styles'
 import { Title } from './Title'
+import * as S from './styles'
+import { AssetDrawerComponent } from './AssetDrawer'
+import { Header } from './AssetDrawer/Header'
+
+import { As, CreateWuiProps, forwardRef } from '@/System'
+
+type Placement = 'top' | 'right' | 'bottom' | 'left'
+type Size = 'sm' | 'md' | 'lg' | 'auto' | string
 
 export interface DrawerOptions extends Ariakit.DialogOptions<'div'> {
   placement?: Placement
@@ -18,11 +20,8 @@ export interface DrawerOptions extends Ariakit.DialogOptions<'div'> {
   withBackdrop?: boolean
   withCloseButton?: boolean
 }
+
 export type DrawerProps = CreateWuiProps<'div', DrawerOptions>
-
-type Placement = 'bottom' | 'left' | 'right' | 'top'
-
-type Size = 'auto' | 'lg' | 'md' | 'sm' | string
 
 const DrawerComponent = forwardRef<'div', DrawerProps>(
   (
@@ -51,7 +50,7 @@ const DrawerComponent = forwardRef<'div', DrawerProps>(
         {...(rest as Ariakit.DialogProps<'div'>)}
       >
         <>
-          {withCloseButton ? <Close /> : null}
+          {withCloseButton && <Close />}
           {children}
         </>
       </Ariakit.Dialog>
@@ -59,18 +58,18 @@ const DrawerComponent = forwardRef<'div', DrawerProps>(
   }
 )
 
-export interface DrawerBackdropOptions {
-  hideOnInteractOutside?: boolean
-}
 export type UseDrawer = Ariakit.DialogStore
 export type UseDrawerProps = Ariakit.DialogStoreProps
-
 export type UseDrawerState = Ariakit.DialogStoreState
 
 export function useDrawer(options: UseDrawerProps = {}): UseDrawer {
   const dialog = Ariakit.useDialogStore({ animated: true, ...options })
 
   return dialog
+}
+
+export interface DrawerBackdropOptions {
+  hideOnInteractOutside?: boolean
 }
 
 /**
@@ -97,12 +96,12 @@ export const Trigger = forwardRef<'button', TriggerProps>(({ as: As, store, ...r
 })
 
 export const Drawer = Object.assign(DrawerComponent, {
+  Trigger,
   Backdrop: DrawerBackdrop,
   Close,
+  Title,
   Content,
   Footer,
-  Title,
-  Trigger,
 })
 
-export const AssetDrawer = Object.assign(AssetDrawerComponent, { Header, Trigger })
+export const AssetDrawer = Object.assign(AssetDrawerComponent, { Trigger, Header })

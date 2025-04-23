@@ -1,9 +1,10 @@
-import type { ButtonOptions } from '@/Button'
-import { CrossIcon } from '@/Icons'
-import type { CreateWuiProps } from '@/System'
-import { forwardRef } from '@/System'
+import React from 'react'
 
 import * as S from './styles'
+
+import { CrossIcon } from '@/Icons'
+import { ButtonOptions } from '@/Button'
+import { CreateWuiProps, forwardRef } from '@/System'
 
 export type ClearButtonProps = CreateWuiProps<
   'button',

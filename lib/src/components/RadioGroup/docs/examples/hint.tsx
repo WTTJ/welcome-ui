@@ -1,14 +1,16 @@
+import * as React from 'react'
+
 import { RadioGroup } from '@/RadioGroup'
 
 export const ITEMS = [
-  { label: 'Bold', value: 'bold' },
+  { value: 'bold', label: 'Bold' },
   {
-    hint: 'Lorem ipsum dolor',
-    label: 'Italic',
     value: 'italic',
+    label: 'Italic',
+    hint: 'Lorem ipsum dolor',
   },
-  { label: 'Strikethrough', value: 'strikethrough' },
-  { label: 'Underline', value: 'underline' },
+  { value: 'strikethrough', label: 'Strikethrough' },
+  { value: 'underline', label: 'Underline' },
 ]
 
 const Example = () => {

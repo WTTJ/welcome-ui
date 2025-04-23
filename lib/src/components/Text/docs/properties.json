@@ -17,13 +17,7 @@
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "number",
-          "value": [
-            {
-              "value": "number"
-            }
-          ]
+          "name": "number"
         }
       },
       "variant": {
@@ -45,7 +39,7 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "\"h1\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\" | \"h0\" | \"lg\" | \"md\" | \"sm\" | \"subtitle-md\" | \"subtitle-sm\" | \"xs\"",
+          "raw": "\"h1\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\" | \"h0\" | \"lg\" | \"md\" | \"sm\" | \"xs\" | \"subtitle-md\" | \"subtitle-sm\"",
           "value": [
             {
               "value": "\"h1\""
@@ -78,13 +72,13 @@
               "value": "\"sm\""
             },
             {
+              "value": "\"xs\""
+            },
+            {
               "value": "\"subtitle-md\""
             },
             {
               "value": "\"subtitle-sm\""
-            },
-            {
-              "value": "\"xs\""
             }
           ]
         }

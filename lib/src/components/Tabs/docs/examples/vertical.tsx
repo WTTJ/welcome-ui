@@ -1,8 +1,10 @@
+import * as React from 'react'
+
 import { Box } from '@/Box'
 import { Tab, useTab } from '@/Tabs'
 
 const Example = () => {
-  const tab = useTab({ defaultSelectedId: 'tab2', orientation: 'vertical' })
+  const tab = useTab({ orientation: 'vertical', defaultSelectedId: 'tab2' })
 
   return (
     <Box display="flex">

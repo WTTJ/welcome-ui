@@ -1,16 +1,13 @@
 import React, { Children, cloneElement } from 'react'
 
-import { Box } from '@/Box'
-import type { ButtonProps } from '@/Button'
-import { Button } from '@/Button'
-import { CloseButton } from '@/CloseButton'
-import type { CreateWuiProps } from '@/System'
-import { forwardRef } from '@/System'
-
-import type { Size, Variant } from './theme'
-
-import * as S from './styles'
 import { Title } from './Title'
+import * as S from './styles'
+import { Size, Variant } from './theme'
+
+import { CloseButton } from '@/CloseButton'
+import { Button, ButtonProps } from '@/Button'
+import { CreateWuiProps, forwardRef } from '@/System'
+import { Box } from '@/Box'
 
 export interface AlertOptions {
   closeButtonDataTestId?: string
@@ -29,7 +26,7 @@ export type AlertProps = CreateWuiProps<'div', AlertOptions>
 
 type CloneActionsReturns = React.ReactElement<
   unknown,
-  React.JSXElementConstructor<AlertProps> | string
+  string | React.JSXElementConstructor<AlertProps>
 >
 
 const AlertComponent = forwardRef<'div', AlertProps>(
@@ -51,9 +48,8 @@ const AlertComponent = forwardRef<'div', AlertProps>(
     const defaultVariantIcon = variant === 'beige' ? 'default' : variant
     const withAiButton = variant === 'ai'
 
-    const content = Children.toArray(children).map(child => {
-      if (React.isValidElement<{ variant?: Size }>(child) && child.type === Title)
-        return cloneElement(child, { variant: size })
+    const content = Children.toArray(children).map((child: React.ReactElement) => {
+      if (child.type === Title) return cloneElement(child, { variant: size })
 
       return child
     })
@@ -64,15 +60,15 @@ const AlertComponent = forwardRef<'div', AlertProps>(
         if (child.type === AlertButton) {
           // If Alert variant is ai, we override the CTA Buttons to use the AI sub-variants
           return cloneElement<ButtonProps>(child, {
-            ai: withAiButton,
             size,
+            ai: withAiButton,
             variant: withAiButton ? 'primary' : undefined,
           })
         }
         if (child.type === AlertSecondaryButton) {
           return cloneElement<ButtonProps>(child, {
-            ai: withAiButton,
             size,
+            ai: withAiButton,
           })
         }
 
@@ -138,7 +134,7 @@ const AlertSecondaryButton = forwardRef<'button', Omit<ButtonProps, 'size'>>(
 )
 
 export const Alert = Object.assign(AlertComponent, {
+  Title,
   Button: AlertButton,
   SecondaryButton: AlertSecondaryButton,
-  Title,
 })

@@ -1,6 +1,8 @@
+import React from 'react'
+
 import { Hint } from '../'
-import { render } from '../../../../tests'
 import { colors } from '../../../theme/colors'
+import { render } from '../../../../tests'
 
 const content = 'Jungle'
 

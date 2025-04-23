@@ -1,14 +1,12 @@
-import * as Ariakit from '@ariakit/react'
 import React from 'react'
-
-import { Box } from '@/Box'
-import type { FieldGroupOptions } from '@/FieldGroup'
-import { FieldGroup } from '@/FieldGroup'
-import { Label } from '@/Label'
-import type { CreateWuiProps } from '@/System'
-import { forwardRef } from '@/System'
+import * as Ariakit from '@ariakit/react'
 
 import * as S from './styles'
+
+import { Label } from '@/Label'
+import { FieldGroup, FieldGroupOptions } from '@/FieldGroup'
+import { Box } from '@/Box'
+import { CreateWuiProps, forwardRef } from '@/System'
 
 export interface PickerOption {
   element: React.ComponentType<{ selected: boolean }>
@@ -18,7 +16,7 @@ export interface PickerOption {
 export interface PickerOptions {
   name?: string
   onChange?: React.MouseEventHandler<HTMLLabelElement>
-  options: PickerOption[]
+  options?: PickerOption[]
   value?: string
 }
 
@@ -33,7 +31,7 @@ export const Picker = forwardRef<'fieldset', PickerProps>(
 
     const handleClick: React.MouseEventHandler<HTMLLabelElement> = e => {
       e.stopPropagation()
-      onChange?.(e)
+      onChange && onChange(e)
     }
 
     return (
@@ -50,7 +48,7 @@ export const Picker = forwardRef<'fieldset', PickerProps>(
           {options.map(({ element: Component, value: optValue }) => (
             <Label
               checkableField
-              dataTestId={dataTestId ? `${dataTestId}-item-${name}-${optValue}` : undefined}
+              dataTestId={dataTestId && `${dataTestId}-item-${name}-${optValue}`}
               key={`${label}-${name}-${optValue}`}
               onClick={handleClick}
             >

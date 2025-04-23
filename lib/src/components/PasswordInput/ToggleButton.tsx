@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { Button } from '@/Button'
 import { HideIcon, ShowIcon } from '@/Icons'
-import type { CreateWuiProps } from '@/System'
+import { Button } from '@/Button'
+import { CreateWuiProps } from '@/System'
 
 interface ToggleButtonOptions {
   isHidden: boolean
@@ -20,7 +20,7 @@ export const ToggleButton: React.FC<ToggleButtonProps> = ({
     <Button
       aria-controls="password"
       aria-expanded={`${!isHidden}`}
-      dataTestId={dataTestId ? `${dataTestId}-action` : undefined}
+      dataTestId={dataTestId && `${dataTestId}-action`}
       onClick={onClick}
       shape="circle"
       size="xs"

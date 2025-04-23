@@ -1,9 +1,8 @@
 import React from 'react'
 
-import type { TextProps } from '@/Text'
-import { Text } from '@/Text'
-
 import * as S from './styles'
+
+import { Text, TextProps } from '@/Text'
 
 export const Title: React.FC<TextProps> = ({ children, zIndex = '1', ...props }) => {
   return (
@@ -11,8 +10,8 @@ export const Title: React.FC<TextProps> = ({ children, zIndex = '1', ...props })
       alignItems="center"
       display="flex"
       justifyContent="space-between"
-      position={{ md: 'static', xs: 'sticky' }}
-      top={{ md: 'auto', xs: 0 }}
+      position={{ xs: 'sticky', md: 'static' }}
+      top={{ xs: 0, md: 'auto' }}
       w="100%"
       zIndex={zIndex}
       {...props}

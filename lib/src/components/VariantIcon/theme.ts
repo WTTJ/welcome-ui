@@ -1,33 +1,32 @@
-import type { CSSObject } from '@xstyled/styled-components'
+import { CSSObject } from '@xstyled/styled-components'
 
-import type { ThemeValues } from '@/theme'
+import { ThemeValues } from '@/theme'
 
-// eslint-disable-next-line perfectionist/sort-union-types
 export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
+export type Variant = 'danger' | 'warning' | 'success' | 'info' | 'default' | 'ai'
 export type ThemeVariantIcon = Record<Variant, CSSObject>
-export type Variant = 'ai' | 'danger' | 'default' | 'info' | 'success' | 'warning'
 
 export const getVariantIcon = (theme: ThemeValues): ThemeVariantIcon => {
   const { colors } = theme
 
   return {
-    ai: {
-      color: colors['violet-70'],
-    },
-    danger: {
-      color: colors['red-70'],
-    },
     default: {
       color: colors['neutral-90'],
     },
-    info: {
-      color: colors['blue-60'],
+    danger: {
+      color: colors['red-70'],
     },
     success: {
       color: colors['green-60'],
     },
     warning: {
       color: colors['orange-60'],
+    },
+    info: {
+      color: colors['blue-60'],
+    },
+    ai: {
+      color: colors['violet-70'],
     },
   }
 }

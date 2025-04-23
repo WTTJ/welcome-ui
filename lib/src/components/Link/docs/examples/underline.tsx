@@ -1,8 +1,10 @@
-import { Avatar } from '@/Avatar'
-import { Box } from '@/Box'
+import * as React from 'react'
+
 import { Link } from '@/Link'
-import { Stack } from '@/Stack'
 import { Text } from '@/Text'
+import { Stack } from '@/Stack'
+import { Box } from '@/Box'
+import { Avatar } from '@/Avatar'
 
 const Example = () => {
   return (

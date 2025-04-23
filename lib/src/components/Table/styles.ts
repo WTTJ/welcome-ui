@@ -1,6 +1,6 @@
 import styled, { css, th } from '@xstyled/styled-components'
 
-import type { TableOptions } from './index'
+import { TableOptions } from './index'
 
 export const Wrapper = styled.divBox<TableOptions>(
   ({ indent }) => css`
@@ -37,7 +37,7 @@ export const Thead = styled.theadBox``
 
 export const Tbody = styled.tbodyBox``
 
-type TrVariant = 'danger' | 'default' | 'info' | 'success' | 'warning'
+type TrVariant = 'default' | 'info' | 'danger' | 'warning' | 'success'
 
 export const Tr = styled.trBox<{ variant?: TrVariant }>(
   ({ onClick, variant }) => css`

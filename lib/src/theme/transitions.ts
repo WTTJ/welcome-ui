@@ -1,4 +1,4 @@
-import type { CSSObject } from '@xstyled/styled-components'
+import { CSSObject } from '@xstyled/styled-components'
 
 export type ThemeTimingFunction = {
   primary: CSSObject['transition-timing-function']
@@ -19,7 +19,7 @@ export type ThemeTransitions = {
 }
 
 export const transitions: ThemeTransitions = {
-  fast: `100ms ${timingFunction.secondary}`,
-  medium: `300ms ${timingFunction.primary}`,
   slow: `500ms ${timingFunction.tertiary}`,
+  medium: `300ms ${timingFunction.primary}`,
+  fast: `100ms ${timingFunction.secondary}`,
 }

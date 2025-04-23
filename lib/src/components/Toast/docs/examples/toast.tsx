@@ -1,8 +1,10 @@
-import type { ToastPosition } from 'react-hot-toast/headless'
+/* eslint-disable react/jsx-curly-newline */
+import * as React from 'react'
+import { ToastPosition } from 'react-hot-toast/headless'
 
+import { toast } from '@/Toast'
 import { Box } from '@/Box'
 import { Button } from '@/Button'
-import { toast } from '@/Toast'
 
 const Element = () => (
   <Box
@@ -34,7 +36,7 @@ const Example = () => {
         <Button
           key={position}
           onClick={() =>
-            toast(<Element />, { duration: 6000, position: position as ToastPosition })
+            toast(<Element />, { position: position as ToastPosition, duration: 6000 })
           }
         >
           {position}

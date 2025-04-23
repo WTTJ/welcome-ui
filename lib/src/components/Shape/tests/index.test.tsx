@@ -1,5 +1,7 @@
-import { Shape } from '../'
+import React from 'react'
+
 import { render } from '../../../../tests'
+import { Shape } from '../'
 
 const content = 'Jungle'
 

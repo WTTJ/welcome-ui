@@ -4,7 +4,6 @@ import { Text } from '@/Text'
 
 const stats = [
   {
-    icon: <CodeBlockIcon h={24} w={24} />,
     name: (
       <>
         Amazing
@@ -13,9 +12,9 @@ const stats = [
       </>
     ),
     number: '50+',
+    icon: <CodeBlockIcon h={24} w={24} />,
   },
   {
-    icon: <StarIcon h={24} w={24} />,
     name: (
       <>
         Github
@@ -24,9 +23,9 @@ const stats = [
       </>
     ),
     number: '600+',
+    icon: <StarIcon h={24} w={24} />,
   },
   {
-    icon: <DownloadIcon h={24} w={24} />,
     name: (
       <>
         Weekly
@@ -35,6 +34,7 @@ const stats = [
       </>
     ),
     number: '450+',
+    icon: <DownloadIcon h={24} w={24} />,
   },
 ]
 
@@ -46,7 +46,7 @@ export const Stats = () => {
       display="flex"
       justifyContent="space-between"
       maxWidth={470}
-      px={{ md: '4xl', xs: 'xxl' }}
+      px={{ xs: 'xxl', md: '4xl' }}
       py="xxl"
       w="100%"
     >

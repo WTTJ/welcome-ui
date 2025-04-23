@@ -1,4 +1,5 @@
-import type {
+import React, { useEffect, useState } from 'react'
+import {
   Accept,
   DropEvent,
   DropzoneProps,
@@ -6,8 +7,6 @@ import type {
   FileError,
   FileRejection,
 } from 'react-dropzone'
-
-import React, { useEffect, useState } from 'react'
 import * as reactDropzone from 'react-dropzone'
 
 // because of this issue: https://github.com/react-dropzone/react-dropzone/issues/1259
@@ -16,29 +15,39 @@ import * as reactDropzone from 'react-dropzone'
 const useDropzone = (reactDropzone.useDropzone || reactDropzone.default.useDropzone) as (
   o?: DropzoneProps
 ) => DropzoneState
-import { Button } from '@/Button'
-import type { ForceFileType } from '@/Files'
-import { EditIcon, TrashIcon } from '@/Icons'
-import type { CreateWuiProps } from '@/System'
-import { forwardRef } from '@/System'
+import { createEvent, CreateEvent } from '../../utils/create-event'
 
-import type { CreateEvent } from '../../utils/create-event'
-
-import { createEvent } from '../../utils/create-event'
-import { Preview } from './Preview'
 import * as S from './styles'
+import { Preview } from './Preview'
 import { getPreviewUrl, isAnImage } from './utils'
+
+import { EditIcon, TrashIcon } from '@/Icons'
+import { Button } from '@/Button'
+import { ForceFileType } from '@/Files'
+import { CreateWuiProps, forwardRef } from '@/System'
 
 const DEFAULT_MAX_FILE_SIZE = 2000000
 const ERROR_INVALID_TYPE = 'ERROR_INVALID_TYPE'
 const ERROR_INVALID_SIZE = 'ERROR_INVALID_SIZE'
 
+export interface FileWithPreview extends File {
+  preview?: string
+}
+type FileType = string | FileWithPreview
+type FileUrlType = string | URL
+type OpenType = DropzoneState['open']
+type WordingsType = {
+  fileButtonText?: string | JSX.Element
+  hint?: string | JSX.Element
+  previewButtonText?: string | JSX.Element
+  title?: string | JSX.Element
+}
 export type FileDropChildren = {
   disabled?: boolean
-  error?: null | string
-  file?: FileType | null
+  error?: string
+  file?: FileType
   fileName?: string
-  fileUrl?: FileUrlType | null
+  fileUrl?: FileUrlType
   forceFileType?: ForceFileType
   isAnImage?: boolean
   isHoverAccept?: DropzoneState['isDragAccept']
@@ -46,39 +55,27 @@ export type FileDropChildren = {
   openFile?: OpenType
   wordings?: WordingsType
 }
+
 export interface FileDropOptions {
   /** Pass a comma-separated string of file types e.g. "image/png" or "image/png,image/jpeg" */
   accept?: Accept
   children?: (state: FileDropChildren) => JSX.Element
   fileName?: string
   forceFileType?: ForceFileType
-  handleAddFile?: (event: CreateEvent | DropEvent | React.ChangeEvent<HTMLInputElement>) => void
-  handleRemoveFile?: (event: CreateEvent | DropEvent | React.ChangeEvent<HTMLInputElement>) => void
+  handleAddFile?: (event: DropEvent | React.ChangeEvent<HTMLInputElement> | CreateEvent) => void
+  handleRemoveFile?: (event: DropEvent | React.ChangeEvent<HTMLInputElement> | CreateEvent) => void
   isClearable?: boolean
   isEditable?: boolean
   name?: string
   onBlur?: () => void
-  onChange?: (event: CreateEvent | DropEvent | React.ChangeEvent<HTMLInputElement>) => void
+  onChange?: (event: DropEvent | React.ChangeEvent<HTMLInputElement> | CreateEvent) => void
   onError?: (event?: string) => void
   value: FileType
   /** Pass an object with optional fields title, hint, fileButtonText and/or previewButtonText (string or JSX.Element) */
   wordings?: WordingsType
 }
+
 export type FileDropProps = CreateWuiProps<'div', FileDropOptions> & Omit<DropzoneProps, 'children'>
-export interface FileWithPreview extends File {
-  preview?: string
-}
-type FileType = FileWithPreview | string
-type FileUrlType = string | URL
-
-type OpenType = DropzoneState['open']
-
-type WordingsType = {
-  fileButtonText?: JSX.Element | string
-  hint?: JSX.Element | string
-  previewButtonText?: JSX.Element | string
-  title?: JSX.Element | string
-}
 
 export const FileDrop = forwardRef<'div', FileDropProps>(
   (
@@ -107,8 +104,8 @@ export const FileDrop = forwardRef<'div', FileDropProps>(
     },
     ref
   ) => {
-    const [file, setFile] = useState<FileType | null>(value)
-    const [error, setError] = useState<null | string>(null)
+    const [file, setFile] = useState(value)
+    const [error, setError] = useState(undefined)
 
     useEffect(() => {
       setFile(value)
@@ -116,11 +113,7 @@ export const FileDrop = forwardRef<'div', FileDropProps>(
 
     // Clean up URL
     useEffect(() => {
-      return () => {
-        if (file && file instanceof File && file.preview) {
-          URL.revokeObjectURL(file.preview)
-        }
-      }
+      return () => file && file instanceof File && URL.revokeObjectURL(file.preview)
     }, [file])
 
     const handleDropAccepted = (files: FileWithPreview[]) => {
@@ -132,13 +125,12 @@ export const FileDrop = forwardRef<'div', FileDropProps>(
       setError(null)
 
       const event = createEvent({ name, value: file })
-
-      onChange?.(event)
-      handleAddFile?.(event)
+      onChange && onChange(event)
+      handleAddFile && handleAddFile(event)
     }
 
     const handleDropRejected = (fileRejections: FileRejection[], event: DropEvent) => {
-      let errorMessage = null
+      let errorMessage: string
 
       fileRejections.map(({ errors }: FileRejection) => {
         errors.map((error: FileError) => {
@@ -156,12 +148,9 @@ export const FileDrop = forwardRef<'div', FileDropProps>(
       setFile(null)
       setError(errorMessage)
 
-      if (errorMessage) {
-        onError?.(errorMessage)
-      }
-
-      onChange?.(event)
-      onBlur?.() // Trigger field touch
+      onError && onError(errorMessage)
+      onChange && onChange(event)
+      onBlur && onBlur() // Trigger field touch
     }
 
     const handleRemoveClick = (e: React.MouseEvent) => {
@@ -170,9 +159,8 @@ export const FileDrop = forwardRef<'div', FileDropProps>(
       setError(null)
 
       const event = createEvent({ name, value: null })
-
-      onChange?.(event)
-      handleRemoveFile?.(event)
+      onChange && onChange(event)
+      handleRemoveFile && handleRemoveFile(event)
     }
 
     const { getInputProps, getRootProps, isDragAccept, isDragActive, isDragReject, open } =
@@ -188,19 +176,19 @@ export const FileDrop = forwardRef<'div', FileDropProps>(
 
     const inputPropsOnError: React.ReactEventHandler<HTMLInputElement> = (
       event?: React.SyntheticEvent<HTMLInputElement, Event>
-    ) => onError?.(event as never as string)
+    ) => onError(event as never as string)
 
     return (
       <S.FileDrop
         {...getRootProps({
           'data-testid': dataTestId,
-          disabled,
           handleRemoveFile,
-          isClearable,
-          isDragAccept,
-          isDragActive,
-          isDragReject,
           isEditable,
+          isDragActive,
+          isDragAccept,
+          isDragReject,
+          isClearable,
+          disabled,
           ref,
         })}
         {...rest}
@@ -208,7 +196,7 @@ export const FileDrop = forwardRef<'div', FileDropProps>(
         <input
           {...getInputProps({ disabled, multiple, name, onError: inputPropsOnError })}
           // for extern validator we need to have access to this input
-          style={{ display: 'block', height: 0, opacity: 0, width: 0 }}
+          style={{ display: 'block', opacity: 0, height: 0, width: 0 }}
         />
         <S.FilePreview>
           {children({
@@ -224,20 +212,20 @@ export const FileDrop = forwardRef<'div', FileDropProps>(
             openFile: open,
             wordings,
           })}
-          {!!file && (error || isEditable || isClearable) ? (
+          {!!file && (error || isEditable || isClearable) && (
             <S.Actions>
-              {error || isEditable ? (
+              {(error || isEditable) && (
                 <Button onClick={open} shape="circle" size="sm" type="button" variant="tertiary">
                   <EditIcon />
                 </Button>
-              ) : null}
-              {isClearable ? (
+              )}
+              {isClearable && (
                 <Button danger onClick={handleRemoveClick} shape="circle" size="sm" type="button">
                   <TrashIcon />
                 </Button>
-              ) : null}
+              )}
             </S.Actions>
-          ) : null}
+          )}
         </S.FilePreview>
       </S.FileDrop>
     )

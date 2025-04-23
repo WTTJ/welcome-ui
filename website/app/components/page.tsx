@@ -1,16 +1,14 @@
-import type { Metadata } from 'next'
-
 import Link from 'next/link'
-
-import { Box } from '@/Box'
+import { Metadata } from 'next'
 import { Card } from '@/Card'
 import { Flex } from '@/Flex'
 import { Grid } from '@/Grid'
 import { Text } from '@/Text'
+import { Box } from '@/Box'
 
-import { getPageContent } from '~/build-app/utils/page-content'
 import { getPages } from '~/build-app/utils/pages-components'
 import { getName, getRepository } from '~/build-app/utils/transform-name'
+import { getPageContent } from '~/build-app/utils/page-content'
 
 export const metadata: Metadata = {
   title: 'Welcome UI - Components',

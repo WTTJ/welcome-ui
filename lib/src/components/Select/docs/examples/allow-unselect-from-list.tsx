@@ -1,16 +1,15 @@
 import * as React from 'react'
 
+import { Select, SelectOption, SelectProps } from '@/Select'
+import { LinkIcon } from '@/Icons'
 import { Box } from '@/Box'
 import { Checkbox } from '@/Checkbox'
-import { LinkIcon } from '@/Icons'
-import type { SelectOption, SelectProps } from '@/Select'
-import { Select } from '@/Select'
 
 export const ITEMS = [
-  { label: 'Bold', value: 'bold' },
-  { label: 'Italic', value: 'italic' },
-  { label: 'Strikethrough', value: 'strikethrough' },
-  { label: 'Underline', value: 'underline' },
+  { value: 'bold', label: 'Bold' },
+  { value: 'italic', label: 'Italic' },
+  { value: 'strikethrough', label: 'Strikethrough' },
+  { value: 'underline', label: 'Underline' },
 ]
 
 const Example = () => {
@@ -30,6 +29,8 @@ const Example = () => {
       name="welcome"
       onChange={handleChange}
       options={ITEMS}
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       renderItem={(item: SelectOption, selected?: boolean) => (
         <Box display="flex" justifyContent="space-between">
           {item.label}

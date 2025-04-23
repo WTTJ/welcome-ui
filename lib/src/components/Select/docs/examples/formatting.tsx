@@ -1,14 +1,13 @@
 import * as React from 'react'
 
+import { Select, SelectOption, SelectProps } from '@/Select'
 import { WttjIcon } from '@/Icons'
-import type { SelectOption, SelectProps } from '@/Select'
-import { Select } from '@/Select'
 
 export const ITEMS = [
-  { label: 'Bold', value: 'bold' },
-  { label: 'Italic', value: 'italic' },
-  { label: 'Strikethrough', value: 'strikethrough' },
-  { label: 'Underline', value: 'underline' },
+  { value: 'bold', label: 'Bold' },
+  { value: 'italic', label: 'Italic' },
+  { value: 'strikethrough', label: 'Strikethrough' },
+  { value: 'underline', label: 'Underline' },
 ]
 
 const Example = () => {
@@ -23,8 +22,10 @@ const Example = () => {
       name="welcome"
       onChange={handleChange}
       options={ITEMS}
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       renderItem={(item: SelectOption) => (
-        <div style={{ alignItems: 'center', display: 'flex' }}>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
           <WttjIcon mr="sm" size="xs" />
           <span>{item.label}</span>
         </div>

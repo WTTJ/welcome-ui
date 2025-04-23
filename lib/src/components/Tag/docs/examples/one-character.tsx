@@ -1,3 +1,5 @@
+import * as React from 'react'
+
 import { Tag } from '@/Tag'
 
 const Example = () => {

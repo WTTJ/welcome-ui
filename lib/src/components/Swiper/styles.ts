@@ -1,8 +1,8 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
 
-import { Button } from '@/Button'
+import { UseSwiper } from '.'
 
-import type { UseSwiper } from '.'
+import { Button } from '@/Button'
 
 const getSlideWidth = (slidesPerView = 3, spaceBetween: number, toRem: (px: number) => void) => {
   if (spaceBetween === 0) {
@@ -25,7 +25,7 @@ export const Swiper = styled.div`
 `
 
 export const Arrow = styled(Button)<
-  { disabled: boolean } & Pick<UseSwiper, 'withDarkUI' | 'withNavigation'>
+  { disabled: boolean } & Pick<UseSwiper, 'withNavigation' | 'withDarkUI'>
 >(
   ({ disabled, withDarkUI, withNavigation: { desktop, mobile } }) => css`
     top: 50%;
@@ -90,7 +90,7 @@ export const Bullet = styled.div<{ active: boolean } & Pick<UseSwiper, 'withDark
 )
 
 export const Container = styled.ulBox<
-  Pick<UseSwiper, 'fullWidth' | 'slidesPerView' | 'spaceBetween'>
+  Pick<UseSwiper, 'slidesPerView' | 'spaceBetween' | 'fullWidth'>
 >(({ fullWidth, slidesPerView: { desktop, mobile, tablet }, spaceBetween, theme }) => {
   return css`
     scroll-snap-type: x mandatory;

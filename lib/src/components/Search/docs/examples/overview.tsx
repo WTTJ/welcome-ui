@@ -1,3 +1,5 @@
+import * as React from 'react'
+
 import { Search } from '@/Search'
 
 type Item = { Title: string }
@@ -10,12 +12,15 @@ const Example = () => {
   }
 
   return (
+    // TODO: fix typescript
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     <Search
-      itemToString={item => (item as Item)?.Title}
+      itemToString={(item: Item) => item && item.Title}
       name="movies"
       placeholder="Search a movie"
-      renderItem={item => (
-        <div style={{ alignItems: 'center', display: 'flex' }}>{(item as Item)?.Title}</div>
+      renderItem={(item: Item) => (
+        <div style={{ display: 'flex', alignItems: 'center' }}>{item.Title}</div>
       )}
       search={searchFunction}
     />

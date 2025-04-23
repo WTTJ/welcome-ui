@@ -1,10 +1,10 @@
-import { useState } from 'react'
+import * as React from 'react'
 
-import { Field } from '@/Field'
 import { Toggle } from '@/Toggle'
+import { Field } from '@/Field'
 
 const Example = () => {
-  const [toggle, setToggle] = useState(false)
+  const [toggle, setToggle] = React.useState(false)
 
   return (
     <Field hint="a hint" label="Toggle">

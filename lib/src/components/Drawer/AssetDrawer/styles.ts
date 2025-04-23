@@ -1,6 +1,6 @@
 import styled, { css, th } from '@xstyled/styled-components'
 
-import type { IconBlockProps } from './Header'
+import { IconBlockProps } from './Header'
 
 export const Content = styled.divBox`
   overflow-y: scroll;

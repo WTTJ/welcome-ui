@@ -1,14 +1,12 @@
-import type * as Ariakit from '@ariakit/react'
-
 import React from 'react'
+import * as Ariakit from '@ariakit/react'
 
-import { Button } from '@/Button'
-import type { CreateWuiProps } from '@/System'
-import { forwardRef } from '@/System'
-
-import type { DefaultFieldStylesProps } from '../../utils/field-styles'
+import { DefaultFieldStylesProps } from '../../utils/field-styles'
 
 import * as S from './styles'
+
+import { Button } from '@/Button'
+import { CreateWuiProps, forwardRef } from '@/System'
 
 export interface RadioTabsOptions extends DefaultFieldStylesProps {
   checked?: boolean
@@ -16,7 +14,7 @@ export interface RadioTabsOptions extends DefaultFieldStylesProps {
   disabledIcon?: React.ReactElement
   label: React.ReactElement
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
-  value: Ariakit.RadioProps['value']
+  value: Ariakit.RadioStoreState['value']
 }
 
 export type RadioTabsProps = CreateWuiProps<'input', RadioTabsOptions>

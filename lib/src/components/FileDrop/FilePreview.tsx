@@ -1,12 +1,11 @@
 import React from 'react'
 
-import { Button } from '@/Button'
-import type { ForceFileType } from '@/Files'
-import { getFileIcon, getFileName, getFileSize } from '@/Files'
+import { FileDropChildren } from './index'
+
 import { ExternalLinkIcon } from '@/Icons'
 import { Text } from '@/Text'
-
-import type { FileDropChildren } from './index'
+import { ForceFileType, getFileIcon, getFileName, getFileSize } from '@/Files'
+import { Button } from '@/Button'
 
 export interface MessageProps {
   file: FileDropChildren['file']
@@ -14,14 +13,12 @@ export interface MessageProps {
   forceFileType?: ForceFileType
 }
 
-export const FilePreview: React.FC<FileDropChildren['wordings'] & MessageProps> = ({
+export const FilePreview: React.FC<MessageProps & FileDropChildren['wordings']> = ({
   file,
   fileName,
   forceFileType,
   previewButtonText = 'Preview',
 }) => {
-  if (!file) return null
-
   const isUrl = typeof file === 'string'
   const Icon = getFileIcon(file, forceFileType)
   const size = file instanceof File ? getFileSize(file) : null
@@ -38,12 +35,12 @@ export const FilePreview: React.FC<FileDropChildren['wordings'] & MessageProps> 
           {size}
         </Text>
       )}
-      {isUrl ? (
+      {isUrl && (
         <Button as="a" href={file} mt="md" rel="noopener" size="sm" target="_blank">
           <span>{previewButtonText}</span>
           <ExternalLinkIcon />
         </Button>
-      ) : null}
+      )}
     </>
   )
 }

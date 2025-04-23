@@ -15,11 +15,12 @@ export function useCreatePortal(disable = false) {
 
   return useMemo(() => {
     if (disable) {
-      return (children: React.ReactNode) => children as unknown
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      return (children: React.ReactNode) => children as any
     }
 
     return mounted
-      ? (children: React.ReactNode, container?: DocumentFragment | Element, key?: null | string) =>
+      ? (children: React.ReactNode, container?: Element | DocumentFragment, key?: string | null) =>
           createPortal(children, container || document.body, key)
       : () => null as unknown as CreatePortal
   }, [disable, mounted])

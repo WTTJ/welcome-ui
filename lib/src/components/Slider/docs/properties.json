@@ -19,13 +19,7 @@
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "string",
-          "value": [
-            {
-              "value": "string"
-            }
-          ]
+          "name": "string"
         }
       },
       "disabled": {
@@ -72,13 +66,7 @@
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "string",
-          "value": [
-            {
-              "value": "string"
-            }
-          ]
+          "name": "string"
         }
       },
       "label": {
@@ -97,13 +85,7 @@
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "string",
-          "value": [
-            {
-              "value": "string"
-            }
-          ]
+          "name": "string"
         }
       },
       "max": {
@@ -181,13 +163,7 @@
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "number",
-          "value": [
-            {
-              "value": "number"
-            }
-          ]
+          "name": "number"
         }
       },
       "tooltip": {
@@ -284,16 +260,7 @@
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "number[]",
-          "value": [
-            {
-              "value": "number[]",
-              "description": "",
-              "fullComment": "",
-              "tags": {}
-            }
-          ]
+          "name": "number[]"
         }
       }
     }

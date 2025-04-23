@@ -1,12 +1,12 @@
-import * as Ariakit from '@ariakit/react'
 import styled, { css, system, th } from '@xstyled/styled-components'
-
-import { Label as WUILabel } from '@/Label'
-import { shouldForwardProp } from '@/System'
-
-import type { RadioProps } from './index'
+import * as Ariakit from '@ariakit/react'
 
 import { defaultFieldStyles } from '../../utils/field-styles'
+
+import { RadioProps } from './index'
+
+import { shouldForwardProp } from '@/System'
+import { Label as WUILabel } from '@/Label'
 
 /* /!\ WARNING /!\ Don't add style after pseudo selector, it won't apply because of the dynamic color injected in the fill of the content */
 

@@ -1,12 +1,11 @@
 import React, { Children, isValidElement } from 'react'
 
 import { Box } from '@/Box'
-import type { CreateWuiProps } from '@/System'
-import { forwardRef } from '@/System'
+import { CreateWuiProps, forwardRef } from '@/System'
 
 export interface StackOptions {
   direction?: 'column' | 'row'
-  spacing?: 'lg' | 'md' | 'sm' | 'xl' | 'xs' | 'xxl' | 'xxs'
+  spacing?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
 }
 
 export type StackProps = CreateWuiProps<'div', StackOptions>
@@ -28,11 +27,13 @@ export const Stack = forwardRef<'div', StackProps>(
         {validChildrenArray.map((child, i) => {
           const childAs: React.ElementType = as === 'ol' || as === 'ul' ? 'li' : 'div'
 
-          return (
-            <Box as={childAs} key={`stack-item-${i}`}>
-              {child}
-            </Box>
-          )
+          const childProps = {
+            as: childAs,
+            key: `stack-item-${i}`,
+          }
+
+          // eslint-disable-next-line react/jsx-key
+          return <Box {...childProps}>{child}</Box>
         })}
       </Box>
     )

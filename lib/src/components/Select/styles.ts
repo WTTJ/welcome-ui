@@ -1,16 +1,15 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
 
-import { Box } from '@/Box'
-import { IconWrapper as WUIIconWrapper } from '@/Field'
-import { StyledIcon } from '@/Icon'
-import { shouldForwardProp } from '@/System'
-import { StyledTag } from '@/Tag'
-
-import type { DefaultFieldStylesProps } from '../../utils/field-styles'
-import type { SelectOptions } from './index'
-
-import { defaultFieldStyles } from '../../utils/field-styles'
+import { defaultFieldStyles, DefaultFieldStylesProps } from '../../utils/field-styles'
 import { overflowEllipsis } from '../../utils/overflow-ellipsis'
+
+import { SelectOptions } from './index'
+
+import { StyledIcon } from '@/Icon'
+import { IconWrapper as WUIIconWrapper } from '@/Field'
+import { StyledTag } from '@/Tag'
+import { shouldForwardProp } from '@/System'
+import { Box } from '@/Box'
 
 export const IconWrapper = styled(WUIIconWrapper)``
 
@@ -38,11 +37,11 @@ export const Input = styled.divBox.withConfig({ shouldForwardProp })<{
   ({ iconPlacement, isClearable, size, transparent, variant }) => css`
     position: relative;
     ${defaultFieldStyles({
-      iconPlacement,
-      isClearable,
       size,
-      transparent,
       variant,
+      transparent,
+      isClearable,
+      iconPlacement,
     })};
     ${overflowEllipsis};
     cursor: pointer;

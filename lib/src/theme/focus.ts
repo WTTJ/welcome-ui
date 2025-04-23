@@ -1,6 +1,6 @@
-import type { CSSObject } from '@xstyled/styled-components'
+import { CSSObject } from '@xstyled/styled-components'
 
-import type { ThemeColors } from './colors'
+import { ThemeColors } from './colors'
 
 export type ThemeFocus = (color?: string) => {
   boxShadow: CSSObject['boxShadow']

@@ -1,9 +1,8 @@
-import type { CSSProperties } from 'react'
-
-import type { CreateWuiProps } from '@/System'
-import { forwardRef } from '@/System'
+import React, { CSSProperties } from 'react'
 
 import * as S from './styles'
+
+import { CreateWuiProps, forwardRef } from '@/System'
 
 const TAG_NAMES = {
   h0: 'h1',
@@ -16,10 +15,12 @@ const TAG_NAMES = {
   lg: 'p',
   md: 'p',
   sm: 'p',
+  xs: 'p',
   'subtitle-md': 'span',
   'subtitle-sm': 'span',
-  xs: 'p',
 }
+
+type Variant = keyof typeof TAG_NAMES
 
 export interface TextOptions {
   lines?: number
@@ -29,8 +30,6 @@ export interface TextOptions {
 }
 
 export type TextProps = CreateWuiProps<'p', TextOptions>
-
-type Variant = keyof typeof TAG_NAMES
 
 export const Text = forwardRef<'p', TextProps>(
   (

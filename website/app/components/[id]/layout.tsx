@@ -1,16 +1,15 @@
-import { Button } from '@/Button'
-import { Flex } from '@/Flex'
-import { GithubIcon } from '@/Icons'
-import { Text } from '@/Text'
+import { Tabs } from './tabs'
 
-import { PrevNextPage } from '~/build-app/components/PrevNextPage'
+import { Text } from '@/Text'
+import { Flex } from '@/Flex'
+import { Button } from '@/Button'
+import { GithubIcon } from '@/Icons'
 import { Sidebar } from '~/build-app/components/Sidebar'
 import * as Documentation from '~/build-app/layouts/Documentation'
-import { getPageContent } from '~/build-app/utils/page-content'
 import { getPages } from '~/build-app/utils/pages-components'
 import { getRepository } from '~/build-app/utils/transform-name'
-
-import { Tabs } from './tabs'
+import { getPageContent } from '~/build-app/utils/page-content'
+import { PrevNextPage } from '~/build-app/components/PrevNextPage'
 
 type LayoutProps = {
   children: React.ReactNode
@@ -29,8 +28,8 @@ export async function generateMetadata({ params }: { params: { [key: string]: st
   const description = data?.description
 
   return {
-    description: description,
     title: `Welcome UI - ${title}`,
+    description: description,
   }
 }
 
@@ -54,11 +53,11 @@ const Layout = ({ children, params }: LayoutProps) => {
           <Text mt="3xl" variant="h1">
             {title}
           </Text>
-          {description ? (
+          {description && (
             <Text color="neutral-60" pt="lg" variant="lg">
               {description}
             </Text>
-          ) : null}
+          )}
           <Flex align="center" gap="md">
             <Button
               as="a"
@@ -71,7 +70,7 @@ const Layout = ({ children, params }: LayoutProps) => {
               <GithubIcon />
               <span>Source</span>
             </Button>
-            {ariakitLink ? (
+            {ariakitLink && (
               <Button
                 as="a"
                 href={ariakitLink}
@@ -95,7 +94,7 @@ const Layout = ({ children, params }: LayoutProps) => {
                 </svg>
                 <span>Built with Ariakit</span>
               </Button>
-            ) : null}
+            )}
           </Flex>
         </Flex>
         <Tabs pages={pages} />

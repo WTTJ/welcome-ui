@@ -83,9 +83,6 @@
           "raw": "Variant",
           "value": [
             {
-              "value": "\"ghost\""
-            },
-            {
               "value": "\"primary\""
             },
             {
@@ -93,6 +90,9 @@
             },
             {
               "value": "\"tertiary\""
+            },
+            {
+              "value": "\"ghost\""
             }
           ]
         }

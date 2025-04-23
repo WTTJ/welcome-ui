@@ -1,14 +1,11 @@
-import type { RenderOptions } from '@testing-library/react'
-import type { UserEvent } from '@testing-library/user-event'
-
-import { render as rtlRender } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
 import React from 'react'
+import { RenderOptions, render as rtlRender } from '@testing-library/react'
+import userEvent, { UserEvent } from '@testing-library/user-event'
 import { BrowserRouter } from 'react-router-dom'
 
-import { WuiProvider } from '@/WuiProvider'
-
 import { createTheme } from '../src/theme'
+
+import { WuiProvider } from '@/WuiProvider'
 
 type ProviderProps = {
   children?: React.ReactNode
@@ -24,7 +21,7 @@ const Provider: React.FC<ProviderProps> = ({ children }) => {
   )
 }
 
-type RenderResult = { user: UserEvent } & ReturnType<typeof rtlRender>
+type RenderResult = ReturnType<typeof rtlRender> & { user: UserEvent }
 
 const customRender = (ui: JSX.Element, options?: RenderOptions): RenderResult => {
   const renderResult = rtlRender(ui, { wrapper: Provider, ...options })

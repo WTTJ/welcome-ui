@@ -1,6 +1,8 @@
+import * as React from 'react'
+
+import { FileUpload } from '@/FileUpload'
 import { Button } from '@/Button'
 import { Field } from '@/Field'
-import { FileUpload } from '@/FileUpload'
 
 const Example = () => {
   const handleChange = () => {

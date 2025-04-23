@@ -1,6 +1,9 @@
-import { Box } from '@/Box'
+/* eslint-disable react/jsx-curly-newline */
+import * as React from 'react'
+
+import { toast, Toast } from '@/Toast'
 import { Button } from '@/Button'
-import { Toast, toast } from '@/Toast'
+import { Box } from '@/Box'
 
 const Example = () => {
   return (
