@@ -1,5 +1,7 @@
-import { Stack } from '@/Stack'
+import * as React from 'react'
+
 import { Tag } from '@/Tag'
+import { Stack } from '@/Stack'
 
 const Example = () => {
   return (

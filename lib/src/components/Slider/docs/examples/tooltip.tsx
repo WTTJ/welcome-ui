@@ -1,5 +1,6 @@
-import type { RangeType } from '@/Slider'
-import { Slider } from '@/Slider'
+import * as React from 'react'
+
+import { RangeType, Slider } from '@/Slider'
 
 const Example = () => {
   const handleChange = (value: number) => {
@@ -18,7 +19,7 @@ const Example = () => {
         min={0}
         onChange={handleChangeRange}
         tooltip
-        value={{ max: 75, min: 25 }}
+        value={{ min: 25, max: 75 }}
       />
     </>
   )

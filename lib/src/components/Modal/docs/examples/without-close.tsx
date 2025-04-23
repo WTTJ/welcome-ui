@@ -1,6 +1,8 @@
+import * as React from 'react'
+
+import { Modal, useModal } from '@/Modal'
 import { Button } from '@/Button'
 import { Flex } from '@/Flex'
-import { Modal, useModal } from '@/Modal'
 
 const Example = () => {
   const modal = useModal()

@@ -1,6 +1,8 @@
-import { Box } from '@/Box'
+import React from 'react'
 
 import * as S from './styles'
+
+import { Box } from '@/Box'
 
 type IframeProps = {
   children: JSX.Element

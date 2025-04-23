@@ -1,5 +1,4 @@
-import type { HTMLInputTypeAttribute } from 'react'
-
+import React, { HTMLInputTypeAttribute } from 'react'
 import { screen } from '@testing-library/react'
 
 import { Field } from '../'
@@ -146,11 +145,12 @@ describe('<Field />', () => {
       </Field>
     )
 
-    const label = screen.getByTestId('field-label')
+    const field = screen.getByTestId('field')
+    const label = field.querySelector('label')
     const input = screen.getByTestId('input')
 
-    expect(label).toHaveAttribute('for', 'field')
-    expect(label).toHaveAttribute('for', input?.id)
+    expect(label?.htmlFor).toBe('field')
+    expect(label?.htmlFor).toBe(input?.id)
 
     await user.click(label)
 
@@ -165,11 +165,12 @@ describe('<Field />', () => {
       </Field>
     )
 
-    const label = screen.getByTestId('field-label')
+    const field = screen.getByTestId('field')
+    const label = field.querySelector('label')
     const input = screen.getByTestId('input')
 
-    expect(label).toHaveAttribute('for', 'field')
-    expect(label).toHaveAttribute('for', input?.id)
+    expect(label?.htmlFor).toBe('field')
+    expect(label?.htmlFor).toBe(input?.id)
 
     await user.click(label)
 
@@ -184,11 +185,12 @@ describe('<Field />', () => {
       </Field>
     )
 
-    const label = screen.getByTestId('field-label')
+    const field = screen.getByTestId('field')
+    const label = field.querySelector('label')
     const input = screen.getByTestId('input')
 
-    expect(label.getAttribute('for')).toMatch(/^wui-field-/)
-    expect(label).toHaveAttribute('for', input?.id)
+    expect(label?.htmlFor).toContain('wui-field-')
+    expect(label?.htmlFor).toBe(input?.id)
 
     await user.click(label)
 

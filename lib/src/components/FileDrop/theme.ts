@@ -1,6 +1,6 @@
-import type { CSSObject } from '@xstyled/styled-components'
+import { CSSObject } from '@xstyled/styled-components'
 
-import type { ThemeValues } from '@/theme'
+import { ThemeValues } from '@/theme'
 
 export type ThemeFileDrops = {
   default: CSSObject
@@ -14,13 +14,13 @@ export const getFileDrops = (theme: ThemeValues): ThemeFileDrops => {
 
   return {
     default: {
-      borderStyle: 'dashed',
       minHeight: toRem(200),
-    },
-    disabled: {
-      backgroundColor: colors['beige-30'],
+      borderStyle: 'dashed',
     },
     dragAccept: {},
     dragReject: {},
+    disabled: {
+      backgroundColor: colors['beige-30'],
+    },
   }
 }

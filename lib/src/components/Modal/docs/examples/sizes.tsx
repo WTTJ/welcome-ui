@@ -1,8 +1,7 @@
 import * as React from 'react'
 
+import { Modal, ModalProps, useModal } from '@/Modal'
 import { Button } from '@/Button'
-import type { ModalProps } from '@/Modal'
-import { Modal, useModal } from '@/Modal'
 
 const Example = () => {
   const modal = useModal()

@@ -1,6 +1,6 @@
-import type { CSSObject } from '@xstyled/styled-components'
+import { CSSObject } from '@xstyled/styled-components'
 
-import type { ThemeValues } from '@/theme'
+import { ThemeValues } from '@/theme'
 
 export type ThemeAccordions = {
   content: CSSObject
@@ -14,19 +14,19 @@ export const getAccordions = (theme: ThemeValues): ThemeAccordions => {
   const { borderWidths, colors, fontSizes, radii, space, texts, transitions } = theme
 
   return {
-    content: {
-      fontSize: fontSizes.sm,
+    padding: space.lg,
+    wrapper: {
+      backgroundColor: colors['neutral-10'],
+      transition: transitions.medium,
+      border: `${borderWidths.sm} solid ${colors['neutral-30']}`,
+      borderRadius: radii.md,
     },
     icon: {
       color: colors['neutral-90'],
     },
-    padding: space.lg,
-    title: texts.h5,
-    wrapper: {
-      backgroundColor: colors['neutral-10'],
-      border: `${borderWidths.sm} solid ${colors['neutral-30']}`,
-      borderRadius: radii.md,
-      transition: transitions.medium,
+    content: {
+      fontSize: fontSizes.sm,
     },
+    title: texts.h5,
   }
 }

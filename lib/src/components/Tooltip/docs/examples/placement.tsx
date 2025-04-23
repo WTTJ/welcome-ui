@@ -1,12 +1,11 @@
 import * as React from 'react'
 
-import { Button } from '@/Button'
-import { Checkbox } from '@/Checkbox'
-import { Field } from '@/Field'
-import { Flex } from '@/Flex'
-import { InputText } from '@/InputText'
 import { Tooltip } from '@/Tooltip'
-
+import { Button } from '@/Button'
+import { Flex } from '@/Flex'
+import { Field } from '@/Field'
+import { Checkbox } from '@/Checkbox'
+import { InputText } from '@/InputText'
 const Example = () => {
   const [withArrow, setWithArrow] = React.useState(true)
   const [tooltipContent, setTooltipContent] = React.useState('This is the tooltip content')

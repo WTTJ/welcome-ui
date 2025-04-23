@@ -47,13 +47,7 @@
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "string",
-          "value": [
-            {
-              "value": "string"
-            }
-          ]
+          "name": "string"
         }
       },
       "autoFocus": {
@@ -184,19 +178,7 @@
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "ReactElement<any, string | JSXElementConstructor<any>>",
-          "value": [
-            {
-              "value": "ReactElement<any, string | JSXElementConstructor<any>>",
-              "description": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.",
-              "fullComment": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.\n@template P The type of the props object\n@template T The type of the component or tag\n@example ```tsx\nconst element: ReactElement = <div />;\n```",
-              "tags": {
-                "template": "P The type of the props object\nT The type of the component or tag",
-                "example": "```tsx\nconst element: ReactElement = <div />;\n```"
-              }
-            }
-          ]
+          "name": "ReactElement<any, string | JSXElementConstructor<any>>"
         }
       },
       "id": {
@@ -215,13 +197,7 @@
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "string",
-          "value": [
-            {
-              "value": "string"
-            }
-          ]
+          "name": "string"
         }
       },
       "isClearable": {
@@ -352,13 +328,7 @@
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "string",
-          "value": [
-            {
-              "value": "string"
-            }
-          ]
+          "name": "string"
         }
       },
       "onBlur": {
@@ -377,16 +347,7 @@
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "(() => void)",
-          "value": [
-            {
-              "value": "() => void",
-              "description": "",
-              "fullComment": "",
-              "tags": {}
-            }
-          ]
+          "name": "() => void"
         }
       },
       "onChange": {
@@ -405,16 +366,7 @@
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "((value: SelectOptionValue | SelectOptionValue[], event?: CreateEvent) => void) | undefined",
-          "value": [
-            {
-              "value": "(value: SelectOptionValue | SelectOptionValue[], event?: CreateEvent | undefined) => void",
-              "description": "",
-              "fullComment": "",
-              "tags": {}
-            }
-          ]
+          "name": "(value: SelectOptionValue | SelectOptionValue[], event?: CreateEvent) => void"
         }
       },
       "onClick": {
@@ -433,16 +385,7 @@
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "((event: MouseEvent<HTMLElement, MouseEvent>) => void)",
-          "value": [
-            {
-              "value": "(event: MouseEvent<HTMLElement, MouseEvent>) => void",
-              "description": "",
-              "fullComment": "",
-              "tags": {}
-            }
-          ]
+          "name": "(event: MouseEvent<HTMLElement, MouseEvent>) => void"
         }
       },
       "onCreate": {
@@ -461,16 +404,7 @@
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "((option: string, event: CreateEvent) => void)",
-          "value": [
-            {
-              "value": "(option: string, event: CreateEvent) => void",
-              "description": "",
-              "fullComment": "",
-              "tags": {}
-            }
-          ]
+          "name": "(option: string, event: CreateEvent) => void"
         }
       },
       "onFocus": {
@@ -489,16 +423,7 @@
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "(() => void)",
-          "value": [
-            {
-              "value": "() => void",
-              "description": "",
-              "fullComment": "",
-              "tags": {}
-            }
-          ]
+          "name": "() => void"
         }
       },
       "options": {
@@ -538,13 +463,7 @@
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "string",
-          "value": [
-            {
-              "value": "string"
-            }
-          ]
+          "name": "string"
         }
       },
       "renderCreateItem": {
@@ -565,16 +484,7 @@
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "((inputValue: string) => ReactNode)",
-          "value": [
-            {
-              "value": "(inputValue: string) => ReactNode",
-              "description": "",
-              "fullComment": "",
-              "tags": {}
-            }
-          ]
+          "name": "(inputValue: SelectValue) => void"
         }
       },
       "renderGroupHeader": {
@@ -593,16 +503,7 @@
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "((option: SelectOptionGroup) => ReactNode)",
-          "value": [
-            {
-              "value": "(option: SelectOptionGroup) => ReactNode",
-              "description": "",
-              "fullComment": "",
-              "tags": {}
-            }
-          ]
+          "name": "(option: SelectOptionGroup) => ReactNode"
         }
       },
       "renderItem": {
@@ -623,16 +524,7 @@
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "((item: SelectOption, isItemSelected?: boolean) => string | ReactElement<any, string | JSXElementConstructor<any>>) | undefined",
-          "value": [
-            {
-              "value": "(item: SelectOption, isItemSelected?: boolean | undefined) => string | ReactElement<any, string | JSXElementConstructor<any>>",
-              "description": "",
-              "fullComment": "",
-              "tags": {}
-            }
-          ]
+          "name": "(item: SelectOption, isItemSelected?: boolean) => string | ReactElement<any, string | JSXElementConstructor<any>>"
         }
       },
       "renderMultiple": {
@@ -651,16 +543,7 @@
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "((values: SelectOption[], handleRemove: (value: string) => void) => ReactElement<any, string | JSXElementConstructor<any>>)",
-          "value": [
-            {
-              "value": "(values: SelectOption[], handleRemove: (value: string) => void) => ReactElement<any, string | JSXElementConstructor<any>>",
-              "description": "",
-              "fullComment": "",
-              "tags": {}
-            }
-          ]
+          "name": "(values: SelectOption[], handleRemove: (value: string) => void) => ReactElement<any, string | JSXElementConstructor<any>>"
         }
       },
       "transparent": {
@@ -723,13 +606,13 @@
               "tags": {}
             },
             {
-              "value": "(string | number | SelectOption)[]",
+              "value": "string[]",
               "description": "",
               "fullComment": "",
               "tags": {}
             },
             {
-              "value": "string[]",
+              "value": "(string | number | SelectOption)[]",
               "description": "",
               "fullComment": "",
               "tags": {}
@@ -740,6 +623,16 @@
     }
   },
   "StyledSelect": {
-    "props": {}
+    "props": {
+      "theme": {
+        "defaultValue": null,
+        "description": "",
+        "name": "theme",
+        "required": false,
+        "type": {
+          "name": "DefaultTheme"
+        }
+      }
+    }
   }
 }

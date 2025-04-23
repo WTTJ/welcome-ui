@@ -1,5 +1,7 @@
-import { IconsFont } from '../'
+import React from 'react'
+
 import { render } from '../../../../tests'
+import { IconsFont } from '../'
 
 describe('<IconsFont>', () => {
   it('should render correctly with existing icon name', () => {

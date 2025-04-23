@@ -1,8 +1,8 @@
 import styled, { css, th } from '@xstyled/styled-components'
 
-import type { VariantIconOptions } from '.'
+import { VariantIconOptions } from '.'
 
-export const VariantIcon = styled.divBox<{ variant: string | VariantIconOptions['variant'] }>(
+export const VariantIcon = styled.divBox<{ variant: VariantIconOptions['variant'] | string }>(
   ({ variant }) => css`
     display: inline-flex;
     ${th(`variantIcon.${variant}`)}

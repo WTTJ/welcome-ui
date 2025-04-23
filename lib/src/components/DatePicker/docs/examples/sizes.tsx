@@ -1,3 +1,5 @@
+import * as React from 'react'
+
 import { DatePicker } from '@/DatePicker'
 import { WttjIcon } from '@/Icons'
 import { Stack } from '@/Stack'

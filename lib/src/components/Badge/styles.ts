@@ -1,12 +1,12 @@
 import styled, { css, th } from '@xstyled/styled-components'
 
-import type { WuiProps } from '@/System'
+import { BadgeOptions } from '.'
 
-import type { BadgeOptions } from '.'
+import { WuiProps } from '@/System'
 
-export type StyledBadgeProps = {
+export type StyledBadgeProps = Pick<BadgeOptions, 'disabled' | 'size' | 'variant'> & {
   length: number
-} & Pick<BadgeOptions, 'disabled' | 'size' | 'variant'>
+}
 
 export const Badge = styled.divBox<StyledBadgeProps & WuiProps>(
   ({ disabled, length, size, variant }) => css`

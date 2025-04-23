@@ -1,6 +1,6 @@
-import type { CSSObject } from '@xstyled/styled-components'
+import { CSSObject } from '@xstyled/styled-components'
 
-import type { ThemeValues } from '@/theme'
+import { ThemeValues } from '@/theme'
 
 export type ThemeRadios = {
   checked: CSSObject
@@ -15,17 +15,17 @@ export const getRadios = (theme: ThemeValues): ThemeRadios => {
   const { colors, toRem } = theme
 
   return {
+    default: {
+      width: toRem(16),
+      height: toRem(16),
+    },
     checked: {
-      borderColor: colors['primary-40'],
       color: colors['neutral-90'],
+      borderColor: colors['primary-40'],
     },
     checkedCenteredColor: {
       default: colors['primary-40'],
       disabled: colors['beige-60'],
-    },
-    default: {
-      height: toRem(16),
-      width: toRem(16),
     },
   }
 }

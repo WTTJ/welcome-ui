@@ -1,5 +1,7 @@
-import { Button } from '@/Button'
+import * as React from 'react'
+
 import { Popover, usePopover } from '@/Popover'
+import { Button } from '@/Button'
 
 const Example = () => {
   const popover = usePopover()

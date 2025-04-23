@@ -1,32 +1,32 @@
 import React from 'react'
 
-import { Hint } from '@/Hint'
-import { Label } from '@/Label'
-import type { CreateWuiProps } from '@/System'
-import { forwardRef } from '@/System'
-import { VariantIcon } from '@/VariantIcon'
-
 import { useIsomorphicLayoutEffect } from '../../utils/use-isomorphic-layout-effect'
+
 import * as S from './styles'
 import { forwardedProps, generateRandomId, getBaseType, getVariant } from './utils'
+
+import { VariantIcon } from '@/VariantIcon'
+import { Hint } from '@/Hint'
+import { Label } from '@/Label'
+import { CreateWuiProps, forwardRef } from '@/System'
+
+type VariantProps = {
+  error?: string | JSX.Element
+  success?: string | JSX.Element
+  warning?: string | JSX.Element
+}
 
 export interface FieldOptions extends VariantProps {
   children: JSX.Element
   disabled?: boolean
   disabledIcon?: JSX.Element
-  hint?: JSX.Element | string
-  label?: JSX.Element | string
+  hint?: string | JSX.Element
+  label?: string | JSX.Element
   required?: boolean
   transparent?: boolean
 }
 
 export type FieldProps = CreateWuiProps<'div', FieldOptions>
-
-type VariantProps = {
-  error?: JSX.Element | string
-  success?: JSX.Element | string
-  warning?: JSX.Element | string
-}
 
 export const Field = forwardRef<'div', FieldProps>(
   (
@@ -56,7 +56,7 @@ export const Field = forwardRef<'div', FieldProps>(
     const isCheckable = isRadio || isCheckbox || isToggle
     const layout = flexDirection || (isCheckable ? 'row' : 'column')
     const isGroup = isFieldGroup || isRadioGroup
-    const variant = getVariant({ error, success, warning })
+    const variant = getVariant({ error, warning, success })
     const hintText = variant ? error || warning || success : hint
     const withHintText = !!hintText
     const htmlFor = children.props.id || children.props.name || generateRandomId()
@@ -65,8 +65,8 @@ export const Field = forwardRef<'div', FieldProps>(
       disabled,
       id: htmlFor,
       required,
-      transparent,
       variant,
+      transparent,
       ...(isGroup ? { flexDirection: layout } : {}),
     })
 
@@ -89,12 +89,11 @@ export const Field = forwardRef<'div', FieldProps>(
         withHintText={withHintText}
       >
         <S.Label>
-          {isCheckable ? child : null}
+          {isCheckable && child}
           <S.LabelWithHint>
-            {label ? (
+            {label && (
               <Label
                 checkableField={isCheckable}
-                dataTestId={dataTestId ? `${dataTestId}-label` : undefined}
                 disabled={disabled}
                 disabledIcon={disabledIcon}
                 htmlFor={htmlFor}
@@ -103,12 +102,12 @@ export const Field = forwardRef<'div', FieldProps>(
                 withDisabledIcon={!isCheckable}
               >
                 {/* for a checkable field the variant icon is after input and before label text */}
-                {isCheckable ? <VariantIcon size="sm" variant={variant} /> : null}
+                {isCheckable && <VariantIcon size="sm" variant={variant} />}
                 {label}
               </Label>
-            ) : null}
+            )}
             {/* for a checkable field we add a hint below label name */}
-            {isCheckable && hintText ? (
+            {isCheckable && hintText && (
               <Hint
                 checkableField
                 dataTestId={dataTestId ? `${dataTestId}-hint` : undefined}
@@ -117,15 +116,15 @@ export const Field = forwardRef<'div', FieldProps>(
               >
                 {hintText}
               </Hint>
-            ) : null}
+            )}
           </S.LabelWithHint>
         </S.Label>
         {!isCheckable && child}
-        {!isCheckable && hintText ? (
+        {!isCheckable && hintText && (
           <Hint dataTestId={dataTestId ? `${dataTestId}-hint` : undefined} variant={variant}>
             {hintText}
           </Hint>
-        ) : null}
+        )}
       </S.Field>
     )
   }

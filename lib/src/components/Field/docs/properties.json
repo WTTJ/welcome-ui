@@ -45,16 +45,7 @@
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "Element",
-          "value": [
-            {
-              "value": "Element",
-              "description": "",
-              "fullComment": "",
-              "tags": {}
-            }
-          ]
+          "name": "Element"
         }
       },
       "hint": {

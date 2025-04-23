@@ -1,10 +1,10 @@
 import styled, { css, system } from '@xstyled/styled-components'
 
-import { Box } from '@/Box'
-
-import type { ShapeOptions } from './index'
-
 import { getMax } from '../../utils/get-max-width-height'
+
+import { ShapeOptions } from './index'
+
+import { Box } from '@/Box'
 
 const shapeStyles = (w: string, h: string, shape: ShapeOptions['shape']) => css`
   width: ${getMax(w, h)};

@@ -1,30 +1,20 @@
 'use client'
-import { kebabCase } from 'lodash'
 import React from 'react'
-
-import { Badge } from '@/Badge'
-import { Box } from '@/Box'
-import { Flex } from '@/Flex'
-import { Text } from '@/Text'
+import { kebabCase } from 'lodash'
 
 import { Code } from '../Mdx/Code'
 import { H2 } from '../Mdx/Headings'
+
 import * as TYPES from './propTypes'
 
-export type PropertiesProps = {
-  items: {
-    [name: string]: { props: Property }
-  }
-}
+import { Text } from '@/Text'
+import { Flex } from '@/Flex'
+import { Badge } from '@/Badge'
+import { Box } from '@/Box'
 
-export type Property = {
-  [name: string]: Props
-}
-
-type PropertyProps = {
-  id: string
+type Value = {
   name: string
-  options: Props
+  value: string
 }
 
 type Props = {
@@ -40,9 +30,20 @@ type Props = {
   }
 }
 
-type Value = {
+export type Property = {
+  [name: string]: Props
+}
+
+export type PropertiesProps = {
+  items: {
+    [name: string]: { props: Property }
+  }
+}
+
+type PropertyProps = {
+  id: string
   name: string
-  value: string
+  options: Props
 }
 
 const removeQuote = (str?: string) => str?.toString()?.replace(/'/g, '')
@@ -113,19 +114,19 @@ export const Property = ({ id, name, options }: PropertyProps) => {
         pb="md"
       >
         <Code>{name}</Code>
-        {required ? <Badge variant="primary">Required</Badge> : null}
+        {required && <Badge variant="primary">Required</Badge>}
       </Flex>
       <Text color="neutral-90">
         {getType(type)}
         <Box as="span" color="neutral-70">
-          {defaultLabel ? ` | undefined = ${defaultLabel}` : null}
+          {defaultLabel && ` | undefined = ${defaultLabel}`}
         </Box>
       </Text>
-      {description ? (
+      {description && (
         <Text mt="sm" variant="sm">
           {description}
         </Text>
-      ) : null}
+      )}
     </Box>
   )
 }
@@ -147,7 +148,7 @@ export const Properties = ({ items }: PropertiesProps) => {
 
         return (
           <section key={kebabCase(`property_${name}`)}>
-            {name ? <H2 mt={0}>{name}</H2> : null}
+            {name && <H2 mt={0}>{name}</H2>}
             <Flex direction="column" gap="xl" mt="md">
               {Object.entries(properties).map(item => (
                 <Property

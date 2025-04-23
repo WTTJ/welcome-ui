@@ -1,5 +1,7 @@
-import { Box } from '@/Box'
+import * as React from 'react'
+
 import { Card } from '@/Card'
+import { Box } from '@/Box'
 import { Text } from '@/Text'
 
 const Example = () => {

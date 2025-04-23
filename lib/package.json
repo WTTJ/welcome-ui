@@ -1,6 +1,6 @@
 {
   "name": "welcome-ui",
-  "version": "8.1.0",
+  "version": "8.1.1",
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "files": [
     "dist"
@@ -70,6 +70,16 @@
     "react-hot-toast": "^2.4.1"
   },
   "devDependencies": {
+    "@babel/cli": "7.25.9",
+    "@babel/core": "7.26.10",
+    "@babel/eslint-parser": "^7.25.1",
+    "@babel/plugin-proposal-class-properties": "7.18.6",
+    "@babel/plugin-proposal-optional-chaining": "7.21.0",
+    "@babel/plugin-transform-modules-commonjs": "7.26.3",
+    "@babel/plugin-transform-runtime": "^7.25.4",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-react": "^7.26.3",
+    "@babel/preset-typescript": "^7.22.11",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
@@ -77,22 +87,36 @@
     "@types/lodash.capitalize": "^4.2.9",
     "@types/lodash.debounce": "^4.0.6",
     "@types/lodash.range": "^3.2.9",
+    "@types/node": "22.13.4",
     "@types/ramda": "^0.30.2",
+    "@types/react": "18.3.12",
     "@types/react-datepicker": "^4.15.0",
-    "jsdom": "^26.1.0",
+    "@types/react-dom": "18.3.1",
+    "@xstyled/styled-components": "^4.0.0",
+    "babel-plugin-annotate-pure-calls": "^0.4.0",
+    "babel-plugin-styled-components": "^2.1.4",
+    "babel-plugin-transform-async-to-promises": "^0.8.18",
+    "babel-preset-vite": "^1.1.3",
+    "jsdom": "^26.0.0",
     "ramda": "^0.30.1",
+    "react": "^18.3.1",
     "release-it": "^18.1.2",
-    "rollup": "^4.39.0",
     "rollup-preserve-directives": "^1.1.3",
-    "vite": "^6.2.5",
+    "styled-components": "^6.1.15",
+    "typescript": "^5.6.3",
+    "vite": "^6.2.1",
     "vite-plugin-dts": "^4.5.3",
     "vite-plugin-static-copy": "^2.3.0",
-    "vitest": "^3.0.8"
+    "vitest": "^3.0.8",
+    "wttj-config": "3.1.2"
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^4.0.0",
     "react": "^18.3.1",
     "styled-components": "^6.1.15"
+  },
+  "resolutions": {
+    "@babel/traverse": ">=7.23.2"
   },
   "homepage": "https://welcome-ui.com"
 }

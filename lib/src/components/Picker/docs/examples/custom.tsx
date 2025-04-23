@@ -33,8 +33,11 @@ const options = [
 const Example = () => {
   const [value, setValue] = React.useState('1')
 
-  const handleChange: React.MouseEventHandler<HTMLLabelElement> = event => {
-    setValue(event.currentTarget.children[0].getAttribute('value') || '1')
+  // TODO: fix typescript
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  const handleChange = event => {
+    setValue(event.target.value)
   }
 
   return <Picker name="icon" onChange={handleChange} options={options} value={value} />

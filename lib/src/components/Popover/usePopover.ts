@@ -1,18 +1,18 @@
 import * as Ariakit from '@ariakit/react'
 
-export type UsePopover = Ariakit.PopoverStore & Pick<UsePopoverProps, 'withCloseButton'>
-
-export type UsePopoverHover = Ariakit.HovercardStore & Pick<UsePopoverHoverProps, 'withCloseButton'>
-export interface UsePopoverHoverProps extends Ariakit.HovercardStoreProps {
-  withCloseButton?: WithCloseButton
-}
-export type UsePopoverHoverState = Ariakit.HovercardStoreState
+type WithCloseButton = boolean
 
 export interface UsePopoverProps extends Ariakit.PopoverStoreProps {
   withCloseButton?: WithCloseButton
 }
+export type UsePopover = Ariakit.PopoverStore & Pick<UsePopoverProps, 'withCloseButton'>
 export type UsePopoverState = Ariakit.PopoverStoreState
-type WithCloseButton = boolean
+
+export interface UsePopoverHoverProps extends Ariakit.HovercardStoreProps {
+  withCloseButton?: WithCloseButton
+}
+export type UsePopoverHover = Ariakit.HovercardStore & Pick<UsePopoverHoverProps, 'withCloseButton'>
+export type UsePopoverHoverState = Ariakit.HovercardStoreState
 
 export const usePopover: (props?: UsePopoverProps) => UsePopover = ({
   animated = 150,

@@ -1,6 +1,4 @@
-/* eslint-disable perfectionist/sort-imports */
-// we need to avoid sorting objects in this file because of the test of styles (flaky tests)
-/* eslint-disable perfectionist/sort-objects */
+import React from 'react'
 import { screen } from '@testing-library/react'
 
 import { SunIcon } from '../../Icons'

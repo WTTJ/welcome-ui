@@ -1,3 +1,5 @@
+import * as React from 'react'
+
 import { InputText } from '@/InputText'
 
 const Example = () => {

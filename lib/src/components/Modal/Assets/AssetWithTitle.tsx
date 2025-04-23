@@ -1,12 +1,13 @@
-import styled from '@xstyled/styled-components'
 import React from 'react'
+import styled from '@xstyled/styled-components'
+
+import { Text } from '../../Text'
+
+import { Iframe } from './styles'
+import * as S from './styles'
 
 import { Box } from '@/Box'
 import { forwardRef } from '@/System'
-
-import { Text } from '../../Text'
-import { Iframe } from './styles'
-import * as S from './styles'
 
 type AssetWithTitleProps = {
   children: React.ReactNode
@@ -62,8 +63,8 @@ export const AssetWithTitle = forwardRef<'div', AssetWithTitleProps>(
           w="100%"
         >
           {customContent}
-          {!customContent && subtitle ? <Text variant="subtitle-sm">{subtitle}</Text> : null}
-          {!customContent && title ? <S.Title>{title}</S.Title> : null}
+          {!customContent && subtitle && <Text variant="subtitle-sm">{subtitle}</Text>}
+          {!customContent && title && <S.Title>{title}</S.Title>}
         </Box>
       </Wrapper>
     )

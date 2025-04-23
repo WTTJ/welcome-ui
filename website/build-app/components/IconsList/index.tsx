@@ -1,13 +1,8 @@
 'use client'
-import { camelCase, startCase } from 'lodash'
 import React from 'react'
+import { camelCase, startCase } from 'lodash'
 
-import { Box } from '@/Box'
-import * as Icons from '@/Icons'
-import { IconsFont } from '@/IconsFont'
-import { Text } from '@/Text'
-import { Toast, toast } from '@/Toast'
-
+import * as S from './styles'
 import {
   actions,
   arrows,
@@ -22,23 +17,28 @@ import {
   welcome,
   wtf,
 } from './icons'
-import * as S from './styles'
+
+import { IconsFont } from '@/IconsFont'
+import * as Icons from '@/Icons'
+import { Box } from '@/Box'
+import { Text } from '@/Text'
+import { Toast, toast } from '@/Toast'
 
 export type IconListProps = {
   isIconsFont?: boolean
   name:
-    | 'actions'
     | 'arrows'
-    | 'avatar'
-    | 'brands'
-    | 'files'
-    | 'flags'
-    | 'markdown'
+    | 'actions'
     | 'miscellaneous'
     | 'player'
-    | 'table'
-    | 'welcome'
+    | 'avatar'
     | 'wtf'
+    | 'files'
+    | 'markdown'
+    | 'table'
+    | 'brands'
+    | 'welcome'
+    | 'flags'
 }
 
 const handleClickToCopy = (componentName: string) => {
@@ -57,22 +57,22 @@ const handleClickToCopy = (componentName: string) => {
 
 export const IconsList = ({ isIconsFont, name }: IconListProps) => {
   const iconsByName = {
-    actions: actions,
     arrows: arrows,
-    avatar: avatar,
-    brands: brands,
-    files: files,
-    flags: flags,
-    markdown: markdown,
+    actions: actions,
     miscellaneous: miscellaneous,
     player: player,
-    table: table,
-    welcome: welcome,
+    avatar: avatar,
     wtf: wtf,
+    files: files,
+    markdown: markdown,
+    table: table,
+    brands: brands,
+    welcome: welcome,
+    flags: flags,
   }
 
   return (
-    <Box display="grid" gap="lg" gridTemplateColumns={{ lg: '1fr 1fr 1fr 1fr', xs: '1fr 1fr' }}>
+    <Box display="grid" gap="lg" gridTemplateColumns={{ xs: '1fr 1fr', lg: '1fr 1fr 1fr 1fr' }}>
       {iconsByName[name]?.map(key => {
         const name = startCase(camelCase(key)).replace(/ /g, '')
         const componentName = isIconsFont ? `IconsFont.${name}` : `${name}Icon`

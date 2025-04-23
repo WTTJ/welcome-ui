@@ -681,13 +681,7 @@
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "string",
-          "value": [
-            {
-              "value": "string"
-            }
-          ]
+          "name": "string"
         }
       },
       "onChange": {
@@ -706,16 +700,7 @@
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "((event: ChangeEvent<HTMLInputElement>) => void)",
-          "value": [
-            {
-              "value": "(event: ChangeEvent<HTMLInputElement>) => void",
-              "description": "",
-              "fullComment": "",
-              "tags": {}
-            }
-          ]
+          "name": "(event: ChangeEvent<HTMLInputElement>) => void"
         }
       }
     }

@@ -1,13 +1,13 @@
 import styled, { css, th } from '@xstyled/styled-components'
 
-import type { TooltipProps } from './index'
+import { TooltipProps } from './index'
 
 const transformDirection = {
-  auto: 'translate3d(0, 0, 0)',
+  top: 'translate3d(0, -4px, 0)',
+  right: 'translate3d(4px, 0, 0)',
   bottom: 'translate3d(0, 4px, 0)',
   left: 'translate3d(-4px, 0, 0)',
-  right: 'translate3d(4px, 0, 0)',
-  top: 'translate3d(0, -4px, 0)',
+  auto: 'translate3d(0, 0, 0)',
 }
 type TransformDirectionKey = keyof typeof transformDirection
 
@@ -35,7 +35,7 @@ const fadeInStyle = css`
 type FadeIn = {
   fixed?: boolean
   placement?: TooltipProps['placement']
-  popoverHeight?: number
+  popoverHeight: number
   withArrow?: boolean
 }
 
@@ -62,7 +62,7 @@ const getYPosition = (placement: string, popoverHeight: number) => {
 }
 
 export const FadeIn = styled.divBox<FadeIn>(
-  ({ fixed, placement = 'bottom', popoverHeight = 0, withArrow }) => css`
+  ({ fixed, placement, popoverHeight, withArrow }) => css`
     ${th('tooltips')};
     transition:
       opacity ${th.transition('medium')},

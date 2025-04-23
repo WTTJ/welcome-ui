@@ -1,21 +1,17 @@
 import { existsSync, readdirSync, readFileSync } from 'fs'
-import matter from 'gray-matter'
-import kebabCase from 'lodash/kebabCase'
 import { join } from 'path'
 
-import type { PageTree } from '../types'
+import matter from 'gray-matter'
+import kebabCase from 'lodash/kebabCase'
 
-type Files = {
-  category: string
-  pages: { id: string; subPages?: string[]; title: string }[]
-  parent: Parent
-}
+import { PageTree } from '../types'
 
 type Parent = 'components'
 
 export function getFilesFromPackages(selectedParent: Parent) {
   const folder = join(process.cwd(), '../lib/src/components')
-  const files = [] as Files[]
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const files = [] as any[]
 
   const folders = readdirSync(folder)
 
@@ -34,30 +30,21 @@ export function getFilesFromPackages(selectedParent: Parent) {
 
       const categoryParent = files.filter(resultItem => resultItem.category === category)[0]
 
-      const newChild = { id: fileKebabCase, subPages: ['props'], title }
+      const newChild = { id: fileKebabCase, title, subPages: ['props'] }
 
       if (categoryParent) {
         categoryParent.pages.push(newChild)
       } else {
         files.push({
           category,
-          pages: [newChild],
           parent: selectedParent,
+          pages: [newChild],
         })
       }
     }
   }
 
   return files.sort((a, b) => a.category.localeCompare(b.category))
-}
-
-/**
- * Gets the pages tree from docs folders
- */
-export function getPages(selectedParent = 'components' as Parent): PageTree {
-  const filesFromDirectory = getFilesFromPackages(selectedParent)
-
-  return filesFromDirectory
 }
 
 export function getStaticParams(pages: PageTree) {
@@ -77,4 +64,13 @@ export function getStaticParams(pages: PageTree) {
     },
     [] as { id: string; subPage?: string }[]
   )
+}
+
+/**
+ * Gets the pages tree for docs
+ */
+export function getPages(selectedParent = 'components' as Parent): PageTree {
+  const filesFromDirectory = getFilesFromPackages(selectedParent)
+
+  return filesFromDirectory
 }

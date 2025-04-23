@@ -1,5 +1,3 @@
-export type Type = ({} & string) | Types[keyof Types]
-
 export interface Types {
   '7z': 'application/x-7z-compressed'
   aac: 'audio/aac'
@@ -66,6 +64,10 @@ export interface Types {
   xwd: 'image/x-xwindowdump'
   zip: 'application/zip'
 }
+
+// https://stackoverflow.com/questions/66500729/union-type-of-keyof-and-string-with-working-autocompletion
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type Type = Types[keyof Types] | (string & {})
 
 interface TypesWithString extends Types {
   [key: string]: string

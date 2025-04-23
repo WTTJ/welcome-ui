@@ -1,125 +1,124 @@
-import type { CSSObject } from '@xstyled/styled-components'
+import { CSSObject } from '@xstyled/styled-components'
 
-import type { ThemeValues } from '@/theme'
+import { ThemeValues } from '@/theme'
 
 // To allow for line-height of text in label
 const XS_LINE_HEIGHT_ADJUSTMENTS = '0.32rem !important'
 const SM_LINE_HEIGHT_ADJUSTMENTS = '0.12rem ! important'
 
-// eslint-disable-next-line perfectionist/sort-union-types
 export type Size = 'xs' | 'sm' | 'md'
-export type ThemeToggles = {
-  after: Record<'sizes' | State, CSSObject>
-  icon: Record<'position' | 'sizes', CSSObject>
-  item: Record<'sizes' | State, CSSObject>
-}
+type State = 'default' | 'checked' | 'disabled'
 
-type State = 'checked' | 'default' | 'disabled'
+export type ThemeToggles = {
+  after: Record<State | 'sizes', CSSObject>
+  icon: Record<'sizes' | 'position', CSSObject>
+  item: Record<State | 'sizes', CSSObject>
+}
 
 export const getToggles = (theme: ThemeValues): ThemeToggles => {
   const { borderWidths, colors, focus, toRem } = theme
 
   return {
+    item: {
+      default: {
+        backgroundColor: colors['neutral-10'],
+        borderColor: colors['neutral-30'],
+        borderWidth: borderWidths.sm,
+        borderStyle: 'solid',
+        borderRadius: toRem(16),
+
+        '&:focus': {
+          borderColor: colors['primary-30'],
+          ...focus(colors['primary-30']),
+        },
+      },
+      sizes: {
+        xs: {
+          width: toRem(28),
+          height: toRem(16),
+          marginTop: XS_LINE_HEIGHT_ADJUSTMENTS,
+        },
+        sm: {
+          width: toRem(36),
+          height: toRem(20),
+          marginTop: SM_LINE_HEIGHT_ADJUSTMENTS,
+        },
+        md: {
+          width: toRem(44),
+          height: toRem(24),
+          marginTop: '0 !important',
+        },
+      },
+      checked: {
+        backgroundColor: colors['primary-40'],
+        borderColor: colors['primary-40'],
+      },
+      disabled: {
+        borderColor: colors['beige-60'],
+        backgroundColor: colors['beige-40'],
+      },
+    },
     after: {
+      default: {
+        backgroundColor: colors['neutral-10'],
+        borderColor: colors['neutral-50'],
+        borderWidth: borderWidths.sm,
+        borderStyle: 'solid',
+        borderRadius: '50%',
+      },
       checked: {
         backgroundColor: colors['neutral-10'],
         borderColor: colors['neutral-10'],
       },
-      default: {
-        backgroundColor: colors['neutral-10'],
-        borderColor: colors['neutral-50'],
-        borderRadius: '50%',
-        borderStyle: 'solid',
-        borderWidth: borderWidths.sm,
-      },
       disabled: {
-        backgroundColor: colors['beige-60'],
         borderColor: 'transparent',
+        backgroundColor: colors['beige-60'],
       },
       sizes: {
-        md: {
-          height: toRem(20),
-          width: toRem(20),
+        xs: {
+          width: toRem(12),
+          height: toRem(12),
         },
         sm: {
-          height: toRem(16),
           width: toRem(16),
+          height: toRem(16),
         },
-        xs: {
-          height: toRem(12),
-          width: toRem(12),
+        md: {
+          width: toRem(20),
+          height: toRem(20),
         },
       },
     },
     icon: {
       position: {
-        md: {
-          left: '4px',
-          right: '4px',
-        },
-        sm: {
-          left: '4px',
-          right: '4px',
-        },
         xs: {
           left: '2px',
           right: '2px',
         },
+        sm: {
+          left: '4px',
+          right: '4px',
+        },
+        md: {
+          left: '4px',
+          right: '4px',
+        },
       },
       sizes: {
-        md: {
-          fontSize: toRem(16),
-          height: toRem(16),
-          width: toRem(16),
-        },
-        sm: {
-          fontSize: toRem(12),
-          height: toRem(12),
-          width: toRem(12),
-        },
         xs: {
-          fontSize: toRem(10),
-          height: toRem(10),
           width: toRem(10),
-        },
-      },
-    },
-    item: {
-      checked: {
-        backgroundColor: colors['primary-40'],
-        borderColor: colors['primary-40'],
-      },
-      default: {
-        '&:focus': {
-          borderColor: colors['primary-30'],
-          ...focus(colors['primary-30']),
-        },
-        backgroundColor: colors['neutral-10'],
-        borderColor: colors['neutral-30'],
-        borderRadius: toRem(16),
-        borderStyle: 'solid',
-
-        borderWidth: borderWidths.sm,
-      },
-      disabled: {
-        backgroundColor: colors['beige-40'],
-        borderColor: colors['beige-60'],
-      },
-      sizes: {
-        md: {
-          height: toRem(24),
-          marginTop: '0 !important',
-          width: toRem(44),
+          height: toRem(10),
+          fontSize: toRem(10),
         },
         sm: {
-          height: toRem(20),
-          marginTop: SM_LINE_HEIGHT_ADJUSTMENTS,
-          width: toRem(36),
+          width: toRem(12),
+          height: toRem(12),
+          fontSize: toRem(12),
         },
-        xs: {
+        md: {
+          width: toRem(16),
           height: toRem(16),
-          marginTop: XS_LINE_HEIGHT_ADJUSTMENTS,
-          width: toRem(28),
+          fontSize: toRem(16),
         },
       },
     },

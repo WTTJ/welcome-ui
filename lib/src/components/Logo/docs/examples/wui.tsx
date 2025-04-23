@@ -1,3 +1,5 @@
+import * as React from 'react'
+
 import { WelcomeUILogo } from '@/Logo'
 
 const Example = () => {

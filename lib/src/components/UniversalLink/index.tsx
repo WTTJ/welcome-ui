@@ -1,9 +1,8 @@
 import React from 'react'
 
-import type { CreateWuiProps } from '@/System'
-import { forwardRef } from '@/System'
-
 import * as S from './styles'
+
+import { CreateWuiProps, forwardRef } from '@/System'
 
 export interface UniversalLinkOptions {
   target?: React.HTMLAttributeAnchorTarget

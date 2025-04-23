@@ -1,9 +1,7 @@
-import { screen } from '@testing-library/react'
 import React, { useState } from 'react'
+import { screen } from '@testing-library/react'
 
-import type { InputTextOptions } from '../'
-
-import { InputText } from '../'
+import { InputText, InputTextOptions } from '../'
 import { render } from '../../../../tests'
 
 const InputTextWrapper: React.FC<InputTextOptions> = props => {

@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { Grid } from '../'
 import { render } from '../../../../tests'
 

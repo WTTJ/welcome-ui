@@ -1,17 +1,16 @@
 import React, { useCallback, useRef } from 'react'
 
-import { LeftIcon, RightIcon } from '@/Icons'
-import type { CreateWuiProps } from '@/System'
-import { forwardRef } from '@/System'
-
-import * as S from './styles'
 import { usePages } from './utils'
+import * as S from './styles'
+
+import { LeftIcon, RightIcon } from '@/Icons'
+import { CreateWuiProps, forwardRef } from '@/System'
 
 export interface PaginationOptions {
   'aria-label': string
-  getHref?: (page: number | string) => string
+  getHref?: (page: string | number) => string
   leftArrow?: React.ReactElement
-  onChange: (page: number | string) => void
+  onChange: (page: string | number) => void
   page: number
   pageCount: number
   rangeDisplay?: number
@@ -45,13 +44,10 @@ export const Pagination = forwardRef<'ul', PaginationProps>(
     const handlePrevious = useCallback(
       (event: React.MouseEvent) => {
         event.preventDefault()
-
         const previousPage = page - 1
-
-        if (previousPage === 1 && firstPageRef.current) {
+        if (previousPage === 1) {
           firstPageRef.current.focus()
         }
-
         onChange(previousPage)
       },
       [page, onChange]
@@ -60,13 +56,10 @@ export const Pagination = forwardRef<'ul', PaginationProps>(
     const handleNext = useCallback(
       (event: React.MouseEvent) => {
         event.preventDefault()
-
         const nextPage = page + 1
-
-        if (nextPage === pageCount && lastPageRef.current) {
+        if (nextPage === pageCount) {
           lastPageRef.current.focus()
         }
-
         onChange(nextPage)
       },
       [page, pageCount, onChange]
@@ -92,8 +85,9 @@ export const Pagination = forwardRef<'ul', PaginationProps>(
               {leftArrow || <LeftIcon size="sm" />}
             </S.ArrowLink>
           </S.Item>
-          {pages.map((iPage: number | string, i: number) =>
+          {pages.map((iPage: string | number, i: number) =>
             iPage === '-' ? (
+              // eslint-disable-next-line react/no-array-index-key
               <S.Item key={`${i}-`}>
                 <S.Dots>...</S.Dots>
               </S.Item>

@@ -66,9 +66,6 @@
               "value": "\"violet-40\""
             },
             {
-              "value": "\"overlay\""
-            },
-            {
               "value": "\"primary-10\""
             },
             {
@@ -112,6 +109,9 @@
             },
             {
               "value": "\"secondary-violet\""
+            },
+            {
+              "value": "\"overlay\""
             },
             {
               "value": "\"beige-10\""
@@ -366,7 +366,7 @@
               "value": "\"violet-90\""
             },
             {
-              "value": "Record<never, never> & string"
+              "value": "string & Record<never, never>"
             }
           ]
         }
@@ -387,16 +387,7 @@
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "((name: string) => string)",
-          "value": [
-            {
-              "value": "(name: string) => string",
-              "description": "",
-              "fullComment": "",
-              "tags": {}
-            }
-          ]
+          "name": "(name: string) => string"
         }
       },
       "name": {
@@ -419,9 +410,7 @@
         }
       },
       "shape": {
-        "defaultValue": {
-          "value": "circle"
-        },
+        "defaultValue": null,
         "description": "",
         "name": "shape",
         "parent": {
@@ -449,9 +438,7 @@
         }
       },
       "size": {
-        "defaultValue": {
-          "value": "md"
-        },
+        "defaultValue": null,
         "description": "",
         "name": "size",
         "parent": {
@@ -503,13 +490,7 @@
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "string",
-          "value": [
-            {
-              "value": "string"
-            }
-          ]
+          "name": "string"
         }
       }
     }

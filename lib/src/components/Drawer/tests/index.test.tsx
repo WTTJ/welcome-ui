@@ -1,11 +1,11 @@
+import React from 'react'
 import { screen } from '@testing-library/react'
 import { useEffect } from 'react'
 
-import { Box } from '@/Box'
-import { Notifications, toast, Toast } from '@/Toast'
-
 import { AssetDrawer, Drawer, useDrawer } from '..'
 import { render } from '../../../../tests'
+
+import { Notifications, toast, Toast } from '@/Toast'
 
 describe('<Drawer>', () => {
   it('should render correctly', async () => {
@@ -112,9 +112,7 @@ describe('<Drawer>', () => {
       useEffect(() => {
         toast(
           <Toast.Growl dataTestId={`toast-${id}`} zIndex="1000">
-            <Box alignItems="flex-start" display="flex" flexDirection="column" gap="sm">
-              <Toast.Title>notification</Toast.Title>
-            </Box>
+            <Toast.Title>notification</Toast.Title>
           </Toast.Growl>,
           { duration: 5000, id, position: 'top-right' }
         )

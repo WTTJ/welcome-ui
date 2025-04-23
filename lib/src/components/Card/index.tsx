@@ -1,8 +1,9 @@
-import type { CreateWuiProps } from '@/System'
-import { forwardRef } from '@/System'
+import React from 'react'
 
 import { Cover } from './Cover'
 import * as S from './styles'
+
+import { CreateWuiProps, forwardRef } from '@/System'
 
 export type CardProps = CreateWuiProps<'div'>
 

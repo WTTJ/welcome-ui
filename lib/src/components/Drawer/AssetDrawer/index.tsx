@@ -1,14 +1,14 @@
-import type * as Ariakit from '@ariakit/react'
-
+import React from 'react'
+import * as Ariakit from '@ariakit/react'
 import { useTheme } from '@xstyled/styled-components'
 
-import { Box } from '@/Box'
-import type { CreateWuiProps } from '@/System'
-import { forwardRef } from '@/System'
-import { selectToastsInDocument } from '@/Toast'
-
 import { Drawer } from '..'
+
 import * as S from './styles'
+
+import { Box } from '@/Box'
+import { CreateWuiProps, forwardRef } from '@/System'
+import { findToastContainersInDocument } from '@/Toast/utils'
 
 export type AssetDrawerProps = CreateWuiProps<'div', Ariakit.DialogOptions>
 
@@ -16,14 +16,14 @@ export const AssetDrawerComponent = forwardRef<'div', AssetDrawerProps>(
   ({ children, maxWidth = 820, store, ...rest }, ref) => {
     const theme = useTheme()
 
-    const getPersistentElements = () => [...selectToastsInDocument()]
+    const getPersistentElements = () => [...findToastContainersInDocument()]
 
     const hideOnInteractOutside = (event: Event) => {
       const target = event.target as HTMLElement
-      const isInPersistentElements = getPersistentElements().some(element =>
+      const isTargetWithinPersistentElements = getPersistentElements().some(element =>
         element.contains(target)
       )
-      return !isInPersistentElements
+      return !isTargetWithinPersistentElements
     }
 
     return (

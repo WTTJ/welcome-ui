@@ -1,6 +1,6 @@
-import type { CSSObject } from '@xstyled/styled-components'
+import { CSSObject } from '@xstyled/styled-components'
 
-import type { ThemeValues } from '.'
+import { ThemeValues } from '.'
 
 export type ThemeSelection = CSSObject
 

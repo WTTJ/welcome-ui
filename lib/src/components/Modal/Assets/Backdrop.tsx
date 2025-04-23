@@ -1,11 +1,12 @@
+import React from 'react'
 import * as Ariakit from '@ariakit/react'
 import styled, { system } from '@xstyled/styled-components'
 
-import { forwardRef } from '@/System'
-
-import { Button } from '../../Button'
 import { IconsFont } from '../../IconsFont'
+import { Button } from '../../Button'
 import * as S from '../styles'
+
+import { forwardRef } from '@/System'
 
 export const CloseButton = styled(Button)`
   position: absolute;

@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { Flex } from '../'
 import { render } from '../../../../tests'
 

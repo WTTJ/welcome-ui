@@ -1,6 +1,6 @@
-import { getFileName } from '@/Files'
+import { FileDropChildren } from './index'
 
-import type { FileDropChildren } from './index'
+import { getFileName } from '@/Files'
 
 const match = /\.(jpeg|jpg|gif|png|webp)$/
 
@@ -8,8 +8,7 @@ export const isAnImage = (file: FileDropChildren['file']): boolean => {
   if (!file) return false
 
   if (typeof file === 'string') {
-    const fileName = getFileName(file)
-    return !!fileName && !!fileName.match(match)
+    return !!getFileName(file).match(match)
   } else {
     return file.name ? !!file.name.match(match) : false
   }
@@ -30,7 +29,6 @@ export const getPreviewUrl = (file: FileDropChildren['file']): FileDropChildren[
   if (typeof window !== 'undefined') {
     try {
       return new URL(url)
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       return undefined
     }

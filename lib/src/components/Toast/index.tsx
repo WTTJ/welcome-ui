@@ -1,19 +1,18 @@
-import type { ToastPosition } from 'react-hot-toast/headless'
-
-import { ThemeContext, ThemeProvider } from '@xstyled/styled-components'
 import React, { useContext } from 'react'
-import toastRHT, { useToaster } from 'react-hot-toast/headless'
-
-import type { TextProps } from '@/Text'
-
-import type { GrowlProps } from './Growl'
-import type { SnackbarProps } from './Snackbar'
+import { ThemeContext, ThemeProvider } from '@xstyled/styled-components'
+import toastRHT, { ToastPosition, useToaster } from 'react-hot-toast/headless'
 
 import { useCreatePortal } from '../../utils/use-create-portal'
-import { Growl } from './Growl'
-import { Snackbar, SnackbarAction } from './Snackbar'
-import * as S from './styles'
+
 import { ToastWrapper } from './ToastWrapper'
+import { Growl, GrowlProps } from './Growl'
+import { Snackbar, SnackbarAction, SnackbarProps } from './Snackbar'
+import * as S from './styles'
+import { toastContainerClassName } from './utils'
+
+import { TextProps } from '@/Text'
+
+type NotificationsProps = { pauseOnHover?: boolean }
 
 export type ToastOptions = {
   duration?: number
@@ -21,13 +20,6 @@ export type ToastOptions = {
   onClose?: () => void
   position?: ToastPosition
 }
-
-const toastWrapperClassName = 'wui-toast-wrapper'
-
-export const selectToastsInDocument = () =>
-  document.querySelectorAll(`.${toastWrapperClassName} > *`)
-
-type NotificationsProps = { pauseOnHover?: boolean }
 
 export const Notifications: React.FC<NotificationsProps> = ({ pauseOnHover = true }) => {
   const themeContext = useContext(ThemeContext)
@@ -38,16 +30,12 @@ export const Notifications: React.FC<NotificationsProps> = ({ pauseOnHover = tru
   const onMouseEnter = pauseOnHover ? startPause : undefined
   const onMouseLeave = pauseOnHover ? endPause : undefined
 
-  if (toasts.length === 0) {
-    return null
-  }
-
   return (
-    <ThemeProvider theme={themeContext || {}}>
-      {
+    <ThemeProvider theme={themeContext}>
+      {toasts.length > 0 &&
         createPortal(
           <div
-            className={toastWrapperClassName}
+            className={toastContainerClassName}
             data-wui-persistent
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
@@ -61,8 +49,7 @@ export const Notifications: React.FC<NotificationsProps> = ({ pauseOnHover = tru
               />
             ))}
           </div>
-        ) as React.ReactNode
-      }
+        )}
     </ThemeProvider>
   )
 }
@@ -95,5 +82,5 @@ export const dismiss = (id?: string) => {
   toastRHT.dismiss(id)
 }
 
-export const Toast = { Growl, Snackbar, SnackbarAction, Title }
+export const Toast = { Title, Growl, Snackbar, SnackbarAction }
 export type { GrowlProps, SnackbarProps }

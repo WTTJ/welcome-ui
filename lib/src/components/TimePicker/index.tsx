@@ -1,19 +1,18 @@
-import type { ReactDatePickerProps } from 'react-datepicker'
+import React, { useEffect, useState } from 'react'
+import { ReactDatePickerProps } from 'react-datepicker'
 
-import { useEffect, useState } from 'react'
+import * as S from './styles'
 
-import type { CustomInputOptions, Focused } from '@/DateTimePickerCommon'
 import {
   CustomInput,
+  CustomInputOptions,
   CustomPopper,
   DEFAULT_DATE,
+  Focused,
   getDate,
   StyledTimePicker,
 } from '@/DateTimePickerCommon'
-import type { CreateWuiProps } from '@/System'
-import { forwardRef } from '@/System'
-
-import * as S from './styles'
+import { CreateWuiProps, forwardRef } from '@/System'
 
 export interface TimePickerOptions {
   onBlur?: CustomInputOptions['handleBlur']
@@ -21,13 +20,13 @@ export interface TimePickerOptions {
   onFocus?: CustomInputOptions['handleFocus']
   placeholder?: ReactDatePickerProps['placeholderText']
   transparent?: boolean
-  value: Date | string
+  value: string | Date
 }
 
 export type TimePickerProps = CreateWuiProps<
   typeof StyledTimePicker,
   Omit<ReactDatePickerProps, keyof TimePickerOptions> &
-    Pick<CustomInputOptions, 'icon' | 'iconPlacement' | 'size'> &
+    Pick<CustomInputOptions, 'size' | 'icon' | 'iconPlacement'> &
     TimePickerOptions
 >
 
@@ -53,16 +52,16 @@ export const TimePicker = forwardRef<'input', TimePickerProps>(
     },
     ref
   ) => {
-    const formatDate: (date: Date | number | string) => Date = date => getDate(date, timeIntervals)
+    const formatDate: (date: string | number | Date) => Date = date => getDate(date, timeIntervals)
     const placeholderText = placeholder || rest.placeholderText
 
     const [focused, setFocused] = useState<Focused>((autoFocus && 'time') || null)
-    const [date, setDate] = useState<Date | null>(formatDate(value))
+    const [date, setDate] = useState(formatDate(value))
 
     // format date at component mount
     useEffect(() => {
-      onChange?.(formatDate(value))
-      // eslint-disable-next-line react-hooks/exhaustive-deps
+      onChange && onChange(formatDate(value))
+      //eslint-disable-next-line
     }, [])
 
     // Ensure values are controlled by parent
@@ -72,23 +71,23 @@ export const TimePicker = forwardRef<'input', TimePickerProps>(
         onChange(formattedDate)
       }
       setDate(formattedDate)
-      // eslint-disable-next-line react-hooks/exhaustive-deps
+      //eslint-disable-next-line
     }, [value])
 
     const handleFocus: CustomInputOptions['handleFocus'] = e => {
       setFocused('time')
-      onFocus?.(e)
+      onFocus && onFocus(e)
     }
 
     const handleBlur: CustomInputOptions['handleBlur'] = e => {
       setFocused(null)
-      onBlur?.(e)
+      onBlur && onBlur(e)
     }
 
     const handleReset: CustomInputOptions['onReset'] = e => {
       e.preventDefault()
       setDate(null)
-      onChange?.()
+      onChange && onChange()
     }
 
     const handleChange: TimePickerOptions['onChange'] = newDate => {
@@ -97,7 +96,7 @@ export const TimePicker = forwardRef<'input', TimePickerProps>(
 
       newDate.setFullYear(date.getFullYear(), date.getMonth(), date.getDate())
       setDate(newDate)
-      onChange?.(new Date(newDate))
+      onChange && onChange(new Date(newDate))
     }
 
     return (
