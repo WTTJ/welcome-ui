@@ -8,7 +8,6 @@ import * as S from './styles'
 
 import { Box } from '@/Box'
 import { CreateWuiProps, forwardRef } from '@/System'
-import { findToastContainersInDocument } from '@/Toast/utils'
 
 export type AssetDrawerProps = CreateWuiProps<'div', Ariakit.DialogOptions>
 
@@ -16,7 +15,8 @@ export const AssetDrawerComponent = forwardRef<'div', AssetDrawerProps>(
   ({ children, maxWidth = 820, store, ...rest }, ref) => {
     const theme = useTheme()
 
-    const getPersistentElements = () => [...findToastContainersInDocument()]
+    const getPersistentElements = () =>
+      Array.from(document.querySelectorAll('[data-wui-persistent]'))
 
     const hideOnInteractOutside = (event: Event) => {
       const target = event.target as HTMLElement

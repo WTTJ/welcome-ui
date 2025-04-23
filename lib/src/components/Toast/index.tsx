@@ -8,7 +8,6 @@ import { ToastWrapper } from './ToastWrapper'
 import { Growl, GrowlProps } from './Growl'
 import { Snackbar, SnackbarAction, SnackbarProps } from './Snackbar'
 import * as S from './styles'
-import { toastContainerClassName } from './utils'
 
 import { TextProps } from '@/Text'
 
@@ -34,12 +33,7 @@ export const Notifications: React.FC<NotificationsProps> = ({ pauseOnHover = tru
     <ThemeProvider theme={themeContext}>
       {toasts.length > 0 &&
         createPortal(
-          <div
-            className={toastContainerClassName}
-            data-wui-persistent
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
-          >
+          <div data-wui-persistent onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
             {toasts.map(toast => (
               <ToastWrapper
                 calculateOffset={calculateOffset}

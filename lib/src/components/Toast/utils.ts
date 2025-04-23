@@ -6,8 +6,3 @@ export const POSITION_STYLE = {
   'bottom-center': { bottom: 0, left: '50%' },
   'bottom-right': { bottom: 0, right: 0 },
 }
-
-export const toastContainerClassName = 'wui-toast-container'
-
-export const findToastContainersInDocument = () =>
-  Array.from(document.querySelectorAll(`.${toastContainerClassName}`))
