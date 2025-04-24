@@ -2,13 +2,14 @@
 import { useParams, usePathname } from 'next/navigation'
 import { useEffect, useRef } from 'react'
 
-import * as S from './styles'
-
-import { Text } from '@/Text'
 import { Flex } from '@/Flex'
-import { ThemeValues } from '@/theme'
-import { PageTree } from '~/build-app/types'
+import { Text } from '@/Text'
+import type { ThemeValues } from '@/theme'
+
+import type { PageTree } from '~/build-app/types'
 import { getName } from '~/build-app/utils/transform-name'
+
+import * as S from './styles'
 
 type SidebarProps = {
   display?: ThemeValues['display']

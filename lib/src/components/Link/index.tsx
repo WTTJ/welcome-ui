@@ -1,24 +1,25 @@
 import React from 'react'
 
+import { ExternalLinkIcon } from '@/Icons'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
+import type { UniversalLinkOptions } from '@/UniversalLink'
+
 import * as S from './styles'
 import { shouldWrapWithText } from './utils'
-
-import { ExternalLinkIcon } from '@/Icons'
-import { UniversalLinkOptions } from '@/UniversalLink'
-import { CreateWuiProps, forwardRef } from '@/System'
-
-type Variant = 'primary' | 'secondary'
 
 export interface LinkOptions {
   disabled?: boolean
   isExternal?: boolean
   variant?: Variant
 }
-export type LinkProps = CreateWuiProps<'a', LinkOptions & UniversalLinkOptions>
 
+export type LinkProps = CreateWuiProps<'a', LinkOptions & UniversalLinkOptions>
 export type WrapWithTextProps = Pick<LinkOptions, 'isExternal'> & {
-  children: React.ReactNode | JSX.Element
+  children: JSX.Element | React.ReactNode
 }
+
+type Variant = 'primary' | 'secondary'
 
 const WrapWithText: React.FC<WrapWithTextProps> = ({ children, isExternal }) => (
   <span className="wui-text">

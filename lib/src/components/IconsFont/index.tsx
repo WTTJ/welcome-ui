@@ -1,9 +1,10 @@
 import React from 'react'
 
-import { Icon, StyledIconProps } from './styles'
-import unicodeJson from './unicode.json'
+import type { IconProps } from '@/Icon'
 
-import { IconProps } from '@/Icon'
+import type { StyledIconProps } from './styles'
+import { Icon } from './styles'
+import unicodeJson from './unicode.json'
 
 export type IconsFontProps = StyledIconProps
 export const IconsFontStyled = Icon

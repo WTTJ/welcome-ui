@@ -1,11 +1,11 @@
-import React from 'react'
 import { screen, waitFor } from '@testing-library/react'
-
-import { Shape } from '../../Shape'
-import { render } from '../../../../tests'
-import { Search } from '../'
+import React from 'react'
 
 import { AvatarIcon } from '@/Icons'
+
+import { Search } from '../'
+import { render } from '../../../../tests'
+import { Shape } from '../../Shape'
 
 type Item = {
   poster?: string
@@ -13,27 +13,27 @@ type Item = {
 }
 
 const results = [
-  { title: 'Big Fish', year: '2003', poster: 'big-fish.jpg' },
-  { title: 'A Fish Called Wanda', year: '1988', poster: 'wanda.jpg' },
-  { title: 'Food Tank', year: '2009', poster: 'food-tank.jpg' }, // Doesn't match 'fish'
-  { title: 'Rumble Fish', year: '1983', poster: 'rumble-fish.jpg' },
-  { title: 'Cold Fish', year: '2010', poster: 'cold-fish.jpg' },
+  { poster: 'big-fish.jpg', title: 'Big Fish', year: '2003' },
+  { poster: 'wanda.jpg', title: 'A Fish Called Wanda', year: '1988' },
+  { poster: 'food-tank.jpg', title: 'Food Tank', year: '2009' }, // Doesn't match 'fish'
+  { poster: 'rumble-fish.jpg', title: 'Rumble Fish', year: '1983' },
+  { poster: 'cold-fish.jpg', title: 'Cold Fish', year: '2010' },
 ]
 
 export const opt_group_results = [
   {
     label: 'Good movies',
     options: [
-      { title: 'Big Fish', year: '2003', poster: 'big-fish.jpg' },
-      { title: 'A Fish Called Wanda', year: '1988', poster: 'wanda.jpg' },
-      { title: 'Food Tank', year: '2009', poster: 'food-tank.jpg' }, // Doesn't match 'fish'
+      { poster: 'big-fish.jpg', title: 'Big Fish', year: '2003' },
+      { poster: 'wanda.jpg', title: 'A Fish Called Wanda', year: '1988' },
+      { poster: 'food-tank.jpg', title: 'Food Tank', year: '2009' }, // Doesn't match 'fish'
     ],
   },
   {
     label: 'Bad movies',
     options: [
-      { title: 'Rumble Fish', year: '1983', poster: 'rumble-fish.jpg' },
-      { title: 'Cold Fish', year: '2010', poster: 'cold-fish.jpg' },
+      { poster: 'rumble-fish.jpg', title: 'Rumble Fish', year: '1983' },
+      { poster: 'cold-fish.jpg', title: 'Cold Fish', year: '2010' },
     ],
   },
 ]
@@ -41,7 +41,7 @@ export const opt_group_results = [
 const defaultProps = {
   itemToString: (item: Item) => item.title,
   renderItem: (item: Item) => (
-    <div style={{ display: 'flex', alignItems: 'center' }}>
+    <div style={{ alignItems: 'center', display: 'flex' }}>
       <Shape mr="xs" w="20px">
         <img src={item.poster} />
       </Shape>

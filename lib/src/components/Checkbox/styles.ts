@@ -1,11 +1,11 @@
-import styled, { css, system, th } from '@xstyled/styled-components'
 import * as Ariakit from '@ariakit/react'
+import styled, { css, system, th } from '@xstyled/styled-components'
+
+import { shouldForwardProp } from '@/System'
 
 import { defaultFieldStyles } from '../../utils/field-styles'
 
-import { CheckboxProps } from './index'
-
-import { shouldForwardProp } from '@/System'
+import type { CheckboxProps } from './index'
 
 /* /!\ WARNING /!\ Don't add style after pseudo selector, it won't apply because of the dynamic color injected in the fill of the content */
 

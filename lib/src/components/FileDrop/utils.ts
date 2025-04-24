@@ -1,6 +1,6 @@
-import { FileDropChildren } from './index'
-
 import { getFileName } from '@/Files'
+
+import type { FileDropChildren } from './index'
 
 const match = /\.(jpeg|jpg|gif|png|webp)$/
 
@@ -30,6 +30,8 @@ export const getPreviewUrl = (file: FileDropChildren['file']): FileDropChildren[
     try {
       return new URL(url)
     } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error('error', error)
       return undefined
     }
   }

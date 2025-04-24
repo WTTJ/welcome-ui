@@ -1,9 +1,10 @@
 import React from 'react'
 
-import * as S from './styles'
-import { Size } from './theme'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
 
-import { CreateWuiProps, forwardRef } from '@/System'
+import * as S from './styles'
+import type { Size } from './theme'
 
 export type IconContent = {
   block?: string

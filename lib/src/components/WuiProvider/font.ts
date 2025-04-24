@@ -1,6 +1,11 @@
 import { css } from '@xstyled/styled-components'
 
-import { ThemeValues } from '@/theme'
+import type { ThemeValues } from '@/theme'
+
+type Font = {
+  name: string
+  variation: FontVariation
+}
 
 type FontVariation = {
   display?: FontDisplay
@@ -10,11 +15,6 @@ type FontVariation = {
   unicodeRange?: string
   url: string
   weight?: string
-}
-
-type Font = {
-  name: string
-  variation: FontVariation
 }
 
 export function getSource(
@@ -48,8 +48,11 @@ function getFont({
 }: Font) {
   return css`
     @font-face {
+      /* stylelint-disable-next-line at-rule-descriptor-value-no-unknown */
       font-family: ${name};
+      /* stylelint-disable-next-line at-rule-descriptor-value-no-unknown */
       src: ${getSource(url, extensions, isVariable)};
+      /* stylelint-disable-next-line at-rule-descriptor-value-no-unknown */
       font-display: ${display};
       ${weight &&
       css`

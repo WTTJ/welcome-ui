@@ -1,16 +1,17 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 
+import { Box } from '@/Box'
+import { Hint } from '@/Hint'
+import { InputText } from '@/InputText'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
+import { Text } from '@/Text'
+
 import { Range } from './Range'
 import type { Range as RangeType } from './Range'
 import * as S from './styles'
 
-import { Text } from '@/Text'
-import { InputText } from '@/InputText'
-import { CreateWuiProps, forwardRef } from '@/System'
-import { Box } from '@/Box'
-import { Hint } from '@/Hint'
-
-export type Type = 'left-field' | 'right-field' | 'inline'
+export type Type = 'inline' | 'left-field' | 'right-field'
 export type { RangeType }
 export const thumbWidth = 20
 
@@ -177,11 +178,16 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
               }}
               onKeyDown={handleSliderKeyDown}
               onMouseDown={() => {
-                tooltip && tooltipVisible === false && setTooltipVisible(true)
+                if (tooltip && tooltipVisible === false) {
+                  setTooltipVisible(true)
+                }
               }}
               onMouseUp={() => {
                 onChange(localValue)
-                tooltip && setTooltipVisible(false)
+
+                if (tooltip) {
+                  setTooltipVisible(false)
+                }
               }}
               ref={range}
               step={step}
@@ -200,7 +206,6 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
                   .reduce((prev, acc) => (prev.includes(acc) ? prev : [...prev, acc]), [])
                   .filter(v => v >= min && v <= max)
                   .map((el, index) => (
-                    // eslint-disable-next-line react/no-array-index-key
                     <S.Thick key={`${el}-${index}`} left={`${getPercent(el)}%`}>
                       <S.ThickLabel>{el}</S.ThickLabel>
                     </S.Thick>

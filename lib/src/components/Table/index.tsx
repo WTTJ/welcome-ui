@@ -1,8 +1,9 @@
 import React from 'react'
 
-import * as S from './styles'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
 
-import { CreateWuiProps, forwardRef } from '@/System'
+import * as S from './styles'
 
 export interface TableOptions {
   /**
@@ -27,9 +28,9 @@ export const TableComponent = forwardRef<'div', TableProps>(
 
 // Nested exports
 export const Table = Object.assign(TableComponent, {
-  Thead: S.Thead,
   Tbody: S.Tbody,
-  Th: S.Th,
-  Tr: S.Tr,
   Td: S.Td,
+  Th: S.Th,
+  Thead: S.Thead,
+  Tr: S.Tr,
 })

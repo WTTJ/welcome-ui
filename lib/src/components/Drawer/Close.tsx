@@ -1,11 +1,11 @@
-import React from 'react'
 import * as Ariakit from '@ariakit/react'
 import { useTheme } from '@xstyled/styled-components'
+import React from 'react'
+
+import { Box } from '@/Box'
+import type { CloseButtonProps } from '@/CloseButton'
 
 import * as S from './styles'
-
-import { CloseButtonProps } from '@/CloseButton'
-import { Box } from '@/Box'
 
 export type CloseProps = Ariakit.DialogDismissProps & CloseButtonProps
 

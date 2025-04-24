@@ -1,21 +1,24 @@
+import type { DownshiftProps, GetRootPropsOptions } from 'downshift'
+import DownshiftImport from 'downshift'
 import React, { Fragment, useCallback, useMemo, useState } from 'react'
-import DownshiftImport, { DownshiftProps, GetRootPropsOptions } from 'downshift'
+
+import { ClearButton } from '@/ClearButton'
+import { IconWrapper } from '@/Field'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
 
 import { createEvent } from '../../utils/create-event'
-import { DefaultFieldStylesProps, FIELD_ICON_SIZE } from '../../utils/field-styles'
+import type { DefaultFieldStylesProps } from '../../utils/field-styles'
+import { FIELD_ICON_SIZE } from '../../utils/field-styles'
 import { throttle as handleThrottle } from '../../utils/throttle'
 
 import * as S from './styles'
 
-import { CreateWuiProps, forwardRef } from '@/System'
-import { ClearButton } from '@/ClearButton'
-import { IconWrapper } from '@/Field'
-
 const EMPTY_STRING = ''
 
+export type Item = SearchOption | SearchOptionGroup | string | unknown
 export type SearchOption = { label: string; value: string }
 export type SearchOptionGroup = { label: string; options: SearchOption[] }
-export type Item = SearchOption | SearchOptionGroup | string | unknown
 
 export interface SearchOptions extends DefaultFieldStylesProps {
   groupsEnabled?: boolean
@@ -32,7 +35,7 @@ export interface SearchOptions extends DefaultFieldStylesProps {
 
 export type SearchProps = CreateWuiProps<
   'input',
-  SearchOptions & Omit<DownshiftProps<SearchOption>, keyof SearchOptions>
+  Omit<DownshiftProps<SearchOption>, keyof SearchOptions> & SearchOptions
 >
 
 // because of this issue: https://github.com/downshift-js/downshift/issues/1505
@@ -96,7 +99,10 @@ export const Search = forwardRef<'input', SearchProps>(
     // Send event to parent when value(s) changes
     const handleChange = (value?: Item) => {
       const event = createEvent({ name, value })
-      onChange && onChange(value, event)
+
+      if (onChange) {
+        onChange(value, event)
+      }
     }
 
     const handleSelect = (result?: Item) => {
@@ -156,7 +162,10 @@ export const Search = forwardRef<'input', SearchProps>(
             </S.DropDownIndicator>
           )
           const handleInputFocus = (event: React.FocusEvent<HTMLInputElement>) => {
-            onFocus && onFocus(event)
+            if (onFocus) {
+              onFocus(event)
+            }
+
             handleInputChange('')
             toggleMenu()
           }
@@ -200,7 +209,6 @@ export const Search = forwardRef<'input', SearchProps>(
                       (acc, result, resultIndex) => {
                         if (groupsEnabled) {
                           acc.itemsToRender.push(
-                            // eslint-disable-next-line react/no-array-index-key
                             <Fragment key={resultIndex}>
                               {renderGroupHeader(result as SearchOptionGroup)}
                               {(result as SearchOptionGroup).options &&
@@ -208,7 +216,6 @@ export const Search = forwardRef<'input', SearchProps>(
                                   const index = acc.itemIndex++
                                   return (
                                     <S.Item
-                                      // eslint-disable-next-line react/no-array-index-key
                                       key={optionIndex}
                                       {...getItemProps({
                                         index,
@@ -228,7 +235,6 @@ export const Search = forwardRef<'input', SearchProps>(
                         } else {
                           acc.itemsToRender.push(
                             <S.Item
-                              // eslint-disable-next-line react/no-array-index-key
                               key={resultIndex}
                               {...getItemProps({
                                 index: resultIndex,
@@ -246,7 +252,7 @@ export const Search = forwardRef<'input', SearchProps>(
 
                         return acc
                       },
-                      { itemsToRender: [], itemIndex: 0 }
+                      { itemIndex: 0, itemsToRender: [] }
                     ).itemsToRender
                   }
                 </S.Menu>

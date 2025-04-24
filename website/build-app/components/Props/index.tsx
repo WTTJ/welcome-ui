@@ -1,26 +1,37 @@
 'use client'
-import React from 'react'
 import { kebabCase } from 'lodash'
+import React from 'react'
+
+import { Badge } from '@/Badge'
+import { Box } from '@/Box'
+import { Flex } from '@/Flex'
+import { Text } from '@/Text'
 
 import { Code } from '../Mdx/Code'
 import { H2 } from '../Mdx/Headings'
 
 import * as TYPES from './propTypes'
 
-import { Text } from '@/Text'
-import { Flex } from '@/Flex'
-import { Badge } from '@/Badge'
-import { Box } from '@/Box'
+export type PropertiesProps = {
+  items: {
+    [name: string]: { props: Property }
+  }
+}
 
-type Value = {
+export type Property = {
+  [name: string]: Props
+}
+
+type PropertyProps = {
+  id: string
   name: string
-  value: string
+  options: Props
 }
 
 type Props = {
-  defaultValue: {
+  defaultValue: null | {
     value: string
-  } | null
+  }
   description: string
   required: boolean
   type: {
@@ -30,20 +41,9 @@ type Props = {
   }
 }
 
-export type Property = {
-  [name: string]: Props
-}
-
-export type PropertiesProps = {
-  items: {
-    [name: string]: { props: Property }
-  }
-}
-
-type PropertyProps = {
-  id: string
+type Value = {
   name: string
-  options: Props
+  value: string
 }
 
 const removeQuote = (str?: string) => str?.toString()?.replace(/'/g, '')

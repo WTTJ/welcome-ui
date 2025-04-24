@@ -1,17 +1,19 @@
-import React, { cloneElement } from 'react'
 import * as Ariakit from '@ariakit/react'
 import { useTheme } from '@xstyled/styled-components'
+import React, { cloneElement } from 'react'
 
-import * as S from './styles'
-import { Header } from './Header'
-import { Footer } from './Footer'
-import { Content } from './Content'
+import type { BoxProps } from '@/Box'
+import type { ShapeProps } from '@/Shape'
+import { Shape } from '@/Shape'
+import type { As, CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
+
 import { Assets } from './Assets'
-import { Size } from './theme'
-
-import { As, CreateWuiProps, forwardRef } from '@/System'
-import { BoxProps } from '@/Box'
-import { Shape, ShapeProps } from '@/Shape'
+import { Content } from './Content'
+import { Footer } from './Footer'
+import { Header } from './Header'
+import * as S from './styles'
+import type { Size } from './theme'
 
 export interface ModalOptions extends Omit<Ariakit.DialogOptions<'div'>, 'as'> {
   ariaLabel: string
@@ -30,6 +32,8 @@ export type UseModalProps = Ariakit.DialogStoreProps & {
 }
 export type UseModalState = Ariakit.DialogStoreState
 
+type BackdropProps = Pick<ModalOptions, 'backdrop' | 'hideOnInteractOutside'>
+
 export function useModal(options?: UseModalProps): UseModal {
   const { onClose, setOpen, ...storeOptions } = options || {}
 
@@ -46,8 +50,6 @@ export function useModal(options?: UseModalProps): UseModal {
 
   return dialog
 }
-
-type BackdropProps = Pick<ModalOptions, 'hideOnInteractOutside' | 'backdrop'>
 
 const Backdrop = forwardRef<'div', BackdropProps>(
   ({ backdrop, hideOnInteractOutside, ...rest }, ref) => {
@@ -125,12 +127,12 @@ const Trigger = forwardRef<'button', TriggerProps>(({ as: As, store, ...rest }, 
 
 // Nested exports
 export const Modal = Object.assign(ModalComponent, {
-  Trigger,
-  Content,
-  Header,
   Body,
-  Footer,
+  Content,
   Cover,
+  Footer,
+  Header,
+  Trigger,
 })
 
 // Asset Modal for pictures / videos / swiper

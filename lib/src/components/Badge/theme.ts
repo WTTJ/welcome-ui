@@ -1,6 +1,6 @@
-import { CSSObject } from '@xstyled/styled-components'
+import type { CSSObject } from '@xstyled/styled-components'
 
-import { ThemeValues } from '@/theme'
+import type { ThemeValues } from '@/theme'
 
 export type ThemeBadges = {
   default: CSSObject
@@ -26,36 +26,36 @@ export const getBadges = (theme: ThemeValues): ThemeBadges => {
       ...texts.xs,
       fontWeight: fontWeights.medium,
     },
-    variants: {
-      default: {
-        color: colors['beige-70'],
-        backgroundColor: colors['beige-30'],
-      },
-      primary: {
-        color: colors['neutral-90'],
-        backgroundColor: colors['primary-40'],
-      },
-    },
     disabled: {
       default: {
-        color: colors['beige-40'],
         backgroundColor: colors['beige-20'],
+        color: colors['beige-40'],
       },
       primary: {
-        color: colors['primary-80'],
         backgroundColor: colors['primary-50'],
+        color: colors['primary-80'],
       },
     },
     sizes: {
-      sm: {
-        padding: space.xxs,
-        height: toRem(16),
-        borderRadius: toRem(14),
-      },
       md: {
-        padding: space.xs,
-        height: toRem(20),
         borderRadius: toRem(14),
+        height: toRem(20),
+        padding: space.xs,
+      },
+      sm: {
+        borderRadius: toRem(14),
+        height: toRem(16),
+        padding: space.xxs,
+      },
+    },
+    variants: {
+      default: {
+        backgroundColor: colors['beige-30'],
+        color: colors['beige-70'],
+      },
+      primary: {
+        backgroundColor: colors['primary-40'],
+        color: colors['neutral-90'],
       },
     },
   }

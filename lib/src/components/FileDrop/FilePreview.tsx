@@ -1,11 +1,12 @@
 import React from 'react'
 
-import { FileDropChildren } from './index'
-
+import { Button } from '@/Button'
+import type { ForceFileType } from '@/Files'
+import { getFileIcon, getFileName, getFileSize } from '@/Files'
 import { ExternalLinkIcon } from '@/Icons'
 import { Text } from '@/Text'
-import { ForceFileType, getFileIcon, getFileName, getFileSize } from '@/Files'
-import { Button } from '@/Button'
+
+import type { FileDropChildren } from './index'
 
 export interface MessageProps {
   file: FileDropChildren['file']
@@ -13,7 +14,7 @@ export interface MessageProps {
   forceFileType?: ForceFileType
 }
 
-export const FilePreview: React.FC<MessageProps & FileDropChildren['wordings']> = ({
+export const FilePreview: React.FC<FileDropChildren['wordings'] & MessageProps> = ({
   file,
   fileName,
   forceFileType,

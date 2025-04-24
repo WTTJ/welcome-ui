@@ -1,3 +1,5 @@
+import { useTheme } from '@xstyled/styled-components'
+import debounce from 'lodash.debounce'
 import React, {
   Children,
   cloneElement,
@@ -7,16 +9,14 @@ import React, {
   useRef,
   useState,
 } from 'react'
-import debounce from 'lodash.debounce'
-import { useTheme } from '@xstyled/styled-components'
+
+import { IconsFont } from '@/IconsFont'
+import type { CreateWuiProps } from '@/System'
 
 import { useViewportSize } from '../../utils/use-viewport'
 
-import { useInterval } from './use-interval'
 import * as S from './styles'
-
-import { CreateWuiProps } from '@/System'
-import { IconsFont } from '@/IconsFont'
+import { useInterval } from './use-interval'
 
 export interface UseSwiperProps {
   autoplay?: boolean
@@ -29,7 +29,7 @@ export interface UseSwiperProps {
   id?: string
   loop?: boolean
   /** Size of left and right navigation arrows */
-  navigationSize?: 'xs' | 'sm' | 'md' | 'lg'
+  navigationSize?: 'lg' | 'md' | 'sm' | 'xs'
   /** Number of slides to show per view */
   slidesPerView?: {
     desktop: number
@@ -62,11 +62,11 @@ export const useSwiper = (options: UseSwiperProps = {}) => {
     id = 'swiper',
     loop = false,
     navigationSize = 'md',
-    slidesPerView = { mobile: 1, tablet: 1, desktop: 1 },
+    slidesPerView = { desktop: 1, mobile: 1, tablet: 1 },
     spaceBetween = 20,
     withDarkUI = false,
-    withNavigation = { mobile: true, desktop: true },
-    withPagination = { mobile: false, desktop: false },
+    withNavigation = { desktop: true, mobile: true },
+    withPagination = { desktop: false, mobile: false },
   } = options
 
   const shouldLoop = loop || autoplay
@@ -90,31 +90,29 @@ export const useSwiper = (options: UseSwiperProps = {}) => {
   }, [fullWidth, viewportWidth, screens, slidesPerView])
 
   return {
+    autoplay,
     centeredSlides,
-    firstSlideToShow,
-    currentSlidesPerView,
     currentPage,
-    setCurrentPage,
+    currentSlidesPerView,
+    duration,
+    firstSlideToShow,
     fullWidth,
     id,
     navigationSize,
-    slidesPerView,
-    spaceBetween,
-    withNavigation,
-    withPagination,
-    autoplay,
-    shouldLoop,
-    duration,
-    withDarkUI,
     ref,
+    setCurrentPage,
     setShowLeftArrow,
     setShowRightArrow,
+    shouldLoop,
     showLeftArrow,
     showRightArrow,
+    slidesPerView,
+    spaceBetween,
+    withDarkUI,
+    withNavigation,
+    withPagination,
   }
 }
-
-export type UseSwiper = ReturnType<typeof useSwiper>
 
 export type SwiperInitialProps = {
   children: JSX.Element | JSX.Element[]
@@ -123,6 +121,8 @@ export type SwiperInitialProps = {
 }
 
 export type SwiperProps = CreateWuiProps<'div', SwiperInitialProps>
+
+export type UseSwiper = ReturnType<typeof useSwiper>
 
 export const Swiper = ({ children, dataTestId, store, ...rest }: SwiperProps) => {
   const {
@@ -167,11 +167,11 @@ export const Swiper = ({ children, dataTestId, store, ...rest }: SwiperProps) =>
 
     return cloneElement(child, {
       ...child.props,
+      'aria-hidden': isHidden,
+      'aria-label': `${currentSlide} of ${slidesLength}`,
+      'aria-roledescription': 'slide',
       id: key,
       key,
-      'aria-hidden': isHidden,
-      'aria-roledescription': 'slide',
-      'aria-label': `${currentSlide} of ${slidesLength}`,
     })
   })
 
@@ -225,10 +225,10 @@ export const Swiper = ({ children, dataTestId, store, ...rest }: SwiperProps) =>
       const childWidth = sliderContainer?.children?.[0]?.getBoundingClientRect()?.width
 
       sliderContainer?.scrollTo({
-        left: page * (childWidth + spaceBetween) * currentSlidesPerView,
-        top: 0,
         // We don't want to have a scroll effect when we first render the swiper
         behavior: !isFirstInit ? 'smooth' : 'auto',
+        left: page * (childWidth + spaceBetween) * currentSlidesPerView,
+        top: 0,
       })
     },
     [currentSlidesPerView, spaceBetween, ref]
@@ -336,12 +336,12 @@ export const Swiper = ({ children, dataTestId, store, ...rest }: SwiperProps) =>
         {bullets.length > 1 &&
           bullets.map((_, idx) => {
             const props = {
-              idx,
-              role: 'tab',
               'aria-controls': `${id}-${idx}`,
               'aria-label': `${idx + 1} of ${bullets.length}`,
               'aria-selected': idx === currentPage,
+              idx,
               onClick: () => goTo(idx),
+              role: 'tab',
             }
 
             return (

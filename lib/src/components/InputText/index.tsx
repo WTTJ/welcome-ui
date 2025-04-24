@@ -1,14 +1,16 @@
 import React from 'react'
 
-import { DefaultFieldStylesProps, FIELD_ICON_SIZE } from '../../utils/field-styles'
-import { createEvent } from '../../utils/create-event'
-
-import * as S from './styles'
-
-import { CreateWuiProps, forwardRef } from '@/System'
+import { Box } from '@/Box'
 import { ClearButton } from '@/ClearButton'
 import { IconGroupWrapper, IconWrapper } from '@/Field'
-import { Box } from '@/Box'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
+
+import { createEvent } from '../../utils/create-event'
+import type { DefaultFieldStylesProps } from '../../utils/field-styles'
+import { FIELD_ICON_SIZE } from '../../utils/field-styles'
+
+import * as S from './styles'
 
 export interface InputTextOptions extends DefaultFieldStylesProps {
   autoFocus?: boolean
@@ -62,7 +64,10 @@ export const InputText = forwardRef<'input', InputTextProps>(
         name,
         value: '',
       }) as unknown as React.ChangeEvent<HTMLInputElement>
-      onChange && onChange(event)
+
+      if (onChange) {
+        onChange(event)
+      }
     }
 
     return (

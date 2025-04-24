@@ -38,7 +38,6 @@ export const Highlight = ({ children, language = 'tsx' }: HighlightProps) => {
             style={style}
           >
             {tokens.map((line, i) => (
-              // eslint-disable-next-line react/no-array-index-key
               <div key={i} {...getLineProps({ line })}>
                 {line.map((token, key) => {
                   const isAdded = token.content.startsWith('+')
@@ -51,7 +50,6 @@ export const Highlight = ({ children, language = 'tsx' }: HighlightProps) => {
                       backgroundColor={isDiff ? '#2f2f2f' : undefined}
                       color={isRemoved ? 'red-30' : isAdded ? 'green-40' : undefined}
                       fontSize="14"
-                      // eslint-disable-next-line react/no-array-index-key
                       key={key}
                       whiteSpace="pre-wrap"
                       {...getTokenProps({ token })}
