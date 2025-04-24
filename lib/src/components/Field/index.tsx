@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 
 import { Hint } from '@/Hint'
 import { Label } from '@/Label'

@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import { Badge } from '@/Badge'
 import { HeartIcon } from '@/Icons'
 import { Tab, useTab } from '@/Tabs'

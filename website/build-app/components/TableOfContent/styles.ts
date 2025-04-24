@@ -16,7 +16,7 @@ export const Nav = styled.navBox<{ isSubPage?: boolean }>(
   `
 )
 
-export const Link = styled.span`
+export const Link = styled.spanBox`
   display: block;
   color: neutral-70;
   position: relative;

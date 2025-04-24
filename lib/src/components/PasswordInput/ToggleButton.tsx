@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Button } from '@/Button'
 import { HideIcon, ShowIcon } from '@/Icons'
 import type { CreateWuiProps } from '@/System'

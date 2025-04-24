@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Hint } from '@/Hint'
 import type { LabelOptions } from '@/Label'
 import type { CreateWuiProps } from '@/System'

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Button } from '@/Button'
 import type { ForceFileType } from '@/Files'
 import { getFileIcon, getFileName, getFileSize } from '@/Files'

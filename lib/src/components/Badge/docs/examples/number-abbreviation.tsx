@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import { Badge } from '@/Badge'
 
 const Example = () => {

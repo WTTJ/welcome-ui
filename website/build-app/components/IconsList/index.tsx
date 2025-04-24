@@ -1,6 +1,5 @@
 'use client'
 import { camelCase, startCase } from 'lodash'
-import React from 'react'
 
 import { Box } from '@/Box'
 import * as Icons from '@/Icons'

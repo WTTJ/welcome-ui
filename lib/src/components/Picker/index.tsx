@@ -1,5 +1,4 @@
 import * as Ariakit from '@ariakit/react'
-import React from 'react'
 
 import { Box } from '@/Box'
 import type { FieldGroupOptions } from '@/FieldGroup'

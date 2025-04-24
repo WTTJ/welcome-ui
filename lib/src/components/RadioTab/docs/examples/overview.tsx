@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import { RadioGroup } from '@/RadioGroup'
 import { RadioTab } from '@/RadioTab'
 

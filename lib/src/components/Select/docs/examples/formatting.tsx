@@ -3,7 +3,6 @@ import * as React from 'react'
 import { WttjIcon } from '@/Icons'
 import type { SelectOption, SelectProps } from '@/Select'
 import { Select } from '@/Select'
-
 export const ITEMS = [
   { label: 'Bold', value: 'bold' },
   { label: 'Italic', value: 'italic' },

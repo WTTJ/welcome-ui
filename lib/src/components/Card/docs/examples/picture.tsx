@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import { Box } from '@/Box'
 import { Card } from '@/Card'
 import { Text } from '@/Text'

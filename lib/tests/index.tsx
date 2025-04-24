@@ -2,7 +2,6 @@ import type { RenderOptions } from '@testing-library/react'
 import { render as rtlRender } from '@testing-library/react'
 import type { UserEvent } from '@testing-library/user-event'
 import userEvent from '@testing-library/user-event'
-import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
 import { WuiProvider } from '@/WuiProvider'

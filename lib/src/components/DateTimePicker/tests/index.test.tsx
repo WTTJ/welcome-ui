@@ -1,5 +1,4 @@
 import { act, screen } from '@testing-library/react'
-import React from 'react'
 
 import { DateTimePicker } from '../'
 import { render } from '../../../../tests'

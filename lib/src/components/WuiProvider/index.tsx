@@ -1,5 +1,4 @@
 import { ThemeProvider } from '@xstyled/styled-components'
-import React from 'react'
 
 import type { ThemeValues } from '@/theme'
 

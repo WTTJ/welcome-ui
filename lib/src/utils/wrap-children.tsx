@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 
 export const wrapChildren = (children?: JSX.Element | string): unknown =>
   React.Children.toArray(children).map(child =>

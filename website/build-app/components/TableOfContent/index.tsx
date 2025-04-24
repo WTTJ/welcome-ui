@@ -63,8 +63,6 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
         <Flex as="ul" direction="column" gap="lg">
           {tree.map(item => (
             <Flex as="li" direction="column" gap="sm" key={item.href}>
-              {/* // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-ignore FIXME */}
               <S.Link
                 aria-current={`#${activeId}` === item.href ? 'page' : undefined}
                 as={NextLink}
@@ -77,8 +75,6 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
                 <Flex as="ul" direction="column" gap="xs">
                   {item.children.map(child => (
                     <Box as="li" key={child.href}>
-                      {/* // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                      // @ts-ignore FIXME */}
                       <S.Link
                         aria-current={`#${activeId}` === child.href ? 'page' : undefined}
                         as={NextLink}

@@ -1,6 +1,5 @@
 import type * as Ariakit from '@ariakit/react'
 import { useTheme } from '@xstyled/styled-components'
-import React from 'react'
 
 import { Box } from '@/Box'
 import type { CreateWuiProps } from '@/System'

@@ -1,6 +1,5 @@
 import { useTheme } from 'next-themes'
 import { usePathname } from 'next/navigation'
-import React from 'react'
 
 import { Box } from '@/Box'
 import { Button } from '@/Button'

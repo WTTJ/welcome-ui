@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Tag } from '@/Tag'
 
 import * as S from './styles'

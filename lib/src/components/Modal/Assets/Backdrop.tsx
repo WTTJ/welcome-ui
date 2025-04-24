@@ -1,6 +1,5 @@
 import * as Ariakit from '@ariakit/react'
 import styled, { system } from '@xstyled/styled-components'
-import React from 'react'
 
 import { forwardRef } from '@/System'
 

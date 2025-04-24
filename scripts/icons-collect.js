@@ -49,7 +49,7 @@ const writeIconContentsJson = (outputFolder, content, key) => {
 // Write index.tsx for a given icon
 const writeIconIndex = (outputFolder, iconName) => {
   const file = `${outputFolder}/index.tsx`
-  const fileContent = `import React from 'react'
+  const fileContent = `
 
 import { Icon, IconProps } from '../../Icon'
 
@@ -99,7 +99,7 @@ const writeRootIconPackage = files => {
   )
 
   // Write main icons/index.d.ts
-  let rootIndexDTSContent = `import React from 'react'
+  let rootIndexDTSContent = `
 
 import { IconProps } from '../Icon'
 `

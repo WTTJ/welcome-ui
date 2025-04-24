@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import { CoffeeIcon } from '@/Icons'
 import { VariantIcon } from '@/VariantIcon'
 

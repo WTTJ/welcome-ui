@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import { Stack } from '@/Stack'
 import { Tag } from '@/Tag'
 

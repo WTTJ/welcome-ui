@@ -34,7 +34,9 @@ export default tseslint.config(
           prefer: 'type-imports',
         },
       ],
+      '@typescript-eslint/no-unused-vars': 'error',
       'no-console': 'error',
+      'no-unused-vars': 'off',
       'perfectionist/sort-imports': [
         'warn',
         {

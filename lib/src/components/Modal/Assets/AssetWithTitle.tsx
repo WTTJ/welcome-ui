@@ -1,5 +1,4 @@
 import styled from '@xstyled/styled-components'
-import React from 'react'
 
 import { Box } from '@/Box'
 import { forwardRef } from '@/System'

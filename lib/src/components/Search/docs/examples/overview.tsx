@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import { Search } from '@/Search'
 
 type Item = { Title: string }

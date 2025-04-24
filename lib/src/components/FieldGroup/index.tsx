@@ -1,5 +1,3 @@
-import React from 'react'
-
 import type { LabelOptions } from '@/Label'
 import { Label } from '@/Label'
 import type { CreateWuiProps } from '@/System'

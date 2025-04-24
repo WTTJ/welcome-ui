@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 const { watch } = require('fs')
 const { join, resolve } = require('path')
 

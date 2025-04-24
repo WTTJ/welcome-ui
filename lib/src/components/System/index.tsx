@@ -1,7 +1,7 @@
 import isPropValid from '@emotion/is-prop-valid'
 import type { SystemProps } from '@xstyled/styled-components'
+import * as React from 'react'
 import type { PropsWithoutRef } from 'react'
-import React from 'react'
 
 export const shouldForwardProp = (prop: string) => isPropValid(prop)
 

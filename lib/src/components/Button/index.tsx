@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Box } from '@/Box'
 import { Loader } from '@/Loader'
 import type { CreateWuiProps } from '@/System'

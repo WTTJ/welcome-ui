@@ -1,5 +1,3 @@
-import React from 'react'
-
 import type { ShapeProps } from '@/Shape'
 
 import * as S from './Cover.styles'

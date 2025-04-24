@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { NegativeIcon, PositiveIcon } from '@/Icons'
 
 import { FilePreview } from './FilePreview'

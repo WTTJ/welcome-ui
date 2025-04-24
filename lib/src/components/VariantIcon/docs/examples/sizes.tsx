@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import { VariantIcon } from '@/VariantIcon'
 
 const Example = () => {

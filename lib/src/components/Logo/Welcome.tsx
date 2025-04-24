@@ -1,5 +1,4 @@
 import { useTheme } from '@xstyled/styled-components'
-import React from 'react'
 
 import * as S from './styles'
 

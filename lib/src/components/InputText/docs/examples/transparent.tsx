@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import { AvatarIcon } from '@/Icons'
 import { InputText } from '@/InputText'
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 
 import { ExternalLinkIcon } from '@/Icons'
 import type { CreateWuiProps } from '@/System'

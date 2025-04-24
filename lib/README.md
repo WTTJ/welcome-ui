@@ -27,7 +27,6 @@ yarn add welcome-ui @xstyled/styled-components@^3.7.3 react@^18.0.0 styled-compo
 Getting started
 
 ```js
-import React from 'react'
 import { createTheme } from 'welcome-ui/theme'
 import { WuiProvider } from 'welcome-ui/WuiProvider'
 import { Button } from 'welcome-ui/Button'

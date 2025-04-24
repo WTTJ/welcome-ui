@@ -17,7 +17,7 @@ const getIndexHtml = (name: string) => `<html lang="en">
   </body>
 </html>`
 
-const indexTsx = `import * as React from 'react'
+const indexTsx = `
 import * as ReactDOM from 'react-dom'
 import { createTheme } from 'welcome-ui/theme';
 import { WuiProvider } from 'welcome-ui/WuiProvider';

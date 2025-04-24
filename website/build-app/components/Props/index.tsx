@@ -1,6 +1,5 @@
 'use client'
 import { kebabCase } from 'lodash'
-import React from 'react'
 
 import { Badge } from '@/Badge'
 import { Box } from '@/Box'

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Box } from '@/Box'
 import type { CreateWuiProps } from '@/System'
 import { forwardRef } from '@/System'
