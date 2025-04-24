@@ -26,7 +26,8 @@ export type ThemeTabs = {
   }
 }
 
-type Size = 'md' | 'sm'
+// eslint-disable-next-line perfectionist/sort-union-types
+type Size = 'sm' | 'md'
 
 export const getTabs = (theme: ThemeValues): ThemeTabs => {
   const { borderWidths, colors, fontSizes, fontWeights, lineHeights, space } = theme

@@ -21,7 +21,8 @@ export type DrawerProps = CreateWuiProps<'div', DrawerOptions>
 
 type Placement = 'bottom' | 'left' | 'right' | 'top'
 
-type Size = 'auto' | 'lg' | 'md' | 'sm' | string
+// eslint-disable-next-line perfectionist/sort-union-types
+type Size = 'auto' | 'sm' | 'md' | 'lg' | string
 
 const DrawerComponent = forwardRef<'div', DrawerProps>(
   (

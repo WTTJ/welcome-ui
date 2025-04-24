@@ -2,7 +2,8 @@ import type { CSSObject } from '@xstyled/styled-components'
 
 import type { ThemeValues } from '@/theme'
 
-export type Size = 'md' | 'sm'
+// eslint-disable-next-line perfectionist/sort-union-types
+export type Size = 'sm' | 'md'
 
 export type ThemeAlerts = Record<Variant, AttributesState> & {
   default: CSSObject

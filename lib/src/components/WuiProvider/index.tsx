@@ -1,8 +1,8 @@
 import { ThemeProvider } from '@xstyled/styled-components'
 
 import type { ThemeValues } from '@/theme'
+import { HideFocusRingsRoot } from '@/utils'
 
-import { HideFocusRingsRoot } from './hide-focus-rings-root'
 import * as S from './styles'
 
 export interface WuiProviderProps {

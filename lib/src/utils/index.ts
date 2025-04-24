@@ -1,6 +1,7 @@
 export * from './field-styles'
 export * from './format-bytes'
 export * from './hex-to-rgba'
+export * from './hide-focus-rings-root'
 export * from './overflow-ellipsis'
 export * from './throttle'
 export * from './ts-utils'

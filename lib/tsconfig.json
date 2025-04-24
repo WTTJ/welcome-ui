@@ -5,10 +5,10 @@
     "declaration": true,
     "target": "ES6",
     "paths": {
-      "@/utils": ["./src/utils"],
-      "@/theme": ["./src/theme"],
+      "@/*": ["./src/components/*"],
       "@/fonts/*": ["./src/components/IconsFont/fonts/*"],
-      "@/*": ["./src/components/*"]
+      "@/theme": ["./src/theme"],
+      "@/utils": ["./src/utils"]
     },
     "types": ["vitest/globals", "@testing-library/jest-dom"]
   },

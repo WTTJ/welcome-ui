@@ -1,7 +1,9 @@
 import { css, th } from '@xstyled/styled-components'
 
-export type DefaultFieldIconSize = 'sm' | 'xs'
-export type Size = 'lg' | 'md' | 'sm' | 'xs'
+// eslint-disable-next-line perfectionist/sort-union-types
+export type DefaultFieldIconSize = 'xs' | 'sm'
+// eslint-disable-next-line perfectionist/sort-union-types
+export type Size = 'xs' | 'sm' | 'md' | 'lg'
 
 export const FIELD_ICON_SIZE: {
   [key in Size]: DefaultFieldIconSize

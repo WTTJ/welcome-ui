@@ -5,7 +5,8 @@ import type { ThemeValues } from '@/theme'
 import type { ThemeFocus } from '../../theme/focus'
 import { hexToRGBA } from '../../utils/hex-to-rgba'
 
-export type Size = 'lg' | 'md' | 'sm' | 'xs'
+// eslint-disable-next-line perfectionist/sort-union-types
+export type Size = 'xs' | 'sm' | 'md' | 'lg'
 
 export type ThemeButtons = Record<
   'active',

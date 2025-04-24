@@ -1,11 +1,12 @@
 import { screen } from '@testing-library/react'
 
+import { SunIcon } from '@/Icons'
+import { IconsFont } from '@/IconsFont'
+import { Link } from '@/Link'
+import { createTheme } from '@/theme'
+
 import { Button } from '../'
 import { render } from '../../../../tests'
-import { createTheme } from '../../../theme'
-import { SunIcon } from '../../Icons'
-import { IconsFont } from '../../IconsFont'
-import { Link } from '../../Link'
 
 const content = 'Jungle'
 const theme = createTheme()
@@ -162,11 +163,9 @@ describe('<Button />', () => {
     const icon = screen.getByTestId('icon-sun')
 
     expect(button).toHaveStyle({ height: theme.buttons.sizes.sm.height })
-    expect(icon).toHaveStyle({
-      'font-size': theme.buttons.icon.default.sm,
-      height: theme.buttons.icon.default.sm,
-      width: theme.buttons.icon.default.sm,
-    })
+    expect(icon).toHaveStyle(`width: ${theme.buttons.icon.default.sm}`)
+    expect(icon).toHaveStyle(`height: ${theme.buttons.icon.default.sm}`)
+    expect(icon).toHaveStyle(`font-size: ${theme.buttons.icon.default.sm}`)
   })
 
   it('should have correct Icon size with Icon only', () => {
@@ -180,11 +179,9 @@ describe('<Button />', () => {
     const icon = screen.getByTestId('icon-sun')
 
     expect(button).toHaveStyle({ height: theme.buttons.sizes.md.height })
-    expect(icon).toHaveStyle({
-      'font-size': theme.buttons.icon.only.md,
-      height: theme.buttons.icon.only.md,
-      width: theme.buttons.icon.only.md,
-    })
+    expect(icon).toHaveStyle(`width: ${theme.buttons.icon.only.md}`)
+    expect(icon).toHaveStyle(`height: ${theme.buttons.icon.only.md}`)
+    expect(icon).toHaveStyle(`font-size: ${theme.buttons.icon.only.md}`)
   })
 
   it('should have correct IconsFont size with IconsFont and text', () => {
@@ -199,11 +196,9 @@ describe('<Button />', () => {
     const icon = screen.getByTestId('icon-font-sun')
 
     expect(button).toHaveStyle({ height: theme.buttons.sizes.sm.height })
-    expect(icon).toHaveStyle({
-      'font-size': theme.buttons.icon.default.sm,
-      height: theme.buttons.icon.default.sm,
-      width: theme.buttons.icon.default.sm,
-    })
+    expect(icon).toHaveStyle(`width: ${theme.buttons.icon.default.sm}`)
+    expect(icon).toHaveStyle(`height: ${theme.buttons.icon.default.sm}`)
+    expect(icon).toHaveStyle(`font-size: ${theme.buttons.icon.default.sm}`)
   })
 
   it('should have correct IconsFont size with IconsFont only', () => {
@@ -217,11 +212,9 @@ describe('<Button />', () => {
     const icon = screen.getByTestId('icon-font-sun')
 
     expect(button).toHaveStyle({ height: theme.buttons.sizes.md.height })
-    expect(icon).toHaveStyle({
-      'font-size': theme.buttons.icon.only.md,
-      height: theme.buttons.icon.only.md,
-      width: theme.buttons.icon.only.md,
-    })
+    expect(icon).toHaveStyle(`width: ${theme.buttons.icon.only.md}`)
+    expect(icon).toHaveStyle(`height: ${theme.buttons.icon.only.md}`)
+    expect(icon).toHaveStyle(`font-size: ${theme.buttons.icon.only.md}`)
   })
 
   it('should have data-loading attribute', () => {

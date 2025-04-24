@@ -4,7 +4,8 @@ import type { ThemeValues } from '@/theme'
 
 import type { ThemeSecondaryColors } from '../../theme/colors'
 
-export type Size = 'md' | 'sm' | 'xs'
+// eslint-disable-next-line perfectionist/sort-union-types
+export type Size = 'xs' | 'sm' | 'md'
 export type ThemeTags = {
   default: CSSObject
   hover: Record<Variant, CSSObject>
