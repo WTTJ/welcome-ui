@@ -12,19 +12,34 @@ import { CreateWuiProps, forwardRef } from '@/System'
 export type AssetDrawerProps = CreateWuiProps<'div', Ariakit.DialogOptions>
 
 export const AssetDrawerComponent = forwardRef<'div', AssetDrawerProps>(
-  ({ children, maxWidth = 820, store, ...rest }, ref) => {
+  (
+    {
+      children,
+      getPersistentElements: parentGetPersistentElements,
+      maxWidth = 820,
+      store,
+      ...rest
+    },
+    ref
+  ) => {
     const theme = useTheme()
 
     const getPersistentElements = () =>
-      Array.from(document.querySelectorAll('[data-wui-persistent]'))
-
-    const hideOnInteractOutside = (event: Event) => {
-      const target = event.target as HTMLElement
-      const isTargetWithinPersistentElements = getPersistentElements().some(element =>
-        element.contains(target)
+      Array.from(
+        parentGetPersistentElements
+          ? parentGetPersistentElements()
+          : document.querySelectorAll('[data-wui-persistent]')
       )
-      return !isTargetWithinPersistentElements
-    }
+
+    const hideOnInteractOutside =
+      Boolean(parentGetPersistentElements) ||
+      ((event: Event) => {
+        const target = event.target as HTMLElement
+        const isTargetWithinPersistentElements = getPersistentElements().some(element =>
+          element.contains(target)
+        )
+        return !isTargetWithinPersistentElements
+      })
 
     return (
       <Drawer
