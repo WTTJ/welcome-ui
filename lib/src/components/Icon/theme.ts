@@ -5,7 +5,9 @@ export type Size = LiteralUnion<IconSize, number | string>
 
 export type ThemeIcons = Record<IconSize, string>
 
-type IconSize = 'lg' | 'md' | 'sm' | 'xl' | 'xs' | 'xxl'
+// we want to keep IconSize in a natural order for documentation
+// eslint-disable-next-line perfectionist/sort-union-types
+type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
 
 export const getIcons = ({ toRem }: ThemeValues): ThemeIcons => ({
   lg: toRem(32),

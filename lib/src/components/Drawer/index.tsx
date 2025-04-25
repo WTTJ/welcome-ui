@@ -21,8 +21,9 @@ export interface DrawerOptions extends Ariakit.DialogOptions<'div'> {
 export type DrawerProps = CreateWuiProps<'div', DrawerOptions>
 
 type Placement = 'bottom' | 'left' | 'right' | 'top'
-
-type Size = 'auto' | 'lg' | 'md' | 'sm' | string
+// we want to keep Size in a natural order for documentation
+// eslint-disable-next-line perfectionist/sort-union-types
+type Size = 'auto' | 'sm' | 'md' | 'lg' | string
 
 const DrawerComponent = forwardRef<'div', DrawerProps>(
   (

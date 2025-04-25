@@ -2,7 +2,10 @@ import type { CSSObject } from '@xstyled/styled-components'
 
 import type { ThemeValues } from '@/theme'
 
-export type Size = 'md' | 'sm'
+// we want to keep Size in a natural order for documentation
+// we want to keep Size in a natural order for documentation
+// eslint-disable-next-line perfectionist/sort-union-types
+export type Size = 'sm' | 'md'
 
 export type ThemeAlerts = Record<Variant, AttributesState> & {
   default: CSSObject

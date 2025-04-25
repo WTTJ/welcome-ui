@@ -2,7 +2,9 @@ import type { CSSObject } from '@xstyled/styled-components'
 
 import type { ThemeValues } from '@/theme'
 
-export type Size = 'lg' | 'md' | 'sm' | 'xl' | 'xs' | 'xxl'
+// we want to keep Size in a natural order for documentation
+// eslint-disable-next-line perfectionist/sort-union-types
+export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
 export type ThemeVariantIcon = Record<Variant, CSSObject>
 export type Variant = 'ai' | 'danger' | 'default' | 'info' | 'success' | 'warning'
 
