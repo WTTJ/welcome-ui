@@ -157,13 +157,16 @@
           "raw": "Variant",
           "value": [
             {
-              "value": "\"default\""
+              "value": "\"ai\""
+            },
+            {
+              "value": "\"beige\""
             },
             {
               "value": "\"danger\""
             },
             {
-              "value": "\"warning\""
+              "value": "\"default\""
             },
             {
               "value": "\"info\""
@@ -172,10 +175,7 @@
               "value": "\"success\""
             },
             {
-              "value": "\"beige\""
-            },
-            {
-              "value": "\"ai\""
+              "value": "\"warning\""
             }
           ]
         }

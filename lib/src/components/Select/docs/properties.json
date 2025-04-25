@@ -606,13 +606,13 @@
               "tags": {}
             },
             {
-              "value": "string[]",
+              "value": "(string | number | SelectOption)[]",
               "description": "",
               "fullComment": "",
               "tags": {}
             },
             {
-              "value": "(string | number | SelectOption)[]",
+              "value": "string[]",
               "description": "",
               "fullComment": "",
               "tags": {}
@@ -623,16 +623,6 @@
     }
   },
   "StyledSelect": {
-    "props": {
-      "theme": {
-        "defaultValue": null,
-        "description": "",
-        "name": "theme",
-        "required": false,
-        "type": {
-          "name": "DefaultTheme"
-        }
-      }
-    }
+    "props": {}
   }
 }
