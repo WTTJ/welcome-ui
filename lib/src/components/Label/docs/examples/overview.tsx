@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import { Label } from '@/Label'
 
 const Example = () => {

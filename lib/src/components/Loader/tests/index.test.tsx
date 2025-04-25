@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Loader } from '../'
 import { render } from '../../../../tests'
 import { createTheme } from '../../../theme'

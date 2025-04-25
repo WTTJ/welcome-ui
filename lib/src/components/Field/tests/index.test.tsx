@@ -1,6 +1,5 @@
 import { screen } from '@testing-library/react'
 import type { HTMLInputTypeAttribute } from 'react'
-import React from 'react'
 
 import { Field } from '../'
 import { render } from '../../../../tests'

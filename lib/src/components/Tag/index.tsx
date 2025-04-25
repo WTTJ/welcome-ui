@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { CrossIcon } from '@/Icons'
 import type { CreateWuiProps } from '@/System'
 import { forwardRef } from '@/System'

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Swiper, useSwiper } from '../'
 import { render } from '../../../../tests'
 

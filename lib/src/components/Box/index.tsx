@@ -1,5 +1,4 @@
 import { x } from '@xstyled/styled-components'
-import React from 'react'
 
 import type { CreateWuiProps } from '@/System'
 import { forwardRef } from '@/System'

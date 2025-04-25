@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import { WttjIcon } from '@/Icons'
 import { TimePicker } from '@/TimePicker'
 

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Toast } from '../'
 import { render } from '../../../../tests'
 

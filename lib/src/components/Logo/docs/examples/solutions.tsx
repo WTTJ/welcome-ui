@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import { SolutionsSymbol } from '@/Logo'
 
 const Example = () => {
