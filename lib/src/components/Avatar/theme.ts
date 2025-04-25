@@ -4,7 +4,10 @@ import type { ThemeColorTokens, ThemeValues } from '@/theme'
 import type { LiteralUnion } from '@/utils'
 
 export type AvatarColors = LiteralUnion<ThemeColorTokens>
-export type Size = 'lg' | 'md' | 'sm' | 'xl' | 'xxl'
+// we want to keep Size in a natural order for documentation
+// we want to keep Size in a natural order for documentation
+// eslint-disable-next-line perfectionist/sort-union-types
+export type Size = 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
 
 export type ThemeAvatars = {
   sizes: Record<Size, string>
