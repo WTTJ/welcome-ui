@@ -1,5 +1,5 @@
 import { useTheme } from '@xstyled/styled-components'
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 
 import * as S from './styles'
 

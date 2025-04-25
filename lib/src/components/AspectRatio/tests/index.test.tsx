@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { AspectRatio } from '../'
 import { render } from '../../../../tests'
 

@@ -1,5 +1,4 @@
 import { renderHook, screen } from '@testing-library/react'
-import React from 'react'
 
 import { Pagination } from '../'
 import { render } from '../../../../tests'

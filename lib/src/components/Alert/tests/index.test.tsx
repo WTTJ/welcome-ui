@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Alert } from '../'
 import { render } from '../../../../tests'
 

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import type { BoxProps } from '@/Box'
 import { forwardRef } from '@/System'
 import { Text } from '@/Text'

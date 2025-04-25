@@ -1,4 +1,3 @@
-import * as React from 'react'
 import type { ToastPosition } from 'react-hot-toast/headless'
 
 import { Box } from '@/Box'

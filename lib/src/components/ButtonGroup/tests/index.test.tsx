@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { ButtonGroup } from '../'
 import { render } from '../../../../tests'
 import { Button } from '../../Button'

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import type { IconProps } from '@/Icon'
 
 import type { StyledIconProps } from './styles'
@@ -23,7 +21,7 @@ export type IconKeyFormatted = FormatIconJSX<Capitalize<IconKey>>
 export type IconsType = Record<IconKeyFormatted, (props: IconProps) => JSX.Element>
 
 const toPascalCase = (str: string) => {
-  const camelCase = str.replace(/_(\w)/g, ($, $1) => $1.toUpperCase())
+  const camelCase = str.replace(/_(\w)/g, (_, $1) => $1.toUpperCase())
   return `${camelCase.charAt(0).toUpperCase()}${camelCase.substr(1)}`
 }
 

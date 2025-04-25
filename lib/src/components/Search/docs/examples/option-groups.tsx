@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import { Box } from '@/Box'
 import { Search } from '@/Search'
 import { Tag } from '@/Tag'

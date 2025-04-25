@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import type { RangeType } from '@/Slider'
 import { Slider } from '@/Slider'
 

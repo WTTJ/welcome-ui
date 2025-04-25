@@ -1,5 +1,4 @@
 import type { ReactElement } from 'react'
-import React from 'react'
 
 import type { BoxProps } from '@/Box'
 import { forwardRef } from '@/System'

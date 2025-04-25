@@ -1,5 +1,5 @@
 import * as Ariakit from '@ariakit/react'
-import React, { cloneElement } from 'react'
+import { cloneElement } from 'react'
 
 import { RightIcon } from '@/Icons'
 import type { CreateWuiProps } from '@/System'

@@ -1,5 +1,4 @@
 import * as Ariakit from '@ariakit/react'
-import React from 'react'
 
 import type { CreateWuiProps } from '@/System'
 import { forwardRef } from '@/System'
