@@ -1,11 +1,13 @@
+import type { RenderOptions } from '@testing-library/react'
+import { render as rtlRender } from '@testing-library/react'
+import type { UserEvent } from '@testing-library/user-event'
+import userEvent from '@testing-library/user-event'
 import React from 'react'
-import { RenderOptions, render as rtlRender } from '@testing-library/react'
-import userEvent, { UserEvent } from '@testing-library/user-event'
 import { BrowserRouter } from 'react-router-dom'
 
-import { createTheme } from '../src/theme'
-
 import { WuiProvider } from '@/WuiProvider'
+
+import { createTheme } from '../src/theme'
 
 type ProviderProps = {
   children?: React.ReactNode

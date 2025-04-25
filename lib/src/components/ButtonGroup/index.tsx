@@ -1,12 +1,10 @@
 import React, { Children, cloneElement } from 'react'
 
+import type { Button, ButtonProps } from '@/Button'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
+
 import * as S from './styles'
-
-import { CreateWuiProps, forwardRef } from '@/System'
-import { Button, ButtonProps } from '@/Button'
-
-type ChildType = React.ReactElement<typeof Button> | null | undefined | boolean
-type ChildrenProps = ChildType | ChildType[]
 
 export interface ButtonGroupOptions {
   children: ChildrenProps
@@ -15,8 +13,11 @@ export interface ButtonGroupOptions {
   size?: ButtonProps['size']
   variant?: ButtonProps['variant']
 }
-
 export type ButtonGroupProps = CreateWuiProps<'div', ButtonGroupOptions>
+
+type ChildrenProps = ChildType | ChildType[]
+
+type ChildType = boolean | null | React.ReactElement<typeof Button> | undefined
 
 export const ButtonGroup = forwardRef<'div', ButtonGroupProps>(
   ({ children, dataTestId, disabled, size, variant }, ref) => {

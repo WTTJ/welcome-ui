@@ -1,6 +1,6 @@
 import capitalize from 'lodash.capitalize'
 
-import { SelectValue } from '../'
+import type { SelectValue } from '../'
 import {
   getInputValue,
   getNewOptions,
@@ -33,16 +33,16 @@ const OPT_GROUP = [
   {
     label: 'Professional networks',
     options: [
-      { value: 'behance', label: 'Behance', disabled: true },
-      { value: 'dribbble', label: 'Dribbble' },
-      { value: 'github', label: 'Github' },
+      { disabled: true, label: 'Behance', value: 'behance' },
+      { label: 'Dribbble', value: 'dribbble' },
+      { label: 'Github', value: 'github' },
     ],
   },
   {
     label: 'Personal networks',
     options: [
-      { value: 'instagram', label: 'Instagram' },
-      { value: 'facebook', label: 'Facebook' },
+      { label: 'Instagram', value: 'instagram' },
+      { label: 'Facebook', value: 'facebook' },
     ],
   },
 ]
@@ -141,12 +141,12 @@ describe('<Select>', () => {
 
   it('getOptionsFromSelected returns empty array if no SELECTED', () => {
     const options = getOptionsFromSelected(0, OPTIONS)
-    expect(options).toStrictEqual([{ value: '0', label: 0 }])
+    expect(options).toStrictEqual([{ label: 0, value: '0' }])
   })
 
   it('getOptionsFromSelected return correct options (with groupsEnabled)', () => {
     const options = getOptionsFromSelected('github', OPT_GROUP, true)
-    expect(options).toStrictEqual([{ value: 'github', label: 'Github' }])
+    expect(options).toStrictEqual([{ label: 'Github', value: 'github' }])
   })
 
   it('getUniqueValue returns options with duplicates removed', () => {

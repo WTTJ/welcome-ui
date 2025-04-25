@@ -16,9 +16,9 @@ const Example = () => {
       name="file"
       value=""
       wordings={{
-        title: 'My custom title',
-        hint: 'My custom hint',
         fileButtonText: 'My custom file button',
+        hint: 'My custom hint',
+        title: 'My custom title',
       }}
     />
   )

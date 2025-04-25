@@ -1,11 +1,12 @@
+import type { CSSObject } from '@xstyled/styled-components'
 import React from 'react'
-import { CSSObject } from '@xstyled/styled-components'
-
-import * as S from './styles'
-import { Size } from './theme'
 
 import { Box } from '@/Box'
-import { CreateWuiProps, forwardRef } from '@/System'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
+
+import * as S from './styles'
+import type { Size } from './theme'
 
 export interface LoaderOptions {
   color?: CSSObject['color']

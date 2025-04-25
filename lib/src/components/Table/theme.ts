@@ -1,6 +1,6 @@
-import { CSSObject } from '@xstyled/styled-components'
+import type { CSSObject } from '@xstyled/styled-components'
 
-import { ThemeValues } from '@/theme'
+import type { ThemeValues } from '@/theme'
 
 export type ThemeTables = {
   td: CSSObject
@@ -19,31 +19,30 @@ export const getTables = (theme: ThemeValues): ThemeTables => {
   const { borderWidths, colors, fontWeights, space } = theme
 
   return {
+    td: {
+      padding: space.xl,
+      textAlign: 'left',
+    },
     th: {
+      borderBottomColor: colors['neutral-90'],
+      borderBottomStyle: 'solid',
+      borderBottomWidth: borderWidths.sm,
       color: colors['neutral-60'],
       fontWeight: fontWeights.medium,
       textAlign: 'left',
-      borderBottomColor: colors['neutral-90'],
-      borderBottomWidth: borderWidths.sm,
-      borderBottomStyle: 'solid',
-    },
-    td: {
-      textAlign: 'left',
-      padding: space.xl,
     },
     tr: {
-      default: {
-        borderBottomColor: colors['neutral-30'],
-        borderBottomWidth: borderWidths.sm,
-        borderBottomStyle: 'solid',
+      clickable: {
+        cursor: 'pointer',
       },
       danger: {
         backgroundColor: colors['red-10'],
         color: colors['red-70'],
       },
-      warning: {
-        backgroundColor: colors['orange-10'],
-        color: colors['orange-80'],
+      default: {
+        borderBottomColor: colors['neutral-30'],
+        borderBottomStyle: 'solid',
+        borderBottomWidth: borderWidths.sm,
       },
       info: {
         backgroundColor: colors['blue-10'],
@@ -53,8 +52,9 @@ export const getTables = (theme: ThemeValues): ThemeTables => {
         backgroundColor: colors['green-10'],
         color: colors['green-70'],
       },
-      clickable: {
-        cursor: 'pointer',
+      warning: {
+        backgroundColor: colors['orange-10'],
+        color: colors['orange-80'],
       },
     },
   }

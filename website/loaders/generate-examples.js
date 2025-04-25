@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const { existsSync, readdirSync, writeFileSync } = require('fs')
 const { join, resolve } = require('path')
 

@@ -1,14 +1,15 @@
 import React from 'react'
 
-import * as S from './Item.styles'
-
-import { CreateWuiProps, forwardRef } from '@/System'
 import { Box } from '@/Box'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
+
+import * as S from './Item.styles'
 
 export interface ItemOptions {
   children: React.ReactNode
   isActive?: boolean
-  separator?: string | React.ReactNode
+  separator?: React.ReactNode | string
   /* useful for react-router */
   to?: string
 }
@@ -31,7 +32,7 @@ export const Item = forwardRef<'a', ItemProps>(
         flex="0 0 auto"
         lineHeight="normal"
       >
-        {separator && <S.Separator role="presentation">{separator}</S.Separator>}
+        {separator ? <S.Separator role="presentation">{separator}</S.Separator> : null}
         <S.Item
           aria-current={isActive ? 'page' : undefined}
           aria-disabled={!isClickable}

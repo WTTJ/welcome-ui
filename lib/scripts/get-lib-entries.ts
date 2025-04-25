@@ -1,5 +1,5 @@
-import { resolve } from 'path'
 import fs from 'fs'
+import { resolve } from 'path'
 
 const getComponentsEntries = () => {
   const componentsDir = resolve(__dirname, '../src/components')

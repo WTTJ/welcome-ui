@@ -1,13 +1,13 @@
 import React from 'react'
 
-import { UsePopover } from './usePopover'
 import * as S from './styles'
+import type { UsePopover } from './usePopover'
 
 const transformMap = {
-  top: 'rotateZ(180deg)',
-  right: 'rotateZ(-90deg)',
   bottom: 'rotateZ(360deg)',
   left: 'rotateZ(90deg)',
+  right: 'rotateZ(-90deg)',
+  top: 'rotateZ(180deg)',
 }
 
 type ArrowProps = {

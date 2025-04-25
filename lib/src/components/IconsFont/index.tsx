@@ -1,9 +1,10 @@
 import React from 'react'
 
-import { Icon, StyledIconProps } from './styles'
-import unicodeJson from './unicode.json'
+import type { IconProps } from '@/Icon'
 
-import { IconProps } from '@/Icon'
+import type { StyledIconProps } from './styles'
+import { Icon } from './styles'
+import unicodeJson from './unicode.json'
 
 export type IconsFontProps = StyledIconProps
 export const IconsFontStyled = Icon
@@ -37,7 +38,7 @@ export const IconsFont = iconsKeys.reduce<IconsType>((prev, name) => {
       <Icon
         {...props}
         className={`${className} wui-icon-font`}
-        data-testid={props.dataTestId && `icon-font-${props.dataTestId}`}
+        data-testid={props.dataTestId ? `icon-font-${props.dataTestId}` : null}
         name={name}
       />
     )

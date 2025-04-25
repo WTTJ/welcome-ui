@@ -1,6 +1,12 @@
-import { ThemeValues } from '.'
-
 import { FONT_HASH } from '@/IconsFont/_hash'
+
+import type { ThemeValues } from '.'
+
+export type ThemeFontFaces = {
+  'welcome-font': FontFace[]
+  'welcome-icon-font': FontFace[]
+  'work-sans': FontFace[]
+}
 
 type FontFace = {
   display?: FontDisplay
@@ -11,12 +17,6 @@ type FontFace = {
   uniCodeRange?: string
   url: string
   weight?: string
-}
-
-export type ThemeFontFaces = {
-  'welcome-font': FontFace[]
-  'welcome-icon-font': FontFace[]
-  'work-sans': FontFace[]
 }
 
 export const fontFaces = (theme: ThemeValues): ThemeFontFaces => ({
@@ -34,32 +34,32 @@ export const fontFaces = (theme: ThemeValues): ThemeFontFaces => ({
       weight: '600',
     },
     {
-      url: `${theme.fontsUrl}/welcome-font-regular-italic`,
       style: 'italic',
+      url: `${theme.fontsUrl}/welcome-font-regular-italic`,
       weight: '400',
     },
     {
-      url: `${theme.fontsUrl}/welcome-font-medium-italic`,
       style: 'italic',
+      url: `${theme.fontsUrl}/welcome-font-medium-italic`,
       weight: '500',
     },
     {
-      url: `${theme.fontsUrl}/welcome-font-bold-italic`,
       style: 'italic',
+      url: `${theme.fontsUrl}/welcome-font-bold-italic`,
       weight: '600',
     },
   ],
   'welcome-icon-font': [
     {
-      url: `${theme.fontsUrl}/icon-font/${FONT_HASH}/welcome-icon-font`,
       display: 'block',
+      url: `${theme.fontsUrl}/icon-font/${FONT_HASH}/welcome-icon-font`,
     },
   ],
   'work-sans': [
     {
-      url: `${theme.fontsUrl}/work-sans-variable`,
       isVariable: true,
       stretch: '75% 125%',
+      url: `${theme.fontsUrl}/work-sans-variable`,
       weight: '100 1000',
     },
   ],

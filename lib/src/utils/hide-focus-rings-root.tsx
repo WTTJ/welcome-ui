@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
 import { createGlobalStyle, css } from '@xstyled/styled-components'
+import React, { useEffect, useState } from 'react'
 
 export const hideFocusRingsDataAttribute = 'data-wui-hidefocusrings'
 

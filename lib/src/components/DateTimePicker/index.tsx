@@ -1,16 +1,19 @@
 import React, { Children, cloneElement, useEffect, useState } from 'react'
 
-import * as S from './styles'
-
-import { DatePicker, DatePickerProps } from '@/DatePicker'
-import { TimePicker, TimePickerProps } from '@/TimePicker'
+import type { DatePickerProps } from '@/DatePicker'
+import { DatePicker } from '@/DatePicker'
 import { DEFAULT_DATE, getDate } from '@/DateTimePickerCommon'
-import { CreateWuiProps, forwardRef } from '@/System'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
+import type { TimePickerProps } from '@/TimePicker'
+import { TimePicker } from '@/TimePicker'
+
+import * as S from './styles'
 
 export type DateTimePickerProps = CreateWuiProps<
   'input',
-  Pick<DatePickerProps, 'disabled' | 'locale' | 'onChange' | 'size' | 'value' | 'transparent'> &
-    Pick<TimePickerProps, 'disabled' | 'locale' | 'onChange' | 'size' | 'value' | 'transparent'>
+  Pick<DatePickerProps, 'disabled' | 'locale' | 'onChange' | 'size' | 'transparent' | 'value'> &
+    Pick<TimePickerProps, 'disabled' | 'locale' | 'onChange' | 'size' | 'transparent' | 'value'>
 >
 
 export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
@@ -64,20 +67,20 @@ export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
 
     return (
       <S.DateTimePicker data-testid={dataTestId}>
-        {children &&
-          Children.map(children, (child: React.ReactElement, i) =>
-            cloneElement(child, {
-              // eslint-disable-next-line react/no-array-index-key
-              key: i,
-              onChange: handleChange,
-              // give ref only to the first child
-              inputRef: i < 1 ? ref : null,
-              locale: locale,
-              timeIntervals,
-              value: date,
-              transparent,
-            })
-          )}
+        {children
+          ? Children.map(children, (child: React.ReactElement, i) =>
+              cloneElement(child, {
+                // give ref only to the first child
+                inputRef: i < 1 ? ref : null,
+                key: i,
+                locale: locale,
+                onChange: handleChange,
+                timeIntervals,
+                transparent,
+                value: date,
+              })
+            )
+          : null}
         {!children && (
           <>
             <DatePicker

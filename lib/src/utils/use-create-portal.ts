@@ -20,7 +20,7 @@ export function useCreatePortal(disable = false) {
     }
 
     return mounted
-      ? (children: React.ReactNode, container?: Element | DocumentFragment, key?: string | null) =>
+      ? (children: React.ReactNode, container?: DocumentFragment | Element, key?: null | string) =>
           createPortal(children, container || document.body, key)
       : () => null as unknown as CreatePortal
   }, [disable, mounted])

@@ -1,18 +1,20 @@
-import React, { ReactElement, useEffect, useState } from 'react'
 import * as Ariakit from '@ariakit/react'
+import type { ReactElement } from 'react'
+import React, { useEffect, useState } from 'react'
+
+import { Box } from '@/Box'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
 
 import * as S from './styles'
 
-import { Box } from '@/Box'
-import { CreateWuiProps, forwardRef } from '@/System'
-
-export type TooltipOptions = {
-  children: React.ReactNode
-  content: string | JSX.Element
-  fixed?: boolean
-  withArrow?: boolean
-} & Pick<Ariakit.TooltipStoreProps, 'placement'> &
-  Pick<Ariakit.TooltipOptions, 'gutter'>
+export type TooltipOptions = Pick<Ariakit.TooltipOptions, 'gutter'> &
+  Pick<Ariakit.TooltipStoreProps, 'placement'> & {
+    children: React.ReactNode
+    content: JSX.Element | string
+    fixed?: boolean
+    withArrow?: boolean
+  }
 
 export type TooltipProps = CreateWuiProps<'div', TooltipOptions>
 
@@ -22,14 +24,14 @@ export const Tooltip = forwardRef<'div', TooltipProps>(
       children,
       content,
       fixed = false,
-      placement = fixed ? 'top' : 'bottom',
       gutter = 8,
+      placement = fixed ? 'top' : 'bottom',
       withArrow,
       ...rest
     },
     ref
   ) => {
-    const tooltip = Ariakit.useTooltipStore({ placement, animated: 300 })
+    const tooltip = Ariakit.useTooltipStore({ animated: 300, placement })
     const [position, setPosition] = useState({ x: 0, y: 0 })
     const { render, stopAnimation } = tooltip
     const { anchorElement, currentPlacement, mounted, popoverElement } = tooltip.useState()
@@ -39,8 +41,8 @@ export const Tooltip = forwardRef<'div', TooltipProps>(
 
       Object.assign(popoverElement.style, {
         display: mounted ? 'block' : 'none',
-        position: 'absolute',
         left: `${position.x}px`,
+        position: 'absolute',
         top: `${position.y + window.scrollY + 20}px`,
       })
     }

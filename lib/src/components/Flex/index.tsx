@@ -1,7 +1,8 @@
 import React from 'react'
 
-import { CreateWuiProps, forwardRef, WuiProps } from '@/System'
 import { Box } from '@/Box'
+import type { CreateWuiProps, WuiProps } from '@/System'
+import { forwardRef } from '@/System'
 
 export interface FlexOptions {
   /** same as alignItems */

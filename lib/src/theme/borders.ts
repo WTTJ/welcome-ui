@@ -5,7 +5,7 @@ export type ThemeBorderWidths = {
 }
 
 export const borderWidths: ThemeBorderWidths = {
-  sm: '1px',
-  md: '2px',
   lg: '3px',
+  md: '2px',
+  sm: '1px',
 }
