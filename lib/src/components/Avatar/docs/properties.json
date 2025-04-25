@@ -66,6 +66,9 @@
               "value": "\"violet-40\""
             },
             {
+              "value": "\"overlay\""
+            },
+            {
               "value": "\"primary-10\""
             },
             {
@@ -109,9 +112,6 @@
             },
             {
               "value": "\"secondary-violet\""
-            },
-            {
-              "value": "\"overlay\""
             },
             {
               "value": "\"beige-10\""
@@ -366,7 +366,7 @@
               "value": "\"violet-90\""
             },
             {
-              "value": "string & Record<never, never>"
+              "value": "Record<never, never> & string"
             }
           ]
         }

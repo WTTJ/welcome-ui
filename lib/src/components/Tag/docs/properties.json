@@ -132,6 +132,27 @@
           "raw": "Variant",
           "value": [
             {
+              "value": "\"ai\""
+            },
+            {
+              "value": "\"danger\""
+            },
+            {
+              "value": "\"default\""
+            },
+            {
+              "value": "\"info\""
+            },
+            {
+              "value": "\"primary\""
+            },
+            {
+              "value": "\"success\""
+            },
+            {
+              "value": "\"warning\""
+            },
+            {
               "value": "\"blue\""
             },
             {
@@ -148,27 +169,6 @@
             },
             {
               "value": "\"violet\""
-            },
-            {
-              "value": "\"default\""
-            },
-            {
-              "value": "\"danger\""
-            },
-            {
-              "value": "\"info\""
-            },
-            {
-              "value": "\"success\""
-            },
-            {
-              "value": "\"warning\""
-            },
-            {
-              "value": "\"primary\""
-            },
-            {
-              "value": "\"ai\""
             }
           ]
         }

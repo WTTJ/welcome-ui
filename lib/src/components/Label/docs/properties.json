@@ -159,13 +159,13 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "\"success\" | \"danger\" | \"warning\"",
+          "raw": "\"danger\" | \"success\" | \"warning\"",
           "value": [
             {
-              "value": "\"success\""
+              "value": "\"danger\""
             },
             {
-              "value": "\"danger\""
+              "value": "\"success\""
             },
             {
               "value": "\"warning\""

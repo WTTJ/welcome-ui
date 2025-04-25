@@ -6,12 +6,12 @@
         "description": "A reference to a [combobox\nstore](https://ariakit.org/reference/use-combobox-store). This is\nautomatically set when rendering tabs inside a\n[Combobox](https://ariakit.org/components/combobox).\n\nLive examples:\n- [Combobox with Tabs](https://ariakit.org/examples/combobox-tabs)",
         "name": "combobox",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/tab/tab-store.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/tab/tab-store.d.ts",
           "name": "TabStoreOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/tab/tab-store.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/tab/tab-store.d.ts",
             "name": "TabStoreOptions"
           }
         ],
@@ -25,12 +25,12 @@
         "description": "A reference to another [composite\nstore](https://ariakit.org/reference/use-composite-store). This is\nautomatically set when rendering tabs as part of another composite widget,\nsuch as [Combobox](https://ariakit.org/components/combobox) or\n[Select](https://ariakit.org/components/select).\n\nLive examples:\n- [Combobox with Tabs](https://ariakit.org/examples/combobox-tabs)",
         "name": "composite",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/tab/tab-store.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/tab/tab-store.d.ts",
           "name": "TabStoreOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/tab/tab-store.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/tab/tab-store.d.ts",
             "name": "TabStoreOptions"
           }
         ],
@@ -44,12 +44,12 @@
         "description": "The composite item id that should be active by default when the composite\nwidget is rendered. If `null`, the composite element itself will have focus\nand users will be able to navigate to it using arrow keys. If `undefined`,\nthe first enabled item will be focused.",
         "name": "defaultActiveId",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/core/cjs/composite/composite-store.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/core/esm/composite/composite-store.d.ts",
           "name": "CompositeStoreOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/core/cjs/composite/composite-store.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/core/esm/composite/composite-store.d.ts",
             "name": "CompositeStoreOptions"
           }
         ],
@@ -65,12 +65,12 @@
         "description": "The defaut value for the\n[`items`](https://ariakit.org/reference/collection-provider#items) state.",
         "name": "defaultItems",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/core/cjs/collection/collection-store.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/core/esm/collection/collection-store.d.ts",
           "name": "CollectionStoreOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/core/cjs/collection/collection-store.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/core/esm/collection/collection-store.d.ts",
             "name": "CollectionStoreOptions"
           }
         ],
@@ -84,12 +84,12 @@
         "description": "The id of the tab whose panel is currently visible. If it's `undefined`, it\nwill be automatically set to the first enabled tab.\n\nLive examples:\n- [Combobox with Tabs](https://ariakit.org/examples/combobox-tabs)\n- [Animated TabPanel](https://ariakit.org/examples/tab-panel-animated)\n- [Select with Combobox and\n  Tabs](https://ariakit.org/examples/select-combobox-tab)",
         "name": "defaultSelectedId",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/core/cjs/tab/tab-store.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/core/esm/tab/tab-store.d.ts",
           "name": "TabStoreOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/core/cjs/tab/tab-store.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/core/esm/tab/tab-store.d.ts",
             "name": "TabStoreOptions"
           }
         ],
@@ -103,12 +103,12 @@
         "description": "A callback that gets called when the\n[`activeId`](https://ariakit.org/reference/composite-provider#activeid)\nstate changes.",
         "name": "setActiveId",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/composite/composite-store.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/composite/composite-store.d.ts",
           "name": "CompositeStoreOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/composite/composite-store.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/composite/composite-store.d.ts",
             "name": "CompositeStoreOptions"
           }
         ],
@@ -122,12 +122,12 @@
         "description": "A callback that gets called when the\n[`items`](https://ariakit.org/reference/collection-provider#items) state\nchanges.\n@example const [items, setItems] = useState([]);\nconst collection = useCollectionStore({ items, setItems });",
         "name": "setItems",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/collection/collection-store.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/collection/collection-store.d.ts",
           "name": "CollectionStoreOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/collection/collection-store.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/collection/collection-store.d.ts",
             "name": "CollectionStoreOptions"
           }
         ],
@@ -141,12 +141,12 @@
         "description": "Function that will be called when the\n[`selectedId`](https://ariakit.org/reference/tab-provider#selectedid) state\nchanges.\n\nLive examples:\n- [Combobox with Tabs](https://ariakit.org/examples/combobox-tabs)\n- [Select with Combobox and\n  Tabs](https://ariakit.org/examples/select-combobox-tab)",
         "name": "setSelectedId",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/tab/tab-store.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/tab/tab-store.d.ts",
           "name": "TabStoreOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/tab/tab-store.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/tab/tab-store.d.ts",
             "name": "TabStoreOptions"
           }
         ],

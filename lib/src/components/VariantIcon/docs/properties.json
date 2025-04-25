@@ -82,22 +82,22 @@
           "raw": "Variant",
           "value": [
             {
+              "value": "\"ai\""
+            },
+            {
               "value": "\"danger\""
-            },
-            {
-              "value": "\"warning\""
-            },
-            {
-              "value": "\"success\""
-            },
-            {
-              "value": "\"info\""
             },
             {
               "value": "\"default\""
             },
             {
-              "value": "\"ai\""
+              "value": "\"info\""
+            },
+            {
+              "value": "\"success\""
+            },
+            {
+              "value": "\"warning\""
             }
           ]
         }
