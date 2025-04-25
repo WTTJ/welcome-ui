@@ -1118,6 +1118,36 @@
           ]
         }
       },
+      "scrollToTopOnOpen": {
+        "defaultValue": {
+          "value": true
+        },
+        "description": "",
+        "name": "scrollToTopOnOpen",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Drawer/index.tsx",
+          "name": "DrawerOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Drawer/index.tsx",
+            "name": "DrawerOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
       "size": {
         "defaultValue": {
           "value": "lg"

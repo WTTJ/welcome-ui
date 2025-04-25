@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ForwardedRef, useEffect, useRef } from 'react'
 import * as Ariakit from '@ariakit/react'
 
 import { Close } from './Close'
@@ -16,6 +16,7 @@ type Size = 'sm' | 'md' | 'lg' | 'auto' | string
 
 export interface DrawerOptions extends Ariakit.DialogOptions<'div'> {
   placement?: Placement
+  scrollToTopOnOpen?: boolean
   size?: Size
   withBackdrop?: boolean
   withCloseButton?: boolean
@@ -29,14 +30,28 @@ const DrawerComponent = forwardRef<'div', DrawerProps>(
       children,
       hideOnInteractOutside = true,
       placement = 'right',
+      scrollToTopOnOpen = true,
       size = 'lg',
       store,
       withBackdrop = false,
       withCloseButton = true,
       ...rest
     },
-    ref
+    ref: ForwardedRef<HTMLDivElement>
   ) => {
+    const drawerRef = useRef<HTMLDivElement>(null)
+    const isDrawerOpen = Ariakit.useStoreState(store, 'open')
+
+    useEffect(() => {
+      const currentRef = ref && typeof ref === 'object' ? ref.current : drawerRef.current
+
+      if (scrollToTopOnOpen && isDrawerOpen) {
+        currentRef?.scrollTo({
+          top: 0,
+        })
+      }
+    })
+
     return (
       <Ariakit.Dialog
         backdrop={
@@ -44,7 +59,7 @@ const DrawerComponent = forwardRef<'div', DrawerProps>(
         }
         hideOnInteractOutside={hideOnInteractOutside}
         modal={withBackdrop}
-        ref={ref}
+        ref={ref || drawerRef}
         render={<S.Drawer placement={placement} size={size} />}
         store={store}
         {...(rest as Ariakit.DialogProps<'div'>)}
