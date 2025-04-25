@@ -3,7 +3,6 @@ import styled, { css, th } from '@xstyled/styled-components'
 import { IconBlockProps } from './Header'
 
 export const Content = styled.divBox`
-  overflow-y: scroll;
   flex: 1;
   margin: 0 auto;
   width: 100%;
