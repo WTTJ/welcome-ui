@@ -1,10 +1,10 @@
 import React from 'react'
 
-import * as S from './styles'
-
-import { Text } from '@/Text'
-import { BoxProps } from '@/Box'
+import type { BoxProps } from '@/Box'
 import { forwardRef } from '@/System'
+import { Text } from '@/Text'
+
+import * as S from './styles'
 
 export interface FooterOptions {
   information?: {
@@ -13,7 +13,7 @@ export interface FooterOptions {
   }
 }
 
-export type FooterProps = FooterOptions & BoxProps
+export type FooterProps = BoxProps & FooterOptions
 
 /**
  * @name Modal.Footer
@@ -21,8 +21,8 @@ export type FooterProps = FooterOptions & BoxProps
 export const Footer = forwardRef<'div', FooterProps>(({ children, information, ...rest }, ref) => {
   return (
     <S.Footer ref={ref} w="100%" {...rest}>
-      {children && <S.FooterChildrenWrapper>{children}</S.FooterChildrenWrapper>}
-      {information && (
+      {children ? <S.FooterChildrenWrapper>{children}</S.FooterChildrenWrapper> : null}
+      {information ? (
         <S.FooterInformation>
           <Text color="neutral-90" fontWeight="bold" variant="subtitle-sm">
             {information.title}
@@ -31,7 +31,7 @@ export const Footer = forwardRef<'div', FooterProps>(({ children, information, .
             {information.subtitle}
           </Text>
         </S.FooterInformation>
-      )}
+      ) : null}
     </S.Footer>
   )
 })

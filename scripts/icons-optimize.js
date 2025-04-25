@@ -1,14 +1,13 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const path = require('path')
 const fs = require('fs')
+const path = require('path')
 
 const { optimize } = require('svgo')
 
 const { FLAG_ICONS, readIconsFromAssets } = require('./utils')
 
 const svgoConfig = {
-  multipass: true,
   full: true,
+  multipass: true,
   plugins: [
     {
       name: 'preset-default',
@@ -20,8 +19,8 @@ const svgoConfig = {
       },
     },
     {
-      name: 'convertTransform',
       active: false,
+      name: 'convertTransform',
     },
     {
       name: 'mergePaths',
@@ -30,8 +29,8 @@ const svgoConfig = {
       },
     },
     {
-      name: 'removeViewBox',
       active: false,
+      name: 'removeViewBox',
     },
   ],
 }

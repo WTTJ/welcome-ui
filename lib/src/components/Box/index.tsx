@@ -1,7 +1,8 @@
-import React from 'react'
 import { x } from '@xstyled/styled-components'
+import React from 'react'
 
-import { CreateWuiProps, forwardRef } from '@/System'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
 
 export type BoxProps = Omit<CreateWuiProps<'div'>, 'dataTestId'>
 

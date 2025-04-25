@@ -1,13 +1,13 @@
 import styled, { css, th } from '@xstyled/styled-components'
 
-import { TooltipProps } from './index'
+import type { TooltipProps } from './index'
 
 const transformDirection = {
-  top: 'translate3d(0, -4px, 0)',
-  right: 'translate3d(4px, 0, 0)',
+  auto: 'translate3d(0, 0, 0)',
   bottom: 'translate3d(0, 4px, 0)',
   left: 'translate3d(-4px, 0, 0)',
-  auto: 'translate3d(0, 0, 0)',
+  right: 'translate3d(4px, 0, 0)',
+  top: 'translate3d(0, -4px, 0)',
 }
 type TransformDirectionKey = keyof typeof transformDirection
 

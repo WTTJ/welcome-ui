@@ -1,13 +1,13 @@
 import React from 'react'
 
-import { ArrowLeftIcon } from '../../Icons'
+import { Box } from '@/Box'
+import type { IconProps } from '@/Icon'
+
 import { Button } from '../../Button'
+import { ArrowLeftIcon } from '../../Icons'
 import { Text } from '../../Text'
 
 import * as S from './styles'
-
-import type { IconProps } from '@/Icon'
-import { Box } from '@/Box'
 
 type HeaderProps = {
   /**
@@ -67,18 +67,18 @@ export const Header: React.FC<HeaderProps> = ({
           {subtitle}
         </Box>
       </Box>
-      {action && (
+      {action ? (
         <Box alignItems="center" display="flex" flexShrink={0} gap="md">
           {action}
         </Box>
-      )}
+      ) : null}
     </Box>
   )
 }
 
 export type IconBlockProps = {
   icon: React.FC<IconProps>
-  size?: 'sm' | 'md'
+  size?: 'md' | 'sm'
 }
 
 export const IconBlock: React.FC<IconBlockProps> = ({ icon: Icon, size = 'md' }) => {

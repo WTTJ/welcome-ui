@@ -1,39 +1,39 @@
+import type * as Ariakit from '@ariakit/react'
 import styled, { css, th } from '@xstyled/styled-components'
-import * as Ariakit from '@ariakit/react'
-
-import { DrawerOptions } from '.'
 
 import { CloseButton as WUICloseButton } from '@/CloseButton'
 
+import type { DrawerOptions } from '.'
+
 const getPlacementStyle = (placement: DrawerOptions['placement']) => {
   switch (placement) {
-    case 'top':
-      return {
-        top: '0 !important',
-        right: 0,
-        left: 0,
-        transform: 'translateY(-100%)',
-      }
-    case 'right':
-      return {
-        top: '0 !important',
-        right: 0,
-        bottom: 0,
-        transform: 'translateX(100%)',
-      }
     case 'bottom':
       return {
-        right: 0,
         bottom: 0,
         left: 0,
+        right: 0,
         transform: 'translateY(100%)',
       }
     case 'left':
       return {
-        top: '0 !important',
         bottom: 0,
         left: 0,
+        top: '0 !important',
         transform: 'translateX(-100%)',
+      }
+    case 'right':
+      return {
+        bottom: 0,
+        right: 0,
+        top: '0 !important',
+        transform: 'translateX(100%)',
+      }
+    case 'top':
+      return {
+        left: 0,
+        right: 0,
+        top: '0 !important',
+        transform: 'translateY(-100%)',
       }
   }
 }
@@ -42,16 +42,16 @@ const SIZES = ['sm', 'md', 'lg']
 
 const getSizeStyle = (size: DrawerOptions['size'], placement: DrawerOptions['placement']) => {
   switch (placement) {
-    case 'top':
     case 'bottom':
+    case 'top':
       if (SIZES.includes(size)) {
         return th(`drawers.sizes.vertical.${size}`)
       }
       return {
         height: size,
       }
-    case 'right':
     case 'left':
+    case 'right':
       if (SIZES.includes(size)) {
         return th(`drawers.sizes.horizontal.${size}`)
       }

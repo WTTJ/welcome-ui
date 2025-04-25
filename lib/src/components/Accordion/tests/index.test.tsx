@@ -1,8 +1,8 @@
-import React from 'react'
 import { renderHook, screen } from '@testing-library/react'
+import React from 'react'
 
-import { render } from '../../../../tests'
 import { Accordion, useAccordion } from '../'
+import { render } from '../../../../tests'
 
 const content = 'content'
 const title = 'title'

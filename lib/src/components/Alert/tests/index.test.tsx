@@ -56,7 +56,7 @@ describe('<Alert>', () => {
       <Alert
         cta={
           <>
-            {false && <Alert.Button dataTestId="button" />}
+            {false ? <Alert.Button dataTestId="button" /> : null}
             <Alert.SecondaryButton dataTestId="secondary-button" />
           </>
         }

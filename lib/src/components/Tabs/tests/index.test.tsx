@@ -1,8 +1,8 @@
-import React from 'react'
 import { fireEvent, screen, waitFor } from '@testing-library/react'
+import React from 'react'
 
-import { render } from '../../../../tests'
 import { Tab, useTab } from '../'
+import { render } from '../../../../tests'
 
 const Tabs = () => {
   const tab = useTab({ defaultSelectedId: 'tab1' })

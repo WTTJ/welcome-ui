@@ -1,6 +1,6 @@
 import styled, { css, system, th } from '@xstyled/styled-components'
 
-import { TextOptions } from './index'
+import type { TextOptions } from './index'
 
 const MOBILE_VARIANTS = {
   h0: 'h1',

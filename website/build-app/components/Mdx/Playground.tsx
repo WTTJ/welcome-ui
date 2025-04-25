@@ -1,16 +1,17 @@
 'use client'
 import { useState } from 'react'
 
-import { Highlight } from './Highlight'
-
 import { Box } from '@/Box'
-import { ThemeValues } from '@/theme'
 import { Button } from '@/Button'
-import { CodeBlockIcon, GithubIcon, PromoteIcon } from '@/Icons'
 import { Flex } from '@/Flex'
+import { CodeBlockIcon, GithubIcon, PromoteIcon } from '@/Icons'
+import type { ThemeValues } from '@/theme'
 import { Tooltip } from '@/Tooltip'
+
 import examples from '~/build-app/examples'
 import { openStackBlitz } from '~/build-app/utils/stackblitz'
+
+import { Highlight } from './Highlight'
 
 type PreProps = {
   code: string
@@ -79,7 +80,7 @@ export const Playground = ({
           {preview}
         </Box>
       </Box>
-      {withCodeEditor && (
+      {withCodeEditor ? (
         <>
           <Box
             backgroundColor="beige-30"
@@ -122,9 +123,9 @@ export const Playground = ({
               </Tooltip>
             </Flex>
           </Box>
-          {isHighlightOpen && <Highlight>{code}</Highlight>}
+          {isHighlightOpen ? <Highlight>{code}</Highlight> : null}
         </>
-      )}
+      ) : null}
     </>
   )
 }

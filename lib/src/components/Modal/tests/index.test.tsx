@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
 import { screen } from '@testing-library/react'
+import React, { useEffect, useState } from 'react'
 
-import { Modal, UseModal, useModal } from '../'
+import type { UseModal } from '../'
+import { Modal, useModal } from '../'
 import { render } from '../../../../tests'
 
 describe('<Modal>', () => {
