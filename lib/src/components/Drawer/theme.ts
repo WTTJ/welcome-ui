@@ -15,7 +15,9 @@ export type ThemeDrawers = {
   title: CSSObject
 }
 
-type Size = 'lg' | 'md' | 'sm'
+// we want to keep Size in a natural order for documentation
+// eslint-disable-next-line perfectionist/sort-union-types
+type Size = 'sm' | 'md' | 'lg'
 
 export const getDrawers = (theme: ThemeValues): ThemeDrawers => {
   const { colors, space, toRem } = theme

@@ -26,7 +26,9 @@ export type ThemeTabs = {
   }
 }
 
-type Size = 'md' | 'sm'
+// we want to keep Size in a natural order for documentation
+// eslint-disable-next-line perfectionist/sort-union-types
+type Size = 'sm' | 'md'
 
 export const getTabs = (theme: ThemeValues): ThemeTabs => {
   const { borderWidths, colors, fontSizes, fontWeights, lineHeights, space } = theme

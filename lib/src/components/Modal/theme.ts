@@ -2,7 +2,9 @@ import type { CSSObject } from '@xstyled/styled-components'
 
 import type { ThemeValues } from '@/theme'
 
-export type Size = 'auto' | 'lg' | 'md' | 'sm' | 'xs'
+// we want to keep Size in a natural order for documentation
+// eslint-disable-next-line perfectionist/sort-union-types
+export type Size = 'auto' | 'xs' | 'sm' | 'md' | 'lg'
 
 export type ThemeModals = {
   backdrop: CSSObject
