@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { IconsFont } from '../'
 import { render } from '../../../../tests'
 

@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import { Button } from '@/Button'
 import { AssetDrawer, Drawer, useDrawer } from '@/Drawer'
 import { UserIcon } from '@/Icons'

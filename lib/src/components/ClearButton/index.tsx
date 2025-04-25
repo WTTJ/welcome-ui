@@ -1,5 +1,3 @@
-import React from 'react'
-
 import type { ButtonOptions } from '@/Button'
 import { CrossIcon } from '@/Icons'
 import type { CreateWuiProps } from '@/System'

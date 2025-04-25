@@ -1,7 +1,6 @@
 import kebabCase from 'lodash/kebabCase'
 import { marked } from 'marked'
 import rehypeParse from 'rehype-parse'
-// @ts-nocheck
 import { unified } from 'unified'
 import { visit } from 'unist-util-visit'
 
@@ -40,8 +39,10 @@ export function getPageTree(content: string, isOverview?: boolean) {
     })
   }
 
+  // @ts-expect-error (node is Element)
   visit(tree, 'element', (node: Element) => {
     if (node.tagName === 'h2') {
+      // @ts-expect-error (node is Element)
       const title = node.children[0]?.value
       const id = kebabCase(title)
 

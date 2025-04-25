@@ -1,5 +1,3 @@
-import React from 'react'
-
 import type { CheckboxProps } from '@/Checkbox'
 import { Checkbox } from '@/Checkbox'
 import type { CreateWuiProps } from '@/System'

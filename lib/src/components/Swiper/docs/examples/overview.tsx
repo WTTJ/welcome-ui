@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import { Swiper, useSwiper } from '@/Swiper'
 
 const Example = () => {

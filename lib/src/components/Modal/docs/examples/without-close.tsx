@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import { Button } from '@/Button'
 import { Flex } from '@/Flex'
 import { Modal, useModal } from '@/Modal'

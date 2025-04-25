@@ -1,5 +1,4 @@
 import type { CSSProperties } from 'react'
-import React from 'react'
 
 import type { CreateWuiProps } from '@/System'
 import { forwardRef } from '@/System'

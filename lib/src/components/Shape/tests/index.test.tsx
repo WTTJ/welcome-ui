@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Shape } from '../'
 import { render } from '../../../../tests'
 

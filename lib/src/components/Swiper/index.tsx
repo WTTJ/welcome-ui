@@ -1,14 +1,6 @@
 import { useTheme } from '@xstyled/styled-components'
 import debounce from 'lodash.debounce'
-import React, {
-  Children,
-  cloneElement,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react'
+import { Children, cloneElement, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import { IconsFont } from '@/IconsFont'
 import type { CreateWuiProps } from '@/System'
