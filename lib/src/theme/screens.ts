@@ -1,8 +1,8 @@
 export type ThemeScreens = {
-  [key: string]: number
-  [key: number]: number
   '3xl': number
   '4xl': number
+  [key: number]: number
+  [key: string]: number
   lg: number
   md: number
   sm: number
@@ -12,12 +12,12 @@ export type ThemeScreens = {
 }
 
 export const screens: ThemeScreens = {
-  xs: 0,
-  sm: 480,
-  md: 736,
-  lg: 980,
-  xl: 1280,
-  xxl: 1440,
   '3xl': 1620,
   '4xl': 1920,
+  lg: 980,
+  md: 736,
+  sm: 480,
+  xl: 1280,
+  xs: 0,
+  xxl: 1440,
 }

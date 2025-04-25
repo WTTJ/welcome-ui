@@ -1,6 +1,7 @@
 import * as React from 'react'
 
-import { RangeType, Slider } from '@/Slider'
+import type { RangeType } from '@/Slider'
+import { Slider } from '@/Slider'
 
 const Example = () => {
   const handleChange = (value: number) => {
@@ -25,7 +26,7 @@ const Example = () => {
         max={100}
         min={0}
         onChange={handleChangeRange}
-        value={{ min: 25, max: 75 }}
+        value={{ max: 75, min: 25 }}
       />
     </>
   )

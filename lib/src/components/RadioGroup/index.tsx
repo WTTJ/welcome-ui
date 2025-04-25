@@ -1,16 +1,18 @@
-import React from 'react'
 import * as Ariakit from '@ariakit/react'
+import React from 'react'
+
+import type { FieldGroupOptions } from '@/FieldGroup'
+import { FieldGroup } from '@/FieldGroup'
+import { Radio } from '@/Radio'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
 
 import * as S from './styles'
 
-import { FieldGroup, FieldGroupOptions } from '@/FieldGroup'
-import { Radio } from '@/Radio'
-import { CreateWuiProps, forwardRef } from '@/System'
-
 export type RadioGroupOption = {
   hint?: string
-  label: string | number
-  value: string | number
+  label: number | string
+  value: number | string
 }
 
 export interface RadioGroupOptions {

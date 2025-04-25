@@ -1,9 +1,9 @@
-import React, { forwardRef } from 'react'
 import { useTheme } from '@xstyled/styled-components'
+import React, { forwardRef } from 'react'
 
 import * as S from './styles'
 
-import { LogoProps } from '.'
+import type { LogoProps } from '.'
 
 export const SolutionsSymbol = forwardRef<SVGSVGElement, LogoProps>((props, ref) => {
   const theme = useTheme()

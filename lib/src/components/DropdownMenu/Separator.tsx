@@ -1,9 +1,10 @@
-import React from 'react'
 import * as Ariakit from '@ariakit/react'
+import React from 'react'
+
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
 
 import * as S from './Separator.styled'
-
-import { CreateWuiProps, forwardRef } from '@/System'
 
 export type SeparatorProps = CreateWuiProps<'div', Ariakit.MenuSeparatorProps>
 

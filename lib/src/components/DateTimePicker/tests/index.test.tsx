@@ -1,10 +1,10 @@
-import React from 'react'
 import { act, screen } from '@testing-library/react'
+import React from 'react'
 
-import { DatePicker } from '../../DatePicker'
-import { TimePicker } from '../../TimePicker'
 import { DateTimePicker } from '../'
 import { render } from '../../../../tests'
+import { DatePicker } from '../../DatePicker'
+import { TimePicker } from '../../TimePicker'
 
 // jest.mock('popper.js', () => {
 //   const PopperJS = jest.requireActual('popper.js')

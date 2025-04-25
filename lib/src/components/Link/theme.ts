@@ -1,6 +1,6 @@
-import { CSSObject } from '@xstyled/styled-components'
+import type { CSSObject } from '@xstyled/styled-components'
 
-import { ThemeValues } from '@/theme'
+import type { ThemeValues } from '@/theme'
 
 export type ThemeLinks = {
   default: CSSObject
@@ -25,12 +25,9 @@ export const getLinks = (theme: ThemeValues): ThemeLinks => {
       fontWeight: fontWeights.medium,
       transition: transitions.medium,
     },
-    withExternalLink: {
-      backgroundSize: `calc(100% - ${icons.sm} - ${space.sm}) 50%`,
-    },
     disabled: {
-      color: colors['neutral-50'],
       backgroundImage: `linear-gradient(0deg, ${colors['neutral-30']}, ${colors['neutral-30']} 100%)`,
+      color: colors['neutral-50'],
     },
     primary: {
       default: {},
@@ -43,6 +40,9 @@ export const getLinks = (theme: ThemeValues): ThemeLinks => {
       hover: {
         color: colors['neutral-10'],
       },
+    },
+    withExternalLink: {
+      backgroundSize: `calc(100% - ${icons.sm} - ${space.sm}) 50%`,
     },
   }
 }

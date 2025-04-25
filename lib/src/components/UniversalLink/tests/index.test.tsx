@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { render } from '../../../../tests'
 import { UniversalLink } from '../'
+import { render } from '../../../../tests'
 
 const content = 'Jungle'
 

@@ -1,15 +1,12 @@
 import React, { forwardRef } from 'react'
 
-import { DefaultFieldStylesProps, FIELD_ICON_SIZE } from '../../utils/field-styles'
+import { ClearButton } from '@/ClearButton'
+import { IconGroupWrapper, IconWrapper } from '@/Field'
+
+import type { DefaultFieldStylesProps } from '../../utils/field-styles'
+import { FIELD_ICON_SIZE } from '../../utils/field-styles'
 
 import * as S from './styles'
-
-import { IconGroupWrapper, IconWrapper } from '@/Field'
-import { ClearButton } from '@/ClearButton'
-
-export type Focused = 'date' | 'time' | null
-export type Icon = JSX.Element
-export type IconPlacement = 'right' | 'left'
 
 export interface CustomInputOptions {
   focused: Focused
@@ -19,11 +16,15 @@ export interface CustomInputOptions {
   iconPlacement?: IconPlacement
   onReset?: (event: React.MouseEvent<HTMLButtonElement>) => void
   size?: DefaultFieldStylesProps['size']
-  value?: string | null
+  value?: null | string
 }
+export type CustomInputProps = CustomInputOptions &
+  Omit<React.ComponentProps<'input'>, keyof CustomInputOptions>
+export type Focused = 'date' | 'time' | null
 
-export type CustomInputProps = Omit<React.ComponentProps<'input'>, keyof CustomInputOptions> &
-  CustomInputOptions
+export type Icon = JSX.Element
+
+export type IconPlacement = 'left' | 'right'
 
 export const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
   (
@@ -35,18 +36,18 @@ export const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
     return (
       <S.CustomInput focused={focused} onBlur={handleBlur} onFocus={handleFocus}>
         <input value={value} {...rest} ref={ref} />
-        {icon && iconPlacement !== 'right' && (
+        {icon && iconPlacement !== 'right' ? (
           <IconWrapper iconPlacement={iconPlacement} size={iconSize}>
             {React.cloneElement(icon, { ...icon.props, size: iconSize })}
           </IconWrapper>
-        )}
-        {value && (
+        ) : null}
+        {value ? (
           <IconGroupWrapper size={iconSize}>
             <ClearButton aria-label="clear date" onClick={onReset} />
             {iconPlacement === 'right' &&
               React.cloneElement(icon, { ...icon.props, size: iconSize })}
           </IconGroupWrapper>
-        )}
+        ) : null}
       </S.CustomInput>
     )
   }

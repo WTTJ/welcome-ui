@@ -1,6 +1,6 @@
-import { CSSObject } from '@xstyled/styled-components'
+import type { CSSObject } from '@xstyled/styled-components'
 
-import { ThemeValues } from '@/theme'
+import type { ThemeValues } from '@/theme'
 
 export type ThemeCheckboxes = {
   checked: CSSObject
@@ -11,19 +11,19 @@ export type ThemeCheckboxes = {
 export const getCheckboxes = (theme: ThemeValues): ThemeCheckboxes => {
   const { colors, radii, toRem } = theme
   return {
+    checked: {
+      backgroundColor: colors['primary-40'],
+      borderColor: colors['primary-40'],
+      color: colors['neutral-90'],
+    },
     default: {
-      width: toRem(16),
-      height: toRem(16),
-      flexShrink: 0,
       borderRadius: radii.sm,
+      flexShrink: 0,
+      height: toRem(16),
+      width: toRem(16),
     },
     disabled: {
       borderColor: colors['beige-60'],
-    },
-    checked: {
-      color: colors['neutral-90'],
-      backgroundColor: colors['primary-40'],
-      borderColor: colors['primary-40'],
     },
   }
 }

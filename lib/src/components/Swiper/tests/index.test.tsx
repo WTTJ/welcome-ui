@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { render } from '../../../../tests'
 import { Swiper, useSwiper } from '../'
+import { render } from '../../../../tests'
 
 const TestSwiper = () => {
   const swiper = useSwiper()
@@ -16,7 +16,7 @@ const TestSwiper = () => {
 }
 
 const TestSwiperWithNoPagination = () => {
-  const swiper = useSwiper({ slidesPerView: { mobile: 1, tablet: 1, desktop: 3 } })
+  const swiper = useSwiper({ slidesPerView: { desktop: 3, mobile: 1, tablet: 1 } })
 
   return (
     <Swiper dataTestId="swiper" store={swiper}>

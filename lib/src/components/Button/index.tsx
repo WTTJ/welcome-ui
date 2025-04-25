@@ -1,11 +1,12 @@
 import React from 'react'
 
-import * as S from './styles'
-import { Size, Variant } from './theme'
-
-import { Loader } from '@/Loader'
-import { CreateWuiProps, forwardRef } from '@/System'
 import { Box } from '@/Box'
+import { Loader } from '@/Loader'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
+
+import * as S from './styles'
+import type { Size, Variant } from './theme'
 
 export interface ButtonOptions {
   /** AI button with 3 variants: primary / tertiary / ghost */
@@ -56,7 +57,7 @@ export const Button = forwardRef<'button', ButtonProps>(
         variant={isDisabled ? 'disabled' : variant}
         {...rest}
       >
-        {isLoading && (
+        {isLoading ? (
           <div>
             <Box
               alignItems="center"
@@ -73,7 +74,7 @@ export const Button = forwardRef<'button', ButtonProps>(
             </Box>
             <Box opacity="0">{children}</Box>
           </div>
-        )}
+        ) : null}
         {!isLoading && children}
       </S.Button>
     )
