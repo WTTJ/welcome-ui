@@ -31,15 +31,15 @@ export const AssetDrawerComponent = forwardRef<'div', AssetDrawerProps>(
           : document.querySelectorAll('[data-wui-persistent]')
       )
 
-    const hideOnInteractOutside =
-      Boolean(parentGetPersistentElements) ||
-      ((event: Event) => {
-        const target = event.target as HTMLElement
-        const isTargetWithinPersistentElements = getPersistentElements().some(element =>
-          element.contains(target)
-        )
-        return !isTargetWithinPersistentElements
-      })
+    const hideOnInteractOutsideFn = (event: Event) => {
+      const target = event.target as HTMLElement
+      const isTargetWithinPersistentElements = getPersistentElements().some(element =>
+        element.contains(target)
+      )
+      return !isTargetWithinPersistentElements
+    }
+
+    const hideOnInteractOutside = Boolean(parentGetPersistentElements) || hideOnInteractOutsideFn
 
     return (
       <Drawer
