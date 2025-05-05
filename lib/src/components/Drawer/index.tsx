@@ -1,4 +1,4 @@
-import React, { ForwardedRef } from 'react'
+import React from 'react'
 import * as Ariakit from '@ariakit/react'
 
 import { Close } from './Close'
@@ -35,7 +35,7 @@ const DrawerComponent = forwardRef<'div', DrawerProps>(
       withCloseButton = true,
       ...rest
     },
-    ref: ForwardedRef<HTMLDivElement>
+    ref
   ) => {
     return (
       <Ariakit.Dialog
