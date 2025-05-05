@@ -1,4 +1,4 @@
-import React, { ForwardedRef, useRef } from 'react'
+import React, { ForwardedRef } from 'react'
 import * as Ariakit from '@ariakit/react'
 
 import { Close } from './Close'
@@ -37,8 +37,6 @@ const DrawerComponent = forwardRef<'div', DrawerProps>(
     },
     ref: ForwardedRef<HTMLDivElement>
   ) => {
-    const drawerRef = useRef<HTMLDivElement>(null)
-
     return (
       <Ariakit.Dialog
         backdrop={
@@ -46,7 +44,7 @@ const DrawerComponent = forwardRef<'div', DrawerProps>(
         }
         hideOnInteractOutside={hideOnInteractOutside}
         modal={withBackdrop}
-        ref={ref || drawerRef}
+        ref={ref}
         render={<S.Drawer placement={placement} size={size} />}
         store={store}
         {...(rest as Ariakit.DialogProps<'div'>)}
