@@ -56,7 +56,6 @@ export const AssetDrawerComponent = forwardRef<'div', AssetDrawerProps>(
           borderTopRightRadius: theme.radii.xxl,
         }}
         withBackdrop
-        withCloseButton
       >
         <S.Content maxWidth={maxWidth}>
           <Box p={{ _: 'xl md', md: '3xl xl' }}>{children}</Box>
