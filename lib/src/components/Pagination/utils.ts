@@ -3,27 +3,7 @@ import { useMemo } from 'react'
 const RANGE = 5
 const CENTER_RANGE = 3
 
-function fill(length: number, transform: (arg: number) => number): number[] {
-  return Array.from({ length }, (_, i) => transform(i))
-}
-
-function joinArrays(arrays: number[][], separator: string): Array<number | string> {
-  return arrays.reduce((all: Array<number | string>, array: number[], i: number) => {
-    const next = []
-    next.push(...all)
-    next.push(...array)
-    if (array.length && i < arrays.length - 1) next.push(separator)
-    return next
-  }, [])
-}
-
-type Position = 'before' | 'center' | 'after'
-
-function getPosition(page: number, pageCount: number): Position {
-  if (page < RANGE) return 'before'
-  if (page >= RANGE && page <= pageCount - RANGE + 1) return 'center'
-  if (page > pageCount - RANGE + 1) return 'after'
-}
+type Position = 'after' | 'before' | 'center'
 
 interface usePagesProps {
   page: number
@@ -31,7 +11,7 @@ interface usePagesProps {
   rangeDisplay: number
 }
 
-export function usePages({ page, pageCount, rangeDisplay }: usePagesProps): Array<string | number> {
+export function usePages({ page, pageCount, rangeDisplay }: usePagesProps): Array<number | string> {
   return useMemo(() => {
     if (pageCount <= rangeDisplay || pageCount <= RANGE + 1) {
       return fill(pageCount, i => i + 1)
@@ -44,4 +24,24 @@ export function usePages({ page, pageCount, rangeDisplay }: usePagesProps): Arra
     const after = position === 'after' ? fill(RANGE, i => i + pageCount - RANGE + 1) : [pageCount]
     return joinArrays([before, center, after], '-')
   }, [page, pageCount, rangeDisplay])
+}
+
+function fill(length: number, transform: (arg: number) => number): number[] {
+  return Array.from({ length }, (_, i) => transform(i))
+}
+
+function getPosition(page: number, pageCount: number): Position {
+  if (page < RANGE) return 'before'
+  if (page >= RANGE && page <= pageCount - RANGE + 1) return 'center'
+  if (page > pageCount - RANGE + 1) return 'after'
+}
+
+function joinArrays(arrays: number[][], separator: string): Array<number | string> {
+  return arrays.reduce((all: Array<number | string>, array: number[], i: number) => {
+    const next = []
+    next.push(...all)
+    next.push(...array)
+    if (array.length && i < arrays.length - 1) next.push(separator)
+    return next
+  }, [])
 }

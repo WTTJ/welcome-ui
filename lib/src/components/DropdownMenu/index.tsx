@@ -1,14 +1,14 @@
-import React from 'react'
 import * as Ariakit from '@ariakit/react'
 import { useTheme } from '@xstyled/styled-components'
+
+import type { CreateWuiProps, WuiProps } from '@/System'
+import { forwardRef } from '@/System'
+import type { ThemeValues } from '@/theme'
 
 import { Arrow } from './Arrow'
 import { Item } from './Item'
 import { Separator } from './Separator'
 import * as S from './styles'
-
-import { ThemeValues } from '@/theme'
-import { CreateWuiProps, forwardRef, WuiProps } from '@/System'
 
 export interface DropdownMenuOptions extends Omit<Ariakit.MenuProps, 'gutter'> {
   /** default 4px (space.xs) */
@@ -56,6 +56,9 @@ export type UseDropdownMenu = Ariakit.MenuStore
 export type UseDropdownMenuProps = Ariakit.MenuStoreProps
 export type UseDropdownMenuState = Ariakit.MenuStoreState
 
+type TriggerOptions = { store: UseDropdownMenu }
+
+type TriggerProps = CreateWuiProps<'button', TriggerOptions>
 export function useDropdownMenu(options: UseDropdownMenuProps = {}): UseDropdownMenu {
   const dropdownMenu = Ariakit.useMenuStore({
     animated: true,
@@ -64,9 +67,6 @@ export function useDropdownMenu(options: UseDropdownMenuProps = {}): UseDropdown
 
   return dropdownMenu
 }
-
-type TriggerOptions = { store: UseDropdownMenu }
-type TriggerProps = CreateWuiProps<'button', TriggerOptions>
 
 const Trigger = forwardRef<'button', TriggerProps>(({ as: As, store, ...rest }, ref) => {
   return (
@@ -80,8 +80,8 @@ const Trigger = forwardRef<'button', TriggerProps>(({ as: As, store, ...rest }, 
 })
 
 export const DropdownMenu = Object.assign(DropdownMenuComponent, {
-  Trigger,
+  Arrow,
   Item,
   Separator,
-  Arrow,
+  Trigger,
 })

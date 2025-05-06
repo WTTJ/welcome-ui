@@ -1,21 +1,24 @@
+import type { DownshiftProps, GetRootPropsOptions } from 'downshift'
+import DownshiftImport from 'downshift'
 import React, { Fragment, useCallback, useMemo, useState } from 'react'
-import DownshiftImport, { DownshiftProps, GetRootPropsOptions } from 'downshift'
+
+import { ClearButton } from '@/ClearButton'
+import { IconWrapper } from '@/Field'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
 
 import { createEvent } from '../../utils/create-event'
-import { DefaultFieldStylesProps, FIELD_ICON_SIZE } from '../../utils/field-styles'
+import type { DefaultFieldStylesProps } from '../../utils/field-styles'
+import { FIELD_ICON_SIZE } from '../../utils/field-styles'
 import { throttle as handleThrottle } from '../../utils/throttle'
 
 import * as S from './styles'
 
-import { CreateWuiProps, forwardRef } from '@/System'
-import { ClearButton } from '@/ClearButton'
-import { IconWrapper } from '@/Field'
-
 const EMPTY_STRING = ''
 
+export type Item = SearchOption | SearchOptionGroup | string | unknown
 export type SearchOption = { label: string; value: string }
 export type SearchOptionGroup = { label: string; options: SearchOption[] }
-export type Item = SearchOption | SearchOptionGroup | string | unknown
 
 export interface SearchOptions extends DefaultFieldStylesProps {
   groupsEnabled?: boolean
@@ -32,7 +35,7 @@ export interface SearchOptions extends DefaultFieldStylesProps {
 
 export type SearchProps = CreateWuiProps<
   'input',
-  SearchOptions & Omit<DownshiftProps<SearchOption>, keyof SearchOptions>
+  Omit<DownshiftProps<SearchOption>, keyof SearchOptions> & SearchOptions
 >
 
 // because of this issue: https://github.com/downshift-js/downshift/issues/1505
@@ -186,49 +189,49 @@ export const Search = forwardRef<'input', SearchProps>(
             <S.Wrapper {...getRootProps(rest as GetRootPropsOptions)}>
               <S.InputWrapper>
                 <S.Input {...inputProps} />
-                {icon && (
+                {icon ? (
                   <IconWrapper iconPlacement="left" size={iconSize}>
                     {React.cloneElement(icon, { ...icon.props, size: iconSize })}
                   </IconWrapper>
-                )}
-                <S.Indicators>{inputValue && DeleteIcon}</S.Indicators>
+                ) : null}
+                <S.Indicators>{inputValue ? DeleteIcon : null}</S.Indicators>
               </S.InputWrapper>
-              {isShowMenu && (
+              {isShowMenu ? (
                 <S.Menu {...getMenuProps()}>
                   {
                     (results as SearchOptionGroup[]).reduce(
                       (acc, result, resultIndex) => {
                         if (groupsEnabled) {
                           acc.itemsToRender.push(
-                            // eslint-disable-next-line react/no-array-index-key
                             <Fragment key={resultIndex}>
                               {renderGroupHeader(result as SearchOptionGroup)}
-                              {(result as SearchOptionGroup).options &&
-                                (result as SearchOptionGroup).options.map((option, optionIndex) => {
-                                  const index = acc.itemIndex++
-                                  return (
-                                    <S.Item
-                                      // eslint-disable-next-line react/no-array-index-key
-                                      key={optionIndex}
-                                      {...getItemProps({
-                                        index,
-                                        isSelected:
-                                          selectedItem &&
-                                          itemToString(selectedItem) === itemToString(option),
-                                        item: option,
-                                      })}
-                                      isHighlighted={highlightedIndex === index}
-                                    >
-                                      {renderItem(option)}
-                                    </S.Item>
+                              {(result as SearchOptionGroup).options
+                                ? (result as SearchOptionGroup).options.map(
+                                    (option, optionIndex) => {
+                                      const index = acc.itemIndex++
+                                      return (
+                                        <S.Item
+                                          key={optionIndex}
+                                          {...getItemProps({
+                                            index,
+                                            isSelected:
+                                              selectedItem &&
+                                              itemToString(selectedItem) === itemToString(option),
+                                            item: option,
+                                          })}
+                                          isHighlighted={highlightedIndex === index}
+                                        >
+                                          {renderItem(option)}
+                                        </S.Item>
+                                      )
+                                    }
                                   )
-                                })}
+                                : null}
                             </Fragment>
                           )
                         } else {
                           acc.itemsToRender.push(
                             <S.Item
-                              // eslint-disable-next-line react/no-array-index-key
                               key={resultIndex}
                               {...getItemProps({
                                 index: resultIndex,
@@ -246,11 +249,11 @@ export const Search = forwardRef<'input', SearchProps>(
 
                         return acc
                       },
-                      { itemsToRender: [], itemIndex: 0 }
+                      { itemIndex: 0, itemsToRender: [] }
                     ).itemsToRender
                   }
                 </S.Menu>
-              )}
+              ) : null}
             </S.Wrapper>
           )
         }}

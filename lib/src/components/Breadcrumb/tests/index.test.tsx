@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Breadcrumb } from '../'
 import { render } from '../../../../tests'
 

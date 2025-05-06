@@ -1,11 +1,12 @@
 'use client'
-import { Theme, useTheme } from '@xstyled/styled-components'
+import type { Theme } from '@xstyled/styled-components'
+import { useTheme } from '@xstyled/styled-components'
 
 import { Alert } from '@/Alert'
 import { Box } from '@/Box'
-import { ThemeValues } from '@/theme'
 import { Grid } from '@/Grid'
 import { Text } from '@/Text'
+import type { ThemeValues } from '@/theme'
 
 const getColors = (name: string, theme: Theme) => {
   const themeColors = theme.colors as ThemeValues['colors']
@@ -18,7 +19,7 @@ const getColors = (name: string, theme: Theme) => {
     .filter(color => color.match(pattern))
     .reduce<{ value: string; variant: string }[]>((acc, colorName) => {
       const colorValue = theme.colors[colorName as keyof ThemeValues['colors']]
-      acc.push({ variant: colorName, value: colorValue })
+      acc.push({ value: colorValue, variant: colorName })
 
       return acc
     }, [])

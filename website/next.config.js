@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const { join, resolve } = require('path')
 const { watch } = require('fs')
+const { join, resolve } = require('path')
 
 const { generateWebsiteExamplesPages } = require('./loaders/generate-examples')
 const { generateTypesDoc } = require('./loaders/generate-types-doc')
@@ -56,10 +55,10 @@ const watchExamples = () => {
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
   experimental: {
     externalDir: true,
   },
+  output: 'export',
   webpack: (config, { isServer }) => {
     if (process.env.NODE_ENV === 'development' && isServer) {
       if (!global.__WATCHERS_INITIALIZED__) {
@@ -69,8 +68,8 @@ const nextConfig = {
       }
     }
     config.module.rules.push({
-      test: /\.(js|jsx|ts|tsx)$/,
       include: [resolve(__dirname, '../lib/src')],
+      test: /\.(js|jsx|ts|tsx)$/,
       use: [resolve(__dirname, 'loaders/use-client-loader.js')],
     })
     return config

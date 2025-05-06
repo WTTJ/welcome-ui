@@ -1,4 +1,4 @@
-import { ThemeValues } from '.'
+import type { ThemeValues } from '.'
 
 export type ThemeRadii = {
   [key: number]: string
@@ -13,12 +13,12 @@ export type ThemeRadii = {
 
 export const getRadii = (theme: ThemeValues): ThemeRadii => {
   return {
+    full: '100%',
+    lg: theme.toRem(8),
+    md: theme.toRem(4),
     none: '0',
     sm: theme.toRem(2),
-    md: theme.toRem(4),
-    lg: theme.toRem(8),
     xl: theme.toRem(16),
     xxl: theme.toRem(24),
-    full: '100%',
   }
 }

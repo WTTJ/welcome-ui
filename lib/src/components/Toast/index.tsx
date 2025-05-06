@@ -1,17 +1,18 @@
-import React, { useContext } from 'react'
 import { ThemeContext, ThemeProvider } from '@xstyled/styled-components'
-import toastRHT, { ToastPosition, useToaster } from 'react-hot-toast/headless'
+import React, { useContext } from 'react'
+import type { ToastPosition } from 'react-hot-toast/headless'
+import toastRHT, { useToaster } from 'react-hot-toast/headless'
+
+import type { TextProps } from '@/Text'
 
 import { useCreatePortal } from '../../utils/use-create-portal'
 
-import { ToastWrapper } from './ToastWrapper'
-import { Growl, GrowlProps } from './Growl'
-import { Snackbar, SnackbarAction, SnackbarProps } from './Snackbar'
+import type { GrowlProps } from './Growl'
+import { Growl } from './Growl'
+import type { SnackbarProps } from './Snackbar'
+import { Snackbar, SnackbarAction } from './Snackbar'
 import * as S from './styles'
-
-import { TextProps } from '@/Text'
-
-type NotificationsProps = { pauseOnHover?: boolean }
+import { ToastWrapper } from './ToastWrapper'
 
 export type ToastOptions = {
   duration?: number
@@ -19,6 +20,8 @@ export type ToastOptions = {
   onClose?: () => void
   position?: ToastPosition
 }
+
+type NotificationsProps = { pauseOnHover?: boolean }
 
 export const Notifications: React.FC<NotificationsProps> = ({ pauseOnHover = true }) => {
   const themeContext = useContext(ThemeContext)
@@ -76,5 +79,5 @@ export const dismiss = (id?: string) => {
   toastRHT.dismiss(id)
 }
 
-export const Toast = { Title, Growl, Snackbar, SnackbarAction }
+export const Toast = { Growl, Snackbar, SnackbarAction, Title }
 export type { GrowlProps, SnackbarProps }

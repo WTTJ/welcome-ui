@@ -1,8 +1,8 @@
 import styled, { css, th } from '@xstyled/styled-components'
 
-import { BadgeOptions } from '.'
+import type { WuiProps } from '@/System'
 
-import { WuiProps } from '@/System'
+import type { BadgeOptions } from '.'
 
 export type StyledBadgeProps = Pick<BadgeOptions, 'disabled' | 'size' | 'variant'> & {
   length: number

@@ -5,12 +5,12 @@ import { Alert } from '@/Alert'
 import { Avatar } from '@/Avatar'
 import { Box } from '@/Box'
 import { Card } from '@/Card'
+import { Link } from '@/Link'
 import { Pagination } from '@/Pagination'
 import { Stack } from '@/Stack'
 import { Tag } from '@/Tag'
 import { Text } from '@/Text'
 import { Toggle } from '@/Toggle'
-import { Link } from '@/Link'
 
 type ComponentProps = {
   children: React.ReactElement
@@ -21,7 +21,6 @@ type ComponentProps = {
 
 const components: ComponentProps[] = [
   {
-    title: 'Tag',
     children: (
       <Stack direction="row" spacing="md">
         <Tag>Default</Tag>
@@ -31,9 +30,9 @@ const components: ComponentProps[] = [
     ),
     description: 'Allows user to categorize or organized keywords.',
     link: 'components/tag',
+    title: 'Tag',
   },
   {
-    title: 'Toggle',
     children: (
       <Stack direction="row" spacing="md">
         <Toggle aria-label="Toggle unchecked" mb="md" />
@@ -42,9 +41,9 @@ const components: ComponentProps[] = [
     ),
     description: 'Allows user to activate or deactivate an option.',
     link: 'components/toggle',
+    title: 'Toggle',
   },
   {
-    title: 'Alert',
     children: (
       <Alert m="md" variant="info">
         <Alert.Title>Info variant</Alert.Title>
@@ -53,9 +52,9 @@ const components: ComponentProps[] = [
     ),
     description: 'Allows user to display a short, important message to get attention.',
     link: 'components/alert',
+    title: 'Alert',
   },
   {
-    title: 'Pagination',
     children: (
       <Pagination
         aria-label="Pagination"
@@ -68,9 +67,9 @@ const components: ComponentProps[] = [
     ),
     description: 'Allows user to switch between pages of a list items.',
     link: 'components/pagination',
+    title: 'Pagination',
   },
   {
-    title: 'Avatar',
     children: (
       <Stack direction="row" spacing="md">
         <Avatar name="Welcome jungle" size="lg" />
@@ -85,9 +84,9 @@ const components: ComponentProps[] = [
     description:
       'Allows user to get an avatar with initials as a fallback letter when have no image.',
     link: 'components/avatar',
+    title: 'Avatar',
   },
   {
-    title: 'Link',
     children: (
       <Stack direction="row" spacing="md">
         <Link>Primary</Link>
@@ -96,6 +95,7 @@ const components: ComponentProps[] = [
     ),
     description: 'Allows user to get our customized anchor element.',
     link: 'components/link',
+    title: 'Link',
   },
 ]
 
@@ -120,7 +120,7 @@ export const Components = () => {
     <Box
       display="grid"
       gap="xxl"
-      gridTemplateColumns={{ xs: '1fr', md: '1fr 1fr', lg: '1fr 1fr 1fr' }}
+      gridTemplateColumns={{ lg: '1fr 1fr 1fr', md: '1fr 1fr', xs: '1fr' }}
     >
       {components.map(component => (
         <Component key={component.title} {...component} />

@@ -1,14 +1,16 @@
 import styled, { css, system } from '@xstyled/styled-components'
-import ReactDatePicker, { ReactDatePickerProps } from 'react-datepicker'
+import type { ReactDatePickerProps } from 'react-datepicker'
+import ReactDatePicker from 'react-datepicker'
 
-import { defaultFieldStyles, DefaultFieldStylesProps } from '../../utils/field-styles'
-
-import { Focused } from './CustomInput'
-
-import { StyledIcon } from '@/Icon'
-import { IconGroupWrapper, IconWrapper } from '@/Field'
-import { StyledSelect } from '@/Select'
 import { StyledButton } from '@/Button'
+import { IconGroupWrapper, IconWrapper } from '@/Field'
+import { StyledIcon } from '@/Icon'
+import { StyledSelect } from '@/Select'
+
+import type { DefaultFieldStylesProps } from '../../utils/field-styles'
+import { defaultFieldStyles } from '../../utils/field-styles'
+
+import type { Focused } from './CustomInput'
 
 // Workaround to this issue: https://github.com/Hacker0x01/react-datepicker/issues/3834
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -17,7 +19,7 @@ export const StyledDatePicker = styled(ReactDatePicker.default || ReactDatePicke
   DefaultFieldStylesProps & ReactDatePickerProps
 >(
   ({ iconPlacement, size, transparent, variant }) => css`
-    ${defaultFieldStyles({ size, variant, transparent, isClearable: true, iconPlacement })};
+    ${defaultFieldStyles({ iconPlacement, isClearable: true, size, transparent, variant })};
     ${system};
   `
 )
@@ -29,7 +31,7 @@ export const StyledTimePicker = styled(
   ReactDatePicker.default || ReactDatePicker
 )<DefaultFieldStylesProps>(
   ({ iconPlacement, size, transparent, variant }) => css`
-    ${defaultFieldStyles({ size, variant, transparent, isClearable: true, iconPlacement })};
+    ${defaultFieldStyles({ iconPlacement, isClearable: true, size, transparent, variant })};
     text-align: center;
     ${system};
   `

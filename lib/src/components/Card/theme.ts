@@ -1,6 +1,6 @@
-import { CSSObject } from '@xstyled/styled-components'
+import type { CSSObject } from '@xstyled/styled-components'
 
-import { ThemeValues } from '@/theme'
+import type { ThemeValues } from '@/theme'
 
 export type ThemeCards = {
   default: CSSObject
@@ -12,9 +12,9 @@ export const getCards = (theme: ThemeValues): ThemeCards => {
   return {
     default: {
       backgroundColor: colors['neutral-10'],
+      borderColor: colors['neutral-30'],
       borderStyle: 'solid',
       borderWidth: borderWidths.sm,
-      borderColor: colors['neutral-30'],
     },
   }
 }

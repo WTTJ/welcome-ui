@@ -1,7 +1,7 @@
-import { useCallback, useState } from 'react'
 import copyToClipboard from 'copy-to-clipboard'
+import { useCallback, useState } from 'react'
 
-type Content = React.RefObject<HTMLElement | HTMLInputElement> | number | string
+type Content = number | React.RefObject<HTMLElement | HTMLInputElement> | string
 type Timeout = number
 type useCopyTextReturn = [() => void, boolean]
 

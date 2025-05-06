@@ -1,12 +1,11 @@
-import React from 'react'
+import { LockIcon } from '@/Icons'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
+import { VariantIcon } from '@/VariantIcon'
 
 import { wrapChildren } from '../../utils/wrap-children'
 
 import * as S from './styles'
-
-import { LockIcon } from '@/Icons'
-import { VariantIcon } from '@/VariantIcon'
-import { CreateWuiProps, forwardRef } from '@/System'
 
 export interface LabelOptions {
   checkableField?: boolean
@@ -15,7 +14,7 @@ export interface LabelOptions {
   htmlFor?: string
   icon?: JSX.Element
   required?: boolean
-  variant?: 'success' | 'danger' | 'warning'
+  variant?: 'danger' | 'success' | 'warning'
   withDisabledIcon?: boolean
 }
 
@@ -49,9 +48,9 @@ export const Label = forwardRef<'label', LabelProps>(
         {...rest}
       >
         {!checkableField && <VariantIcon icon={icon} size="sm" variant={variant} />}
-        {disabled && withDisabledIcon && (
+        {disabled && withDisabledIcon ? (
           <S.Disabled>{disabledIcon || <LockIcon size="sm" />}</S.Disabled>
-        )}
+        ) : null}
         {content}
       </S.Label>
     )

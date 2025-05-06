@@ -1,16 +1,16 @@
-import React, { ReactElement } from 'react'
+import type { ReactElement } from 'react'
 
-import * as S from './styles'
-import { Close } from './Close'
-
-import { Text } from '@/Text'
-import { BoxProps } from '@/Box'
+import type { BoxProps } from '@/Box'
 import { forwardRef } from '@/System'
+import { Text } from '@/Text'
+
+import { Close } from './Close'
+import * as S from './styles'
 
 export interface HeaderOptions {
   icon?: ReactElement
-  subtitle?: string | JSX.Element
-  title: string | JSX.Element
+  subtitle?: JSX.Element | string
+  title: JSX.Element | string
 }
 
 export type HeaderProps = HeaderOptions & Omit<BoxProps, keyof HeaderOptions>
@@ -26,7 +26,7 @@ export const Header = forwardRef<'div', HeaderProps>(({ icon, subtitle, title, .
       <Text mb={subtitle ? 'lg' : 0} mt={icon ? 'xl' : 0} variant="h4">
         {title}
       </Text>
-      {subtitle && <S.HeaderSubtitle>{subtitle}</S.HeaderSubtitle>}
+      {subtitle ? <S.HeaderSubtitle>{subtitle}</S.HeaderSubtitle> : null}
     </S.Header>
   )
 })

@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
 import { fireEvent, renderHook, screen, waitFor } from '@testing-library/react'
+import React, { useState } from 'react'
 
 import { DropdownMenu, type DropdownMenuProps, useDropdownMenu } from '../'
 import { render } from '../../../../tests'
@@ -9,11 +9,11 @@ const triggerDataTestId = 'trigger'
 const dropdownDataTestId = 'menu'
 
 const options = [
-  { value: 1, label: 'one' },
-  { value: 2, label: 'two' },
-  { value: 3, label: 'three' },
-  { value: 4, label: 'four' },
-  { value: 5, label: 'five' },
+  { label: 'one', value: 1 },
+  { label: 'two', value: 2 },
+  { label: 'three', value: 3 },
+  { label: 'four', value: 4 },
+  { label: 'five', value: 5 },
 ]
 
 const DropdownRenderer: React.FC<DropdownMenuProps> = () => {

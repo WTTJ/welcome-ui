@@ -1,8 +1,6 @@
-import React from 'react'
-
-import { createTheme } from '../../../theme'
 import { Loader } from '../'
 import { render } from '../../../../tests'
+import { createTheme } from '../../../theme'
 
 export const theme = createTheme()
 

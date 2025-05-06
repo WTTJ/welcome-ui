@@ -2,13 +2,14 @@
 import { useParams, usePathname } from 'next/navigation'
 import { useEffect, useRef } from 'react'
 
-import * as S from './styles'
-
-import { Text } from '@/Text'
 import { Flex } from '@/Flex'
-import { ThemeValues } from '@/theme'
-import { PageTree } from '~/build-app/types'
+import { Text } from '@/Text'
+import type { ThemeValues } from '@/theme'
+
+import type { PageTree } from '~/build-app/types'
 import { getName } from '~/build-app/utils/transform-name'
+
+import * as S from './styles'
 
 type SidebarProps = {
   display?: ThemeValues['display']
@@ -49,11 +50,11 @@ export const Sidebar = ({ display = 'flex', isSubPage, menu, onClick }: SidebarP
     >
       {menu.map(({ category, pages, parent }) => (
         <Flex as="ul" direction="column" flexShrink={0} key={`sidebar_${category}`}>
-          {category && (
+          {category ? (
             <Text mb="lg" variant="subtitle-sm">
               {getName(category)}
             </Text>
-          )}
+          ) : null}
           <Flex as="ul" direction="column" gap="lg">
             {pages.map(({ id, parent: pageParent, title }) => {
               const href = `/${parent}/${pageParent ? `${pageParent}/` : ''}${id}`

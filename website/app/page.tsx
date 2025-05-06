@@ -1,14 +1,15 @@
 import NextLink from 'next/link'
 import React from 'react'
 
-import { GithubIcon, HeartIcon, RightIcon } from '@/Icons'
 import { Box } from '@/Box'
-import { Text } from '@/Text'
 import { Button } from '@/Button'
+import { GithubIcon, HeartIcon, RightIcon } from '@/Icons'
 import { Logo, Symbol } from '@/Logo'
+import { Text } from '@/Text'
+
 import { Components } from '~/build-app/components/Homepage/Components'
-import { Stats } from '~/build-app/components/Homepage/Stats'
 import { Expectations } from '~/build-app/components/Homepage/Expectations'
+import { Stats } from '~/build-app/components/Homepage/Stats'
 import { Section } from '~/build-app/components/Section'
 
 const Home = () => {
@@ -43,10 +44,10 @@ const Home = () => {
         <Box
           alignItems="center"
           display="flex"
-          flexDirection={{ xs: 'column', lg: 'row' }}
+          flexDirection={{ lg: 'row', xs: 'column' }}
           justifyContent="space-between"
         >
-          <Box flex="0 0 auto" maxWidth={{ md: 600 }} mb={{ xs: '5xl', lg: 0 }}>
+          <Box flex="0 0 auto" maxWidth={{ md: 600 }} mb={{ lg: 0, xs: '5xl' }}>
             <Text as="span" color="neutral-90" textTransform="uppercase" variant="subtitle-md">
               Open source
             </Text>
@@ -96,7 +97,7 @@ const Home = () => {
           allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
           as="iframe"
           border="0"
-          h={{ xs: 300, md: 600 }}
+          h={{ md: 600, xs: 300 }}
           mt="3xl"
           sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
           src="https://codesandbox.io/embed/homepage-example-mcypy?autoresize=1&hidenavigation=1&initialpath=src&module=%2Fsrc%2FExample.tsx&theme=dark&view=split"
@@ -104,7 +105,7 @@ const Home = () => {
           w="100%"
         />
       </Section>
-      <Section pt={{ xs: '3xl', md: '6xl' }}>
+      <Section pt={{ md: '6xl', xs: '3xl' }}>
         <Logo h={67} />
         <Text
           as="span"
@@ -137,7 +138,7 @@ const Home = () => {
           <Button
             as="a"
             href="https://www.welcometothejungle.com/en"
-            mt={{ xs: 'md', md: 0 }}
+            mt={{ md: 0, xs: 'md' }}
             rel="noopener nofollow"
             size="lg"
             target="_blank"

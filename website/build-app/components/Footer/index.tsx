@@ -1,72 +1,72 @@
-import { Section } from '../Section'
-
-import { ExternalLinkIcon, HeartIcon } from '@/Icons'
-import { Flex } from '@/Flex'
-import { Text } from '@/Text'
 import { Box } from '@/Box'
+import { Flex } from '@/Flex'
 import { Grid } from '@/Grid'
+import { ExternalLinkIcon, HeartIcon } from '@/Icons'
 import { Logo } from '@/Logo'
+import { Text } from '@/Text'
+
+import { Section } from '../Section'
 
 const links = [
   {
-    name: 'Documentations',
     links: [
       {
-        name: 'Foundations',
+        isExternal: false,
         link: '/foundations',
-        isExternal: false,
+        name: 'Foundations',
       },
       {
-        name: 'Components',
+        isExternal: false,
         link: '/components',
-        isExternal: false,
+        name: 'Components',
       },
       {
-        name: 'Source code',
+        isExternal: true,
         link: 'https://github.com/WTTJ/welcome-ui/',
-        isExternal: true,
+        name: 'Source code',
       },
     ],
+    name: 'Documentations',
   },
   {
-    name: 'Updates',
     links: [
       {
-        name: 'Releases',
+        isExternal: true,
         link: 'https://github.com/WTTJ/welcome-ui/releases',
-        isExternal: true,
+        name: 'Releases',
       },
       {
-        name: 'Project board',
-        link: 'https://github.com/orgs/WTTJ/projects/13',
         isExternal: true,
+        link: 'https://github.com/orgs/WTTJ/projects/13',
+        name: 'Project board',
       },
     ],
+    name: 'Updates',
   },
   {
-    name: 'Community',
     links: [
       {
-        name: 'Github',
+        isExternal: true,
         link: 'https://github.com/WTTJ',
-        isExternal: true,
+        name: 'Github',
       },
       {
-        name: 'Twitter',
+        isExternal: true,
         link: 'https://x.com/wttj_tech',
-        isExternal: true,
+        name: 'Twitter',
       },
       {
-        name: 'Medium',
+        isExternal: true,
         link: 'https://medium.com/wttj-tech',
-        isExternal: true,
+        name: 'Medium',
       },
       {
-        name: 'Jobs',
-        link: 'https://www.welcometothejungle.com/en/companies/wttj/jobs',
         isExternal: true,
+        link: 'https://www.welcometothejungle.com/en/companies/wttj/jobs',
+        name: 'Jobs',
       },
     ],
+    name: 'Community',
   },
 ]
 
@@ -107,7 +107,7 @@ export const Footer = () => {
                     textDecoration={{ hover: 'underline' }}
                   >
                     {name}
-                    {isExternal && <ExternalLinkIcon color="neutral-60" size="xs" />}
+                    {isExternal ? <ExternalLinkIcon color="neutral-60" size="xs" /> : null}
                   </Box>
                 </Box>
               ))}

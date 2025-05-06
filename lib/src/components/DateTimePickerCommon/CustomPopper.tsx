@@ -1,5 +1,6 @@
+import type { CSSObject } from '@xstyled/styled-components'
+import styled, { css, th } from '@xstyled/styled-components'
 import React from 'react'
-import styled, { css, CSSObject, th } from '@xstyled/styled-components'
 
 import { datePickerStyles } from './datePickerStyles'
 import { fixAriaMessageStyle } from './styles'

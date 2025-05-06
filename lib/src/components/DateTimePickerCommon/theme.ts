@@ -1,6 +1,6 @@
-import { CSSObject } from '@xstyled/styled-components'
+import type { CSSObject } from '@xstyled/styled-components'
 
-import { ThemeValues } from '@/theme'
+import type { ThemeValues } from '@/theme'
 
 export type ThemeDateTimePickerCommon = {
   item: {
@@ -15,9 +15,9 @@ export const getDateTimePickerCommon = (theme: ThemeValues): ThemeDateTimePicker
   return {
     item: {
       selected: {
+        backgroundColor: colors['primary-40'],
         color: colors['neutral-90'],
         fontWeight: fontWeights.bold,
-        backgroundColor: colors['primary-40'],
         outline: 'none',
       },
       today: {

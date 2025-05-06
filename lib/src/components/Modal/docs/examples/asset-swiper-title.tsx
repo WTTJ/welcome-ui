@@ -1,9 +1,6 @@
-/* eslint-disable react/iframe-missing-sandbox */
-import * as React from 'react'
-
+import { Button } from '@/Button'
 import { AssetModal, Modal, useModal } from '@/Modal'
 import { Swiper, useSwiper } from '@/Swiper'
-import { Button } from '@/Button'
 
 const Example = () => {
   const modal = useModal()
@@ -16,7 +13,7 @@ const Example = () => {
       <Modal.Trigger as={Button} store={modal}>
         Open modal
       </Modal.Trigger>
-      {isOpen && (
+      {isOpen ? (
         <Modal
           ariaLabel="asset modal example"
           as={AssetModal}
@@ -55,7 +52,7 @@ const Example = () => {
             </Swiper>
           </AssetModal.Content>
         </Modal>
-      )}
+      ) : null}
     </>
   )
 }

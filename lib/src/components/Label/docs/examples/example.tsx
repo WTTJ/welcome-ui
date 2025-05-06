@@ -1,7 +1,7 @@
 import * as React from 'react'
 
-import { Label } from '@/Label'
 import { Checkbox } from '@/Checkbox'
+import { Label } from '@/Label'
 import { Link } from '@/Link'
 
 const Example = () => {

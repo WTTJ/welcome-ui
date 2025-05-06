@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import { DateTimePicker } from '@/DateTimePicker'
 
 const Example = () => {

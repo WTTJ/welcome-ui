@@ -1,10 +1,8 @@
-import { CSSObject } from '@xstyled/styled-components'
+import type { CSSObject } from '@xstyled/styled-components'
+
+import type { ThemeValues } from '@/theme'
 
 import { getTexts } from '../../theme/typography'
-
-import { ThemeValues } from '@/theme'
-
-export type ToastVariant = 'default' | 'info' | 'success' | 'danger' | 'warning'
 
 export type ThemeToasts = {
   bottom: CSSObject
@@ -26,31 +24,30 @@ export type ThemeToasts = {
   top: CSSObject
 }
 
+export type ToastVariant = 'danger' | 'default' | 'info' | 'success' | 'warning'
+
 export const getToasts = (theme: ThemeValues): ThemeToasts => {
   const { borderWidths, colors, fontWeights, radii, space } = theme
 
   return {
+    bottom: {
+      paddingBottom: space.lg,
+    },
     default: {
       paddingLeft: space.sm,
       paddingRight: space.sm,
     },
-    top: {
-      paddingTop: space.lg,
-    },
-    bottom: {
-      paddingBottom: space.lg,
-    },
     growls: {
       default: {
         ...getTexts(theme).sm,
-        borderWidth: borderWidths.sm,
-        borderStyle: 'solid',
         borderRadius: radii.lg,
+        borderStyle: 'solid',
+        borderWidth: borderWidths.sm,
         maxWidth: 340,
       },
       title: {
-        fontWeight: fontWeights.bold,
         color: colors['neutral-90'],
+        fontWeight: fontWeights.bold,
       },
     },
     snackbar: {
@@ -58,15 +55,12 @@ export const getToasts = (theme: ThemeValues): ThemeToasts => {
         borderRadius: radii.lg,
       },
       separator: {
-        default: {
-          borderLeft: '1px solid',
-          borderLeftColor: colors['neutral-30'],
-        },
         danger: {
           borderLeftColor: colors['red-20'],
         },
-        warning: {
-          borderLeftColor: colors['orange-20'],
+        default: {
+          borderLeft: '1px solid',
+          borderLeftColor: colors['neutral-30'],
         },
         info: {
           borderLeftColor: colors['blue-30'],
@@ -74,7 +68,13 @@ export const getToasts = (theme: ThemeValues): ThemeToasts => {
         success: {
           borderLeftColor: colors['green-30'],
         },
+        warning: {
+          borderLeftColor: colors['orange-20'],
+        },
       },
+    },
+    top: {
+      paddingTop: space.lg,
     },
   }
 }

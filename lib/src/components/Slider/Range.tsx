@@ -1,14 +1,17 @@
-import React, { ChangeEvent, KeyboardEvent, useCallback, useEffect, useRef, useState } from 'react'
+import type { ChangeEvent, KeyboardEvent } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
+
+import { Box } from '@/Box'
+import { Hint } from '@/Hint'
+import { InputText } from '@/InputText'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
+import { Text } from '@/Text'
 
 import * as S from './styles'
 
-import { round, SliderOptions } from './index'
-
-import { Text } from '@/Text'
-import { InputText } from '@/InputText'
-import { Box } from '@/Box'
-import { Hint } from '@/Hint'
-import { CreateWuiProps, forwardRef } from '@/System'
+import type { SliderOptions } from './index'
+import { round } from './index'
 
 export const thumbWidth = 20
 
@@ -16,9 +19,9 @@ export type Range = {
   max: number
   min: number
 }
-export interface RangeOptions extends Omit<SliderOptions, 'type' | 'value' | 'onChange'> {
+export interface RangeOptions extends Omit<SliderOptions, 'onChange' | 'type' | 'value'> {
   onChange: (value: Range) => void
-  type?: 'inline' | 'fields'
+  type?: 'fields' | 'inline'
   value: Range
 }
 
@@ -99,10 +102,10 @@ export const Range = forwardRef<'div', RangeProps>(
     const handleMinValue = (e: ChangeEvent<HTMLInputElement>) => {
       // Prevents the min value from being above the max value and under the min
       const value = ensureMin({
-        value: parseInt(e.target.value, 10),
-        toCompare: maxValue,
-        step,
         min,
+        step,
+        toCompare: maxValue,
+        value: parseInt(e.target.value, 10),
       })
       setInputMinValue(value)
       setMinValue(value)
@@ -112,47 +115,47 @@ export const Range = forwardRef<'div', RangeProps>(
     const handleMaxValue = (e: ChangeEvent<HTMLInputElement>) => {
       // Prevents the max value from being below the min value and above the max
       const value = ensureMax({
-        value: parseInt(e.target.value, 10),
-        toCompare: minValue,
-        step,
         max,
+        step,
+        toCompare: minValue,
+        value: parseInt(e.target.value, 10),
       })
       setInputMaxValue(value)
       setMaxValue(value)
       e.target.value = value.toString()
     }
 
-    const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>, type: 'min' | 'max') => {
+    const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>, type: 'max' | 'min') => {
       e.preventDefault()
 
       if (type === 'min') {
         let value = minValue
 
         if (e.key === 'ArrowRight') {
-          value = ensureMin({ value: value + step, toCompare: maxValue, step, min })
+          value = ensureMin({ min, step, toCompare: maxValue, value: value + step })
         }
         if (e.key === 'ArrowLeft') {
-          value = ensureMin({ value: value - step, toCompare: maxValue, step, min })
+          value = ensureMin({ min, step, toCompare: maxValue, value: value - step })
         }
 
         setInputMinValue(value)
         setMinValue(value)
-        onChange({ min: value, max: maxValue })
+        onChange({ max: maxValue, min: value })
       }
 
       if (type === 'max') {
         let value = maxValue
 
         if (e.key === 'ArrowRight') {
-          value = ensureMax({ value: value + step, toCompare: minValue, step, max })
+          value = ensureMax({ max, step, toCompare: minValue, value: value + step })
         }
         if (e.key === 'ArrowLeft') {
-          value = ensureMax({ value: value - step, toCompare: minValue, step, max })
+          value = ensureMax({ max, step, toCompare: minValue, value: value - step })
         }
 
         setInputMaxValue(value)
         setMaxValue(value)
-        onChange({ min: minValue, max: value })
+        onChange({ max: value, min: minValue })
       }
     }
 
@@ -211,12 +214,12 @@ export const Range = forwardRef<'div', RangeProps>(
     useEffect(() => {
       if (value) {
         if (!isNaN(value.min) && value.min !== minValue) {
-          const validValue = ensureMin({ value: value.min || min, toCompare: maxValue, step, min })
+          const validValue = ensureMin({ min, step, toCompare: maxValue, value: value.min || min })
           setMinValue(validValue)
           setInputMinValue(validValue)
         }
         if (!isNaN(value.max) && value.max !== maxValue) {
-          const validValue = ensureMax({ value: value.max || max, toCompare: minValue, step, max })
+          const validValue = ensureMax({ max, step, toCompare: minValue, value: value.max || max })
           setMaxValue(validValue)
           setInputMaxValue(validValue)
         }
@@ -226,11 +229,11 @@ export const Range = forwardRef<'div', RangeProps>(
 
     return (
       <Box position="relative" ref={ref} w="100%">
-        {label && (
+        {label ? (
           <Text as="label" variant="sm">
             {label}
           </Text>
-        )}
+        ) : null}
 
         <Box alignItems="center" display="flex" gap="sm">
           {(type === 'inline' || type === 'fields') &&
@@ -241,14 +244,14 @@ export const Range = forwardRef<'div', RangeProps>(
                 min={min}
                 onBlur={() => {
                   const value = ensureMin({
-                    value: inputMinValue,
-                    toCompare: maxValue,
-                    step,
                     min,
+                    step,
+                    toCompare: maxValue,
+                    value: inputMinValue,
                   })
                   setInputMinValue(value)
                   setMinValue(value)
-                  onChange({ min: value, max: maxValue })
+                  onChange({ max: maxValue, min: value })
                 }}
                 onChange={e => {
                   let value = parseInt(e.target.value, 10)
@@ -260,14 +263,14 @@ export const Range = forwardRef<'div', RangeProps>(
                 onKeyDown={e => {
                   if (e.key === 'Enter') {
                     const value = ensureMin({
-                      value: inputMinValue,
-                      toCompare: maxValue,
-                      step,
                       min,
+                      step,
+                      toCompare: maxValue,
+                      value: inputMinValue,
                     })
                     setInputMinValue(value)
                     setMinValue(value)
-                    onChange({ min: value, max: maxValue })
+                    onChange({ max: maxValue, min: value })
                   }
                 }}
                 size="sm"
@@ -280,7 +283,7 @@ export const Range = forwardRef<'div', RangeProps>(
             ))}
 
           <Box flexGrow="1" position="relative">
-            {tooltip && (
+            {tooltip ? (
               <>
                 <S.Output isVisible={tooltipMinVisible} ref={tooltipMinRef}>
                   <S.Tooltip>{minValue}</S.Tooltip>
@@ -289,7 +292,7 @@ export const Range = forwardRef<'div', RangeProps>(
                   <S.Tooltip>{maxValue}</S.Tooltip>
                 </S.Output>
               </>
-            )}
+            ) : null}
             <Box h={20} pb="sm" position="relative" pt="sm" w="100%">
               <S.RangeInput
                 {...restProps}
@@ -303,7 +306,7 @@ export const Range = forwardRef<'div', RangeProps>(
                   tooltip && tooltipMinVisible === false && setTooltipMinVisible(true)
                 }}
                 onMouseUp={() => {
-                  onChange({ min: minValue, max: maxValue })
+                  onChange({ max: maxValue, min: minValue })
                   tooltip && setTooltipMinVisible(false)
                 }}
                 ref={minValueRef}
@@ -324,7 +327,7 @@ export const Range = forwardRef<'div', RangeProps>(
                   tooltip && tooltipMaxVisible === false && setTooltipMaxVisible(true)
                 }}
                 onMouseUp={() => {
-                  onChange({ min: minValue, max: maxValue })
+                  onChange({ max: maxValue, min: minValue })
                   tooltip && setTooltipMaxVisible(false)
                 }}
                 ref={maxValueRef}
@@ -337,19 +340,18 @@ export const Range = forwardRef<'div', RangeProps>(
               <S.Range disabled={disabled} ref={range} />
             </Box>
 
-            {values && (
+            {values ? (
               <Box h={24} ml={10} mr={10} position="relative">
                 {values
                   .reduce((prev, acc) => (prev.includes(acc) ? prev : [...prev, acc]), [])
                   .filter(v => v >= min && v <= max)
                   .map((el, index) => (
-                    // eslint-disable-next-line react/no-array-index-key
                     <S.Thick key={`${el}-${index}`} left={`${getPercent(el)}%`}>
                       <S.ThickLabel>{el}</S.ThickLabel>
                     </S.Thick>
                   ))}
               </Box>
-            )}
+            ) : null}
           </Box>
 
           {(type === 'inline' || type === 'fields') &&
@@ -360,14 +362,14 @@ export const Range = forwardRef<'div', RangeProps>(
                 min={minValue + 1}
                 onBlur={() => {
                   const value = ensureMax({
-                    value: inputMaxValue,
-                    toCompare: minValue,
-                    step,
                     max,
+                    step,
+                    toCompare: minValue,
+                    value: inputMaxValue,
                   })
                   setInputMaxValue(value)
                   setMaxValue(value)
-                  onChange({ min: minValue, max: value })
+                  onChange({ max: value, min: minValue })
                 }}
                 onChange={e => {
                   let value = parseInt(e.target.value, 10)
@@ -379,14 +381,14 @@ export const Range = forwardRef<'div', RangeProps>(
                 onKeyDown={e => {
                   if (e.key === 'Enter') {
                     const value = ensureMax({
-                      value: inputMaxValue,
-                      toCompare: minValue,
-                      step,
                       max,
+                      step,
+                      toCompare: minValue,
+                      value: inputMaxValue,
                     })
                     setInputMaxValue(value)
                     setMaxValue(value)
-                    onChange({ min: minValue, max: value })
+                    onChange({ max: value, min: minValue })
                   }
                 }}
                 size="sm"
@@ -399,11 +401,11 @@ export const Range = forwardRef<'div', RangeProps>(
             ))}
         </Box>
 
-        {hint && (
+        {hint ? (
           <Hint color="neutral-50" mt={0}>
             {hint}
           </Hint>
-        )}
+        ) : null}
       </Box>
     )
   }

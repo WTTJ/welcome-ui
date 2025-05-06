@@ -6,12 +6,12 @@
         "description": "Determines whether the content should animate when it is shown or hidden.\n- If `true`, the `animating` state will be `true` when the content is shown\n  or hidden and it will wait for a CSS animation/transition to end before\n  becoming `false`.\n- If it's set to a number, the `animating` state will be `true` when the\n  content is shown or hidden and it will wait for the number of\n  milliseconds to pass before becoming `false`.\n@deprecated Manually setting the `animated` prop is no longer necessary.\nThis will be removed in a future release.",
         "name": "animated",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/core/cjs/disclosure/disclosure-store.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/core/esm/disclosure/disclosure-store.d.ts",
           "name": "DisclosureStoreOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/core/cjs/disclosure/disclosure-store.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/core/esm/disclosure/disclosure-store.d.ts",
             "name": "DisclosureStoreOptions"
           }
         ],
@@ -37,12 +37,12 @@
         "description": "A reference to a [combobox\nstore](https://ariakit.org/reference/use-combobox-store). It's\nautomatically set when composing [Menu with\nCombobox](https://ariakit.org/examples/menu-combobox).",
         "name": "combobox",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/menu/menu-store.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/menu/menu-store.d.ts",
           "name": "MenuStoreOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/menu/menu-store.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/menu/menu-store.d.ts",
             "name": "MenuStoreOptions"
           }
         ],
@@ -56,12 +56,12 @@
         "description": "The composite item id that should be active by default when the composite\nwidget is rendered. If `null`, the composite element itself will have focus\nand users will be able to navigate to it using arrow keys. If `undefined`,\nthe first enabled item will be focused.",
         "name": "defaultActiveId",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/core/cjs/composite/composite-store.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/core/esm/composite/composite-store.d.ts",
           "name": "CompositeStoreOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/core/cjs/composite/composite-store.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/core/esm/composite/composite-store.d.ts",
             "name": "CompositeStoreOptions"
           }
         ],
@@ -77,12 +77,12 @@
         "description": "The defaut value for the\n[`items`](https://ariakit.org/reference/collection-provider#items) state.",
         "name": "defaultItems",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/core/cjs/collection/collection-store.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/core/esm/collection/collection-store.d.ts",
           "name": "CollectionStoreOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/core/cjs/collection/collection-store.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/core/esm/collection/collection-store.d.ts",
             "name": "CollectionStoreOptions"
           }
         ],
@@ -98,12 +98,12 @@
         "description": "Whether the content should be visible by default.",
         "name": "defaultOpen",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/core/cjs/disclosure/disclosure-store.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/core/esm/disclosure/disclosure-store.d.ts",
           "name": "DisclosureStoreOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/core/cjs/disclosure/disclosure-store.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/core/esm/disclosure/disclosure-store.d.ts",
             "name": "DisclosureStoreOptions"
           }
         ],
@@ -128,12 +128,12 @@
         "description": "The default values for the\n[`values`](https://ariakit.org/reference/menu-provider#values) state.\n\nLive examples:\n- [MenuItemCheckbox](https://ariakit.org/examples/menu-item-checkbox)\n- [MenuItemRadio](https://ariakit.org/examples/menu-item-radio)",
         "name": "defaultValues",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/core/cjs/menu/menu-store.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/core/esm/menu/menu-store.d.ts",
           "name": "MenuStoreOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/core/cjs/menu/menu-store.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/core/esm/menu/menu-store.d.ts",
             "name": "MenuStoreOptions"
           }
         ],
@@ -147,12 +147,12 @@
         "description": "A reference to another disclosure store that controls another disclosure\ncomponent to keep them in sync. Element states like `contentElement` and\n`disclosureElement` won't be synced. For that, use the\n[`store`](https://ariakit.org/reference/disclosure-provider#store) prop\ninstead.\n\nLive examples:\n- [Command Menu](https://ariakit.org/examples/dialog-combobox-command-menu)",
         "name": "disclosure",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/disclosure/disclosure-store.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/disclosure/disclosure-store.d.ts",
           "name": "DisclosureStoreOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/disclosure/disclosure-store.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/disclosure/disclosure-store.d.ts",
             "name": "DisclosureStoreOptions"
           }
         ],
@@ -166,12 +166,12 @@
         "description": "A reference to a [menubar\nstore](https://ariakit.org/reference/use-menubar-store). It's automatically\nset when rendering menus inside a\n[`Menubar`](https://ariakit.org/reference/menubar) in the React tree.\n\nLive examples:\n- [Navigation Menubar](https://ariakit.org/examples/menubar-navigation)",
         "name": "menubar",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/menu/menu-store.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/menu/menu-store.d.ts",
           "name": "MenuStoreOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/menu/menu-store.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/menu/menu-store.d.ts",
             "name": "MenuStoreOptions"
           }
         ],
@@ -185,12 +185,12 @@
         "description": "A reference to a parent menu store. It's automatically set when nesting\nmenus in the React tree. You should manually set this if menus aren't\nnested in the React tree.\n\nLive examples:\n- [Menubar](https://ariakit.org/components/menubar)\n- [Submenu](https://ariakit.org/examples/menu-nested)\n- [Navigation Menubar](https://ariakit.org/examples/menubar-navigation)",
         "name": "parent",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/menu/menu-store.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/menu/menu-store.d.ts",
           "name": "MenuStoreOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/menu/menu-store.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/menu/menu-store.d.ts",
             "name": "MenuStoreOptions"
           }
         ],
@@ -204,12 +204,12 @@
         "description": "A reference to another popover store that's controlling another popover to\nkeep them in sync.",
         "name": "popover",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/core/cjs/popover/popover-store.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/core/esm/popover/popover-store.d.ts",
           "name": "PopoverStoreOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/core/cjs/popover/popover-store.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/core/esm/popover/popover-store.d.ts",
             "name": "PopoverStoreOptions"
           }
         ],
@@ -223,12 +223,12 @@
         "description": "A callback that gets called when the\n[`activeId`](https://ariakit.org/reference/composite-provider#activeid)\nstate changes.",
         "name": "setActiveId",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/composite/composite-store.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/composite/composite-store.d.ts",
           "name": "CompositeStoreOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/composite/composite-store.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/composite/composite-store.d.ts",
             "name": "CompositeStoreOptions"
           }
         ],
@@ -242,12 +242,12 @@
         "description": "A callback that gets called when the\n[`items`](https://ariakit.org/reference/collection-provider#items) state\nchanges.\n@example const [items, setItems] = useState([]);\nconst collection = useCollectionStore({ items, setItems });",
         "name": "setItems",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/collection/collection-store.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/collection/collection-store.d.ts",
           "name": "CollectionStoreOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/collection/collection-store.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/collection/collection-store.d.ts",
             "name": "CollectionStoreOptions"
           }
         ],
@@ -261,12 +261,12 @@
         "description": "A callback that gets called when the `mounted` state changes.\n@example const [mounted, setMounted] = useState(false);\nconst disclosure = useDisclosureStore({ setMounted });",
         "name": "setMounted",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/disclosure/disclosure-store.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/disclosure/disclosure-store.d.ts",
           "name": "DisclosureStoreOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/disclosure/disclosure-store.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/disclosure/disclosure-store.d.ts",
             "name": "DisclosureStoreOptions"
           }
         ],
@@ -280,12 +280,12 @@
         "description": "A callback that gets called when the\n[`open`](https://ariakit.org/reference/disclosure-provider#open) state\nchanges.\n@example const [open, setOpen] = useState(false);\nconst disclosure = useDisclosureStore({ open, setOpen });",
         "name": "setOpen",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/disclosure/disclosure-store.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/disclosure/disclosure-store.d.ts",
           "name": "DisclosureStoreOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/disclosure/disclosure-store.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/disclosure/disclosure-store.d.ts",
             "name": "DisclosureStoreOptions"
           }
         ],
@@ -299,12 +299,12 @@
         "description": "A callback that gets called when the\n[`values`](https://ariakit.org/reference/menu-provider#values) state\nchanges.\n\nLive examples:\n- [MenuItemCheckbox](https://ariakit.org/examples/menu-item-checkbox)\n- [Submenu with\n  Combobox](https://ariakit.org/examples/menu-nested-combobox)",
         "name": "setValues",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/menu/menu-store.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/menu/menu-store.d.ts",
           "name": "MenuStoreOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/menu/menu-store.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/menu/menu-store.d.ts",
             "name": "MenuStoreOptions"
           }
         ],
@@ -322,12 +322,12 @@
         "description": "Indicates whether the element should be focusable even when it is\n[`disabled`](https://ariakit.org/reference/focusable#disabled).\n\nThis is important when discoverability is a concern. For example:\n\n> A toolbar in an editor contains a set of special smart paste functions\nthat are disabled when the clipboard is empty or when the function is not\napplicable to the current content of the clipboard. It could be helpful to\nkeep the disabled buttons focusable if the ability to discover their\nfunctionality is primarily via their presence on the toolbar.\n\nLearn more on [Focusability of disabled\ncontrols](https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/#focusabilityofdisabledcontrols).\n\nLive examples:\n- [Combobox with Tabs](https://ariakit.org/examples/combobox-tabs)",
         "name": "accessibleWhenDisabled",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/focusable/focusable.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/focusable/focusable.d.ts",
           "name": "FocusableOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/focusable/focusable.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/focusable/focusable.d.ts",
             "name": "FocusableOptions"
           }
         ],
@@ -352,12 +352,12 @@
         "description": "Determines whether the content element should remain visible even when the\n[`open`](https://ariakit.org/reference/disclosure-provider#open) state is\n`false`. If this prop is set to `true`, the `hidden` prop and the `display:\nnone` style will not be applied, unless explicitly set otherwise.\n\nThis prop is particularly useful when using third-party animation libraries\nsuch as Framer Motion or React Spring, where the element needs to be\nvisible for exit animations to work.\n\nLive examples:\n- [Dialog with Framer\n  Motion](https://ariakit.org/examples/dialog-framer-motion)\n- [Menu with Framer\n  Motion](https://ariakit.org/examples/menu-framer-motion)\n- [Tooltip with Framer\n  Motion](https://ariakit.org/examples/tooltip-framer-motion)\n- [Dialog with details &\n  summary](https://ariakit.org/examples/dialog-details)",
         "name": "alwaysVisible",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/disclosure/disclosure-content.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/disclosure/disclosure-content.d.ts",
           "name": "DisclosureContentOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/disclosure/disclosure-content.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/disclosure/disclosure-content.d.ts",
             "name": "DisclosureContentOptions"
           }
         ],
@@ -382,12 +382,12 @@
         "description": "The minimum padding between the arrow and the popover corner.",
         "name": "arrowPadding",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/popover/popover.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/popover/popover.d.ts",
           "name": "PopoverOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/popover/popover.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/popover/popover.d.ts",
             "name": "PopoverOptions"
           }
         ],
@@ -403,12 +403,12 @@
         "description": "Automatically focuses the element upon mounting, similar to the native\n`autoFocus` prop. This addresses an issue where the element with the native\n`autoFocus` attribute might receive focus before React effects are\nexecuted.\n\nThe `autoFocus` prop can also be used with\n[Focusable](https://ariakit.org/components/focusable) elements within a\n[Dialog](https://ariakit.org/components/dialog) component, establishing the\ninitial focus as the dialog opens.\n\n**Note**: For this prop to work, the\n[`focusable`](https://ariakit.org/reference/command#focusable) prop must be\nset to `true`, if it's not set by default.\n\nLive examples:\n- [Warning on Dialog\n  hide](https://ariakit.org/examples/dialog-hide-warning)\n- [Dialog with React\n  Router](https://ariakit.org/examples/dialog-react-router)\n- [Nested Dialog](https://ariakit.org/examples/dialog-nested)",
         "name": "autoFocus",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/focusable/focusable.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/focusable/focusable.d.ts",
           "name": "FocusableOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/focusable/focusable.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/focusable/focusable.d.ts",
             "name": "FocusableOptions"
           }
         ],
@@ -433,12 +433,12 @@
         "description": "Determines whether an element outside of the dialog will be focused when\nthe dialog is hidden if another element hasn't been focused in the action\nof hiding the dialog (for example, by clicking or tabbing into another\ntabbable element outside of the dialog).\n\nBy default, this is usually the disclosure element. The\n[`finalFocus`](https://ariakit.org/reference/dialog#finalfocus) prop can be\nused to define a different element to be focused.\n\nLive examples:\n- [Dialog with Next.js App\n  Router](https://ariakit.org/examples/dialog-next-router)\n- [Sliding menu](https://ariakit.org/examples/menu-slide)",
         "name": "autoFocusOnHide",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/dialog/dialog.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/dialog/dialog.d.ts",
           "name": "DialogOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/dialog/dialog.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/dialog/dialog.d.ts",
             "name": "DialogOptions"
           }
         ],
@@ -469,12 +469,12 @@
         "description": "Determines whether an element inside the dialog will receive focus when the\ndialog is shown. By default, this is usually the first tabbable element in\nthe dialog or the dialog itself. The\n[`initialFocus`](https://ariakit.org/reference/dialog#initialfocus) prop\ncan be used to set a different element to receive focus.\n\nLive examples:\n- [Warning on Dialog\n  hide](https://ariakit.org/examples/dialog-hide-warning)\n- [Sliding Menu](https://ariakit.org/examples/menu-slide)\n- [Selection Popover](https://ariakit.org/examples/popover-selection)",
         "name": "autoFocusOnShow",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/dialog/dialog.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/dialog/dialog.d.ts",
           "name": "DialogOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/dialog/dialog.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/dialog/dialog.d.ts",
             "name": "DialogOptions"
           }
         ],
@@ -503,12 +503,12 @@
         "description": "Determines whether there will be a backdrop behind the dialog. On modal\ndialogs, this is `true` by default. Besides a `boolean`, this prop can also\nbe a React component or JSX element that will be rendered as the backdrop.\n\n**Note**: If a custom component is used, it must [accept ref and spread all\nprops to its underlying DOM\nelement](https://ariakit.org/guide/composition#custom-components-must-be-open-for-extension),\nthe same way a native element would.\n\nLive examples:\n- [Animated Dialog](https://ariakit.org/examples/dialog-animated)\n- [Dialog with scrollable\n  backdrop](https://ariakit.org/examples/dialog-backdrop-scrollable)\n- [Dialog with Framer\n  Motion](https://ariakit.org/examples/dialog-framer-motion)\n- [Dialog with Menu](https://ariakit.org/examples/dialog-menu)\n- [Nested Dialog](https://ariakit.org/examples/dialog-nested)\n- [Dialog with Next.js App\n  Router](https://ariakit.org/examples/dialog-next-router)\n@example ```jsx\n<Dialog backdrop={<div className=\"backdrop\" />} />\n```",
         "name": "backdrop",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/dialog/dialog.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/dialog/dialog.d.ts",
           "name": "DialogOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/dialog/dialog.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/dialog/dialog.d.ts",
             "name": "DialogOptions"
           }
         ],
@@ -734,12 +734,12 @@
         "description": "Determines if the component should act as a composite widget. This prop\nneeds to be set to `false` when merging various composite widgets where\nonly one should function in that manner.\n\nIf disabled, this component will stop managing focus and keyboard\nnavigation for its items and itself. Additionally, composite ARIA\nattributes won't be applied. These responsibilities should be taken over by\nanother composite component.\n\n**Note**: In most cases, this prop doesn't need to be set manually. For\nexample, when composing [Menu with\nCombobox](https://ariakit.org/examples/menu-combobox) or [Select with\nCombobox](https://ariakit.org/examples/select-combobox), this prop will be\nset to `false` automatically on the\n[`Menu`](https://ariakit.org/reference/menu) and\n[`SelectPopover`](https://ariakit.org/reference/select-popover) components\nso the [`Combobox`](https://ariakit.org/reference/combobox) component can\ntake over the composite widget responsibilities.\n\nLive examples:\n- [Menu with Combobox](https://ariakit.org/examples/menu-combobox)\n- [Select with Combobox](https://ariakit.org/examples/select-combobox)",
         "name": "composite",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/composite/composite.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/composite/composite.d.ts",
           "name": "CompositeOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/composite/composite.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/composite/composite.d.ts",
             "name": "CompositeOptions"
           }
         ],
@@ -764,12 +764,12 @@
         "description": "Determines if the pointer events outside of the popover and its anchor\nelement should be disabled during _hover intent_, that is, when the mouse\nis moving toward the popover.\n\nThis is required as these external events may trigger focus on other\nelements and close the popover while the user is attempting to hover over\nit.\n\nThis can be either a boolean or a callback receiving the mouse event\nhappening during hover intent. The callback should return a boolean.",
         "name": "disablePointerEventsOnApproach",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/hovercard/hovercard.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/hovercard/hovercard.d.ts",
           "name": "HovercardOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/hovercard/hovercard.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/hovercard/hovercard.d.ts",
             "name": "HovercardOptions"
           }
         ],
@@ -800,12 +800,12 @@
         "description": "Determines if the element is disabled. This sets the `aria-disabled`\nattribute accordingly, enabling support for all elements, including those\nthat don't support the native `disabled` attribute.\n\nThis feature can be combined with the\n[`accessibleWhenDisabled`](https://ariakit.org/reference/focusable#accessiblewhendisabled)\nprop to make disabled elements still accessible via keyboard.\n\n**Note**: For this prop to work, the\n[`focusable`](https://ariakit.org/reference/command#focusable) prop must be\nset to `true`, if it's not set by default.\n\nLive examples:\n- [Submenu](https://ariakit.org/examples/menu-nested)\n- [Combobox with Tabs](https://ariakit.org/examples/combobox-tabs)\n- [Context Menu](https://ariakit.org/examples/menu-context-menu)",
         "name": "disabled",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/focusable/focusable.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/focusable/focusable.d.ts",
           "name": "FocusableOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/focusable/focusable.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/focusable/focusable.d.ts",
             "name": "FocusableOptions"
           }
         ],
@@ -828,12 +828,12 @@
         "description": "Determines the element that will receive focus once the dialog is closed,\nprovided that no other element has been focused while the dialog was being\nhidden (e.g., by clicking or tabbing into another tabbable element outside\nof the dialog).\n- If\n  [`autoFocusOnHide`](https://ariakit.org/reference/dialog#autofocusonhide)\n  is set to `false`, this prop will have no effect.\n- If left unset, the element that was focused before the dialog was opened\n  will be focused again.",
         "name": "finalFocus",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/dialog/dialog.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/dialog/dialog.d.ts",
           "name": "DialogOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/dialog/dialog.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/dialog/dialog.d.ts",
             "name": "DialogOptions"
           }
         ],
@@ -844,8 +844,8 @@
           "value": [
             {
               "value": "HTMLElement",
-              "description": "Any HTML element. Some elements directly implement this interface, while others implement it via an interface that inherits it.",
-              "fullComment": "Any HTML element. Some elements directly implement this interface, while others implement it via an interface that inherits it.",
+              "description": "Any HTML element. Some elements directly implement this interface, while others implement it via an interface that inherits it.\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLElement)",
+              "fullComment": "Any HTML element. Some elements directly implement this interface, while others implement it via an interface that inherits it.\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLElement)",
               "tags": {}
             },
             {
@@ -867,12 +867,12 @@
         "description": "Whether the popover should fit the viewport. If this is set to true, the\npopover wrapper will have `maxWidth` and `maxHeight` set to the viewport\nsize. This will be exposed to CSS as\n[`--popover-available-width`](https://ariakit.org/guide/styling#--popover-available-width)\nand\n[`--popover-available-height`](https://ariakit.org/guide/styling#--popover-available-height).\n\nLive examples:\n- [Textarea with inline\n  Combobox](https://ariakit.org/examples/combobox-textarea)\n- [Menubar](https://ariakit.org/components/menubar)",
         "name": "fitViewport",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/popover/popover.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/popover/popover.d.ts",
           "name": "PopoverOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/popover/popover.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/popover/popover.d.ts",
             "name": "PopoverOptions"
           }
         ],
@@ -897,12 +897,12 @@
         "description": "Whether the popover has `position: fixed` or not.",
         "name": "fixed",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/popover/popover.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/popover/popover.d.ts",
           "name": "PopoverOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/popover/popover.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/popover/popover.d.ts",
             "name": "PopoverOptions"
           }
         ],
@@ -927,12 +927,12 @@
         "description": "Controls the behavior of the popover when it overflows the viewport:\n- If a `boolean`, specifies whether the popover should flip to the opposite\n  side when it overflows.\n- If a `string`, indicates the preferred fallback placements when it\n  overflows. The placements must be spaced-delimited, e.g. \"top left\".\n\nLive examples:\n- [Sliding Menu](https://ariakit.org/examples/menu-slide)\n- [Menubar](https://ariakit.org/components/menubar)",
         "name": "flip",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/popover/popover.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/popover/popover.d.ts",
           "name": "PopoverOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/popover/popover.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/popover/popover.d.ts",
             "name": "PopoverOptions"
           }
         ],
@@ -960,12 +960,12 @@
         "description": "Determines if the active composite item should receive focus (or virtual\nfocus if the\n[`virtualFocus`](https://ariakit.org/reference/composite-provider#virtualfocus)\noption is enabled) when moving through items. This typically happens when\nnavigating through items with arrow keys, but it can also happen when\ncalling the\n[`move`](https://ariakit.org/reference/use-composite-store#move) method\ndirectly.\n\nUnlike the\n[`composite`](https://ariakit.org/reference/composite#composite-1) prop,\nthis option doesn't disable the entire composite widget behavior. It only\nstops this component from managing focus when navigating through items.\n\n**Note**: If you want to control the behavior only _when arrow keys are\npressed_, use the\n[`moveOnKeyPress`](https://ariakit.org/reference/composite#moveonkeypress)\nprop instead.",
         "name": "focusOnMove",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/composite/composite.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/composite/composite.d.ts",
           "name": "CompositeOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/composite/composite.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/composite/composite.d.ts",
             "name": "CompositeOptions"
           }
         ],
@@ -988,12 +988,12 @@
         "description": "Determines if [Focusable](https://ariakit.org/components/focusable)\nfeatures should be active on non-native focusable elements.\n\n**Note**: This prop only turns off the additional features provided by the\n[`Focusable`](https://ariakit.org/reference/focusable) component.\nNon-native focusable elements will lose their focusability entirely.\nHowever, native focusable elements will retain their inherent focusability,\nbut without added features such as improved\n[`autoFocus`](https://ariakit.org/reference/focusable#autofocus),\n[`accessibleWhenDisabled`](https://ariakit.org/reference/focusable#accessiblewhendisabled),\n[`onFocusVisible`](https://ariakit.org/reference/focusable#onfocusvisible),\netc.\n@see https://ariakit.org/reference/focusable",
         "name": "focusable",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/composite/composite.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/composite/composite.d.ts",
           "name": "CompositeOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/composite/composite.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/composite/composite.d.ts",
             "name": "CompositeOptions"
           }
         ],
@@ -1016,12 +1016,12 @@
         "description": "Function that returns the anchor element's DOMRect. If this is explicitly\npassed, it will override the anchor `getBoundingClientRect` method.\n\nLive examples:\n - [Textarea with inline combobox](https://ariakit.org/examples/combobox-textarea)\n - [Standalone Popover](https://ariakit.org/examples/popover-standalone)\n - [Context menu](https://ariakit.org/examples/menu-context-menu)\n - [Selection Popover](https://ariakit.org/examples/popover-selection)",
         "name": "getAnchorRect",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/popover/popover.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/popover/popover.d.ts",
           "name": "PopoverOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/popover/popover.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/popover/popover.d.ts",
             "name": "PopoverOptions"
           }
         ],
@@ -1035,12 +1035,12 @@
         "description": "When a dialog is open, the elements outside of it are disabled to prevent\ninteraction if the dialog is\n[`modal`](https://ariakit.org/reference/dialog#modal). For non-modal\ndialogs, interacting with elements outside the dialog prompts it to close.\n\nThis function allows you to return an iterable collection of elements that\nwill be considered as part of the dialog, thus excluding them from this\nbehavior.\n\n**Note**: The elements returned by this function must exist in the DOM when\nthe dialog opens.\n\nLive examples:\n- [Dialog with\n  React-Toastify](https://ariakit.org/examples/dialog-react-toastify)",
         "name": "getPersistentElements",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/dialog/dialog.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/dialog/dialog.d.ts",
           "name": "DialogOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/dialog/dialog.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/dialog/dialog.d.ts",
             "name": "DialogOptions"
           }
         ],
@@ -1086,12 +1086,12 @@
         "description": "Determines if the dialog will hide when the user presses the Escape key.\n\nThis prop can be either a boolean or a function that accepts an event as an\nargument and returns a boolean. The event object represents the keydown\nevent that initiated the hide action, which could be either a native\nkeyboard event or a React synthetic event.\n\n**Note**: When placing Ariakit dialogs inside third-party dialogs, using\n`event.stopPropagation()` within this function will stop the event from\nreaching the third-party dialog, closing only the Ariakit dialog.",
         "name": "hideOnEscape",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/dialog/dialog.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/dialog/dialog.d.ts",
           "name": "DialogOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/dialog/dialog.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/dialog/dialog.d.ts",
             "name": "DialogOptions"
           }
         ],
@@ -1122,12 +1122,12 @@
         "description": "Determines whether the popover should hide when the mouse leaves the\npopover or the anchor element and there's no _hover intent_, meaning, the\nmouse isn't moving toward the popover.\n\nThis can be either a boolean or a callback receiving the mouse move event\nthat initiated the behavior. The callback should return a boolean.\n\n**Note**: This behavior won't be triggered when the popover or any of its\ndescendants are in focus.",
         "name": "hideOnHoverOutside",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/hovercard/hovercard.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/hovercard/hovercard.d.ts",
           "name": "HovercardOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/hovercard/hovercard.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/hovercard/hovercard.d.ts",
             "name": "HovercardOptions"
           }
         ],
@@ -1158,12 +1158,12 @@
         "description": "Determines if the dialog should hide when the user clicks or focuses on an\nelement outside the dialog.\n\nThis prop can be either a boolean or a function that takes an event as an\nargument and returns a boolean. The event object represents the event that\ntriggered the action, which could be a native event or a React synthetic\nevent of various types.\n\nLive examples:\n- [Selection Popover](https://ariakit.org/examples/popover-selection)",
         "name": "hideOnInteractOutside",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/dialog/dialog.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/dialog/dialog.d.ts",
           "name": "DialogOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/dialog/dialog.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/dialog/dialog.d.ts",
             "name": "DialogOptions"
           }
         ],
@@ -1192,12 +1192,12 @@
         "description": "Specifies the element that will receive focus when the dialog is first\nopened. It can be an `HTMLElement` or a `React.RefObject` with an\n`HTMLElement`.\n\nIf\n[`autoFocusOnShow`](https://ariakit.org/reference/dialog#autofocusonshow)\nis set to `false`, this prop will have no effect. If left unset, the dialog\nwill attempt to determine the initial focus element in the following order:\n1. A [Focusable](https://ariakit.org/components/focusable) element with an\n   [`autoFocus`](https://ariakit.org/reference/focusable#autofocus) prop.\n2. The first tabbable element inside the dialog.\n3. The first focusable element inside the dialog.\n4. The dialog element itself.",
         "name": "initialFocus",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/dialog/dialog.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/dialog/dialog.d.ts",
           "name": "DialogOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/dialog/dialog.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/dialog/dialog.d.ts",
             "name": "DialogOptions"
           }
         ],
@@ -1208,8 +1208,8 @@
           "value": [
             {
               "value": "HTMLElement",
-              "description": "Any HTML element. Some elements directly implement this interface, while others implement it via an interface that inherits it.",
-              "fullComment": "Any HTML element. Some elements directly implement this interface, while others implement it via an interface that inherits it.",
+              "description": "Any HTML element. Some elements directly implement this interface, while others implement it via an interface that inherits it.\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLElement)",
+              "fullComment": "Any HTML element. Some elements directly implement this interface, while others implement it via an interface that inherits it.\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLElement)",
               "tags": {}
             },
             {
@@ -1252,12 +1252,12 @@
         "description": "Determines whether the dialog is modal. Modal dialogs have distinct states\nand behaviors:\n- The [`portal`](https://ariakit.org/reference/dialog#portal) and\n  [`preventBodyScroll`](https://ariakit.org/reference/dialog#preventbodyscroll)\n  props are set to `true`. They can still be manually set to `false`.\n- When using the [`Heading`](https://ariakit.org/reference/heading) or\n  [`DialogHeading`](https://ariakit.org/reference/dialog-heading)\n  components within the dialog, their level will be reset so they start\n  with `h1`.\n- A visually hidden dismiss button will be rendered if the\n  [`DialogDismiss`](https://ariakit.org/reference/dialog-dismiss) component\n  hasn't been used. This allows screen reader users to close the dialog.\n- When the dialog is open, element tree outside it will be inert.\n\nLive examples:\n- [Combobox with Tabs](https://ariakit.org/examples/combobox-tabs)\n- [Dialog with details &\n  summary](https://ariakit.org/examples/dialog-details)\n- [Form with Select](https://ariakit.org/examples/form-select)\n- [Context menu](https://ariakit.org/examples/menu-context-menu)\n- [Responsive Popover](https://ariakit.org/examples/popover-responsive)",
         "name": "modal",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/hovercard/hovercard.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/hovercard/hovercard.d.ts",
           "name": "HovercardOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/hovercard/hovercard.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/hovercard/hovercard.d.ts",
             "name": "HovercardOptions"
           }
         ],
@@ -1282,12 +1282,12 @@
         "description": "Determines whether the composite widget should move focus to an item when\narrow keys are pressed, given that the composite element is focused and\nthere's no active item.\n\n**Note**: To entirely disable focus moving within a composite widget, you\ncan use the\n[`focusOnMove`](https://ariakit.org/reference/composite#focusonmove) prop\ninstead. If you want to control the behavior _only when arrow keys are\npressed_, where\n[`focusOnMove`](https://ariakit.org/reference/composite#focusonmove) may\nnot be applicable, this prop must be set on composite items as well.\n@example ```jsx\n<Composite moveOnKeyPress={false}>\n  <CompositeItem moveOnKeyPress={false} />\n  <CompositeItem moveOnKeyPress={false} />\n</Composite>\n```",
         "name": "moveOnKeyPress",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/composite/composite.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/composite/composite.d.ts",
           "name": "CompositeOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/composite/composite.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/composite/composite.d.ts",
             "name": "CompositeOptions"
           }
         ],
@@ -1316,12 +1316,12 @@
         "description": "This is an event handler prop triggered when the dialog's `close` event is\ndispatched. The `close` event is similar to the native dialog\n[`close`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/close_event)\nevent. The only difference is that this event can be canceled with\n`event.preventDefault()`, which will prevent the dialog from hiding.\n\nIt's important to note that this event only fires when the dialog store's\n[`open`](https://ariakit.org/reference/use-dialog-store#open) state is set\nto `false`. If the controlled\n[`open`](https://ariakit.org/reference/dialog#open) prop value changes, or\nif the dialog's visibility is altered in any other way (such as unmounting\nthe dialog without adjusting the open state), this event won't be\ntriggered.\n\nLive examples:\n- [Dialog with scrollable\n  backdrop](https://ariakit.org/examples/dialog-backdrop-scrollable)\n- [Dialog with details &\n  summary](https://ariakit.org/examples/dialog-details)\n- [Warning on Dialog\n  hide](https://ariakit.org/examples/dialog-hide-warning)\n- [Dialog with Menu](https://ariakit.org/examples/dialog-menu)",
         "name": "onClose",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/dialog/dialog.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/dialog/dialog.d.ts",
           "name": "DialogOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/dialog/dialog.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/dialog/dialog.d.ts",
             "name": "DialogOptions"
           }
         ],
@@ -1335,12 +1335,12 @@
         "description": "Custom event handler invoked when the element gains focus through keyboard\ninteraction or a key press occurs while the element is in focus. This is\nthe programmatic equivalent of the\n[`data-focus-visible`](https://ariakit.org/guide/styling#data-focus-visible)\nattribute.\n\n**Note**: For this prop to work, the\n[`focusable`](https://ariakit.org/reference/command#focusable) prop must be\nset to `true`, if it's not set by default.\n\nLive examples:\n- [Navigation Menubar](https://ariakit.org/examples/menubar-navigation)\n- [Custom Checkbox](https://ariakit.org/examples/checkbox-custom)",
         "name": "onFocusVisible",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/focusable/focusable.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/focusable/focusable.d.ts",
           "name": "FocusableOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/focusable/focusable.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/focusable/focusable.d.ts",
             "name": "FocusableOptions"
           }
         ],
@@ -1354,12 +1354,12 @@
         "description": "Controls the open state of the dialog. This is similar to the\n[`open`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/open)\nattribute on native dialog elements.\n\nLive examples:\n- [Dialog with scrollable\n  backdrop](https://ariakit.org/examples/dialog-backdrop-scrollable)\n- [Dialog with details &\n  summary](https://ariakit.org/examples/dialog-details)\n- [Warning on Dialog\n  hide](https://ariakit.org/examples/dialog-hide-warning)\n- [Dialog with Menu](https://ariakit.org/examples/dialog-menu)",
         "name": "open",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/dialog/dialog.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/dialog/dialog.d.ts",
           "name": "DialogOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/dialog/dialog.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/dialog/dialog.d.ts",
             "name": "DialogOptions"
           }
         ],
@@ -1384,12 +1384,12 @@
         "description": "The minimum padding between the popover and the viewport edge. This will be\nexposed to CSS as\n[`--popover-overflow-padding`](https://ariakit.org/guide/styling#--popover-overflow-padding).\n\nLive examples:\n- [Sliding Menu](https://ariakit.org/examples/menu-slide)",
         "name": "overflowPadding",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/popover/popover.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/popover/popover.d.ts",
           "name": "PopoverOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/popover/popover.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/popover/popover.d.ts",
             "name": "PopoverOptions"
           }
         ],
@@ -1405,12 +1405,12 @@
         "description": "Whether the popover can overlap the anchor element when it overflows.\n\nLive examples:\n- [Menubar](https://ariakit.org/components/menubar)\n- [Submenu with\n  Combobox](https://ariakit.org/examples/menu-nested-combobox)",
         "name": "overlap",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/popover/popover.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/popover/popover.d.ts",
           "name": "PopoverOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/popover/popover.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/popover/popover.d.ts",
             "name": "PopoverOptions"
           }
         ],
@@ -1435,12 +1435,12 @@
         "description": "Determines whether the element should be rendered as a React Portal.\n\nLive examples:\n- [Combobox with integrated\n  filter](https://ariakit.org/examples/combobox-filtering-integrated)\n- [Dialog with Menu](https://ariakit.org/examples/dialog-menu)\n- [Hovercard with keyboard\n  support](https://ariakit.org/examples/hovercard-disclosure)\n- [Menubar](https://ariakit.org/components/menubar)\n- [Standalone Popover](https://ariakit.org/examples/popover-standalone)\n- [Animated Select](https://ariakit.org/examples/select-animated)",
         "name": "portal",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/portal/portal.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/portal/portal.d.ts",
           "name": "PortalOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/portal/portal.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/portal/portal.d.ts",
             "name": "PortalOptions"
           }
         ],
@@ -1463,12 +1463,12 @@
         "description": "An HTML element or a memoized callback function that returns an HTML\nelement to be used as the portal element. By default, the portal element\nwill be a `div` element appended to the `document.body`.\n\nLive examples:\n- [Navigation Menubar](https://ariakit.org/examples/menubar-navigation)\n@example ```jsx\nconst [portal, setPortal] = useState(null);\n\n<Portal portalElement={portal} />\n<div ref={setPortal} />\n```\n@example ```jsx\nconst getPortalElement = useCallback(() => {\n  const div = document.createElement(\"div\");\n  const portalRoot = document.getElementById(\"portal-root\");\n  portalRoot.appendChild(div);\n  return div;\n}, []);\n\n<Portal portalElement={getPortalElement} />\n```",
         "name": "portalElement",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/portal/portal.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/portal/portal.d.ts",
           "name": "PortalOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/portal/portal.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/portal/portal.d.ts",
             "name": "PortalOptions"
           }
         ],
@@ -1479,8 +1479,8 @@
           "value": [
             {
               "value": "HTMLElement",
-              "description": "Any HTML element. Some elements directly implement this interface, while others implement it via an interface that inherits it.",
-              "fullComment": "Any HTML element. Some elements directly implement this interface, while others implement it via an interface that inherits it.",
+              "description": "Any HTML element. Some elements directly implement this interface, while others implement it via an interface that inherits it.\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLElement)",
+              "fullComment": "Any HTML element. Some elements directly implement this interface, while others implement it via an interface that inherits it.\n\n[MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLElement)",
               "tags": {}
             },
             {
@@ -1497,12 +1497,12 @@
         "description": "`portalRef` is similar to `ref` but is scoped to the portal node. It's\nuseful when you need to be informed when the portal element is appended to\nthe DOM or removed from the DOM.\n\nLive examples:\n- [Form with Select](https://ariakit.org/examples/form-select)\n@example ```jsx\nconst [portalElement, setPortalElement] = useState(null);\n\n<Portal portalRef={setPortalElement} />\n```",
         "name": "portalRef",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/portal/portal.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/portal/portal.d.ts",
           "name": "PortalOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/portal/portal.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/portal/portal.d.ts",
             "name": "PortalOptions"
           }
         ],
@@ -1533,12 +1533,12 @@
         "description": "When enabled, `preserveTabOrder` will keep the DOM element's tab order the\nsame as the order in which the underlying\n[`Portal`](https://ariakit.org/reference/portal) component was mounted in\nthe React tree.\n\nIf the\n[`preserveTabOrderAnchor`](https://ariakit.org/reference/portal#preservetaborderanchor)\nprop is provided, the tab order will be preserved relative to that element.",
         "name": "preserveTabOrder",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/portal/portal.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/portal/portal.d.ts",
           "name": "PortalOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/portal/portal.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/portal/portal.d.ts",
             "name": "PortalOptions"
           }
         ],
@@ -1561,12 +1561,12 @@
         "description": "An anchor element for maintaining the tab order when\n[`preserveTabOrder`](https://ariakit.org/reference/portal#preservetaborder)\nprop is enabled. The tab order will be kept relative to this element.\n\nBy default, the tab order is kept relative to the original location in the\nReact tree where the underlying\n[`Portal`](https://ariakit.org/reference/portal) component was mounted.\n@example ```jsx {18-20}\nconst [anchor, setAnchor] = useState(null);\n\n<button ref={setAnchor}>Order 0</button>\n<button>Order 2</button>\n\n// Rendered at the end of the document.\n<Portal>\n  <button>Order 5</button>\n</Portal>\n\n// Rendered at the end of the document, but the tab order is preserved.\n<Portal preserveTabOrder>\n  <button>Order 3</button>\n</Portal>\n\n// Rendered at the end of the document, but the tab order is preserved\n// relative to the anchor element.\n<Portal preserveTabOrder preserveTabOrderAnchor={anchor}>\n  <button>Order 1</button>\n</Portal>\n\n<button>Order 4</button>\n```",
         "name": "preserveTabOrderAnchor",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/portal/portal.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/portal/portal.d.ts",
           "name": "PortalOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/portal/portal.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/portal/portal.d.ts",
             "name": "PortalOptions"
           }
         ],
@@ -1580,12 +1580,12 @@
         "description": "Determines whether the body scrolling will be prevented when the dialog is\nshown. This is automatically set to `true` when the dialog is\n[`modal`](https://ariakit.org/reference/dialog#modal). You can disable this\nprop if you want to implement your own logic.",
         "name": "preventBodyScroll",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/dialog/dialog.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/dialog/dialog.d.ts",
           "name": "DialogOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/dialog/dialog.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/dialog/dialog.d.ts",
             "name": "DialogOptions"
           }
         ],
@@ -1608,12 +1608,12 @@
         "description": "Allows the component to be rendered as a different HTML element or React\ncomponent. The value can be a React element or a function that takes in the\noriginal component props and gives back a React element with the props\nmerged.\n\nCheck out the [Composition](https://ariakit.org/guide/composition) guide\nfor more details.",
         "name": "render",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/utils/types.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/utils/types.d.ts",
           "name": "Options"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/utils/types.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/utils/types.d.ts",
             "name": "Options"
           }
         ],
@@ -1647,12 +1647,12 @@
         "description": "Whether the popover should have the same width as the anchor element. This\nwill be exposed to CSS as\n[`--popover-anchor-width`](https://ariakit.org/guide/styling#--popover-anchor-width).",
         "name": "sameWidth",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/popover/popover.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/popover/popover.d.ts",
           "name": "PopoverOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/popover/popover.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/popover/popover.d.ts",
             "name": "PopoverOptions"
           }
         ],
@@ -1677,12 +1677,12 @@
         "description": "The skidding of the popover along the anchor element. Can be set to\nnegative values to make the popover shift to the opposite side.\n\nLive examples:\n- [Combobox with Tabs](https://ariakit.org/examples/combobox-tabs)\n- [Navigation Menubar](https://ariakit.org/examples/menubar-navigation)\n- [Submenu](https://ariakit.org/examples/menu-nested)\n- [Menubar](https://ariakit.org/components/menubar)\n- [Select with Combobox and\n  Tabs](https://ariakit.org/examples/select-combobox-tab)",
         "name": "shift",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/popover/popover.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/popover/popover.d.ts",
           "name": "PopoverOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/popover/popover.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/popover/popover.d.ts",
             "name": "PopoverOptions"
           }
         ],
@@ -1698,12 +1698,12 @@
         "description": "Whether the popover should slide when it overflows.",
         "name": "slide",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/popover/popover.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/popover/popover.d.ts",
           "name": "PopoverOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/popover/popover.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/popover/popover.d.ts",
             "name": "PopoverOptions"
           }
         ],
@@ -1726,12 +1726,12 @@
         "description": "Object returned by the\n[`useMenuStore`](https://ariakit.org/reference/use-menu-store) hook. If not\nprovided, the closest\n[`MenuProvider`](https://ariakit.org/reference/menu-provider) component's\ncontext will be used.",
         "name": "store",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/menu/menu-list.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/menu/menu-list.d.ts",
           "name": "MenuListOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/menu/menu-list.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/menu/menu-list.d.ts",
             "name": "MenuListOptions"
           }
         ],
@@ -1747,12 +1747,12 @@
         "description": "When enabled, pressing printable character keys will move focus to the next\ncomposite item that starts with the entered characters.",
         "name": "typeahead",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/composite/composite-typeahead.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/composite/composite-typeahead.d.ts",
           "name": "CompositeTypeaheadOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/composite/composite-typeahead.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/composite/composite-typeahead.d.ts",
             "name": "CompositeTypeaheadOptions"
           }
         ],
@@ -1777,12 +1777,12 @@
         "description": "When set to `true`, the content element will be unmounted and removed from\nthe DOM when it's hidden.\n\nLive examples:\n- [Navigation Menubar](https://ariakit.org/examples/menubar-navigation)\n- [Combobox with integrated\n  filter](https://ariakit.org/examples/combobox-filtering-integrated)\n- [Textarea with inline\n  Combobox](https://ariakit.org/examples/combobox-textarea)\n- [Standalone Popover](https://ariakit.org/examples/popover-standalone)\n- [Animated Select](https://ariakit.org/examples/select-animated)\n- [Multi-Select](https://ariakit.org/examples/select-multiple)",
         "name": "unmountOnHide",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/disclosure/disclosure-content.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/disclosure/disclosure-content.d.ts",
           "name": "DisclosureContentOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/disclosure/disclosure-content.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/disclosure/disclosure-content.d.ts",
             "name": "DisclosureContentOptions"
           }
         ],
@@ -1805,12 +1805,12 @@
         "description": "@private",
         "name": "unstable_treeSnapshotKey",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/dialog/dialog.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/dialog/dialog.d.ts",
           "name": "DialogOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/dialog/dialog.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/dialog/dialog.d.ts",
             "name": "DialogOptions"
           }
         ],
@@ -1839,12 +1839,12 @@
         "description": "A callback that will be called when the popover needs to calculate its\nposition. This will override the internal `updatePosition` function. The\noriginal `updatePosition` function will be passed as an argument, so it can\nbe called inside the callback to apply the default behavior.\n\nLive examples:\n - [Responsive Popover](https://ariakit.org/examples/popover-responsive)",
         "name": "updatePosition",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/popover/popover.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/popover/popover.d.ts",
           "name": "PopoverOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/popover/popover.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/popover/popover.d.ts",
             "name": "PopoverOptions"
           }
         ],
@@ -1858,12 +1858,12 @@
         "description": "",
         "name": "wrapElement",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/utils/types.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/utils/types.d.ts",
           "name": "Options"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/utils/types.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/utils/types.d.ts",
             "name": "Options"
           }
         ],
@@ -1877,12 +1877,12 @@
         "description": "Props that will be passed to the popover wrapper element. This element will\nbe used to position the popover.\n\nLive examples:\n- [Navigation Menubar](https://ariakit.org/examples/menubar-navigation)\n- [Sliding Menu](https://ariakit.org/examples/menu-slide)",
         "name": "wrapperProps",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/popover/popover.d.ts",
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/popover/popover.d.ts",
           "name": "PopoverOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/cjs/popover/popover.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/popover/popover.d.ts",
             "name": "PopoverOptions"
           }
         ],

@@ -1,8 +1,9 @@
-import styled, { css, th, Theme } from '@xstyled/styled-components'
-
-import { BreadcrumbOptions } from './index'
+import type { Theme } from '@xstyled/styled-components'
+import styled, { css, th } from '@xstyled/styled-components'
 
 import { hexToRGBA } from '@/utils'
+
+import type { BreadcrumbOptions } from './index'
 
 export const StartGradient = styled.spanBox<Pick<BreadcrumbOptions, 'gradientBackground'>>(
   ({ gradientBackground, theme }) => css`

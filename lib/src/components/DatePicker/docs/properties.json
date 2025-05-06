@@ -27,29 +27,29 @@
         "description": "",
         "name": "icon",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@types/react-datepicker/index.d.ts",
-          "name": "ReactDatePickerProps"
+          "fileName": "welcome-ui/lib/src/components/DateTimePickerCommon/CustomInput.tsx",
+          "name": "CustomInputOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/node_modules/@types/react-datepicker/index.d.ts",
-            "name": "ReactDatePickerProps"
-          },
-          {
             "fileName": "welcome-ui/lib/src/components/DateTimePickerCommon/CustomInput.tsx",
             "name": "CustomInputOptions"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/@types/react-datepicker/index.d.ts",
+            "name": "ReactDatePickerProps"
           }
         ],
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "(string | ReactElement<any, string | JSXElementConstructor<any>>) & Element",
+          "raw": "Element & (string | ReactElement<any, string | JSXElementConstructor<any>>)",
           "value": [
             {
-              "value": "string & Element"
+              "value": "Element & string"
             },
             {
-              "value": "ReactElement<any, string | JSXElementConstructor<any>> & Element"
+              "value": "Element & ReactElement<any, string | JSXElementConstructor<any>>"
             }
           ]
         }

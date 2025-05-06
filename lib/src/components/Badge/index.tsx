@@ -1,13 +1,14 @@
 import React from 'react'
 
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
+
 import * as S from './styles'
 
-import { CreateWuiProps, forwardRef } from '@/System'
-
 export type BadgeOptions = {
-  children: React.ReactElement | string | number
+  children: number | React.ReactElement | string
   disabled?: boolean
-  size?: 'sm' | 'md'
+  size?: 'md' | 'sm'
   variant?: 'default' | 'primary'
   // if a number is higher than 99, we replace this number by 99+
   withNumberAbbreviation?: boolean

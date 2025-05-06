@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Alert } from '../'
 import { render } from '../../../../tests'
 
@@ -56,7 +54,7 @@ describe('<Alert>', () => {
       <Alert
         cta={
           <>
-            {false && <Alert.Button dataTestId="button" />}
+            {false ? <Alert.Button dataTestId="button" /> : null}
             <Alert.SecondaryButton dataTestId="secondary-button" />
           </>
         }

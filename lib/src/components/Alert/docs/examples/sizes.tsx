@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import { Alert } from '@/Alert'
 import { Stack } from '@/Stack'
 

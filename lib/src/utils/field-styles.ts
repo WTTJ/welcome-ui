@@ -1,6 +1,10 @@
 import { css, th } from '@xstyled/styled-components'
 
-export type DefaultFieldIconSize = 'sm' | 'xs'
+// we want to keep DefaultFieldIconSize in a natural order for documentation
+// eslint-disable-next-line perfectionist/sort-union-types
+export type DefaultFieldIconSize = 'xs' | 'sm'
+// we want to keep Size in a natural order for documentation
+// eslint-disable-next-line perfectionist/sort-union-types
 export type Size = 'xs' | 'sm' | 'md' | 'lg'
 
 export const FIELD_ICON_SIZE: {
@@ -14,7 +18,7 @@ export const FIELD_ICON_SIZE: {
 
 export type DefaultFieldStylesProps = Partial<{
   hasIcon?: boolean
-  iconPlacement?: 'right' | 'left' | 'both'
+  iconPlacement?: 'both' | 'left' | 'right'
   isClearable?: boolean
   size: Size
   transparent?: boolean

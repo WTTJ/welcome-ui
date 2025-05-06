@@ -1,9 +1,9 @@
-import React from 'react'
 import { useTheme } from '@xstyled/styled-components'
+import React from 'react'
 
 import * as S from './styles'
 
-import { LogoProps } from '.'
+import type { LogoProps } from '.'
 
 export const Welcome: React.FC<LogoProps> = props => {
   const theme = useTheme()

@@ -1,30 +1,12 @@
-import React, { PropsWithoutRef } from 'react'
-import { SystemProps } from '@xstyled/styled-components'
 import isPropValid from '@emotion/is-prop-valid'
+import type { SystemProps } from '@xstyled/styled-components'
+import type { PropsWithoutRef } from 'react'
+import React from 'react'
 
 export const shouldForwardProp = (prop: string) => isPropValid(prop)
 
-export interface WuiTestProps {
-  dataTestId?: string
-}
-
-export type WuiProps = SystemProps
-
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type As<Props = any> = React.ElementType<Props>
-
-export type RightJoinProps<SourceProps, OverrideProps> = Omit<SourceProps, keyof OverrideProps> &
-  OverrideProps
-
-export type MergeProps<ComponentProps, Props, WuiProps> = RightJoinProps<ComponentProps, Props> &
-  RightJoinProps<WuiProps, Props>
-
-// eslint-disable-next-line @typescript-eslint/ban-types
-export type CreateWuiProps<Component extends As, Props = {}> = MergeProps<
-  Omit<React.ComponentProps<Component>, keyof WuiProps>,
-  Props,
-  WuiProps & WuiTestProps & { as?: As }
->
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 export type CreateWuiComponent<Component extends As, Options = {}> = {
@@ -33,6 +15,25 @@ export type CreateWuiComponent<Component extends As, Options = {}> = {
   ): JSX.Element
   (props: CreateWuiProps<Component, Options>): JSX.Element
   displayName?: string
+}
+
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type CreateWuiProps<Component extends As, Props = {}> = MergeProps<
+  Omit<React.ComponentProps<Component>, keyof WuiProps>,
+  Props,
+  WuiProps & WuiTestProps & { as?: As }
+>
+
+export type MergeProps<ComponentProps, Props, WuiProps> = RightJoinProps<ComponentProps, Props> &
+  RightJoinProps<WuiProps, Props>
+
+export type RightJoinProps<SourceProps, OverrideProps> = Omit<SourceProps, keyof OverrideProps> &
+  OverrideProps
+
+export type WuiProps = SystemProps
+
+export interface WuiTestProps {
+  dataTestId?: string
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-types

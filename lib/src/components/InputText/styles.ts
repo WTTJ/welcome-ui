@@ -1,21 +1,21 @@
 import styled, { css } from '@xstyled/styled-components'
 
-import { defaultFieldStyles } from '../../utils/field-styles'
-
-import { InputTextOptions } from './index'
-
 import { shouldForwardProp } from '@/System'
 
+import { defaultFieldStyles } from '../../utils/field-styles'
+
+import type { InputTextOptions } from './index'
+
 export const InputText = styled.inputBox.withConfig({ shouldForwardProp })<
-  Pick<InputTextOptions, 'iconPlacement' | 'isClearable' | 'transparent' | 'variant' | 'size'>
+  Pick<InputTextOptions, 'iconPlacement' | 'isClearable' | 'size' | 'transparent' | 'variant'>
 >(
   ({ iconPlacement, isClearable, size, transparent, variant }) => css`
     ${defaultFieldStyles({
-      size,
-      variant,
-      transparent,
-      isClearable,
       iconPlacement,
+      isClearable,
+      size,
+      transparent,
+      variant,
     })};
     text-overflow: ellipsis;
   `

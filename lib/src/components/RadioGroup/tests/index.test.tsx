@@ -1,8 +1,7 @@
-import React from 'react'
 import { screen } from '@testing-library/react'
 
-import { render } from '../../../../tests'
 import { RadioGroup } from '../'
+import { render } from '../../../../tests'
 import { RadioTab } from '../../RadioTab'
 
 const options = [
@@ -78,7 +77,7 @@ describe('<RadioGroup />', () => {
         dataTestId={name}
         name={name}
         onChange={onChange}
-        options={[{ value: 'valueHint', label: 'labelHint', hint: 'hint' }, ...options]}
+        options={[{ hint: 'hint', label: 'labelHint', value: 'valueHint' }, ...options]}
       />
     )
 

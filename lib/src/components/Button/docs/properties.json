@@ -1,6 +1,5 @@
 {
   "Button": {
-    "tag": "button",
     "props": {
       "ai": {
         "defaultValue": null,
@@ -200,6 +199,9 @@
           "raw": "Variant",
           "value": [
             {
+              "value": "\"ghost\""
+            },
+            {
               "value": "\"primary\""
             },
             {
@@ -207,13 +209,11 @@
             },
             {
               "value": "\"tertiary\""
-            },
-            {
-              "value": "\"ghost\""
             }
           ]
         }
       }
-    }
+    },
+    "tag": "button"
   }
 }
