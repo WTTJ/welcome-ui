@@ -48,9 +48,8 @@ export const Header: React.FC<HeaderProps> = ({
       gap="xl"
       justifyContent="space-between"
       mb="xl"
-      mt="-md"
+      pb="md"
       position="sticky"
-      py="md"
       top={0}
       zIndex={1}
     >
