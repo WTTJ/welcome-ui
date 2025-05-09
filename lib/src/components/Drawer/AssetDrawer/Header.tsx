@@ -50,7 +50,7 @@ export const Header: React.FC<HeaderProps> = ({
       mb="xl"
       pb="md"
       position="sticky"
-      top="-xxl"
+      top={0}
       zIndex={1}
     >
       <Box alignItems="center" display="flex" gap={{ _: 'md', md: 'xl' }}>

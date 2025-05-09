@@ -58,9 +58,9 @@ export const AssetDrawerComponent = forwardRef<'div', AssetDrawerProps>(
         }}
         withBackdrop
       >
-        <Box h="100%" overflowY="auto" pt="xxl" w="100%">
-          <S.Content maxWidth={maxWidth} mt="-xxl">
-            <Box p={{ _: 'xl md', md: '3xl xl' }}>{children}</Box>
+        <Box h="100%" mt={{ _: 'xl', md: '3xl' }} overflowY="auto" w="100%">
+          <S.Content maxWidth={maxWidth}>
+            <Box p={{ _: '0 md xl', md: '0 xl 3xl' }}>{children}</Box>
           </S.Content>
         </Box>
       </Drawer>
