@@ -48,6 +48,7 @@ export const AssetDrawerComponent = forwardRef<'div', AssetDrawerProps>(
         getPersistentElements={getPersistentElements}
         h={{ _: '100%', md: 'calc(100% - 3rem)' }}
         hideOnInteractOutside={hideOnInteractOutside}
+        overflow="hidden"
         placement="bottom"
         ref={ref}
         store={store}
@@ -57,9 +58,11 @@ export const AssetDrawerComponent = forwardRef<'div', AssetDrawerProps>(
         }}
         withBackdrop
       >
-        <S.Content maxWidth={maxWidth}>
-          <Box p={{ _: 'xl md', md: '3xl xl' }}>{children}</Box>
-        </S.Content>
+        <Box h="100%" mt={{ _: 'xl', md: '3xl' }} overflowY="auto" w="100%">
+          <S.Content maxWidth={maxWidth}>
+            <Box p={{ _: '0 md xl', md: '0 xl 3xl' }}>{children}</Box>
+          </S.Content>
+        </Box>
       </Drawer>
     )
   }
