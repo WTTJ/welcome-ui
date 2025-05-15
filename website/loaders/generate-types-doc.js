@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-
 const { existsSync, readdirSync, writeFileSync } = require('fs')
 const { join, resolve } = require('path')
 
@@ -31,8 +29,8 @@ const propFilter = prop => {
 
 const { parse } = docgen.withCustomConfig(tsConfigPath, {
   propFilter,
-  shouldRemoveUndefinedFromOptional: true,
   shouldExtractValuesFromUnion: true,
+  shouldRemoveUndefinedFromOptional: true,
 })
 
 const isComponentFile = file => {
@@ -116,13 +114,13 @@ async function generateTypesDoc(component) {
 
       if (props) {
         componentProps[name] = {
-          tag: tags?.tag,
           props: Object.keys(props)
             .sort()
             .reduce((obj, key) => {
               obj[key] = props[key]
               return obj
             }, {}),
+          tag: tags?.tag,
         }
       }
     })

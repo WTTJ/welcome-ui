@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
 import { screen } from '@testing-library/react'
+import React, { useEffect, useState } from 'react'
 
-import { Modal, UseModal, useModal } from '../'
+import type { UseModal } from '../'
+import { Modal, useModal } from '../'
 import { render } from '../../../../tests'
 
 describe('<Modal>', () => {
@@ -56,8 +57,7 @@ describe('<Modal>', () => {
 
   it('should render with data-enter attribute', async () => {
     const Test = () => {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const [count, setCount] = useState(1)
+      const [, setCount] = useState(1)
       const modal = useModal()
 
       return (

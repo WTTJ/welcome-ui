@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import { Alert } from '@/Alert'
 
 const Example = () => {

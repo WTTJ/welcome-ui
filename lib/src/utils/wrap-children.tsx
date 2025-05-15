@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const wrapChildren = (children?: string | JSX.Element): unknown =>
+export const wrapChildren = (children?: JSX.Element | string): unknown =>
   React.Children.toArray(children).map(child =>
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     /* @ts-ignore */

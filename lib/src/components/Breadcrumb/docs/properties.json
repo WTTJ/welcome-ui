@@ -68,6 +68,9 @@
               "value": "\"violet-40\""
             },
             {
+              "value": "\"overlay\""
+            },
+            {
               "value": "\"primary-10\""
             },
             {
@@ -111,9 +114,6 @@
             },
             {
               "value": "\"secondary-violet\""
-            },
-            {
-              "value": "\"overlay\""
             },
             {
               "value": "\"beige-10\""

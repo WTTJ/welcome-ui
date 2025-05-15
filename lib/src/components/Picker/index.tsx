@@ -1,12 +1,14 @@
-import React from 'react'
 import * as Ariakit from '@ariakit/react'
+import React from 'react'
+
+import { Box } from '@/Box'
+import type { FieldGroupOptions } from '@/FieldGroup'
+import { FieldGroup } from '@/FieldGroup'
+import { Label } from '@/Label'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
 
 import * as S from './styles'
-
-import { Label } from '@/Label'
-import { FieldGroup, FieldGroupOptions } from '@/FieldGroup'
-import { Box } from '@/Box'
-import { CreateWuiProps, forwardRef } from '@/System'
 
 export interface PickerOption {
   element: React.ComponentType<{ selected: boolean }>
@@ -48,7 +50,7 @@ export const Picker = forwardRef<'fieldset', PickerProps>(
           {options.map(({ element: Component, value: optValue }) => (
             <Label
               checkableField
-              dataTestId={dataTestId && `${dataTestId}-item-${name}-${optValue}`}
+              dataTestId={dataTestId ? `${dataTestId}-item-${name}-${optValue}` : null}
               key={`${label}-${name}-${optValue}`}
               onClick={handleClick}
             >

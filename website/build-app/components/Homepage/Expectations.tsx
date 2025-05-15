@@ -1,6 +1,5 @@
 import { Box } from '@/Box'
 import { Card } from '@/Card'
-import { Text } from '@/Text'
 import {
   ActionsIcon,
   BookIcon,
@@ -11,6 +10,7 @@ import {
   PencilIcon,
   UserIcon,
 } from '@/Icons'
+import { Text } from '@/Text'
 
 type ExpectationProps = {
   description: string
@@ -20,52 +20,52 @@ type ExpectationProps = {
 
 const expectations: ExpectationProps[] = [
   {
-    title: 'Design',
-    icon: PencilIcon,
     description:
       'Carefully constructed by our Welcome to the Jungle designers, ensuring perfect consistency in your app design!',
+    icon: PencilIcon,
+    title: 'Design',
   },
   {
-    title: 'Documentation',
-    icon: BookIcon,
     description:
       'Complete documentation with live code editors to help easily you implement our design system.',
+    icon: BookIcon,
+    title: 'Documentation',
   },
   {
-    title: 'Productivity gain',
-    icon: FactoryIcon,
     description:
       'A time-saver UI framework, designed to increase your productivity and your development experience.',
+    icon: FactoryIcon,
+    title: 'Productivity gain',
   },
   {
-    title: 'Customizable',
-    icon: GearIcon,
     description:
       'Allows you to use default themes as well as your own fully personalized ones, for made-to-measure components.',
+    icon: GearIcon,
+    title: 'Customizable',
   },
   {
-    title: 'Accessibility',
-    icon: UserIcon,
     description:
       'We are trying to offer an accessible experience as much as we can, using Ariakit for instance.',
+    icon: UserIcon,
+    title: 'Accessibility',
   },
   {
-    title: 'Typing',
-    icon: BurnIcon,
     description:
       'Migrated to Typescript since v4, WUI offers you the safety of a strongly typed library.',
+    icon: BurnIcon,
+    title: 'Typing',
   },
   {
-    title: 'Support',
-    icon: BuoyIcon,
     description:
       'A developer team engaged in helping you, maintaining, as well as always improving its design system.',
+    icon: BuoyIcon,
+    title: 'Support',
   },
   {
-    title: 'Mobile first',
-    icon: ActionsIcon,
     description:
       'Make sure to offer an optimized mobile experience to your users thanks to our mobile oriented vision.',
+    icon: ActionsIcon,
+    title: 'Mobile first',
   },
 ]
 
@@ -88,7 +88,7 @@ export const Expectations = () => {
     <Box
       display="grid"
       gap="lg"
-      gridTemplateColumns={{ xs: '1fr', md: '1fr 1fr 1fr', lg: '1fr 1fr 1fr 1fr' }}
+      gridTemplateColumns={{ lg: '1fr 1fr 1fr 1fr', md: '1fr 1fr 1fr', xs: '1fr' }}
     >
       {expectations.map(expectation => (
         <Expectation key={expectation.title} {...expectation} />

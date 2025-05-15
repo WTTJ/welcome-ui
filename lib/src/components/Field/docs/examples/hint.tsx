@@ -1,8 +1,6 @@
-import * as React from 'react'
-
-import { InputText } from '@/InputText'
-import { Field } from '@/Field'
 import { Checkbox } from '@/Checkbox'
+import { Field } from '@/Field'
+import { InputText } from '@/InputText'
 
 const Example = () => {
   return (

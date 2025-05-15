@@ -1,13 +1,11 @@
-import * as React from 'react'
-
-import { Search } from '@/Search'
 import { Box } from '@/Box'
-import { Text } from '@/Text'
+import { Search } from '@/Search'
 import { Tag } from '@/Tag'
-
-type Item = { Title: string; Type: 'movie' | 'serie' }
+import { Text } from '@/Text'
 
 type Acc = { movies: Item[]; series: Item[] }
+
+type Item = { Title: string; Type: 'movie' | 'serie' }
 
 const Example = () => {
   const searchFunction = async (s: string) => {
@@ -52,7 +50,7 @@ const Example = () => {
         </Box>
       )}
       renderItem={(item: Item) => (
-        <div style={{ display: 'flex', alignItems: 'center' }}>{item.Title}</div>
+        <div style={{ alignItems: 'center', display: 'flex' }}>{item.Title}</div>
       )}
       search={searchFunction}
     />

@@ -1,14 +1,16 @@
-import { join } from 'path'
 import { existsSync, readFileSync } from 'fs'
-
-import { Colors } from '../Colors'
-import { Theme } from '../Theme'
-import { IconListProps, IconsList } from '../IconsList'
-
-import { Playground } from './Playground'
+import { join } from 'path'
 
 import { Alert } from '@/Alert'
-import examples from '~/build-app/examples'
+
+import type examples from '~/build-app/examples'
+
+import { Colors } from '../Colors'
+import type { IconListProps } from '../IconsList'
+import { IconsList } from '../IconsList'
+import { Theme } from '../Theme'
+
+import { Playground } from './Playground'
 
 type DivProps = {
   children: string

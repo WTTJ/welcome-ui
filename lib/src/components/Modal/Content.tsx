@@ -1,12 +1,12 @@
-import React, { Children, cloneElement, useEffect, useMemo, useState } from 'react'
 import { useTheme } from '@xstyled/styled-components'
+import React, { Children, cloneElement, useEffect, useMemo, useState } from 'react'
+
+import { Box } from '@/Box'
+import { forwardRef } from '@/System'
 
 import { Close } from './Close'
 
-import { UseModal } from '.'
-
-import { forwardRef } from '@/System'
-import { Box } from '@/Box'
+import type { UseModal } from '.'
 
 export interface ContentOptions {
   children: React.ReactNode
@@ -34,7 +34,7 @@ export const Content = forwardRef<'div', ContentProps>(
       () =>
         Children.map(children, child => {
           if (React.isValidElement(child)) {
-            const componentType = child.type as React.FunctionComponent | React.ComponentClass
+            const componentType = child.type as React.ComponentClass | React.FunctionComponent
             return componentType.displayName ?? componentType.name ?? ''
           }
           return ''
@@ -64,8 +64,8 @@ export const Content = forwardRef<'div', ContentProps>(
 
       if (name === 'Footer') {
         return {
-          pt: components.includes('Header') || components.includes('Body') ? null : space.lg,
           borderWidth: borderOnFooter ? borderWidths.sm : '0',
+          pt: components.includes('Header') || components.includes('Body') ? null : space.lg,
         }
       }
 

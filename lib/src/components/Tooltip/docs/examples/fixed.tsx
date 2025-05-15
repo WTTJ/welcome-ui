@@ -1,7 +1,5 @@
-import * as React from 'react'
-
-import { Tooltip } from '@/Tooltip'
 import { Button } from '@/Button'
+import { Tooltip } from '@/Tooltip'
 
 const Example = () => {
   return (

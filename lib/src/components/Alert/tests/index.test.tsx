@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Alert } from '../'
 import { render } from '../../../../tests'
 
@@ -52,11 +50,13 @@ describe('<Alert>', () => {
   })
 
   it('should render correctly with CTA', () => {
+    const isFalse = false
+
     const { getByTestId, queryByTestId } = render(
       <Alert
         cta={
           <>
-            {false && <Alert.Button dataTestId="button" />}
+            {isFalse ? <Alert.Button dataTestId="button" /> : null}
             <Alert.SecondaryButton dataTestId="secondary-button" />
           </>
         }

@@ -1,29 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react'
 
+import { Box } from '@/Box'
+import { Button } from '@/Button'
+import type { FileType } from '@/Files'
+import { getFileIcon, getFileName, getFileSize } from '@/Files'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
+import type { TagProps } from '@/Tag'
+import { Tag } from '@/Tag'
+
 import { createEvent } from '../../utils/create-event'
 
 import * as S from './styles'
 
-import { Button } from '@/Button'
-import { CreateWuiProps, forwardRef } from '@/System'
-import { FileType, getFileIcon, getFileName, getFileSize } from '@/Files'
-import { Tag, TagProps } from '@/Tag'
-import { Box } from '@/Box'
-
 const DEFAULT_MAX_FILE_SIZE = 2000000
 const DEFAULT_FILE_TYPES = '*/*'
-
-type FileWithPreview = File & {
-  name?: string
-  preview?: string
-}
-type FileWithPreviewType = FileWithPreview | string
-type HandleRemoveType = (file: FileWithPreviewType) => void
-
-export type FileUploadPreviewProps = {
-  file: FileType
-  onRemove: TagProps['onRemove']
-}
 
 export interface FileUploadOptions {
   /** Pass a comma-separated string of file types e.g. "image/png" or "image/png,image/jpeg" */
@@ -34,17 +25,29 @@ export interface FileUploadOptions {
     onRemoveFile: HandleRemoveType
     openFile: () => void
   }) => React.ReactNode
-  handleAddFile?: (files: FileWithPreviewType[] | FileWithPreviewType) => void
+  handleAddFile?: (files: FileWithPreviewType | FileWithPreviewType[]) => void
   handleRemoveFile?: HandleRemoveType
   maxSize?: number
   onBlur?: () => void
   onChange?: (event: ReturnType<typeof createEvent>) => void
   preview?: typeof DefaultPreview
 }
-
+export type FileUploadPreviewProps = {
+  file: FileType
+  onRemove: TagProps['onRemove']
+}
 export type FileUploadProps = CreateWuiProps<'input', FileUploadOptions>
 
-const ensureArray: (value: unknown[] | unknown) => FileWithPreviewType[] = value => {
+type FileWithPreview = File & {
+  name?: string
+  preview?: string
+}
+
+type FileWithPreviewType = FileWithPreview | string
+
+type HandleRemoveType = (file: FileWithPreviewType) => void
+
+const ensureArray: (value: unknown | unknown[]) => FileWithPreviewType[] = value => {
   if (Array.isArray(value)) {
     return value
   } else if (value) {
@@ -62,7 +65,7 @@ const DefaultPreview: React.FC<FileUploadPreviewProps> = ({ file, onRemove }) =>
     <Tag data-id={name} key={name} mr="sm" mt="sm" onRemove={onRemove}>
       <Icon size="md" />
       {name}
-      {size && <Box color="beige-60">({size})</Box>}
+      {size ? <Box color="beige-60">({size})</Box> : null}
     </Tag>
   )
 }
@@ -109,7 +112,7 @@ export const FileUpload = forwardRef<'input', FileUploadProps>(
     }, [files])
 
     const handleChange: React.ChangeEventHandler<HTMLInputElement> = e => {
-      let newFiles: FileWithPreview[] | FileWithPreview = Array.from(e.target.files).map(
+      let newFiles: FileWithPreview | FileWithPreview[] = Array.from(e.target.files).map(
         (file: FileWithPreview) => {
           file.preview = URL.createObjectURL(file)
           return file
@@ -149,7 +152,7 @@ export const FileUpload = forwardRef<'input', FileUploadProps>(
     return (
       <>
         {children ? (
-          children({ openFile: handleClick, disabled, files, onRemoveFile: handleRemove })
+          children({ disabled, files, onRemoveFile: handleRemove, openFile: handleClick })
         ) : (
           <Button disabled={disabled} onClick={handleClick}>
             Upload file
@@ -179,14 +182,15 @@ export const FileUpload = forwardRef<'input', FileUploadProps>(
           {...rest}
           type="file"
         />
-        {Preview &&
-          files.map(file => (
-            <Preview
-              file={file}
-              key={file instanceof File ? file.name : file}
-              onRemove={() => handleRemove(file)}
-            />
-          ))}
+        {Preview
+          ? files.map(file => (
+              <Preview
+                file={file}
+                key={file instanceof File ? file.name : file}
+                onRemove={() => handleRemove(file)}
+              />
+            ))
+          : null}
       </>
     )
   }

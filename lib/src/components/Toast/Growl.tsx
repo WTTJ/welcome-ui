@@ -1,11 +1,10 @@
-import React from 'react'
+import { Box } from '@/Box'
+import { CloseButton } from '@/CloseButton'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
 
 import * as S from './styles'
-import { ToastVariant } from './theme'
-
-import { CloseButton } from '@/CloseButton'
-import { CreateWuiProps, forwardRef } from '@/System'
-import { Box } from '@/Box'
+import type { ToastVariant } from './theme'
 
 export interface GrowlOptions {
   hasCloseButton?: boolean
@@ -31,7 +30,7 @@ export const Growl = forwardRef<'div', GrowlProps>(
         ref={ref}
         variant={variant}
       >
-        {hasCloseButton && (
+        {hasCloseButton ? (
           <CloseButton
             dataTestId={closeButtonDataTestId}
             onClick={onClose}
@@ -39,7 +38,7 @@ export const Growl = forwardRef<'div', GrowlProps>(
             right="sm"
             top="sm"
           />
-        )}
+        ) : null}
         <Box pr="xl">{children}</Box>
       </S.Growl>
     )

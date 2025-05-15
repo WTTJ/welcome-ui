@@ -1,11 +1,11 @@
 import styled, { css, th, up } from '@xstyled/styled-components'
 
-import { BackdropProps } from './Assets/Backdrop'
-
-import { ModalOptions } from './index'
-
-import { Text } from '@/Text'
 import { Box } from '@/Box'
+import { Text } from '@/Text'
+
+import type { BackdropProps } from './Assets/Backdrop'
+
+import type { ModalOptions } from './index'
 
 export const Backdrop = styled.divBox.withConfig({
   shouldForwardProp: prop => !['hideOnInteractOutside'].includes(prop),

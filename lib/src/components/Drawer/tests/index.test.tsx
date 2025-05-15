@@ -1,11 +1,10 @@
-import React from 'react'
 import { screen } from '@testing-library/react'
 import { useEffect } from 'react'
 
+import { Notifications, toast, Toast } from '@/Toast'
+
 import { AssetDrawer, Drawer, useDrawer } from '..'
 import { render } from '../../../../tests'
-
-import { Notifications, toast, Toast } from '@/Toast'
 
 describe('<Drawer>', () => {
   it('should render correctly', async () => {

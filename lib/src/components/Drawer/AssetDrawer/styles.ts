@@ -1,6 +1,6 @@
 import styled, { css, th } from '@xstyled/styled-components'
 
-import { IconBlockProps } from './Header'
+import type { IconBlockProps } from './Header'
 
 export const Content = styled.divBox`
   flex: 1;

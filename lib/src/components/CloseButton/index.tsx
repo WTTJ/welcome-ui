@@ -1,10 +1,8 @@
-import React from 'react'
+import type { ButtonProps } from '@/Button'
+import { CrossIcon } from '@/Icons'
+import { forwardRef } from '@/System'
 
 import * as S from './styles'
-
-import { CrossIcon } from '@/Icons'
-import { ButtonProps } from '@/Button'
-import { forwardRef } from '@/System'
 
 export type CloseButtonProps = ButtonProps
 

@@ -1,10 +1,10 @@
-import React from 'react'
 import * as Ariakit from '@ariakit/react'
 
-import { UsePopover } from './usePopover'
-import * as S from './styles'
+import type { CreateWuiProps } from '@/System'
+import { forwardRef } from '@/System'
 
-import { CreateWuiProps, forwardRef } from '@/System'
+import * as S from './styles'
+import type { UsePopover } from './usePopover'
 
 export type PopoverTriggerProps = CreateWuiProps<'button', { store: UsePopover }>
 

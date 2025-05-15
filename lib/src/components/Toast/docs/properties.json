@@ -110,6 +110,9 @@
           "raw": "ToastVariant",
           "value": [
             {
+              "value": "\"danger\""
+            },
+            {
               "value": "\"default\""
             },
             {
@@ -117,9 +120,6 @@
             },
             {
               "value": "\"success\""
-            },
-            {
-              "value": "\"danger\""
             },
             {
               "value": "\"warning\""
