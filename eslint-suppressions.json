@@ -9,11 +9,6 @@
       "count": 5
     }
   },
-  "lib/src/components/Alert/tests/index.test.tsx": {
-    "no-constant-condition": {
-      "count": 1
-    }
-  },
   "lib/src/components/Breadcrumb/tests/index.test.tsx": {
     "@typescript-eslint/no-extra-semi": {
       "count": 1
