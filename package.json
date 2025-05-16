@@ -57,7 +57,6 @@
     "@types/node": "22.14.0",
     "@types/react": "18.3.12",
     "@types/react-dom": "18.3.1",
-    "@typescript-eslint/utils": "^8.31.0",
     "@vitest/eslint-plugin": "^1.1.43",
     "@vusion/webfonts-generator": "^0.8.0",
     "@xstyled/styled-components": "^4.0.0",
