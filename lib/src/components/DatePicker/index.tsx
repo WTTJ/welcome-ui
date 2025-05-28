@@ -50,6 +50,7 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
       placeholder,
       popperProps,
       preventVirtualKeyboard = false,
+      selected = null,
       showMonthYearPicker,
       size = 'md',
       startYear = 1900,
@@ -171,7 +172,7 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
             {...props}
           />
         )}
-        selected={date}
+        selected={selected || date}
         showMonthYearPicker={showMonthYearPicker}
         size={size}
         transparent={transparent}
