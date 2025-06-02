@@ -3104,15 +3104,10 @@ cssstyle@^4.2.1:
     "@asamuzakjp/css-color" "^3.1.1"
     rrweb-cssom "^0.8.0"
 
-csstype@3.1.3, csstype@^3.1.1:
+csstype@3.1.3, csstype@^3.0.2, csstype@^3.1.1, csstype@^3.1.3:
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.1.3.tgz#d80ff294d114fb0e6ac500fbf85b60137d7eff81"
   integrity sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==
-
-csstype@^3.0.2:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.1.2.tgz#1d4bf9d572f11c14031f0436e1c10bc1f571f50b"
-  integrity sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==
 
 cubic2quad@^1.2.1:
   version "1.2.1"
@@ -4557,10 +4552,10 @@ globjoin@^0.1.4:
   resolved "https://registry.yarnpkg.com/globjoin/-/globjoin-0.1.4.tgz#2f4494ac8919e3767c5cbb691e9f463324285d43"
   integrity sha512-xYfnw62CKG8nLkZBfWbhWwDw02CHty86jfPcc2cr3ZfeuK9ysoVPPEUxf21bAD/rWAgk52SuBrLJlefNy8mvFg==
 
-goober@^2.1.10:
-  version "2.1.11"
-  resolved "https://registry.yarnpkg.com/goober/-/goober-2.1.11.tgz#bbd71f90d2df725397340f808dbe7acc3118e610"
-  integrity sha512-5SS2lmxbhqH0u9ABEWq7WPU69a4i2pYcHeCxqaNq6Cw3mnrF0ghWNM4tEGid4dKy8XNIAUbuThuozDHHKJVh3A==
+goober@^2.1.16:
+  version "2.1.16"
+  resolved "https://registry.yarnpkg.com/goober/-/goober-2.1.16.tgz#7d548eb9b83ff0988d102be71f271ca8f9c82a95"
+  integrity sha512-erjk19y1U33+XAMe1VTvIONHYoSqE4iS7BYUZfHaqeohLmnC0FdxEh7rQU+6MZ4OajItzjZFSRtVANrQwNq6/g==
 
 gopd@^1.0.1:
   version "1.0.1"
@@ -7494,12 +7489,13 @@ react-flatten-children@^1.0.0:
   resolved "https://registry.yarnpkg.com/react-flatten-children/-/react-flatten-children-1.1.2.tgz#8e843b1080c7fd6ccf5ab2877fa6c2e9aa3cf473"
   integrity sha512-9pnG/uw2Wa0n97s+yBZg/WgfMPE8RC4qNcr6iYbyb19sacCk3gRJCmCzAhTuANSWesFsK9v/yTKW42pkenaAfw==
 
-react-hot-toast@^2.4.1:
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/react-hot-toast/-/react-hot-toast-2.4.1.tgz#df04295eda8a7b12c4f968e54a61c8d36f4c0994"
-  integrity sha512-j8z+cQbWIM5LY37pR6uZR6D4LfseplqnuAO4co4u8917hBUvXlEqyP1ZzqVLcqoyUesZZv/ImreoCeHVDpE5pQ==
+react-hot-toast@^2.5.2:
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/react-hot-toast/-/react-hot-toast-2.5.2.tgz#b55328966a26add56513e2dc1682e2cb4753c244"
+  integrity sha512-Tun3BbCxzmXXM7C+NI4qiv6lT0uwGh4oAfeJyNOjYUejTsm35mK9iCaYLGv8cBz9L5YxZLx/2ii7zsIwPtPUdw==
   dependencies:
-    goober "^2.1.10"
+    csstype "^3.1.3"
+    goober "^2.1.16"
 
 react-is@^16.13.1:
   version "16.13.1"
