@@ -1,7 +1,7 @@
 import styled, { th } from '@xstyled/styled-components'
 
 export const Card = styled.divBox`
-  overflow: 'hidden';
+  overflow: hidden;
   border-radius: md;
   ${th('cards.default')};
   background-size: cover;
