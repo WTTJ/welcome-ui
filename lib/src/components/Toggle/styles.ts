@@ -64,6 +64,7 @@ export const Wrapper = styled.divBox<{ onClick: React.MouseEventHandler<HTMLInpu
   position: relative;
   display: inline-block;
   cursor: pointer;
+  flex-shrink: 0;
 `
 
 export const IconWrapper = styled.divBox.withConfig({ shouldForwardProp })<{

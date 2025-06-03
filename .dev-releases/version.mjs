@@ -11,7 +11,7 @@ execSync(`cd lib && git tag ${newVersion}`)
 console.info('Done !')
 console.info('Pushing tags...')
 
-execSync(`git push origin ${newVersion}`)
+execSync(`git push origin ${newVersion} --no-verify`)
 
 console.info('Done !')
 console.info(
