@@ -61,6 +61,7 @@ export const Title = styled(Text)<AlertTitleProps>(({ variant }) => {
     font-weight: medium;
     ${th('alerts.title.default')};
     ${th(`alerts.title.sizes.${variant}`)};
+    margin-right: xl;
     ${system};
   `
 })
