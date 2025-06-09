@@ -344,106 +344,108 @@ export const Select = forwardRef<'input', SelectProps>(
           const iconSize = FIELD_ICON_SIZE[size]
 
           return (
-            <S.Wrapper {...rootProps} disabled={disabled}>
-              <S.InputWrapper>
-                {isSearchable ? (
-                  <S.Input as="input" type="text" {...inputProps} />
-                ) : (
-                  <S.Input {...inputProps}>{inputContent}</S.Input>
-                )}
-                {icon ? (
-                  <S.IconWrapper iconPlacement="left" size={iconSize}>
-                    {React.cloneElement(icon, { ...icon.props, size: iconSize })}
-                  </S.IconWrapper>
-                ) : null}
-                <S.Indicators size={size}>
-                  {isShowDeleteIcon ? DeleteIcon : null}
-                  {ArrowIcon}
-                </S.Indicators>
-              </S.InputWrapper>
-              {isShowMenu ? (
-                <S.Menu {...getMenuProps()}>
-                  {
-                    options.reduce(
-                      (
-                        acc: { itemIndex: number; itemsToRender: React.ReactElement[] },
-                        result: SelectOptionItem,
-                        resultIndex: number
-                      ) => {
-                        if (groupsEnabled && 'options' in result) {
-                          acc.itemsToRender.push(
-                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                            // @ts-ignore
-                            <Fragment key={result.label}>
-                              {renderGroupHeader(result)}
-                              {result.options
-                                ? result.options.map(option => {
-                                    const index = acc.itemIndex++
-                                    const isItemSelected = isValueSelected(option.value, selected)
-                                    return (
-                                      <S.Item
-                                        allowUnselectFromList={allowUnselectFromList}
-                                        isDisabled={option.disabled}
-                                        isHighlighted={highlightedIndex === index}
-                                        isMultiple={isMultiple}
-                                        key={option.value}
-                                        {...getItemProps({
-                                          index,
-                                          isSelected: isItemSelected,
-                                          item: option,
-                                        })}
-                                      >
-                                        {renderItem(option, isItemSelected)}
-                                      </S.Item>
-                                    )
-                                  })
-                                : null}
-                            </Fragment>
-                          )
-                        } else if ('value' in result) {
-                          const isItemSelected = isValueSelected(result.value, selected)
-                          acc.itemsToRender.push(
-                            <S.Item
-                              allowUnselectFromList={allowUnselectFromList}
-                              isDisabled={result.disabled}
-                              isHighlighted={highlightedIndex === resultIndex}
-                              isMultiple={isMultiple}
-                              key={result.value}
-                              {...getItemProps({
-                                index: resultIndex,
-                                isSelected: isItemSelected,
-                                item: result,
-                              })}
-                            >
-                              {renderItem(result, isItemSelected)}
-                            </S.Item>
-                          )
-                        }
-
-                        return acc
-                      },
-                      { itemIndex: 0, itemsToRender: [] }
-                    ).itemsToRender
-                  }
-                  {isShowCreate && inputValue.length ? (
-                    <S.Item
-                      isHighlighted={highlightedIndex === options.length}
-                      key="add"
-                      {...getItemProps({
-                        index: options.length,
-                        item: {
-                          label: inputValue,
-                          value: kebabCase(inputValue),
-                        },
-                      })}
-                    >
-                      {renderCreateItem(inputValue)}
-                    </S.Item>
+            <div {...rootProps}>
+              <S.Wrapper disabled={disabled}>
+                <S.InputWrapper>
+                  {isSearchable ? (
+                    <S.Input as="input" type="text" {...inputProps} />
+                  ) : (
+                    <S.Input {...inputProps}>{inputContent}</S.Input>
+                  )}
+                  {icon ? (
+                    <S.IconWrapper iconPlacement="left" size={iconSize}>
+                      {React.cloneElement(icon, { ...icon.props, size: iconSize })}
+                    </S.IconWrapper>
                   ) : null}
-                </S.Menu>
-              ) : null}
-              {isMultiple ? renderMultiple(selected, handleRemove) : null}
-            </S.Wrapper>
+                  <S.Indicators size={size}>
+                    {isShowDeleteIcon ? DeleteIcon : null}
+                    {ArrowIcon}
+                  </S.Indicators>
+                </S.InputWrapper>
+                {isShowMenu ? (
+                  <S.Menu {...getMenuProps()}>
+                    {
+                      options.reduce(
+                        (
+                          acc: { itemIndex: number; itemsToRender: React.ReactElement[] },
+                          result: SelectOptionItem,
+                          resultIndex: number
+                        ) => {
+                          if (groupsEnabled && 'options' in result) {
+                            acc.itemsToRender.push(
+                              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                              // @ts-ignore
+                              <Fragment key={result.label}>
+                                {renderGroupHeader(result)}
+                                {result.options
+                                  ? result.options.map(option => {
+                                      const index = acc.itemIndex++
+                                      const isItemSelected = isValueSelected(option.value, selected)
+                                      return (
+                                        <S.Item
+                                          allowUnselectFromList={allowUnselectFromList}
+                                          isDisabled={option.disabled}
+                                          isHighlighted={highlightedIndex === index}
+                                          isMultiple={isMultiple}
+                                          key={option.value}
+                                          {...getItemProps({
+                                            index,
+                                            isSelected: isItemSelected,
+                                            item: option,
+                                          })}
+                                        >
+                                          {renderItem(option, isItemSelected)}
+                                        </S.Item>
+                                      )
+                                    })
+                                  : null}
+                              </Fragment>
+                            )
+                          } else if ('value' in result) {
+                            const isItemSelected = isValueSelected(result.value, selected)
+                            acc.itemsToRender.push(
+                              <S.Item
+                                allowUnselectFromList={allowUnselectFromList}
+                                isDisabled={result.disabled}
+                                isHighlighted={highlightedIndex === resultIndex}
+                                isMultiple={isMultiple}
+                                key={result.value}
+                                {...getItemProps({
+                                  index: resultIndex,
+                                  isSelected: isItemSelected,
+                                  item: result,
+                                })}
+                              >
+                                {renderItem(result, isItemSelected)}
+                              </S.Item>
+                            )
+                          }
+
+                          return acc
+                        },
+                        { itemIndex: 0, itemsToRender: [] }
+                      ).itemsToRender
+                    }
+                    {isShowCreate && inputValue.length ? (
+                      <S.Item
+                        isHighlighted={highlightedIndex === options.length}
+                        key="add"
+                        {...getItemProps({
+                          index: options.length,
+                          item: {
+                            label: inputValue,
+                            value: kebabCase(inputValue),
+                          },
+                        })}
+                      >
+                        {renderCreateItem(inputValue)}
+                      </S.Item>
+                    ) : null}
+                  </S.Menu>
+                ) : null}
+                {isMultiple ? renderMultiple(selected, handleRemove) : null}
+              </S.Wrapper>
+            </div>
           )
         }}
       </Downshift>
