@@ -6,21 +6,17 @@ import { Text } from '@/Text'
 import { PrevNextPage } from '~/build-app/components/PrevNextPage'
 import { Sidebar } from '~/build-app/components/Sidebar'
 import * as Documentation from '~/build-app/layouts/Documentation'
+import type { Params } from '~/build-app/types'
 import { getPageContent } from '~/build-app/utils/page-content'
 import { getPages } from '~/build-app/utils/pages-components'
 import { getRepository } from '~/build-app/utils/transform-name'
 
 import { Tabs } from './tabs'
 
-type LayoutProps = {
-  children: React.ReactNode
-  params: {
-    id: string
-  }
-}
+type LayoutProps = React.PropsWithChildren<Params>
 
-export async function generateMetadata({ params }: { params: { [key: string]: string } }) {
-  const { id } = params
+export async function generateMetadata({ params }: Params) {
+  const { id } = await params
   const { data } = getPageContent({
     filename: `${getRepository(id)}/docs/index.mdx`,
     isPackage: true,
@@ -34,9 +30,9 @@ export async function generateMetadata({ params }: { params: { [key: string]: st
   }
 }
 
-const Layout = ({ children, params }: LayoutProps) => {
+const Layout = async ({ children, params }: LayoutProps) => {
   const pages = getPages()
-  const { id } = params
+  const { id } = await params
 
   const { data } = getPageContent({
     filename: `${getRepository(id)}/docs/index.mdx`,
