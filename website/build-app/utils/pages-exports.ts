@@ -81,9 +81,11 @@ export function getStaticParams(pages: PageTree) {
 export function getStaticParamsSubPage(pages: PageTree) {
   return pages.reduce(
     (prev, { pages }) => {
-      pages.map(page => {
-        prev.push({ id: page.parent, subPage: page.id })
-      })
+      pages
+        .filter(page => !!page.parent)
+        .map(page => {
+          prev.push({ id: page.parent, subPage: page.id })
+        })
       return prev
     },
     [] as { id?: string; subPage?: string }[]
