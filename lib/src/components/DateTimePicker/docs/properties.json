@@ -1,41 +1,6 @@
 {
   "DateTimePicker": {
     "props": {
-      "locale": {
-        "defaultValue": null,
-        "description": "",
-        "name": "locale",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/DateTimePickerCommon/CustomHeader.tsx",
-          "name": "CustomHeaderOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/DateTimePickerCommon/CustomHeader.tsx",
-            "name": "CustomHeaderOptions"
-          },
-          {
-            "fileName": "welcome-ui/node_modules/@types/react-datepicker/index.d.ts",
-            "name": "ReactDatePickerProps"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "enum",
-          "raw": "Locale | (Locale & string)",
-          "value": [
-            {
-              "value": "Locale",
-              "description": "",
-              "fullComment": "",
-              "tags": {}
-            },
-            {
-              "value": "Locale & string"
-            }
-          ]
-        }
-      },
       "onChange": {
         "defaultValue": null,
         "description": "",

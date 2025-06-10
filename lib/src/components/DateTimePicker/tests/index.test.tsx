@@ -72,7 +72,6 @@ describe('<DateTimePicker />', () => {
     await user.click(datePicker)
 
     const [monthSelect, yearSelect] = screen.getAllByRole('combobox')
-
     expect(monthSelect).toHaveTextContent('September')
     expect(yearSelect).toHaveTextContent('2001')
   })
@@ -88,8 +87,8 @@ describe('<DateTimePicker />', () => {
 
     const decreaseMonth = screen.getByTitle('Previous month')
     const increaseMonth = screen.getByTitle('Next month')
-    const [monthSelect, yearSelect] = screen.getAllByRole('combobox')
 
+    const [monthSelect, yearSelect] = screen.getAllByRole('combobox')
     expect(monthSelect).toHaveTextContent('September')
     expect(yearSelect).toHaveTextContent('2001')
 
@@ -136,7 +135,6 @@ describe('<DateTimePicker />', () => {
     await user.click(datePicker)
 
     const [monthSelect, yearSelect] = screen.getAllByRole('combobox')
-
     expect(monthSelect).toHaveTextContent('June')
     expect(yearSelect).toHaveTextContent('2018')
   })

@@ -34,7 +34,7 @@ export const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
     const iconSize = FIELD_ICON_SIZE[size]
 
     return (
-      <S.CustomInput focused={focused} onBlur={handleBlur} onFocus={handleFocus}>
+      <S.CustomInput $focused={focused} onBlur={handleBlur} onFocus={handleFocus}>
         <input value={value} {...rest} ref={ref} />
         {icon && iconPlacement !== 'right' ? (
           <IconWrapper iconPlacement={iconPlacement} size={iconSize}>
