@@ -1,5 +1,6 @@
-// we want to keep ThemeScreens in a natural order for documentation
+/* eslint-disable perfectionist/sort-objects */
 /* eslint-disable perfectionist/sort-object-types */
+// we want to keep ThemeScreens in a natural order for documentation
 export type ThemeScreens = {
   xs: number
   sm: number
@@ -12,15 +13,14 @@ export type ThemeScreens = {
   [key: string]: number
   [key: number]: number
 }
-/* eslint-enable perfectionist/sort-object-types */
 
 export const screens: ThemeScreens = {
+  xs: 0,
+  sm: 480,
+  md: 736,
+  lg: 980,
+  xl: 1280,
+  xxl: 1440,
   '3xl': 1620,
   '4xl': 1920,
-  lg: 980,
-  md: 736,
-  sm: 480,
-  xl: 1280,
-  xs: 0,
-  xxl: 1440,
 }

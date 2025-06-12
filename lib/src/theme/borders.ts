@@ -1,11 +1,13 @@
+/* eslint-disable perfectionist/sort-objects */
+/* eslint-disable perfectionist/sort-object-types */
 export type ThemeBorderWidths = {
-  lg: string
-  md: string
   sm: string
+  md: string
+  lg: string
 }
 
 export const borderWidths: ThemeBorderWidths = {
-  lg: '3px',
-  md: '2px',
   sm: '1px',
+  md: '2px',
+  lg: '3px',
 }
