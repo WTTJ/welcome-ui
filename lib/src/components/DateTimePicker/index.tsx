@@ -1,4 +1,3 @@
-import * as locales from 'date-fns/locale'
 import React, { Children, cloneElement, useEffect, useMemo, useState } from 'react'
 
 import type { DatePickerProps } from '@/DatePicker'
@@ -10,29 +9,15 @@ import type { TimePickerProps } from '@/TimePicker'
 import { TimePicker } from '@/TimePicker'
 
 import * as S from './styles'
+import { getLocale, type LocalesKey } from './utils'
 
 export type DateTimePickerProps = CreateWuiProps<
   'input',
   Pick<DatePickerProps, 'onChange' | 'size' | 'transparent' | 'value'> &
     Pick<TimePickerProps, 'onChange' | 'size' | 'transparent' | 'value'> & {
-      locale?: LocalesKeys
+      locale?: LocalesKey
     }
 >
-
-type LocalesKeys = keyof typeof locales
-const isValidLocale = (locale?: string): locale is LocalesKeys => locale && locale in locales
-
-const getLocale = (locale?: LocalesKeys) => {
-  const browserLocale = navigator.language.split('-')[0]
-
-  if (isValidLocale(locale)) {
-    return locales[locale]
-  }
-  if (isValidLocale(browserLocale)) {
-    return locales[browserLocale]
-  }
-  return locales['enUS']
-}
 
 export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
   (

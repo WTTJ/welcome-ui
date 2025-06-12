@@ -4,6 +4,8 @@ import { DateTimePicker } from '../'
 import { render } from '../../../../tests'
 import { DatePicker } from '../../DatePicker'
 import { TimePicker } from '../../TimePicker'
+import type { LocalesKey } from '../utils'
+import { getLocale } from '../utils'
 
 describe('<DateTimePicker />', () => {
   it('<DateTimePicker> renders correctly', () => {
@@ -200,5 +202,22 @@ describe('<DateTimePicker />', () => {
 
     expect(datePicker).toHaveValue('')
     expect(clearButton).not.toBeInTheDocument()
+  })
+})
+
+describe('getLocale', () => {
+  it('returns the correct locale for a valid locale code', () => {
+    const locale = getLocale('fr')
+    expect(locale.code).toBe('fr')
+  })
+
+  it('returns the browser locale if the provided locale is invalid', () => {
+    const locale = getLocale('invalid-locale' as LocalesKey)
+    expect(locale.code).toBe(navigator.language)
+  })
+
+  it('returns the default locale if no valid locale is provided', () => {
+    const locale = getLocale()
+    expect(locale.code).toBe('en-US')
   })
 })
