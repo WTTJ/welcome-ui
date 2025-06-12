@@ -56,11 +56,12 @@ export const Alert = styled.divBox<AlertOptions>(({ icon, isFullWidth, size, var
   `
 })
 
-export const Title = styled(Text)<AlertTitleProps>(({ variant }) => {
+export const Title = styled(Text)<AlertTitleProps>(({ hasCloseButton, variant }) => {
   return css`
     font-weight: medium;
     ${th('alerts.title.default')};
     ${th(`alerts.title.sizes.${variant}`)};
+    margin-right: ${hasCloseButton ? 'xl' : undefined};
     ${system};
   `
 })

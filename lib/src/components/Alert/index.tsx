@@ -51,7 +51,8 @@ const AlertComponent = forwardRef<'div', AlertProps>(
     const withAiButton = variant === 'ai'
 
     const content = Children.toArray(children).map((child: React.ReactElement) => {
-      if (child.type === Title) return cloneElement(child, { variant: size })
+      if (child.type === Title)
+        return cloneElement(child, { hasCloseButton: !!handleClose, variant: size })
 
       return child
     })
