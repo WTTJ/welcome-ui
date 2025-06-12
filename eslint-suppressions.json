@@ -102,11 +102,6 @@
       "count": 1
     }
   },
-  "lib/src/theme/colors.ts": {
-    "@typescript-eslint/no-unused-vars": {
-      "count": 1
-    }
-  },
   "lib/src/utils/hide-focus-rings-root.tsx": {
     "@typescript-eslint/no-unused-expressions": {
       "count": 1
