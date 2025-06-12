@@ -61,7 +61,7 @@ export const Title = styled(Text)<AlertTitleProps>(({ hasCloseButton, variant })
     font-weight: medium;
     ${th('alerts.title.default')};
     ${th(`alerts.title.sizes.${variant}`)};
-    margin-right: ${hasCloseButton ? 'xl' : 'unset'};
+    margin-right: ${hasCloseButton ? 'xl' : undefined};
     ${system};
   `
 })
