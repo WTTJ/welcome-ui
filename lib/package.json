@@ -91,7 +91,8 @@
   },
   "peerDependencies": {
     "@xstyled/styled-components": "^4.0.0",
-    "react": "^18.3.1",
+    "react": "^18.3.1 || ^19.0.0",
+    "react-dom": "^18.3.1 || ^19.0.0",
     "styled-components": "^6.1.15"
   },
   "homepage": "https://welcome-ui.com"
