@@ -6,7 +6,7 @@ const Example = () => {
       dateFormat="MMM dd yyyy"
       maxDate={new Date()}
       name="welcome"
-      popperProps={{ zIndex: 50 }}
+      popperProps={{ placement: 'top' }}
       value={new Date()}
       yearDropdownItemNumber={30}
     />

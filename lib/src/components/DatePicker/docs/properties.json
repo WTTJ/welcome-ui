@@ -22,6 +22,152 @@
           "name": "number"
         }
       },
+      "excludeDateIntervals": {
+        "defaultValue": null,
+        "description": "",
+        "name": "excludeDateIntervals",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+          "name": "DateFilterOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+            "name": "DateFilterOptions"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+            "name": "DateFilterOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "{ start: Date; end: Date; }[]"
+        }
+      },
+      "excludeDates": {
+        "defaultValue": null,
+        "description": "",
+        "name": "excludeDates",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+          "name": "DateFilterOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+            "name": "DateFilterOptions"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+            "name": "DateFilterOptions"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+            "name": "DateFilterOptions"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+            "name": "DateFilterOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "{ date: Date; message?: string; }[] | Date[]",
+          "value": [
+            {
+              "value": "{ date: Date; message?: string; }[]",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            },
+            {
+              "value": "Date[]",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
+        }
+      },
+      "excludeTimes": {
+        "defaultValue": null,
+        "description": "",
+        "name": "excludeTimes",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+          "name": "TimeFilterOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+            "name": "TimeFilterOptions"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+            "name": "TimeFilterOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "Date[]"
+        }
+      },
+      "filterDate": {
+        "defaultValue": null,
+        "description": "",
+        "name": "filterDate",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+          "name": "DateFilterOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+            "name": "DateFilterOptions"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+            "name": "DateFilterOptions"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+            "name": "DateFilterOptions"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+            "name": "DateFilterOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(date: Date) => boolean"
+        }
+      },
+      "filterTime": {
+        "defaultValue": null,
+        "description": "",
+        "name": "filterTime",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+          "name": "TimeFilterOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+            "name": "TimeFilterOptions"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+            "name": "TimeFilterOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(time: Date) => boolean"
+        }
+      },
       "icon": {
         "defaultValue": null,
         "description": "",
@@ -36,20 +182,35 @@
             "name": "CustomInputOptions"
           },
           {
-            "fileName": "welcome-ui/node_modules/@types/react-datepicker/index.d.ts",
-            "name": "ReactDatePickerProps"
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/calendar_icon.d.ts",
+            "name": "CalendarIconProps"
           }
         ],
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "Element & (string | ReactElement<any, string | JSXElementConstructor<any>>)",
+          "raw": "Element & ReactNode",
           "value": [
             {
               "value": "Element & string"
             },
             {
+              "value": "Element & number"
+            },
+            {
+              "value": "Element & false"
+            },
+            {
+              "value": "Element & true"
+            },
+            {
               "value": "Element & ReactElement<any, string | JSXElementConstructor<any>>"
+            },
+            {
+              "value": "Element & Iterable<ReactNode>"
+            },
+            {
+              "value": "Element & ReactPortal"
             }
           ]
         }
@@ -84,6 +245,83 @@
           ]
         }
       },
+      "includeDateIntervals": {
+        "defaultValue": null,
+        "description": "",
+        "name": "includeDateIntervals",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+          "name": "DateFilterOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+            "name": "DateFilterOptions"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+            "name": "DateFilterOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "{ start: Date; end: Date; }[]"
+        }
+      },
+      "includeDates": {
+        "defaultValue": null,
+        "description": "",
+        "name": "includeDates",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+          "name": "DateFilterOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+            "name": "DateFilterOptions"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+            "name": "DateFilterOptions"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+            "name": "DateFilterOptions"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+            "name": "DateFilterOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "Date[]"
+        }
+      },
+      "includeTimes": {
+        "defaultValue": null,
+        "description": "",
+        "name": "includeTimes",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+          "name": "TimeFilterOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+            "name": "TimeFilterOptions"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+            "name": "TimeFilterOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "Date[]"
+        }
+      },
       "locale": {
         "defaultValue": null,
         "description": "",
@@ -101,6 +339,114 @@
         "required": false,
         "type": {
           "name": "Locale"
+        }
+      },
+      "maxDate": {
+        "defaultValue": null,
+        "description": "",
+        "name": "maxDate",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/react-datepicker/dist/month_year_dropdown_options.d.ts",
+          "name": "MonthYearDropdownOptionsProps"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/month_year_dropdown_options.d.ts",
+            "name": "MonthYearDropdownOptionsProps"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/year_dropdown_options.d.ts",
+            "name": "YearDropdownOptionsProps"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+            "name": "DateFilterOptions"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+            "name": "DateFilterOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "Date"
+        }
+      },
+      "maxTime": {
+        "defaultValue": null,
+        "description": "",
+        "name": "maxTime",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+          "name": "TimeFilterOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+            "name": "TimeFilterOptions"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+            "name": "TimeFilterOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "Date"
+        }
+      },
+      "minDate": {
+        "defaultValue": null,
+        "description": "",
+        "name": "minDate",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/react-datepicker/dist/month_year_dropdown_options.d.ts",
+          "name": "MonthYearDropdownOptionsProps"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/month_year_dropdown_options.d.ts",
+            "name": "MonthYearDropdownOptionsProps"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/year_dropdown_options.d.ts",
+            "name": "YearDropdownOptionsProps"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+            "name": "DateFilterOptions"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+            "name": "DateFilterOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "Date"
+        }
+      },
+      "minTime": {
+        "defaultValue": null,
+        "description": "",
+        "name": "minTime",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+          "name": "TimeFilterOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+            "name": "TimeFilterOptions"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/date_utils.d.ts",
+            "name": "TimeFilterOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "Date"
         }
       },
       "onBlur": {
@@ -193,6 +539,70 @@
           {
             "fileName": "welcome-ui/lib/src/components/DatePicker/index.tsx",
             "name": "DatePickerOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "scrollableMonthYearDropdown": {
+        "defaultValue": null,
+        "description": "",
+        "name": "scrollableMonthYearDropdown",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/react-datepicker/dist/month_year_dropdown_options.d.ts",
+          "name": "MonthYearDropdownOptionsProps"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/month_year_dropdown_options.d.ts",
+            "name": "MonthYearDropdownOptionsProps"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/month_year_dropdown_options.d.ts",
+            "name": "MonthYearDropdownOptionsProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "scrollableYearDropdown": {
+        "defaultValue": null,
+        "description": "",
+        "name": "scrollableYearDropdown",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/react-datepicker/dist/year_dropdown_options.d.ts",
+          "name": "YearDropdownOptionsProps"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/year_dropdown_options.d.ts",
+            "name": "YearDropdownOptionsProps"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/year_dropdown_options.d.ts",
+            "name": "YearDropdownOptionsProps"
           }
         ],
         "required": false,
@@ -355,6 +765,29 @@
               "tags": {}
             }
           ]
+        }
+      },
+      "yearDropdownItemNumber": {
+        "defaultValue": null,
+        "description": "",
+        "name": "yearDropdownItemNumber",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/react-datepicker/dist/year_dropdown_options.d.ts",
+          "name": "YearDropdownOptionsProps"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/year_dropdown_options.d.ts",
+            "name": "YearDropdownOptionsProps"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/year_dropdown_options.d.ts",
+            "name": "YearDropdownOptionsProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "number"
         }
       }
     }

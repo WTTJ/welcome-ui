@@ -1,5 +1,5 @@
 import styled, { css, system } from '@xstyled/styled-components'
-import type { ReactDatePickerProps } from 'react-datepicker'
+import type { DatePickerProps as ReactDatePickerProps } from 'react-datepicker'
 import ReactDatePicker from 'react-datepicker'
 
 import { StyledButton } from '@/Button'
@@ -37,16 +37,16 @@ export const StyledTimePicker = styled(
   `
 )
 
-export const CustomInput = styled.div<{ focused: Focused }>(
-  ({ focused }) => css`
+export const CustomInput = styled.div<{ $focused: Focused }>(
+  ({ $focused }) => css`
     position: relative;
 
     ${IconGroupWrapper} {
-      z-index: ${focused ? 1 : null};
+      z-index: ${$focused ? 1 : null};
     }
 
     ${IconWrapper} {
-      z-index: ${focused ? 1 : null};
+      z-index: ${$focused ? 1 : null};
     }
   `
 )

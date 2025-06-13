@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import type { ReactDatePickerProps } from 'react-datepicker'
+import type { DatePickerProps as ReactDatePickerProps } from 'react-datepicker'
 
 import type { CustomInputOptions, Focused } from '@/DateTimePickerCommon'
 import {

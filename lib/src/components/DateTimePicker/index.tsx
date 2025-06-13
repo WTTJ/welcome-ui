@@ -1,4 +1,4 @@
-import React, { Children, cloneElement, useEffect, useState } from 'react'
+import React, { Children, cloneElement, useEffect, useMemo, useState } from 'react'
 
 import type { DatePickerProps } from '@/DatePicker'
 import { DatePicker } from '@/DatePicker'
@@ -9,11 +9,14 @@ import type { TimePickerProps } from '@/TimePicker'
 import { TimePicker } from '@/TimePicker'
 
 import * as S from './styles'
+import { getLocale, type LocalesKey } from './utils'
 
 export type DateTimePickerProps = CreateWuiProps<
   'input',
-  Pick<DatePickerProps, 'disabled' | 'locale' | 'onChange' | 'size' | 'transparent' | 'value'> &
-    Pick<TimePickerProps, 'disabled' | 'locale' | 'onChange' | 'size' | 'transparent' | 'value'>
+  Pick<DatePickerProps, 'onChange' | 'size' | 'transparent' | 'value'> &
+    Pick<TimePickerProps, 'onChange' | 'size' | 'transparent' | 'value'> & {
+      locale?: LocalesKey
+    }
 >
 
 export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
@@ -65,6 +68,8 @@ export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
       //eslint-disable-next-line
     }, [value])
 
+    const localeObject = useMemo(() => getLocale(locale), [locale])
+
     return (
       <S.DateTimePicker data-testid={dataTestId}>
         {children
@@ -86,7 +91,7 @@ export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
             <DatePicker
               dataTestId={`${dataTestId}-datePicker`}
               disabled={disabled}
-              locale={locale}
+              locale={localeObject}
               onChange={handleChange}
               ref={ref}
               size={size}
@@ -96,7 +101,7 @@ export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
             <TimePicker
               dataTestId={`${dataTestId}-timePicker`}
               disabled={disabled}
-              locale={locale}
+              locale={localeObject}
               onChange={handleChange}
               size={size}
               transparent={transparent}
