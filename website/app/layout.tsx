@@ -29,7 +29,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   const pagesFoundations = getPagesExport('foundations')
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link href="/favicon.png" rel="icon" type="image/png" />
       </head>

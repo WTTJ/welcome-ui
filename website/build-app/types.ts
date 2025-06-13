@@ -4,6 +4,14 @@ export type PageTree = {
   parent: string
 }[]
 
+export type Params<
+  T = {
+    id: string
+  },
+> = {
+  params: Promise<T>
+}
+
 type Page = {
   id: string
   parent?: string

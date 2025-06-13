@@ -3,18 +3,13 @@ import { notFound } from 'next/navigation'
 import { Mdx } from '~/build-app/components/Mdx'
 import { PrevNextPage } from '~/build-app/components/PrevNextPage'
 import { TableOfContent } from '~/build-app/components/TableOfContent'
+import type { Params } from '~/build-app/types'
 import { getPageContent } from '~/build-app/utils/page-content'
 import { getPages, getStaticParams } from '~/build-app/utils/pages-exports'
 import { getName } from '~/build-app/utils/transform-name'
 
-type PageProps = {
-  params: {
-    id: string
-  }
-}
-
-export async function generateMetadata({ params }: { params: { [key: string]: string } }) {
-  const { id } = params
+export async function generateMetadata({ params }: Params) {
+  const { id } = await params
   const title = getName(id)
 
   return {
@@ -28,9 +23,9 @@ export async function generateStaticParams() {
   return getStaticParams(pages)
 }
 
-const Page = ({ params }: PageProps) => {
+const Page = async ({ params }: Params) => {
+  const { id } = await params
   const pages = getPages('foundations')
-  const { id } = params
 
   const { contentWithoutMatter, isNotFound, tree } = getPageContent({
     filename: `foundations/${id}.mdx`,

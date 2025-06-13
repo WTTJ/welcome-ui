@@ -2,21 +2,15 @@ import { Text } from '@/Text'
 
 import { Sidebar } from '~/build-app/components/Sidebar'
 import * as Documentation from '~/build-app/layouts/Documentation'
+import type { Params } from '~/build-app/types'
 import { getPages } from '~/build-app/utils/pages-exports'
 import { getName } from '~/build-app/utils/transform-name'
 
 import { Tabs } from './tabs'
 
-type LayoutProps = {
-  children: React.ReactNode
-  params: {
-    id: string
-  }
-}
-
-const Layout = ({ children, params }: LayoutProps) => {
+const Layout = async ({ children, params }: React.PropsWithChildren<Params>) => {
+  const { id } = await params
   const pages = getPages('foundations')
-  const { id } = params
 
   return (
     <Documentation.Layout>
