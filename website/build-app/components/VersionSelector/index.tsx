@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Select } from '@/Select'
 
 import lib from '../../../../lib/package.json'

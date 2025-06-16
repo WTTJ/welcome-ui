@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react'
+import type { JSX, ReactElement } from 'react'
 
 import type { BoxProps } from '@/Box'
 import { forwardRef } from '@/System'

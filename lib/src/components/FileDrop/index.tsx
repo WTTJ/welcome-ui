@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import React, { useEffect, useState } from 'react'
 import type {
   Accept,
@@ -48,7 +49,7 @@ export type FileDropChildren = {
 export interface FileDropOptions {
   /** Pass a comma-separated string of file types e.g. "image/png" or "image/png,image/jpeg" */
   accept?: Accept
-  children?: (state: FileDropChildren) => JSX.Element
+  children?: (props: FileDropChildren) => null | React.JSX.Element
   fileName?: string
   forceFileType?: ForceFileType
   handleAddFile?: (event: CreateEvent | DropEvent | React.ChangeEvent<HTMLInputElement>) => void
@@ -127,7 +128,9 @@ export const FileDrop = forwardRef<'div', FileDropProps>(
       setError(null)
 
       const event = createEvent({ name, value: file })
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       onChange && onChange(event)
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       handleAddFile && handleAddFile(event)
     }
 
@@ -150,8 +153,11 @@ export const FileDrop = forwardRef<'div', FileDropProps>(
       setFile(null)
       setError(errorMessage)
 
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       onError && onError(errorMessage)
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       onChange && onChange(event)
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       onBlur && onBlur() // Trigger field touch
     }
 
@@ -161,7 +167,9 @@ export const FileDrop = forwardRef<'div', FileDropProps>(
       setError(null)
 
       const event = createEvent({ name, value: null })
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       onChange && onChange(event)
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       handleRemoveFile && handleRemoveFile(event)
     }
 
@@ -201,19 +209,21 @@ export const FileDrop = forwardRef<'div', FileDropProps>(
           style={{ display: 'block', height: 0, opacity: 0, width: 0 }}
         />
         <S.FilePreview>
-          {children({
-            disabled,
-            error,
-            file,
-            fileName,
-            fileUrl: file && getPreviewUrl(file),
-            forceFileType,
-            isAnImage: forceFileType === 'image' || isAnImage(file),
-            isHoverAccept: isDragAccept,
-            isHoverReject: isDragReject,
-            openFile: open,
-            wordings,
-          })}
+          <>
+            {children({
+              disabled,
+              error,
+              file,
+              fileName,
+              fileUrl: file && getPreviewUrl(file),
+              forceFileType,
+              isAnImage: forceFileType === 'image' || isAnImage(file),
+              isHoverAccept: isDragAccept,
+              isHoverReject: isDragReject,
+              openFile: open,
+              wordings,
+            })}
+          </>
           {!!file && (error || isEditable || isClearable) ? (
             <S.Actions>
               {error || isEditable ? (

@@ -67,7 +67,7 @@ export const DatePicker = forwardRef<'input', DatePickerProps>(
 
     const [focused, setFocused] = useState<Focused>((autoFocus && 'date') || null)
     const [date, setDate] = useState(formatDate(value))
-    const inputRef = useRef<HTMLInputElement>()
+    const inputRef = useRef<HTMLInputElement>(null)
 
     // format date at component mount
     useEffect(() => {

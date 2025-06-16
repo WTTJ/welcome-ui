@@ -1,3 +1,4 @@
+import type { ReactElement } from 'react'
 import React, { cloneElement } from 'react'
 import type { Toast, ToastPosition } from 'react-hot-toast/headless'
 import toastRHT from 'react-hot-toast/headless'
@@ -66,7 +67,7 @@ export const ToastWrapper: React.FC<ToastWrapperProps> = ({
       transform={toastStyle.transform}
       {...toast.ariaProps}
     >
-      {cloneElement(toast.message as JSX.Element, { onClose })}
+      {cloneElement(toast.message as ReactElement<{ onClose: VoidFunction }>, { onClose })}
     </S.ToastWrapper>
   )
 }
