@@ -178,7 +178,7 @@
         ],
         "required": false,
         "type": {
-          "name": "ReactElement<any, string | JSXElementConstructor<any>>"
+          "name": "ReactElement<{ size: DefaultFieldIconSize; }, string | JSXElementConstructor<any>>"
         }
       },
       "id": {
@@ -524,7 +524,7 @@
         ],
         "required": false,
         "type": {
-          "name": "(item: SelectOption, isItemSelected?: boolean) => string | ReactElement<any, string | JSXElementConstructor<any>>"
+          "name": "(item: SelectOption, isItemSelected?: boolean) => string | ReactElement<unknown, string | JSXElementConstructor<any>>"
         }
       },
       "renderMultiple": {
@@ -543,7 +543,7 @@
         ],
         "required": false,
         "type": {
-          "name": "(values: SelectOption[], handleRemove: (value: string) => void) => ReactElement<any, string | JSXElementConstructor<any>>"
+          "name": "(values: SelectOption[], handleRemove: (value: string) => void) => ReactElement<unknown, string | JSXElementConstructor<any>>"
         }
       },
       "transparent": {

@@ -324,7 +324,7 @@ export const Select = forwardRef<'input', SelectProps>(
             setIsOpen(!isOpen)
           }
 
-          const rootProps = getRootProps(rest as GetRootPropsOptions)
+          const rootProps = getRootProps({ ...(rest as GetRootPropsOptions), refKey: 'rootProps' })
           const inputProps = getInputProps({
             autoComplete,
             autoFocus,

@@ -28,12 +28,11 @@ export const Stack = forwardRef<'div', StackProps>(
         {validChildrenArray.map((child, i) => {
           const childAs: React.ElementType = as === 'ol' || as === 'ul' ? 'li' : 'div'
 
-          const childProps = {
-            as: childAs,
-            key: `stack-item-${i}`,
-          }
-
-          return <Box {...childProps}>{child}</Box>
+          return (
+            <Box as={childAs} key={`stack-item-${i}`}>
+              {child}
+            </Box>
+          )
         })}
       </Box>
     )
