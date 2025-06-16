@@ -11,7 +11,7 @@ import * as S from './styles'
 export type TooltipOptions = Pick<Ariakit.TooltipOptions, 'gutter'> &
   Pick<Ariakit.TooltipStoreProps, 'placement'> & {
     children: React.ReactNode
-    content: JSX.Element | string
+    content: ReactElement | string
     fixed?: boolean
     withArrow?: boolean
   }
@@ -47,7 +47,7 @@ export const Tooltip = forwardRef<'div', TooltipProps>(
       })
     }
 
-    const child = (children as JSX.Element)?.props?.disabled
+    const child = (children as ReactElement<{ disabled: boolean }>)?.props?.disabled
       ? React.Children.only(<S.ChildItem>{children}</S.ChildItem>)
       : children
 

@@ -1,11 +1,21 @@
 import type { CSSObject } from '@xstyled/styled-components'
 import styled, { css, th } from '@xstyled/styled-components'
+import type { ReactElement } from 'react'
 import React from 'react'
 
 import { datePickerStyles } from './datePickerStyles'
 import { fixAriaMessageStyle } from './styles'
 
-export const CustomPopper = ({ children }: { children: React.ReactElement }) => {
+export const CustomPopper = ({
+  children,
+}: {
+  children: ReactElement<{
+    children?: React.ReactNode
+    modifiers: unknown
+    placement: unknown
+    popperProps: unknown
+  }>
+}) => {
   if (!children) {
     return null
   }

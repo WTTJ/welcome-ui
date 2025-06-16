@@ -1,3 +1,4 @@
+import type { JSX, ReactElement } from 'react'
 import React, { Children, cloneElement, useEffect, useMemo, useState } from 'react'
 
 import type { DatePickerProps } from '@/DatePicker'
@@ -39,7 +40,7 @@ export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
         (child: JSX.Element): boolean => child.type.displayName === 'TimePicker'
       )
     const timeIntervals = React.isValidElement(TimePickerNode)
-      ? TimePickerNode.props.timeIntervals
+      ? (TimePickerNode as ReactElement<{ timeIntervals: number }>).props.timeIntervals
       : undefined
 
     const formatDate: (date: DateTimePickerProps['value']) => ReturnType<typeof getDate> = date =>
@@ -49,11 +50,13 @@ export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
 
     const handleChange: DateTimePickerProps['onChange'] = newDate => {
       setDate(newDate || null)
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       onChange && onChange(newDate && new Date(newDate))
     }
 
     // format date at component mount
     useEffect(() => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       onChange && handleChange(formatDate(value))
       //eslint-disable-next-line
     }, [])
@@ -73,17 +76,29 @@ export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
     return (
       <S.DateTimePicker data-testid={dataTestId}>
         {children
-          ? Children.map(children, (child: React.ReactElement, i) =>
-              cloneElement(child, {
-                // give ref only to the first child
-                inputRef: i < 1 ? ref : null,
-                key: i,
-                locale: locale,
-                onChange: handleChange,
-                timeIntervals,
-                transparent,
-                value: date,
-              })
+          ? Children.map(
+              children,
+              (
+                child: React.ReactElement<{
+                  inputRef?: React.ForwardedRef<unknown>
+                  locale: string
+                  onChange: VoidFunction
+                  timeIntervals?: number
+                  transparent?: boolean
+                  value: Date | null
+                }>,
+                i
+              ) =>
+                cloneElement(child, {
+                  // give ref only to the first child
+                  inputRef: i < 1 ? ref : null,
+                  key: i,
+                  locale: locale,
+                  onChange: handleChange,
+                  timeIntervals,
+                  transparent,
+                  value: date,
+                })
             )
           : null}
         {!children && (
@@ -113,5 +128,3 @@ export const DateTimePicker = forwardRef<'input', DateTimePickerProps>(
     )
   }
 )
-
-DateTimePicker.displayName = 'DateTimePicker'

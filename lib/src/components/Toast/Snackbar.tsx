@@ -1,3 +1,5 @@
+import type { ReactElement } from 'react'
+
 import { Box } from '@/Box'
 import type { ButtonProps } from '@/Button'
 import { Button } from '@/Button'
@@ -12,9 +14,9 @@ export interface SnackbarOptions {
   /** add correct separator for call to action
    * use SnackbarAction
    */
-  cta?: JSX.Element
+  cta?: ReactElement
   hasCloseButton?: boolean
-  icon?: JSX.Element | null
+  icon?: null | ReactElement
   onClose?: () => void
   variant?: ToastVariant
 }

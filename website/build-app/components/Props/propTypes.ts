@@ -1,10 +1,11 @@
-import { func, number, object, oneOfType, shape, string } from 'prop-types'
+import type { ComponentType as ReactComponentType } from 'react'
 
-export const COMPONENT_TYPE = [func, object, string]
+export type ComponentType = ReactComponentType<unknown> | Record<string, unknown> | string
 
-export const DIRECTIONS_TYPE = ['row', 'container', 'column']
+export const DIRECTIONS = ['row', 'container', 'column'] as const
+export type DirectionType = (typeof DIRECTIONS)[number]
 
-export const INPUTS_TYPE = [
+export const INPUTS = [
   'checkbox',
   'email',
   'file',
@@ -13,15 +14,28 @@ export const INPUTS_TYPE = [
   'search',
   'tel',
   'text',
-]
+] as const
+export type InputType = (typeof INPUTS)[number]
 
-export const OPTIONS_TYPE = shape({
-  label: oneOfType([number, string]),
-  value: oneOfType([number, string]),
-})
+export interface OptionType {
+  label: number | string
+  value: number | string
+}
 
-export const SHAPES_TYPE = ['square', 'circle']
+export const SHAPES = ['square', 'circle'] as const
+export type ShapeType = (typeof SHAPES)[number]
 
-export const SIZES_TYPE = ['sm', 'md', 'lg']
+export const SIZES = ['sm', 'md', 'lg'] as const
+export type SizeType = (typeof SIZES)[number]
 
-export const VARIANTS_TYPE = ['danger', 'info', 'success', 'warning']
+export const VARIANTS = ['danger', 'info', 'success', 'warning'] as const
+export type VariantType = (typeof VARIANTS)[number]
+
+// Legacy exports for backward compatibility (if needed)
+export const COMPONENT_TYPE = ['function', 'object', 'string'] // For documentation purposes
+export const DIRECTIONS_TYPE = DIRECTIONS
+export const INPUTS_TYPE = INPUTS
+export const OPTIONS_TYPE = 'OptionType' // Reference to the interface
+export const SHAPES_TYPE = SHAPES
+export const SIZES_TYPE = SIZES
+export const VARIANTS_TYPE = VARIANTS

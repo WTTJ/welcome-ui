@@ -1,5 +1,6 @@
 import type { DownshiftProps, GetRootPropsOptions } from 'downshift'
 import DownshiftImport from 'downshift'
+import type { ReactElement } from 'react'
 import React, { Fragment, useCallback, useMemo, useState } from 'react'
 
 import { ClearButton } from '@/ClearButton'
@@ -8,7 +9,7 @@ import type { CreateWuiProps } from '@/System'
 import { forwardRef } from '@/System'
 
 import { createEvent } from '../../utils/create-event'
-import type { DefaultFieldStylesProps } from '../../utils/field-styles'
+import type { DefaultFieldIconSize, DefaultFieldStylesProps } from '../../utils/field-styles'
 import { FIELD_ICON_SIZE } from '../../utils/field-styles'
 import { throttle as handleThrottle } from '../../utils/throttle'
 
@@ -22,7 +23,7 @@ export type SearchOptionGroup = { label: string; options: SearchOption[] }
 
 export interface SearchOptions extends DefaultFieldStylesProps {
   groupsEnabled?: boolean
-  icon?: React.ReactElement
+  icon?: ReactElement<{ size: DefaultFieldIconSize }>
   itemToString: (item: Item) => string
   minChars?: number
   onChange?: (item: Item, event: ReturnType<typeof createEvent>) => void
@@ -99,6 +100,7 @@ export const Search = forwardRef<'input', SearchProps>(
     // Send event to parent when value(s) changes
     const handleChange = (value?: Item) => {
       const event = createEvent({ name, value })
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       onChange && onChange(value, event)
     }
 
@@ -159,6 +161,7 @@ export const Search = forwardRef<'input', SearchProps>(
             </S.DropDownIndicator>
           )
           const handleInputFocus = (event: React.FocusEvent<HTMLInputElement>) => {
+            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
             onFocus && onFocus(event)
             handleInputChange('')
             toggleMenu()

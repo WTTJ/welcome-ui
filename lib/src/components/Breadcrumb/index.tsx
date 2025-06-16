@@ -1,4 +1,5 @@
 import { ResizeObserver } from '@juggle/resize-observer'
+import type { ReactElement } from 'react'
 import React, {
   Children,
   cloneElement,
@@ -43,24 +44,35 @@ export const BreadcrumbComponent = forwardRef<'div', BreadcrumbProps>(
     ref
   ) => {
     const listRef = useRef<HTMLOListElement>(null)
-    const startGradient = useRef()
-    const endGradient = useRef()
+    const startGradient = useRef(null)
+    const endGradient = useRef(null)
     const [isOverflowing, setIsOverflowing] = useState(false)
     const [initialOffset, setInitialOffset] = useState(0)
     /** removed null child */
     const childrenFiltered = Children.toArray(children).filter(Boolean)
     const childrenLength = childrenFiltered.length
 
-    const clones = childrenFiltered.map((child: React.ReactElement, index) => {
+    const clones = childrenFiltered.map((child, index) => {
       const isLastChild = childrenLength === 1 || childrenLength === index + 1
       const isActive = isLastChild && lastChildNotClickable
 
-      return cloneElement(child, {
-        isActive,
-        key: `breadcrumb-${index}`,
-        separator: isLastChild ? undefined : separator,
-        ...child.props,
-      })
+      // Type guard and safe cloning
+      if (React.isValidElement(child)) {
+        return cloneElement(
+          child as ReactElement<{
+            isActive: boolean
+            separator?: unknown
+          }>,
+          {
+            isActive,
+            key: `breadcrumb-${index}`,
+            separator: isLastChild ? undefined : separator,
+          }
+        )
+      }
+
+      // Handle non-element children
+      return child
     })
 
     function translate(element: HTMLElement, value: number) {

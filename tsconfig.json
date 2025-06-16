@@ -8,6 +8,8 @@
     "sourceMap": true,
     "declaration": true,
 
+    "jsxImportSource": "react",
+
     /* Type Checking */
     // "strict": true,
     "noImplicitAny": true,

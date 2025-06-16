@@ -96,7 +96,7 @@ export const FileUpload = forwardRef<'input', FileUploadProps>(
   ) => {
     // We always keep an array of files
     const [files, setFiles] = useState<FileWithPreviewType[]>(ensureArray(value))
-    const inputRef = useRef<HTMLInputElement>()
+    const inputRef = useRef<HTMLInputElement>(null)
 
     // Ensure component is controlled
     useEffect(() => {

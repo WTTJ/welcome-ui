@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 'use client'
+import type { JSX } from 'react'
+
 import { Text } from '@/Text'
 
 import { Tokens } from './Tokens'

@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import React, { forwardRef } from 'react'
 
 import { ClearButton } from '@/ClearButton'

@@ -24,16 +24,6 @@
       "count": 5
     }
   },
-  "lib/src/components/DateTimePicker/index.tsx": {
-    "@typescript-eslint/no-unused-expressions": {
-      "count": 2
-    }
-  },
-  "lib/src/components/FileDrop/index.tsx": {
-    "@typescript-eslint/no-unused-expressions": {
-      "count": 7
-    }
-  },
   "lib/src/components/FileDrop/utils.ts": {
     "@typescript-eslint/no-unused-vars": {
       "count": 1
@@ -49,11 +39,6 @@
       "count": 1
     }
   },
-  "lib/src/components/InputText/index.tsx": {
-    "@typescript-eslint/no-unused-expressions": {
-      "count": 1
-    }
-  },
   "lib/src/components/Picker/index.tsx": {
     "@typescript-eslint/no-unused-expressions": {
       "count": 1
@@ -64,16 +49,6 @@
       "count": 2
     }
   },
-  "lib/src/components/Search/index.tsx": {
-    "@typescript-eslint/no-unused-expressions": {
-      "count": 2
-    }
-  },
-  "lib/src/components/Select/index.tsx": {
-    "@typescript-eslint/no-unused-expressions": {
-      "count": 5
-    }
-  },
   "lib/src/components/Slider/Range.tsx": {
     "@typescript-eslint/no-unused-expressions": {
       "count": 4
@@ -82,14 +57,6 @@
   "lib/src/components/Slider/index.tsx": {
     "@typescript-eslint/no-unused-expressions": {
       "count": 2
-    }
-  },
-  "lib/src/components/System/index.tsx": {
-    "@typescript-eslint/ban-types": {
-      "count": 3
-    },
-    "@typescript-eslint/no-empty-object-type": {
-      "count": 3
     }
   },
   "lib/src/components/TimePicker/index.tsx": {

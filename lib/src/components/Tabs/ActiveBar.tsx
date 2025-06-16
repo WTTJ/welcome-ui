@@ -10,7 +10,7 @@ import type { UseTabState } from '.'
 
 export interface ActiveBarOptions {
   activeTab: HTMLElement
-  listRef: React.MutableRefObject<undefined>
+  listRef: React.RefObject<undefined>
 }
 
 export type ActiveBarProps = ActiveBarOptions & Pick<UseTabState, 'orientation'>
@@ -22,7 +22,7 @@ export interface ActiveBarReturn {
 }
 
 function useActiveBar(
-  listRef: React.MutableRefObject<HTMLElement>,
+  listRef: React.RefObject<HTMLElement>,
   activeTab: HTMLElement,
   orientation: UseTabState['orientation']
 ): ActiveBarReturn {

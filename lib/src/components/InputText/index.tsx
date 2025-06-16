@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import React from 'react'
 
 import { Box } from '@/Box'
@@ -64,6 +65,7 @@ export const InputText = forwardRef<'input', InputTextProps>(
         name,
         value: '',
       }) as unknown as React.ChangeEvent<HTMLInputElement>
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       onChange && onChange(event)
     }
 

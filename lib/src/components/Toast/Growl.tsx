@@ -1,3 +1,5 @@
+import type { JSX } from 'react'
+
 import { Box } from '@/Box'
 import { CloseButton } from '@/CloseButton'
 import type { CreateWuiProps } from '@/System'

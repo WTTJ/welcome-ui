@@ -17,7 +17,6 @@
     "next": "15.2.4",
     "next-themes": "^0.4.0",
     "prism-react-renderer": "2.4.0",
-    "prop-types": "^15.8.1",
     "react-markdown": "9.0.1",
     "rehype-parse": "9.0.0",
     "rehype-raw": "7.0.0",

@@ -1,4 +1,5 @@
 import { ThemeContext, ThemeProvider } from '@xstyled/styled-components'
+import type { ReactElement } from 'react'
 import React, { useContext } from 'react'
 import type { ToastPosition } from 'react-hot-toast/headless'
 import toastRHT, { useToaster } from 'react-hot-toast/headless'
@@ -55,11 +56,19 @@ const Title: React.FC<TextProps> = ({ children, ...rest }) => (
   <S.Title {...rest}>{children}</S.Title>
 )
 
-export const toast = (component: JSX.Element, options?: ToastOptions) => {
-  const name =
-    typeof component === 'string'
-      ? undefined
-      : component?.type?.displayName || component?.type?.name
+interface ComponentWithDisplayName {
+  displayName?: string
+  name?: string
+}
+
+export const toast = (component: ReactElement, options?: ToastOptions) => {
+  let name: string | undefined
+
+  if (typeof component !== 'string' && typeof component?.type !== 'string') {
+    const componentType = component.type as ComponentWithDisplayName
+    name = componentType.displayName || componentType.name
+  }
+
   const position = (name === 'Growl' ? 'top-right' : 'bottom-center') as ToastPosition
 
   const toastOptions = {

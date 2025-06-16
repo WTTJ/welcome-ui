@@ -1,3 +1,5 @@
+import type { ReactElement } from 'react'
+
 import type { CheckboxProps } from '@/Checkbox'
 import { Checkbox } from '@/Checkbox'
 import type { CreateWuiProps } from '@/System'
@@ -10,9 +12,9 @@ export type ToggleOptions = Omit<
   CheckboxProps,
   'Component' | 'hasIcon' | 'iconPlacement' | 'indeterminate' | 'isClearable' | 'transparent'
 > & {
-  checkedIcon?: JSX.Element
+  checkedIcon?: ReactElement
   size?: Size
-  uncheckedIcon?: JSX.Element
+  uncheckedIcon?: ReactElement
 }
 export type ToggleProps = CreateWuiProps<'input', ToggleOptions>
 

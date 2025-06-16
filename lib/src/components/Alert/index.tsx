@@ -13,12 +13,12 @@ import { Title } from './Title'
 
 export interface AlertOptions {
   closeButtonDataTestId?: string
-  cta?: JSX.Element
+  cta?: React.ReactElement
   /**
    * @description add a close button with an onclick handleClose function
    */
   handleClose?: () => void
-  icon?: JSX.Element | null
+  icon?: null | React.ReactElement
   isFullWidth?: boolean
   size?: Size
   variant?: Variant
@@ -50,15 +50,19 @@ const AlertComponent = forwardRef<'div', AlertProps>(
     const defaultVariantIcon = variant === 'beige' ? 'default' : variant
     const withAiButton = variant === 'ai'
 
-    const content = Children.toArray(children).map((child: React.ReactElement) => {
-      if (child.type === Title)
-        return cloneElement(child, { hasCloseButton: !!handleClose, variant: size })
+    const content = Children.toArray(children).map(
+      (child: React.ReactElement<{ hasCloseButton: boolean; variant: Size }>) => {
+        if (child.type === Title)
+          return cloneElement(child, { hasCloseButton: !!handleClose, variant: size })
 
-      return child
-    })
+        return child
+      }
+    )
 
     // Handle clone actions recursively in case of multiple buttons
-    const cloneActions = (child: React.ReactElement): CloneActionsReturns => {
+    const cloneActions = (
+      child: React.ReactElement<{ children?: React.ReactNode }>
+    ): CloneActionsReturns => {
       if (child) {
         if (child.type === AlertButton) {
           // If Alert variant is ai, we override the CTA Buttons to use the AI sub-variants

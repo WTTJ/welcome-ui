@@ -1,6 +1,6 @@
 import isPropValid from '@emotion/is-prop-valid'
 import type { SystemProps } from '@xstyled/styled-components'
-import type { PropsWithoutRef } from 'react'
+import type { JSX, PropsWithoutRef } from 'react'
 import React from 'react'
 
 export const shouldForwardProp = (prop: string) => isPropValid(prop)
@@ -8,8 +8,7 @@ export const shouldForwardProp = (prop: string) => isPropValid(prop)
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type As<Props = any> = React.ElementType<Props>
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-export type CreateWuiComponent<Component extends As, Options = {}> = {
+export type CreateWuiComponent<Component extends As, Options = unknown> = {
   <AsComponent extends As>(
     props: CreateWuiProps<AsComponent, Options> & { as: AsComponent }
   ): JSX.Element
@@ -17,8 +16,7 @@ export type CreateWuiComponent<Component extends As, Options = {}> = {
   displayName?: string
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-export type CreateWuiProps<Component extends As, Props = {}> = MergeProps<
+export type CreateWuiProps<Component extends As, Props = unknown> = MergeProps<
   Omit<React.ComponentProps<Component>, keyof WuiProps>,
   Props,
   WuiProps & WuiTestProps & { as?: As }
@@ -36,8 +34,7 @@ export interface WuiTestProps {
   dataTestId?: string
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-export const forwardRef = <Component extends As, Props = {}>(
+export const forwardRef = <Component extends As, Props = unknown>(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   component: React.ForwardRefRenderFunction<any, PropsWithoutRef<Props>>
 ): CreateWuiComponent<Component, Props> => {

@@ -1,4 +1,5 @@
 import * as Ariakit from '@ariakit/react'
+import type { ReactElement } from 'react'
 import { cloneElement } from 'react'
 
 import { RightIcon } from '@/Icons'
@@ -8,12 +9,12 @@ import { forwardRef } from '@/System'
 import * as S from './styles'
 
 export interface AccordionOptions {
-  icon?: JSX.Element
+  icon?: ReactElement
   /**
    * store from useAccordion()
    */
   store: UseAccordion
-  title: JSX.Element | string
+  title: ReactElement | string
 }
 
 export type AccordionProps = CreateWuiProps<'div', AccordionOptions>

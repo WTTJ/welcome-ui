@@ -1,3 +1,5 @@
+import type { JSX } from 'react'
+
 import type { IconProps } from '@/Icon'
 
 import type { StyledIconProps } from './styles'

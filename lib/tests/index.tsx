@@ -2,6 +2,7 @@ import type { RenderOptions } from '@testing-library/react'
 import { render as rtlRender } from '@testing-library/react'
 import type { UserEvent } from '@testing-library/user-event'
 import userEvent from '@testing-library/user-event'
+import type { ReactElement } from 'react'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
@@ -25,7 +26,7 @@ const Provider: React.FC<ProviderProps> = ({ children }) => {
 
 type RenderResult = ReturnType<typeof rtlRender> & { user: UserEvent }
 
-const customRender = (ui: JSX.Element, options?: RenderOptions): RenderResult => {
+const customRender = (ui: ReactElement, options?: RenderOptions): RenderResult => {
   const renderResult = rtlRender(ui, { wrapper: Provider, ...options })
 
   return {
