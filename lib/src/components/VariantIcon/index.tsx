@@ -1,3 +1,4 @@
+import type { ReactElement } from 'react'
 import { useMemo } from 'react'
 
 import {
@@ -15,7 +16,7 @@ import * as S from './styles'
 import type { Size, Variant } from './theme'
 
 export interface VariantIconOptions {
-  icon?: JSX.Element
+  icon?: ReactElement
   size?: Size
   variant?: Variant
 }

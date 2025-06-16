@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import React from 'react'
 
 import { ExternalLinkIcon } from '@/Icons'

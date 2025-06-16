@@ -1,5 +1,6 @@
 import { useTheme } from '@xstyled/styled-components'
 import debounce from 'lodash.debounce'
+import type { JSX } from 'react'
 import { Children, cloneElement, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import { IconsFont } from '@/IconsFont'
@@ -66,7 +67,7 @@ export const useSwiper = (options: UseSwiperProps = {}) => {
   const [currentPage, setCurrentPage] = useState(0)
   const [showLeftArrow, setShowLeftArrow] = useState(false)
   const [showRightArrow, setShowRightArrow] = useState(false)
-  const ref = useRef<HTMLUListElement>()
+  const ref = useRef<HTMLUListElement>(null)
   const { screens } = useTheme()
 
   const currentSlidesPerView = useMemo(() => {

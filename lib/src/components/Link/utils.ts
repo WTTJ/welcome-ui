@@ -1,3 +1,5 @@
+import type { JSX } from 'react'
+
 const shouldWrapElementWithText = (value: JSX.Element) => {
   return (
     // <span />

@@ -1,16 +1,18 @@
 import type { ControllerStateAndHelpers, DownshiftProps, GetRootPropsOptions } from 'downshift'
 import DownshiftImport from 'downshift'
 import { matchSorter } from 'match-sorter'
+import type { JSX, ReactElement } from 'react'
 import React, { Fragment, useEffect, useMemo, useState } from 'react'
 
 import { ClearButton } from '@/ClearButton'
+import type { IconProps } from '@/Icon'
 import { DownIcon } from '@/Icons'
 import type { CreateWuiProps } from '@/System'
 import { forwardRef } from '@/System'
 
 import type { CreateEvent } from '../../utils/create-event'
 import { createEvent } from '../../utils/create-event'
-import type { DefaultFieldStylesProps } from '../../utils/field-styles'
+import type { DefaultFieldIconSize, DefaultFieldStylesProps } from '../../utils/field-styles'
 import { FIELD_ICON_SIZE } from '../../utils/field-styles'
 
 import { multipleSelections } from './multipleSelections'
@@ -29,7 +31,7 @@ import {
 
 export type SelectOption = {
   disabled?: boolean
-  icon?: React.ReactElement
+  icon?: ReactElement<IconProps>
   label: string
   value: SelectOptionValue
 }
@@ -43,7 +45,7 @@ export interface SelectOptions extends DefaultFieldStylesProps {
   disableCloseOnSelect?: boolean
   disabled?: boolean
   groupsEnabled?: boolean
-  icon?: React.ReactElement
+  icon?: ReactElement<{ size: DefaultFieldIconSize }>
   id?: string
   isClearable?: boolean
   isCreatable?: boolean
@@ -121,7 +123,7 @@ export const Select = forwardRef<'input', SelectProps>(
       variant,
       ...rest
     }: SelectProps,
-    ref: React.MutableRefObject<HTMLInputElement>
+    ref: React.RefObject<HTMLInputElement>
   ): JSX.Element => {
     const defaultSelecteds = useMemo(
       () => getOptionsFromSelected(defaultSelected, defaultOptions, groupsEnabled),
@@ -147,6 +149,7 @@ export const Select = forwardRef<'input', SelectProps>(
     useEffect(() => {
       if (autoFocus) {
         ref?.current?.focus()
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         isSearchable && setIsOpen(true)
       }
     }, [isSearchable, autoFocus, ref])
@@ -200,12 +203,14 @@ export const Select = forwardRef<'input', SelectProps>(
       const value = isMultiple ? values : values[0]
       const event = createEvent({ name, value: isMultiple ? options : options[0] })
 
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       onChange && onChange(value, event)
 
       // If there are newly-created options, call `onCreate`
       if (isCreatable) {
         const newOptions = getNewOptions(options, defaultOptions)
         if (newOptions.length) {
+          // eslint-disable-next-line @typescript-eslint/no-unused-expressions
           onCreate && onCreate(newOptions[0].label, event)
         }
       }
@@ -226,6 +231,7 @@ export const Select = forwardRef<'input', SelectProps>(
         isClearInput = isMultiple
       }
 
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       isClearInput && setInputValue('')
       setOptions(defaultOptions)
       setSelected(newItems)
@@ -313,6 +319,7 @@ export const Select = forwardRef<'input', SelectProps>(
           )
 
           const handleInputClick = (e: React.MouseEvent<HTMLElement>) => {
+            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
             onClick && onClick(e)
             setIsOpen(!isOpen)
           }
@@ -353,7 +360,10 @@ export const Select = forwardRef<'input', SelectProps>(
                 )}
                 {icon ? (
                   <S.IconWrapper iconPlacement="left" size={iconSize}>
-                    {React.cloneElement(icon, { ...icon.props, size: iconSize })}
+                    {React.cloneElement(icon, {
+                      size: iconSize,
+                      ...(typeof icon.props === 'object' && icon.props !== null ? icon.props : {}),
+                    })}
                   </S.IconWrapper>
                 ) : null}
                 <S.Indicators size={size}>

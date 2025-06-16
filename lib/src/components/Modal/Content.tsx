@@ -1,4 +1,5 @@
 import { useTheme } from '@xstyled/styled-components'
+import type { JSX } from 'react'
 import React, { Children, cloneElement, useEffect, useMemo, useState } from 'react'
 
 import { Box } from '@/Box'

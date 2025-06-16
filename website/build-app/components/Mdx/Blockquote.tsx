@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 'use client'
+import type { JSX } from 'react'
+
 import type { AlertProps } from '@/Alert'
 import { Alert } from '@/Alert'
 

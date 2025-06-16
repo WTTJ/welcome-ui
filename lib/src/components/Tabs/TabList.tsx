@@ -1,3 +1,4 @@
+import type { Dispatch, ReactElement, SetStateAction } from 'react'
 import React, { cloneElement, useRef, useState } from 'react'
 import reactFlattenChildren from 'react-flatten-children'
 
@@ -31,12 +32,14 @@ function useTrackActiveTabs(
 ): [ReturnType<typeof flattenChildren>, HTMLElement] {
   const [activeTab, setActiveTab] = useState<HTMLElement>(null)
 
-  const tabs = flattenChildren(children).map((child: React.ReactElement) => {
-    if (child.props.id === selectedId) {
-      return cloneElement(child, { ref: setActiveTab })
+  const tabs = flattenChildren(children).map(
+    (child: ReactElement<{ id: string; ref: Dispatch<SetStateAction<HTMLElement>> }>) => {
+      if (child.props.id === selectedId) {
+        return cloneElement(child, { ref: setActiveTab })
+      }
+      return child
     }
-    return child
-  })
+  )
   return [tabs, activeTab]
 }
 
@@ -45,7 +48,7 @@ function useTrackActiveTabs(
  */
 export const TabList = forwardRef<'div', TabListProps>(
   ({ children, size = 'md', store, ...rest }, ref) => {
-    const listRef = useRef()
+    const listRef = useRef(null)
     const listForkedRef = useForkRef(ref, listRef)
     const { orientation, selectedId } = store.useState()
     const [tabs, activeTab] = useTrackActiveTabs(selectedId, children)
