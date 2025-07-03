@@ -1,5 +1,6 @@
 'use client'
 import styled, { th } from '@xstyled/styled-components'
+import React from 'react'
 
 import { Avatar } from '@/Avatar'
 import { Box } from '@/Box'
@@ -113,10 +114,10 @@ const Home = () => {
                       </Stack>
                       <Text as="span" fontWeight="bold" variant="sm">
                         {authors?.map(({ name }, idx) => (
-                          <>
+                          <React.Fragment key={`authors_${idx}_${name}`}>
                             {idx !== 0 && ', '}
                             {name}
-                          </>
+                          </React.Fragment>
                         ))}
                       </Text>
                       <Text mb="0" variant="xs">
