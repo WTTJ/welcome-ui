@@ -39,15 +39,13 @@ export const AssetDrawerComponent = forwardRef<'div', AssetDrawerProps>(
       return !isTargetWithinPersistentElements
     }
 
-    const hideOnInteractOutside = Boolean(parentGetPersistentElements) || hideOnInteractOutsideFn
-
     return (
       <Drawer
         {...rest}
         autoFocusOnShow={false}
         getPersistentElements={getPersistentElements}
         h={{ _: '100%', md: 'calc(100% - 3rem)' }}
-        hideOnInteractOutside={hideOnInteractOutside}
+        hideOnInteractOutside={hideOnInteractOutsideFn}
         overflow="hidden"
         placement="bottom"
         ref={ref}
