@@ -63,7 +63,7 @@
     "lodash.debounce": "^4.0.8",
     "lodash.range": "^3.2.0",
     "lottie-light-react": "^2.4.0",
-    "match-sorter": "^8.0.0",
+    "match-sorter": "^8.1.0",
     "react-datepicker": "^8.4.0",
     "react-dropzone": "^14.3.5",
     "react-flatten-children": "^1.0.0",
