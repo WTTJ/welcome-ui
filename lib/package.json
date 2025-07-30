@@ -5,22 +5,20 @@
   "files": [
     "dist"
   ],
+  "type": "module",
   "exports": {
     "./fonts/*": "./dist/fonts/*",
     "./theme": {
       "types": "./dist/types/theme/index.d.ts",
-      "import": "./dist/theme.mjs",
-      "require": "./dist/theme.mjs"
+      "import": "./dist/theme.js"
     },
     "./utils": {
       "types": "./dist/types/utils/index.d.ts",
-      "import": "./dist/utils.mjs",
-      "require": "./dist/utils.mjs"
+      "import": "./dist/utils.js"
     },
     "./*": {
       "types": "./dist/types/components/*/index.d.ts",
-      "import": "./dist/*.mjs",
-      "require": "./dist/*.mjs"
+      "import": "./dist/*.js"
     },
     "./*.d.ts": {
       "types": "./*.d.ts"
