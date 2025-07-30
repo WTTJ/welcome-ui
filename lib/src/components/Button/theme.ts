@@ -1,9 +1,9 @@
 import type { CSSObject } from '@xstyled/styled-components'
 
 import type { ThemeValues } from '@/theme'
+import { hexToRGBA } from '@/utils'
 
 import type { ThemeFocus } from '../../theme/focus'
-import { hexToRGBA } from '../../utils/hex-to-rgba'
 
 // we want to keep Size in a natural order for documentation
 // eslint-disable-next-line perfectionist/sort-union-types
