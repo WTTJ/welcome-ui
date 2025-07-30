@@ -90,9 +90,11 @@
     "vitest": "^3.1.4"
   },
   "peerDependencies": {
+    "@tailwindcss/vite": "^4.1.11",
     "@xstyled/styled-components": "^4.0.0",
-    "react": "^18.3.1",
-    "styled-components": "^6.1.15"
+    "react": "^18.3.1 || ^19.0.0",
+    "styled-components": "^6.1.15",
+    "tailwindcss": "^4.1.11"
   },
   "homepage": "https://welcome-ui.com"
 }
