@@ -2,11 +2,12 @@ import { forwardRef } from 'react'
 
 type ButtonProps = {
   children?: React.ReactNode
+  className?: string
 }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ children }, ref) => {
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ children, className }, ref) => {
   return (
-    <button className="bg-blue-500 bg-red-500" ref={ref}>
+    <button className={className} ref={ref}>
       {children || 'Test button tailwind'}
     </button>
   )

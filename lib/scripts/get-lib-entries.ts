@@ -40,6 +40,7 @@ const getComponentsEntries = () => {
 
 export const getLibEntries = () => ({
   ...getComponentsEntries(),
+  TailwindTheme: resolve(__dirname, '../src/TailwindTheme/index.ts'),
   theme: resolve(__dirname, '../src/theme/index.ts'),
   utils: resolve(__dirname, '../src/utils/index.ts'),
 })
