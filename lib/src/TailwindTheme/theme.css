@@ -218,23 +218,31 @@
   /* ===== TYPOGRAPHY ===== */
 
   /* Font sizes */
-  --font-size-h0: 4.0625rem;
+  --text-h0: 4.0625rem;
   /* 65px */
-  --font-size-h1: 2.8125rem;
+  --text-h1: 2.8125rem;
   /* 45px */
-  --font-size-h2: 2.25rem;
+  --text-h2: 2.25rem;
   /* 36px */
-  --font-size-h3: 1.625rem;
+  --text-h3: 1.625rem;
   /* 26px */
-  --font-size-h4: 1.25rem;
+  --text-h4: 1.25rem;
   /* 20px */
-  --font-size-h5: 1rem;
+  --text-h5: 1rem;
   /* 16px */
-  --font-size-h6: 0.875rem;
+  --text-h6: 0.875rem;
   /* 14px */
-  --font-size-subtitle-md: 0.8125rem;
+  --text-xs: 0.75rem;
+  /* 12px */
+  --text-sm: 0.875rem;
+  /* 14px */
+  --text-md: 1rem;
+  /* 16px */
+  --text-lg: 1.125rem;
+  /* 18px */
+  --text-subtitle-md: 0.8125rem;
   /* 13px */
-  --font-size-subtitle-sm: 0.6875rem;
+  --text-subtitle-sm: 0.6875rem;
   /* 11px */
 
   /* Line heights */
