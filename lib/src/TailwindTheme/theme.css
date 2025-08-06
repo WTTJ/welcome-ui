@@ -282,8 +282,8 @@
 
   /* Font families */
   --default-font-family: "Work Sans", sans-serif;
-  --font-family-headings: "Welcome font", sans-serif;
-  --font-family-icons: "Welcome Icon Font";
+  --font-family-headings: "welcome-font", sans-serif;
+  --font-family-icons: "welcome-icon-font";
 
   /* ===== BORDER ===== */
   --border-width-sm: 1px;
