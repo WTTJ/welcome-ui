@@ -269,19 +269,19 @@
   --color-yellow-80: #604d00;
   --color-yellow-90: #423500;
 
-  /* Primary */
-  --color-primary-10: var(--color-yellow-10);
-  --color-primary-20: var(--color-yellow-20);
-  --color-primary-30: var(--color-yellow-30);
-  --color-primary-40: var(--color-yellow-40);
+  /* Primary Semantic */
+  --color-brand-10: var(--color-yellow-10);
+  --color-brand-20: var(--color-yellow-20);
+  --color-brand-30: var(--color-yellow-30);
+  --color-brand-40: var(--color-yellow-40);
   /* WTTJ Yellow */
-  --color-primary-50: var(--color-yellow-50);
-  --color-primary-60: var(--color-yellow-60);
-  --color-primary-70: var(--color-yellow-70);
-  --color-primary-80: var(--color-yellow-80);
-  --color-primary-90: var(--color-yellow-90);
+  --color-brand-50: var(--color-yellow-50);
+  --color-brand-60: var(--color-yellow-60);
+  --color-brand-70: var(--color-yellow-70);
+  --color-brand-80: var(--color-yellow-80);
+  --color-brand-90: var(--color-yellow-90);
 
-  /* Secondary */
+  /* Secondary Semantic */
   --color-secondary-blue: var(--color-blue-40);
   --color-secondary-green: var(--color-green-30);
   --color-secondary-orange: var(--color-red-orange-40);
@@ -418,7 +418,7 @@
 
   --shadow-sm: 1px 2px 4px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 3px 4px 10px 0 rgba(0, 0, 0, 0.07);
-  --shadow-focus: 0 0 0 2px var(--color-primary-40);
+  --shadow-focus: 0 0 0 2px var(--color-brand-40);
   --shadow-focus-danger: 0 0 0 2px var(--color-red-30);
   --shadow-focus-success: 0 0 0 2px var(--color-green-30);
   --shadow-focus-warning: 0 0 0 2px var(--color-orange-20);
@@ -444,19 +444,32 @@
   --breakpoint-3xl: 1620px;
   --breakpoint-4xl: 1920px;
 
-  /* ===== BUTTONS ===== */
-  --height-button-xs: 1.5rem
-    /* 24px */
-  ;
-  --height-button-sm: 2rem
-    /* 32px */
-  ;
-  --height-button-md: 2.5rem
-    /* 40px */
-  ;
-  --height-button-lg: 3rem
-    /* 48px */
-  ;
+  /* ===== HEIGHT TOKENS ===== */
+
+  /* primitive */
+  --height-8: 0.5rem;
+  --height-10: 0.625rem;
+  --height-16: 1rem;
+  --height-20: 1.25rem;
+  --height-24: 1.5rem;
+  --height-32: 2rem;
+  --height-40: 2.5rem;
+  --height-48: 3rem;
+  --height-64: 4rem;
+
+  /* semantic */
+  --height-elements-xs: var(--height-24);
+  --height-elements-sm: var(--height-32);
+  --height-elements-md: var(--height-40);
+  --height-elements-lg: var(--height-48);
+
+  /* ===== BUTTON TOKENS ===== */
+
+  /* copmonent */
+  --height-button-xs: var(--height-elements-xs);
+  --height-button-sm: var(--height-elements-sm);
+  --height-button-md: var(--height-elements-md);
+  --height-button-lg: var(--height-elements-lg);
 
 }
 

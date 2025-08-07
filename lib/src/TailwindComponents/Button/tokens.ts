@@ -18,22 +18,22 @@ export const sizes = {
   lg: {
     fontSize: '--text-sm',
     height: '--height-button-lg',
-    paddingX: '--spacing-xl',
+    paddingInline: '--spacing-xl',
   },
   md: {
     fontSize: '--text-sm',
     height: '--height-button-md',
-    paddingX: '--spacing-xl',
+    paddingInline: '--spacing-xl',
   },
   sm: {
     fontSize: '--text-xs',
     height: '--height-button-sm',
-    paddingX: '--spacing-sm',
+    paddingInline: '--spacing-sm',
   },
   xs: {
     fontSize: '--text-xs',
     height: '--height-button-xs',
-    paddingX: '--spacing-sm',
+    paddingInline: '--spacing-sm',
   },
 }
 
@@ -56,13 +56,13 @@ export const variants = {
     outlineColorFocus: '--color-red-40',
   },
   primary: {
-    backgroundColor: '--color-primary-40',
-    backgroundColorActive: '--color-primary-10',
-    backgroundColorHover: '--color-primary-30',
-    borderColor: '--color-primary-40',
-    borderColorActive: '--color-primary-10',
-    borderColorHover: '--color-primary-30',
-    outlineColorFocus: '--color-primary-20',
+    backgroundColor: '--color-brand-40',
+    backgroundColorActive: '--color-brand-10',
+    backgroundColorHover: '--color-brand-30',
+    borderColor: '--color-brand-40',
+    borderColorActive: '--color-brand-10',
+    borderColorHover: '--color-brand-30',
+    outlineColorFocus: '--color-brand-20',
   },
   'primary-danger': {
     backgroundColor: '--color-red-70',
@@ -101,6 +101,7 @@ export const variants = {
   },
 }
 
+// FIXME MOVE ME TO A UTILS FILE
 export const variableMap = <T extends Record<string, string>>(token: T) => {
   return Object.entries(token).reduce(
     (acc, [key, value]) => {
