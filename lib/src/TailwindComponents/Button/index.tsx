@@ -1,6 +1,7 @@
 import type { ButtonHTMLAttributes, CSSProperties, ReactNode } from 'react'
 
 import { shapes, sizes, theme, variableMap, variants } from './tokens'
+import './theme.css'
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   children?: ReactNode
@@ -21,7 +22,7 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 export const Button = ({
   children,
-  className,
+  className = '',
   ref,
   shape = 'square',
   size = 'md',
@@ -29,42 +30,46 @@ export const Button = ({
   variant = 'primary',
   ...rest
 }: ButtonProps) => {
-  const base = [
-    'relative',
-    'inline-flex',
-    'items-center',
-    'justify-center',
-    'text-center',
-    'cursor-pointer',
-    'transition-all',
-    'outline-transparent',
-  ].join(' ')
+  // const base = [
+  //   'relative',
+  //   'inline-flex',
+  //   'items-center',
+  //   'justify-center',
+  //   'text-center',
+  //   'cursor-pointer',
+  //   'transition-all',
+  //   'outline-transparent',
+  // ].join(' ')
 
-  const dynamicClasses = [
-    'bg-(--backgroundColor)',
-    'active:bg-(--backgroundColorActive)',
-    'hover:bg-(--backgroundColorHover)',
-    'border-(length:--borderWidth)',
-    'border-(--borderColor)',
-    'active:border-(--borderColorActive)',
-    'hover:border-(--borderColorHover)',
-    'outline-(length:--outlineWidth)',
-    'focus:outline-(--outlineColorFocus)',
-    'h-(--height)',
-    'px-(--paddingInline)',
-    'rounded-(--borderRadius)',
-    'text-(length:--fontSize)',
-    'text-(color:--color)',
-    'font-(--fontWeight)',
-    'duration-(--transitionDuration)',
-  ].join(' ')
+  // const dynamicClasses = [
+  //   'bg-(--backgroundColor)',
+  //   'active:bg-(--backgroundColorActive)',
+  //   'hover:bg-(--backgroundColorHover)',
+  //   'border-(length:--borderWidth)',
+  //   'border-(--borderColor)',
+  //   'active:border-(--borderColorActive)',
+  //   'hover:border-(--borderColorHover)',
+  //   'outline-(length:--outlineWidth)',
+  //   'focus:outline-(--outlineColorFocus)',
+  //   'h-(--height)',
+  //   'px-(--paddingInline)',
+  //   'rounded-(--borderRadius)',
+  //   'text-(length:--fontSize)',
+  //   'text-(color:--color)',
+  //   'font-(--fontWeight)',
+  //   'duration-(--transitionDuration)',
+  // ].join(' ')
 
-  const classNames = `${base} ${dynamicClasses} ${className}`
+  const base = 'wui-button-base-class'
+  const dynamicClasses = 'wui-button-dynamic-class'
+  const sizeClass = `wui-button-size-${size}`
+
+  const classNames = `${base} ${dynamicClasses} ${sizeClass} ${className}`
 
   const styles = {
     ...variableMap(theme),
     ...variableMap(variants[variant as keyof typeof variants]),
-    ...variableMap(sizes[size as keyof typeof sizes]),
+    // ...variableMap(sizes[size as keyof typeof sizes]),
     ...variableMap(shapes[shape as keyof typeof shapes]),
     ...style,
   }
