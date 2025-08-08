@@ -24,22 +24,30 @@ type Story = StoryObj<typeof meta>
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 
-export const Primary: Story = () => (
-  <div id="buttonRoot">
-    <Button className="mr-3" variant="primary">
-      Primary Button
-    </Button>
-    <Button className="mr-3" id="hover" variant="primary">
-      Primary Button hover FIXME
-    </Button>
-    <Button id="active" variant="primary">
-      Primary Button active
-    </Button>
-  </div>
-)
+export const Primary: Story = {
+  args: {
+    children: 'Button',
+    variant: 'primary',
+  },
+}
 
-Primary.parameters = {
-  pseudo: { active: '#active', focus: '#active', hover: '#hover' },
+export const PrimaryButtons: Story = {
+  render: () => (
+    <div id="buttonRoot">
+      <Button className="mr-3" variant="primary">
+        Primary Button
+      </Button>
+      <Button className="mr-3" id="hover" variant="primary">
+        Primary Button hover FIXME
+      </Button>
+      <Button id="active" variant="primary">
+        Primary Button active
+      </Button>
+    </div>
+  ),
+  parameters: {
+    pseudo: { active: '#active', focus: '#active', hover: '#hover' },
+  },
 }
 
 export const PrimaryDanger: Story = {
