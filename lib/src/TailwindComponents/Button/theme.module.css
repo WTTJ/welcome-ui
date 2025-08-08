@@ -1,0 +1,7 @@
+.wuiButtonBaseClass {
+  @apply relative inline-flex items-center justify-center text-center cursor-pointer transition-all outline-transparent;
+}
+
+.wuiButtonDynamicClass {
+  @apply bg-(--backgroundColor) active:bg-(--backgroundColorActive) hover:bg-(--backgroundColorHover) border-(length:--borderWidth) border-(--borderColor) active:border-(--borderColorActive) hover:border-(--borderColorHover) outline-(length:--outlineWidth) focus:outline-(--outlineColorFocus) h-(--height) px-(--paddingInline) rounded-(--borderRadius) text-(length:--fontSize) text-(color:--color) font-(--fontWeight) duration-(--transitionDuration);
+}

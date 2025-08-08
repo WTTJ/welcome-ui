@@ -1,3 +1,16 @@
+/* eslint-disable perfectionist/sort-modules */
+
+import type { CSSProperties } from 'react'
+
+import type {
+  ColorMix,
+  CSSButtonHeightVar,
+  CSSColorVar,
+  CSSFontSizeVar,
+  CSSSpacingVar,
+} from '../../TailwindTheme'
+
+// Handled in CSS with classes
 export const theme = {
   borderWidth: '--border-width-sm',
   fontWeight: '--font-weight-bold',
@@ -5,6 +18,7 @@ export const theme = {
   transitionDuration: '--duration-medium',
 }
 
+// Handled in CSS with classes
 export const shapes = {
   circle: {
     borderRadius: '50%',
@@ -14,7 +28,8 @@ export const shapes = {
   },
 }
 
-export const sizes = {
+// Handled in CSS with classes
+export const sizes: ButtonSize = {
   lg: {
     fontSize: '--text-sm',
     height: '--height-button-lg',
@@ -37,13 +52,41 @@ export const sizes = {
   },
 }
 
-export const variants = {
+type PseudoState = '' | 'Active' | 'Focus' | 'Hover'
+
+type ComponentProperties<Keys extends string> = Record<
+  Keys,
+  {
+    [key in `${keyof CSSProperties}${PseudoState}`]?:
+      | ColorMix
+      | CSSButtonHeightVar
+      | CSSColorVar
+      | CSSFontSizeVar
+      | CSSSpacingVar
+  }
+>
+
+type Sizes = 'lg' | 'md' | 'sm' | 'xs'
+
+type Variant =
+  | 'ghost'
+  | 'ghost-danger'
+  | 'primary'
+  | 'primary-danger'
+  | 'secondary'
+  | 'tertiary'
+  | 'tertiary-danger'
+
+type ButtonVariant = ComponentProperties<Variant>
+type ButtonSize = ComponentProperties<Sizes>
+
+export const variants: ButtonVariant = {
   ghost: {
     backgroundColorActive: 'color-mix(in oklab, var(--color-neutral-90) 40%, transparent)',
     backgroundColorHover: 'color-mix(in oklab, var(--color-neutral-90) 10%, transparent)',
     borderColor: 'transparent',
-    borderColorActive: 'transparent',
-    borderColorHover: 'transparent',
+    borderColorActive: '--color-neutral-90',
+    borderColorHover: 'color-mix(in oklab, var(--color-blue-10) 40%, transparent)',
     outlineColorFocus: 'color-mix(in oklab, var(--color-neutral-90) 10%, transparent)',
   },
   'ghost-danger': {
