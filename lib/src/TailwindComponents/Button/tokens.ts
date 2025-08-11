@@ -3,14 +3,14 @@
 import type { CSSProperties } from 'react'
 
 import type {
+  ButtonHeights,
+  ButtonHeightTokens,
   ColorMix,
-  CSSButtonHeightVar,
-  CSSColorVar,
-  CSSFontSizeVar,
-  CSSSpacingVar,
-} from '../../TailwindTheme'
+  ColorTokens,
+  SemanticSpacingTokens,
+  TextFontSizeTokens,
+} from '../../TailwindTheme/types'
 
-// Handled in CSS with classes
 export const theme = {
   borderWidth: '--border-width-sm',
   fontWeight: '--font-weight-bold',
@@ -18,7 +18,6 @@ export const theme = {
   transitionDuration: '--duration-medium',
 }
 
-// Handled in CSS with classes
 export const shapes = {
   circle: {
     borderRadius: '50%',
@@ -28,45 +27,42 @@ export const shapes = {
   },
 }
 
-// Handled in CSS with classes
+type PseudoState = '' | 'Active' | 'Focus' | 'Hover'
+
+type ComponentProperties<Keys extends string, Values extends string> = Record<
+  Keys,
+  {
+    [key in `${keyof CSSProperties}${PseudoState}`]?: Values
+  }
+>
+
+type ButtonSize = ComponentProperties<
+  ButtonHeights,
+  ButtonHeightTokens | SemanticSpacingTokens | TextFontSizeTokens
+>
+
 export const sizes: ButtonSize = {
   lg: {
-    fontSize: '--text-sm',
+    fontSize: '--font-size-text-sm',
     height: '--height-button-lg',
     paddingInline: '--spacing-xl',
   },
   md: {
-    fontSize: '--text-sm',
+    fontSize: '--font-size-text-sm',
     height: '--height-button-md',
     paddingInline: '--spacing-xl',
   },
   sm: {
-    fontSize: '--text-xs',
+    fontSize: '--font-size-text-xs',
     height: '--height-button-sm',
     paddingInline: '--spacing-sm',
   },
   xs: {
-    fontSize: '--text-xs',
+    fontSize: '--font-size-text-xs',
     height: '--height-button-xs',
     paddingInline: '--spacing-sm',
   },
 }
-
-type PseudoState = '' | 'Active' | 'Focus' | 'Hover'
-
-type ComponentProperties<Keys extends string> = Record<
-  Keys,
-  {
-    [key in `${keyof CSSProperties}${PseudoState}`]?:
-      | ColorMix
-      | CSSButtonHeightVar
-      | CSSColorVar
-      | CSSFontSizeVar
-      | CSSSpacingVar
-  }
->
-
-type Sizes = 'lg' | 'md' | 'sm' | 'xs'
 
 type Variant =
   | 'ghost'
@@ -77,8 +73,7 @@ type Variant =
   | 'tertiary'
   | 'tertiary-danger'
 
-type ButtonVariant = ComponentProperties<Variant>
-type ButtonSize = ComponentProperties<Sizes>
+type ButtonVariant = ComponentProperties<Variant, ColorMix | ColorTokens>
 
 export const variants: ButtonVariant = {
   ghost: {
