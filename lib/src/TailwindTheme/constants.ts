@@ -60,9 +60,9 @@ export const semantics = {
     '--font-size-xs': 'var(--font-size-12)',
   },
   fontWeight: {
-    '--font-weight-bold': 'var(--font-weight-600',
-    '--font-weight-medium': 'var(--font-weight-500',
-    '--font-weight-regular': 'var(--font-weight-400',
+    '--font-weight-bold': 'var(--font-weight-600)',
+    '--font-weight-medium': 'var(--font-weight-500)',
+    '--font-weight-regular': 'var(--font-weight-400)',
   },
   heights: {
     '--height-elements-lg': 'var(--height-48)',
