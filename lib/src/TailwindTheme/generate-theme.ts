@@ -1,13 +1,26 @@
 import fs from 'fs'
+import path from 'path'
+import { fileURLToPath } from 'url'
 
 import { components, primitives, semantics } from './constants'
+
+const indentation = '  ' // 2 spaces for indentation
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
+const fontFacesPath = path.join(__dirname, 'fontFaces.css')
+const basePath = path.join(__dirname, 'base.css')
+const themePath = path.join(__dirname, 'theme.css')
+
+const fontFaces = fs.readFileSync(fontFacesPath, 'utf8')
+const baseStyles = fs.readFileSync(basePath, 'utf8')
 
 /**
  * @param {Record<string, string>} map
  * @returns {string}
  * @example @theme { values }
  */
-const getStringFrom = (map: Record<string, string>) => `${map.property} {${map.value}}`
+const getStringFrom = (map: Record<string, string>) => `${map.property} {\n${map.value}}\n`
 
 /**
  * @param {Record<string, Record<string, Record<string, string>>>} mappedCSS
@@ -35,20 +48,17 @@ const getCSSFrom = (mappedCSS: Record<string, Record<string, Record<string, stri
             // append value in px in a comment
             return (
               acc +
-              `${property}: ${value}; /* ${(parseFloat(value.replace('rem', '')) || 0) * 16}px */ \n`
+              `${indentation}${property}: ${value}; /* ${(parseFloat(value.replace('rem', '')) || 0) * 16}px */\n`
             )
           }
-          return acc + `${property}: ${value};\n`
+          return acc + `${indentation}${property}: ${value};\n`
         }, '')
 
-        return acc + `\n/* ${comment} */\n${directivesString} `
-      }, `\n/* ===== ${tokenHierarchy.toUpperCase()} ===== */\n`)
+        return acc + `\n${indentation}/* ${comment} */\n${directivesString}`
+      }, `\n${indentation}/* ===== ${tokenHierarchy.toUpperCase()} ===== */\n`)
     )
   }, '')
 }
-
-const fontFaces = fs.readFileSync('./fontFaces.css', 'utf8')
-const baseStyles = fs.readFileSync('./base.css', 'utf8')
 
 const theme = {
   property: '@theme',
@@ -59,13 +69,12 @@ const theme = {
   }),
 }
 
-const layer = {
+const baseLayer = {
   property: '@layer base',
   value: baseStyles,
 }
 
-const generateThemeCss = () => `${fontFaces}
-${getStringFrom(theme)}
-${getStringFrom(layer)}`
+const generateThemeCss = () =>
+  [fontFaces, getStringFrom(theme), getStringFrom(baseLayer)].join('\n')
 
-fs.writeFileSync('./theme.css', generateThemeCss(), 'utf8')
+fs.writeFileSync(themePath, generateThemeCss(), 'utf8')
