@@ -23,7 +23,7 @@ const baseStyles = fs.readFileSync(basePath, 'utf8')
 const getStringFrom = (map: Record<string, string>) => `${map.property} {\n${map.value}}\n`
 
 /**
- * @param {Record<string, Record<string, Record<string, string>>>} mappedCSS
+ * @param {Record<string, Record<string, Record<string, string>>>} tokenConstants
  * @returns {string}
  * @example
  *  // ===== COLORS =====
@@ -32,29 +32,29 @@ const getStringFrom = (map: Record<string, string>) => `${map.property} {\n${map
  * --color-beige-10: #fbf9f7;
  * --color-beige-20: #f6f3ef;
  */
-const getCSSFrom = (mappedCSS: Record<string, Record<string, Record<string, string>>>) => {
-  return Object.entries(mappedCSS).reduce((acc, [tokenHierarchy, values]) => {
+const getCSSFrom = (tokenConstants: Record<string, Record<string, Record<string, string>>>) => {
+  return Object.entries(tokenConstants).reduce((acc, [tokenHierarchy, tokenFamilies]) => {
     return (
       acc +
-      Object.entries(values).reduce((acc, [comment, directives]) => {
+      Object.entries(tokenFamilies).reduce((acc, [comment, tokens]) => {
         /**
          * @example
          * --font-weight-regular: 400;
          * --line-height-h3: 2rem; // 32px
          */
-        const directivesString = Object.entries(directives).reduce((acc, [property, value]) => {
+        const tokenStrings = Object.entries(tokens).reduce((acc, [token, value]) => {
+          const tokenString = `${indentation}${token}: ${value};`
           // if value a rem unit
           if (value.endsWith('rem')) {
             // append value in px in a comment
             return (
-              acc +
-              `${indentation}${property}: ${value}; /* ${(parseFloat(value.replace('rem', '')) || 0) * 16}px */\n`
+              acc + `${tokenString} /* ${(parseFloat(value.replace('rem', '')) || 0) * 16}px */\n`
             )
           }
-          return acc + `${indentation}${property}: ${value};\n`
+          return acc + `${tokenString}\n`
         }, '')
 
-        return acc + `\n${indentation}/* ${comment} */\n${directivesString}`
+        return acc + `\n${indentation}/* ${comment} */\n${tokenStrings}`
       }, `\n${indentation}/* ===== ${tokenHierarchy.toUpperCase()} ===== */\n`)
     )
   }, '')
