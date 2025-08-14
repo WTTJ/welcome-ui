@@ -1,9 +1,0 @@
-{
-  "extends": ["stylelint-config-recommended"],
-  "customSyntax": "postcss-styled-syntax",
-  "rules": {
-    "declaration-property-value-no-unknown": null,
-    "media-feature-name-value-no-unknown": null,
-    "no-empty-source": null
-  }
-}
