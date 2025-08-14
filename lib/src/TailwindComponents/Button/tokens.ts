@@ -64,13 +64,16 @@ export const sizes: ButtonSize = {
   },
 }
 
-type Variant =
+export type Variant =
   | 'ghost'
+  | 'ghost-ai'
   | 'ghost-danger'
   | 'primary'
+  | 'primary-ai'
   | 'primary-danger'
   | 'secondary'
   | 'tertiary'
+  | 'tertiary-ai'
   | 'tertiary-danger'
 
 type ButtonVariant = ComponentProperties<Variant, ColorMix | ColorTokens>
@@ -83,6 +86,15 @@ export const variants: ButtonVariant = {
     borderColorActive: '--color-neutral-90',
     borderColorHover: 'color-mix(in oklab, var(--color-blue-10) 40%, transparent)',
     outlineColorFocus: 'color-mix(in oklab, var(--color-neutral-90) 10%, transparent)',
+  },
+  'ghost-ai': {
+    backgroundColorActive: '--color-violet-30',
+    backgroundColorHover: '--color-violet-10',
+    borderColor: 'transparent',
+    borderColorActive: '--color-violet-30',
+    borderColorHover: '--color-violet-10',
+    color: '--color-violet-70',
+    outlineColorFocus: '--color-violet-50',
   },
   'ghost-danger': {
     backgroundColorActive: '--color-red-20',
@@ -101,6 +113,16 @@ export const variants: ButtonVariant = {
     borderColorActive: '--color-brand-10',
     borderColorHover: '--color-brand-30',
     outlineColorFocus: '--color-brand-20',
+  },
+  'primary-ai': {
+    backgroundColor: '--color-violet-70',
+    backgroundColorActive: '--color-violet-40',
+    backgroundColorHover: '--color-violet-60',
+    borderColor: '--color-violet-70',
+    borderColorActive: '--color-violet-40',
+    borderColorHover: '--color-violet-60',
+    color: '--color-neutral-10',
+    outlineColorFocus: '--color-violet-50',
   },
   'primary-danger': {
     backgroundColor: '--color-red-70',
@@ -128,6 +150,14 @@ export const variants: ButtonVariant = {
     backgroundColorHover: 'color-mix(in oklab, var(--color-neutral-90) 10%, transparent)',
     borderColor: '--color-neutral-90',
     outlineColorFocus: '--color-neutral-40',
+  },
+  'tertiary-ai': {
+    backgroundColor: '--color-neutral-10',
+    backgroundColorActive: '--color-violet-30',
+    backgroundColorHover: '--color-violet-10',
+    borderColor: '--color-violet-70',
+    color: '--color-violet-70',
+    outlineColorFocus: '--color-violet-50',
   },
   'tertiary-danger': {
     backgroundColor: '--color-neutral-10',

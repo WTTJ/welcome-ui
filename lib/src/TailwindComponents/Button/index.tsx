@@ -2,6 +2,7 @@ import type { ButtonHTMLAttributes, CSSProperties, ReactNode } from 'react'
 
 import buttonStyles from './theme.module.css'
 import { shapes, sizes, theme, variableMap, variants } from './tokens'
+import type { Variant } from './tokens'
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   children?: ReactNode
@@ -10,14 +11,7 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   shape?: 'circle' | 'square'
   size?: 'lg' | 'md' | 'sm' | 'xs'
   style?: CSSProperties
-  variant?:
-    | 'ghost'
-    | 'ghost-danger'
-    | 'primary'
-    | 'primary-danger'
-    | 'secondary'
-    | 'tertiary'
-    | 'tertiary-danger'
+  variant?: Variant
 }
 
 export const Button = ({
