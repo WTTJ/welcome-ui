@@ -32,6 +32,9 @@ export const Primary: Story = {
 }
 
 export const PrimaryButtons: Story = {
+  parameters: {
+    pseudo: { active: '#active', focus: '#active', hover: '#hover' },
+  },
   render: () => (
     <div id="buttonRoot">
       <Button className="mr-3" variant="primary">
@@ -45,9 +48,6 @@ export const PrimaryButtons: Story = {
       </Button>
     </div>
   ),
-  parameters: {
-    pseudo: { active: '#active', focus: '#active', hover: '#hover' },
-  },
 }
 
 export const PrimaryDanger: Story = {
@@ -61,6 +61,13 @@ export const TertiaryDanger: Story = {
   args: {
     children: 'Button',
     variant: 'tertiary-danger',
+  },
+}
+
+export const TertiaryAi: Story = {
+  args: {
+    children: 'Button',
+    variant: 'tertiary-ai',
   },
 }
 
@@ -89,6 +96,20 @@ export const GhostDanger: Story = {
   args: {
     children: 'Button',
     variant: 'ghost-danger',
+  },
+}
+
+export const GhostAi: Story = {
+  args: {
+    children: 'Button',
+    variant: 'ghost-ai',
+  },
+}
+
+export const PrimaryAi: Story = {
+  args: {
+    children: 'Button',
+    variant: 'primary-ai',
   },
 }
 
