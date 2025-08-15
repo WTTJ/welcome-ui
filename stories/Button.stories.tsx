@@ -1,19 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { CSSProperties } from 'react'
 import { fn } from 'storybook/test'
 
 import { Button } from '../lib/src/TailwindComponents/Button'
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
   args: { onClick: fn() },
-  // More on argTypes: https://storybook.js.org/docs/api/argtypes
   component: Button,
   parameters: {
-    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: 'centered',
   },
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
   title: 'Tailwind Button',
 } satisfies Meta<typeof Button>
@@ -21,8 +17,6 @@ const meta = {
 export default meta
 
 type Story = StoryObj<typeof meta>
-
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 
 export const Primary: Story = {
   args: {
@@ -33,14 +27,25 @@ export const Primary: Story = {
 
 export const PrimaryButtons: Story = {
   parameters: {
-    pseudo: { active: '#active', focus: '#active', hover: '#hover' },
+    pseudo: { active: '#active', focus: '#active' },
   },
   render: () => (
     <div id="buttonRoot">
       <Button className="mr-3" variant="primary">
         Primary Button
       </Button>
-      <Button className="mr-3" id="hover" variant="primary">
+      <Button
+        // This is a workaround because the hover peudo state is not compatible with Tailwind 4
+        // https://github.com/storybookjs/storybook-addon-pseudo-states/issues/140
+        className="mr-3 bg-(--backgroundColorHover)! border-(--borderColorHover)!"
+        style={
+          {
+            '--backgroundColorHover': 'var(--color-brand-30)',
+            '--borderColorHover': 'var(--color-brand-30)',
+          } as CSSProperties
+        }
+        variant="primary"
+      >
         Primary Button hover FIXME
       </Button>
       <Button id="active" variant="primary">
