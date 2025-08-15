@@ -5,7 +5,14 @@ import { Button } from '../lib/src/TailwindComponents/Button'
 import buttonStyles from '../lib/src/TailwindComponents/Button/theme.module.css'
 
 const meta = {
-  args: { onClick: fn() },
+  args: {
+    children: 'Default Button',
+    disabled: false,
+    onClick: fn(),
+    shape: 'square',
+    size: 'md',
+    variant: 'primary',
+  },
   component: Button,
   parameters: {
     layout: 'centered',
@@ -18,8 +25,12 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
+export const Default: Story = {
+  name: 'Button',
+}
+
 export const PrimaryVariants: Story = {
-  name: 'Variants/Primary',
+  name: 'Variants/Primary (default)',
   parameters: {
     pseudo: { active: '#active', focus: '#active', hover: '#hover' },
   },
