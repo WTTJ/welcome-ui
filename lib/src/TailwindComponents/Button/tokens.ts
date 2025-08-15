@@ -96,8 +96,8 @@ export const variants: ButtonVariant = {
     backgroundColorActive: 'color-mix(in oklab, var(--color-neutral-90) 40%, transparent)',
     backgroundColorHover: 'color-mix(in oklab, var(--color-neutral-90) 10%, transparent)',
     borderColor: 'transparent',
-    borderColorActive: '--color-neutral-90',
-    borderColorHover: 'color-mix(in oklab, var(--color-blue-10) 40%, transparent)',
+    borderColorActive: 'transparent',
+    borderColorHover: 'transparent',
     outlineColorFocus: 'color-mix(in oklab, var(--color-neutral-90) 10%, transparent)',
   },
   'ghost-ai': {
