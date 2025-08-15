@@ -1,19 +1,21 @@
 import { Button as AriakitButton } from '@ariakit/react'
+import type { ButtonProps as AriakitButtonProps } from '@ariakit/react'
 import type { ButtonHTMLAttributes, CSSProperties, ReactNode } from 'react'
 
 import buttonStyles from './theme.module.css'
 import { shapes, sizes, theme, variableMap, variants } from './tokens'
 import type { Variant } from './tokens'
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  children?: ReactNode
-  className?: string
-  ref?: React.Ref<HTMLButtonElement>
-  shape?: 'circle' | 'square'
-  size?: 'lg' | 'md' | 'sm' | 'xs'
-  style?: CSSProperties
-  variant?: Variant
-}
+type ButtonProps = AriakitButtonProps &
+  ButtonHTMLAttributes<HTMLButtonElement> & {
+    children?: ReactNode
+    className?: string
+    ref?: React.Ref<HTMLButtonElement>
+    shape?: 'circle' | 'square'
+    size?: 'lg' | 'md' | 'sm' | 'xs'
+    style?: CSSProperties
+    variant?: Variant
+  }
 
 export const Button = ({
   children,
@@ -47,3 +49,5 @@ export const Button = ({
     </AriakitButton>
   )
 }
+
+Button.displayName = 'TailwindButton'

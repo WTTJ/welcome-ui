@@ -26,4 +26,11 @@
     text-(color:--color)
     font-(--fontWeight)
     duration-(--transitionDuration);
+
+  /* This is a workaround because the hover peudo state is not compatible with Tailwind 4 */
+  /* https://github.com/storybookjs/storybook-addon-pseudo-states/issues/140 */
+  &.pseudo-hover {
+    background-color: var(--backgroundColorHover);
+    border-color: var(--borderColorHover);
+  }
 }

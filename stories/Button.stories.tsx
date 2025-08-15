@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import type { CSSProperties } from 'react'
 import { fn } from 'storybook/test'
 
 import { Button } from '../lib/src/TailwindComponents/Button'
+import buttonStyles from '../lib/src/TailwindComponents/Button/theme.module.css'
 
 const meta = {
   args: { onClick: fn() },
@@ -21,7 +21,7 @@ type Story = StoryObj<typeof meta>
 export const PrimaryVariants: Story = {
   name: 'Variants/Primary',
   parameters: {
-    pseudo: { active: '#active', focus: '#active' },
+    pseudo: { active: '#active', focus: '#active', hover: '#hover' },
   },
   render: () => (
     <div id="buttonRoot">
@@ -31,13 +31,8 @@ export const PrimaryVariants: Story = {
       <Button
         // This is a workaround because the hover peudo state is not compatible with Tailwind 4
         // https://github.com/storybookjs/storybook-addon-pseudo-states/issues/140
-        className="mr-3 bg-(--backgroundColorHover)! border-(--borderColorHover)!"
-        style={
-          {
-            '--backgroundColorHover': 'var(--color-brand-30)',
-            '--borderColorHover': 'var(--color-brand-30)',
-          } as CSSProperties
-        }
+        className={`${buttonStyles['pseudo-hover']} mr-3`}
+        id="hover"
         variant="primary"
       >
         Primary Button hover
