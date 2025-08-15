@@ -18,14 +18,8 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Primary: Story = {
-  args: {
-    children: 'Button',
-    variant: 'primary',
-  },
-}
-
-export const PrimaryButtons: Story = {
+export const PrimaryVariants: Story = {
+  name: 'Variants/Primary',
   parameters: {
     pseudo: { active: '#active', focus: '#active' },
   },
@@ -46,7 +40,7 @@ export const PrimaryButtons: Story = {
         }
         variant="primary"
       >
-        Primary Button hover FIXME
+        Primary Button hover
       </Button>
       <Button id="active" variant="primary">
         Primary Button active
@@ -55,93 +49,147 @@ export const PrimaryButtons: Story = {
   ),
 }
 
-export const PrimaryDanger: Story = {
-  args: {
-    children: 'Button',
-    variant: 'primary-danger',
+export const SecondaryVariants: Story = {
+  name: 'Variants/Secondary',
+  parameters: {
+    pseudo: { active: '#active', focus: '#active' },
   },
+  render: () => (
+    <div id="buttonRoot">
+      <Button className="mr-3" variant="secondary">
+        Secondary Button
+      </Button>
+      <Button
+        // This is a workaround because the hover peudo state is not compatible with Tailwind 4
+        // https://github.com/storybookjs/storybook-addon-pseudo-states/issues/140
+        className="mr-3 bg-(--backgroundColorHover)! border-(--borderColorHover)!"
+        style={
+          {
+            '--backgroundColorHover': 'var(--color-neutral-70)',
+            '--borderColorHover': 'var(--color-neutral-70)',
+          } as CSSProperties
+        }
+        variant="secondary"
+      >
+        Secondary Button hover
+      </Button>
+      <Button id="active" variant="secondary">
+        Secondary Button active
+      </Button>
+    </div>
+  ),
 }
 
-export const TertiaryDanger: Story = {
-  args: {
-    children: 'Button',
-    variant: 'tertiary-danger',
+export const TertiaryVariants: Story = {
+  name: 'Variants/Tertiary',
+  parameters: {
+    pseudo: { active: '#active', focus: '#active' },
   },
+  render: () => (
+    <div id="buttonRoot">
+      <Button className="mr-3" variant="tertiary">
+        Tertiary Button
+      </Button>
+      <Button
+        // This is a workaround because the hover peudo state is not compatible with Tailwind 4
+        // https://github.com/storybookjs/storybook-addon-pseudo-states/issues/140
+        className="mr-3 bg-(--backgroundColorHover)! border-(--borderColorHover)!"
+        style={
+          {
+            '--backgroundColorHover':
+              'color-mix(in oklab, var(--color-neutral-90) 10%, transparent)',
+            '--borderColorHover': 'var(--color-neutral-90)',
+          } as CSSProperties
+        }
+        variant="tertiary"
+      >
+        Tertiary Button hover
+      </Button>
+      <Button id="active" variant="tertiary">
+        Tertiary Button active
+      </Button>
+    </div>
+  ),
 }
 
-export const TertiaryAi: Story = {
-  args: {
-    children: 'Button',
-    variant: 'tertiary-ai',
+export const GhostVariants: Story = {
+  name: 'Variants/Ghost',
+  parameters: {
+    pseudo: { active: '#active', focus: '#active' },
   },
+  render: () => (
+    <div id="buttonRoot">
+      <Button className="mr-3" variant="ghost">
+        Ghost Button
+      </Button>
+      <Button
+        // This is a workaround because the hover peudo state is not compatible with Tailwind 4
+        // https://github.com/storybookjs/storybook-addon-pseudo-states/issues/140
+        className="mr-3 bg-(--backgroundColorHover)! border-(--borderColorHover)!"
+        style={
+          {
+            '--backgroundColorHover':
+              'color-mix(in oklab, var(--color-neutral-90) 10%, transparent)',
+            '--borderColorHover': 'color-mix(in oklab, var(--color-blue-10) 40%, transparent)',
+          } as CSSProperties
+        }
+        variant="ghost"
+      >
+        Ghost Button hover
+      </Button>
+      <Button id="active" variant="ghost">
+        Ghost Button active
+      </Button>
+    </div>
+  ),
 }
 
-export const Secondary: Story = {
-  args: {
-    children: 'Button',
-    variant: 'secondary',
-  },
+export const DangerButtons: Story = {
+  name: 'Variants/Danger',
+  render: () => (
+    <div id="buttonRoot">
+      <Button className="mr-3" variant="primary-danger">
+        Primary
+      </Button>
+      <Button className="mr-3" variant="tertiary-danger">
+        Tertiary
+      </Button>
+      <Button variant="ghost-danger">Ghost</Button>
+    </div>
+  ),
 }
 
-export const Tertiary: Story = {
-  args: {
-    children: 'Button',
-    variant: 'tertiary',
-  },
+export const AIButtons: Story = {
+  name: 'Variants/AI',
+  render: () => (
+    <div id="buttonRoot">
+      <Button className="mr-3" variant="primary-ai">
+        Primary
+      </Button>
+      <Button className="mr-3" variant="tertiary-ai">
+        Tertiary
+      </Button>
+      <Button variant="ghost-ai">Ghost</Button>
+    </div>
+  ),
 }
 
-export const Ghost: Story = {
-  args: {
-    children: 'Button',
-    variant: 'ghost',
-  },
-}
-
-export const GhostDanger: Story = {
-  args: {
-    children: 'Button',
-    variant: 'ghost-danger',
-  },
-}
-
-export const GhostAi: Story = {
-  args: {
-    children: 'Button',
-    variant: 'ghost-ai',
-  },
-}
-
-export const PrimaryAi: Story = {
-  args: {
-    children: 'Button',
-    variant: 'primary-ai',
-  },
-}
-
-export const Large: Story = {
-  args: {
-    children: 'Button',
-    size: 'lg',
-  },
-}
-
-export const Medium: Story = {
-  args: {
-    children: 'Button',
-    size: 'md',
-  },
-}
-
-export const Small: Story = {
-  args: {
-    children: 'Button',
-    size: 'sm',
-  },
-}
-
-export const ExtraSmall: Story = {
-  args: {
-    children: 'Button',
-    size: 'xs',
-  },
+export const ButtonsSizes: Story = {
+  name: 'Sizes',
+  render: () => (
+    <div id="buttonRoot">
+      <Button className="mr-3" size="xs">
+        ExtraSmall
+      </Button>
+      <Button className="mr-3" size="sm">
+        Small
+      </Button>
+      <Button className="mr-3" size="md">
+        Medium
+      </Button>
+      <Button className="mr-3" size="lg">
+        Large
+      </Button>
+    </div>
+  ),
 }
