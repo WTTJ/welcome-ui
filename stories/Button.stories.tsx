@@ -53,8 +53,6 @@ export const SecondaryVariants: Story = {
       <Button
         // This is a workaround because the hover peudo state is not compatible with Tailwind 4
         // https://github.com/storybookjs/storybook-addon-pseudo-states/issues/140
-        // This is a workaround because the hover peudo state is not compatible with Tailwind 4
-        // https://github.com/storybookjs/storybook-addon-pseudo-states/issues/140
         className={`${buttonStyles['pseudo-hover']} `}
         id="hover"
         variant="secondary"
@@ -79,8 +77,6 @@ export const TertiaryVariants: Story = {
       <Button
         // This is a workaround because the hover peudo state is not compatible with Tailwind 4
         // https://github.com/storybookjs/storybook-addon-pseudo-states/issues/140
-        // This is a workaround because the hover peudo state is not compatible with Tailwind 4
-        // https://github.com/storybookjs/storybook-addon-pseudo-states/issues/140
         className={`${buttonStyles['pseudo-hover']} `}
         id="hover"
         variant="tertiary"
@@ -103,8 +99,6 @@ export const GhostVariants: Story = {
     <div className="flex flex-wrap gap-md" id="buttonRoot">
       <Button variant="ghost">Ghost Button</Button>
       <Button
-        // This is a workaround because the hover peudo state is not compatible with Tailwind 4
-        // https://github.com/storybookjs/storybook-addon-pseudo-states/issues/140
         // This is a workaround because the hover peudo state is not compatible with Tailwind 4
         // https://github.com/storybookjs/storybook-addon-pseudo-states/issues/140
         className={`${buttonStyles['pseudo-hover']} `}
