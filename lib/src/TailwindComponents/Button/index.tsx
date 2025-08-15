@@ -1,3 +1,4 @@
+import { Button as AriakitButton } from '@ariakit/react'
 import type { ButtonHTMLAttributes, CSSProperties, ReactNode } from 'react'
 
 import buttonStyles from './theme.module.css'
@@ -35,16 +36,14 @@ export const Button = ({
   }
 
   return (
-    <button
+    <AriakitButton
       {...rest}
       className={classNames}
       ref={ref}
       style={styles as CSSProperties}
       type="button"
     >
-      {children || 'Test button tailwind'}
-    </button>
+      {children}
+    </AriakitButton>
   )
 }
-
-Button.displayName = 'TailwindButton'
