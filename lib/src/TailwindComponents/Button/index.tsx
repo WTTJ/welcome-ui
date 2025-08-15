@@ -18,8 +18,10 @@ type ButtonProps = AriakitButtonProps &
   }
 
 export const Button = ({
+  accessibleWhenDisabled = true,
   children,
   className = '',
+  disabled = false,
   ref,
   shape = 'square',
   size = 'md',
@@ -29,9 +31,11 @@ export const Button = ({
 }: ButtonProps) => {
   const classNames = `${buttonStyles.wuiButtonBaseClass} ${buttonStyles.wuiButtonDynamicClass} ${className}`
 
+  const activeVariant = disabled ? 'disabled' : variant
+
   const styles = {
     ...variableMap(theme),
-    ...variableMap(variants[variant as keyof typeof variants]),
+    ...variableMap(variants[activeVariant as keyof typeof variants]),
     ...variableMap(sizes[size as keyof typeof sizes]),
     ...variableMap(shapes[shape as keyof typeof shapes]),
     ...style,
@@ -40,7 +44,9 @@ export const Button = ({
   return (
     <AriakitButton
       {...rest}
+      accessibleWhenDisabled={accessibleWhenDisabled}
       className={classNames}
+      disabled={disabled}
       ref={ref}
       style={styles as CSSProperties}
       type="button"

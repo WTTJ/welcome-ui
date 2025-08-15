@@ -4,7 +4,6 @@
     items-center
     justify-center
     text-center
-    cursor-pointer
     transition-all
     outline-transparent;
 }
@@ -25,7 +24,8 @@
     text-(length:--fontSize)
     text-(color:--color)
     font-(--fontWeight)
-    duration-(--transitionDuration);
+    duration-(--transitionDuration)
+    cursor-(--cursor);
 
   /* This is a workaround because the hover peudo state is not compatible with Tailwind 4 */
   /* https://github.com/storybookjs/storybook-addon-pseudo-states/issues/140 */
