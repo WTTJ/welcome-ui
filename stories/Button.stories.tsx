@@ -24,14 +24,12 @@ export const PrimaryVariants: Story = {
     pseudo: { active: '#active', focus: '#active', hover: '#hover' },
   },
   render: () => (
-    <div id="buttonRoot">
-      <Button className="mr-3" variant="primary">
-        Primary Button
-      </Button>
+    <div className="flex flex-wrap gap-md" id="buttonRoot">
+      <Button variant="primary">Primary Button</Button>
       <Button
         // This is a workaround because the hover peudo state is not compatible with Tailwind 4
         // https://github.com/storybookjs/storybook-addon-pseudo-states/issues/140
-        className={`${buttonStyles['pseudo-hover']} mr-3`}
+        className={`${buttonStyles['pseudo-hover']} `}
         id="hover"
         variant="primary"
       >
@@ -47,23 +45,18 @@ export const PrimaryVariants: Story = {
 export const SecondaryVariants: Story = {
   name: 'Variants/Secondary',
   parameters: {
-    pseudo: { active: '#active', focus: '#active' },
+    pseudo: { active: '#active', focus: '#active', hover: '#hover' },
   },
   render: () => (
-    <div id="buttonRoot">
-      <Button className="mr-3" variant="secondary">
-        Secondary Button
-      </Button>
+    <div className="flex flex-wrap gap-md" id="buttonRoot">
+      <Button variant="secondary">Secondary Button</Button>
       <Button
         // This is a workaround because the hover peudo state is not compatible with Tailwind 4
         // https://github.com/storybookjs/storybook-addon-pseudo-states/issues/140
-        className="mr-3 bg-(--backgroundColorHover)! border-(--borderColorHover)!"
-        style={
-          {
-            '--backgroundColorHover': 'var(--color-neutral-70)',
-            '--borderColorHover': 'var(--color-neutral-70)',
-          } as CSSProperties
-        }
+        // This is a workaround because the hover peudo state is not compatible with Tailwind 4
+        // https://github.com/storybookjs/storybook-addon-pseudo-states/issues/140
+        className={`${buttonStyles['pseudo-hover']} `}
+        id="hover"
         variant="secondary"
       >
         Secondary Button hover
@@ -81,21 +74,15 @@ export const TertiaryVariants: Story = {
     pseudo: { active: '#active', focus: '#active' },
   },
   render: () => (
-    <div id="buttonRoot">
-      <Button className="mr-3" variant="tertiary">
-        Tertiary Button
-      </Button>
+    <div className="flex flex-wrap gap-md" id="buttonRoot">
+      <Button variant="tertiary">Tertiary Button</Button>
       <Button
         // This is a workaround because the hover peudo state is not compatible with Tailwind 4
         // https://github.com/storybookjs/storybook-addon-pseudo-states/issues/140
-        className="mr-3 bg-(--backgroundColorHover)! border-(--borderColorHover)!"
-        style={
-          {
-            '--backgroundColorHover':
-              'color-mix(in oklab, var(--color-neutral-90) 10%, transparent)',
-            '--borderColorHover': 'var(--color-neutral-90)',
-          } as CSSProperties
-        }
+        // This is a workaround because the hover peudo state is not compatible with Tailwind 4
+        // https://github.com/storybookjs/storybook-addon-pseudo-states/issues/140
+        className={`${buttonStyles['pseudo-hover']} `}
+        id="hover"
         variant="tertiary"
       >
         Tertiary Button hover
@@ -113,21 +100,15 @@ export const GhostVariants: Story = {
     pseudo: { active: '#active', focus: '#active' },
   },
   render: () => (
-    <div id="buttonRoot">
-      <Button className="mr-3" variant="ghost">
-        Ghost Button
-      </Button>
+    <div className="flex flex-wrap gap-md" id="buttonRoot">
+      <Button variant="ghost">Ghost Button</Button>
       <Button
         // This is a workaround because the hover peudo state is not compatible with Tailwind 4
         // https://github.com/storybookjs/storybook-addon-pseudo-states/issues/140
-        className="mr-3 bg-(--backgroundColorHover)! border-(--borderColorHover)!"
-        style={
-          {
-            '--backgroundColorHover':
-              'color-mix(in oklab, var(--color-neutral-90) 10%, transparent)',
-            '--borderColorHover': 'color-mix(in oklab, var(--color-blue-10) 40%, transparent)',
-          } as CSSProperties
-        }
+        // This is a workaround because the hover peudo state is not compatible with Tailwind 4
+        // https://github.com/storybookjs/storybook-addon-pseudo-states/issues/140
+        className={`${buttonStyles['pseudo-hover']} `}
+        id="hover"
         variant="ghost"
       >
         Ghost Button hover
@@ -142,13 +123,9 @@ export const GhostVariants: Story = {
 export const DangerButtons: Story = {
   name: 'Variants/Danger',
   render: () => (
-    <div id="buttonRoot">
-      <Button className="mr-3" variant="primary-danger">
-        Primary
-      </Button>
-      <Button className="mr-3" variant="tertiary-danger">
-        Tertiary
-      </Button>
+    <div className="flex flex-wrap gap-md" id="buttonRoot">
+      <Button variant="primary-danger">Primary</Button>
+      <Button variant="tertiary-danger">Tertiary</Button>
       <Button variant="ghost-danger">Ghost</Button>
     </div>
   ),
@@ -157,13 +134,9 @@ export const DangerButtons: Story = {
 export const AIButtons: Story = {
   name: 'Variants/AI',
   render: () => (
-    <div id="buttonRoot">
-      <Button className="mr-3" variant="primary-ai">
-        Primary
-      </Button>
-      <Button className="mr-3" variant="tertiary-ai">
-        Tertiary
-      </Button>
+    <div className="flex flex-wrap gap-md" id="buttonRoot">
+      <Button variant="primary-ai">Primary</Button>
+      <Button variant="tertiary-ai">Tertiary</Button>
       <Button variant="ghost-ai">Ghost</Button>
     </div>
   ),
@@ -172,19 +145,20 @@ export const AIButtons: Story = {
 export const ButtonsSizes: Story = {
   name: 'Sizes',
   render: () => (
-    <div id="buttonRoot">
-      <Button className="mr-3" size="xs">
-        ExtraSmall
-      </Button>
-      <Button className="mr-3" size="sm">
-        Small
-      </Button>
-      <Button className="mr-3" size="md">
-        Medium
-      </Button>
-      <Button className="mr-3" size="lg">
-        Large
-      </Button>
+    <div className="flex flex-wrap gap-md" id="buttonRoot">
+      <Button size="xs">ExtraSmall</Button>
+      <Button size="sm">Small</Button>
+      <Button size="md">Medium</Button>
+      <Button size="lg">Large</Button>
+    </div>
+  ),
+}
+
+export const DisabledButton: Story = {
+  name: 'Disabled',
+  render: () => (
+    <div className="flex flex-wrap gap-md" id="buttonRoot">
+      <Button disabled>Disabled</Button>
     </div>
   ),
 }

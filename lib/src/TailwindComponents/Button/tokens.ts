@@ -13,6 +13,7 @@ import type {
 
 export const theme = {
   borderWidth: '--border-width-sm',
+  cursor: 'pointer',
   fontWeight: '--font-weight-bold',
   outlineWidth: '--border-width-md',
   transitionDuration: '--duration-medium',
@@ -65,6 +66,7 @@ export const sizes: ButtonSize = {
 }
 
 export type Variant =
+  | 'disabled'
   | 'ghost'
   | 'ghost-ai'
   | 'ghost-danger'
@@ -76,9 +78,20 @@ export type Variant =
   | 'tertiary-ai'
   | 'tertiary-danger'
 
-type ButtonVariant = ComponentProperties<Variant, ColorMix | ColorTokens>
+type ButtonVariant = ComponentProperties<Variant, ColorMix | ColorTokens | CSSProperties['cursor']>
 
 export const variants: ButtonVariant = {
+  disabled: {
+    backgroundColor: '--color-beige-40',
+    backgroundColorActive: '--color-beige-40',
+    backgroundColorHover: '--color-beige-40',
+    borderColor: '--color-beige-40',
+    borderColorActive: '--color-beige-40',
+    borderColorHover: '--color-beige-40',
+    color: '--color-beige-70',
+    cursor: 'not-allowed',
+    outlineColorFocus: '--color-beige-10',
+  },
   ghost: {
     backgroundColorActive: 'color-mix(in oklab, var(--color-neutral-90) 40%, transparent)',
     backgroundColorHover: 'color-mix(in oklab, var(--color-neutral-90) 10%, transparent)',
