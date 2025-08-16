@@ -31,7 +31,8 @@ export const Button = ({
 }: ButtonProps) => {
   const classNames = `${buttonStyles.wuiButtonBaseClass} ${buttonStyles.wuiButtonDynamicClass} ${className}`
 
-  const activeVariant = disabled ? 'disabled' : variant
+  // some variants like 'disabled' preprend over the others
+  const activeVariant = (disabled && 'disabled') || variant
 
   const styles = {
     ...variableMap(theme),

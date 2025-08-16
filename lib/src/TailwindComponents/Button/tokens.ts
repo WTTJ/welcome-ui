@@ -28,7 +28,7 @@ export const shapes = {
   },
 }
 
-type PseudoState = '' | 'Active' | 'Focus' | 'Hover'
+type PseudoState = '' | 'Active' | 'Disabled' | 'Focus' | 'Hover'
 
 type ComponentProperties<Keys extends string, Values extends string> = Record<
   Keys,
@@ -82,13 +82,9 @@ type ButtonVariant = ComponentProperties<Variant, ColorMix | ColorTokens | CSSPr
 
 export const variants: ButtonVariant = {
   disabled: {
-    backgroundColor: '--color-beige-40',
-    backgroundColorActive: '--color-beige-40',
-    backgroundColorHover: '--color-beige-40',
-    borderColor: '--color-beige-40',
-    borderColorActive: '--color-beige-40',
-    borderColorHover: '--color-beige-40',
-    color: '--color-beige-70',
+    backgroundColorDisabled: '--color-beige-40',
+    borderColorDisabled: '--color-beige-40',
+    colorDisabled: '--color-beige-70',
     cursor: 'not-allowed',
     outlineColorFocus: '--color-beige-10',
   },
