@@ -3,6 +3,10 @@
 
 export const components = {
   button: {
+    '--font-size-button-icon-lg': 'var(--font-size-xl)',
+    '--font-size-button-icon-md': 'var(--font-size-text-md)',
+    '--font-size-button-icon-sm': 'var(--font-size-text-md)',
+    '--font-size-button-icon-xs': 'var(--font-size-text-md)',
     '--height-button-lg': 'var(--height-elements-lg)',
     '--height-button-md': 'var(--height-elements-md)',
     '--height-button-sm': 'var(--height-elements-sm)',
@@ -57,6 +61,7 @@ export const semantics = {
     '--font-size-sm': 'var(--font-size-14)',
     '--font-size-subtitle-md': 'var(--font-size-13)',
     '--font-size-subtitle-sm': 'var(--font-size-11)',
+    '--font-size-xl': 'var(--font-size-24)',
     '--font-size-xs': 'var(--font-size-12)',
   },
   fontWeight: {
@@ -206,6 +211,7 @@ export const primitives = {
     '--font-size-16': '1rem',
     '--font-size-18': '1.125rem',
     '--font-size-20': '1.25rem',
+    '--font-size-24': '1.5rem',
     '--font-size-26': '1.625rem',
     '--font-size-36': '2.25rem',
     '--font-size-45': '2.8125rem',

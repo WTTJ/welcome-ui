@@ -4,6 +4,7 @@ import type { components, primitives, semantics } from './constants'
 
 export type ButtonHeights = ExtractTailNumber<ButtonHeightTokens>
 
+// FIXME this type naming mentions height but it also includes font sizes
 export type ButtonHeightTokens = keyof (typeof components)['button']
 export type ColorMix = `color-mix(in oklab, var(${ColorTokens}) ${OpacityRanges}%, transparent)`
 

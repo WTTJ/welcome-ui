@@ -1,11 +1,23 @@
 .wuiButtonBaseClass {
   @apply relative
-    inline-flex
-    items-center
-    justify-center
-    text-center
     transition-all
-    outline-transparent;
+    outline-transparent
+    overflow-hidden
+    whitespace-nowrap
+    text-ellipsis;
+
+  :global(i.wui-icon-font),
+  :global(svg.wui-icon) {
+    display: inline-block;
+
+    &:first-child:not(:only-child) {
+      margin-inline-end: 4px;
+    }
+
+    &:last-child:not(:only-child) {
+      margin-inline-start: 4px;
+    }
+  }
 }
 
 .wuiButtonDynamicClass {
@@ -32,7 +44,9 @@
     aria-disabled:text-(color:--colorDisabled)
     font-(--fontWeight)
     duration-(--transitionDuration)
-    cursor-(--cursor);
+    cursor-(--cursor)
+    has-[i]:px-(--paddingInlineHasIcon)
+    has-[svg]:px-(--paddingInlineHasIcon);
 
   /* This is a workaround because the hover peudo state is not compatible with Tailwind 4 */
   /* https://github.com/storybookjs/storybook-addon-pseudo-states/issues/140 */

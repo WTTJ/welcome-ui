@@ -23,17 +23,22 @@ export const shapes = {
   circle: {
     borderRadius: '100%',
     paddingInline: '0',
+    paddingInlineHasIcon: '0',
   },
   'circle-lg': {
+    fontSize: '--font-size-button-icon-lg',
     width: '--height-button-lg',
   },
   'circle-md': {
+    fontSize: '--font-size-button-icon-md',
     width: '--height-button-md',
   },
   'circle-sm': {
+    fontSize: '--font-size-button-icon-sm',
     width: '--height-button-sm',
   },
   'circle-xs': {
+    fontSize: '--font-size-button-icon-xs',
     width: '--height-button-xs',
   },
   default: {
@@ -42,22 +47,27 @@ export const shapes = {
   square: {
     borderRadius: '0',
     paddingInline: '0',
+    paddingInlineHasIcon: '0',
   },
   'square-lg': {
+    fontSize: '--font-size-button-icon-lg',
     width: '--height-button-lg',
   },
   'square-md': {
+    fontSize: '--font-size-button-icon-md',
     width: '--height-button-md',
   },
   'square-sm': {
+    fontSize: '--font-size-button-icon-sm',
     width: '--height-button-sm',
   },
   'square-xs': {
+    fontSize: '--font-size-button-icon-xs',
     width: '--height-button-xs',
   },
 }
 
-type PseudoState = '' | 'Active' | 'Disabled' | 'Focus' | 'Hover'
+type PseudoState = '' | 'Active' | 'Disabled' | 'Focus' | 'Hover' | `Has${string}`
 
 type ComponentProperties<Keys extends string, Values extends string> = Record<
   Keys,
@@ -76,21 +86,25 @@ export const sizes: ButtonSize = {
     fontSize: '--font-size-text-sm',
     height: '--height-button-lg',
     paddingInline: '--spacing-xl',
+    paddingInlineHasIcon: '--spacing-lg',
   },
   md: {
     fontSize: '--font-size-text-sm',
     height: '--height-button-md',
     paddingInline: '--spacing-xl',
+    paddingInlineHasIcon: '--spacing-md',
   },
   sm: {
     fontSize: '--font-size-text-xs',
     height: '--height-button-sm',
     paddingInline: '--spacing-sm',
+    paddingInlineHasIcon: '--spacing-md',
   },
   xs: {
     fontSize: '--font-size-text-xs',
     height: '--height-button-xs',
     paddingInline: '--spacing-sm',
+    paddingInlineHasIcon: '--spacing-sm',
   },
 }
 

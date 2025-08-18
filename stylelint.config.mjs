@@ -13,6 +13,12 @@ export default {
           },
         ],
         'custom/apply-one-class-per-line': true,
+        'selector-pseudo-class-no-unknown': [
+          true,
+          {
+            ignorePseudoClasses: ['global'],
+          },
+        ],
       },
     },
     {
