@@ -147,7 +147,7 @@ export const AIButtons: Story = {
   ),
 }
 
-export const ButtonsSizes: Story = {
+export const ButtonSizes: Story = {
   name: 'Sizes',
   render: () => (
     <div className="flex flex-wrap gap-md" id="buttonRoot">
@@ -155,6 +155,46 @@ export const ButtonsSizes: Story = {
       <Button size="sm">Small</Button>
       <Button size="md">Medium</Button>
       <Button size="lg">Large</Button>
+    </div>
+  ),
+}
+
+export const circularButtons: Story = {
+  name: 'Shape circle',
+  render: () => (
+    <div className="flex flex-wrap gap-md" id="buttonRoot">
+      <Button shape="circle" size="xs">
+        xs
+      </Button>
+      <Button shape="circle" size="sm">
+        sm
+      </Button>
+      <Button shape="circle" size="md">
+        md
+      </Button>
+      <Button shape="circle" size="lg">
+        lg
+      </Button>
+    </div>
+  ),
+}
+
+export const squareButtons: Story = {
+  name: 'Shape square',
+  render: () => (
+    <div className="flex flex-wrap gap-md" id="buttonRoot">
+      <Button shape="square" size="xs">
+        xs
+      </Button>
+      <Button shape="square" size="sm">
+        sm
+      </Button>
+      <Button shape="square" size="md">
+        md
+      </Button>
+      <Button shape="square" size="lg">
+        lg
+      </Button>
     </div>
   ),
 }
