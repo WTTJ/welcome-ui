@@ -1,3 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-@import '../lib/src/TailwindTheme/theme.css'
+@import '../lib/src/TailwindTheme/theme.css';
+@import '../lib/src/components/IconsFont/fonts/welcome-icon-font.css';

@@ -36,7 +36,11 @@ export const PrimaryVariants: Story = {
   },
   render: () => (
     <div className="flex flex-wrap gap-md" id="buttonRoot">
-      <Button variant="primary">Primary Button</Button>
+      <Button variant="primary">
+        <i className="wui-icon-add wui-icon-font" />
+        Primary Button
+        <i className="wui-icon-down wui-icon-font" />
+      </Button>
       <Button
         // This is a workaround because the hover peudo state is not compatible with Tailwind 4
         // https://github.com/storybookjs/storybook-addon-pseudo-states/issues/140
@@ -164,16 +168,16 @@ export const circularButtons: Story = {
   render: () => (
     <div className="flex flex-wrap gap-md" id="buttonRoot">
       <Button shape="circle" size="xs">
-        xs
+        <i className="wui-icon-add wui-icon-font" />
       </Button>
       <Button shape="circle" size="sm">
-        sm
+        <i className="wui-icon-add wui-icon-font" />
       </Button>
       <Button shape="circle" size="md">
-        md
+        <i className="wui-icon-add wui-icon-font" />
       </Button>
       <Button shape="circle" size="lg">
-        lg
+        <i className="wui-icon-add wui-icon-font" />
       </Button>
     </div>
   ),
@@ -184,16 +188,16 @@ export const squareButtons: Story = {
   render: () => (
     <div className="flex flex-wrap gap-md" id="buttonRoot">
       <Button shape="square" size="xs">
-        xs
+        <i className="wui-icon-add wui-icon-font" />
       </Button>
       <Button shape="square" size="sm">
-        sm
+        <i className="wui-icon-add wui-icon-font" />
       </Button>
       <Button shape="square" size="md">
-        md
+        <i className="wui-icon-add wui-icon-font" />
       </Button>
       <Button shape="square" size="lg">
-        lg
+        <i className="wui-icon-add wui-icon-font" />
       </Button>
     </div>
   ),
