@@ -3,7 +3,7 @@ import type { ButtonProps as AriakitButtonProps } from '@ariakit/react'
 import type { ButtonHTMLAttributes, CSSProperties, ReactNode } from 'react'
 
 import buttonStyles from './theme.module.css'
-import { shapes, sizes, theme, variableMap, variants } from './tokens'
+import { hydrateCSSVarsWith, shapes, sizes, theme, variants } from './tokens'
 import type { Variant } from './tokens'
 
 type ButtonProps = AriakitButtonProps &
@@ -35,11 +35,11 @@ export const Button = ({
   const activeVariant = (disabled && 'disabled') || variant
 
   const styles = {
-    ...variableMap(theme),
-    ...variableMap(variants[activeVariant as keyof typeof variants]),
-    ...variableMap(sizes[size as keyof typeof sizes]),
-    ...variableMap(shapes[shape as keyof typeof shapes]),
-    ...variableMap(shapes[`${shape}-${size}` as keyof typeof shapes]), // compouned shapes with sizes
+    ...hydrateCSSVarsWith(theme),
+    ...hydrateCSSVarsWith(variants[activeVariant as keyof typeof variants]),
+    ...hydrateCSSVarsWith(sizes[size as keyof typeof sizes]),
+    ...hydrateCSSVarsWith(shapes[shape as keyof typeof shapes]),
+    ...hydrateCSSVarsWith(shapes[`${shape}-${size}` as keyof typeof shapes]), // compouned shapes with sizes
     ...style,
   }
 

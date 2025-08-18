@@ -208,7 +208,7 @@ export const variants: ButtonVariant = {
 }
 
 // FIXME MOVE ME TO A UTILS FILE
-export const variableMap = <T extends Record<string, string>>(tokens: T) => {
+export const hydrateCSSVarsWith = <T extends Record<string, string>>(tokens: T) => {
   if (!tokens) return {}
   return Object.entries(tokens).reduce(
     (acc, [key, value]) => {
