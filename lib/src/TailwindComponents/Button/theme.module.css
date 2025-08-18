@@ -22,6 +22,7 @@
     aria-disabled:border-(--borderColorDisabled)
     outline-(length:--outlineWidth)
     focus:outline-(--outlineColorFocus)
+    w-(--width)
     h-(--height)
     px-(--paddingInline)
     rounded-(--borderRadius)

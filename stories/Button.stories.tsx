@@ -9,7 +9,7 @@ const meta = {
     children: 'Default Button',
     disabled: false,
     onClick: fn(),
-    shape: 'square',
+    shape: 'default',
     size: 'md',
     variant: 'primary',
   },
