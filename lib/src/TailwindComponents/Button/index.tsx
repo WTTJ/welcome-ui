@@ -11,7 +11,7 @@ type ButtonProps = AriakitButtonProps &
     children?: ReactNode
     className?: string
     ref?: React.Ref<HTMLButtonElement>
-    shape?: 'circle' | 'square'
+    shape?: 'circle' | 'default' | 'square'
     size?: 'lg' | 'md' | 'sm' | 'xs'
     style?: CSSProperties
     variant?: Variant
@@ -23,7 +23,7 @@ export const Button = ({
   className = '',
   disabled = false,
   ref,
-  shape = 'square',
+  shape = 'default',
   size = 'md',
   style,
   variant = 'primary',
@@ -39,6 +39,7 @@ export const Button = ({
     ...variableMap(variants[activeVariant as keyof typeof variants]),
     ...variableMap(sizes[size as keyof typeof sizes]),
     ...variableMap(shapes[shape as keyof typeof shapes]),
+    ...variableMap(shapes[`${shape}-${size}` as keyof typeof shapes]), // compouned shapes with sizes
     ...style,
   }
 

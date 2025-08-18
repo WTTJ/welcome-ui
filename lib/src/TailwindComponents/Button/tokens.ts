@@ -21,10 +21,39 @@ export const theme = {
 
 export const shapes = {
   circle: {
-    borderRadius: '50%',
+    borderRadius: '100%',
+    paddingInline: '0',
+  },
+  'circle-lg': {
+    width: '--height-button-lg',
+  },
+  'circle-md': {
+    width: '--height-button-md',
+  },
+  'circle-sm': {
+    width: '--height-button-sm',
+  },
+  'circle-xs': {
+    width: '--height-button-xs',
+  },
+  default: {
+    borderRadius: '--radius-md',
   },
   square: {
-    borderRadius: '--radius-md',
+    borderRadius: '0',
+    paddingInline: '0',
+  },
+  'square-lg': {
+    width: '--height-button-lg',
+  },
+  'square-md': {
+    width: '--height-button-md',
+  },
+  'square-sm': {
+    width: '--height-button-sm',
+  },
+  'square-xs': {
+    width: '--height-button-xs',
   },
 }
 
@@ -179,8 +208,9 @@ export const variants: ButtonVariant = {
 }
 
 // FIXME MOVE ME TO A UTILS FILE
-export const variableMap = <T extends Record<string, string>>(token: T) => {
-  return Object.entries(token).reduce(
+export const variableMap = <T extends Record<string, string>>(tokens: T) => {
+  if (!tokens) return {}
+  return Object.entries(tokens).reduce(
     (acc, [key, value]) => {
       const isVariable = value.startsWith('--')
       const wrappedValue = isVariable ? `var(${value})` : value
