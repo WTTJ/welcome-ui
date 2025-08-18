@@ -45,8 +45,8 @@
     font-(--fontWeight)
     duration-(--transitionDuration)
     cursor-(--cursor)
-    has-[i]:px-(--paddingInlineHasIcon)
-    has-[svg]:px-(--paddingInlineHasIcon);
+    [&:has(i[data-wui-icon-font])]:px-(--paddingInlineHasIcon)
+    [&:has(svg[data-wui-icon])]:px-(--paddingInlineHasIcon);
 
   /* This is a workaround because the hover peudo state is not compatible with Tailwind 4 */
   /* https://github.com/storybookjs/storybook-addon-pseudo-states/issues/140 */

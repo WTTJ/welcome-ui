@@ -37,7 +37,7 @@ export const PrimaryVariants: Story = {
   render: () => (
     <div className="flex flex-wrap gap-md" id="buttonRoot">
       <Button variant="primary">
-        <i className="wui-icon-add wui-icon-font" />
+        <i className="wui-icon-add wui-icon-font" data-wui-icon-font />
         Primary Button
         <i className="wui-icon-down wui-icon-font" />
       </Button>
