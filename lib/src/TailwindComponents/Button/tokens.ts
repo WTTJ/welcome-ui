@@ -45,7 +45,7 @@ export const shapes = {
     borderRadius: '--radius-md',
   },
   square: {
-    borderRadius: '0',
+    borderRadius: '--radius-md',
     paddingInline: '0',
     paddingInlineHasIcon: '0',
   },
