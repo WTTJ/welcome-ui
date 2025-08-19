@@ -1,0 +1,34 @@
+@use 'sass:map';
+@use './variables';
+
+.root {
+  @apply relative inline-flex items-center justify-center text-center cursor-pointer transition-colors border-(length:--border-width-sm) font-(--font-weight-bold) outline-(length:--border-width-md) duration-(--duration-medium) outline-transparent;
+  @apply bg-(--backgroundColor) active:bg-(--backgroundColorActive) hover:bg-(--backgroundColorHover) border-(--borderColor) active:border-(--borderColorActive) hover:border-(--borderColorHover) focus:outline-(--outlineColorFocus) h-(--height) px-(--paddingInline) rounded-(--borderRadius) text-(length:--fontSize) text-(color:--color);
+}
+
+@each $variant, $map in variables.$ButtonVariants {
+  .--#{$variant} {
+    --backgroundColor: #{map.get($map, backgroundColor)};
+    --backgroundColorActive: #{map.get($map, backgroundColorActive)};
+    --backgroundColorHover: #{map.get($map, backgroundColorHover)};
+    --borderColor: #{map.get($map, borderColor)};
+    --borderColorActive: #{map.get($map, borderColorActive)};
+    --borderColorHover: #{map.get($map, borderColorHover)};
+    --color: #{map.get($map, color)};
+    --outlineColorFocus: #{map.get($map, outlineColorFocus)};
+  }
+}
+
+@each $size, $map in variables.$ButtonSizes {
+  .--#{$size} {
+    --height: #{map.get($map, height)};
+    --paddingInline: #{map.get($map, paddingInline)};
+    --fontSize: #{map.get($map, fontSize)};
+  }
+}
+
+@each $shape, $value in variables.$ButtonShapes {
+  .--#{$shape} {
+    --borderRadius: #{$value};
+  }
+}
