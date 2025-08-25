@@ -1,34 +1,122 @@
 @use 'sass:map';
-@use './variables';
 
 .root {
   @apply relative inline-flex items-center justify-center text-center cursor-pointer transition-colors border-(length:--border-width-sm) font-(--font-weight-bold) outline-(length:--border-width-md) duration-(--duration-medium) outline-transparent;
   @apply bg-(--backgroundColor) active:bg-(--backgroundColorActive) hover:bg-(--backgroundColorHover) border-(--borderColor) active:border-(--borderColorActive) hover:border-(--borderColorHover) focus:outline-(--outlineColorFocus) h-(--height) px-(--paddingInline) rounded-(--borderRadius) text-(length:--fontSize) text-(color:--color);
 }
 
-@each $variant, $map in variables.$ButtonVariants {
-  .--#{$variant} {
-    --backgroundColor: #{map.get($map, backgroundColor)};
-    --backgroundColorActive: #{map.get($map, backgroundColorActive)};
-    --backgroundColorHover: #{map.get($map, backgroundColorHover)};
-    --borderColor: #{map.get($map, borderColor)};
-    --borderColorActive: #{map.get($map, borderColorActive)};
-    --borderColorHover: #{map.get($map, borderColorHover)};
-    --color: #{map.get($map, color)};
-    --outlineColorFocus: #{map.get($map, outlineColorFocus)};
+.variant- {
+  &ghost {
+    --backgroundColor: transparent;
+    --backgroundColorActive: color-mix(in oklab, var(--color-neutral-90) 40%, transparent);
+    --backgroundColorHover: color-mix(in oklab, var(--color-neutral-90) 10%, transparent);
+    --borderColor: transparent;
+    --borderColorActive: var(--color-neutral-90);
+    --borderColorHover: color-mix(in oklab, var(--color-blue-10) 40%, transparent);
+    --color: var(--color-neutral-90);
+    --outlineColorFocus: color-mix(in oklab, var(--color-neutral-90) 10%, transparent);
+  }
+
+  &ghost-danger {
+    --backgroundColor: transparent;
+    --backgroundColorActive: var(--color-red-20);
+    --backgroundColorHover: var(--color-red-10);
+    --borderColor: transparent;
+    --borderColorActive: var(--color-red-20);
+    --borderColorHover: var(--color-red-10);
+    --color: var(--color-red-80);
+    --outlineColorFocus: var(--color-red-40);
+  }
+
+  &primary {
+    --backgroundColor: var(--color-brand-40);
+    --backgroundColorActive: var(--color-brand-10);
+    --backgroundColorHover: var(--color-brand-30);
+    --borderColor: var(--color-brand-40);
+    --borderColorActive: var(--color-brand-10);
+    --borderColorHover: var(--color-brand-30);
+    --color: var(--color-neutral-90);
+    --outlineColorFocus: var(--color-brand-20);
+  }
+
+  &primary-danger {
+    --backgroundColor: var(--color-red-70);
+    --backgroundColorActive: var(--color-red-50);
+    --backgroundColorHover: var(--color-red-60);
+    --borderColor: var(--color-red-70);
+    --borderColorActive: var(--color-red-50);
+    --borderColorHover: var(--color-red-60);
+    --color: var(--color-neutral-10);
+    --outlineColorFocus: var(--color-red-40);
+  }
+
+  &secondary {
+    --backgroundColor: var(--color-neutral-90);
+    --backgroundColorActive: var(--color-neutral-50);
+    --backgroundColorHover: var(--color-neutral-70);
+    --borderColor: var(--color-neutral-90);
+    --borderColorActive: var(--color-neutral-50);
+    --borderColorHover: var(--color-neutral-70);
+    --color: var(--color-neutral-10);
+    --outlineColorFocus: var(--color-neutral-40);
+  }
+
+  &tertiary {
+    --backgroundColor: var(--color-neutral-10);
+    --backgroundColorActive: color-mix(in oklab, var(--color-neutral-90) 40%, transparent);
+    --backgroundColorHover: color-mix(in oklab, var(--color-neutral-90) 10%, transparent);
+    --borderColor: var(--color-neutral-90);
+    --borderColorActive: var(--color-neutral-90);
+    --borderColorHover: var(--color-neutral-90);
+    --color: var(--color-neutral-90);
+    --outlineColorFocus: var(--color-neutral-40);
+  }
+
+  &tertiary-danger {
+    --backgroundColor: var(--color-neutral-10);
+    --backgroundColorActive: var(--color-red-20);
+    --backgroundColorHover: var(--color-red-10);
+    --borderColor: var(--color-red-80);
+    --borderColorActive: var(--color-red-80);
+    --borderColorHover: var(--color-red-80);
+    --color: var(--color-red-80);
+    --outlineColorFocus: var(--color-red-40);
   }
 }
 
-@each $size, $map in variables.$ButtonSizes {
-  .--#{$size} {
-    --height: #{map.get($map, height)};
-    --paddingInline: #{map.get($map, paddingInline)};
-    --fontSize: #{map.get($map, fontSize)};
+
+.shape- {
+  &circle {
+    --borderRadius: 100%;
+  }
+
+  &square {
+    --borderRadius: var(--radius-md);
   }
 }
 
-@each $shape, $value in variables.$ButtonShapes {
-  .--#{$shape} {
-    --borderRadius: #{$value};
+.size- {
+  &xs {
+    --fontSize: var(--font-size-text-xs);
+    --height: var(--height-button-xs);
+    --paddingInline: var(--spacing-sm);
+  }
+
+  &sm {
+    --fontSize: var(--font-size-text-xs);
+    --height: var(--height-button-sm);
+    --paddingInline: var(--spacing-sm);
+  }
+
+  &md {
+    --fontSize: var(--font-size-text-sm);
+    --height: var(--height-button-md);
+    --paddingInline: var(--spacing-xl);
+  }
+
+  &lg {
+    --fontSize: var(--font-size-text-sm);
+    --height: var(--height-button-lg);
+    --paddingInline: var(--spacing-xl);
   }
 }

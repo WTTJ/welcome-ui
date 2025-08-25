@@ -19,9 +19,9 @@ export const ButtonProposal = forwardRef<HTMLButtonElement, ButtonProps & Compon
         {...rest}
         className={cx(
           'root',
-          variant && `--${variant}`,
-          shape && `--${shape}`,
-          size && `--${size}`,
+          variant && `variant-${variant}`,
+          shape && `shape-${shape}`,
+          size && `size-${size}`,
           className
         )}
         ref={ref}
