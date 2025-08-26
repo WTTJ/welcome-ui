@@ -2,8 +2,66 @@
 @use './variables';
 
 .root {
-  @apply relative inline-flex items-center justify-center text-center cursor-pointer transition-colors border-(length:--border-width-sm) font-(--font-weight-bold) outline-(length:--border-width-md) duration-(--duration-medium) outline-transparent;
-  @apply bg-(--backgroundColor) active:bg-(--backgroundColorActive) hover:bg-(--backgroundColorHover) border-(--borderColor) active:border-(--borderColorActive) hover:border-(--borderColorHover) focus:outline-(--outlineColorFocus) h-(--height) px-(--paddingInline) rounded-(--borderRadius) text-(length:--fontSize) text-(color:--color);
+  /* tailwind classic classes that don't need tokens from theme */
+  @apply relative
+    transition-all
+    outline-transparent
+    overflow-hidden
+    whitespace-nowrap
+    text-ellipsis;
+
+  /* tailwind generic classes that need tokens from theme BUT don't depend on react props */
+  @apply border-(length:--border-width-sm)
+    duration-(--duration-medium)
+    font-(--font-weight-bold)
+    outline-(length:--border-width-md);
+
+  /* tailwind generic classes that need tokens from theme AND depend on react props */
+  @apply bg-(--backgroundColor)
+    active:bg-(--backgroundColorActive)
+    aspect-(--aspectRatio)
+    hover:bg-(--backgroundColorHover)
+    disabled:bg-(--backgroundColorDisabled)
+    aria-disabled:bg-(--backgroundColorDisabled)
+    border-(--borderColor)
+    active:border-(--borderColorActive)
+    hover:border-(--borderColorHover)
+    disabled:border-(--borderColorDisabled)
+    aria-disabled:border-(--borderColorDisabled)
+    focus:outline-(--outlineColorFocus)
+    w-(--width)
+    h-(--height)
+    px-(--paddingInline)
+    rounded-(--borderRadius)
+    text-(length:--fontSize)
+    text-(color:--color)
+    disabled:text-(color:--colorDisabled)
+    aria-disabled:text-(color:--colorDisabled)
+    cursor-(--cursor)
+    [&:has(i[data-wui-icon-font])]:px-(--paddingInlineHasIcon)
+    [&:has(svg[data-wui-icon])]:px-(--paddingInlineHasIcon);
+
+  --cursor: pointer;
+
+  :global(i[data-wui-icon-font]),
+  :global(svg[data-wui-icon]) {
+    display: inline-block;
+
+    &:first-child:not(:only-child) {
+      margin-inline-end: var(--spacing-xs);
+    }
+
+    &:last-child:not(:only-child) {
+      margin-inline-start: var(--spacing-xs);
+    }
+  }
+
+  /* This is a workaround because the hover peudo state is not compatible with Tailwind 4 */
+  /* https://github.com/storybookjs/storybook-addon-pseudo-states/issues/140 */
+  &.pseudo-hover {
+    background-color: var(--backgroundColorHover);
+    border-color: var(--borderColorHover);
+  }
 }
 
 @each $variant, $map in variables.$ButtonVariants {
@@ -16,6 +74,12 @@
     --borderColorHover: #{map.get($map, borderColorHover)};
     --color: #{map.get($map, color)};
     --outlineColorFocus: #{map.get($map, outlineColorFocus)};
+    @if $variant == 'disabled' {
+      --cursor: #{map.get($map, cursor)};
+      --colorDisabled: #{map.get($map, colorDisabled)};
+      --borderColorDisabled: #{map.get($map, borderColorDisabled)};
+      --backgroundColorDisabled: #{map.get($map, backgroundColorDisabled)};
+    }
   }
 }
 
@@ -24,11 +88,24 @@
     --height: #{map.get($map, height)};
     --paddingInline: #{map.get($map, paddingInline)};
     --fontSize: #{map.get($map, fontSize)};
+    --paddingInlineHasIcon: #{map.get($map, paddingInlineHasIcon)};
+
+    &.--square,
+    &.--circle {
+      --fontSize: #{map.get($map, shape, fontSize)};
+      --width: #{map.get($map, shape, width)};
+    }
   }
 }
 
 @each $shape, $value in variables.$ButtonShapes {
   .--#{$shape} {
-    --borderRadius: #{$value};
+    --borderRadius: #{map.get($value, borderRadius)};
+
+    @if $shape == 'circle' or $shape == 'square' {
+      --aspectRatio: #{map.get($value, aspectRatio)};
+      --paddingInline: #{map.get($value, paddingInline)};
+      --paddingInlineHasIcon: #{map.get($value, paddingInlineHasIcon)};
+    }
   }
 }

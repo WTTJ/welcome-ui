@@ -1,6 +1,19 @@
 $ButtonShapes: (
-  circle: '999px',
-  square: 'var(--radius-md)',
+  circle: (
+    borderRadius: '100%',
+    aspectRatio: '1',
+    paddingInline: '0',
+    paddingInlineHasIcon: '0',
+  ),
+  default: (
+    borderRadius: 'var(--radius-md)',
+  ),
+  square: (
+    borderRadius: 'var(--radius-md)',
+    aspectRatio: '1',
+    paddingInline: '0',
+    paddingInlineHasIcon: '0',
+  ),
 );
 
 $ButtonSizes: (
@@ -8,37 +21,66 @@ $ButtonSizes: (
     fontSize: 'var(--font-size-text-sm)',
     height: 'var(--height-button-lg)',
     paddingInline: 'var(--spacing-xl)',
+    paddingInlineHasIcon: 'var(--spacing-lg)',
+    shape: (
+      fontSize: 'var(--font-size-button-icon-lg)',
+    ),
   ),
   md: (
     fontSize: 'var(--font-size-text-sm)',
     height: 'var(--height-button-md)',
     paddingInline: 'var(--spacing-xl)',
+    paddingInlineHasIcon: 'var(--spacing-md)',
+    shape: (
+      fontSize: 'var(--font-size-button-icon-md)',
+    ),
   ),
   sm: (
     fontSize: 'var(--font-size-text-xs)',
     height: 'var(--height-button-sm)',
     paddingInline: 'var(--spacing-sm)',
+    paddingInlineHasIcon: 'var(--spacing-md)',
+    shape: (
+      fontSize: 'var(--font-size-button-icon-sm)',
+    ),
   ),
   xs: (
     fontSize: 'var(--font-size-text-xs)',
     height: 'var(--height-button-xs)',
     paddingInline: 'var(--spacing-sm)',
+    paddingInlineHasIcon: 'var(--spacing-sm)',
+    shape: (
+      fontSize: 'var(--font-size-button-icon-xs)',
+    ),
   ),
 );
 
 $ButtonVariants: (
+  disabled: (
+    backgroundColorDisabled: 'var(--color-beige-40)',
+    borderColorDisabled: 'var(--color-beige-40)',
+    colorDisabled: 'var(--color-beige-70)',
+    cursor: 'not-allowed',
+    outlineColorFocus: 'var(--color-beige-10)',
+  ),
   ghost: (
-    backgroundColor: 'transparent',
     backgroundColorActive: 'color-mix(in oklab, var(--color-neutral-90) 40%, transparent)',
     backgroundColorHover: 'color-mix(in oklab, var(--color-neutral-90) 10%, transparent)',
     borderColor: 'transparent',
-    borderColorActive: 'var(--color-neutral-90)',
-    borderColorHover: 'color-mix(in oklab, var(--color-blue-10) 40%, transparent)',
-    color: 'var(--color-neutral-90)',
+    borderColorActive: 'transparent',
+    borderColorHover: 'transparent',
     outlineColorFocus: 'color-mix(in oklab, var(--color-neutral-90) 10%, transparent)',
   ),
+  'ghost-ai': (
+    backgroundColorActive: 'var(--color-violet-30)',
+    backgroundColorHover: 'var(--color-violet-10)',
+    borderColor: 'transparent',
+    borderColorActive: 'var(--color-violet-30)',
+    borderColorHover: 'var(--color-violet-10)',
+    color: 'var(--color-violet-70)',
+    outlineColorFocus: 'var(--color-violet-50)',
+  ),
   'ghost-danger': (
-    backgroundColor: 'transparent',
     backgroundColorActive: 'var(--color-red-20)',
     backgroundColorHover: 'var(--color-red-10)',
     borderColor: 'transparent',
@@ -54,8 +96,17 @@ $ButtonVariants: (
     borderColor: 'var(--color-brand-40)',
     borderColorActive: 'var(--color-brand-10)',
     borderColorHover: 'var(--color-brand-30)',
-    color: 'var(--color-neutral-90)',
     outlineColorFocus: 'var(--color-brand-20)',
+  ),
+  'primary-ai': (
+    backgroundColor: 'var(--color-violet-70)',
+    backgroundColorActive: 'var(--color-violet-40)',
+    backgroundColorHover: 'var(--color-violet-60)',
+    borderColor: 'var(--color-violet-70)',
+    borderColorActive: 'var(--color-violet-40)',
+    borderColorHover: 'var(--color-violet-60)',
+    color: 'var(--color-neutral-10)',
+    outlineColorFocus: 'var(--color-violet-50)',
   ),
   'primary-danger': (
     backgroundColor: 'var(--color-red-70)',
@@ -82,18 +133,21 @@ $ButtonVariants: (
     backgroundColorActive: 'color-mix(in oklab, var(--color-neutral-90) 40%, transparent)',
     backgroundColorHover: 'color-mix(in oklab, var(--color-neutral-90) 10%, transparent)',
     borderColor: 'var(--color-neutral-90)',
-    borderColorActive: 'var(--color-neutral-90)',
-    borderColorHover: 'var(--color-neutral-90)',
-    color: 'var(--color-neutral-90)',
     outlineColorFocus: 'var(--color-neutral-40)',
+  ),
+  'tertiary-ai': (
+    backgroundColor: 'var(--color-neutral-10)',
+    backgroundColorActive: 'var(--color-violet-30)',
+    backgroundColorHover: 'var(--color-violet-10)',
+    borderColor: 'var(--color-violet-70)',
+    color: 'var(--color-violet-70)',
+    outlineColorFocus: 'var(--color-violet-50)',
   ),
   'tertiary-danger': (
     backgroundColor: 'var(--color-neutral-10)',
     backgroundColorActive: 'var(--color-red-20)',
     backgroundColorHover: 'var(--color-red-10)',
     borderColor: 'var(--color-red-80)',
-    borderColorActive: 'var(--color-red-80)',
-    borderColorHover: 'var(--color-red-80)',
     color: 'var(--color-red-80)',
     outlineColorFocus: 'var(--color-red-40)',
   ),

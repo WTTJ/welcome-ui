@@ -7,8 +7,7 @@ import type { ButtonProps } from './types'
 
 const cx = classNames(buttonStyles)
 
-// TODO: use forwardRef from system to bring the polymorphism (as props)
-export const ButtonProposal = ({
+export const ButtonFullCss = ({
   accessibleWhenDisabled = true,
   children,
   className = '',
@@ -28,9 +27,9 @@ export const ButtonProposal = ({
       accessibleWhenDisabled={accessibleWhenDisabled}
       className={cx(
         'root',
-        variant && `--${activeVariant}`,
-        shape && `--${shape}`,
-        size && `--${size}`,
+        variant && `variant-${activeVariant}`,
+        shape && `shape-${shape}`,
+        size && `size-${size}`,
         className
       )}
       disabled={disabled}
@@ -42,4 +41,4 @@ export const ButtonProposal = ({
   )
 }
 
-ButtonProposal.displayName = 'ButtonProposal'
+ButtonFullCss.displayName = 'ButtonFullCss'

@@ -1,10 +1,45 @@
-.wuiButtonBaseClass {
+@use 'sass:map';
+@use './tokens';
+
+.root {
+  /* tailwind classic classes that don't need tokens from theme */
   @apply relative
     transition-all
     outline-transparent
     overflow-hidden
     whitespace-nowrap
     text-ellipsis;
+
+  /* tailwind generic classes that need tokens from theme BUT don't depend on react props */
+  @apply border-(length:--border-width-sm)
+    duration-(--duration-medium)
+    font-(--font-weight-bold)
+    outline-(length:--border-width-md);
+
+  /* tailwind generic classes that need tokens from theme AND depend on react props */
+  @apply bg-(--backgroundColor)
+    active:bg-(--backgroundColorActive)
+    aspect-(--aspectRatio)
+    hover:bg-(--backgroundColorHover)
+    disabled:bg-(--backgroundColorDisabled)
+    aria-disabled:bg-(--backgroundColorDisabled)
+    border-(--borderColor)
+    active:border-(--borderColorActive)
+    hover:border-(--borderColorHover)
+    disabled:border-(--borderColorDisabled)
+    aria-disabled:border-(--borderColorDisabled)
+    focus:outline-(--outlineColorFocus)
+    w-(--width)
+    h-(--height)
+    px-(--paddingInline)
+    rounded-(--borderRadius)
+    text-(length:--fontSize)
+    text-(color:--color)
+    disabled:text-(color:--colorDisabled)
+    aria-disabled:text-(color:--colorDisabled)
+    cursor-(--cursor)
+    [&:has(i[data-wui-icon-font])]:px-(--paddingInlineHasIcon)
+    [&:has(svg[data-wui-icon])]:px-(--paddingInlineHasIcon);
 
   :global(i[data-wui-icon-font]),
   :global(svg[data-wui-icon]) {
@@ -18,36 +53,6 @@
       margin-inline-start: var(--spacing-xs);
     }
   }
-}
-
-.wuiButtonDynamicClass {
-  @apply bg-(--backgroundColor)
-    active:bg-(--backgroundColorActive)
-    hover:bg-(--backgroundColorHover)
-    disabled:bg-(--backgroundColorDisabled)
-    aria-disabled:bg-(--backgroundColorDisabled)
-    border-(length:--border-width-sm)
-    border-(--borderColor)
-    active:border-(--borderColorActive)
-    hover:border-(--borderColorHover)
-    disabled:border-(--borderColorDisabled)
-    aria-disabled:border-(--borderColorDisabled)
-    outline-(length:--border-width-md)
-    focus:outline-(--outlineColorFocus)
-    w-(--width)
-    h-(--height)
-    px-(--paddingInline)
-    rounded-(--borderRadius)
-    text-(length:--fontSize)
-    text-(color:--color)
-    disabled:text-(color:--colorDisabled)
-    aria-disabled:text-(color:--colorDisabled)
-    font-(--font-weight-bold)
-    duration-(--duration-medium)
-    cursor-(--cursor)
-    aspect-(--aspectRatio)
-    [&:has(i[data-wui-icon-font])]:px-(--paddingInlineHasIcon)
-    [&:has(svg[data-wui-icon])]:px-(--paddingInlineHasIcon);
 
   /* This is a workaround because the hover peudo state is not compatible with Tailwind 4 */
   /* https://github.com/storybookjs/storybook-addon-pseudo-states/issues/140 */
