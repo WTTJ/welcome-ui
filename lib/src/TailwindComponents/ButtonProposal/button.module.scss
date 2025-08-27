@@ -43,8 +43,8 @@
 
   --cursor: pointer;
 
-  :global(i[data-wui-icon-font]),
-  :global(svg[data-wui-icon]) {
+  i[data-wui-icon-font],
+  svg[data-wui-icon] {
     display: inline-block;
 
     &:first-child:not(:only-child) {
@@ -93,7 +93,6 @@
     &.--square,
     &.--circle {
       --fontSize: #{map.get($map, shape, fontSize)};
-      --width: #{map.get($map, shape, width)};
     }
   }
 }

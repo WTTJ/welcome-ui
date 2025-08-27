@@ -6,13 +6,13 @@ export type ButtonProps = AriakitButtonProps &
     children?: ReactNode
     className?: string
     ref?: React.Ref<HTMLButtonElement>
-    shape?: 'circle' | 'default' | 'square'
-    size?: 'lg' | 'md' | 'sm' | 'xs'
+    shape?: ButtonShape
+    size?: ButtonSize
     style?: CSSProperties
     variant?: ButtonVariant
   }
 
-export type ButtonShape = 'circle' | 'square'
+export type ButtonShape = 'circle' | 'default' | 'square'
 
 export type ButtonSize = 'lg' | 'md' | 'sm' | 'xs'
 
