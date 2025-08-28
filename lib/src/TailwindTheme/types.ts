@@ -1,6 +1,6 @@
 // UTILS
 
-import type { components, primitives, semantics } from './constants'
+import type { components, primitives, semantics } from './tokens'
 
 export type ButtonHeights = ExtractTailNumber<ButtonHeightTokens>
 
