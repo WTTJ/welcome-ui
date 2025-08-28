@@ -2,7 +2,7 @@ export default {
   extends: ['stylelint-config-recommended'],
   overrides: [
     {
-      files: ['**/src/Tailwind**/**/*.css'],
+      files: ['**/src/Tailwind**/**/*.{css,scss}'],
       plugins: ['./stylelint-apply-one-class-per-line.js'],
       rules: {
         'at-rule-no-deprecated': null,
