@@ -4,7 +4,7 @@ import { fn } from 'storybook/test'
 import { Button } from '../lib/src/TailwindComponents/Button'
 import buttonStyles from '../lib/src/TailwindComponents/Button/theme.module.css'
 
-const meta = {
+const meta: Meta<typeof Button> = {
   args: {
     children: 'Default Button',
     disabled: false,
@@ -19,7 +19,7 @@ const meta = {
   },
   tags: ['autodocs'],
   title: 'Tailwind Button',
-} satisfies Meta<typeof Button>
+}
 
 export default meta
 
@@ -163,7 +163,7 @@ export const ButtonSizes: Story = {
   ),
 }
 
-export const circularButtons: Story = {
+export const CircularButtons: Story = {
   name: 'Shape circle',
   render: () => (
     <div className="flex flex-wrap gap-md" id="buttonRoot">
@@ -183,7 +183,7 @@ export const circularButtons: Story = {
   ),
 }
 
-export const squareButtons: Story = {
+export const SquareButtons: Story = {
   name: 'Shape square',
   render: () => (
     <div className="flex flex-wrap gap-md" id="buttonRoot">

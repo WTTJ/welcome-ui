@@ -5,7 +5,7 @@ import { ButtonProposal as Button } from '../lib/src/TailwindComponents/ButtonPr
 import buttonStyles from '../lib/src/TailwindComponents/ButtonProposal/button.module.scss'
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
-const meta = {
+const meta: Meta<typeof Button> = {
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
   args: { onClick: fn() },
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
@@ -17,7 +17,7 @@ const meta = {
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
   title: 'Tailwind Button Proposal',
-} satisfies Meta<typeof Button>
+}
 
 export default meta
 
@@ -166,7 +166,7 @@ export const ButtonSizes: Story = {
   ),
 }
 
-export const circularButtons: Story = {
+export const CircularButtons: Story = {
   name: 'Shape circle',
   render: () => (
     <div className="flex flex-wrap gap-md" id="buttonRoot">
@@ -186,7 +186,7 @@ export const circularButtons: Story = {
   ),
 }
 
-export const squareButtons: Story = {
+export const SquareButtons: Story = {
   name: 'Shape square',
   render: () => (
     <div className="flex flex-wrap gap-md" id="buttonRoot">

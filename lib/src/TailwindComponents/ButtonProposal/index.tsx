@@ -7,8 +7,7 @@ import type { ButtonProps } from './types'
 
 const cx = classNames(buttonStyles)
 
-// TODO: use forwardRef from system to bring the polymorphism (as props)
-export const ButtonProposal = ({
+export const ButtonProposal = <T extends React.ElementType = 'button'>({
   accessibleWhenDisabled = true,
   children,
   className = '',
@@ -18,7 +17,7 @@ export const ButtonProposal = ({
   size = 'md',
   variant = 'primary',
   ...rest
-}: ButtonProps) => {
+}: ButtonProps<T>) => {
   // some variants like 'disabled' preprend over the others
   const activeVariant = (disabled && 'disabled') || variant
 

@@ -10,11 +10,16 @@ export type ColorMix = `color-mix(in oklab, var(${ColorTokens}) ${OpacityRanges}
 
 export type ColorTokens = 'transparent' | PrimitiveColorTokens | SemanticColorTokens
 
+export type PolymorphicProps<E extends React.ElementType> = React.PropsWithChildren<
+  React.ComponentPropsWithoutRef<E> & {
+    as?: E
+  }
+>
+
 export type SemanticFontSizeTokens = keyof (typeof semantics)['fontSizes']
 export type SemanticHeightTokens = keyof (typeof semantics)['heights']
 export type SemanticSpacingTokens = keyof (typeof semantics)['spacings']
 export type TextFontSizeTokens = keyof (typeof components)['text']
-
 // type BorderTokens = keyof (typeof primitives)['borders']
 // type ColorIntensities = ExtractTailNumber<PrimitiveColorTokens>
 /**
@@ -25,6 +30,7 @@ type ExtractTailNumber<S extends string> = S extends `${string}-${infer N}`
   : S
 type OpacityRanges = 10 | 40
 type PrimitiveColorTokens = keyof (typeof primitives)['colors']
+
 // type PrimitiveFontFamilyTokens = keyof (typeof primitives)['fontFamilies']
 // type PrimitiveFontSizeTokens = keyof (typeof primitives)['fontSizes']
 // type PrimitiveFontWeightTokens = keyof (typeof primitives)['fontWeights']

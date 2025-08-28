@@ -7,7 +7,7 @@ import type { ButtonProps } from './types'
 
 const cx = classNames(buttonStyles)
 
-export const ButtonFullCss = ({
+export const ButtonFullCss = <T extends React.ElementType = 'button'>({
   accessibleWhenDisabled = true,
   children,
   className = '',
@@ -17,7 +17,7 @@ export const ButtonFullCss = ({
   size = 'md',
   variant = 'primary',
   ...rest
-}: ButtonProps) => {
+}: ButtonProps<T>) => {
   // some variants like 'disabled' preprend over the others
   const activeVariant = (disabled && 'disabled') || variant
 
