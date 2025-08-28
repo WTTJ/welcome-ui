@@ -6,16 +6,16 @@
     whitespace-nowrap
     text-ellipsis;
 
-  :global(i.wui-icon-font),
-  :global(svg.wui-icon) {
+  i[data-wui-icon-font],
+  svg[data-wui-icon] {
     display: inline-block;
 
     &:first-child:not(:only-child) {
-      margin-inline-end: 4px;
+      margin-inline-end: var(--spacing-xs);
     }
 
     &:last-child:not(:only-child) {
-      margin-inline-start: 4px;
+      margin-inline-start: var(--spacing-xs);
     }
   }
 }
@@ -26,15 +26,14 @@
     hover:bg-(--backgroundColorHover)
     disabled:bg-(--backgroundColorDisabled)
     aria-disabled:bg-(--backgroundColorDisabled)
-    border-(length:--borderWidth)
+    border-(length:--border-width-sm)
     border-(--borderColor)
     active:border-(--borderColorActive)
     hover:border-(--borderColorHover)
     disabled:border-(--borderColorDisabled)
     aria-disabled:border-(--borderColorDisabled)
-    outline-(length:--outlineWidth)
+    outline-(length:--border-width-md)
     focus:outline-(--outlineColorFocus)
-    w-(--width)
     h-(--height)
     px-(--paddingInline)
     rounded-(--borderRadius)
@@ -42,9 +41,10 @@
     text-(color:--color)
     disabled:text-(color:--colorDisabled)
     aria-disabled:text-(color:--colorDisabled)
-    font-(--fontWeight)
-    duration-(--transitionDuration)
+    font-(--font-weight-bold)
+    duration-(--duration-medium)
     cursor-(--cursor)
+    aspect-(--aspectRatio)
     [&:has(i[data-wui-icon-font])]:px-(--paddingInlineHasIcon)
     [&:has(svg[data-wui-icon])]:px-(--paddingInlineHasIcon);
 

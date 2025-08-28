@@ -2,12 +2,15 @@ import { Button as AriakitButton } from '@ariakit/react'
 import type { ButtonProps as AriakitButtonProps } from '@ariakit/react'
 import type { ButtonHTMLAttributes, CSSProperties, ReactNode } from 'react'
 
+import type { PolymorphicProps } from '../../TailwindTheme/types'
+
 import buttonStyles from './theme.module.css'
 import { hydrateCSSVarsWith, shapes, sizes, theme, variants } from './tokens'
 import type { Variant } from './tokens'
 
-type ButtonProps = AriakitButtonProps &
-  ButtonHTMLAttributes<HTMLButtonElement> & {
+type ButtonProps<T extends React.ElementType> = AriakitButtonProps &
+  ButtonHTMLAttributes<HTMLButtonElement> &
+  PolymorphicProps<T> & {
     children?: ReactNode
     className?: string
     ref?: React.Ref<HTMLButtonElement>
@@ -17,7 +20,7 @@ type ButtonProps = AriakitButtonProps &
     variant?: Variant
   }
 
-export const Button = ({
+export const Button = <T extends React.ElementType = 'button'>({
   accessibleWhenDisabled = true,
   children,
   className = '',
@@ -28,7 +31,7 @@ export const Button = ({
   style,
   variant = 'primary',
   ...rest
-}: ButtonProps) => {
+}: ButtonProps<T>) => {
   const classNames = `${buttonStyles.wuiButtonBaseClass} ${buttonStyles.wuiButtonDynamicClass} ${className}`
 
   // some variants like 'disabled' preprend over the others

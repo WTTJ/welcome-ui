@@ -12,58 +12,48 @@ import type {
 } from '../../TailwindTheme/types'
 
 export const theme = {
-  borderWidth: '--border-width-sm',
   cursor: 'pointer',
-  fontWeight: '--font-weight-bold',
-  outlineWidth: '--border-width-md',
-  transitionDuration: '--duration-medium',
 }
 
 export const shapes = {
   circle: {
+    aspectRatio: '1',
     borderRadius: '100%',
     paddingInline: '0',
     paddingInlineHasIcon: '0',
   },
   'circle-lg': {
     fontSize: '--font-size-button-icon-lg',
-    width: '--height-button-lg',
   },
   'circle-md': {
     fontSize: '--font-size-button-icon-md',
-    width: '--height-button-md',
   },
   'circle-sm': {
     fontSize: '--font-size-button-icon-sm',
-    width: '--height-button-sm',
   },
   'circle-xs': {
     fontSize: '--font-size-button-icon-xs',
-    width: '--height-button-xs',
   },
   default: {
     borderRadius: '--radius-md',
   },
   square: {
+    aspectRatio: '1',
     borderRadius: '--radius-md',
     paddingInline: '0',
     paddingInlineHasIcon: '0',
   },
   'square-lg': {
     fontSize: '--font-size-button-icon-lg',
-    width: '--height-button-lg',
   },
   'square-md': {
     fontSize: '--font-size-button-icon-md',
-    width: '--height-button-md',
   },
   'square-sm': {
     fontSize: '--font-size-button-icon-sm',
-    width: '--height-button-sm',
   },
   'square-xs': {
     fontSize: '--font-size-button-icon-xs',
-    width: '--height-button-xs',
   },
 }
 
