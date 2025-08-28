@@ -1,8 +1,12 @@
 import type { ButtonProps as AriakitButtonProps } from '@ariakit/react'
 import type { ButtonHTMLAttributes, CSSProperties, ReactNode } from 'react'
 
-import type { PolymorphicProps } from '../../TailwindTheme/types'
-import type { Variant } from '../Button/tokens'
+import type {
+  ButtonShapes,
+  ButtonSizes,
+  ButtonVariants,
+  PolymorphicProps,
+} from '../../TailwindTheme/types'
 
 export type ButtonProps<T extends React.ElementType> = AriakitButtonProps &
   ButtonHTMLAttributes<HTMLButtonElement> &
@@ -10,21 +14,8 @@ export type ButtonProps<T extends React.ElementType> = AriakitButtonProps &
     children?: ReactNode
     className?: string
     ref?: React.Ref<HTMLButtonElement>
-    shape?: 'circle' | 'default' | 'square'
-    size?: 'lg' | 'md' | 'sm' | 'xs'
+    shape?: ButtonShapes
+    size?: ButtonSizes
     style?: CSSProperties
-    variant?: Variant
+    variant?: ButtonVariants
   }
-
-export type ButtonShape = 'circle' | 'default' | 'square'
-
-export type ButtonSize = 'lg' | 'md' | 'sm' | 'xs'
-
-export type ButtonVariant =
-  | 'ghost'
-  | 'ghost-danger'
-  | 'primary'
-  | 'primary-danger'
-  | 'secondary'
-  | 'tertiary'
-  | 'tertiary-danger'
