@@ -3,8 +3,9 @@
 import type { CSSProperties } from 'react'
 
 import type {
-  ButtonHeights,
   ButtonHeightTokens,
+  ButtonSizes,
+  ButtonVariants,
   ColorMix,
   ColorTokens,
   SemanticSpacingTokens,
@@ -67,7 +68,7 @@ type ComponentProperties<Keys extends string, Values extends string> = Record<
 >
 
 type ButtonSize = ComponentProperties<
-  ButtonHeights,
+  ButtonSizes,
   ButtonHeightTokens | SemanticSpacingTokens | TextFontSizeTokens
 >
 
@@ -98,20 +99,10 @@ export const sizes: ButtonSize = {
   },
 }
 
-export type Variant =
-  | 'disabled'
-  | 'ghost'
-  | 'ghost-ai'
-  | 'ghost-danger'
-  | 'primary'
-  | 'primary-ai'
-  | 'primary-danger'
-  | 'secondary'
-  | 'tertiary'
-  | 'tertiary-ai'
-  | 'tertiary-danger'
-
-type ButtonVariant = ComponentProperties<Variant, ColorMix | ColorTokens | CSSProperties['cursor']>
+type ButtonVariant = ComponentProperties<
+  'disabled' & ButtonVariants,
+  ColorMix | ColorTokens | CSSProperties['cursor']
+>
 
 export const variants: ButtonVariant = {
   disabled: {

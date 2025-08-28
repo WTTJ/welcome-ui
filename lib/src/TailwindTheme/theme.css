@@ -186,14 +186,107 @@
   /* ===== COMPONENTS ===== */
 
   /* button */
+  --background-color-button-active-variant-ghost: color-mix(in oklab, var(--color-neutral-90) 40%, transparent);
+  --background-color-button-active-variant-ghost-ai: var(--color-violet-30);
+  --background-color-button-active-variant-ghost-danger: var(--color-red-20);
+  --background-color-button-active-variant-primary: var(--color-brand-10);
+  --background-color-button-active-variant-primary-ai: var(--color-violet-40);
+  --background-color-button-active-variant-primary-danger: var(--color-red-50);
+  --background-color-button-active-variant-secondary: var(--color-neutral-50);
+  --background-color-button-active-variant-tertiary: color-mix(in oklab, var(--color-neutral-90) 40%, transparent);
+  --background-color-button-active-variant-tertiary-ai: var(--color-violet-30);
+  --background-color-button-active-variant-tertiary-danger: var(--color-red-20);
+  --background-color-button-disabled: var(--color-beige-40);
+  --background-color-button-hover-variant-ghost: color-mix(in oklab, var(--color-neutral-90) 10%, transparent);
+  --background-color-button-hover-variant-ghost-ai: var(--color-violet-10);
+  --background-color-button-hover-variant-ghost-danger: var(--color-red-10);
+  --background-color-button-hover-variant-primary: var(--color-brand-30);
+  --background-color-button-hover-variant-primary-ai: var(--color-violet-60);
+  --background-color-button-hover-variant-primary-danger: var(--color-red-60);
+  --background-color-button-hover-variant-secondary: var(--color-neutral-70);
+  --background-color-button-hover-variant-tertiary: color-mix(in oklab, var(--color-neutral-90) 10%, transparent);
+  --background-color-button-hover-variant-tertiary-ai: var(--color-violet-10);
+  --background-color-button-hover-variant-tertiary-danger: var(--color-red-10);
+  --background-color-button-variant-primary: var(--color-brand-40);
+  --background-color-button-variant-primary-ai: var(--color-violet-70);
+  --background-color-button-variant-primary-danger: var(--color-red-70);
+  --background-color-button-variant-secondary: var(--color-neutral-90);
+  --background-color-button-variant-tertiary: var(--color-neutral-10);
+  --background-color-button-variant-tertiary-ai: var(--color-neutral-10);
+  --background-color-button-variant-tertiary-danger: var(--color-neutral-10);
+  --border-color-button-active-variant-ghost: transparent;
+  --border-color-button-active-variant-ghost-ai: var(--color-violet-30);
+  --border-color-button-active-variant-ghost-danger: var(--color-red-20);
+  --border-color-button-active-variant-primary: var(--color-brand-10);
+  --border-color-button-active-variant-primary-ai: var(--color-violet-40);
+  --border-color-button-active-variant-primary-danger: var(--color-red-50);
+  --border-color-button-active-variant-secondary: var(--color-neutral-50);
+  --border-color-button-disabled: var(--color-beige-40);
+  --border-color-button-hover-variant-ghost: transparent;
+  --border-color-button-hover-variant-ghost-ai: var(--color-violet-10);
+  --border-color-button-hover-variant-ghost-danger: var(--color-red-10);
+  --border-color-button-hover-variant-primary: var(--color-brand-30);
+  --border-color-button-hover-variant-primary-ai: var(--color-violet-60);
+  --border-color-button-hover-variant-primary-danger: var(--color-red-60);
+  --border-color-button-hover-variant-secondary: var(--color-neutral-70);
+  --border-color-button-variant-ghost: transparent;
+  --border-color-button-variant-ghost-ai: transparent;
+  --border-color-button-variant-ghost-danger: transparent;
+  --border-color-button-variant-primary: var(--color-brand-40);
+  --border-color-button-variant-primary-ai: var(--color-violet-70);
+  --border-color-button-variant-primary-danger: var(--color-red-70);
+  --border-color-button-variant-secondary: var(--color-neutral-90);
+  --border-color-button-variant-tertiary: var(--color-neutral-90);
+  --border-color-button-variant-tertiary-ai: var(--color-violet-70);
+  --border-color-button-variant-tertiary-danger: var(--color-red-80);
+  --border-radius-button-shape-circle: var(--radius-circle);
+  --border-radius-button-shape-default: var(--radius-md);
+  --border-radius-button-shape-square: var(--radius-md);
+  --border-width-button-default: var(--border-width-sm);
+  --color-button-disabled: var(--color-beige-70);
+  --color-button-variant-ghost-ai: var(--color-violet-70);
+  --color-button-variant-ghost-danger: var(--color-red-80);
+  --color-button-variant-primary-ai: var(--color-neutral-10);
+  --color-button-variant-primary-danger: var(--color-neutral-10);
+  --color-button-variant-secondary: var(--color-neutral-10);
+  --color-button-variant-tertiary-ai: var(--color-violet-70);
+  --color-button-variant-tertiary-danger: var(--color-red-80);
   --font-size-button-icon-lg: var(--font-size-xl);
   --font-size-button-icon-md: var(--font-size-text-md);
   --font-size-button-icon-sm: var(--font-size-text-md);
   --font-size-button-icon-xs: var(--font-size-text-md);
+  --font-size-button-lg: var(--font-size-sm);
+  --font-size-button-md: var(--font-size-sm);
+  --font-size-button-sm: var(--font-size-xs);
+  --font-size-button-xs: var(--font-size-xs);
+  --font-weight-button-default: var(--font-weight-bold);
   --height-button-lg: var(--height-elements-lg);
   --height-button-md: var(--height-elements-md);
   --height-button-sm: var(--height-elements-sm);
   --height-button-xs: var(--height-elements-xs);
+  --margin-inline-end-button-icon-first-and-not-only-child: var(--spacing-xs);
+  --margin-inline-start-button-icon-first-and-not-only-child: var(--spacing-xs);
+  --outline-color-button-focus-disabled: var(--color-beige-10);
+  --outline-color-button-focus-variant-ghost: color-mix(in oklab, var(--color-neutral-90) 10%, transparent);
+  --outline-color-button-focus-variant-ghost-ai: var(--color-violet-50);
+  --outline-color-button-focus-variant-ghost-danger: var(--color-red-40);
+  --outline-color-button-focus-variant-primary: var(--color-brand-20);
+  --outline-color-button-focus-variant-primary-ai: var(--color-violet-50);
+  --outline-color-button-focus-variant-primary-danger: var(--color-red-40);
+  --outline-color-button-focus-variant-secondary: var(--color-neutral-40);
+  --outline-color-button-focus-variant-tertiary: var(--color-neutral-40);
+  --outline-color-button-focus-variant-tertiary-ai: var(--color-violet-50);
+  --outline-color-button-focus-variant-tertiary-danger: var(--color-red-40);
+  --outline-width-button-default: var(--border-width-md);
+  --padding-inline-button-size-lg: var(--spacing-xl);
+  --padding-inline-button-size-md: var(--spacing-xl);
+  --padding-inline-button-size-sm: var(--spacing-sm);
+  --padding-inline-button-size-xs: var(--spacing-sm);
+  --padding-inline-button-with-icon-size-lg: var(--spacing-lg);
+  --padding-inline-button-with-icon-size-md: var(--spacing-md);
+  --padding-inline-button-with-icon-size-sm: var(--spacing-md);
+  --padding-inline-button-with-icon-size-xs: var(--spacing-sm);
+  --transition-duration-button-default: var(--duration-medium);
 
   /* text */
   --font-size-text-h0: var(--font-size-h0);
@@ -377,6 +470,7 @@
 
   /* radii */
   --radius-2xl: 1.5rem; /* 24px */
+  --radius-circle: 100%;
   --radius-lg: 0.5rem; /* 8px */
   --radius-md: 0.25rem; /* 4px */
   --radius-sm: 0.125rem; /* 2px */
