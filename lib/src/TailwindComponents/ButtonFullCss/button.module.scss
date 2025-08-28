@@ -40,6 +40,7 @@
     [&:has(i[data-wui-icon-font])]:px-(--paddingInlineHasIcon)
     [&:has(svg[data-wui-icon])]:px-(--paddingInlineHasIcon);
 
+  /* values placed inside .root class avoid repetitions in react props classes */
   --cursor: pointer;
 
   i[data-wui-icon-font],
