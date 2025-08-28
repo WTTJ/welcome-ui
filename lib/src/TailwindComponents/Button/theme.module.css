@@ -6,8 +6,8 @@
     whitespace-nowrap
     text-ellipsis;
 
-  :global(i[data-wui-icon-font]),
-  :global(svg[data-wui-icon]) {
+  i[data-wui-icon-font],
+  svg[data-wui-icon] {
     display: inline-block;
 
     &:first-child:not(:only-child) {
@@ -34,7 +34,6 @@
     aria-disabled:border-(--borderColorDisabled)
     outline-(length:--border-width-md)
     focus:outline-(--outlineColorFocus)
-    w-(--width)
     h-(--height)
     px-(--paddingInline)
     rounded-(--borderRadius)

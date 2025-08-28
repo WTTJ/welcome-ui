@@ -26,7 +26,6 @@
     disabled:border-(--borderColorDisabled)
     aria-disabled:border-(--borderColorDisabled)
     focus:outline-(--outlineColorFocus)
-    w-(--width)
     h-(--height)
     px-(--paddingInline)
     rounded-(--borderRadius)
@@ -74,6 +73,35 @@
   &-square {
     --borderRadius: var(--radius-md);
   }
+
+  /* compouned variant equivalent for size + shape */
+  &-circle.size,
+  &-square.size {
+    &-lg,
+    &-md,
+    &-sm,
+    &-xs {
+      --aspectRatio: 1;
+      --paddingInline: 0;
+      --paddingInlineHasIcon: 0;
+    }
+
+    &-lg {
+      --fontSize: var(--font-size-button-icon-lg);
+    }
+
+    &-md {
+      --fontSize: var(--font-size-button-icon-md);
+    }
+
+    &-sm {
+      --fontSize: var(--font-size-button-icon-sm);
+    }
+
+    &-xs {
+      --fontSize: var(--font-size-button-icon-xs);
+    }
+  }
 }
 
 .size {
@@ -82,11 +110,6 @@
     --height: var(--height-button-lg);
     --paddingInline: var(--spacing-xl);
     --paddingInlineHasIcon: var(--spacing-lg);
-
-    &.shape-circle,
-    &.shape-square {
-      --fontSize: var(--font-size-button-icon-lg);
-    }
   }
 
   &-md {
@@ -94,11 +117,6 @@
     --height: var(--height-button-md);
     --paddingInline: var(--spacing-xl);
     --paddingInlineHasIcon: var(--spacing-md);
-
-    &.shape-circle,
-    &.shape-square {
-      --fontSize: var(--font-size-button-icon-md);
-    }
   }
 
   &-sm {
@@ -106,11 +124,6 @@
     --height: var(--height-button-sm);
     --paddingInline: var(--spacing-sm);
     --paddingInlineHasIcon: var(--spacing-md);
-
-    &.shape-circle,
-    &.shape-square {
-      --fontSize: var(--font-size-button-icon-sm);
-    }
   }
 
   &-xs {
@@ -118,24 +131,6 @@
     --height: var(--height-button-xs);
     --paddingInline: var(--spacing-sm);
     --paddingInlineHasIcon: var(--spacing-sm);
-
-    &.shape-circle,
-    &.shape-square {
-      --fontSize: var(--font-size-button-icon-xs);
-    }
-  }
-
-  /* compounded variant equivalent for shape + size */
-  &-lg,
-  &-md,
-  &-sm,
-  &-xs {
-    &.shape-circle,
-    &.shape-square {
-      --aspectRatio: 1;
-      --paddingInline: 0;
-      --paddingInlineHasIcon: 0;
-    }
   }
 }
 
