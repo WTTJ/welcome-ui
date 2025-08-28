@@ -181,6 +181,7 @@
 }
 
 @theme {
+  --*: initial;
 
   /* ===== COMPONENTS ===== */
 

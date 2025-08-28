@@ -1,6 +1,10 @@
 //CONSTANTS
 // composants > semantics > primitives
 
+export const resetTailwindTokens = {
+  '--*': 'initial',
+}
+
 export const components = {
   button: {
     '--font-size-button-icon-lg': 'var(--font-size-xl)',

@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
-import { components, primitives, semantics } from './constants'
+import { components, primitives, semantics } from './tokens'
 
 const indentation = '  ' // 2 spaces for indentation
 const __filename = fileURLToPath(import.meta.url)
@@ -23,7 +23,7 @@ const baseStyles = fs.readFileSync(basePath, 'utf8')
 const getStringFrom = (map: Record<string, string>) => `${map.property} {\n${map.value}}\n`
 
 /**
- * @param {Record<string, Record<string, Record<string, string>>>} tokenConstants
+ * @param {Record<string, Record<string, Record<string, string>>>} tokenHierarchies
  * @returns {string}
  * @example
  *  // ===== COLORS =====
@@ -32,8 +32,8 @@ const getStringFrom = (map: Record<string, string>) => `${map.property} {\n${map
  * --color-beige-10: #fbf9f7;
  * --color-beige-20: #f6f3ef;
  */
-const getCSSFrom = (tokenConstants: Record<string, Record<string, Record<string, string>>>) => {
-  return Object.entries(tokenConstants).reduce((acc, [tokenHierarchy, tokenFamilies]) => {
+const getCSSFrom = (tokenHierarchies: Record<string, Record<string, Record<string, string>>>) => {
+  return Object.entries(tokenHierarchies).reduce((acc, [tokenHierarchy, tokenFamilies]) => {
     return (
       acc +
       Object.entries(tokenFamilies).reduce((acc, [comment, tokens]) => {
@@ -60,13 +60,17 @@ const getCSSFrom = (tokenConstants: Record<string, Record<string, Record<string,
   }, '')
 }
 
+const resetTailwindTokens = `${indentation}--*: initial;\n`
+
 const theme = {
   property: '@theme',
-  value: getCSSFrom({
-    components,
-    primitives,
-    semantics,
-  }),
+  value:
+    resetTailwindTokens +
+    getCSSFrom({
+      components,
+      primitives,
+      semantics,
+    }),
 }
 
 const baseLayer = {
