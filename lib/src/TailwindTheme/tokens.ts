@@ -214,11 +214,7 @@ export const semantics = {
 } as const
 
 export const primitives = {
-  borders: {
-    '--border-width-lg': '3px',
-    '--border-width-md': '2px',
-    '--border-width-sm': '1px',
-  },
+  borders: { '--border-width-lg': '3px', '--border-width-md': '2px', '--border-width-sm': '1px' },
   colors: {
     '--color-beige-10': '#fbf9f7',
     '--color-beige-20': '#f6f3ef',
