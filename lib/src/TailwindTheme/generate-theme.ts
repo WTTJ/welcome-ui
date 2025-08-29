@@ -64,19 +64,10 @@ const resetTailwindTokens = `${indentation}--*: initial;\n`
 
 const theme = {
   property: '@theme',
-  value:
-    resetTailwindTokens +
-    getCSSFrom({
-      components,
-      primitives,
-      semantics,
-    }),
+  value: `${resetTailwindTokens} ${getCSSFrom({ components, primitives, semantics })}`,
 }
 
-const baseLayer = {
-  property: '@layer base',
-  value: baseStyles,
-}
+const baseLayer = { property: '@layer base', value: baseStyles }
 
 const generateThemeCss = () =>
   [fontFaces, getStringFrom(theme), getStringFrom(baseLayer)].join('\n')
