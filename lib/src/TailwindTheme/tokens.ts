@@ -324,7 +324,7 @@ export const primitives = {
   fontSizes: {
     '--font-size-11': '0.6875rem',
     '--font-size-12': '0.75rem',
-    '--font-size-13': '0,8125rem',
+    '--font-size-13': '0.8125rem',
     '--font-size-14': '0.875rem',
     '--font-size-16': '1rem',
     '--font-size-18': '1.125rem',
