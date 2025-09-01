@@ -288,12 +288,12 @@
   --padding-inline-button-with-icon-size-xs: var(--spacing-sm);
   --transition-duration-button-default: var(--duration-medium);
 
-  /* icons */
-  --height-icon-xs:  var(--height-elements-xxs);
-  --height-icon-sm:  var(--height-elements-xs);
-  --height-icon-md:  var(--height-elements-sm);
-  --height-icon-lg:  var(--height-elements-md);
-  --height-icon-xl:  var(--height-elements-xl);
+  /* icon */
+  --height-icon-lg: var(--height-elements-md);
+  --height-icon-md: var(--height-elements-sm);
+  --height-icon-sm: var(--height-elements-xs);
+  --height-icon-xl: var(--height-elements-xl);
+  --height-icon-xs: var(--height-elements-xxs);
   --height-icon-xxl: var(--height-elements-xxl);
 
   /* text */
@@ -474,12 +474,12 @@
   --line-height-h4: 1.5rem; /* 24px */
   --line-height-h5: 1.125rem; /* 18px */
   --line-height-h6: 1rem; /* 16px */
-  --line-height-xs: 0.875rem; /* 14px */
-  --line-height-sm: 1.125rem; /* 18px */
-  --line-height-md: 1.125rem; /* 18px */
   --line-height-lg: 1.5rem; /* 24px */
+  --line-height-md: 1.125rem; /* 18px */
+  --line-height-sm: 1.125rem; /* 18px */
   --line-height-subtitle-md: 1;
   --line-height-subtitle-sm: 1;
+  --line-height-xs: 0.875rem; /* 14px */
 
   /* radii */
   --radius-2xl: 1.5rem; /* 24px */
@@ -571,12 +571,12 @@
   --font-weight-regular: var(--font-weight-400);
 
   /* heights */
-  --height-elements-xxl: var(--height-64);
-  --height-elements-xl:  var(--height-48);
   --height-elements-lg: var(--height-40);
   --height-elements-md: var(--height-32);
   --height-elements-sm: var(--height-24);
+  --height-elements-xl: var(--height-48);
   --height-elements-xs: var(--height-16);
+  --height-elements-xxl: var(--height-64);
   --height-elements-xxs: var(--height-12);
 
   /* spacings */
