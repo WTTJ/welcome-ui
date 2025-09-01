@@ -2,12 +2,12 @@ import { Button as AriakitButton } from '@ariakit/react'
 
 import { classNames } from '../../classNames'
 
-import buttonStyles from './button.module.scss'
+import buttonStyles from './button.module.css'
 import type { ButtonProps } from './types'
 
 const cx = classNames(buttonStyles)
 
-export const ButtonNoTailwind = <T extends React.ElementType = 'button'>({
+export const ButtonPureCss = <T extends React.ElementType = 'button'>({
   accessibleWhenDisabled = true,
   children,
   className = '',
@@ -18,20 +18,13 @@ export const ButtonNoTailwind = <T extends React.ElementType = 'button'>({
   variant = 'primary',
   ...rest
 }: ButtonProps<T>) => {
-  // some variants like 'disabled' preprend over the others
-  const activeVariant = (disabled && 'disabled') || variant
+  const overrides = className.split(' ')
 
   return (
     <AriakitButton
       {...rest}
       accessibleWhenDisabled={accessibleWhenDisabled}
-      className={cx(
-        'root',
-        variant && `variant-${activeVariant}`,
-        shape && `shape-${shape}`,
-        size && `size-${size}`,
-        className
-      )}
+      className={cx('root', `variant-${variant}`, `shape-${shape}`, `size-${size}`, ...overrides)}
       disabled={disabled}
       ref={ref}
       type="button"
@@ -41,4 +34,4 @@ export const ButtonNoTailwind = <T extends React.ElementType = 'button'>({
   )
 }
 
-ButtonNoTailwind.displayName = 'ButtonNoTailwind'
+ButtonPureCss.displayName = 'ButtonPureCss'
