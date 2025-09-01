@@ -467,19 +467,15 @@
   --letter-spacing-subtitle-sm: -0.0125rem; /* -0.2px */
 
   /* lineHeights */
-  --line-height-h0: 4.5rem; /* 72px */
-  --line-height-h1: 3rem; /* 48px */
-  --line-height-h2: 2.5rem; /* 40px */
-  --line-height-h3: 2rem; /* 32px */
-  --line-height-h4: 1.5rem; /* 24px */
-  --line-height-h5: 1.125rem; /* 18px */
-  --line-height-h6: 1rem; /* 16px */
-  --line-height-lg: 1.5rem; /* 24px */
-  --line-height-md: 1.125rem; /* 18px */
-  --line-height-sm: 1.125rem; /* 18px */
-  --line-height-subtitle-md: 1;
-  --line-height-subtitle-sm: 1;
-  --line-height-xs: 0.875rem; /* 14px */
+  --line-height-14: 0.875rem; /* 14px */
+  --line-height-16: 1rem; /* 16px */
+  --line-height-18: 1.125rem; /* 18px */
+  --line-height-24: 1.5rem; /* 24px */
+  --line-height-32: 2rem; /* 32px */
+  --line-height-40: 2.5rem; /* 40px */
+  --line-height-48: 3rem; /* 48px */
+  --line-height-72: 4.5rem; /* 72px */
+  --line-height-iso-font-size: 1;
 
   /* radii */
   --radius-2xl: 1.5rem; /* 24px */
@@ -578,6 +574,21 @@
   --height-elements-xs: var(--height-16);
   --height-elements-xxl: var(--height-64);
   --height-elements-xxs: var(--height-12);
+
+  /* lineHeights */
+  --line-height-h0: var(--line-height-72);
+  --line-height-h1: var(--line-height-48);
+  --line-height-h2: var(--line-height-40);
+  --line-height-h3: var(--line-height-32);
+  --line-height-h4: var(--line-height-24);
+  --line-height-h5: var(--line-height-20);
+  --line-height-h6: var(--line-height-18);
+  --line-height-lg: var(--line-height-24);
+  --line-height-md: var(--line-height-18);
+  --line-height-sm: var(--line-height-18);
+  --line-height-subtitle-md: var(--line-height-iso-font-size);
+  --line-height-subtitle-sm: var(--line-height-iso-font-size);
+  --line-height-xs: var(--line-height-14);
 
   /* spacings */
   --spacing-3xl: var(--spacing-48);
