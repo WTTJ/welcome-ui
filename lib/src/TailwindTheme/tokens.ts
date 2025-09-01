@@ -96,12 +96,11 @@ export const components = {
     '--font-size-button-sm': 'var(--font-size-xs)',
     '--font-size-button-xs': 'var(--font-size-xs)',
     '--font-weight-button-default': 'var(--font-weight-bold)',
-    '--height-button-lg': 'var(--height-elements-lg)',
 
-    '--height-button-md': 'var(--height-elements-md)',
-    '--height-button-sm': 'var(--height-elements-sm)',
-
-    '--height-button-xs': 'var(--height-elements-xs)',
+    '--height-button-lg': 'var(--height-elements-xl)',
+    '--height-button-md': 'var(--height-elements-lg)',
+    '--height-button-sm': 'var(--height-elements-md)',
+    '--height-button-xs': 'var(--height-elements-sm)',
 
     '--margin-inline-end-button-icon-first-and-not-only-child': 'var(--spacing-xs)',
     '--margin-inline-start-button-icon-first-and-not-only-child': 'var(--spacing-xs)',
@@ -133,6 +132,14 @@ export const components = {
     '--padding-inline-button-with-icon-size-xs': 'var(--spacing-sm)',
 
     '--transition-duration-button-default': 'var(--duration-medium)',
+  },
+  icon: {
+    '--height-icon-lg': 'var(--height-elements-md)',
+    '--height-icon-md': 'var(--height-elements-sm)',
+    '--height-icon-sm': 'var(--height-elements-xs)',
+    '--height-icon-xl': 'var(--height-elements-xl)',
+    '--height-icon-xs': 'var(--height-elements-xxs)',
+    '--height-icon-xxl': 'var(--height-elements-xxl)',
   },
   text: {
     '--font-size-text-h0': 'var(--font-size-h0)',
@@ -192,10 +199,13 @@ export const semantics = {
     '--font-weight-regular': 'var(--font-weight-400)',
   },
   heights: {
-    '--height-elements-lg': 'var(--height-48)',
-    '--height-elements-md': 'var(--height-40)',
-    '--height-elements-sm': 'var(--height-32)',
-    '--height-elements-xs': 'var(--height-24)',
+    '--height-elements-lg': 'var(--height-40)',
+    '--height-elements-md': 'var(--height-32)',
+    '--height-elements-sm': 'var(--height-24)',
+    '--height-elements-xl': 'var(--height-48)',
+    '--height-elements-xs': 'var(--height-16)',
+    '--height-elements-xxl': 'var(--height-64)',
+    '--height-elements-xxs': 'var(--height-12)',
   },
   spacings: {
     '--spacing-3xl': 'var(--spacing-48)',
@@ -343,6 +353,7 @@ export const primitives = {
   heights: {
     '--height-8': '0.5rem',
     '--height-10': '0.625rem',
+    '--height-12': '0.75rem',
     '--height-16': '1rem',
     '--height-20': '1.25rem',
     '--height-24': '1.5rem',
@@ -370,8 +381,12 @@ export const primitives = {
     '--line-height-h4': '1.5rem',
     '--line-height-h5': '1.125rem',
     '--line-height-h6': '1rem',
+    '--line-height-lg': '1.5rem' /* 24px */,
+    '--line-height-md': '1.125rem' /* 18px */,
+    '--line-height-sm': '1.125rem' /* 18px */,
     '--line-height-subtitle-md': '1',
     '--line-height-subtitle-sm': '1',
+    '--line-height-xs': '0.875rem' /* 14px */,
   },
   radii: {
     '--radius-2xl': '1.5rem',
