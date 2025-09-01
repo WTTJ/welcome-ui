@@ -23,13 +23,13 @@
     }
 
     &:hover {
-      background-color: var(--backgroundColorHover);
-      border-color: var(--borderColorHover);
+      background-color: var(--color-brand-30);
+      border-color: var(--color-brand-30);
     }
 
     &:active {
-      background-color: var(--backgroundColorActive);
-      border-color: var(--borderColorActive);
+      background-color: var(--color-brand-10);
+      border-color: var(--color-brand-10);
     }
 
     &:disabled,
