@@ -260,10 +260,10 @@
   --font-size-button-sm: var(--font-size-xs);
   --font-size-button-xs: var(--font-size-xs);
   --font-weight-button-default: var(--font-weight-bold);
-  --height-button-lg: var(--height-elements-lg);
-  --height-button-md: var(--height-elements-md);
-  --height-button-sm: var(--height-elements-sm);
-  --height-button-xs: var(--height-elements-xs);
+  --height-button-lg: var(--height-elements-xl);
+  --height-button-md: var(--height-elements-lg);
+  --height-button-sm: var(--height-elements-md);
+  --height-button-xs: var(--height-elements-sm);
   --margin-inline-end-button-icon-first-and-not-only-child: var(--spacing-xs);
   --margin-inline-start-button-icon-first-and-not-only-child: var(--spacing-xs);
   --outline-color-button-focus-disabled: var(--color-beige-10);
@@ -287,6 +287,14 @@
   --padding-inline-button-with-icon-size-sm: var(--spacing-md);
   --padding-inline-button-with-icon-size-xs: var(--spacing-sm);
   --transition-duration-button-default: var(--duration-medium);
+
+  /* icons */
+  --height-icon-xs:  var(--height-elements-xxs);
+  --height-icon-sm:  var(--height-elements-xs);
+  --height-icon-md:  var(--height-elements-sm);
+  --height-icon-lg:  var(--height-elements-md);
+  --height-icon-xl:  var(--height-elements-xl);
+  --height-icon-xxl: var(--height-elements-xxl);
 
   /* text */
   --font-size-text-h0: var(--font-size-h0);
@@ -438,6 +446,7 @@
   /* heights */
   --height-8: 0.5rem; /* 8px */
   --height-10: 0.625rem; /* 10px */
+  --height-12: 0.75rem; /* 12px */
   --height-16: 1rem; /* 16px */
   --height-20: 1.25rem; /* 20px */
   --height-24: 1.5rem; /* 24px */
@@ -465,6 +474,10 @@
   --line-height-h4: 1.5rem; /* 24px */
   --line-height-h5: 1.125rem; /* 18px */
   --line-height-h6: 1rem; /* 16px */
+  --line-height-xs: 0.875rem; /* 14px */
+  --line-height-sm: 1.125rem; /* 18px */
+  --line-height-md: 1.125rem; /* 18px */
+  --line-height-lg: 1.5rem; /* 24px */
   --line-height-subtitle-md: 1;
   --line-height-subtitle-sm: 1;
 
@@ -558,10 +571,13 @@
   --font-weight-regular: var(--font-weight-400);
 
   /* heights */
-  --height-elements-lg: var(--height-48);
-  --height-elements-md: var(--height-40);
-  --height-elements-sm: var(--height-32);
-  --height-elements-xs: var(--height-24);
+  --height-elements-xxl: var(--height-64);
+  --height-elements-xl:  var(--height-48);
+  --height-elements-lg: var(--height-40);
+  --height-elements-md: var(--height-32);
+  --height-elements-sm: var(--height-24);
+  --height-elements-xs: var(--height-16);
+  --height-elements-xxs: var(--height-12);
 
   /* spacings */
   --spacing-3xl: var(--spacing-48);
