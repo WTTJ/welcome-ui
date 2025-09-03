@@ -18,13 +18,11 @@ export const ButtonPureCss = <T extends React.ElementType = 'button'>({
   variant = 'primary',
   ...rest
 }: ButtonProps<T>) => {
-  const overrides = className.split(' ')
-
   return (
     <AriakitButton
       {...rest}
       accessibleWhenDisabled={accessibleWhenDisabled}
-      className={cx('root', `variant-${variant}`, `shape-${shape}`, `size-${size}`, ...overrides)}
+      className={cx('root', `variant-${variant}`, `shape-${shape}`, `size-${size}`, className)}
       disabled={disabled}
       ref={ref}
       type="button"

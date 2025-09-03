@@ -1,4 +1,5 @@
-import './theme.css'
+// import './theme.css'
+import './css/_variables.css'
 
 // Export a tiny sentinel to prevent bundlers from tree-shaking this module away
 // when it only contains a side-effectful CSS import.

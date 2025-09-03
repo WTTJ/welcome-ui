@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import '../../TailwindTheme/css/_variables.css';
 
 /* The 'components' layer is used so that the styles can be overridden by Tailwind's 'utilities' layer */
 @layer components {
@@ -17,20 +17,6 @@
     outline: transparent solid var(--border-width-md);
     font-weight: var(--font-weight-bold);
     border-radius: var(--radius-md);
-
-    &:focus {
-      outline-color: var(--outlineColorFocus);
-    }
-
-    &:hover {
-      background-color: var(--color-brand-30);
-      border-color: var(--color-brand-30);
-    }
-
-    &:active {
-      background-color: var(--color-brand-10);
-      border-color: var(--color-brand-10);
-    }
 
     &:disabled,
     &[aria-disabled] {
@@ -132,21 +118,21 @@
   }
 
   .variant-primary {
-    background-color: var(--color-brand-40);
-    border-color: var(--color-brand-40);
+    background-color: var(--button-color-background-primary-default);
+    border-color: var(--button-color-border-primary-default);
 
     &:focus {
       outline-color: var(--color-brand-20);
     }
 
     &:hover {
-      background-color: var(--color-brand-30);
-      border-color: var(--color-brand-30);
+      background-color: var(--button-color-background-primary-hover);
+      border-color: var(--button-color-border-primary-hover);
     }
 
     &:active {
-      background-color: var(--color-brand-10);
-      border-color: var(--color-brand-10);
+      background-color: var(--button-color-background-primary-active);
+      border-color: var(--button-color-border-primary-active);
     }
   }
 
@@ -157,153 +143,153 @@
       outline-color: color-mix(in oklab, var(--color-neutral-90) 10%, transparent);
     }
     &:hover {
-      background-color: color-mix(in oklab, var(--color-neutral-90) 10%, transparent);
+      background-color: var(--button-color-background-ghost-hover);
       border-color: transparent;
     }
     &:active {
-      background-color: color-mix(in oklab, var(--color-neutral-90) 40%, transparent);
+      background-color: var(--button-color-background-ghost-active);
       border-color: transparent;
     }
   }
 
   .variant-ghost-ai {
     border-color: transparent;
-    color: var(--color-violet-70);
+    color: var(--button-color-text-ai-ghost);
 
     &:focus {
-      outline-color: var(--color-violet-50);
+      outline-color: var(--color-ai-50);
     }
     &:hover {
-      background-color: var(--color-violet-10);
-      border-color: var(--color-violet-10);
+      background-color: var(--button-color-background-ai-ghost-hover);
+      border-color: var(--button-color-border-ai-ghost-hover);
     }
     &:active {
-      background-color: var(--color-violet-30);
-      border-color: var(--color-violet-30);
+      background-color: var(--button-color-background-ai-ghost-active);
+      border-color: var(--button-color-border-ai-ghost-active);
     }
   }
 
   .variant-ghost-danger {
     border-color: transparent;
-    color: var(--color-red-80);
+    color: var(--button-color-text-danger-ghost);
 
     &:focus {
-      outline-color: var(--color-red-40);
+      outline-color: var(--color-danger-40);
     }
     &:hover {
-      background-color: var(--color-red-10);
-      border-color: var(--color-red-10);
+      background-color: var(--button-color-background-danger-ghost-hover);
+      border-color: var(--button-color-border-danger-ghost-hover);
     }
     &:active {
-      background-color: var(--color-red-20);
-      border-color: var(--color-red-20);
+      background-color: var(--button-color-background-danger-ghost-active);
+      border-color: var(--button-color-border-danger-ghost-active);
     }
   }
 
   .variant-primary-ai {
-    background-color: var(--color-violet-70);
-    border-color: var(--color-violet-70);
-    color: var(--color-neutral-10);
+    background-color: var(--button-color-background-ai-default);
+    border-color: var(--button-color-border-ai-default);
+    color: var(--button-color-text-ai);
 
     &:focus {
-      outline-color: var(--color-violet-50);
+      outline-color: var(--color-ai-50);
     }
     &:hover {
-      background-color: var(--color-violet-60);
-      border-color: var(--color-violet-60);
+      background-color: var(--button-color-background-ai-hover);
+      border-color: var(--button-color-border-ai-hover);
     }
     &:active {
-      background-color: var(--color-violet-40);
-      border-color: var(--color-violet-40);
+      background-color: var(--button-color-background-ai-active);
+      border-color: var(--button-color-border-ai-active);
     }
   }
 
   .variant-primary-danger {
-    background-color: var(--color-red-70);
-    border-color: var(--color-red-70);
-    color: var(--color-neutral-10);
+    background-color: var(--button-color-background-danger-default);
+    border-color: var(--button-color-background-danger-default);
+    color: var(--button-color-text-danger);
 
     &:focus {
-      outline-color: var(--color-red-40);
+      outline-color: var(--color-danger-40);
     }
     &:hover {
-      background-color: var(--color-red-60);
-      border-color: var(--color-red-60);
+      background-color: var(--button-color-background-danger-hover);
+      border-color: var(--button-color-background-danger-hover);
     }
     &:active {
-      background-color: var(--color-red-50);
-      border-color: var(--color-red-50);
+      background-color: var(--button-color-background-danger-active);
+      border-color: var(--button-color-background-danger-active);
     }
   }
 
   .variant-secondary {
-    background-color: var(--color-neutral-90);
-    border-color: var(--color-neutral-90);
-    color: var(--color-neutral-10);
+    background-color: var(--button-color-background-secondary-default);
+    border-color: var(--button-color-border-secondary-default);
+    color: var(--button-color-text-secondary);
 
     &:focus {
       outline-color: var(--color-neutral-40);
     }
     &:hover {
-      background-color: var(--color-neutral-70);
-      border-color: var(--color-neutral-70);
+      background-color: var(--button-color-background-secondary-hover);
+      border-color: var(--button-color-border-secondary-hover);
     }
     &:active {
-      background-color: var(--color-neutral-70);
-      border-color: var(--color-neutral-90);
+      background-color: var(--button-color-background-secondary-active);
+      border-color: var(--button-color-border-secondary-active);
     }
   }
 
   .variant-tertiary {
-    background-color: var(--color-neutral-10);
-    border-color: var(--color-neutral-90);
+    background-color: var(--button-color-background-tertiary-default);
+    border-color: var(--button-color-border-tertiary-default);
 
     &:focus {
       outline-color: var(--color-neutral-40);
     }
     &:hover {
-      background-color: color-mix(in oklab, var(--color-neutral-90) 10%, transparent);
-      border-color: var(--color-neutral-90);
+      background-color: var(--button-color-background-tertiary-hover);
+      border-color: var(--button-color-border-tertiary-hover);
     }
     &:active {
-      background-color: color-mix(in oklab, var(--color-neutral-90) 40%, transparent);
-      border-color: var(--color-neutral-90);
+      background-color: var(--button-color-background-tertiary-active);
+      border-color: var(--button-color-border-tertiary-active);
     }
   }
 
   .variant-tertiary-ai {
-    background-color: var(--color-neutral-10);
-    border-color: var(--color-violet-70);
-    color: var(--color-violet-70);
+    background-color: var(--color-button-color-background-ai-tertiary-default);
+    border-color: var(--button-color-border-ai-tertiary-default);
+    color: var(--button-color-text-ai-tertiary);
 
     &:focus {
-      outline-color: var(--color-violet-50);
+      outline-color: var(--color-ai-40);
     }
     &:hover {
-      background-color: var(--color-violet-10);
-      border-color: var(--color-violet-70);
+      background-color: var(--button-color-background-ai-tertiary-hover);
+      border-color: var(--button-color-border-ai-tertiary-hover);
     }
     &:active {
-      background-color: var(--color-violet-30);
-      border-color: var(--color-violet-70);
+      background-color: var(--button-color-background-ai-tertiary-active);
+      border-color: var(--button-color-border-ai-tertiary-active);
     }
   }
 
   .variant-tertiary-danger {
-    background-color: var(--color-neutral-10);
-    border-color: var(--color-red-80);
-    color: var(--color-red-80);
+    background-color: var(--button-color-background-danger-tertiary-default);
+    border-color: var(--button-color-border-danger-tertiary-default);
+    color: var(--button-color-text-danger-tertiary);
 
     &:focus {
-      outline-color: var(--color-red-40);
+      outline-color: var(--color-danger-40);
     }
     &:hover {
-      background-color: var(--color-red-10);
-      border-color: var(--color-red-80);
+      background-color: var(--button-color-background-danger-tertiary-hover);
+      border-color: var(--button-color-border-danger-tertiary-hover);
     }
     &:active {
-      background-color: var(--color-red-20);
-      border-color: var(--color-red-80);
+      background-color: var(--button-color-background-danger-tertiary-active);
+      border-color: var(--button-color-border-danger-tertiary-active);
     }
   }
 }
