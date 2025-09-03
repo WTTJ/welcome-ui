@@ -118,7 +118,6 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
-    "tailwindcss": "^4.1.11",
-    "vite-plugin-lib-inject-css": "^2.2.2"
+    "tailwindcss": "^4.1.11"
   }
 }
