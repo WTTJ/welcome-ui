@@ -1,13 +1,31 @@
 {
-  "colors": {
-    "brand-10": { "value": "{colors.yellow-10}", "type": "color" },
-    "brand-20": { "value": "{colors.yellow-20}", "type": "color" },
-    "brand-30": { "value": "{colors.yellow-30}", "type": "color" },
-    "brand-40": { "value": "{colors.yellow-40}", "type": "color", "comment": "default" },
-    "brand-50": { "value": "{colors.yellow-50}", "type": "color" },
-    "brand-60": { "value": "{colors.yellow-60}", "type": "color" },
-    "brand-70": { "value": "{colors.yellow-70}", "type": "color" },
-    "brand-80": { "value": "{colors.yellow-80}", "type": "color" },
-    "brand-90": { "value": "{colors.yellow-90}", "type": "color" }
+  "color": {
+    "brand-10": { "value": "{color.yellow-10}", "type": "color" },
+    "brand-20": { "value": "{color.yellow-20}", "type": "color" },
+    "brand-30": { "value": "{color.yellow-30}", "type": "color" },
+    "brand-40": { "value": "{color.yellow-40}", "type": "color", "comment": "default" },
+    "brand-50": { "value": "{color.yellow-50}", "type": "color" },
+    "brand-60": { "value": "{color.yellow-60}", "type": "color" },
+    "brand-70": { "value": "{color.yellow-70}", "type": "color" },
+    "brand-80": { "value": "{color.yellow-80}", "type": "color" },
+    "brand-90": { "value": "{color.yellow-90}", "type": "color" },
+    "danger-10": { "value": "{color.red-10}", "type": "color" },
+    "danger-20": { "value": "{color.red-20}", "type": "color" },
+    "danger-30": { "value": "{color.red-30}", "type": "color" },
+    "danger-40": { "value": "{color.red-40}", "type": "color", "comment": "default" },
+    "danger-50": { "value": "{color.red-50}", "type": "color" },
+    "danger-60": { "value": "{color.red-60}", "type": "color" },
+    "danger-70": { "value": "{color.red-70}", "type": "color" },
+    "danger-80": { "value": "{color.red-80}", "type": "color" },
+    "danger-90": { "value": "{color.red-90}", "type": "color" },
+    "ai-10": { "value": "{color.violet-10}", "type": "color" },
+    "ai-20": { "value": "{color.violet-20}", "type": "color" },
+    "ai-30": { "value": "{color.violet-30}", "type": "color" },
+    "ai-40": { "value": "{color.violet-40}", "type": "color", "comment": "default" },
+    "ai-50": { "value": "{color.violet-50}", "type": "color" },
+    "ai-60": { "value": "{color.violet-60}", "type": "color" },
+    "ai-70": { "value": "{color.violet-70}", "type": "color" },
+    "ai-80": { "value": "{color.violet-80}", "type": "color" },
+    "ai-90": { "value": "{color.violet-90}", "type": "color" }
   }
 }

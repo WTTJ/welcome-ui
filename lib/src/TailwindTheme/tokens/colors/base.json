@@ -1,5 +1,5 @@
 {
-  "colors": {
+  "color": {
     "type": "color",
     "beige-10": { "value": "#FBF9F7", "type": "color" },
     "beige-20": { "value": "#F6F3EF", "type": "color" },
