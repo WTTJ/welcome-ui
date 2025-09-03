@@ -200,6 +200,66 @@
     "@csstools/css-tokenizer" "^3.0.3"
     lru-cache "^10.4.3"
 
+"@ast-grep/napi-darwin-arm64@0.36.3":
+  version "0.36.3"
+  resolved "https://registry.yarnpkg.com/@ast-grep/napi-darwin-arm64/-/napi-darwin-arm64-0.36.3.tgz#21300034de594055beb56d5e5e26589380934918"
+  integrity sha512-uM0Hrm5gcHqaBL64ktmPBFMTorTlPKWsUfi0E2Cg09GJfeYWvZmicCqgd7qVtjURmQvFQdb4JSqHIkJvws6Uqw==
+
+"@ast-grep/napi-darwin-x64@0.36.3":
+  version "0.36.3"
+  resolved "https://registry.yarnpkg.com/@ast-grep/napi-darwin-x64/-/napi-darwin-x64-0.36.3.tgz#fed71faf76258349e02659a3e51ded785724a914"
+  integrity sha512-wEMeQw8lRL66puG2m8m0kDRQDtubygj59HA/cmut2V5SPx/13BN3wuEk6JPv97gqGUCUGhG2+5Z6UZ/Ll2q01Q==
+
+"@ast-grep/napi-linux-arm64-gnu@0.36.3":
+  version "0.36.3"
+  resolved "https://registry.yarnpkg.com/@ast-grep/napi-linux-arm64-gnu/-/napi-linux-arm64-gnu-0.36.3.tgz#fe01aa917e0574dc165ff38bf68cfe5fdf62c9a7"
+  integrity sha512-sMsTMaUjW7SM8KPbLviCSBuM4zgJcwvie1yZI92HKSlFzC7ABe7X7UvyUREB+JwqccDVEL5yOJAjqB8eFSCizw==
+
+"@ast-grep/napi-linux-arm64-musl@0.36.3":
+  version "0.36.3"
+  resolved "https://registry.yarnpkg.com/@ast-grep/napi-linux-arm64-musl/-/napi-linux-arm64-musl-0.36.3.tgz#7c98cc4d49ec8692d4c601561b1327a5cd8814a2"
+  integrity sha512-2XRmNYuovZu0Pa4J3or4PKMkQZnXXfpVcCrPwWB/2ytX7XUo+TWLgYE8rPVnJOyw5zujkveFb0XUrro9mQgLzw==
+
+"@ast-grep/napi-linux-x64-gnu@0.36.3":
+  version "0.36.3"
+  resolved "https://registry.yarnpkg.com/@ast-grep/napi-linux-x64-gnu/-/napi-linux-x64-gnu-0.36.3.tgz#4a949cd56208c5674621cec45517a0477b864f2c"
+  integrity sha512-mTwPRbBi1feGqR2b5TWC5gkEDeRi8wfk4euF5sKNihfMGHj6pdfINHQ3QvLVO4C7z0r/wgWLAvditFA0b997dg==
+
+"@ast-grep/napi-linux-x64-musl@0.36.3":
+  version "0.36.3"
+  resolved "https://registry.yarnpkg.com/@ast-grep/napi-linux-x64-musl/-/napi-linux-x64-musl-0.36.3.tgz#8c1d2094fb3b002dbdebd140f7e7e57731f1c33f"
+  integrity sha512-tMGPrT+zuZzJK6n1cD1kOii7HYZE9gUXjwtVNE/uZqXEaWP6lmkfoTMbLjnxEe74VQbmaoDGh1/cjrDBnqC6Uw==
+
+"@ast-grep/napi-win32-arm64-msvc@0.36.3":
+  version "0.36.3"
+  resolved "https://registry.yarnpkg.com/@ast-grep/napi-win32-arm64-msvc/-/napi-win32-arm64-msvc-0.36.3.tgz#e1ccf039ddb37ffb26d6da516b9e6c8dcf5c7b87"
+  integrity sha512-7pFyr9+dyV+4cBJJ1I57gg6PDXP3GBQeVAsEEitzEruxx4Hb4cyNro54gGtlsS+6ty+N0t004tPQxYO2VrsPIg==
+
+"@ast-grep/napi-win32-ia32-msvc@0.36.3":
+  version "0.36.3"
+  resolved "https://registry.yarnpkg.com/@ast-grep/napi-win32-ia32-msvc/-/napi-win32-ia32-msvc-0.36.3.tgz#4917947a8ae07c236854aa6cd42d6bfd1325679d"
+  integrity sha512-MPAgccH9VscRaFuEBMzDGPS+3c4cKNVGIVJ7WSNa1nZtLQ0eFEaPJ7pyDnCezgVSxfNFVYBvKyyF/vcm7Qc9+A==
+
+"@ast-grep/napi-win32-x64-msvc@0.36.3":
+  version "0.36.3"
+  resolved "https://registry.yarnpkg.com/@ast-grep/napi-win32-x64-msvc/-/napi-win32-x64-msvc-0.36.3.tgz#1ee5792353f2389b4040cdca87b00fa535644560"
+  integrity sha512-TIVtuSbXhty9kaSEfr4ULWx5PAuUeGgUkFaR60lmOs7sGTWgpig+suwKfTmevoAblFknCW/aMHOwziwJoUZA6A==
+
+"@ast-grep/napi@^0.36.2":
+  version "0.36.3"
+  resolved "https://registry.yarnpkg.com/@ast-grep/napi/-/napi-0.36.3.tgz#677ee5061de98989915c5987672443bbe7ffc003"
+  integrity sha512-ExypohE8L7FvKBHxu7UpwcV9XVfyS+AqNZKyKIfxYwJyD9l7Gw6pmMYd7J2uopJsPEIUf44/emEFds6nFUx/dw==
+  optionalDependencies:
+    "@ast-grep/napi-darwin-arm64" "0.36.3"
+    "@ast-grep/napi-darwin-x64" "0.36.3"
+    "@ast-grep/napi-linux-arm64-gnu" "0.36.3"
+    "@ast-grep/napi-linux-arm64-musl" "0.36.3"
+    "@ast-grep/napi-linux-x64-gnu" "0.36.3"
+    "@ast-grep/napi-linux-x64-musl" "0.36.3"
+    "@ast-grep/napi-win32-arm64-msvc" "0.36.3"
+    "@ast-grep/napi-win32-ia32-msvc" "0.36.3"
+    "@ast-grep/napi-win32-x64-msvc" "0.36.3"
+
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.4":
   version "7.26.2"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.26.2.tgz#4b5fab97d33338eff916235055f0ebc21e573a85"
@@ -11589,6 +11649,15 @@ vite-plugin-dts@^4.5.3:
     kolorist "^1.8.0"
     local-pkg "^1.0.0"
     magic-string "^0.30.17"
+
+vite-plugin-lib-inject-css@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/vite-plugin-lib-inject-css/-/vite-plugin-lib-inject-css-2.2.2.tgz#1a08274b2a79c8cc60168a125ab3b417d8c066a4"
+  integrity sha512-NF30p0GwtfSAmVlxo2NgPXM2rEdtgV7LFi4lkzajKD7P3Ru/ZAFmI533M0Z5qyMZpvNMxVGkewzpjD0HOWtbDQ==
+  dependencies:
+    "@ast-grep/napi" "^0.36.2"
+    magic-string "^0.30.17"
+    picocolors "^1.1.1"
 
 vite-plugin-static-copy@^2.3.0:
   version "2.3.0"
