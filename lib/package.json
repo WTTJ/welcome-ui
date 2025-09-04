@@ -17,11 +17,12 @@
       "import": "./dist/utils.js"
     },
     "./*.css": "./dist/*.css",
+    "./Tailwind*": {
+      "types": "./dist/types/TailwindComponents/*/index.d.ts",
+      "import": "./dist/Tailwind*.js"
+    },
     "./*": {
-      "types": [
-      "./dist/types/components/*/index.d.ts",
-      "./dist/types/TailwindComponents/*/index.d.ts"
-    ],
+      "types": "./dist/types/components/*/index.d.ts",
       "import": "./dist/*.js"
     },
     "./*.d.ts": {
