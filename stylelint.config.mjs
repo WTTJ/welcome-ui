@@ -3,7 +3,6 @@ export default {
   overrides: [
     {
       files: ['**/src/Tailwind**/**/*.{css,scss}'],
-      plugins: ['./stylelint-apply-one-class-per-line.js'],
       rules: {
         'at-rule-no-deprecated': null,
         'at-rule-no-unknown': [
@@ -12,7 +11,6 @@ export default {
             ignoreAtRules: ['apply', 'theme'],
           },
         ],
-        'custom/apply-one-class-per-line': true,
         'selector-pseudo-class-no-unknown': [
           true,
           {
