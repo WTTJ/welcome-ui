@@ -23,13 +23,16 @@
   background-color: var(--backgroundColor);
   border-color: var(--borderColor);
 
-  &:focus {
+  &:focus,
+  &:focus-visible {
     outline-color: var(--outlineColorFocus);
   }
 
-  &:hover {
-    background-color: var(--backgroundColorHover);
-    border-color: var(--borderColorHover);
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: var(--backgroundColorHover);
+      border-color: var(--borderColorHover);
+    }
   }
 
   &:active {
