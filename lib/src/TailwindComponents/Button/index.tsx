@@ -1,28 +1,11 @@
 import { Button as AriakitButton } from '@ariakit/react'
-import type { ButtonProps as AriakitButtonProps } from '@ariakit/react'
-import type { ButtonHTMLAttributes, CSSProperties, ReactNode } from 'react'
 
-import type {
-  ButtonShapes,
-  ButtonSizes,
-  ButtonVariants,
-  PolymorphicProps,
-} from '../../TailwindTheme/types'
+import { classNames } from '../../classNames'
 
-import buttonStyles from './theme.module.css'
-import { hydrateCSSVarsWith, shapes, sizes, theme, variants } from './tokens'
+import buttonStyles from './button.module.scss'
+import type { ButtonProps } from './types'
 
-type ButtonProps<T extends React.ElementType> = AriakitButtonProps &
-  ButtonHTMLAttributes<HTMLButtonElement> &
-  PolymorphicProps<T> & {
-    children?: ReactNode
-    className?: string
-    ref?: React.Ref<HTMLButtonElement>
-    shape?: ButtonShapes
-    size?: ButtonSizes
-    style?: CSSProperties
-    variant?: ButtonVariants
-  }
+const cx = classNames(buttonStyles)
 
 export const Button = <T extends React.ElementType = 'button'>({
   accessibleWhenDisabled = true,
@@ -32,32 +15,25 @@ export const Button = <T extends React.ElementType = 'button'>({
   ref,
   shape = 'default',
   size = 'md',
-  style,
   variant = 'primary',
   ...rest
 }: ButtonProps<T>) => {
-  const classNames = `${buttonStyles.wuiButtonBaseClass} ${buttonStyles.wuiButtonDynamicClass} ${className}`
-
   // some variants like 'disabled' preprend over the others
   const activeVariant = (disabled && 'disabled') || variant
-
-  const styles = {
-    ...hydrateCSSVarsWith(theme),
-    ...hydrateCSSVarsWith(variants[activeVariant as keyof typeof variants]),
-    ...hydrateCSSVarsWith(sizes[size as keyof typeof sizes]),
-    ...hydrateCSSVarsWith(shapes[shape as keyof typeof shapes]),
-    ...hydrateCSSVarsWith(shapes[`${shape}-${size}` as keyof typeof shapes]), // compouned shapes with sizes
-    ...style,
-  }
 
   return (
     <AriakitButton
       {...rest}
       accessibleWhenDisabled={accessibleWhenDisabled}
-      className={classNames}
+      className={cx(
+        'root',
+        variant && `variant-${activeVariant}`,
+        shape && `shape-${shape}`,
+        size && `size-${size}`,
+        className
+      )}
       disabled={disabled}
       ref={ref}
-      style={styles as CSSProperties}
       type="button"
     >
       {children}
