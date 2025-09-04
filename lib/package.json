@@ -18,7 +18,10 @@
     },
     "./*.css": "./dist/*.css",
     "./*": {
-      "types": "./dist/types/components/*/index.d.ts",
+      "types": [
+      "./dist/types/components/*/index.d.ts",
+      "./dist/types/TailwindComponents/*/index.d.ts"
+    ],
       "import": "./dist/*.js"
     },
     "./*.d.ts": {
