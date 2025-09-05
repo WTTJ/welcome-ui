@@ -1,5 +1,5 @@
 {
-  "source": ["lib/src/TailwindTheme/tokens/**/*.json"],
+  "source": ["lib/src/TailwindTheme/tokens/**/*.json", "lib/src/TailwindComponents/**/theme.json"],
   "platforms": {
     "css": {
       "transformGroup": "css",
