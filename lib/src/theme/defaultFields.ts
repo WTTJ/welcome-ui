@@ -116,7 +116,7 @@ export const getDefaultFields = (theme: ThemeValues): ThemeDefaultFields => {
       },
     },
     placeholder: {
-      color: colors['neutral-50'],
+      color: colors['neutral-60'],
     },
     select: {
       default: {
