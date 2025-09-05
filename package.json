@@ -5,7 +5,7 @@
     "build:lib": "cd lib && yarn build",
     "build:website": "cd website && yarn && yarn build",
     "build": "yarn build:lib",
-    "build:tokens": "style-dictionary build --config=style-dictionary.json",
+    "build:tokens": "style-dictionary build --config=style-dictionary.json --verbose",
     "check:audit": "/bin/bash -c 'yarn audit --level low; [[ $? -ge 2 ]] && exit 1 || exit 0'",
     "check:audit:fix": "npm_config_yes=true npx yarn-audit-fix",
     "icons": "node -r esm scripts/icons-optimize.js && node -r esm scripts/icons-collect.js && yarn webfont",
