@@ -1,0 +1,258 @@
+.root {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  border-style: solid;
+
+  /* VARIABLES FROM THEME - DONT CHANGE WITH REACT PROPS */
+  border-width: var(--border-width-button-default);
+  transition-property: all;
+  transition-duration: var(--transition-duration-button-default);
+  outline: transparent solid var(--outline-width-button-default);
+  font-weight: var(--font-weight-button-default);
+
+  /* VARIABLES THAT CHANGE WITH REACT PROPS */
+  aspect-ratio: var(--aspectRatio, auto);
+  height: var(--height);
+  padding-inline: var(--paddingInline);
+  border-radius: var(--borderRadius);
+  font-size: var(--fontSize);
+  color: var(--color);
+  background-color: var(--backgroundColor);
+  border-color: var(--borderColor);
+
+  &:focus,
+  &:focus-visible {
+    outline-color: var(--outlineColorFocus);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: var(--backgroundColorHover);
+      border-color: var(--borderColorHover);
+    }
+  }
+
+  &:active {
+    background-color: var(--backgroundColorActive);
+    border-color: var(--borderColorActive);
+  }
+
+  &:disabled,
+  &[aria-disabled] {
+    background-color: var(--backgroundColorDisabled);
+    border-color: var(--borderColorDisabled);
+    color: var(--colorDisabled);
+    cursor: var(--cursorDisabled);
+  }
+
+  &:has(i[data-wui-icon-font]),
+  &:has(svg[data-wui-icon]) {
+    /* when button has icon(s) we reduce horizontal padding */
+    padding-inline: var(--paddingInlineHasIcon);
+  }
+
+  /* This is a workaround because the hover peudo state is not compatible with Tailwind 4 */
+  /* https://github.com/storybookjs/storybook-addon-pseudo-states/issues/140 */
+  &.pseudo-hover {
+    background-color: var(--backgroundColorHover);
+    border-color: var(--borderColorHover);
+  }
+
+  /* CHILDREN */
+  i[data-wui-icon-font],
+  svg[data-wui-icon] {
+    display: inline-block;
+
+    &:first-child:not(:only-child) {
+      margin-inline-end: var(--margin-inline-end-button-icon-first-and-not-only-child);
+    }
+
+    &:last-child:not(:only-child) {
+      margin-inline-start: var(--margin-inline-start-button-icon-last-and-not-only-child);
+    }
+  }
+}
+
+.shape {
+  &-default {
+    --borderRadius: var(--border-radius-button-shape-default);
+  }
+
+  &-circle {
+    --borderRadius: var(--border-radius-button-shape-circle);
+  }
+
+  &-square {
+    --borderRadius: var(--border-radius-button-shape-square);
+  }
+
+  /* compouned variant equivalent for size + shape */
+  &-circle.size,
+  &-square.size {
+    &-lg,
+    &-md,
+    &-sm,
+    &-xs {
+      --aspectRatio: 1;
+      --paddingInline: 0;
+      --paddingInlineHasIcon: 0;
+    }
+
+    &-lg {
+      --fontSize: var(--font-size-button-icon-lg);
+    }
+
+    &-md {
+      --fontSize: var(--font-size-button-icon-md);
+    }
+
+    &-sm {
+      --fontSize: var(--font-size-button-icon-sm);
+    }
+
+    &-xs {
+      --fontSize: var(--font-size-button-icon-xs);
+    }
+  }
+}
+
+.size {
+  &-lg {
+    --fontSize: var(--font-size-button-lg);
+    --height: var(--height-button-lg);
+    --paddingInline: var(--padding-inline-button-size-lg);
+    --paddingInlineHasIcon: var(--padding-inline-button-with-icon-size-lg);
+  }
+
+  &-md {
+    --fontSize: var(--font-size-button-md);
+    --height: var(--height-button-md);
+    --paddingInline: var(--padding-inline-button-size-md);
+    --paddingInlineHasIcon: var(--padding-inline-button-with-icon-size-md);
+  }
+
+  &-sm {
+    --fontSize: var(--font-size-button-sm);
+    --height: var(--height-button-sm);
+    --paddingInline: var(--padding-inline-button-size-sm);
+    --paddingInlineHasIcon: var(--padding-inline-button-with-icon-size-sm);
+  }
+
+  &-xs {
+    --fontSize: var(--font-size-button-xs);
+    --height: var(--height-button-xs);
+    --paddingInline: var(--padding-inline-button-size-xs);
+    --paddingInlineHasIcon: var(--padding-inline-button-with-icon-size-xs);
+  }
+}
+
+.variant {
+  &-disabled {
+    --backgroundColorDisabled: var(--background-color-button-disabled);
+    --borderColorDisabled: var(--border-color-button-disabled);
+    --colorDisabled: var(--color-button-disabled);
+    --cursorDisabled: not-allowed;
+    --outlineColorFocus: var(--outline-color-button-focus-disabled);
+  }
+
+  &-ghost {
+    --backgroundColorActive: var(--background-color-button-active-variant-ghost);
+    --backgroundColorHover: var(--background-color-button-hover-variant-ghost);
+    --borderColor: var(--border-color-button-variant-ghost);
+    --borderColorActive: var(--border-color-button-active-variant-ghost);
+    --borderColorHover: var(--border-color-button-hover-variant-ghost);
+    --outlineColorFocus: var(--outline-color-button-focus-variant-ghost);
+  }
+
+  &-ghost-ai {
+    --backgroundColorActive: var(--background-color-button-active-variant-ghost-ai);
+    --backgroundColorHover: var(--background-color-button-hover-variant-ghost-ai);
+    --borderColor: var(--border-color-button-variant-ghost-ai);
+    --borderColorActive: var(--border-color-button-active-variant-ghost-ai);
+    --borderColorHover: var(--border-color-button-hover-variant-ghost-ai);
+    --color: var(--color-button-variant-ghost-ai);
+    --outlineColorFocus: var(--outline-color-button-focus-variant-ghost-ai);
+  }
+
+  &-ghost-danger {
+    --backgroundColorActive: var(--background-color-button-active-variant-ghost-danger);
+    --backgroundColorHover: var(--background-color-button-hover-variant-ghost-danger);
+    --borderColor: var(--border-color-button-variant-ghost-danger);
+    --borderColorActive: var(--border-color-button-active-variant-ghost-danger);
+    --borderColorHover: var(--border-color-button-hover-variant-ghost-danger);
+    --color: var(--color-button-variant-ghost-danger);
+    --outlineColorFocus: var(--outline-color-button-focus-variant-ghost-danger);
+  }
+
+  &-primary {
+    --backgroundColor: var(--background-color-button-variant-primary);
+    --backgroundColorActive: var(--background-color-button-active-variant-primary);
+    --backgroundColorHover: var(--background-color-button-hover-variant-primary);
+    --borderColor: var(--border-color-button-variant-primary);
+    --borderColorActive: var(--border-color-button-active-variant-primary);
+    --borderColorHover: var(--border-color-button-hover-variant-primary);
+    --outlineColorFocus: var(--outline-color-button-focus-variant-primary);
+  }
+
+  &-primary-ai {
+    --backgroundColor: var(--background-color-button-variant-primary-ai);
+    --backgroundColorActive: var(--background-color-button-active-variant-primary-ai);
+    --backgroundColorHover: var(--background-color-button-hover-variant-primary-ai);
+    --borderColor: var(--border-color-button-variant-primary-ai);
+    --borderColorActive: var(--border-color-button-active-variant-primary-ai);
+    --borderColorHover: var(--border-color-button-hover-variant-primary-ai);
+    --color: var(--color-button-variant-primary-ai);
+    --outlineColorFocus: var(--outline-color-button-focus-variant-primary-ai);
+  }
+
+  &-primary-danger {
+    --backgroundColor: var(--background-color-button-variant-primary-danger);
+    --backgroundColorActive: var(--background-color-button-active-variant-primary-danger);
+    --backgroundColorHover: var(--background-color-button-hover-variant-primary-danger);
+    --borderColor: var(--border-color-button-variant-primary-danger);
+    --borderColorActive: var(--border-color-button-active-variant-primary-danger);
+    --borderColorHover: var(--border-color-button-hover-variant-primary-danger);
+    --color: var(--color-button-variant-primary-danger);
+    --outlineColorFocus: var(--outline-color-button-focus-variant-primary-danger);
+  }
+
+  &-secondary {
+    --backgroundColor: var(--background-color-button-variant-secondary);
+    --backgroundColorActive: var(--background-color-button-active-variant-secondary);
+    --backgroundColorHover: var(--background-color-button-hover-variant-secondary);
+    --borderColor: var(--border-color-button-variant-secondary);
+    --borderColorActive: var(--border-color-button-active-variant-secondary);
+    --borderColorHover: var(--border-color-button-hover-variant-secondary);
+    --color: var(--color-button-variant-secondary);
+    --outlineColorFocus: var(--outline-color-button-focus-variant-secondary);
+  }
+
+  &-tertiary {
+    --backgroundColor: var(--background-color-button-variant-tertiary);
+    --backgroundColorActive: var(--background-color-button-active-variant-tertiary);
+    --backgroundColorHover: var(--background-color-button-hover-variant-tertiary);
+    --borderColor: var(--border-color-button-variant-tertiary);
+    --outlineColorFocus: var(--outline-color-button-focus-variant-tertiary);
+  }
+
+  &-tertiary-ai {
+    --backgroundColor: var(--background-color-button-variant-tertiary-ai);
+    --backgroundColorActive: var(--background-color-button-active-variant-tertiary-ai);
+    --backgroundColorHover: var(--background-color-button-hover-variant-tertiary-ai);
+    --borderColor: var(--border-color-button-variant-tertiary-ai);
+    --color: var(--color-button-variant-tertiary-ai);
+    --outlineColorFocus: var(--outline-color-button-focus-variant-tertiary-ai);
+  }
+
+  &-tertiary-danger {
+    --backgroundColor: var(--background-color-button-variant-tertiary-danger);
+    --backgroundColorActive: var(--background-color-button-active-variant-tertiary-danger);
+    --backgroundColorHover: var(--background-color-button-hover-variant-tertiary-danger);
+    --borderColor: var(--border-color-button-variant-tertiary-danger);
+    --color: var(--color-button-variant-tertiary-danger);
+    --outlineColorFocus: var(--outline-color-button-focus-variant-tertiary-danger);
+  }
+}
