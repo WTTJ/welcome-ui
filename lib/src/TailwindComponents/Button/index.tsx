@@ -2,10 +2,10 @@ import { Button as AriakitButton } from '@ariakit/react'
 
 import { classNames } from '../../classNames'
 
-import styles from './index.module.scss'
+import buttonStyles from './button.module.scss'
 import type { ButtonProps } from './types'
 
-const cx = classNames(styles)
+const cx = classNames(buttonStyles)
 
 export const Button = <T extends React.ElementType = 'button'>({
   accessibleWhenDisabled = true,
@@ -19,7 +19,7 @@ export const Button = <T extends React.ElementType = 'button'>({
   ...rest
 }: ButtonProps<T>) => {
   // some variants like 'disabled' preprend over the others
-  const activeVariant = disabled ? 'disabled' : variant
+  const activeVariant = (disabled && 'disabled') || variant
 
   return (
     <AriakitButton
@@ -27,9 +27,9 @@ export const Button = <T extends React.ElementType = 'button'>({
       accessibleWhenDisabled={accessibleWhenDisabled}
       className={cx(
         'root',
-        `variant-${activeVariant}`,
-        `shape-${shape}`,
-        `size-${size}`,
+        variant && `variant-${activeVariant}`,
+        shape && `shape-${shape}`,
+        size && `size-${size}`,
         className
       )}
       disabled={disabled}

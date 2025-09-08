@@ -29,7 +29,7 @@ const config: StorybookConfig = {
     name: getAbsolutePath('@storybook/react-vite'),
     options: {},
   },
-  stories: ['../lib/src/TailwindComponents/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  stories: ['../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   viteFinal: async config => {
     const { default: tailwindCSSVite } = await import('@tailwindcss/vite')
     return mergeConfig(config, {

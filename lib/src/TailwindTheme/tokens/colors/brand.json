@@ -26,16 +26,6 @@
     "ai-60": { "value": "{color.violet-60}", "type": "color" },
     "ai-70": { "value": "{color.violet-70}", "type": "color" },
     "ai-80": { "value": "{color.violet-80}", "type": "color" },
-    "ai-90": { "value": "{color.violet-90}", "type": "color" },
-    "black": { "value": "{color.neutral-90}", "type": "color" },
-    "white": { "value": "{color.neutral-10}", "type": "color" },
-    "black-40": {
-      "value": "color-mix(in oklab, var(--color-neutral-90) 40%, transparent)",
-      "type": "color"
-    },
-    "black-10": {
-      "value": "color-mix(in oklab, var(--color-neutral-90) 10%, transparent)",
-      "type": "color"
-    }
+    "ai-90": { "value": "{color.violet-90}", "type": "color" }
   }
 }
