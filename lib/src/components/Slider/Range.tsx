@@ -401,11 +401,7 @@ export const Range = forwardRef<'div', RangeProps>(
             ))}
         </Box>
 
-        {hint ? (
-          <Hint color="neutral-50" mt={0}>
-            {hint}
-          </Hint>
-        ) : null}
+        {hint ? <Hint mt={0}>{hint}</Hint> : null}
       </Box>
     )
   }

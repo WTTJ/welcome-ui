@@ -21,7 +21,7 @@ export const getBreadcrumbs = (theme: ThemeValues): ThemeBreadcrumbs => {
         color: colors['neutral-70'],
       },
       default: {
-        color: colors['neutral-50'],
+        color: colors['neutral-60'],
         textDecoration: 'none',
       },
       hover: {
