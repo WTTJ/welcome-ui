@@ -24,7 +24,7 @@ export function classNames<C extends CSSModule>(module?: C) {
         if (!arg) continue
 
         if (typeof arg === 'string') {
-          cx.add(module[arg] || arg)
+          cx.add(module?.[arg] || arg)
         } else if (Array.isArray(arg)) {
           // Recursively resolve class names in the array
           _classNames(...arg)
@@ -33,7 +33,7 @@ export function classNames<C extends CSSModule>(module?: C) {
             // Require the className to be truthy to add it to the set.
             // We make sure the className object has the hasOwnProperty prototype
             if (Object.prototype.hasOwnProperty.call(arg, key) && arg[key]) {
-              cx.add(module[key] || key)
+              cx.add(module?.[key] || key)
             }
           }
         }
