@@ -22,8 +22,7 @@
   color: var(--color);
   background-color: var(--backgroundColor);
   border-color: var(--borderColor);
-
-  &:focus,
+  
   &:focus-visible {
     outline-color: var(--outlineColorFocus);
   }
@@ -35,7 +34,7 @@
     }
   }
 
-  &:active {
+  &:active:not(:disabled):not([aria-disabled]) {
     background-color: var(--backgroundColorActive);
     border-color: var(--borderColorActive);
   }
