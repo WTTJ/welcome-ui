@@ -49,6 +49,9 @@ export const PrimaryVariants: Story = {
         Primary Button
         <i className="wui-icon-down wui-icon-font" data-wui-icon-font />
       </Button>
+      <Button id="hover" variant="primary">
+        Primary Button hover
+      </Button>
       <Button id="active" variant="primary">
         Primary Button active
       </Button>
@@ -64,6 +67,9 @@ export const SecondaryVariants: Story = {
   render: () => (
     <Wrapper>
       <Button variant="secondary">Secondary Button</Button>
+      <Button id="hover" variant="secondary">
+        Secondary Button hover
+      </Button>
       <Button id="active" variant="secondary">
         Secondary Button active
       </Button>
@@ -74,11 +80,14 @@ export const SecondaryVariants: Story = {
 export const TertiaryVariants: Story = {
   name: 'Variants/Tertiary',
   parameters: {
-    pseudo: { active: '#active', focus: '#active' },
+    pseudo: { active: '#active', focus: '#active', hover: '#hover' },
   },
   render: () => (
     <Wrapper>
       <Button variant="tertiary">Tertiary Button</Button>
+      <Button id="hover" variant="tertiary">
+        Tertiary Button hover
+      </Button>
       <Button id="active" variant="tertiary">
         Tertiary Button active
       </Button>
@@ -89,11 +98,14 @@ export const TertiaryVariants: Story = {
 export const GhostVariants: Story = {
   name: 'Variants/Ghost',
   parameters: {
-    pseudo: { active: '#active', focus: '#active' },
+    pseudo: { active: '#active', focus: '#active', hover: '#hover' },
   },
   render: () => (
     <Wrapper>
       <Button variant="ghost">Ghost Button</Button>
+      <Button id="hover" variant="ghost">
+        Ghost Button hover
+      </Button>
       <Button id="active" variant="ghost">
         Ghost Button active
       </Button>

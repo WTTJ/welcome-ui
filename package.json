@@ -25,7 +25,7 @@
     "start": "cd website && yarn dev -p 3020",
     "export-properties": "node ./scripts/generate-types-doc.js",
     "test": "cd lib && yarn test",
-    "storybook": "yarn tsx --watch ./lib/src/TailwindTheme/generate-theme.ts & storybook dev -p 6006",
+    "storybook": "yarn build:tokens & storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
   "private": true,

@@ -1,0 +1,8 @@
+{
+  "weight": {
+    "light": { "type": "number", "value": 400 },
+    "moderate": { "type": "number", "value": 500 },
+    "bold": { "type": "number", "value": 600 },
+  }
+}
+

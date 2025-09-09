@@ -1,0 +1,258 @@
+.root {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  border-style: solid;
+
+  /* VARIABLES FROM THEME - DONT CHANGE WITH REACT PROPS */
+  border-width: var(--size-border-button-default);
+  transition-property: all;
+  transition-duration: var(--transition-duration-button-default);
+  outline: transparent solid var(--size-outline-button-default);
+  font-weight: var(--weight-text-button-default);
+
+  /* VARIABLES THAT CHANGE WITH REACT PROPS */
+  aspect-ratio: var(--aspectRatio, auto);
+  height: var(--height);
+  padding-inline: var(--paddingInline);
+  border-radius: var(--borderRadius);
+  font-size: var(--fontSize);
+  color: var(--color, --color-neutral-90);
+  background-color: var(--backgroundColor);
+  border-color: var(--borderColor);
+
+  &:focus,
+  &:focus-visible {
+    outline-color: var(--outlineColorFocus);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: var(--backgroundColorHover);
+      border-color: var(--borderColorHover);
+    }
+  }
+
+  &:active {
+    background-color: var(--backgroundColorActive);
+    border-color: var(--borderColorActive);
+  }
+
+  &:disabled,
+  &[aria-disabled] {
+    background-color: var(--backgroundColorDisabled);
+    border-color: var(--borderColorDisabled);
+    color: var(--colorDisabled);
+    cursor: var(--cursorDisabled);
+  }
+
+  &:has(i[data-wui-icon-font]),
+  &:has(svg[data-wui-icon]) {
+    /* when button has icon(s) we reduce horizontal padding */
+    padding-inline: var(--paddingInlineHasIcon);
+  }
+
+  /* This is a workaround because the hover peudo state is not compatible with Tailwind 4 */
+  /* https://github.com/storybookjs/storybook-addon-pseudo-states/issues/140 */
+  &.pseudo-hover {
+    background-color: var(--backgroundColorHover);
+    border-color: var(--borderColorHover);
+  }
+
+  /* CHILDREN */
+  i[data-wui-icon-font],
+  svg[data-wui-icon] {
+    display: inline-block;
+
+    &:first-child:not(:only-child) {
+      margin-inline-end: var(--spacing-xs);
+    }
+
+    &:last-child:not(:only-child) {
+      margin-inline-start: var(--spacing-xs);
+    }
+  }
+}
+
+.shape {
+  &-default {
+    --borderRadius: var(--radius-border-button-default);
+  }
+
+  &-circle {
+    --borderRadius: var(--radius-border-button-circle);
+  }
+
+  &-square {
+    --borderRadius: var(--radius-border-button-square);
+  }
+
+  /* compouned variant equivalent for size + shape */
+  &-circle.size,
+  &-square.size {
+    &-lg,
+    &-md,
+    &-sm,
+    &-xs {
+      --aspectRatio: 1;
+      --paddingInline: 0;
+      --paddingInlineHasIcon: 0;
+    }
+
+    &-lg {
+      --fontSize: var(--size-text-button-icon-lg);
+    }
+
+    &-md {
+      --fontSize: var(--size-text-button-icon-md);
+    }
+
+    &-sm {
+      --fontSize: var(--size-text-button-icon-sm);
+    }
+
+    &-xs {
+      --fontSize: var(--size-text-button-icon-xs);
+    }
+  }
+}
+
+.size {
+  &-lg {
+    --fontSize: var(--size-text-button-lg);
+    --height: var(--size-button-lg);
+    --paddingInline: var(--spacing-horizontal-button-lg);
+    --paddingInlineHasIcon: var(--spacing-horizontal-button-icon-lg);
+  }
+
+  &-md {
+    --fontSize: var(--size-text-button-md);
+    --height: var(--size-button-md);
+    --paddingInline: var(--spacing-horizontal-button-md);
+    --paddingInlineHasIcon: var(--spacing-horizontal-button-icon-md);
+  }
+
+  &-sm {
+    --fontSize: var(--size-text-button-sm);
+    --height: var(--size-button-sm);
+    --paddingInline: var(--spacing-horizontal-button-sm);
+    --paddingInlineHasIcon: var(--spacing-horizontal-button-icon-sm);
+  }
+
+  &-xs {
+    --fontSize: var(--size-text-button-xs);
+    --height: var(--size-button-xs);
+    --paddingInline: var(--spacing-horizontal-button-xs);
+    --paddingInlineHasIcon: var(--spacing-horizontal-button-icon-xs);
+  }
+}
+
+.variant {
+  &-disabled {
+    --backgroundColorDisabled: var(--color-background-button-disabled);
+    --borderColorDisabled: var(--color-border-button-disabled);
+    --colorDisabled: var(--color-text-button-disabled);
+    --cursorDisabled: not-allowed;
+    --outlineColorFocus: var(--color-outline-button-disabled-focus);
+  }
+
+  &-ghost {
+    --backgroundColorActive: var(--color-background-button-ghost-active);
+    --backgroundColorHover: var(--color-background-button-ghost-hover);
+    --borderColor: var(--color-border-button-ghost-default);
+    --borderColorActive: var(--color-border-button-ghost-active);
+    --borderColorHover: var(--color-border-button-ghost-hover);
+    --outlineColorFocus: var(--color-outline-button-ghost-focus);
+  }
+
+  &-ghost-ai {
+    --backgroundColorActive: var(--color-background-button-ghost-ai-active);
+    --backgroundColorHover: var(--color-background-button-ghost-ai-hover);
+    --borderColor: var(--color-border-button-ghost-ai-default);
+    --borderColorActive: var(--color-border-button-ghost-ai-active);
+    --borderColorHover: var(--color-border-button-ghost-ai-hover);
+    --color: var(--color-text-button-ghost-ai);
+    --outlineColorFocus: var(--color-outline-button-ghost-ai-focus);
+  }
+
+  &-ghost-danger {
+    --backgroundColorActive: var(--color-background-button-ghost-danger-active);
+    --backgroundColorHover: var(--color-background-button-ghost-danger-hover);
+    --borderColor: var(--color-border-button-ghost-danger-default);
+    --borderColorActive: var(--color-border-button-ghost-danger-active);
+    --borderColorHover: var(--color-border-button-ghost-danger-hover);
+    --color: var(--color-text-button-ghost-danger);
+    --outlineColorFocus: var(--color-outline-button-ghost-danger-focus);
+  }
+
+  &-primary {
+    --backgroundColor: var(--color-background-button-primary-default);
+    --backgroundColorActive: var(--color-background-button-primary-active);
+    --backgroundColorHover: var(--color-background-button-primary-hover);
+    --borderColor: var(--color-border-button-primary-default);
+    --borderColorActive: var(--color-border-button-primary-active);
+    --borderColorHover: var(--color-border-button-primary-hover);
+    --outlineColorFocus: var(--color-outline-button-primary-focus);
+  }
+
+  &-primary-ai {
+    --backgroundColor: var(--color-background-button-primary-ai-default);
+    --backgroundColorActive: var(--color-background-button-primary-ai-active);
+    --backgroundColorHover: var(--color-background-button-primary-ai-hover);
+    --borderColor: var(--color-border-button-primary-ai-default);
+    --borderColorActive: var(--color-border-button-primary-ai-active);
+    --borderColorHover: var(--color-border-button-primary-ai-hover);
+    --color: var(--color-text-button-primary-ai);
+    --outlineColorFocus: var(--color-outline-button-primary-ai-focus);
+  }
+
+  &-primary-danger {
+    --backgroundColor: var(--color-background-button-primary-danger-default);
+    --backgroundColorActive: var(--color-background-button-primary-danger-active);
+    --backgroundColorHover: var(--color-background-button-primary-danger-hover);
+    --borderColor: var(--color-border-button-primary-danger-default);
+    --borderColorActive: var(--color-border-button-primary-danger-active);
+    --borderColorHover: var(--color-border-button-primary-danger-hover);
+    --color: var(--color-text-button-primary-danger);
+    --outlineColorFocus: var(--color-outline-button-primary-danger-focus);
+  }
+
+  &-secondary {
+    --backgroundColor: var(--color-background-button-secondary-default);
+    --backgroundColorActive: var(--color-background-button-secondary-active);
+    --backgroundColorHover: var(--color-background-button-secondary-hover);
+    --borderColor: var(--color-border-button-secondary-default);
+    --borderColorActive: var(--color-border-button-secondary-active);
+    --borderColorHover: var(--color-border-button-secondary-hover);
+    --color: var(--color-text-button-secondary);
+    --outlineColorFocus: var(--color-outline-button-secondary-focus);
+  }
+
+  &-tertiary {
+    --backgroundColor: var(--color-background-button-tertiary-default);
+    --backgroundColorActive: var(--color-background-button-tertiary-active);
+    --backgroundColorHover: var(--color-background-button-tertiary-hover);
+    --borderColor: var(--color-border-button-tertiary-default);
+    --outlineColorFocus: var(--color-outline-button-tertiary-focus);
+  }
+
+  &-tertiary-ai {
+    --backgroundColor: var(--color-background-button-tertiary-ai-default);
+    --backgroundColorActive: var(--color-background-button-tertiary-ai-active);
+    --backgroundColorHover: var(--color-background-button-tertiary-ai-hover);
+    --borderColor: var(--color-border-button-tertiary-ai-default);
+    --color: var(--color-text-button-tertiary-ai);
+    --outlineColorFocus: var(--color-outline-button-tertiary-ai-focus);
+  }
+
+  &-tertiary-danger {
+    --backgroundColor: var(--color-background-button-tertiary-danger-default);
+    --backgroundColorActive: var(--color-background-button-tertiary-danger-active);
+    --backgroundColorHover: var(--color-background-button-tertiary-danger-hover);
+    --borderColor: var(--color-border-button-tertiary-danger-default);
+    --color: var(--color-text-button-tertiary-danger);
+    --outlineColorFocus: var(--color-outline-button-tertiary-danger-focus);
+  }
+}

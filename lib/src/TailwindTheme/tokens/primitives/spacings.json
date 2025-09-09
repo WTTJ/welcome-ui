@@ -1,0 +1,16 @@
+{
+  "spacing": {
+    "2":   {"type": "dimension", "value": "0.125rem"},
+    "4":   {"type": "dimension", "value": "0.25rem"},
+    "8":   {"type": "dimension", "value": "0.5rem"},
+    "12":  {"type": "dimension", "value": "0.75rem"},
+    "16":  {"type": "dimension", "value": "1rem"},
+    "24":  {"type": "dimension", "value": "1.5rem"},
+    "32":  {"type": "dimension", "value": "2rem"},
+    "48":  {"type": "dimension", "value": "3rem"},
+    "64":  {"type": "dimension", "value": "4rem"},
+    "96":  {"type": "dimension", "value": "6rem"},
+    "128": {"type": "dimension", "value": "8rem"},
+    "192": {"type": "dimension", "value": "12rem"},
+  }
+}

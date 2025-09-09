@@ -12,7 +12,7 @@
       "lg": { "value": "8px" },
       "xl": { "value": "16px" },
       "xxl": { "value": "24px" },
-      "full": { "value": "100%" }
+      "full": { "value": "calc(infinity * 1px)" }
     }
   }
 }

@@ -1,0 +1,7 @@
+{
+  "weight": {
+    "400": { "type": "number", "value": 400 },
+    "500": { "type": "number", "value": 500 },
+    "600": { "type": "number", "value": 600 },
+  }
+}
