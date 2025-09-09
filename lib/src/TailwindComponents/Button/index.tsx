@@ -2,7 +2,7 @@ import { Button as AriakitButton } from '@ariakit/react'
 
 import { classNames } from '../../classNames'
 
-import buttonStyles from './button.module.scss'
+import buttonStyles from './index.module.scss'
 import type { ButtonProps } from './types'
 
 const cx = classNames(buttonStyles)

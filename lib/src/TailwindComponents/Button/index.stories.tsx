@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { fn } from 'storybook/test'
 
-import { Button as Button } from '../lib/src/TailwindComponents/Button'
-import buttonStyles from '../lib/src/TailwindComponents/Button/button.module.scss'
+import buttonStyles from './index.module.scss'
+
+import { Button } from '.'
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<typeof Button> = {
