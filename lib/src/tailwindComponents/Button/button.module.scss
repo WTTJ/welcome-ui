@@ -7,11 +7,11 @@
   border-style: solid;
 
   /* VARIABLES FROM THEME - DONT CHANGE WITH REACT PROPS */
-  border-width: var(--border-width-button-default);
+  border-width: var(--border-width-sm);
   transition-property: all;
-  transition-duration: var(--transition-duration-button-default);
-  outline: transparent solid var(--outline-width-button-default);
-  font-weight: var(--font-weight-button-default);
+  transition-duration: var(--duration-medium);
+  outline: transparent solid var(--border-width-md);
+  font-weight: var(--font-weight-bold);
 
   /* VARIABLES THAT CHANGE WITH REACT PROPS */
   aspect-ratio: var(--aspectRatio, auto);
@@ -34,7 +34,7 @@
     }
   }
 
-  &:active:not(:disabled):not([aria-disabled]) {
+  &:active {
     background-color: var(--backgroundColorActive);
     border-color: var(--borderColorActive);
   }
@@ -77,15 +77,15 @@
 
 .shape {
   &-default {
-    --borderRadius: var(--border-radius-button-shape-default);
+    --borderRadius: var(--radius-md);
   }
 
   &-circle {
-    --borderRadius: var(--border-radius-button-shape-circle);
+    --borderRadius: var(--radius-circle);
   }
 
   &-square {
-    --borderRadius: var(--border-radius-button-shape-square);
+    --borderRadius: var(--radius-md);
   }
 
   /* compouned variant equivalent for size + shape */
@@ -101,157 +101,157 @@
     }
 
     &-lg {
-      --fontSize: var(--font-size-button-icon-lg);
+      --fontSize: var(--font-size-xl);
     }
 
     &-md {
-      --fontSize: var(--font-size-button-icon-md);
+      --fontSize: var(--font-size-md);
     }
 
     &-sm {
-      --fontSize: var(--font-size-button-icon-sm);
+      --fontSize: var(--font-size-md);
     }
 
     &-xs {
-      --fontSize: var(--font-size-button-icon-xs);
+      --fontSize: var(--font-size-md);
     }
   }
 }
 
 .size {
   &-lg {
-    --fontSize: var(--font-size-button-lg);
-    --height: var(--height-button-lg);
-    --paddingInline: var(--padding-inline-button-size-lg);
-    --paddingInlineHasIcon: var(--padding-inline-button-with-icon-size-lg);
+    --fontSize: var(--font-size-sm);
+    --height: var(--height-elements-xl);
+    --paddingInline: var(--spacing-xl);
+    --paddingInlineHasIcon: var(--spacing-lg);
   }
 
   &-md {
-    --fontSize: var(--font-size-button-md);
-    --height: var(--height-button-md);
-    --paddingInline: var(--padding-inline-button-size-md);
-    --paddingInlineHasIcon: var(--padding-inline-button-with-icon-size-md);
+    --fontSize: var(--font-size-sm);
+    --height: var(--height-elements-lg);
+    --paddingInline: var(--spacing-xl);
+    --paddingInlineHasIcon: var(--spacing-md);
   }
 
   &-sm {
-    --fontSize: var(--font-size-button-sm);
-    --height: var(--height-button-sm);
-    --paddingInline: var(--padding-inline-button-size-sm);
-    --paddingInlineHasIcon: var(--padding-inline-button-with-icon-size-sm);
+    --fontSize: var(--font-size-xs);
+    --height: var(--height-elements-md);
+    --paddingInline: var(--spacing-sm);
+    --paddingInlineHasIcon: var(--spacing-md);
   }
 
   &-xs {
-    --fontSize: var(--font-size-button-xs);
-    --height: var(--height-button-xs);
-    --paddingInline: var(--padding-inline-button-size-xs);
-    --paddingInlineHasIcon: var(--padding-inline-button-with-icon-size-xs);
+    --fontSize: var(--font-size-xs);
+    --height: var(--height-elements-sm);
+    --paddingInline: var(--spacing-sm);
+    --paddingInlineHasIcon: var(--spacing-sm);
   }
 }
 
 .variant {
   &-disabled {
-    --backgroundColorDisabled: var(--background-color-button-disabled);
-    --borderColorDisabled: var(--border-color-button-disabled);
-    --colorDisabled: var(--color-button-disabled);
+    --backgroundColorDisabled: var(--color-beige-40);
+    --borderColorDisabled: var(--color-beige-40);
+    --colorDisabled: var(--color-beige-70);
     --cursorDisabled: not-allowed;
-    --outlineColorFocus: var(--outline-color-button-focus-disabled);
+    --outlineColorFocus: var(--color-beige-10);
   }
 
   &-ghost {
-    --backgroundColorActive: var(--background-color-button-active-variant-ghost);
-    --backgroundColorHover: var(--background-color-button-hover-variant-ghost);
-    --borderColor: var(--border-color-button-variant-ghost);
-    --borderColorActive: var(--border-color-button-active-variant-ghost);
-    --borderColorHover: var(--border-color-button-hover-variant-ghost);
-    --outlineColorFocus: var(--outline-color-button-focus-variant-ghost);
+    --backgroundColorActive: color-mix(in oklab, var(--color-neutral-90) 40%, transparent);
+    --backgroundColorHover: color-mix(in oklab, var(--color-neutral-90) 10%, transparent);
+    --borderColor: transparent;
+    --borderColorActive: transparent;
+    --borderColorHover: transparent;
+    --outlineColorFocus: color-mix(in oklab, var(--color-neutral-90) 10%, transparent);
   }
 
   &-ghost-ai {
-    --backgroundColorActive: var(--background-color-button-active-variant-ghost-ai);
-    --backgroundColorHover: var(--background-color-button-hover-variant-ghost-ai);
-    --borderColor: var(--border-color-button-variant-ghost-ai);
-    --borderColorActive: var(--border-color-button-active-variant-ghost-ai);
-    --borderColorHover: var(--border-color-button-hover-variant-ghost-ai);
-    --color: var(--color-button-variant-ghost-ai);
-    --outlineColorFocus: var(--outline-color-button-focus-variant-ghost-ai);
+    --backgroundColorActive: var(--color-violet-30);
+    --backgroundColorHover: var(--color-violet-10);
+    --borderColor: transparent;
+    --borderColorActive: var(--color-violet-30);
+    --borderColorHover: var(--color-violet-10);
+    --color: var(--color-violet-70);
+    --outlineColorFocus: var(--color-violet-50);
   }
 
   &-ghost-danger {
-    --backgroundColorActive: var(--background-color-button-active-variant-ghost-danger);
-    --backgroundColorHover: var(--background-color-button-hover-variant-ghost-danger);
-    --borderColor: var(--border-color-button-variant-ghost-danger);
-    --borderColorActive: var(--border-color-button-active-variant-ghost-danger);
-    --borderColorHover: var(--border-color-button-hover-variant-ghost-danger);
-    --color: var(--color-button-variant-ghost-danger);
-    --outlineColorFocus: var(--outline-color-button-focus-variant-ghost-danger);
+    --backgroundColorActive: var(--color-red-20);
+    --backgroundColorHover: var(--color-red-10);
+    --borderColor: transparent;
+    --borderColorActive: var(--color-red-20);
+    --borderColorHover: var(--color-red-10);
+    --color: var(--color-red-80);
+    --outlineColorFocus: var(--color-red-40);
   }
 
   &-primary {
-    --backgroundColor: var(--background-color-button-variant-primary);
-    --backgroundColorActive: var(--background-color-button-active-variant-primary);
-    --backgroundColorHover: var(--background-color-button-hover-variant-primary);
-    --borderColor: var(--border-color-button-variant-primary);
-    --borderColorActive: var(--border-color-button-active-variant-primary);
-    --borderColorHover: var(--border-color-button-hover-variant-primary);
-    --outlineColorFocus: var(--outline-color-button-focus-variant-primary);
+    --backgroundColor: var(--color-brand-40);
+    --backgroundColorActive: var(--color-brand-10);
+    --backgroundColorHover: var(--color-brand-30);
+    --borderColor: var(--color-brand-40);
+    --borderColorActive: var(--color-brand-10);
+    --borderColorHover: var(--color-brand-30);
+    --outlineColorFocus: var(--color-brand-20);
   }
 
   &-primary-ai {
-    --backgroundColor: var(--background-color-button-variant-primary-ai);
-    --backgroundColorActive: var(--background-color-button-active-variant-primary-ai);
-    --backgroundColorHover: var(--background-color-button-hover-variant-primary-ai);
-    --borderColor: var(--border-color-button-variant-primary-ai);
-    --borderColorActive: var(--border-color-button-active-variant-primary-ai);
-    --borderColorHover: var(--border-color-button-hover-variant-primary-ai);
-    --color: var(--color-button-variant-primary-ai);
-    --outlineColorFocus: var(--outline-color-button-focus-variant-primary-ai);
+    --backgroundColor: var(--color-violet-70);
+    --backgroundColorActive: var(--color-violet-40);
+    --backgroundColorHover: var(--color-violet-60);
+    --borderColor: var(--color-violet-70);
+    --borderColorActive: var(--color-violet-40);
+    --borderColorHover: var(--color-violet-60);
+    --color: var(--color-neutral-10);
+    --outlineColorFocus: var(--color-violet-50);
   }
 
   &-primary-danger {
-    --backgroundColor: var(--background-color-button-variant-primary-danger);
-    --backgroundColorActive: var(--background-color-button-active-variant-primary-danger);
-    --backgroundColorHover: var(--background-color-button-hover-variant-primary-danger);
-    --borderColor: var(--border-color-button-variant-primary-danger);
-    --borderColorActive: var(--border-color-button-active-variant-primary-danger);
-    --borderColorHover: var(--border-color-button-hover-variant-primary-danger);
-    --color: var(--color-button-variant-primary-danger);
-    --outlineColorFocus: var(--outline-color-button-focus-variant-primary-danger);
+    --backgroundColor: var(--color-red-70);
+    --backgroundColorActive: var(--color-red-50);
+    --backgroundColorHover: var(--color-red-60);
+    --borderColor: var(--color-red-70);
+    --borderColorActive: var(--color-red-50);
+    --borderColorHover: var(--color-red-60);
+    --color: var(--color-neutral-10);
+    --outlineColorFocus: var(--color-red-40);
   }
 
   &-secondary {
-    --backgroundColor: var(--background-color-button-variant-secondary);
-    --backgroundColorActive: var(--background-color-button-active-variant-secondary);
-    --backgroundColorHover: var(--background-color-button-hover-variant-secondary);
-    --borderColor: var(--border-color-button-variant-secondary);
-    --borderColorActive: var(--border-color-button-active-variant-secondary);
-    --borderColorHover: var(--border-color-button-hover-variant-secondary);
-    --color: var(--color-button-variant-secondary);
-    --outlineColorFocus: var(--outline-color-button-focus-variant-secondary);
+    --backgroundColor: var(--color-neutral-90);
+    --backgroundColorActive: var(--color-neutral-50);
+    --backgroundColorHover: var(--color-neutral-70);
+    --borderColor: var(--color-neutral-90);
+    --borderColorActive: var(--color-neutral-50);
+    --borderColorHover: var(--color-neutral-70);
+    --color: var(--color-neutral-10);
+    --outlineColorFocus: var(--color-neutral-40);
   }
 
   &-tertiary {
-    --backgroundColor: var(--background-color-button-variant-tertiary);
-    --backgroundColorActive: var(--background-color-button-active-variant-tertiary);
-    --backgroundColorHover: var(--background-color-button-hover-variant-tertiary);
-    --borderColor: var(--border-color-button-variant-tertiary);
-    --outlineColorFocus: var(--outline-color-button-focus-variant-tertiary);
+    --backgroundColor: var(--color-neutral-10);
+    --backgroundColorActive: color-mix(in oklab, var(--color-neutral-90) 40%, transparent);
+    --backgroundColorHover: color-mix(in oklab, var(--color-neutral-90) 10%, transparent);
+    --borderColor: var(--color-neutral-90);
+    --outlineColorFocus: var(--color-neutral-40);
   }
 
   &-tertiary-ai {
-    --backgroundColor: var(--background-color-button-variant-tertiary-ai);
-    --backgroundColorActive: var(--background-color-button-active-variant-tertiary-ai);
-    --backgroundColorHover: var(--background-color-button-hover-variant-tertiary-ai);
-    --borderColor: var(--border-color-button-variant-tertiary-ai);
-    --color: var(--color-button-variant-tertiary-ai);
-    --outlineColorFocus: var(--outline-color-button-focus-variant-tertiary-ai);
+    --backgroundColor: var(--color-neutral-10);
+    --backgroundColorActive: var(--color-violet-30);
+    --backgroundColorHover: var(--color-violet-10);
+    --borderColor: var(--color-violet-70);
+    --color: var(--color-violet-70);
+    --outlineColorFocus: var(--color-violet-50);
   }
 
   &-tertiary-danger {
-    --backgroundColor: var(--background-color-button-variant-tertiary-danger);
-    --backgroundColorActive: var(--background-color-button-active-variant-tertiary-danger);
-    --backgroundColorHover: var(--background-color-button-hover-variant-tertiary-danger);
-    --borderColor: var(--border-color-button-variant-tertiary-danger);
-    --color: var(--color-button-variant-tertiary-danger);
-    --outlineColorFocus: var(--outline-color-button-focus-variant-tertiary-danger);
+    --backgroundColor: var(--color-neutral-10);
+    --backgroundColorActive: var(--color-red-20);
+    --backgroundColorHover: var(--color-red-10);
+    --borderColor: var(--color-red-80);
+    --color: var(--color-red-80);
+    --outlineColorFocus: var(--color-red-40);
   }
 }

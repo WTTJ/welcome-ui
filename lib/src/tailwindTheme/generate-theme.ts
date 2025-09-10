@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
-import { components, primitives, semantics } from './tokens'
+import { primitives, semantics } from './tokens'
 
 const indentation = '  ' // 2 spaces for indentation
 const __filename = fileURLToPath(import.meta.url)
@@ -64,7 +64,7 @@ const resetTailwindTokens = `${indentation}--*: initial;\n`
 
 const theme = {
   property: '@theme',
-  value: `${resetTailwindTokens} ${getCSSFrom({ components, primitives, semantics })}`,
+  value: `${resetTailwindTokens} ${getCSSFrom({ primitives, semantics })}`,
 }
 
 const baseLayer = { property: '@layer base', value: baseStyles }
