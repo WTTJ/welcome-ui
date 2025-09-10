@@ -119,18 +119,11 @@
 }
 
 .size {
-  &-lg {
-    --fontSize: var(--font-size-sm);
-    --height: var(--height-elements-xl);
-    --paddingInline: var(--spacing-xl);
-    --paddingInlineHasIcon: var(--spacing-lg);
-  }
-
-  &-md {
-    --fontSize: var(--font-size-sm);
-    --height: var(--height-elements-lg);
-    --paddingInline: var(--spacing-xl);
-    --paddingInlineHasIcon: var(--spacing-md);
+  &-xs {
+    --fontSize: var(--font-size-xs);
+    --height: var(--height-elements-sm);
+    --paddingInline: var(--spacing-sm);
+    --paddingInlineHasIcon: var(--spacing-sm);
   }
 
   &-sm {
@@ -140,11 +133,18 @@
     --paddingInlineHasIcon: var(--spacing-md);
   }
 
-  &-xs {
-    --fontSize: var(--font-size-xs);
-    --height: var(--height-elements-sm);
-    --paddingInline: var(--spacing-sm);
-    --paddingInlineHasIcon: var(--spacing-sm);
+  &-md {
+    --fontSize: var(--font-size-sm);
+    --height: var(--height-elements-lg);
+    --paddingInline: var(--spacing-xl);
+    --paddingInlineHasIcon: var(--spacing-md);
+  }
+
+  &-lg {
+    --fontSize: var(--font-size-sm);
+    --height: var(--height-elements-xl);
+    --paddingInline: var(--spacing-xl);
+    --paddingInlineHasIcon: var(--spacing-lg);
   }
 }
 
