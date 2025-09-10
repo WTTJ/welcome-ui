@@ -18,7 +18,6 @@ type Shapes = 'circle' | 'default' | 'square'
 type Sizes = 'lg' | 'md' | 'sm' | 'xs'
 
 type Variants =
-  | 'disabled'
   | 'ghost'
   | 'ghost-ai'
   | 'ghost-danger'
