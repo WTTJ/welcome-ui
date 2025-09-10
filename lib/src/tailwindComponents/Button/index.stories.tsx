@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { fn } from 'storybook/test'
 
-import buttonStyles from './index.module.scss'
+import buttonStyles from './button.module.scss'
 
 import { Button } from '.'
 

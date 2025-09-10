@@ -6,7 +6,7 @@ import type {
   ButtonSizes,
   ButtonVariants,
   PolymorphicProps,
-} from '../../TailwindTheme/types'
+} from '../../tailwindTheme/types'
 
 export type ButtonProps<T extends React.ElementType> = AriakitButtonProps &
   ButtonHTMLAttributes<HTMLButtonElement> &

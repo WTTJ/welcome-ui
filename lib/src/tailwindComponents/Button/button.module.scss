@@ -22,7 +22,7 @@
   color: var(--color);
   background-color: var(--backgroundColor);
   border-color: var(--borderColor);
-  
+
   &:focus-visible {
     outline-color: var(--outlineColorFocus);
   }
@@ -66,11 +66,11 @@
     display: inline-block;
 
     &:first-child:not(:only-child) {
-      margin-inline-end: var(--margin-inline-end-button-icon-first-and-not-only-child);
+      margin-inline-end: var(--spacing-xs);
     }
 
     &:last-child:not(:only-child) {
-      margin-inline-start: var(--margin-inline-start-button-icon-last-and-not-only-child);
+      margin-inline-start: var(--spacing-xs);
     }
   }
 }

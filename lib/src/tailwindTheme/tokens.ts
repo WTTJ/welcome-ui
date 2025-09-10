@@ -102,9 +102,6 @@ export const components = {
     '--height-button-sm': 'var(--height-elements-md)',
     '--height-button-xs': 'var(--height-elements-sm)',
 
-    '--margin-inline-end-button-icon-first-and-not-only-child': 'var(--spacing-xs)',
-    '--margin-inline-start-button-icon-first-and-not-only-child': 'var(--spacing-xs)',
-
     '--outline-color-button-focus-disabled': 'var(--color-beige-10)',
 
     '--outline-color-button-focus-variant-ghost':

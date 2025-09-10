@@ -264,8 +264,6 @@
   --height-button-md: var(--height-elements-lg);
   --height-button-sm: var(--height-elements-md);
   --height-button-xs: var(--height-elements-sm);
-  --margin-inline-end-button-icon-first-and-not-only-child: var(--spacing-xs);
-  --margin-inline-start-button-icon-first-and-not-only-child: var(--spacing-xs);
   --outline-color-button-focus-disabled: var(--color-beige-10);
   --outline-color-button-focus-variant-ghost: color-mix(in oklab, var(--color-neutral-90) 10%, transparent);
   --outline-color-button-focus-variant-ghost-ai: var(--color-violet-50);

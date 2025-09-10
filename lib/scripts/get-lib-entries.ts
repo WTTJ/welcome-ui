@@ -3,7 +3,7 @@ import { resolve } from 'path'
 
 const getComponentsEntries = () => {
   const componentsDir = resolve(__dirname, '../src/components')
-  const tailwindComponentsDir = resolve(__dirname, '../src/TailwindComponents')
+  const tailwindComponentsDir = resolve(__dirname, '../src/tailwindComponents')
 
   // Read all directories in the components folder
   const componentDirs = fs
@@ -11,12 +11,12 @@ const getComponentsEntries = () => {
     .filter(directory => directory.isDirectory())
     .map(directory => ({ name: directory.name, path: resolve(componentsDir, directory.name) }))
 
-  // Read all directories in the TailwindComponents folder
+  // Read all directories in the tailwindComponents folder
   const tailwindComponentDirs = fs
     .readdirSync(tailwindComponentsDir, { withFileTypes: true })
     .filter(directory => directory.isDirectory())
     .map(directory => ({
-      name: `Tailwind${directory.name}`,
+      name: `tailwind${directory.name}`,
       path: resolve(tailwindComponentsDir, directory.name),
     }))
 
@@ -40,7 +40,7 @@ const getComponentsEntries = () => {
 
 export const getLibEntries = () => ({
   ...getComponentsEntries(),
-  tailwindTheme: resolve(__dirname, '../src/TailwindTheme/index.ts'),
+  tailwindTheme: resolve(__dirname, '../src/tailwindTheme/index.ts'),
   theme: resolve(__dirname, '../src/theme/index.ts'),
   utils: resolve(__dirname, '../src/utils/index.ts'),
 })
