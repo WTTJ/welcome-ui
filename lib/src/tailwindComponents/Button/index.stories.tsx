@@ -17,7 +17,7 @@ const meta: Meta<typeof Button> = {
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
-  title: 'Button without Tailwind',
+  title: 'Button',
 }
 
 export default meta
