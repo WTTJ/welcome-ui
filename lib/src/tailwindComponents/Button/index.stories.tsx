@@ -36,7 +36,7 @@ export const Primary: Story = {
 export const PrimaryVariants: Story = {
   name: 'Variants/Primary (default)',
   parameters: {
-    pseudo: { active: '#active', focus: '#active', hover: '#hover' },
+    pseudo: { active: '#active', hover: '#hover' },
   },
   render: () => (
     <div className="flex flex-wrap gap-md" id="buttonRoot">
@@ -64,7 +64,7 @@ export const PrimaryVariants: Story = {
 export const SecondaryVariants: Story = {
   name: 'Variants/Secondary',
   parameters: {
-    pseudo: { active: '#active', focus: '#active', hover: '#hover' },
+    pseudo: { active: '#secondary-active', hover: '#secondary-hover' },
   },
   render: () => (
     <div className="flex flex-wrap gap-md" id="buttonRoot">
@@ -73,12 +73,12 @@ export const SecondaryVariants: Story = {
         // This is a workaround because the hover peudo state is not compatible with Tailwind 4
         // https://github.com/storybookjs/storybook-addon-pseudo-states/issues/140
         className={`${buttonStyles['pseudo-hover']} `}
-        id="hover"
+        id="secondary-hover"
         variant="secondary"
       >
         Secondary Button hover
       </Button>
-      <Button id="active" variant="secondary">
+      <Button id="secondary-active" variant="secondary">
         Secondary Button active
       </Button>
     </div>
@@ -88,7 +88,7 @@ export const SecondaryVariants: Story = {
 export const TertiaryVariants: Story = {
   name: 'Variants/Tertiary',
   parameters: {
-    pseudo: { active: '#active', focus: '#active' },
+    pseudo: { active: '#tertiary-active', hover: '#tertiary-hover' },
   },
   render: () => (
     <div className="flex flex-wrap gap-md" id="buttonRoot">
@@ -97,12 +97,12 @@ export const TertiaryVariants: Story = {
         // This is a workaround because the hover peudo state is not compatible with Tailwind 4
         // https://github.com/storybookjs/storybook-addon-pseudo-states/issues/140
         className={`${buttonStyles['pseudo-hover']} `}
-        id="hover"
+        id="tertiary-hover"
         variant="tertiary"
       >
         Tertiary Button hover
       </Button>
-      <Button id="active" variant="tertiary">
+      <Button id="tertiary-active" variant="tertiary">
         Tertiary Button active
       </Button>
     </div>
@@ -112,7 +112,7 @@ export const TertiaryVariants: Story = {
 export const GhostVariants: Story = {
   name: 'Variants/Ghost',
   parameters: {
-    pseudo: { active: '#active', focus: '#active' },
+    pseudo: { active: '#ghost-active', hover: '#ghost-hover' },
   },
   render: () => (
     <div className="flex flex-wrap gap-md" id="buttonRoot">
@@ -121,12 +121,12 @@ export const GhostVariants: Story = {
         // This is a workaround because the hover peudo state is not compatible with Tailwind 4
         // https://github.com/storybookjs/storybook-addon-pseudo-states/issues/140
         className={`${buttonStyles['pseudo-hover']} `}
-        id="hover"
+        id="ghost-hover"
         variant="ghost"
       >
         Ghost Button hover
       </Button>
-      <Button id="active" variant="ghost">
+      <Button id="ghost-active" variant="ghost">
         Ghost Button active
       </Button>
     </div>
