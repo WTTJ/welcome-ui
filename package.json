@@ -84,7 +84,7 @@
     "esm": "^3.2.25",
     "generic-names": "^4.0.0",
     "glob": "^11.0.0",
-    "globals": "^16.0.0",
+    "globals": "^16.4.0",
     "husky": "8.0.3",
     "lodash.difference": "^4.5.0",
     "minimist": "1.2.8",
