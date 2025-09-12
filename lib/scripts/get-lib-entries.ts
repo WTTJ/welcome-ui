@@ -3,22 +3,33 @@ import { resolve } from 'path'
 
 const getComponentsEntries = () => {
   const componentsDir = resolve(__dirname, '../src/components')
+  const tailwindComponentsDir = resolve(__dirname, '../src/tailwindComponents')
 
   // Read all directories in the components folder
   const componentDirs = fs
     .readdirSync(componentsDir, { withFileTypes: true })
-    .filter(dirent => dirent.isDirectory())
-    .map(dirent => dirent.name)
+    .filter(directory => directory.isDirectory())
+    .map(directory => ({ name: directory.name, path: resolve(componentsDir, directory.name) }))
+
+  // Read all directories in the tailwindComponents folder
+  const tailwindComponentDirs = fs
+    .readdirSync(tailwindComponentsDir, { withFileTypes: true })
+    .filter(directory => directory.isDirectory())
+    .map(directory => ({
+      name: `tailwind${directory.name}`,
+      path: resolve(tailwindComponentsDir, directory.name),
+    }))
+
+  // Combine both component directories
+  const allComponentDirs = [...componentDirs, ...tailwindComponentDirs]
 
   // Create entry object dynamically
-  const entries = componentDirs.reduce<Record<string, string>>((acc, componentName) => {
-    const entryPathTsx = resolve(componentsDir, componentName, 'index.tsx')
-    const entryPathTs = resolve(componentsDir, componentName, 'index.ts')
-    const entryPath = fs.existsSync(entryPathTsx) ? entryPathTsx : entryPathTs
+  const entries = allComponentDirs.reduce<Record<string, string>>((acc, componentInfo) => {
+    const entryPath = `${componentInfo.path}/index.tsx`
 
     // Only add to entries if the index.tsx file exists
     if (fs.existsSync(entryPath)) {
-      acc[componentName] = entryPath
+      acc[componentInfo.name] = entryPath
     }
 
     return acc
@@ -29,6 +40,7 @@ const getComponentsEntries = () => {
 
 export const getLibEntries = () => ({
   ...getComponentsEntries(),
+  tailwindTheme: resolve(__dirname, '../src/tailwindTheme/index.ts'),
   theme: resolve(__dirname, '../src/theme/index.ts'),
   utils: resolve(__dirname, '../src/utils/index.ts'),
 })

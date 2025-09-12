@@ -10,6 +10,7 @@
       "@/fonts/*": ["./src/components/IconsFont/fonts/*"],
       "@/*": ["./src/components/*"]
     },
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "types": ["vitest/globals", "@testing-library/jest-dom"]
   },
   "exclude": ["**/*.json"]
