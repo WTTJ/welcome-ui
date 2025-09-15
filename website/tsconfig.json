@@ -2,21 +2,12 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "paths": {
-      "~/*": [
-        "./*"
-      ],
-      "@/utils": [
-        "../lib/src/utils"
-      ],
-      "@/theme": [
-        "../lib/src/oldTheme"
-      ],
-      "@/fonts/*": [
-        "../lib/src/old/IconsFont/fonts/*"
-      ],
-      "@/*": [
-        "../lib/src/old/*"
-      ]
+      "~/*": ["./*"],
+      "@/utils": ["../lib/src/utils"],
+      "@/theme": ["../lib/src/oldTheme"],
+      "@/fonts/*": ["../lib/src/old/IconsFont/fonts/*"],
+      "@/*": ["../lib/src/old/*"],
+      "@components/*": ["../lib/src/components/*"]
     },
     "plugins": [
       {
@@ -29,10 +20,5 @@
     "jsx": "preserve",
     "strict": false
   },
-  "include": [
-    "next-env.d.ts",
-    ".next/types/**/*.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ]
+  "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx"]
 }
