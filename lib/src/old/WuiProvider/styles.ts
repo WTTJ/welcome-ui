@@ -139,9 +139,6 @@ export const resetStyles = css`
   input::-webkit-search-cancel-button {
     display: none;
   }
-  :focus {
-    outline: none !important; /* important for firefox */
-  }
   *,
   *::after,
   *::before {
