@@ -5,9 +5,8 @@ import userEvent from '@testing-library/user-event'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { WuiProvider } from '@/WuiProvider'
-
-import { createTheme } from '../src/oldTheme'
+import { createTheme } from '@old/theme'
+import { WuiProvider } from '@old/WuiProvider'
 
 type ProviderProps = {
   children?: React.ReactNode

@@ -1,5 +1,5 @@
-import type { BoxProps } from '@/Box'
-import { Box } from '@/Box'
+import type { BoxProps } from '@old/Box'
+import { Box } from '@old/Box'
 
 type AProps = BoxProps & {
   children: React.ReactNode

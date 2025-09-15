@@ -1,9 +1,9 @@
-import { Box } from '@/Box'
-import { Flex } from '@/Flex'
-import { Grid } from '@/Grid'
-import { ExternalLinkIcon, HeartIcon } from '@/Icons'
-import { Logo } from '@/Logo'
-import { Text } from '@/Text'
+import { Box } from '@old/Box'
+import { Flex } from '@old/Flex'
+import { Grid } from '@old/Grid'
+import { ExternalLinkIcon, HeartIcon } from '@old/Icons'
+import { Logo } from '@old/Logo'
+import { Text } from '@old/Text'
 
 import { Section } from '../Section'
 

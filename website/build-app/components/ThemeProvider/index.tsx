@@ -2,8 +2,8 @@
 import { useTheme } from 'next-themes'
 import * as React from 'react'
 
-import { createTheme, darkTheme as WuiDarkTheme } from '@/theme'
-import { WuiProvider, type WuiProviderProps } from '@/WuiProvider'
+import { createTheme, darkTheme as WuiDarkTheme } from '@old/theme'
+import { WuiProvider, type WuiProviderProps } from '@old/WuiProvider'
 
 type ThemeProviderProps = {
   children: WuiProviderProps['children']

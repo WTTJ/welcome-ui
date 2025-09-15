@@ -1,5 +1,5 @@
-import { Box } from '@/Box'
-import { Card } from '@/Card'
+import { Box } from '@old/Box'
+import { Card } from '@old/Card'
 import {
   ActionsIcon,
   BookIcon,
@@ -9,8 +9,8 @@ import {
   GearIcon,
   PencilIcon,
   UserIcon,
-} from '@/Icons'
-import { Text } from '@/Text'
+} from '@old/Icons'
+import { Text } from '@old/Text'
 
 type ExpectationProps = {
   description: string

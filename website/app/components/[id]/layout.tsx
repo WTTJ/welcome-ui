@@ -1,6 +1,6 @@
-import { Flex } from '@/Flex'
-import { GithubIcon } from '@/Icons'
-import { Text } from '@/Text'
+import { Flex } from '@old/Flex'
+import { GithubIcon } from '@old/Icons'
+import { Text } from '@old/Text'
 
 import { PrevNextPage } from '~/build-app/components/PrevNextPage'
 import { Sidebar } from '~/build-app/components/Sidebar'

@@ -1,8 +1,8 @@
 import { kebabCase } from 'lodash'
 
-import { Box } from '@/Box'
-import { Text } from '@/Text'
-import type { ThemeValues } from '@/theme'
+import { Box } from '@old/Box'
+import { Text } from '@old/Text'
+import type { ThemeValues } from '@old/theme'
 
 type HeadingsProps = {
   children: React.ReactNode

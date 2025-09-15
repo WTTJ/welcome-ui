@@ -1,0 +1,15 @@
+import { Button } from '@old/Button'
+import { ButtonGroup } from '@old/ButtonGroup'
+
+const Example = () => {
+  return (
+    <ButtonGroup>
+      <Button>First</Button>
+      <Button>Second</Button>
+      <Button>Third</Button>
+      <Button>Last</Button>
+    </ButtonGroup>
+  )
+}
+
+export default Example

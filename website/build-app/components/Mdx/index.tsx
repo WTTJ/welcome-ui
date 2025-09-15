@@ -2,7 +2,7 @@ import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
 
-import { Box } from '@/Box'
+import { Box } from '@old/Box'
 
 import { A } from './A'
 import { Blockquote } from './Blockquote'

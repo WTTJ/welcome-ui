@@ -1,4 +1,4 @@
-import { Grid } from '@/Grid'
+import { Grid } from '@old/Grid'
 
 export type LayoutProps = {
   children: React.ReactNode

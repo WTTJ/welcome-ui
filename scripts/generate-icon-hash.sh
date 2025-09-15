@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Set paths
-FONTS_DIR=lib/src/old/IconsFont/fonts
+FONTS_DIR=lib/src/old/components/IconsFont/fonts
 FONT_FILE="$FONTS_DIR/welcome-icon-font.woff2"
-FONT_HASH_FILE=lib/src/old/IconsFont/_hash.ts
+FONT_HASH_FILE=lib/src/old/components/IconsFont/_hash.ts
 
 # Check if font file exists
 if [[ -f "$FONT_FILE" ]]; then

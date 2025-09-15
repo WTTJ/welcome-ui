@@ -1,7 +1,7 @@
 import { existsSync, readFileSync } from 'fs'
 import { join } from 'path'
 
-import { Alert } from '@/Alert'
+import { Alert } from '@old/Alert'
 
 import type examples from '~/build-app/examples'
 

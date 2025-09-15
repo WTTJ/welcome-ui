@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 'use client'
-import type { AlertProps } from '@/Alert'
-import { Alert } from '@/Alert'
+import type { AlertProps } from '@old/Alert'
+import { Alert } from '@old/Alert'
 
 export const Blockquote = ({ children }: { children: JSX.Element[] }) => {
   const type = children[1].props.children[0]

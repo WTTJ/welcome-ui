@@ -1,4 +1,4 @@
-import { Text } from '@/Text'
+import { Text } from '@old/Text'
 
 import { Sidebar } from '~/build-app/components/Sidebar'
 import * as Documentation from '~/build-app/layouts/Documentation'

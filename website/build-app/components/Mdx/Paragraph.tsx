@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 'use client'
-import { Text } from '@/Text'
+import { Text } from '@old/Text'
 
 import { Tokens } from './Tokens'
 

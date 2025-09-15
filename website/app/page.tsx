@@ -1,10 +1,10 @@
 import NextLink from 'next/link'
 import React from 'react'
 
-import { Box } from '@/Box'
-import { GithubIcon, HeartIcon, RightIcon } from '@/Icons'
-import { Logo, Symbol } from '@/Logo'
-import { Text } from '@/Text'
+import { Box } from '@old/Box'
+import { GithubIcon, HeartIcon, RightIcon } from '@old/Icons'
+import { Logo, Symbol } from '@old/Logo'
+import { Text } from '@old/Text'
 
 import { Components } from '~/build-app/components/Homepage/Components'
 import { Expectations } from '~/build-app/components/Homepage/Expectations'
@@ -27,7 +27,7 @@ const Home = () => {
           Welcome UI is a customizable design system library made with react, typescript,
           styled-components, ariakit and a lot of love 💛
         </Text>
-        <Button as={NextLink} className="!mt-3xl" href="/foundations/getting-started" size="lg">
+        <Button as={NextLink} className="mt-3xl" href="/foundations/getting-started" size="lg">
           <span>Install amazing components</span>
           <RightIcon size="lg" />
         </Button>
@@ -61,7 +61,7 @@ const Home = () => {
             </Text>
             <Button
               as="a"
-              className="!mt-3xl"
+              className="mt-3xl"
               href="https://github.com/WTTJ/welcome-ui"
               rel="noopener nofollow"
               size="lg"
@@ -138,7 +138,7 @@ const Home = () => {
           </Button>
           <Button
             as="a"
-            className="!mt-0 !xs:md-md"
+            className="mt-0 xs:md-md"
             href="https://www.welcometothejungle.com/en"
             rel="noopener nofollow"
             size="lg"

@@ -2,10 +2,10 @@
 import { kebabCase } from 'lodash'
 import React from 'react'
 
-import { Badge } from '@/Badge'
-import { Box } from '@/Box'
-import { Flex } from '@/Flex'
-import { Text } from '@/Text'
+import { Badge } from '@old/Badge'
+import { Box } from '@old/Box'
+import { Flex } from '@old/Flex'
+import { Text } from '@old/Text'
 
 import { Code } from '../Mdx/Code'
 import { H2 } from '../Mdx/Headings'

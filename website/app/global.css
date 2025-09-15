@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-@import '../../lib/src/old/IconsFont/fonts/welcome-icon-font.css';
+@import '../../lib/src/old/components/IconsFont/fonts/welcome-icon-font.css';
 @import '../../lib/src/theme/theme.css';
 @import '../../lib/src/components/Button/button.module.scss';
 
