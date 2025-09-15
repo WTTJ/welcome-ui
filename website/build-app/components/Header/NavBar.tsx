@@ -2,11 +2,11 @@ import { useTheme } from 'next-themes'
 import { usePathname } from 'next/navigation'
 import React from 'react'
 
-import { Box } from '@/Box'
-import { Flex } from '@/Flex'
-import { CrescentMoonIcon, GithubIcon, SunIcon } from '@/Icons'
-import { Text } from '@/Text'
-import type { ThemeValues } from '@/theme'
+import { Box } from '@old/Box'
+import { Flex } from '@old/Flex'
+import { CrescentMoonIcon, GithubIcon, SunIcon } from '@old/Icons'
+import { Text } from '@old/Text'
+import type { ThemeValues } from '@old/theme'
 
 import { Button } from '../../../../lib/src/components/Button'
 

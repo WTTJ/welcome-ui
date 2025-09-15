@@ -2,11 +2,11 @@
 import { camelCase, startCase } from 'lodash'
 import React from 'react'
 
-import { Box } from '@/Box'
-import * as Icons from '@/Icons'
-import { IconsFont } from '@/IconsFont'
-import { Text } from '@/Text'
-import { Toast, toast } from '@/Toast'
+import { Box } from '@old/Box'
+import * as Icons from '@old/Icons'
+import { IconsFont } from '@old/IconsFont'
+import { Text } from '@old/Text'
+import { Toast, toast } from '@old/Toast'
 
 import {
   actions,

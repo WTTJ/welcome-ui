@@ -1,6 +1,6 @@
-import { Box } from '@/Box'
-import { CodeBlockIcon, DownloadIcon, StarIcon } from '@/Icons'
-import { Text } from '@/Text'
+import { Box } from '@old/Box'
+import { CodeBlockIcon, DownloadIcon, StarIcon } from '@old/Icons'
+import { Text } from '@old/Text'
 
 const stats = [
   {

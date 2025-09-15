@@ -2,11 +2,11 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-import { Box } from '@/Box'
-import { Drawer, useDrawer } from '@/Drawer'
-import { Flex } from '@/Flex'
-import { MenuIcon } from '@/Icons'
-import { WelcomeUILogo } from '@/Logo'
+import { Box } from '@old/Box'
+import { Drawer, useDrawer } from '@old/Drawer'
+import { Flex } from '@old/Flex'
+import { MenuIcon } from '@old/Icons'
+import { WelcomeUILogo } from '@old/Logo'
 
 import type { PageTree } from '~/build-app/types'
 

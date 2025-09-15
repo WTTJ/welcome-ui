@@ -1,6 +1,6 @@
 import styled from '@xstyled/styled-components'
 
-import { Card } from '@/Card'
+import { Card } from '@old/Card'
 
 export const StyledCard = styled(Card)`
   display: flex;

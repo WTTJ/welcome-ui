@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { ThemeProvider as NextThemeProvider } from 'next-themes'
 
-import { Box } from '@/Box'
-import { Notifications } from '@/Toast'
+import { Box } from '@old/Box'
+import { Notifications } from '@old/Toast'
 
 import { Footer } from '~/build-app/components/Footer'
 import { Header } from '~/build-app/components/Header'
@@ -11,7 +11,7 @@ import StyledComponentsRegistry from '~/build-app/registry'
 import { getPages } from '~/build-app/utils/pages-components'
 import { getPages as getPagesExport } from '~/build-app/utils/pages-exports'
 
-import '@/IconsFont/fonts/welcome-icon-font.css'
+import '@old/IconsFont/fonts/welcome-icon-font.css'
 
 import './global.css'
 

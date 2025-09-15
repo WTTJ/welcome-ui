@@ -2,9 +2,9 @@
 import { useParams, usePathname } from 'next/navigation'
 import { useEffect, useRef } from 'react'
 
-import { Flex } from '@/Flex'
-import { Text } from '@/Text'
-import type { ThemeValues } from '@/theme'
+import { Flex } from '@old/Flex'
+import { Text } from '@old/Text'
+import type { ThemeValues } from '@old/theme'
 
 import type { PageTree } from '~/build-app/types'
 import { getName } from '~/build-app/utils/transform-name'

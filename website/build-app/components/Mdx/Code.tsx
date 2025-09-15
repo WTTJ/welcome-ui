@@ -1,4 +1,4 @@
-import { Box } from '@/Box'
+import { Box } from '@old/Box'
 
 import { Properties } from '../Props'
 

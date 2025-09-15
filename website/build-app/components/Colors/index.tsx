@@ -2,11 +2,11 @@
 import type { Theme } from '@xstyled/styled-components'
 import { useTheme } from '@xstyled/styled-components'
 
-import { Alert } from '@/Alert'
-import { Box } from '@/Box'
-import { Grid } from '@/Grid'
-import { Text } from '@/Text'
-import type { ThemeValues } from '@/theme'
+import { Alert } from '@old/Alert'
+import { Box } from '@old/Box'
+import { Grid } from '@old/Grid'
+import { Text } from '@old/Text'
+import type { ThemeValues } from '@old/theme'
 
 const getColors = (name: string, theme: Theme) => {
   const themeColors = theme.colors as ThemeValues['colors']

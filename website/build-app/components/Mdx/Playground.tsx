@@ -1,11 +1,11 @@
 'use client'
 import { useState } from 'react'
 
-import { Box } from '@/Box'
-import { Flex } from '@/Flex'
-import { CodeBlockIcon, GithubIcon, PromoteIcon } from '@/Icons'
-import type { ThemeValues } from '@/theme'
-import { Tooltip } from '@/Tooltip'
+import { Box } from '@old/Box'
+import { Flex } from '@old/Flex'
+import { CodeBlockIcon, GithubIcon, PromoteIcon } from '@old/Icons'
+import type { ThemeValues } from '@old/theme'
+import { Tooltip } from '@old/Tooltip'
 
 import examples from '~/build-app/examples'
 import { openStackBlitz } from '~/build-app/utils/stackblitz'

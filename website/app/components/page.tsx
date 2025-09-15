@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
-import { Box } from '@/Box'
-import { Card } from '@/Card'
-import { Flex } from '@/Flex'
-import { Grid } from '@/Grid'
-import { Text } from '@/Text'
+import { Box } from '@old/Box'
+import { Card } from '@old/Card'
+import { Flex } from '@old/Flex'
+import { Grid } from '@old/Grid'
+import { Text } from '@old/Text'
 
 import { getPageContent } from '~/build-app/utils/page-content'
 import { getPages } from '~/build-app/utils/pages-components'

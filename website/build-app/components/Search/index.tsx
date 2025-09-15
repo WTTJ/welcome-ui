@@ -2,9 +2,8 @@
 import { DocSearchModal } from '@docsearch/react'
 import { useEffect, useState } from 'react'
 
-import { IconsFont } from '@/IconsFont'
-import { InputText } from '@/InputText'
-
+import { IconsFont } from '@old/IconsFont'
+import { InputText } from '@old/InputText'
 import '@docsearch/css'
 
 export const Search = () => {

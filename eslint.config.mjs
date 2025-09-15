@@ -42,10 +42,10 @@ export default tseslint.config(
         {
           customGroups: {
             type: {
-              'welcome-ui': ['@/'],
+              'welcome-ui': ['@old/', '@old/'],
             },
             value: {
-              'welcome-ui': ['@/'],
+              'welcome-ui': ['@old/', '@old/'],
             },
           },
           groups: [
@@ -68,5 +68,5 @@ export default tseslint.config(
         version: 'detect',
       },
     },
-  },
+  }
 )

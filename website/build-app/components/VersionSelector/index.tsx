@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Select } from '@/Select'
+import { Select } from '@old/Select'
 
 import lib from '../../../../lib/package.json'
 

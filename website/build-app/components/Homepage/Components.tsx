@@ -1,16 +1,16 @@
 'use client'
 import NextLink from 'next/link'
 
-import { Alert } from '@/Alert'
-import { Avatar } from '@/Avatar'
-import { Box } from '@/Box'
-import { Card } from '@/Card'
-import { Link } from '@/Link'
-import { Pagination } from '@/Pagination'
-import { Stack } from '@/Stack'
-import { Tag } from '@/Tag'
-import { Text } from '@/Text'
-import { Toggle } from '@/Toggle'
+import { Alert } from '@old/Alert'
+import { Avatar } from '@old/Avatar'
+import { Box } from '@old/Box'
+import { Card } from '@old/Card'
+import { Link } from '@old/Link'
+import { Pagination } from '@old/Pagination'
+import { Stack } from '@old/Stack'
+import { Tag } from '@old/Tag'
+import { Text } from '@old/Text'
+import { Toggle } from '@old/Toggle'
 
 type ComponentProps = {
   children: React.ReactElement

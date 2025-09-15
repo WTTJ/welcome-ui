@@ -2,9 +2,9 @@
 import NextLink from 'next/link'
 import { useEffect, useState } from 'react'
 
-import { Box } from '@/Box'
-import { Flex } from '@/Flex'
-import { Text } from '@/Text'
+import { Box } from '@old/Box'
+import { Flex } from '@old/Flex'
+import { Text } from '@old/Text'
 
 import type { Toc } from '~/build-app/utils/page-tree'
 
