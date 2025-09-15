@@ -9,7 +9,7 @@
       "@old/fonts/*": ["./src/old/components/IconsFont/fonts/*"],
       "@old/theme": ["./src/old/theme"],
       "@old/*": ["./src/old/components/*"],
-      "@*": ["./src/*"]
+      "@/*": ["./src/*"]
     },
     "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "types": ["vitest/globals", "@testing-library/jest-dom"]
