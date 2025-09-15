@@ -1,5 +1,5 @@
-import { Button } from '@components/Button'
-import { ButtonGroup } from '@components/ButtonGroup'
+import { Button } from '@/components/Button'
+import { ButtonGroup } from '@/components/ButtonGroup'
 
 const Example = () => {
   return (

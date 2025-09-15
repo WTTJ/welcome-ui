@@ -1,6 +1,6 @@
-import type { ButtonProps } from '@components/Button/types'
 import React, { Children, cloneElement, forwardRef } from 'react'
 
+import type { ButtonProps } from '@/components/Button/types'
 import { classNames } from '@/utils'
 
 import buttonGroupStyles from './button-group.module.scss'
