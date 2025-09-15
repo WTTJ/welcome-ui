@@ -3,7 +3,6 @@ import styled, { th } from '@xstyled/styled-components'
 
 import { Avatar } from '@/Avatar'
 import { Box } from '@/Box'
-import { Button } from '@/Button'
 import { Card } from '@/Card'
 import { Flex } from '@/Flex'
 import { RightIcon } from '@/Icons'
@@ -11,6 +10,8 @@ import { Link } from '@/Link'
 import { Stack } from '@/Stack'
 import { Tag } from '@/Tag'
 import { Text } from '@/Text'
+
+import { Button } from '../../../lib/src/components/Button'
 
 const posts = [
   {
@@ -124,12 +125,11 @@ const Home = () => {
                       </Text>
                       <Button
                         as="a"
-                        flexShrink="0"
+                        className="w-fit shrink-0"
                         href={link}
                         rel="noopener nofollow"
                         size="sm"
                         target="_blank"
-                        w="fit-content"
                       >
                         <span>Read more</span> <RightIcon />
                       </Button>

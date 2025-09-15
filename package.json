@@ -7,9 +7,9 @@
     "build": "yarn build:lib",
     "check:audit": "/bin/bash -c 'yarn audit --level low; [[ $? -ge 2 ]] && exit 1 || exit 0'",
     "check:audit:fix": "npm_config_yes=true npx yarn-audit-fix",
-    "icons": "node -r esm scripts/icons-optimize.js && node -r esm scripts/icons-collect.js && yarn webfont",
-    "webfont": "node -r esm scripts/webfont-build.js --force",
-    "lint:tailwindcss": "stylelint 'lib/src/tailwind**/**/*.css'",
+    "icons": "node scripts/icons-optimize.mjs && node scripts/icons-collect.mjs && yarn webfont",
+    "webfont": "node scripts/webfont-build.mjs --force",
+    "lint:tailwindcss": "stylelint 'lib/src/**/**/*.css' ",
     "lint:styled": "stylelint '**/styles.ts'",
     "lint:css": "yarn lint:tailwindcss && yarn lint:styled",
     "lint:js": "eslint scripts lib website --max-warnings 0",
@@ -23,9 +23,7 @@
     "release": "cd lib && yarn release-it",
     "start": "cd website && yarn dev -p 3020",
     "export-properties": "node ./scripts/generate-types-doc.js",
-    "test": "cd lib && yarn test",
-    "storybook": "yarn tsx --watch ./lib/src/tailwindTheme/generate-theme.ts & storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "test": "cd lib && yarn test"
   },
   "private": true,
   "workspaces": [
@@ -55,15 +53,9 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^4.1.0",
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
     "@eslint/js": "^9.24.0",
-    "@storybook/addon-a11y": "^9.1.2",
-    "@storybook/addon-docs": "^9.1.2",
-    "@storybook/addon-onboarding": "^9.1.2",
-    "@storybook/addon-vitest": "^9.1.2",
-    "@storybook/react-vite": "^9.1.2",
     "@tailwindcss/postcss": "^4.1.12",
     "@types/node": "22.14.0",
     "@types/react": "18.3.12",
@@ -80,7 +72,6 @@
     "eslint-plugin-prettier": "^5.5.3",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-storybook": "^9.1.2",
     "esm": "^3.2.25",
     "generic-names": "^4.0.0",
     "glob": "^11.0.0",
@@ -97,8 +88,6 @@
     "react-router-dom": "7.5.2",
     "sass-embedded": "^1.90.0",
     "standard-version": "9.5.0",
-    "storybook": "^9.1.2",
-    "storybook-addon-pseudo-states": "^9.1.2",
     "styled-components": "^6.1.15",
     "stylelint": "^16.18.0",
     "stylelint-config-recommended": "^16.0.0",
@@ -114,5 +103,6 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
     "tailwindcss": "^4.1.11"
-  }
+  },
+  "packageManager": "yarn@1.22.22"
 }

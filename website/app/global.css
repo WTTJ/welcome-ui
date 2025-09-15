@@ -1,3 +1,8 @@
+@import 'tailwindcss';
+@import '../../lib/src/old/IconsFont/fonts/welcome-icon-font.css';
+@import '../../lib/src/theme/theme.css';
+@import '../../lib/src/components/Button/button.module.scss';
+
 :root {
   --docsearch-primary-color: black !important;
 }

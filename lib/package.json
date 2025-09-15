@@ -17,10 +17,6 @@
       "import": "./dist/utils.js"
     },
     "./*.css": "./dist/*.css",
-    "./tailwind*": {
-      "types": "./dist/types/tailwindComponents/*/index.d.ts",
-      "import": "./dist/tailwind*.js"
-    },
     "./*": {
       "types": "./dist/types/components/*/index.d.ts",
       "import": "./dist/*.js"

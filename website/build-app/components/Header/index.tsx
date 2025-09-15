@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 import { Box } from '@/Box'
-import { Button } from '@/Button'
 import { Drawer, useDrawer } from '@/Drawer'
 import { Flex } from '@/Flex'
 import { MenuIcon } from '@/Icons'
@@ -11,6 +10,7 @@ import { WelcomeUILogo } from '@/Logo'
 
 import type { PageTree } from '~/build-app/types'
 
+import { Button } from '../../../../lib/src/components/Button'
 import { Search } from '../Search'
 import { Sidebar } from '../Sidebar'
 import { VersionSelector } from '../VersionSelector'
@@ -63,8 +63,7 @@ export const Header = ({ components, foundations }: HeaderProps) => {
         </Flex>
         <Drawer.Trigger
           as={Button}
-          display={{ lg: 'none' }}
-          flexShrink={0}
+          className="lg:hidden shrink-0"
           shape="circle"
           size="sm"
           store={drawer}

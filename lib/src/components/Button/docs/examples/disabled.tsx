@@ -1,4 +1,4 @@
-import { Button } from '@/Button'
+import { Button } from '../../index'
 
 const Example = () => {
   return <Button disabled>Disabled</Button>

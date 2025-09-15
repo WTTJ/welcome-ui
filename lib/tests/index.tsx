@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 import { WuiProvider } from '@/WuiProvider'
 
-import { createTheme } from '../src/theme'
+import { createTheme } from '../src/oldTheme'
 
 type ProviderProps = {
   children?: React.ReactNode

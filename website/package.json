@@ -24,5 +24,11 @@
     "remark-gfm": "4.0.1",
     "unified": "11.0.5",
     "unist-util-visit": "5.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.13",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.13"
   }
 }

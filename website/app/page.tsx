@@ -2,7 +2,6 @@ import NextLink from 'next/link'
 import React from 'react'
 
 import { Box } from '@/Box'
-import { Button } from '@/Button'
 import { GithubIcon, HeartIcon, RightIcon } from '@/Icons'
 import { Logo, Symbol } from '@/Logo'
 import { Text } from '@/Text'
@@ -11,6 +10,8 @@ import { Components } from '~/build-app/components/Homepage/Components'
 import { Expectations } from '~/build-app/components/Homepage/Expectations'
 import { Stats } from '~/build-app/components/Homepage/Stats'
 import { Section } from '~/build-app/components/Section'
+
+import { Button } from '../../lib/src/components/Button'
 
 const Home = () => {
   return (
@@ -26,7 +27,7 @@ const Home = () => {
           Welcome UI is a customizable design system library made with react, typescript,
           styled-components, ariakit and a lot of love 💛
         </Text>
-        <Button as={NextLink} href="/foundations/getting-started" mt="3xl" size="lg">
+        <Button as={NextLink} className="!mt-3xl" href="/foundations/getting-started" size="lg">
           <span>Install amazing components</span>
           <RightIcon size="lg" />
         </Button>
@@ -60,8 +61,8 @@ const Home = () => {
             </Text>
             <Button
               as="a"
+              className="!mt-3xl"
               href="https://github.com/WTTJ/welcome-ui"
-              mt="3xl"
               rel="noopener nofollow"
               size="lg"
               target="_blank"
@@ -126,8 +127,8 @@ const Home = () => {
         <Box display={{ md: 'flex' }} mt="5xl">
           <Button
             as="a"
+            className="!mr-md"
             href="https://www.welcometothejungle.com/en/companies/wttj/jobs"
-            mr="md"
             rel="noopener nofollow"
             size="lg"
             target="_blank"
@@ -137,8 +138,8 @@ const Home = () => {
           </Button>
           <Button
             as="a"
+            className="!mt-0 !xs:md-md"
             href="https://www.welcometothejungle.com/en"
-            mt={{ md: 0, xs: 'md' }}
             rel="noopener nofollow"
             size="lg"
             target="_blank"

@@ -1,13 +1,13 @@
-import { Button } from '@/Button'
+import { Button } from '../../index'
 
 const Example = () => {
   return (
     <>
-      <Button ai>Primary</Button>
-      <Button ai variant="tertiary">
+      <Button variant="primary-ai">Primary</Button>
+      <Button size="sm" variant="tertiary-ai">
         Tertiary
       </Button>
-      <Button ai variant="ghost">
+      <Button size="lg" variant="ghost-ai">
         Ghost
       </Button>
     </>

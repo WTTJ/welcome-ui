@@ -9,13 +9,13 @@
         "../lib/src/utils"
       ],
       "@/theme": [
-        "../lib/src/theme"
+        "../lib/src/oldTheme"
       ],
       "@/fonts/*": [
-        "../lib/src/components/IconsFont/fonts/*"
+        "../lib/src/old/IconsFont/fonts/*"
       ],
       "@/*": [
-        "../lib/src/components/*"
+        "../lib/src/old/*"
       ]
     },
     "plugins": [

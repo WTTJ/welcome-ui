@@ -1,5 +1,4 @@
-import { Button } from '@/Button'
-import { WttjIcon } from '@/Icons'
+import { Button } from '../../index'
 
 const Example = () => {
   return (
@@ -9,7 +8,7 @@ const Example = () => {
       rel="noopener nofollow"
       target="_blank"
     >
-      <WttjIcon />
+      <i className="wui-icon-add wui-icon-font" data-wui-icon-font />
       <span>Welcome</span>
     </Button>
   )
