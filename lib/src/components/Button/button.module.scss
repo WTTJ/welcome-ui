@@ -47,15 +47,15 @@
     cursor: var(--cursorDisabled);
   }
 
-  &:has(i[data-wui-icon-font]),
-  &:has(svg[data-wui-icon]) {
+  &:has(i.wui-icon-font),
+  &:has(svg.wui-icon) {
     /* when button has icon(s) we reduce horizontal padding */
     padding-inline: var(--paddingInlineHasIcon);
   }
 
   /* CHILDREN */
-  i[data-wui-icon-font],
-  svg[data-wui-icon] {
+  i.wui-icon-font,
+  svg.wui-icon {
     display: inline-block;
     font-weight: initial;
 
