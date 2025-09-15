@@ -8,8 +8,7 @@ import type { CreateWuiProps } from '@old/System'
 import { forwardRef } from '@old/System'
 import type { TagProps } from '@old/Tag'
 import { Tag } from '@old/Tag'
-
-import { createEvent } from '../../../utils/create-event'
+import { createEvent } from '@old/utils'
 
 import * as S from './styles'
 

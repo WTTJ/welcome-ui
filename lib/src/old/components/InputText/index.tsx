@@ -5,10 +5,8 @@ import { ClearButton } from '@old/ClearButton'
 import { IconGroupWrapper, IconWrapper } from '@old/Field'
 import type { CreateWuiProps } from '@old/System'
 import { forwardRef } from '@old/System'
-
-import { createEvent } from '../../../utils/create-event'
-import type { DefaultFieldStylesProps } from '../../../utils/field-styles'
-import { FIELD_ICON_SIZE } from '../../../utils/field-styles'
+import type { DefaultFieldStylesProps } from '@old/utils'
+import { createEvent, FIELD_ICON_SIZE } from '@old/utils'
 
 import * as S from './styles'
 

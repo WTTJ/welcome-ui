@@ -1,9 +1,8 @@
 import { LockIcon } from '@old/Icons'
 import type { CreateWuiProps } from '@old/System'
 import { forwardRef } from '@old/System'
+import { wrapChildren } from '@old/utils'
 import { VariantIcon } from '@old/VariantIcon'
-
-import { wrapChildren } from '../../../utils/wrap-children'
 
 import * as S from './styles'
 

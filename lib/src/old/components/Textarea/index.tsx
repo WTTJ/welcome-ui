@@ -2,8 +2,7 @@ import React from 'react'
 
 import type { CreateWuiProps } from '@old/System'
 import { forwardRef } from '@old/System'
-
-import type { DefaultFieldStylesProps } from '../../../utils/field-styles'
+import type { DefaultFieldStylesProps } from '@old/utils'
 
 import * as S from './styles'
 

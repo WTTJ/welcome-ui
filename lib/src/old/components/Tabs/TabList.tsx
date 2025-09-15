@@ -3,8 +3,7 @@ import reactFlattenChildren from 'react-flatten-children'
 
 import type { CreateWuiProps } from '@old/System'
 import { forwardRef } from '@old/System'
-
-import { useForkRef } from '../../../utils/use-fork-ref'
+import { useForkRef } from '@old/utils'
 
 import { ActiveBar } from './ActiveBar'
 import * as S from './styles'

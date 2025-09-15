@@ -1,8 +1,7 @@
 import type { CSSObject } from '@xstyled/styled-components'
 
 import type { ThemeColorTokens, ThemeValues } from '@old/theme'
-
-import type { LiteralUnion } from '@/utils'
+import type { LiteralUnion } from '@old/utils'
 
 export type AvatarColors = LiteralUnion<ThemeColorTokens>
 // we want to keep Size in a natural order for documentation

@@ -1,6 +1,6 @@
 import styled, { css, th } from '@xstyled/styled-components'
 
-import { hideFocusRingsDataAttribute } from '../../../utils/hide-focus-rings-root'
+import { hideFocusRingsDataAttribute } from '@old/utils'
 
 export const Pagination = styled.navBox``
 

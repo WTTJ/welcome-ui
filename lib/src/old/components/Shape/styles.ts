@@ -1,8 +1,7 @@
 import styled, { css, system } from '@xstyled/styled-components'
 
 import { Box } from '@old/Box'
-
-import { getMax } from '../../../utils/get-max-width-height'
+import { getMax } from '@old/utils'
 
 import type { ShapeOptions } from './index'
 

@@ -102,7 +102,7 @@
       "count": 1
     }
   },
-  "lib/src/utils/hide-focus-rings-root.tsx": {
+  "lib/src/old/utils/hide-focus-rings-root.tsx": {
     "@typescript-eslint/no-unused-expressions": {
       "count": 1
     }

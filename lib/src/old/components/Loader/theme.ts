@@ -1,6 +1,5 @@
 import type { ThemeValues } from '@old/theme'
-
-import type { LiteralUnion } from '@/utils'
+import type { LiteralUnion } from '@old/utils'
 
 export type Size = LiteralUnion<LoaderSize, number | string>
 export type ThemeLoaders = Record<LoaderSize, string>

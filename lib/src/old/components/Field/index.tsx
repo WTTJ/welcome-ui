@@ -4,9 +4,8 @@ import { Hint } from '@old/Hint'
 import { Label } from '@old/Label'
 import type { CreateWuiProps } from '@old/System'
 import { forwardRef } from '@old/System'
+import { useIsomorphicLayoutEffect } from '@old/utils'
 import { VariantIcon } from '@old/VariantIcon'
-
-import { useIsomorphicLayoutEffect } from '../../../utils/use-isomorphic-layout-effect'
 
 import * as S from './styles'
 import { forwardedProps, generateRandomId, getBaseType, getVariant } from './utils'

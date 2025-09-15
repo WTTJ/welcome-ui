@@ -15,8 +15,7 @@ import {
   XlsxIcon,
   ZipIcon,
 } from '@old/Icons'
-
-import { formatBytes } from '../../../utils/format-bytes'
+import { formatBytes } from '@old/utils'
 
 import { types } from './types'
 

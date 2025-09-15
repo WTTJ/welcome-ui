@@ -1,6 +1,6 @@
 import type { CSSObject } from '@xstyled/styled-components'
 
-import type { DefaultFieldStylesProps } from '../../utils/field-styles'
+import type { DefaultFieldStylesProps } from '@old/utils'
 
 import type { ThemeValues } from '.'
 

@@ -1,8 +1,7 @@
 import type { CSSObject } from '@xstyled/styled-components'
 
 import type { ThemeValues } from '@old/theme'
-
-import { hexToRGBA } from '@/utils'
+import { hexToRGBA } from '@old/utils'
 
 import type { ThemeFocus } from '../../theme/focus'
 

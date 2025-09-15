@@ -13,9 +13,7 @@ import { RightIcon } from '@old/Icons'
 import type { CreateWuiProps } from '@old/System'
 import { forwardRef } from '@old/System'
 import type { ThemeColorTokens } from '@old/theme'
-
-import { clamp } from '../../../utils/clamp'
-import { throttle } from '../../../utils/throttle'
+import { clamp, throttle } from '@old/utils'
 
 import { Item } from './Item'
 import * as S from './styles'

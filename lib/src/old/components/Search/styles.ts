@@ -2,9 +2,7 @@ import styled, { css, th } from '@xstyled/styled-components'
 
 import { StyledIcon } from '@old/Icon'
 import { shouldForwardProp } from '@old/System'
-
-import { defaultFieldStyles } from '../../../utils/field-styles'
-import { overflowEllipsis } from '../../../utils/overflow-ellipsis'
+import { defaultFieldStyles, overflowEllipsis } from '@old/utils'
 
 import type { SearchOptions } from './index'
 
