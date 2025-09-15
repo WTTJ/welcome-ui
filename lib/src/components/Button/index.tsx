@@ -1,6 +1,6 @@
 import { Button as AriakitButton } from '@ariakit/react'
 
-import { classNames } from '../../utils/classNames'
+import { classNames } from '@/utils'
 
 import buttonStyles from './button.module.scss'
 import type { ButtonProps } from './types'
