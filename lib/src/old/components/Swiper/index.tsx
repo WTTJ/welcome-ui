@@ -4,8 +4,7 @@ import { Children, cloneElement, useCallback, useEffect, useMemo, useRef, useSta
 
 import { IconsFont } from '@old/IconsFont'
 import type { CreateWuiProps } from '@old/System'
-
-import { useViewportSize } from '../../../utils/use-viewport'
+import { useViewportSize } from '@old/utils'
 
 import * as S from './styles'
 import { useInterval } from './use-interval'

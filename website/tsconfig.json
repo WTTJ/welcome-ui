@@ -3,7 +3,8 @@
   "compilerOptions": {
     "paths": {
       "~/*": ["./*"],
-      "@/utils": ["../lib/src/utils"],
+      "@old/utils": ["../lib/src/utils"],
+      "@old/utils": ["../lib/src/old/utils"],
       "@old/fonts/*": ["../lib/src/old/components/IconsFont/fonts/*"],
       "@old/theme": ["../lib/src/old/theme"],
       "@old/*": ["../lib/src/old/components/*"],

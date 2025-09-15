@@ -4,8 +4,7 @@ import type { ToastPosition } from 'react-hot-toast/headless'
 import toastRHT, { useToaster } from 'react-hot-toast/headless'
 
 import type { TextProps } from '@old/Text'
-
-import { useCreatePortal } from '../../../utils/use-create-portal'
+import { useCreatePortal } from '@old/utils'
 
 import type { GrowlProps } from './Growl'
 import { Growl } from './Growl'

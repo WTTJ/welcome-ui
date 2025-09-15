@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 
-import { useIsomorphicLayoutEffect } from '../../../utils/use-isomorphic-layout-effect'
-import { useViewportSize } from '../../../utils/use-viewport'
+import { useIsomorphicLayoutEffect, useViewportSize } from '@old/utils'
 
 import * as S from './styles'
 import { getParentScale } from './utils'

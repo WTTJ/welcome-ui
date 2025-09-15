@@ -20,9 +20,8 @@ import type { ForceFileType } from '@old/Files'
 import { EditIcon, TrashIcon } from '@old/Icons'
 import type { CreateWuiProps } from '@old/System'
 import { forwardRef } from '@old/System'
-
-import type { CreateEvent } from '../../../utils/create-event'
-import { createEvent } from '../../../utils/create-event'
+import type { CreateEvent } from '@old/utils'
+import { createEvent } from '@old/utils'
 
 import { Preview } from './Preview'
 import * as S from './styles'

@@ -2,9 +2,8 @@ import React, { forwardRef } from 'react'
 
 import { ClearButton } from '@old/ClearButton'
 import { IconGroupWrapper, IconWrapper } from '@old/Field'
-
-import type { DefaultFieldStylesProps } from '../../../utils/field-styles'
-import { FIELD_ICON_SIZE } from '../../../utils/field-styles'
+import type { DefaultFieldStylesProps } from '@old/utils'
+import { FIELD_ICON_SIZE } from '@old/utils'
 
 import * as S from './styles'
 

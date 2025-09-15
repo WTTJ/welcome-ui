@@ -2,8 +2,7 @@ import { Button as AriakitButton } from '@ariakit/react'
 import styled, { css, system, th } from '@xstyled/styled-components'
 
 import { shouldForwardProp } from '@old/System'
-
-import { hideFocusRingsDataAttribute } from '../../../utils/hide-focus-rings-root'
+import { hideFocusRingsDataAttribute } from '@old/utils'
 
 import type { ButtonOptions } from './index'
 

@@ -7,11 +7,8 @@ import { ClearButton } from '@old/ClearButton'
 import { DownIcon } from '@old/Icons'
 import type { CreateWuiProps } from '@old/System'
 import { forwardRef } from '@old/System'
-
-import type { CreateEvent } from '../../../utils/create-event'
-import { createEvent } from '../../../utils/create-event'
-import type { DefaultFieldStylesProps } from '../../../utils/field-styles'
-import { FIELD_ICON_SIZE } from '../../../utils/field-styles'
+import type { CreateEvent, DefaultFieldStylesProps } from '@old/utils'
+import { createEvent, FIELD_ICON_SIZE } from '@old/utils'
 
 import { multipleSelections } from './multipleSelections'
 import * as S from './styles'

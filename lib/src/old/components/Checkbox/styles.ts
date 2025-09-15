@@ -2,8 +2,7 @@ import * as Ariakit from '@ariakit/react'
 import styled, { css, system, th } from '@xstyled/styled-components'
 
 import { shouldForwardProp } from '@old/System'
-
-import { defaultFieldStyles } from '../../../utils/field-styles'
+import { defaultFieldStyles } from '@old/utils'
 
 import type { CheckboxProps } from './index'
 

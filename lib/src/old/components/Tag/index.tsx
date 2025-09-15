@@ -1,8 +1,7 @@
 import { CrossIcon } from '@old/Icons'
 import type { CreateWuiProps } from '@old/System'
 import { forwardRef } from '@old/System'
-
-import { wrapChildren } from '../../../utils/wrap-children'
+import { wrapChildren } from '@old/utils'
 
 import * as S from './styles'
 import type { Size, Variant } from './theme'

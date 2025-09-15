@@ -3,8 +3,7 @@ import styled, { css, system, th } from '@xstyled/styled-components'
 
 import { Label as WUILabel } from '@old/Label'
 import { shouldForwardProp } from '@old/System'
-
-import { defaultFieldStyles } from '../../../utils/field-styles'
+import { defaultFieldStyles } from '@old/utils'
 
 import type { RadioProps } from './index'
 

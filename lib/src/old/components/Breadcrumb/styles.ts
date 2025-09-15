@@ -1,6 +1,7 @@
-import { hexToRGBA } from '@utils'
 import type { Theme } from '@xstyled/styled-components'
 import styled, { css, th } from '@xstyled/styled-components'
+
+import { hexToRGBA } from '@old/utils'
 
 import type { BreadcrumbOptions } from './index'
 

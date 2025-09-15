@@ -2,9 +2,7 @@ import styled, { css, system, th } from '@xstyled/styled-components'
 
 import { StyledIcon } from '@old/Icon'
 import type { WuiProps } from '@old/System'
-
-import { getMax } from '../../../utils/get-max-width-height'
-import { overflowEllipsis } from '../../../utils/overflow-ellipsis'
+import { getMax, overflowEllipsis } from '@old/utils'
 
 import type { TagOptions } from './index'
 

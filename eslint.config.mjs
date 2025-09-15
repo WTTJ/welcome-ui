@@ -1,4 +1,3 @@
-import eslint from '@eslint/js'
 import perfectionist from 'eslint-plugin-perfectionist'
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 import react from 'eslint-plugin-react'
@@ -6,6 +5,8 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import { globalIgnores } from 'eslint/config'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
+
+import eslint from '@eslint/js'
 
 export default tseslint.config(
   eslint.configs.recommended,
@@ -42,10 +43,10 @@ export default tseslint.config(
         {
           customGroups: {
             type: {
-              'welcome-ui': ['@old/', '@old/'],
+              'welcome-ui': ['@/', '@old/'],
             },
             value: {
-              'welcome-ui': ['@old/', '@old/'],
+              'welcome-ui': ['@/', '@old/'],
             },
           },
           groups: [

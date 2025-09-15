@@ -1,8 +1,7 @@
 import styled, { css, th } from '@xstyled/styled-components'
 
 import { shouldForwardProp } from '@old/System'
-
-import { defaultFieldStyles } from '../../../utils/field-styles'
+import { defaultFieldStyles } from '@old/utils'
 
 import type { TextareaOptions } from './index'
 

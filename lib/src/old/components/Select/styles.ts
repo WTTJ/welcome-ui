@@ -5,10 +5,8 @@ import { IconWrapper as WUIIconWrapper } from '@old/Field'
 import { StyledIcon } from '@old/Icon'
 import { shouldForwardProp } from '@old/System'
 import { StyledTag } from '@old/Tag'
-
-import type { DefaultFieldStylesProps } from '../../../utils/field-styles'
-import { defaultFieldStyles } from '../../../utils/field-styles'
-import { overflowEllipsis } from '../../../utils/overflow-ellipsis'
+import type { DefaultFieldStylesProps } from '@old/utils'
+import { defaultFieldStyles, overflowEllipsis } from '@old/utils'
 
 import type { SelectOptions } from './index'
 

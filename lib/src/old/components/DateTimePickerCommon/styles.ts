@@ -6,9 +6,8 @@ import { StyledButton } from '@old/Button'
 import { IconGroupWrapper, IconWrapper } from '@old/Field'
 import { StyledIcon } from '@old/Icon'
 import { StyledSelect } from '@old/Select'
-
-import type { DefaultFieldStylesProps } from '../../../utils/field-styles'
-import { defaultFieldStyles } from '../../../utils/field-styles'
+import type { DefaultFieldStylesProps } from '@old/utils'
+import { defaultFieldStyles } from '@old/utils'
 
 import type { Focused } from './CustomInput'
 
