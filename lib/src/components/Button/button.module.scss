@@ -54,18 +54,11 @@
   }
 
   /* CHILDREN */
-  i.wui-icon-font,
-  svg.wui-icon {
+
+  :global(i.wui-icon-font),
+  :global(svg.wui-icon) {
     display: inline-block;
     font-weight: initial;
-
-    &:first-child:not(:only-child) {
-      margin-inline-end: var(--spacing-xs);
-    }
-
-    &:last-child:not(:only-child) {
-      margin-inline-start: var(--spacing-xs);
-    }
 
     &:only-child {
       width: var(--iconOnlySize);
@@ -77,6 +70,14 @@
       width: var(--iconDefaultSize);
       height: var(--iconDefaultSize);
       font-size: var(--iconDefaultSize);
+    }
+
+    &:first-child:not(:only-child) {
+      margin-inline-end: var(--spacing-xs);
+    }
+
+    &:last-child:not(:only-child) {
+      margin-inline-start: var(--spacing-xs);
     }
   }
 }

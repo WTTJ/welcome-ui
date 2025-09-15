@@ -2,7 +2,7 @@ export default {
   extends: ['stylelint-config-recommended'],
   overrides: [
     {
-      files: ['**/src/components/**/*.{css,scss}', '**/src/theme/**/*.{css,scss}'],
+      files: ['**/src/**/*.{css,scss}'],
       rules: {
         'at-rule-no-deprecated': null,
         'at-rule-no-unknown': [
