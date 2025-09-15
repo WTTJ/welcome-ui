@@ -1,4 +1,3 @@
-import { Button } from '@/Button'
 import { Flex } from '@/Flex'
 import { GithubIcon } from '@/Icons'
 import { Text } from '@/Text'
@@ -10,6 +9,8 @@ import type { Params } from '~/build-app/types'
 import { getPageContent } from '~/build-app/utils/page-content'
 import { getPages } from '~/build-app/utils/pages-components'
 import { getRepository } from '~/build-app/utils/transform-name'
+
+import { Button } from '../../../../lib/src/components/Button'
 
 import { Tabs } from './tabs'
 
@@ -47,7 +48,7 @@ const Layout = async ({ children, params }: LayoutProps) => {
       <Sidebar display={{ _: 'none', lg: 'flex' }} isSubPage menu={pages} />
       <div>
         <Flex direction="column" gap="xl" mb="lg">
-          <Text mt="3xl" variant="h1">
+          <Text className="mt-128" mt="3xl" variant="h1">
             {title}
           </Text>
           {description ? (

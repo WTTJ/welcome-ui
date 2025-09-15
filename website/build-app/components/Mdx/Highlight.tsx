@@ -2,9 +2,10 @@
 import { Highlight as HighlightPrism, themes } from 'prism-react-renderer'
 
 import { Box } from '@/Box'
-import { Button } from '@/Button'
 import { CheckIcon, CopyIcon } from '@/Icons'
 import { useCopyText } from '@/utils'
+
+import { Button } from '../../../../lib/src/components/Button'
 
 export type HighlightProps = {
   children: string
@@ -19,12 +20,10 @@ export const Highlight = ({ children, language = 'tsx' }: HighlightProps) => {
       {({ getLineProps, getTokenProps, style, tokens }) => (
         <Box mt="sm" position="relative">
           <Button
+            className="absolute right-14 top-14"
             onClick={copy}
-            position="absolute"
-            right={14}
             shape="circle"
             size="xs"
-            top={14}
             variant={copied ? 'primary' : 'ghost'}
           >
             {copied ? <CheckIcon /> : <CopyIcon color="neutral-10" />}

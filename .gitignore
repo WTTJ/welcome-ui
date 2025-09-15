@@ -13,6 +13,3 @@ dist/
 
 # vite
 vite.config.mjs.*
-
-*storybook.log
-storybook-static

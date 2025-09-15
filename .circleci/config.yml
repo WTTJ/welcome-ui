@@ -109,19 +109,19 @@ jobs:
       - run:
           name: Prepare font hash
           command: |
-            echo "export ICON_FONT_HASH=$(sha1sum lib/src/components/IconsFont/fonts/welcome-icon-font.woff2 | awk '{ print $1 }')" >> $BASH_ENV
+            echo "export ICON_FONT_HASH=$(sha1sum lib/src/old/IconsFont/fonts/welcome-icon-font.woff2 | awk '{ print $1 }')" >> $BASH_ENV
             source $BASH_ENV
       - aws-cli/setup:
           aws_access_key_id: AWS_ACCESS_KEY_ID
           aws_secret_access_key: AWS_SECRET_ACCESS_KEY
           region: ${AWS_REGION}
       - aws-s3/sync:
-          from: lib/src/components/IconsFont/fonts
+          from: lib/src/old/IconsFont/fonts
           to: s3://welcome-ui/public/fonts/icon-font/$ICON_FONT_HASH
           arguments: |
             --cache-control "public, max-age=31536000" --exclude "*" --include "welcome-icon-font.woff" --include "welcome-icon-font.woff2" --metadata GitCommit=$CIRCLE_SHA1 --delete
       - aws-s3/sync:
-          from: lib/src/components/IconsFont/fonts
+          from: lib/src/old/IconsFont/fonts
           to: s3://wttj-production/fonts/icon-font/$ICON_FONT_HASH
           arguments: |
             --cache-control "public, max-age=31536000" --exclude "*" --include "welcome-icon-font.woff" --include "welcome-icon-font.woff2" --metadata GitCommit=$CIRCLE_SHA1 --delete

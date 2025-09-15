@@ -6,9 +6,9 @@
     "target": "ES6",
     "paths": {
       "@/utils": ["./src/utils"],
-      "@/theme": ["./src/theme"],
-      "@/fonts/*": ["./src/components/IconsFont/fonts/*"],
-      "@/*": ["./src/components/*"]
+      "@/theme": ["./src/oldTheme"],
+      "@/fonts/*": ["./src/old/IconsFont/fonts/*"],
+      "@/*": ["./src/old/*"]
     },
     "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "types": ["vitest/globals", "@testing-library/jest-dom"]

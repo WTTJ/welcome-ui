@@ -1,23 +1,22 @@
-import { Button } from '@/Button'
-import { WttjIcon } from '@/Icons'
+import { Button } from '../../index'
 
 const Example = () => {
   return (
     <>
       <Button>
-        <WttjIcon />
+        <i className="wui-icon-add wui-icon-font" />
         <span>Button</span>
       </Button>
       <Button variant="secondary">
-        <WttjIcon />
+        <i className="wui-icon-add wui-icon-font" />
         <span>Button</span>
       </Button>
       <Button variant="tertiary">
-        <WttjIcon />
+        <i className="wui-icon-add wui-icon-font" />
         <span>Button</span>
       </Button>
       <Button disabled>
-        <WttjIcon />
+        <i className="wui-icon-add wui-icon-font" />
         <span>Button</span>
       </Button>
     </>

@@ -9,82 +9,82 @@
       "count": 5
     }
   },
-  "lib/src/components/Breadcrumb/tests/index.test.tsx": {
+  "lib/src/old/Breadcrumb/tests/index.test.tsx": {
     "@typescript-eslint/no-extra-semi": {
       "count": 1
     }
   },
-  "lib/src/components/Checkbox/index.tsx": {
+  "lib/src/old/Checkbox/index.tsx": {
     "@typescript-eslint/no-unused-expressions": {
       "count": 1
     }
   },
-  "lib/src/components/DatePicker/index.tsx": {
+  "lib/src/old/DatePicker/index.tsx": {
     "@typescript-eslint/no-unused-expressions": {
       "count": 5
     }
   },
-  "lib/src/components/DateTimePicker/index.tsx": {
+  "lib/src/old/DateTimePicker/index.tsx": {
     "@typescript-eslint/no-unused-expressions": {
       "count": 2
     }
   },
-  "lib/src/components/FileDrop/index.tsx": {
+  "lib/src/old/FileDrop/index.tsx": {
     "@typescript-eslint/no-unused-expressions": {
       "count": 7
     }
   },
-  "lib/src/components/FileDrop/utils.ts": {
+  "lib/src/old/FileDrop/utils.ts": {
     "@typescript-eslint/no-unused-vars": {
       "count": 1
     }
   },
-  "lib/src/components/FileUpload/index.tsx": {
+  "lib/src/old/FileUpload/index.tsx": {
     "@typescript-eslint/no-unused-expressions": {
       "count": 7
     }
   },
-  "lib/src/components/Files/types.ts": {
+  "lib/src/old/Files/types.ts": {
     "@typescript-eslint/ban-types": {
       "count": 1
     }
   },
-  "lib/src/components/InputText/index.tsx": {
+  "lib/src/old/InputText/index.tsx": {
     "@typescript-eslint/no-unused-expressions": {
       "count": 1
     }
   },
-  "lib/src/components/Picker/index.tsx": {
+  "lib/src/old/Picker/index.tsx": {
     "@typescript-eslint/no-unused-expressions": {
       "count": 1
     }
   },
-  "lib/src/components/Radio/index.tsx": {
+  "lib/src/old/Radio/index.tsx": {
     "@typescript-eslint/no-unused-expressions": {
       "count": 2
     }
   },
-  "lib/src/components/Search/index.tsx": {
+  "lib/src/old/Search/index.tsx": {
     "@typescript-eslint/no-unused-expressions": {
       "count": 2
     }
   },
-  "lib/src/components/Select/index.tsx": {
+  "lib/src/old/Select/index.tsx": {
     "@typescript-eslint/no-unused-expressions": {
       "count": 5
     }
   },
-  "lib/src/components/Slider/Range.tsx": {
+  "lib/src/old/Slider/Range.tsx": {
     "@typescript-eslint/no-unused-expressions": {
       "count": 4
     }
   },
-  "lib/src/components/Slider/index.tsx": {
+  "lib/src/old/Slider/index.tsx": {
     "@typescript-eslint/no-unused-expressions": {
       "count": 2
     }
   },
-  "lib/src/components/System/index.tsx": {
+  "lib/src/old/System/index.tsx": {
     "@typescript-eslint/ban-types": {
       "count": 3
     },
@@ -92,12 +92,12 @@
       "count": 3
     }
   },
-  "lib/src/components/TimePicker/index.tsx": {
+  "lib/src/old/TimePicker/index.tsx": {
     "@typescript-eslint/no-unused-expressions": {
       "count": 5
     }
   },
-  "lib/src/components/WuiProvider/hide-focus-rings-root.tsx": {
+  "lib/src/old/WuiProvider/hide-focus-rings-root.tsx": {
     "@typescript-eslint/no-unused-expressions": {
       "count": 1
     }

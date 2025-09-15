@@ -2,7 +2,6 @@
 import { useState } from 'react'
 
 import { Box } from '@/Box'
-import { Button } from '@/Button'
 import { Flex } from '@/Flex'
 import { CodeBlockIcon, GithubIcon, PromoteIcon } from '@/Icons'
 import type { ThemeValues } from '@/theme'
@@ -10,6 +9,8 @@ import { Tooltip } from '@/Tooltip'
 
 import examples from '~/build-app/examples'
 import { openStackBlitz } from '~/build-app/utils/stackblitz'
+
+import { Button } from '../../../../lib/src/components/Button'
 
 import { Highlight } from './Highlight'
 

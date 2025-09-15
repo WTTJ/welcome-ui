@@ -3,11 +3,12 @@ import { usePathname } from 'next/navigation'
 import React from 'react'
 
 import { Box } from '@/Box'
-import { Button } from '@/Button'
 import { Flex } from '@/Flex'
 import { CrescentMoonIcon, GithubIcon, SunIcon } from '@/Icons'
 import { Text } from '@/Text'
 import type { ThemeValues } from '@/theme'
+
+import { Button } from '../../../../lib/src/components/Button'
 
 import * as S from './styles'
 

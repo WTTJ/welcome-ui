@@ -9,8 +9,8 @@ const tsConfigPath = join(process.cwd(), 'lib', 'tsconfig.json')
 
 const shouldDisplayPropsFiles = [
   'lib/src/dist/types/utils/field-styles.d.ts',
-  'lib/src/dist/types/components/Button/index.d.ts',
-  'lib/src/dist/types/components/InputText/index.d.ts',
+  'lib/src/dist/types/old/Button/index.d.ts',
+  'lib/src/dist/types/old/InputText/index.d.ts',
   'lib/node_modules/ariakit/ts/Tab/TabStore.d.ts',
 ]
 
