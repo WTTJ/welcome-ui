@@ -19,10 +19,11 @@
   padding-inline: var(--paddingInline);
   border-radius: var(--borderRadius);
   font-size: var(--fontSize);
-  color: var(--color);
+  color: var(--color, var(--color-neutral-90));
   background-color: var(--backgroundColor);
   border-color: var(--borderColor);
 
+  &[data-focus-visible],
   &:focus-visible {
     outline-color: var(--outlineColorFocus);
   }
@@ -47,8 +48,8 @@
     cursor: var(--cursorDisabled);
   }
 
-  &:has(i.wui-icon-font),
-  &:has(svg.wui-icon) {
+  &:has(:global(i.wui-icon-font)),
+  &:has(:global(svg.wui-icon)) {
     /* when button has icon(s) we reduce horizontal padding */
     padding-inline: var(--paddingInlineHasIcon);
   }
@@ -208,7 +209,6 @@
     --borderColor: var(--color-brand-40);
     --borderColorActive: var(--color-brand-10);
     --borderColorHover: var(--color-brand-30);
-    --color: var(--color-neutral-90);
     --outlineColorFocus: var(--color-brand-20);
   }
 
