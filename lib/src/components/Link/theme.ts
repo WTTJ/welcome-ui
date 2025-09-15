@@ -27,7 +27,7 @@ export const getLinks = (theme: ThemeValues): ThemeLinks => {
     },
     disabled: {
       backgroundImage: `linear-gradient(0deg, ${colors['neutral-30']}, ${colors['neutral-30']} 100%)`,
-      color: colors['neutral-50'],
+      color: colors['neutral-60'],
     },
     primary: {
       default: {},

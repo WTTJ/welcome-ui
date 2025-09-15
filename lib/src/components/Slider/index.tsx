@@ -228,11 +228,7 @@ export const SliderComponent = forwardRef<'div', SliderProps>(
             ))}
         </Box>
 
-        {hint ? (
-          <Hint color="neutral-50" mt={0}>
-            {hint}
-          </Hint>
-        ) : null}
+        {hint ? <Hint mt={0}>{hint}</Hint> : null}
       </Box>
     )
   }

@@ -62,7 +62,7 @@ export const getTabs = (theme: ThemeValues): ThemeTabs => {
         textDecoration: 'none',
       },
       disabled: {
-        color: colors['neutral-50'],
+        color: colors['neutral-60'],
       },
       focus: {
         color: colors['neutral-90'],

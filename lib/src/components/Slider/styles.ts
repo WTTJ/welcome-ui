@@ -205,7 +205,6 @@ export const Thick = styled(Box)(
 export const ThickLabel = styled(Hint)(
   () => css`
     position: absolute;
-    color: neutral-50;
     top: 0;
     transform: translate(-50%);
     white-space: nowrap;
