@@ -1,0 +1,63 @@
+.root {
+  display: flex;
+}
+
+@keyframes dot-bounce {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale3d(0.8, 0.8, 1);
+  }
+  30%,
+  60% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.dot {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: currentColor;
+
+  animation: dot-bounce 1.5s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+
+  &:nth-child(1) {
+    animation-delay: 0s;
+  }
+  &:nth-child(2) {
+    animation-delay: 0.125s;
+  }
+  &:nth-child(3) {
+    animation-delay: 0.25s;
+  }
+
+  /* VARIABLES THAT CHANGE WITH REACT PROPS */
+  width: var(--size);
+  height: var(--size);
+  &:not(:first-child) {
+    margin-left: calc(var(--size) / 2);
+  }
+}
+
+.size {
+  &-xs {
+    --size: 0.5rem;
+  }
+
+  &-sm {
+    --size: 0.75rem;
+  }
+
+  &-md {
+    --size: 1rem;
+  }
+
+  &-lg {
+    --size: 1.25rem;
+  }
+}
