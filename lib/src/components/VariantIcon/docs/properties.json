@@ -1,0 +1,98 @@
+{
+  "VariantIcon": {
+    "props": {
+      "size": {
+        "defaultValue": {
+          "value": "md"
+        },
+        "description": "",
+        "name": "size",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/VariantIcon/types.ts",
+          "name": "VariantIconOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/VariantIcon/types.ts",
+            "name": "VariantIconOptions"
+          },
+          {
+            "fileName": "welcome-ui/lib/src/components/VariantIcon/types.ts",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Size",
+          "value": [
+            {
+              "value": "\"lg\""
+            },
+            {
+              "value": "\"md\""
+            },
+            {
+              "value": "\"sm\""
+            },
+            {
+              "value": "\"xl\""
+            },
+            {
+              "value": "\"xs\""
+            },
+            {
+              "value": "\"xxl\""
+            }
+          ]
+        }
+      },
+      "variant": {
+        "defaultValue": {
+          "value": "default"
+        },
+        "description": "",
+        "name": "variant",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/VariantIcon/types.ts",
+          "name": "VariantIconOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/VariantIcon/types.ts",
+            "name": "VariantIconOptions"
+          },
+          {
+            "fileName": "welcome-ui/lib/src/components/VariantIcon/types.ts",
+            "name": "TypeLiteral"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Variant",
+          "value": [
+            {
+              "value": "\"ai\""
+            },
+            {
+              "value": "\"danger\""
+            },
+            {
+              "value": "\"default\""
+            },
+            {
+              "value": "\"info\""
+            },
+            {
+              "value": "\"success\""
+            },
+            {
+              "value": "\"warning\""
+            }
+          ]
+        }
+      }
+    }
+  }
+}

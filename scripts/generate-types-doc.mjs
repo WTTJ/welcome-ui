@@ -54,7 +54,6 @@ const getComponentFiles = async folder => {
 
 // Get definitions from file
 const getFileDefinitions = absolutePath => {
-  console.log(absolutePath)
   const definitions = parse(absolutePath)
 
   return definitions
@@ -111,7 +110,6 @@ async function generateTypesDoc() {
 
   // Get all files in each component folder
   componentDirs.map(async dirent => {
-    console.log('Generating properties.json for', dirent)
     const componentDir = resolve(parentDirectory, 'lib/src/components', dirent)
     const files = await getComponentFiles(componentDir)
 
@@ -136,7 +134,7 @@ async function generateTypesDoc() {
           }
         }
       })
-      console.log(componentProps)
+
       // Write properties.json file check before if has no props
       if (!arePropsEmpty(componentProps)) {
         await writePropsFile(componentDir, componentProps)
