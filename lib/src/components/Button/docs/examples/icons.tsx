@@ -4,19 +4,19 @@ const Example = () => {
   return (
     <>
       <Button>
-        <i className="wui-icon-add wui-icon-font" />
+        <i className="wui-icon-wttj wui-icon-font" />
         <span>Button</span>
       </Button>
       <Button variant="secondary">
-        <i className="wui-icon-add wui-icon-font" />
+        <i className="wui-icon-wttj wui-icon-font" />
         <span>Button</span>
       </Button>
       <Button variant="tertiary">
-        <i className="wui-icon-add wui-icon-font" />
+        <i className="wui-icon-wttj wui-icon-font" />
         <span>Button</span>
       </Button>
       <Button disabled>
-        <i className="wui-icon-add wui-icon-font" />
+        <i className="wui-icon-wttj wui-icon-font" />
         <span>Button</span>
       </Button>
     </>

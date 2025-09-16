@@ -3,13 +3,9 @@ import { Button } from '../../index'
 const Example = () => {
   return (
     <>
-      <Button variant="primary-danger">Primary</Button>
-      <Button size="sm" variant="tertiary-danger">
-        Tertiary
-      </Button>
-      <Button size="lg" variant="ghost-danger">
-        Ghost
-      </Button>
+      <Button variant="primary-danger">primary-danger</Button>
+      <Button variant="tertiary-danger">tertiary-danger</Button>
+      <Button variant="ghost-danger">ghost-danger</Button>
     </>
   )
 }
