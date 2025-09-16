@@ -23,17 +23,15 @@ export const Shape = forwardRef<'div', ShapeProps>(
 
     let style = {}
 
-    if (borderRadius && shape !== 'circle') {
-      style = { ...style, borderRadius: `var(--radius-${borderRadius})` }
-    }
-
     if (maxWidthHeight) {
       style = { ...style, height: maxWidthHeight, width: maxWidthHeight }
     }
 
+    const radius = borderRadius && shape !== 'circle'
+
     return (
       <div
-        className={cx('root', `shape-${shape}`, className)}
+        className={cx('root', `shape-${shape}`, radius && `radius-${borderRadius}`, className)}
         data-testid={dataTestId}
         ref={ref}
         style={style}
