@@ -1,7 +1,7 @@
 import type { ButtonProps as AriakitButtonProps } from '@ariakit/react'
 import type { ButtonHTMLAttributes, CSSProperties, ReactNode } from 'react'
 
-import type { PolymorphicProps } from '../../theme/types'
+import type { PolymorphicProps } from '@/theme/types'
 
 export type ButtonProps<T extends React.ElementType> = AriakitButtonProps &
   ButtonHTMLAttributes<HTMLButtonElement> &
