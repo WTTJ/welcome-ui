@@ -45,9 +45,7 @@ const watchExamples = () => {
       clearTimeout(timeoutId)
 
       timeoutId = setTimeout(() => {
-        if (eventType === 'rename') {
-          generateWebsiteExamplesPages()
-        }
+        generateWebsiteExamplesPages()
       }, 1000)
     }
   })
