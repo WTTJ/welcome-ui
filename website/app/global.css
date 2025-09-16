@@ -3,6 +3,7 @@
 @import '../../lib/src/theme/theme.css';
 
 @import '../../lib/src/components/Button/button.module.scss';
+@import '../../lib/src/components/Shape/shape.module.scss';
 
 @source '../../lib/src/**/*.{ts,tsx}';
 

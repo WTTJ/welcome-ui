@@ -1,0 +1,112 @@
+{
+  "Shape": {
+    "props": {
+      "borderRadius": {
+        "defaultValue": null,
+        "description": "",
+        "name": "borderRadius",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Shape/index.tsx",
+          "name": "ShapeOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Shape/index.tsx",
+            "name": "ShapeOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "className": {
+        "defaultValue": null,
+        "description": "",
+        "name": "className",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Shape/index.tsx",
+          "name": "ShapeOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Shape/index.tsx",
+            "name": "ShapeOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "h": {
+        "defaultValue": null,
+        "description": "",
+        "name": "h",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Shape/index.tsx",
+          "name": "ShapeOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Shape/index.tsx",
+            "name": "ShapeOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "shape": {
+        "defaultValue": {
+          "value": "square"
+        },
+        "description": "",
+        "name": "shape",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Shape/index.tsx",
+          "name": "ShapeOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Shape/index.tsx",
+            "name": "ShapeOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"circle\" | \"square\"",
+          "value": [
+            {
+              "value": "\"circle\""
+            },
+            {
+              "value": "\"square\""
+            }
+          ]
+        }
+      },
+      "w": {
+        "defaultValue": null,
+        "description": "",
+        "name": "w",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Shape/index.tsx",
+          "name": "ShapeOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Shape/index.tsx",
+            "name": "ShapeOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      }
+    }
+  }
+}

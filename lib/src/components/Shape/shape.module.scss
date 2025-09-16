@@ -1,0 +1,24 @@
+@layer components {
+  .root {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      object-fit: cover;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .shape-circle {
+    border-radius: 50%;
+  }
+
+  .shape-square {
+    border-radius: 0;
+  }
+}
