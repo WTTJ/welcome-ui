@@ -5,20 +5,24 @@ import type { PolymorphicProps } from '../../theme/types'
 
 export type ButtonProps<T extends React.ElementType> = AriakitButtonProps &
   ButtonHTMLAttributes<HTMLButtonElement> &
+  ButtonOptions &
   PolymorphicProps<T> & {
     children?: ReactNode
     className?: string
-    isLoading?: boolean
     ref?: React.Ref<HTMLButtonElement>
-    shape?: Shapes
-    size?: Sizes
     style?: CSSProperties
-    variant?: Variants
   }
-type Shapes = 'circle' | 'default' | 'square'
-type Sizes = 'lg' | 'md' | 'sm' | 'xs'
 
-type Variants =
+interface ButtonOptions {
+  children?: ReactNode
+  isLoading?: boolean
+  shape?: Shape
+  size?: Size
+  variant?: Variant
+}
+type Shape = 'circle' | 'default' | 'square'
+type Size = 'lg' | 'md' | 'sm' | 'xs'
+type Variant =
   | 'ghost'
   | 'ghost-ai'
   | 'ghost-danger'

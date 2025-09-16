@@ -1,26 +1,20 @@
 /* eslint-disable no-console */
 
-const { accessSync, existsSync, readdirSync, writeFileSync } = require('fs')
-const { join, resolve } = require('path')
+import { accessSync, existsSync, readdirSync, writeFileSync } from 'fs'
+import { dirname, join, resolve } from 'path'
 
-const { withCustomConfig } = require('react-docgen-typescript')
+import { withCustomConfig } from 'react-docgen-typescript'
 
 const tsConfigPath = join(process.cwd(), 'lib', 'tsconfig.json')
-
-const shouldDisplayPropsFiles = [
-  'lib/src/dist/types/utils/field-styles.d.ts',
-  'lib/src/dist/types/old/Button/index.d.ts',
-  'lib/src/dist/types/old/InputText/index.d.ts',
-  'lib/node_modules/ariakit/ts/Tab/TabStore.d.ts',
-]
 
 // Get only ComponentOptions declarations for prevent all WuiProps
 const propFilter = prop => {
   if (prop.declarations?.length > 0) {
     const isOptionDeclaration = prop.declarations.find(declaration => {
-      if (declaration.name.includes('Options')) return true
-
-      return shouldDisplayPropsFiles.includes(declaration.fileName)
+      if (declaration.name.includes('Options') && !declaration.fileName.includes('node_modules')) {
+        return true
+      }
+      return false
     })
 
     return Boolean(isOptionDeclaration)
@@ -98,7 +92,7 @@ const arePropsEmpty = obj => {
 }
 
 async function generateTypesDoc() {
-  const parentDirectory = resolve(__dirname, '../')
+  const parentDirectory = resolve(dirname('../'))
   const componentsDir = resolve(parentDirectory, 'lib/src/components')
 
   // Read all directories in the components folder with a docs folder
