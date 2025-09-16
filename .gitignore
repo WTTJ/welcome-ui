@@ -1,5 +1,6 @@
 website/out
 website/.next
+website/next-env.d.ts
 node_modules/
 .DS_Store
 .size-snapshot.json
