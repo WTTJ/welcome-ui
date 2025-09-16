@@ -1,17 +1,19 @@
 {
   "Button": {
     "props": {
-      "disabled": {
-        "defaultValue": null,
+      "isLoading": {
+        "defaultValue": {
+          "value": false
+        },
         "description": "",
-        "name": "disabled",
+        "name": "isLoading",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Button/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Button/types.ts",
           "name": "ButtonOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Button/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Button/types.ts",
             "name": "ButtonOptions"
           }
         ],
@@ -30,26 +32,31 @@
         }
       },
       "shape": {
-        "defaultValue": null,
+        "defaultValue": {
+          "value": "default"
+        },
         "description": "",
         "name": "shape",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Button/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Button/types.ts",
           "name": "ButtonOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Button/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Button/types.ts",
             "name": "ButtonOptions"
           }
         ],
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "\"circle\" | \"square\"",
+          "raw": "Shape",
           "value": [
             {
               "value": "\"circle\""
+            },
+            {
+              "value": "\"default\""
             },
             {
               "value": "\"square\""
@@ -64,12 +71,12 @@
         "description": "",
         "name": "size",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Button/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Button/types.ts",
           "name": "ButtonOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Button/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Button/types.ts",
             "name": "ButtonOptions"
           }
         ],
@@ -79,16 +86,16 @@
           "raw": "Size",
           "value": [
             {
-              "value": "\"xs\""
-            },
-            {
-              "value": "\"sm\""
+              "value": "\"lg\""
             },
             {
               "value": "\"md\""
             },
             {
-              "value": "\"lg\""
+              "value": "\"sm\""
+            },
+            {
+              "value": "\"xs\""
             }
           ]
         }
@@ -100,12 +107,12 @@
         "description": "",
         "name": "variant",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Button/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Button/types.ts",
           "name": "ButtonOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Button/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Button/types.ts",
             "name": "ButtonOptions"
           }
         ],
@@ -114,6 +121,15 @@
           "name": "enum",
           "raw": "Variant",
           "value": [
+            {
+              "value": "\"ghost\""
+            },
+            {
+              "value": "\"ghost-ai\""
+            },
+            {
+              "value": "\"ghost-danger\""
+            },
             {
               "value": "\"primary\""
             },
@@ -134,20 +150,10 @@
             },
             {
               "value": "\"tertiary-danger\""
-            },
-            {
-              "value": "\"ghost\""
-            },
-            {
-              "value": "\"ghost-ai\""
-            },
-            {
-              "value": "\"ghost-danger\""
             }
           ]
         }
       }
-    },
-    "tag": "button"
+    }
   }
 }

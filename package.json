@@ -22,7 +22,7 @@
     "release:alpha": "cd lib && yarn release-it --preRelease=alpha",
     "release": "cd lib && yarn release-it",
     "start": "cd website && yarn dev -p 3020",
-    "export-properties": "node ./scripts/generate-types-doc.js",
+    "export-properties": "node ./scripts/generate-types-doc.mjs",
     "test": "cd lib && yarn test"
   },
   "private": true,
@@ -83,7 +83,7 @@
     "postcss-styled-syntax": "^0.7.1",
     "prettier": "3.5.3",
     "react": "^18.3.1",
-    "react-docgen-typescript": "^2.2.2",
+    "react-docgen-typescript": "^2.4.0",
     "react-dom": "^18.3.1",
     "react-router-dom": "7.5.2",
     "sass-embedded": "^1.90.0",
