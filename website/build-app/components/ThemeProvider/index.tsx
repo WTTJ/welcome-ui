@@ -23,9 +23,5 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   // prevents ssr flash for mismatched dark mode
   if (!mounted) return null
 
-  return (
-    <WuiProvider theme={theme === 'dark' ? darkTheme : lightTheme} useReset>
-      {children}
-    </WuiProvider>
-  )
+  return <WuiProvider theme={theme === 'dark' ? darkTheme : lightTheme}>{children}</WuiProvider>
 }
