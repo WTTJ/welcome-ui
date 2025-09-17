@@ -1,3 +1,5 @@
+import { AddIcon } from '@/components/Icon'
+
 import { Button } from '../../index'
 
 const Example = () => {
@@ -8,7 +10,7 @@ const Example = () => {
       rel="noopener nofollow"
       target="_blank"
     >
-      <i className="wui-icon-add wui-icon-font" data-wui-icon-font />
+      <AddIcon />
       <span>Welcome</span>
     </Button>
   )

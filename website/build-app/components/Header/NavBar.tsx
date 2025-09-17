@@ -2,9 +2,9 @@ import { useTheme } from 'next-themes'
 import { usePathname } from 'next/navigation'
 import React from 'react'
 
+import { CrescentMoonIcon, GithubIcon, SunIcon } from '@/components/Icon'
 import { Box } from '@old/Box'
 import { Flex } from '@old/Flex'
-import { CrescentMoonIcon, GithubIcon, SunIcon } from '@old/Icons'
 import { Text } from '@old/Text'
 import type { ThemeValues } from '@old/theme'
 

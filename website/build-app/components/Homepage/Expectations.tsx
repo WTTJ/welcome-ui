@@ -1,5 +1,3 @@
-import { Box } from '@old/Box'
-import { Card } from '@old/Card'
 import {
   ActionsIcon,
   BookIcon,
@@ -9,7 +7,9 @@ import {
   GearIcon,
   PencilIcon,
   UserIcon,
-} from '@old/Icons'
+} from '@/components/Icon'
+import { Box } from '@old/Box'
+import { Card } from '@old/Card'
 import { Text } from '@old/Text'
 
 type ExpectationProps = {
@@ -72,7 +72,7 @@ const expectations: ExpectationProps[] = [
 const Expectation = ({ description, icon: Icon, title }: ExpectationProps) => {
   return (
     <Card p="md" w="100%">
-      <Icon color="neutral-90" size={30} />
+      <Icon color="neutral-90" size="xl" />
       <Text as="span" mb="md" mt="lg" textTransform="uppercase" variant="h6">
         {title}
       </Text>

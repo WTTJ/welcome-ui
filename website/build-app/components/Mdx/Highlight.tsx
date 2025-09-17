@@ -1,8 +1,8 @@
 'use client'
 import { Highlight as HighlightPrism, themes } from 'prism-react-renderer'
 
+import { CheckIcon, CopyIcon } from '@/components/Icon'
 import { Box } from '@old/Box'
-import { CheckIcon, CopyIcon } from '@old/Icons'
 import { useCopyText } from '@old/utils'
 
 import { Button } from '../../../../lib/src/components/Button'

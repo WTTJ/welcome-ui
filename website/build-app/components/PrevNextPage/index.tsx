@@ -1,8 +1,8 @@
 'use client'
 import Link from 'next/link'
 
+import { LeftIcon, RightIcon } from '@/components/Icon'
 import { Flex } from '@old/Flex'
-import { LeftIcon, RightIcon } from '@old/Icons'
 
 import type { PageTree } from '~/build-app/types'
 import { getName } from '~/build-app/utils/transform-name'

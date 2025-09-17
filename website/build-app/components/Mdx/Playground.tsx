@@ -1,9 +1,9 @@
 'use client'
 import { useState } from 'react'
 
+import { CodeBlockIcon, GithubIcon, PromoteIcon } from '@/components/Icon'
 import { Box } from '@old/Box'
 import { Flex } from '@old/Flex'
-import { CodeBlockIcon, GithubIcon, PromoteIcon } from '@old/Icons'
 import type { ThemeValues } from '@old/theme'
 import { Tooltip } from '@old/Tooltip'
 

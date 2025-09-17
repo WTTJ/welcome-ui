@@ -1,5 +1,5 @@
+import { GithubIcon } from '@/components/Icon'
 import { Flex } from '@old/Flex'
-import { GithubIcon } from '@old/Icons'
 import { Text } from '@old/Text'
 
 import { PrevNextPage } from '~/build-app/components/PrevNextPage'

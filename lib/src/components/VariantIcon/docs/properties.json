@@ -20,7 +20,7 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "Size",
+          "raw": "\"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\" | \"xxl\"",
           "value": [
             {
               "value": "\"lg\""

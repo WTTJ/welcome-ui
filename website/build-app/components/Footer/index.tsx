@@ -1,7 +1,7 @@
+import { ExternalLinkIcon, HeartIcon } from '@/components/Icon'
 import { Box } from '@old/Box'
 import { Flex } from '@old/Flex'
 import { Grid } from '@old/Grid'
-import { ExternalLinkIcon, HeartIcon } from '@old/Icons'
 import { Logo } from '@old/Logo'
 import { Text } from '@old/Text'
 

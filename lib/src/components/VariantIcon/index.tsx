@@ -1,5 +1,14 @@
 import { forwardRef } from 'react'
 
+import type { IconProps } from '@/components/Icon'
+import {
+  AlertIcon,
+  CheckIcon,
+  InformationIcon,
+  PromoteIcon,
+  SparklesIcon,
+  SquareAlertIcon,
+} from '@/components/Icon'
 import { classNames } from '@/utils'
 
 import type { VariantIconProps } from './types'
@@ -9,16 +18,16 @@ const cx = classNames(variantIconStyles)
 
 export const VariantIcon = forwardRef<HTMLDivElement, VariantIconProps>(
   ({ className, size = 'md', variant = 'default', ...rest }, ref) => {
-    const iconMap: { [key in VariantIconProps['variant']]: string } = {
-      ai: 'sparkles',
-      danger: 'alert',
-      default: 'promote',
-      info: 'information',
-      success: 'check',
-      warning: 'alert',
+    const iconMap: { [key in VariantIconProps['variant']]: React.FC<IconProps> } = {
+      ai: SparklesIcon,
+      danger: SquareAlertIcon,
+      default: PromoteIcon,
+      info: InformationIcon,
+      success: CheckIcon,
+      warning: AlertIcon,
     }
 
-    const icon = iconMap[variant]
+    const IconComponent = iconMap[variant]
 
     return (
       <div
@@ -26,8 +35,7 @@ export const VariantIcon = forwardRef<HTMLDivElement, VariantIconProps>(
         className={cx('root', `variant-${variant}`, `size-${size}`, className)}
         ref={ref}
       >
-        {/* TODO: remove this to use Icon component when available */}
-        <i className={`wui-icon-${icon} wui-icon`} />
+        <IconComponent size={size} />
       </div>
     )
   }
