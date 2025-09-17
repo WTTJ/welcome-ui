@@ -314,7 +314,7 @@ workflows:
           filters:
             # should add branches here to keep previous doc version of future majors
             branches:
-              only: /v3|v4|v5|v6|v7/
+              only: /v3|v4|v5|v6|v7|v8/
           context:
             - aws
             - welcome-ui
