@@ -1,0 +1,183 @@
+{
+  "InputText": {
+    "props": {
+      "icon": {
+        "defaultValue": null,
+        "description": "",
+        "name": "icon",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/InputText/types.ts",
+          "name": "InputTextOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/InputText/types.ts",
+            "name": "InputTextOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "Element"
+        }
+      },
+      "iconPlacement": {
+        "defaultValue": {
+          "value": "left"
+        },
+        "description": "",
+        "name": "iconPlacement",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/InputText/types.ts",
+          "name": "InputTextOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/InputText/types.ts",
+            "name": "InputTextOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"left\" | \"right\"",
+          "value": [
+            {
+              "value": "\"left\""
+            },
+            {
+              "value": "\"right\""
+            }
+          ]
+        }
+      },
+      "isClearable": {
+        "defaultValue": null,
+        "description": "",
+        "name": "isClearable",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/InputText/types.ts",
+          "name": "InputTextOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/InputText/types.ts",
+            "name": "InputTextOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "size": {
+        "defaultValue": {
+          "value": "md"
+        },
+        "description": "",
+        "name": "size",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/InputText/types.ts",
+          "name": "InputTextOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/InputText/types.ts",
+            "name": "InputTextOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Size",
+          "value": [
+            {
+              "value": "\"lg\""
+            },
+            {
+              "value": "\"md\""
+            },
+            {
+              "value": "\"sm\""
+            },
+            {
+              "value": "\"xs\""
+            }
+          ]
+        }
+      },
+      "transparent": {
+        "defaultValue": null,
+        "description": "",
+        "name": "transparent",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/InputText/types.ts",
+          "name": "InputTextOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/InputText/types.ts",
+            "name": "InputTextOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "variant": {
+        "defaultValue": {
+          "value": "default"
+        },
+        "description": "",
+        "name": "variant",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/InputText/types.ts",
+          "name": "InputTextOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/InputText/types.ts",
+            "name": "InputTextOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Variant",
+          "value": [
+            {
+              "value": "\"danger\""
+            },
+            {
+              "value": "\"default\""
+            },
+            {
+              "value": "\"success\""
+            },
+            {
+              "value": "\"warning\""
+            }
+          ]
+        }
+      }
+    }
+  }
+}

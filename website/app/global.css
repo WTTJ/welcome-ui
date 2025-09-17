@@ -5,6 +5,7 @@
 @import '../../lib/src/components/Icon/icon.module.scss';
 @import '../../lib/src/components/VariantIcon/variant-icon.module.scss';
 @import '../../lib/src/components/Toggle/toggle.module.scss';
+@import '../../lib/src/components/InputText/input-text.module.scss';
 
 @source '../../lib/src/**/*.{ts,tsx}';
 

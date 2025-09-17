@@ -28,6 +28,13 @@ export default {
   "/Toggle/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Toggle/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Toggle/docs/examples/size.tsx": dynamic(() => import("../../lib/src/components/Toggle/docs/examples/size.tsx").then(mod => mod), { ssr: false }),
   "/Toggle/docs/examples/variant.tsx": dynamic(() => import("../../lib/src/components/Toggle/docs/examples/variant.tsx").then(mod => mod), { ssr: false }),
+  "/InputText/docs/examples/clearable.tsx": dynamic(() => import("../../lib/src/components/InputText/docs/examples/clearable.tsx").then(mod => mod), { ssr: false }),
+  "/InputText/docs/examples/disabled.tsx": dynamic(() => import("../../lib/src/components/InputText/docs/examples/disabled.tsx").then(mod => mod), { ssr: false }),
+  "/InputText/docs/examples/icon.tsx": dynamic(() => import("../../lib/src/components/InputText/docs/examples/icon.tsx").then(mod => mod), { ssr: false }),
+  "/InputText/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/InputText/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
+  "/InputText/docs/examples/sizes.tsx": dynamic(() => import("../../lib/src/components/InputText/docs/examples/sizes.tsx").then(mod => mod), { ssr: false }),
+  "/InputText/docs/examples/transparent.tsx": dynamic(() => import("../../lib/src/components/InputText/docs/examples/transparent.tsx").then(mod => mod), { ssr: false }),
+  "/InputText/docs/examples/variants.tsx": dynamic(() => import("../../lib/src/components/InputText/docs/examples/variants.tsx").then(mod => mod), { ssr: false }),
   "/VariantIcon/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/VariantIcon/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/VariantIcon/docs/examples/sizes.tsx": dynamic(() => import("../../lib/src/components/VariantIcon/docs/examples/sizes.tsx").then(mod => mod), { ssr: false })
 };
