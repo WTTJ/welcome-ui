@@ -12,7 +12,7 @@ describe('VariantIcon', () => {
 
     expect(component.className).toMatch(/variant-default/)
     expect(component.className).toMatch(/size-md/)
-    expect(component.querySelector('i')?.className).toMatch(/wui-icon-promote/)
+    expect(component.querySelector('svg')).toHaveAttribute('aria-label', 'Promote')
   })
 
   it('renders with custom props', () => {
@@ -25,6 +25,6 @@ describe('VariantIcon', () => {
     expect(component.className).toMatch(/variant-success/)
     expect(component.className).toMatch(/size-lg/)
     expect(component.className).toMatch(/custom-class/)
-    expect(component.querySelector('i')?.className).toMatch(/wui-icon-check/)
+    expect(component.querySelector('svg')).toHaveAttribute('aria-label', 'Check')
   })
 })
