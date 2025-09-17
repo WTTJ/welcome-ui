@@ -2,9 +2,7 @@
   "Button": {
     "props": {
       "isLoading": {
-        "defaultValue": {
-          "value": false
-        },
+        "defaultValue": null,
         "description": "",
         "name": "isLoading",
         "parent": {
@@ -32,9 +30,7 @@
         }
       },
       "shape": {
-        "defaultValue": {
-          "value": "default"
-        },
+        "defaultValue": null,
         "description": "",
         "name": "shape",
         "parent": {

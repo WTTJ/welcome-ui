@@ -1,6 +1,7 @@
 import { Button as AriakitButton } from '@ariakit/react'
 
 import { classNames } from '@/utils'
+import { forwardRefWithAs } from '@/utils/forwardRefWithAs'
 
 import { useButtonGroup } from '../ButtonGroup'
 
@@ -9,43 +10,53 @@ import type { ButtonProps } from './types'
 
 const cx = classNames(buttonStyles)
 
-export const Button = <T extends React.ElementType = 'button'>({
-  accessibleWhenDisabled = true,
-  children,
-  className = '',
-  disabled = false,
-  isLoading = false,
-  ref,
-  shape = 'default',
-  size: propSize = 'md',
-  variant: propVariant = 'primary',
-  ...rest
-}: ButtonProps<T>) => {
-  const { disabled: groupDisabled, size: groupSize, variant: groupVariant } = useButtonGroup()
+export const Button = forwardRefWithAs<ButtonProps, 'button'>(
+  (
+    {
+      accessibleWhenDisabled = true,
+      as,
+      children,
+      className = '',
+      disabled = false,
+      isLoading = false,
+      shape = 'default',
+      size: propSize = 'md',
+      variant: propVariant = 'primary',
+      ...rest
+    },
+    ref
+  ) => {
+    const { disabled: groupDisabled, size: groupSize, variant: groupVariant } = useButtonGroup()
 
-  const isDisabled = groupDisabled || disabled || isLoading
-  // some variants like 'disabled' preprend over the others
-  const variant = (isDisabled && 'disabled') || groupVariant || propVariant
+    const isDisabled = groupDisabled || disabled || isLoading
+    // some variants like 'disabled' preprend over the others
+    const variant = (isDisabled && 'disabled') || groupVariant || propVariant
 
-  const size = groupSize || propSize
+    const size = groupSize || propSize
 
-  return (
-    <AriakitButton
-      {...rest}
-      accessibleWhenDisabled={accessibleWhenDisabled}
-      className={cx(
-        'root',
-        variant && `variant-${variant}`,
-        shape && `shape-${shape}`,
-        size && `size-${size}`,
-        className
-      )}
-      disabled={isDisabled}
-      ref={ref}
-      type="button"
-    >
-      {isLoading ? <span className={cx('loader')} /> : null}
-      {!isLoading && children}
-    </AriakitButton>
-  )
-}
+    const Element = as || 'button'
+
+    return (
+      <AriakitButton
+        {...rest}
+        accessibleWhenDisabled={accessibleWhenDisabled}
+        className={cx(
+          'root',
+          variant && `variant-${variant}`,
+          shape && `shape-${shape}`,
+          size && `size-${size}`,
+          className
+        )}
+        disabled={isDisabled}
+        ref={ref}
+        render={as ? <Element /> : undefined}
+        type="button"
+      >
+        {isLoading ? <span className={cx('loader')} /> : null}
+        {!isLoading && children}
+      </AriakitButton>
+    )
+  }
+)
+
+Button.displayName = 'Button'

@@ -1,6 +1,7 @@
-import { createContext, forwardRef, useContext, useMemo } from 'react'
+import { createContext, useContext, useMemo } from 'react'
 
 import { classNames } from '@/utils'
+import { forwardRefWithAs } from '@/utils/forwardRefWithAs'
 
 import buttonGroupStyles from './button-group.module.scss'
 import type { ButtonGroupProps, ButtonGroupState } from './types'
@@ -13,16 +14,23 @@ export function useButtonGroup() {
   return useContext(ButtonGroupContext)
 }
 
-export const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
-  ({ children, className, disabled = false, size = 'md', variant = 'primary', ...rest }, ref) => {
+export const ButtonGroup = forwardRefWithAs<ButtonGroupProps, 'div'>(
+  (
+    { as, children, className, disabled = false, size = 'md', variant = 'primary', ...rest },
+    ref
+  ) => {
     const state = useMemo(() => ({ disabled, size, variant }), [disabled, size, variant])
+
+    const Element = as || 'div'
 
     return (
       <ButtonGroupContext.Provider value={state}>
-        <div {...rest} className={cx('root', className)} ref={ref}>
+        <Element {...rest} className={cx('root', className)} ref={ref}>
           {children}
-        </div>
+        </Element>
       </ButtonGroupContext.Provider>
     )
   }
 )
+
+ButtonGroup.displayName = 'ButtonGroup'
