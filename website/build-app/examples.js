@@ -17,6 +17,8 @@ export default {
   "/Button/docs/examples/sizes.tsx": dynamic(() => import("../../lib/src/components/Button/docs/examples/sizes.tsx").then(mod => mod), { ssr: false }),
   "/Button/docs/examples/tailwind-class-overrides.tsx": dynamic(() => import("../../lib/src/components/Button/docs/examples/tailwind-class-overrides.tsx").then(mod => mod), { ssr: false }),
   "/Button/docs/examples/variants.tsx": dynamic(() => import("../../lib/src/components/Button/docs/examples/variants.tsx").then(mod => mod), { ssr: false }),
+  "/ButtonGroup/docs/examples/overload.tsx": dynamic(() => import("../../lib/src/components/ButtonGroup/docs/examples/overload.tsx").then(mod => mod), { ssr: false }),
+  "/ButtonGroup/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/ButtonGroup/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/VariantIcon/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/VariantIcon/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/VariantIcon/docs/examples/sizes.tsx": dynamic(() => import("../../lib/src/components/VariantIcon/docs/examples/sizes.tsx").then(mod => mod), { ssr: false })
 };

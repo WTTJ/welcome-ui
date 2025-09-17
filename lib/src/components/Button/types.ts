@@ -1,28 +1,15 @@
 import type { ButtonProps as AriakitButtonProps } from '@ariakit/react'
-import type { ButtonHTMLAttributes, CSSProperties, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
 import type { PolymorphicProps } from '@/theme/types'
 
-export type ButtonProps<T extends React.ElementType> = AriakitButtonProps &
-  ButtonHTMLAttributes<HTMLButtonElement> &
+export type ButtonProps<T extends React.ElementType = 'button'> = AriakitButtonProps &
   ButtonOptions &
-  PolymorphicProps<T> & {
-    children?: ReactNode
-    className?: string
-    ref?: React.Ref<HTMLButtonElement>
-    style?: CSSProperties
-  }
+  PolymorphicProps<T>
 
-interface ButtonOptions {
-  children?: ReactNode
-  isLoading?: boolean
-  shape?: Shape
-  size?: Size
-  variant?: Variant
-}
-type Shape = 'circle' | 'default' | 'square'
-type Size = 'lg' | 'md' | 'sm' | 'xs'
-type Variant =
+export type ButtonShape = 'circle' | 'default' | 'square'
+export type ButtonSize = 'lg' | 'md' | 'sm' | 'xs'
+export type ButtonVariant =
   | 'ghost'
   | 'ghost-ai'
   | 'ghost-danger'
@@ -33,3 +20,10 @@ type Variant =
   | 'tertiary'
   | 'tertiary-ai'
   | 'tertiary-danger'
+interface ButtonOptions {
+  children?: ReactNode
+  isLoading?: boolean
+  shape?: ButtonShape
+  size?: ButtonSize
+  variant?: ButtonVariant
+}

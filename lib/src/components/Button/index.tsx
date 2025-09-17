@@ -2,6 +2,8 @@ import { Button as AriakitButton } from '@ariakit/react'
 
 import { classNames } from '@/utils'
 
+import { useButtonGroup } from '../ButtonGroup'
+
 import buttonStyles from './button.module.scss'
 import type { ButtonProps } from './types'
 
@@ -15,13 +17,17 @@ export const Button = <T extends React.ElementType = 'button'>({
   isLoading = false,
   ref,
   shape = 'default',
-  size = 'md',
-  variant = 'primary',
+  size: propSize = 'md',
+  variant: propVariant = 'primary',
   ...rest
 }: ButtonProps<T>) => {
-  const isDisabled = disabled || isLoading
+  const { disabled: groupDisabled, size: groupSize, variant: groupVariant } = useButtonGroup()
+
+  const isDisabled = groupDisabled || disabled || isLoading
   // some variants like 'disabled' preprend over the others
-  const activeVariant = (isDisabled && 'disabled') || variant
+  const variant = (isDisabled && 'disabled') || groupVariant || propVariant
+
+  const size = groupSize || propSize
 
   return (
     <AriakitButton
@@ -29,7 +35,7 @@ export const Button = <T extends React.ElementType = 'button'>({
       accessibleWhenDisabled={accessibleWhenDisabled}
       className={cx(
         'root',
-        variant && `variant-${activeVariant}`,
+        variant && `variant-${variant}`,
         shape && `shape-${shape}`,
         size && `size-${size}`,
         className
