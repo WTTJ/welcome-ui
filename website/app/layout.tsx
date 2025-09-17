@@ -11,8 +11,6 @@ import StyledComponentsRegistry from '~/build-app/registry'
 import { getPages } from '~/build-app/utils/pages-components'
 import { getPages as getPagesExport } from '~/build-app/utils/pages-exports'
 
-import '@old/IconsFont/fonts/welcome-icon-font.css'
-
 import './global.css'
 
 export const metadata: Metadata = {

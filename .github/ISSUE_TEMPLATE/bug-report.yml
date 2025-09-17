@@ -62,7 +62,6 @@ body:
         - Grid
         - Hint
         - Icons
-        - IconsFont
         - Illustrations
         - InputText
         - Label
