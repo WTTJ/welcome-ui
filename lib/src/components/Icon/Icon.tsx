@@ -22,7 +22,7 @@ export const Icon = forwardRef<SVGSVGElement, IconProps>(
         viewBox={content.viewBox || '0 0 100 100'}
         {...rest}
       >
-        <title id={`icon-${alt}`}>{alt}</title>
+        <title>{alt}</title>
         <g dangerouslySetInnerHTML={{ __html: content.block || '' }} />
       </svg>
     )

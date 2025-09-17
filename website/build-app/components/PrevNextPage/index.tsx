@@ -1,13 +1,12 @@
 'use client'
 import Link from 'next/link'
 
+import { Button } from '@/components/Button'
 import { LeftIcon, RightIcon } from '@/components/Icon'
 import { Flex } from '@old/Flex'
 
 import type { PageTree } from '~/build-app/types'
 import { getName } from '~/build-app/utils/transform-name'
-
-import { Button } from '../../../../lib/src/components/Button'
 
 type PrevNextPageProps = {
   basePage: string

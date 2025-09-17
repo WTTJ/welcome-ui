@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 
+import { Button } from '@/components/Button'
 import { CodeBlockIcon, GithubIcon, PromoteIcon } from '@/components/Icon'
 import { Box } from '@old/Box'
 import { Flex } from '@old/Flex'
@@ -9,8 +10,6 @@ import { Tooltip } from '@old/Tooltip'
 
 import examples from '~/build-app/examples'
 import { openStackBlitz } from '~/build-app/utils/stackblitz'
-
-import { Button } from '../../../../lib/src/components/Button'
 
 import { Highlight } from './Highlight'
 
