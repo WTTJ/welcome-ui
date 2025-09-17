@@ -1,0 +1,48 @@
+{
+  "Icon": {
+    "props": {
+      "size": {
+        "defaultValue": {
+          "value": "md"
+        },
+        "description": "",
+        "name": "size",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Icon/Icon.types.ts",
+          "name": "IconOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Icon/Icon.types.ts",
+            "name": "IconOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\" | \"xxl\"",
+          "value": [
+            {
+              "value": "\"lg\""
+            },
+            {
+              "value": "\"md\""
+            },
+            {
+              "value": "\"sm\""
+            },
+            {
+              "value": "\"xl\""
+            },
+            {
+              "value": "\"xs\""
+            },
+            {
+              "value": "\"xxl\""
+            }
+          ]
+        }
+      }
+    }
+  }
+}

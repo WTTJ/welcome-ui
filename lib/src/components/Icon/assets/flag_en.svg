@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+  xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100">
+  <rect y="14" width="100" height="71.4" fill-rule="evenodd" clip-rule="evenodd" fill="#0A17A7"/>
+  <path fill-rule="evenodd"clip-rule="evenodd"fill="#FFFFFF" d="M94.4,14h5.6l0,7.8l-23.8,16H100v23.8H76.2L100,77.7v7.7h-5.6L61.9,63.5v21.9H38.1V63.5L5.6,85.4l-5.6,0v-7.7
+      l23.8-16.1H0V37.8h23.8L0,21.7V14h5.6l32.5,21.9V14h23.8v21.9L94.4,14z"/>
+  <path fill="#DB1F35" d="M100,14v2.1L67.3,37.6c-0.2,0.1-0.4,0.2-0.7,0.2c-0.4,0-0.8-0.2-1-0.5c-0.4-0.6-0.2-1.3,0.3-1.7L98.9,14H100z" />
+  <path fill="#DB1F35" d="M100,80.7v2.9L70.8,63.9c-0.5-0.4-0.7-1.1-0.3-1.7c0.4-0.5,1.1-0.7,1.7-0.3L100,80.7z"/>
+  <path fill="#DB1F35" d="M29.6,37.2c-0.2,0.3-0.6,0.5-1,0.5c-0.2,0-0.5-0.1-0.7-0.2L0,18.7v-2.9l29.3,19.7C29.8,35.9,30,36.7,29.6,37.2z "/>
+  <path fill="#DB1F35" d="M33.8,63.6L0.9,85.4H0v-2.2l32.5-21.6c0.5-0.4,1.3-0.2,1.6,0.3C34.5,62.5,34.4,63.2,33.8,63.6z"/>
+  <path fill-rule="evenodd"clip-rule="evenodd"fill="#E6273E" d="M0,56.9h42.9v28.6h14.3V56.9H100V42.6H57.1V14H42.9v28.6H0V56.9z"/>
+</svg>

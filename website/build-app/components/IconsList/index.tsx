@@ -2,9 +2,8 @@
 import { camelCase, startCase } from 'lodash'
 import React from 'react'
 
+import * as Icons from '@/components/Icon'
 import { Box } from '@old/Box'
-import * as Icons from '@old/Icons'
-import { IconsFont } from '@old/IconsFont'
 import { Text } from '@old/Text'
 import { Toast, toast } from '@old/Toast'
 
@@ -55,7 +54,7 @@ const handleClickToCopy = (componentName: string) => {
   )
 }
 
-export const IconsList = ({ isIconsFont, name }: IconListProps) => {
+export const IconsList = ({ name }: IconListProps) => {
   const iconsByName = {
     actions: actions,
     arrows: arrows,
@@ -75,11 +74,9 @@ export const IconsList = ({ isIconsFont, name }: IconListProps) => {
     <Box display="grid" gap="lg" gridTemplateColumns={{ lg: '1fr 1fr 1fr 1fr', xs: '1fr 1fr' }}>
       {iconsByName[name]?.map(key => {
         const name = startCase(camelCase(key)).replace(/ /g, '')
-        const componentName = isIconsFont ? `IconsFont.${name}` : `${name}Icon`
+        const componentName = `${name}Icon`
 
-        const Icon = isIconsFont
-          ? IconsFont[name as keyof typeof IconsFont]
-          : Icons[componentName as keyof typeof Icons]
+        const Icon = Icons[componentName as keyof typeof Icons]
 
         if (!Icon) {
           // eslint-disable-next-line no-console

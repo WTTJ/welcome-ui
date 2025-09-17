@@ -19,7 +19,7 @@ const __dirname = path.dirname(__filename)
 fs.readdirAsync = promisify(fs.readdir)
 
 const ROOT_PATH = path.join(__dirname, '..')
-const ICONS_PATH = path.join(ROOT_PATH, 'lib/src/old/Icons')
+const ICONS_PATH = path.join(ROOT_PATH, 'lib/src/components/Icon')
 
 // Write content.json for a given icon
 const writeIconContentsJson = (outputFolder, content, key) => {
@@ -54,12 +54,13 @@ const writeIconIndex = (outputFolder, iconName) => {
   const file = `${outputFolder}/index.tsx`
   const fileContent = `import React from 'react'
 
-import { Icon, IconProps } from '../../Icon'
+import { Icon } from '../../Icon'
+import type { IconProps } from '../../Icon.types'
 
 import content from './content.json'
 
 export const ${iconName}Icon: React.FC<IconProps> = props => {
-  return <Icon data-wui-icon alt="${iconName}" content={content} {...props} />
+  return <Icon alt="${iconName}" content={content} {...props} />
 }
 `
 
@@ -72,7 +73,7 @@ const writeIconPackages = files => {
   files.forEach(({ content, key }) => {
     // Create folder if necessary
     const iconName = toPascalCase(key)
-    const outputFolder = `${ICONS_PATH}/${iconName}`
+    const outputFolder = `${ICONS_PATH}/components/${iconName}`
     if (!fs.existsSync(outputFolder)) {
       fs.mkdirSync(outputFolder)
     }
@@ -89,30 +90,34 @@ const writeIconPackages = files => {
 // Write root icon files
 const writeRootIconPackage = files => {
   console.log('Started'.blue, 'Writing root icon files'.grey)
+
   // Write main icons/index.ts
-  const rootIndexContent = files.map(({ key }) => {
-    const iconName = toPascalCase(key)
-    return `export { ${iconName}Icon } from './${iconName}'`
-  })
+  let rootIndexContent = ''
+
+  rootIndexContent += files
+    .map(({ key }) => {
+      const iconName = toPascalCase(key)
+      return `export { ${iconName}Icon } from './components/${iconName}'`
+    })
+    .join('\n')
+
+  rootIndexContent += `\nexport type { IconProps } from './Icon.types'`
+
+  fs.writeFileSync(`${ICONS_PATH}/index.ts`, `${rootIndexContent}`)
+
+  // Write main icons/types.ts
+  let rootIndexDTSContent = `import React from 'react'\n
+import type { IconProps } from './Icon.types'\n
+`
+  rootIndexDTSContent += files
+    .map(({ key }) => {
+      const iconName = toPascalCase(key)
+      return `export declare const ${iconName}Icon: React.FC<IconProps>`
+    })
+    .join(`\n`)
 
   fs.writeFileSync(
-    `${ICONS_PATH}/index.ts`,
-    `${rootIndexContent.join('\n')}
-`
-  )
-
-  // Write main icons/index.d.ts
-  let rootIndexDTSContent = `import React from 'react'
-
-import { IconProps } from '../Icon'
-`
-  rootIndexDTSContent += files.map(({ key }) => {
-    const iconName = toPascalCase(key)
-    return `export declare const ${iconName}Icon: React.FC<IconProps>`
-  }).join(`
-`)
-  fs.writeFileSync(
-    `${ICONS_PATH}/index.d.ts`,
+    `${ICONS_PATH}/types.ts`,
     `${rootIndexDTSContent}
 `
   )

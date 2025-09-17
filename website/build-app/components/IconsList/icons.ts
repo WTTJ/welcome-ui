@@ -1,4 +1,4 @@
-import type { IconProps } from '@old/Icon'
+import type { IconProps } from '@/components/Icon'
 
 export const arrows: IconProps['name'][] = [
   'left',
