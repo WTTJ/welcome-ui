@@ -8,7 +8,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    transition: all var(--duration-medium) var(--ease-primary);
+    transition: background-color var(--duration-medium) var(--timing-primary);
     font-weight: 500;
     border-radius: var(--radius-md);
     border: 2px solid var(--color-neutral-10);
@@ -39,6 +39,7 @@
     }
   }
 
+  // Interactive states for button and anchor tags
   button.root,
   a.root {
     cursor: pointer;
@@ -54,6 +55,7 @@
     &[data-focus-visible],
     &:focus-visible {
       outline-color: var(--outlineColorFocus);
+      --backgroundColor: var(--backgroundColorFocus);
     }
 
     &:active {
@@ -66,6 +68,8 @@
       --backgroundColor: var(--color-beige-20);
       --backgroundColorHover: var(--color-beige-30);
       --backgroundColorActive: var(--color-beige-30);
+      --backgroundColorFocus: var(--color-beige-30);
+      --outlineColorFocus: var(--color-beige-50);
       --color: var(--color-beige-90);
     }
 
@@ -73,6 +77,8 @@
       --backgroundColor: var(--color-brand-40);
       --backgroundColorHover: var(--color-brand-50);
       --backgroundColorActive: var(--color-brand-50);
+      --backgroundColorFocus: var(--color-brand-50);
+      --outlineColorFocus: var(--color-brand-60);
       --color: var(--color-neutral-90);
     }
 
@@ -80,6 +86,8 @@
       --backgroundColor: var(--color-blue-10);
       --backgroundColorHover: var(--color-blue-20);
       --backgroundColorActive: var(--color-blue-20);
+      --backgroundColorFocus: var(--color-blue-20);
+      --outlineColorFocus: var(--color-blue-30);
       --color: var(--color-blue-90);
     }
 
@@ -87,6 +95,8 @@
       --backgroundColor: var(--color-green-10);
       --backgroundColorHover: var(--color-green-20);
       --backgroundColorActive: var(--color-green-20);
+      --backgroundColorFocus: var(--color-green-20);
+      --outlineColorFocus: var(--color-green-30);
       --color: var(--color-green-90);
     }
 
@@ -94,6 +104,8 @@
       --backgroundColor: var(--color-red-10);
       --backgroundColorHover: var(--color-red-20);
       --backgroundColorActive: var(--color-red-20);
+      --backgroundColorFocus: var(--color-red-20);
+      --outlineColorFocus: var(--color-red-30);
       --color: var(--color-red-90);
     }
 
@@ -101,6 +113,8 @@
       --backgroundColor: var(--color-orange-10);
       --backgroundColorHover: var(--color-orange-20);
       --backgroundColorActive: var(--color-orange-20);
+      --backgroundColorFocus: var(--color-orange-20);
+      --outlineColorFocus: var(--color-orange-30);
       --color: var(--color-orange-90);
     }
 
@@ -108,6 +122,8 @@
       --backgroundColor: var(--color-violet-20);
       --backgroundColorHover: var(--color-violet-30);
       --backgroundColorActive: var(--color-violet-30);
+      --backgroundColorFocus: var(--color-violet-30);
+      --outlineColorFocus: var(--color-violet-40);
       --color: var(--color-violet-90);
     }
 
@@ -115,6 +131,8 @@
       --backgroundColor: var(--color-blue-40);
       --backgroundColorHover: var(--color-blue-50);
       --backgroundColorActive: var(--color-blue-50);
+      --backgroundColorFocus: var(--color-blue-50);
+      --outlineColorFocus: var(--color-blue-60);
       --color: var(--color-neutral-90);
     }
 
@@ -122,6 +140,8 @@
       --backgroundColor: var(--color-green-30);
       --backgroundColorHover: var(--color-green-40);
       --backgroundColorActive: var(--color-green-40);
+      --backgroundColorFocus: var(--color-green-40);
+      --outlineColorFocus: var(--color-green-50);
       --color: var(--color-neutral-90);
     }
 
@@ -129,6 +149,8 @@
       --backgroundColor: var(--color-orange-40);
       --backgroundColorHover: var(--color-orange-50);
       --backgroundColorActive: var(--color-orange-50);
+      --backgroundColorFocus: var(--color-orange-50);
+      --outlineColorFocus: var(--color-orange-60);
       --color: var(--color-neutral-90);
     }
 
@@ -136,6 +158,8 @@
       --backgroundColor: var(--color-pink-40);
       --backgroundColorHover: var(--color-pink-50);
       --backgroundColorActive: var(--color-pink-50);
+      --backgroundColorFocus: var(--color-pink-50);
+      --outlineColorFocus: var(--color-pink-60);
       --color: var(--color-neutral-90);
     }
 
@@ -143,6 +167,8 @@
       --backgroundColor: var(--color-teal-40);
       --backgroundColorHover: var(--color-teal-50);
       --backgroundColorActive: var(--color-teal-50);
+      --backgroundColorFocus: var(--color-teal-50);
+      --outlineColorFocus: var(--color-teal-60);
       --color: var(--color-neutral-90);
     }
 
@@ -150,42 +176,44 @@
       --backgroundColor: var(--color-violet-40);
       --backgroundColorHover: var(--color-violet-50);
       --backgroundColorActive: var(--color-violet-50);
+      --backgroundColorFocus: var(--color-violet-50);
+      --outlineColorFocus: var(--color-violet-60);
       --color: var(--color-neutral-90);
     }
   }
 
   .size {
     &-xs {
-      --height: 1.25rem; // h-5
+      --height: var(--height-20);
       --paddingVertical: var(--spacing-xxs);
       --paddingHorizontal: var(--spacing-xs);
       --gap: var(--spacing-xs);
       --fontSize: var(--font-size-xs);
       --borderRadius: var(--radius-sm);
       --iconWidth: 0.75rem;
-      --iconHeight: 0.75rem;
+      --iconHeight: var(--height-12);
       --borderRadius: var(--radius-sm);
       --removeWidth: 0.5rem;
     }
     &-sm {
-      --height: 1.5rem; // h-6
+      --height: var(--height-24);
       --paddingVertical: var(--spacing-xs);
       --paddingHorizontal: var(--spacing-sm);
       --gap: var(--spacing-xs);
       --fontSize: var(--font-size-xs);
       --iconWidth: 0.75rem;
-      --iconHeight: 0.75rem;
+      --iconHeight: var(--height-12);
       --borderRadius: var(--radius-md);
       --removeWidth: 0.75rem;
     }
     &-md {
-      --height: 2rem; // h-8
+      --height: var(--height-32);
       --paddingVertical: var(--spacing-xs);
       --paddingHorizontal: var(--spacing-sm);
       --gap: var(--spacing-sm);
       --fontSize: var(--font-size-sm);
       --iconWidth: 1rem;
-      --iconHeight: 1rem;
+      --iconHeight: var(--height-16);
       --borderRadius: var(--radius-md);
       --removeWidth: 1rem;
     }
@@ -211,24 +239,28 @@
     opacity: 1;
     transition: opacity var(--duration-medium);
     cursor: pointer;
-
-    background: transparent;
+    appearance: none;
     border: none;
     padding: 0;
     margin: 0;
+    flex-shrink: 0;
 
-    outline: none;
-    appearance: none;
+    width: var(--removeWidth);
+    height: var(--removeWidth);
+    outline-color: var(--outlineColor, none);
+    background: var(--backgroundColor, transparent);
 
     &:hover {
       opacity: 0.7;
     }
 
-    width: var(--removeWidth);
-    height: var(--removeWidth);
+    &[data-focus-visible],
+    &:focus-visible {
+      --outlineColor: var(--outlineColorFocus);
+    }
 
-    flex-shrink: 0;
-
-    // TODO: add focus/active styles
+    &:active {
+      --backgroundColor: var(--backgroundColorActive);
+    }
   }
 }

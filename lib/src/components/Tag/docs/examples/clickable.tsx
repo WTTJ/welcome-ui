@@ -9,7 +9,7 @@ const Example = () => {
       <Tag as="a" href="#" onClick={() => alert('clicked')} variant="success">
         State
       </Tag>
-      <Tag as="a" href="#" onClick={() => alert('clicked')} variant="blue">
+      <Tag as="button" onClick={() => alert('clicked')} variant="blue">
         Secondary
       </Tag>
     </>
