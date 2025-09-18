@@ -1,0 +1,76 @@
+@layer components {
+  .root {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+
+    width: var(--avatar-width);
+    height: var(--avatar-width);
+    font-size: calc(var(--avatar-width) / 2.5);
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    p {
+      font-weight: 500;
+      font-size: inherit;
+      color: var(--color-neutral-90);
+    }
+  }
+
+  .size {
+    &-sm {
+      --avatar-width: 20px;
+    }
+
+    &-md {
+      --avatar-width: 30px;
+    }
+
+    &-lg {
+      --avatar-width: 40px;
+    }
+
+    &-xl {
+      --avatar-width: 50px;
+    }
+
+    &-xxl {
+      --avatar-width: 60px;
+    }
+  }
+
+  .background {
+    &-secondary-blue {
+      background-color: var(--color-secondary-blue);
+    }
+
+    &-secondary-green {
+      background-color: var(--color-secondary-green);
+    }
+
+    &-secondary-orange {
+      background-color: var(--color-secondary-orange);
+    }
+
+    &-secondary-pink {
+      background-color: var(--color-secondary-pink);
+    }
+
+    &-secondary-teal {
+      background-color: var(--color-secondary-teal);
+    }
+
+    &-secondary-violet {
+      background-color: var(--color-secondary-violet);
+    }
+  }
+}

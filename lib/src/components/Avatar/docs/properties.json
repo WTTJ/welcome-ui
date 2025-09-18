@@ -1,0 +1,121 @@
+{
+  "Avatar": {
+    "props": {
+      "className": {
+        "defaultValue": null,
+        "description": "",
+        "name": "className",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Avatar/index.tsx",
+          "name": "AvatarOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Avatar/index.tsx",
+            "name": "AvatarOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "getInitials": {
+        "defaultValue": null,
+        "description": "",
+        "name": "getInitials",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Avatar/index.tsx",
+          "name": "AvatarOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Avatar/index.tsx",
+            "name": "AvatarOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(name: string) => string"
+        }
+      },
+      "name": {
+        "defaultValue": null,
+        "description": "",
+        "name": "name",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Avatar/index.tsx",
+          "name": "AvatarOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Avatar/index.tsx",
+            "name": "AvatarOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "string"
+        }
+      },
+      "size": {
+        "defaultValue": {
+          "value": "md"
+        },
+        "description": "",
+        "name": "size",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Avatar/index.tsx",
+          "name": "AvatarOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Avatar/index.tsx",
+            "name": "AvatarOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Size",
+          "value": [
+            {
+              "value": "\"sm\""
+            },
+            {
+              "value": "\"md\""
+            },
+            {
+              "value": "\"lg\""
+            },
+            {
+              "value": "\"xl\""
+            },
+            {
+              "value": "\"xxl\""
+            }
+          ]
+        }
+      },
+      "src": {
+        "defaultValue": null,
+        "description": "",
+        "name": "src",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Avatar/index.tsx",
+          "name": "AvatarOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Avatar/index.tsx",
+            "name": "AvatarOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      }
+    }
+  }
+}
