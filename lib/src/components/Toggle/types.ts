@@ -7,9 +7,7 @@ export type ToggleProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,
   'size'
 > &
-  ToggleOptions & {
-    className?: string
-  }
+  ToggleOptions
 
 type Size = 'md' | 'sm' | 'xs'
 

@@ -1,14 +1,12 @@
 import * as Ariakit from '@ariakit/react'
+import { forwardRef } from 'react'
 
 import { classNames } from '@/utils'
 
 import toggleStyles from './toggle.module.scss'
+import type { ToggleProps } from './types'
 
 const cx = classNames(toggleStyles)
-
-import { forwardRef } from 'react'
-
-import type { ToggleProps } from './types'
 
 export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(
   (
@@ -30,7 +28,7 @@ export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(
 
         <Ariakit.Checkbox
           checked={checked}
-          className={cx('root', size && `size-${size}`, className)}
+          className={cx('root', `size-${size}`, className)}
           disabled={disabled}
           ref={ref}
           {...rest}
@@ -39,5 +37,3 @@ export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(
     )
   }
 )
-
-Toggle.displayName = 'Toggle'
