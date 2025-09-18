@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Button } from '../../index'
+import { Button } from '@/components/Button'
 
 const Example = () => {
   const [isLoading, setIsLoading] = React.useState<boolean>(false)

@@ -1,6 +1,7 @@
 'use client'
 import styled, { th } from '@xstyled/styled-components'
 
+import { Button } from '@/components/Button'
 import { RightIcon } from '@/components/Icon'
 import { Avatar } from '@old/Avatar'
 import { Box } from '@old/Box'
@@ -10,8 +11,6 @@ import { Link } from '@old/Link'
 import { Stack } from '@old/Stack'
 import { Tag } from '@old/Tag'
 import { Text } from '@old/Text'
-
-import { Button } from '../../../lib/src/components/Button'
 
 const posts = [
   {

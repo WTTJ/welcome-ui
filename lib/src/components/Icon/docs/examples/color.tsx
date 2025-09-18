@@ -1,4 +1,4 @@
-import { PositiveStraightIcon } from '../../index'
+import { PositiveStraightIcon } from '@/components/Icon'
 
 const Example = () => {
   return (

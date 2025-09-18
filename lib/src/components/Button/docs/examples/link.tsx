@@ -1,6 +1,5 @@
+import { Button } from '@/components/Button'
 import { AddIcon } from '@/components/Icon'
-
-import { Button } from '../../index'
 
 const Example = () => {
   return (

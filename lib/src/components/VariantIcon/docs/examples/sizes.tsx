@@ -1,4 +1,4 @@
-import { VariantIcon } from '../../index'
+import { VariantIcon } from '@/components/VariantIcon'
 
 const Example = () => {
   return (

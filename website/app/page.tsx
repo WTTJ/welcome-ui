@@ -1,6 +1,7 @@
 import NextLink from 'next/link'
 import React from 'react'
 
+import { Button } from '@/components/Button'
 import { GithubIcon, HeartIcon, RightIcon } from '@/components/Icon'
 import { Box } from '@old/Box'
 import { Logo, Symbol } from '@old/Logo'
@@ -10,8 +11,6 @@ import { Components } from '~/build-app/components/Homepage/Components'
 import { Expectations } from '~/build-app/components/Homepage/Expectations'
 import { Stats } from '~/build-app/components/Homepage/Stats'
 import { Section } from '~/build-app/components/Section'
-
-import { Button } from '../../lib/src/components/Button'
 
 const Home = () => {
   return (
