@@ -1,6 +1,158 @@
 {
   "Button": {
     "props": {
+      "accessibleWhenDisabled": {
+        "defaultValue": {
+          "value": true
+        },
+        "description": "Indicates whether the element should be focusable even when it is\n[`disabled`](https://ariakit.org/reference/focusable#disabled).\n\nThis is important when discoverability is a concern. For example:\n\n> A toolbar in an editor contains a set of special smart paste functions\nthat are disabled when the clipboard is empty or when the function is not\napplicable to the current content of the clipboard. It could be helpful to\nkeep the disabled buttons focusable if the ability to discover their\nfunctionality is primarily via their presence on the toolbar.\n\nLearn more on [Focusability of disabled\ncontrols](https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/#focusabilityofdisabledcontrols).\n\nLive examples:\n- [Combobox with Tabs](https://ariakit.org/examples/combobox-tabs)",
+        "name": "accessibleWhenDisabled",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/focusable/focusable.d.ts",
+          "name": "FocusableOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/focusable/focusable.d.ts",
+            "name": "FocusableOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "any"
+        }
+      },
+      "autoFocus": {
+        "defaultValue": {
+          "value": "false"
+        },
+        "description": "Automatically focuses the element upon mounting, similar to the native\n`autoFocus` prop. This addresses an issue where the element with the native\n`autoFocus` attribute might receive focus before React effects are\nexecuted.\n\nThe `autoFocus` prop can also be used with\n[Focusable](https://ariakit.org/components/focusable) elements within a\n[Dialog](https://ariakit.org/components/dialog) component, establishing the\ninitial focus as the dialog opens.\n\n**Note**: For this prop to work, the\n[`focusable`](https://ariakit.org/reference/command#focusable) prop must be\nset to `true`, if it's not set by default.\n\nLive examples:\n- [Warning on Dialog\n  hide](https://ariakit.org/examples/dialog-hide-warning)\n- [Dialog with React\n  Router](https://ariakit.org/examples/dialog-react-router)\n- [Nested Dialog](https://ariakit.org/examples/dialog-nested)",
+        "name": "autoFocus",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/focusable/focusable.d.ts",
+          "name": "FocusableOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/focusable/focusable.d.ts",
+            "name": "FocusableOptions"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+            "name": "HTMLAttributes"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "clickOnEnter": {
+        "defaultValue": {
+          "value": "true"
+        },
+        "description": "If set to `true`, pressing the enter key while this element is focused will\ntrigger a click on the element, regardless of whether it's a native button\nor not. If this prop is set to `false`, pressing enter will not initiate a\nclick.",
+        "name": "clickOnEnter",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/command/command.d.ts",
+          "name": "CommandOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/command/command.d.ts",
+            "name": "CommandOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "any"
+        }
+      },
+      "clickOnSpace": {
+        "defaultValue": {
+          "value": "true"
+        },
+        "description": "If set to `true`, pressing and releasing the space key while this element\nis focused will trigger a click on the element, regardless of whether it's\na native button or not. If this prop is set to `false`, space will not\ninitiate a click.",
+        "name": "clickOnSpace",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/command/command.d.ts",
+          "name": "CommandOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/command/command.d.ts",
+            "name": "CommandOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "any"
+        }
+      },
+      "disabled": {
+        "defaultValue": {
+          "value": false
+        },
+        "description": "Determines if the element is disabled. This sets the `aria-disabled`\nattribute accordingly, enabling support for all elements, including those\nthat don't support the native `disabled` attribute.\n\nThis feature can be combined with the\n[`accessibleWhenDisabled`](https://ariakit.org/reference/focusable#accessiblewhendisabled)\nprop to make disabled elements still accessible via keyboard.\n\n**Note**: For this prop to work, the\n[`focusable`](https://ariakit.org/reference/command#focusable) prop must be\nset to `true`, if it's not set by default.\n\nLive examples:\n- [Submenu](https://ariakit.org/examples/menu-nested)\n- [Combobox with Tabs](https://ariakit.org/examples/combobox-tabs)\n- [Context Menu](https://ariakit.org/examples/menu-context-menu)",
+        "name": "disabled",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/focusable/focusable.d.ts",
+          "name": "FocusableOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/focusable/focusable.d.ts",
+            "name": "FocusableOptions"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+            "name": "ButtonHTMLAttributes"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "focusable": {
+        "defaultValue": {
+          "value": "true"
+        },
+        "description": "Determines if [Focusable](https://ariakit.org/components/focusable)\nfeatures should be active on non-native focusable elements.\n\n**Note**: This prop only turns off the additional features provided by the\n[`Focusable`](https://ariakit.org/reference/focusable) component.\nNon-native focusable elements will lose their focusability entirely.\nHowever, native focusable elements will retain their inherent focusability,\nbut without added features such as improved\n[`autoFocus`](https://ariakit.org/reference/focusable#autofocus),\n[`accessibleWhenDisabled`](https://ariakit.org/reference/focusable#accessiblewhendisabled),\n[`onFocusVisible`](https://ariakit.org/reference/focusable#onfocusvisible),\netc.",
+        "name": "focusable",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/focusable/focusable.d.ts",
+          "name": "FocusableOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/focusable/focusable.d.ts",
+            "name": "FocusableOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "any"
+        }
+      },
       "isLoading": {
         "defaultValue": {
           "value": false
@@ -29,6 +181,44 @@
               "value": "true"
             }
           ]
+        }
+      },
+      "onFocusVisible": {
+        "defaultValue": null,
+        "description": "Custom event handler invoked when the element gains focus through keyboard\ninteraction or a key press occurs while the element is in focus. This is\nthe programmatic equivalent of the\n[`data-focus-visible`](https://ariakit.org/guide/styling#data-focus-visible)\nattribute.\n\n**Note**: For this prop to work, the\n[`focusable`](https://ariakit.org/reference/command#focusable) prop must be\nset to `true`, if it's not set by default.\n\nLive examples:\n- [Navigation Menubar](https://ariakit.org/examples/menubar-navigation)\n- [Custom Checkbox](https://ariakit.org/examples/checkbox-custom)",
+        "name": "onFocusVisible",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/focusable/focusable.d.ts",
+          "name": "FocusableOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/focusable/focusable.d.ts",
+            "name": "FocusableOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "any"
+        }
+      },
+      "render": {
+        "defaultValue": null,
+        "description": "Allows the component to be rendered as a different HTML element or React\ncomponent. The value can be a React element or a function that takes in the\noriginal component props and gives back a React element with the props\nmerged.\n\nCheck out the [Composition](https://ariakit.org/guide/composition) guide\nfor more details.",
+        "name": "render",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/utils/types.d.ts",
+          "name": "Options"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/utils/types.d.ts",
+            "name": "Options"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "any"
         }
       },
       "shape": {
@@ -152,6 +342,25 @@
               "value": "\"tertiary-danger\""
             }
           ]
+        }
+      },
+      "wrapElement": {
+        "defaultValue": null,
+        "description": "",
+        "name": "wrapElement",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/utils/types.d.ts",
+          "name": "Options"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/utils/types.d.ts",
+            "name": "Options"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "any"
         }
       }
     }
