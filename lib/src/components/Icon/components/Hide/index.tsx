@@ -1,10 +1,8 @@
-import React from 'react'
-
 import { Icon } from '../../Icon'
 import type { IconProps } from '../../Icon.types'
 
 import content from './content.json'
 
-export const HideIcon: React.FC<IconProps> = props => {
+export const HideIcon = (props: IconProps) => {
   return <Icon alt="Hide" content={content} {...props} />
 }

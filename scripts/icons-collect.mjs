@@ -52,14 +52,12 @@ const writeIconContentsJson = (outputFolder, content, key) => {
 // Write index.tsx for a given icon
 const writeIconIndex = (outputFolder, iconName) => {
   const file = `${outputFolder}/index.tsx`
-  const fileContent = `import React from 'react'
-
-import { Icon } from '../../Icon'
+  const fileContent = `import { Icon } from '../../Icon'
 import type { IconProps } from '../../Icon.types'
 
 import content from './content.json'
 
-export const ${iconName}Icon: React.FC<IconProps> = props => {
+export const ${iconName}Icon = (props: IconProps) => {
   return <Icon alt="${iconName}" content={content} {...props} />
 }
 `
@@ -106,13 +104,12 @@ const writeRootIconPackage = files => {
   fs.writeFileSync(`${ICONS_PATH}/index.ts`, `${rootIndexContent}`)
 
   // Write main icons/types.ts
-  let rootIndexDTSContent = `import React from 'react'\n
-import type { IconProps } from './Icon.types'\n
-`
+  let rootIndexDTSContent = `import type { IconProps } from './Icon.types'\n`
+
   rootIndexDTSContent += files
     .map(({ key }) => {
       const iconName = toPascalCase(key)
-      return `export declare const ${iconName}Icon: React.FC<IconProps>`
+      return `export declare const ${iconName}Icon: IconProps`
     })
     .join(`\n`)
 

@@ -1,10 +1,8 @@
-import React from 'react'
-
 import { Icon } from '../../Icon'
 import type { IconProps } from '../../Icon.types'
 
 import content from './content.json'
 
-export const MenuIcon: React.FC<IconProps> = props => {
+export const MenuIcon = (props: IconProps) => {
   return <Icon alt="Menu" content={content} {...props} />
 }

@@ -1,10 +1,8 @@
-import React from 'react'
-
 import { Icon } from '../../Icon'
 import type { IconProps } from '../../Icon.types'
 
 import content from './content.json'
 
-export const SuitcaseIcon: React.FC<IconProps> = props => {
+export const SuitcaseIcon = (props: IconProps) => {
   return <Icon alt="Suitcase" content={content} {...props} />
 }

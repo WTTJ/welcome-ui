@@ -1,10 +1,8 @@
-import React from 'react'
-
 import { Icon } from '../../Icon'
 import type { IconProps } from '../../Icon.types'
 
 import content from './content.json'
 
-export const ZipIcon: React.FC<IconProps> = props => {
+export const ZipIcon = (props: IconProps) => {
   return <Icon alt="Zip" content={content} {...props} />
 }

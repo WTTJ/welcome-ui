@@ -1,10 +1,8 @@
-import React from 'react'
-
 import { Icon } from '../../Icon'
 import type { IconProps } from '../../Icon.types'
 
 import content from './content.json'
 
-export const SlackIcon: React.FC<IconProps> = props => {
+export const SlackIcon = (props: IconProps) => {
   return <Icon alt="Slack" content={content} {...props} />
 }

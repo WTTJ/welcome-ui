@@ -1,10 +1,8 @@
-import React from 'react'
-
 import { Icon } from '../../Icon'
 import type { IconProps } from '../../Icon.types'
 
 import content from './content.json'
 
-export const MoveIcon: React.FC<IconProps> = props => {
+export const MoveIcon = (props: IconProps) => {
   return <Icon alt="Move" content={content} {...props} />
 }

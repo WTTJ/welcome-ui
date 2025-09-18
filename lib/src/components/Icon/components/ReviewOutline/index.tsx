@@ -1,10 +1,8 @@
-import React from 'react'
-
 import { Icon } from '../../Icon'
 import type { IconProps } from '../../Icon.types'
 
 import content from './content.json'
 
-export const ReviewOutlineIcon: React.FC<IconProps> = props => {
+export const ReviewOutlineIcon = (props: IconProps) => {
   return <Icon alt="ReviewOutline" content={content} {...props} />
 }
