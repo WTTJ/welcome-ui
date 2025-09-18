@@ -25,7 +25,7 @@ const Example = () => {
         src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4"
       />
       <Avatar
-        className="w-[130px] h-[130px]"
+        className="size-[130px]"
         name="Custom value"
         src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4"
       />
