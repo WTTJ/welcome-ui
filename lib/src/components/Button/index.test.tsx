@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react'
 
-import { SunIcon } from '@old/Icons'
-import { IconsFont } from '@old/IconsFont'
+import { SunIcon } from '@/components/Icon'
+// FIXME: update when Link will be migrated to tailwind (remove old alias)
 import { Link } from '@old/Link'
 
 import { expectAsSupport, render } from '@tests'
@@ -111,31 +111,6 @@ describe('Button', () => {
     })
   })
 
-  it('should forward as div', () => {
-    render(
-      <Button as="div" data-testid="button">
-        {content}
-      </Button>
-    )
-
-    const button = screen.getByTestId('button')
-
-    expect(button.tagName.toLowerCase()).toBe('div')
-  })
-
-  it('should forward as a', () => {
-    render(
-      <Button as="a" data-testid="button" href={content}>
-        {content}
-      </Button>
-    )
-
-    const button = screen.getByTestId('button')
-
-    expect(button.tagName.toLowerCase()).toBe('a')
-    expect(button).toHaveAttribute('href', content)
-  })
-
   it('should allow tailwind classes override', () => {
     render(
       <Button className="mt-3xl" data-testid="button">
@@ -178,7 +153,7 @@ describe('Button', () => {
   it('should have correct Icon size with Icon and text', () => {
     render(
       <Button data-testid="button" size="sm">
-        <SunIcon dataTestId="sun" />
+        <SunIcon data-testid="sun" />
         <span>{content}</span>
       </Button>
     )
@@ -191,39 +166,14 @@ describe('Button', () => {
   it('should have correct Icon size with Icon only', () => {
     render(
       <Button data-testid="button" size="md">
-        <SunIcon dataTestId="sun" />
+        <SunIcon data-testid="sun" />
       </Button>
     )
 
     const button = screen.getByTestId('button')
-    const icon = screen.getByTestId('icon-sun')
+    const icon = screen.getByTestId('sun')
     expect(button.classList.toString().includes('size-md')).toBe(true)
-    expect(icon).toHaveStyle({ height: '1.5rem', width: '1.5rem' })
-  })
-
-  it('should have correct IconsFont size with IconsFont and text', () => {
-    render(
-      <Button data-testid="button" size="sm">
-        <IconsFont.Sun data-testid="sun" />
-        <span>{content}</span>
-      </Button>
-    )
-
-    const button = screen.getByTestId('button')
-
-    expect(button.classList.toString().includes('size-sm')).toBe(true)
-  })
-
-  it('should have correct IconsFont size with IconsFont only', () => {
-    render(
-      <Button data-testid="button" size="md">
-        <IconsFont.Sun dataTestId="sun" />
-      </Button>
-    )
-
-    const button = screen.getByTestId('button')
-
-    expect(button.classList.toString().includes('size-md')).toBe(true)
+    expect(icon.classList.toString().includes('size-md')).toBe(true)
   })
 
   // FIXME: enable when loading style fixed

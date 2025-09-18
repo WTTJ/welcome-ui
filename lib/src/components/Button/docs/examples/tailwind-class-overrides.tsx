@@ -4,7 +4,7 @@ const Example = () => {
   return (
     <>
       <Button className="mt-(--spacing-md) px-3xl">primary</Button>
-      <Button className="mt-(--spacing-md) px-3xl" render={<a />}>
+      <Button as="a" className="mt-[100px] px-3xl">
         primary
       </Button>
     </>
