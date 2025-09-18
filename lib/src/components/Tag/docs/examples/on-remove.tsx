@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import { Tag } from '@/components/Tag'
+//TODO: update when https://github.com/WTTJ/welcome-ui/pull/2849 is merged
 import { Text } from '@old/Text'
 
 const Example = () => {
