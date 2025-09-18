@@ -1,0 +1,23 @@
+@layer components {
+  .root {
+    display: flex;
+    align-items: center;
+    color: var(--color, var(--color-neutral-60));
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-xs);
+  }
+
+  .variant {
+    &-danger {
+      --color: var(--color-red-70);
+    }
+
+    &-success {
+      --color: var(--color-green-70);
+    }
+
+    &-warning {
+      --color: var(--color-orange-70);
+    }
+  }
+}
