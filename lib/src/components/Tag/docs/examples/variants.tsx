@@ -1,9 +1,8 @@
 import { Tag } from '@/components/Tag'
-import { Stack } from '@old/Stack'
 
 const Example = () => {
   return (
-    <Stack>
+    <>
       <Tag>Default</Tag>
       <Tag variant="primary">Primary</Tag>
       <Tag variant="info">Info</Tag>
@@ -17,7 +16,7 @@ const Example = () => {
       <Tag variant="pink">Pink</Tag>
       <Tag variant="teal">Teal</Tag>
       <Tag variant="violet">Violet</Tag>
-    </Stack>
+    </>
   )
 }
 
