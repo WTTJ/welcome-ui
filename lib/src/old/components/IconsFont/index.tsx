@@ -2,7 +2,7 @@ import type { IconProps } from '@old/Icon'
 
 import type { StyledIconProps } from './styles'
 import { Icon } from './styles'
-import unicodeJson from './unicode.json'
+import unicodeJson from './unicode.json' assert { type: 'json' }
 
 export type IconsFontProps = StyledIconProps
 export const IconsFontStyled = Icon

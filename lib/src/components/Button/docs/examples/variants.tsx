@@ -3,10 +3,16 @@ import { Button } from '../../index'
 const Example = () => {
   return (
     <>
-      <Button>primary</Button>
-      <Button variant="secondary">secondary</Button>
-      <Button variant="tertiary">tertiary</Button>
-      <Button variant="ghost">ghost</Button>
+      <Button data-testid="variant-primary">primary</Button>
+      <Button data-testid="variant-secondary" variant="secondary">
+        secondary
+      </Button>
+      <Button data-testid="variant-tertiary" variant="tertiary">
+        tertiary
+      </Button>
+      <Button data-testid="variant-ghost" variant="ghost">
+        ghost
+      </Button>
     </>
   )
 }
