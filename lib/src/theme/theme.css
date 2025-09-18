@@ -336,8 +336,12 @@
   --letter-spacing-h4: -0.0375rem; /* -0.6px */
   --letter-spacing-h5: -0.03125rem; /* -0.5px */
   --letter-spacing-h6: -0.03125rem; /* -0.5px */
+  --letter-spacing-lg: -0.019rem; /* -0.304px */
+  --letter-spacing-md: -0.019rem; /* -0.304px */
+  --letter-spacing-sm: -0.019rem; /* -0.304px */
   --letter-spacing-subtitle-md: -0.0125rem; /* -0.2px */
   --letter-spacing-subtitle-sm: -0.0125rem; /* -0.2px */
+   --letter-spacing-xs: -0.0125rem; /* -0.2px */
 
   /* lineHeights */
   --line-height-14: 0.875rem; /* 14px */

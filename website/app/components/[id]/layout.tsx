@@ -1,7 +1,7 @@
 import { Button } from '@/components/Button'
 import { GithubIcon } from '@/components/Icon'
+import { Text } from '@/components/Text'
 import { Flex } from '@old/Flex'
-import { Text } from '@old/Text'
 
 import { PrevNextPage } from '~/build-app/components/PrevNextPage'
 import { Sidebar } from '~/build-app/components/Sidebar'
@@ -47,11 +47,11 @@ const Layout = async ({ children, params }: LayoutProps) => {
       <Sidebar display={{ _: 'none', lg: 'flex' }} isSubPage menu={pages} />
       <div>
         <Flex direction="column" gap="xl" mb="lg">
-          <Text className="mt-128" mt="3xl" variant="h1">
+          <Text className="mt-3xl" variant="h1">
             {title}
           </Text>
           {description ? (
-            <Text color="neutral-60" pt="lg" variant="lg">
+            <Text className="text-neutral-60 pt-lg" variant="lg">
               {description}
             </Text>
           ) : null}

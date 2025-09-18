@@ -228,8 +228,12 @@ export const primitives = {
     '--letter-spacing-h4': '-0.0375rem',
     '--letter-spacing-h5': '-0.03125rem',
     '--letter-spacing-h6': '-0.03125rem',
+    '--letter-spacing-lg': '-0.019rem',
+    '--letter-spacing-md': '-0.019rem',
+    '--letter-spacing-sm': '-0.019rem',
     '--letter-spacing-subtitle-md': '-0.0125rem',
     '--letter-spacing-subtitle-sm': '-0.0125rem',
+    ' --letter-spacing-xs': '-0.0125rem',
   },
   lineHeights: {
     '--line-height-14': '0.875rem',
