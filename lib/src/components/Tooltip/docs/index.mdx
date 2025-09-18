@@ -1,0 +1,39 @@
+---
+ariakit: https://ariakit.org/components/tooltip
+category: overlay
+description: The Tooltip component is a small, interactive UI element that provides contextual information or descriptions when users hover over an element or focus on it. It enhances user experience by offering additional guidance or clarifications without cluttering the main interface. Tooltips are commonly used for icons, buttons, links, and other interactive elements to improve accessibility and usability.
+packageName: tooltip
+title: Tooltip
+---
+
+### Fixed
+
+Maybe you don't want the tooltip to follow the cursor set by `fixed` property
+
+<div data-playground="fixed.tsx" data-component="Tooltip"></div>
+
+### With an arrow
+
+You can use the `withArrow` property to display an arrow pointing towards your trigger
+
+It will only display with the `fixed` property set to `true`
+
+<div data-playground="withArrow.tsx" data-component="Tooltip"></div>
+
+### With a long text and a custom placement
+
+Set a `max-width` for long text
+
+<div data-playground="long-text.tsx" data-component="Tooltip"></div>
+
+### With a disabled button
+
+We're adding a wrapper around the button when it's disabled otherwise the tooltip does not trigger.
+
+<div data-playground="disabled.tsx" data-component="Tooltip"></div>
+
+### Placement
+
+Using only with the `fixed` prop, `placement` will enable a translate animation on your tooltip. The direction works with these values for `placement`.
+
+<div data-playground="placement.tsx" data-component="Tooltip"></div>

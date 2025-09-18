@@ -1,0 +1,166 @@
+@layer components {
+  .root {
+    background-color: var(--color-neutral-90);
+    border: var(--border-width-sm) solid var(--color-neutral-60);
+    border-radius: var(--radius-md);
+    box-sizing: border-box;
+    color: var(--color-neutral-10);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    max-width: 12.5rem;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    transition-property: opacity, transform, visibility;
+    transition-duration: var(--duration-medium);
+    visibility: hidden;
+    opacity: 0;
+    transform-origin: top center;
+    z-index: 10;
+
+    
+    [data-enter] & {
+      visibility: visible;
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+
+    /* With arrow variant */
+    &.withArrow {
+      &::after {
+        content: '';
+        position: absolute;
+        background-color: inherit;
+        width: var(--tooltipArrowSize);
+        height: var(--tooltipArrowSize);
+        border-width: inherit;
+        border-style: solid;
+        border-color: transparent var(--color-neutral-60) var(--color-neutral-60) transparent;
+        border-bottom-right-radius: inherit;
+        clip-path: polygon(0% 100%, 0% 100%, 100% 100%, 100% 0%);
+        z-index: 0;
+        translate: -50% -50%;
+      }
+    }
+  }
+
+  /* Placement variants with arrows */
+  .placement {
+    /* Top placements */
+    &-top,
+    &-top-start,
+    &-top-end {
+      &.withArrow::after {
+        top: 100%;
+        rotate: 45deg;
+      }
+    }
+
+    &-top.withArrow::after {
+      left: 50%;
+    }
+
+    &-top-start.withArrow::after {
+      left: var(--tooltipArrowSpacer);
+    }
+
+    &-top-end.withArrow::after {
+      left: calc(100% - var(--tooltipArrowSpacer));
+    }
+
+    /* Bottom placements */
+    &-bottom,
+    &-bottom-start,
+    &-bottom-end {
+      &.withArrow::after {
+        bottom: 100%;
+        translate: -50% 50%;
+        rotate: 225deg;
+      }
+    }
+
+    &-bottom.withArrow::after {
+      left: 50%;
+    }
+
+    &-bottom-start.withArrow::after {
+      left: var(--tooltipArrowSpacer);
+    }
+
+    &-bottom-end.withArrow::after {
+      left: calc(100% - var(--tooltipArrowSpacer));
+    }
+
+    /* Left placements */
+    &-left,
+    &-left-start,
+    &-left-end {
+      &.withArrow::after {
+        left: 100%;
+        rotate: -45deg;
+        top: var(--tooltipYPosition);
+      }
+    }
+
+    /* Right placements */
+    &-right,
+    &-right-start,
+    &-right-end {
+      &.withArrow::after {
+        left: 0%;
+        rotate: 135deg;
+        top: var(--tooltipYPosition);
+      }
+    }
+  }
+
+  /* Transform directions for fixed tooltips */
+  .transform {
+    &-auto {
+      transform: translate3d(0, 0, 0);
+    }
+
+    &-top {
+      transform: translate3d(0, -4px, 0);
+    }
+
+    &-bottom {
+      transform: translate3d(0, 4px, 0);
+    }
+
+    &-left {
+      transform: translate3d(-4px, 0, 0);
+    }
+
+    &-right {
+      transform: translate3d(4px, 0, 0);
+    }
+
+    &-top-start,
+    &-top-end {
+      transform: translate3d(-4px, -4px, 0);
+    }
+
+    &-bottom-start,
+    &-bottom-end {
+      transform: translate3d(-4px, 4px, 0);
+    }
+
+    &-left-start,
+    &-left-end {
+      transform: translate3d(-4px, -4px, 0);
+    }
+
+    &-right-start,
+    &-right-end {
+      transform: translate3d(4px, -4px, 0);
+    }
+
+    &-right-end,
+    &-bottom-end {
+      transform: translate3d(4px, 4px, 0);
+    }
+  }
+
+  .childItem {
+    display: inline-block;
+  }
+}
