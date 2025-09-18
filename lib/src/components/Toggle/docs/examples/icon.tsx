@@ -1,7 +1,7 @@
 import * as React from 'react'
 
+import { HideIcon, ShowIcon } from '@/components/Icon'
 import { Toggle } from '@/components/Toggle'
-import { HideIcon, ShowIcon } from '@old/Icons'
 
 const Example = () => {
   const [toggle, setToggle] = React.useState(false)
