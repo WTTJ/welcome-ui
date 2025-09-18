@@ -15,10 +15,6 @@
           {
             "fileName": "welcome-ui/lib/src/components/VariantIcon/types.ts",
             "name": "VariantIconOptions"
-          },
-          {
-            "fileName": "welcome-ui/lib/src/components/VariantIcon/types.ts",
-            "name": "TypeLiteral"
           }
         ],
         "required": false,
@@ -61,10 +57,6 @@
           {
             "fileName": "welcome-ui/lib/src/components/VariantIcon/types.ts",
             "name": "VariantIconOptions"
-          },
-          {
-            "fileName": "welcome-ui/lib/src/components/VariantIcon/types.ts",
-            "name": "TypeLiteral"
           }
         ],
         "required": false,

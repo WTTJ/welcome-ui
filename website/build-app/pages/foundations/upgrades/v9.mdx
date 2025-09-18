@@ -1,0 +1,48 @@
+# Version 9: Migrate to tailwindcss
+
+Hi, today we are releasing version 9 of Welcome UI. This new version includes the migration to `tailwindcss` and the removal of `xstyled` and `styled-components`. It's a big change, but it will allow us to simplify design system and better performance.
+
+![Version 9 illustration](https://www.welcome-ui.com/v9.png)
+
+## Upgrade steps
+
+### 1. Upgrade your dependencies
+
+TODO
+
+### 2. Script to migrate
+
+In welcome-ui repository, run this script:
+
+```bash
+yarn migrate '../your_project_path'
+```
+
+### 3. Fix remaining issues
+
+We cannot cover all cases, so you may have to fix some issues manually.
+
+## Components changes
+
+### Icon
+
+We removed the IconFont component and replaced it with a new Icon component that uses SVG icons. If you already use Icon component, you don't need to change anything (except if you use color or size props, see below).
+
+```diff
+-import { IconFont } from '@welcome-ui/icon-font'
++import { NameIcon } from '@welcome-ui/icon'
+```
+
+We also remove color props, you can now use tailwind text class to change the color of the icon.
+
+```diff
+-<CheckIcon color="neutral-60"  />
++<CheckIcon className="text-neutral-60" />
+```
+
+Size props are only for intern values (xs, sm, ...), you can now use tailwind size class to change the size of the icon if is custom.
+
+```diff
+-<CheckIcon size="24"  />
++<CheckIcon className="size-[24px]" />
+```
