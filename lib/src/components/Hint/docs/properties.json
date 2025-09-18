@@ -1,0 +1,37 @@
+{
+  "Hint": {
+    "props": {
+      "variant": {
+        "defaultValue": null,
+        "description": "",
+        "name": "variant",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Hint/types.ts",
+          "name": "HintOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Hint/types.ts",
+            "name": "HintOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"danger\" | \"success\" | \"warning\"",
+          "value": [
+            {
+              "value": "\"danger\""
+            },
+            {
+              "value": "\"success\""
+            },
+            {
+              "value": "\"warning\""
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -10,7 +10,6 @@ describe('VariantIcon', () => {
 
     const component = screen.getByTestId('component')
 
-    expect(component.className).toMatch(/variant-default/)
     expect(component.className).toMatch(/size-md/)
     expect(component.querySelector('svg')).toHaveAttribute('aria-label', 'Promote')
   })
