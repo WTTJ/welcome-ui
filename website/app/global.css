@@ -8,6 +8,7 @@
 @import '../../lib/src/components/Toggle/toggle.module.scss';
 @import '../../lib/src/components/InputText/input-text.module.scss';
 @import '../../lib/src/components/Textarea/textarea.module.scss';
+@import '../../lib/src//components/Tag/tag.module.scss';
 
 @source '../../lib/src/**/*.{ts,tsx}';
 

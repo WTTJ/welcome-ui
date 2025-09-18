@@ -1,0 +1,234 @@
+@layer components {
+  .root {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: all var(--duration-medium) var(--ease-primary);
+    font-weight: 500;
+    border-radius: var(--radius-md);
+    border: 2px solid var(--color-neutral-10);
+    line-height: initial;
+
+    /* VARIABLES THAT CHANGE WITH REACT PROPS */
+    background-color: var(--backgroundColor);
+    color: var(--color);
+    border-color: var(--borderColor, transparent);
+    height: var(--height);
+    padding: var(--paddingVertical) var(--paddingHorizontal);
+    gap: var(--gap);
+    font-size: var(--fontSize);
+    border-radius: var(--borderRadius);
+
+    // Text overflow for children
+    > span,
+    > p {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    // Icon sizing
+    > svg {
+      flex-shrink: 0;
+      width: var(--iconWidth);
+      height: var(--iconHeight);
+    }
+  }
+
+  button.root,
+  a.root {
+    cursor: pointer;
+    text-decoration: none;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        --backgroundColor: var(--backgroundColorHover);
+        --borderColor: var(--borderColorHover);
+      }
+    }
+
+    &[data-focus-visible],
+    &:focus-visible {
+      outline-color: var(--outlineColorFocus);
+    }
+
+    &:active {
+      --backgroundColor: var(--backgroundColorActive);
+    }
+  }
+
+  .variant {
+    &-default {
+      --backgroundColor: var(--color-beige-20);
+      --backgroundColorHover: var(--color-beige-30);
+      --backgroundColorActive: var(--color-beige-30);
+      --color: var(--color-beige-90);
+    }
+
+    &-primary {
+      --backgroundColor: var(--color-brand-40);
+      --backgroundColorHover: var(--color-brand-50);
+      --backgroundColorActive: var(--color-brand-50);
+      --color: var(--color-neutral-90);
+    }
+
+    &-info {
+      --backgroundColor: var(--color-blue-10);
+      --backgroundColorHover: var(--color-blue-20);
+      --backgroundColorActive: var(--color-blue-20);
+      --color: var(--color-blue-90);
+    }
+
+    &-success {
+      --backgroundColor: var(--color-green-10);
+      --backgroundColorHover: var(--color-green-20);
+      --backgroundColorActive: var(--color-green-20);
+      --color: var(--color-green-90);
+    }
+
+    &-danger {
+      --backgroundColor: var(--color-red-10);
+      --backgroundColorHover: var(--color-red-20);
+      --backgroundColorActive: var(--color-red-20);
+      --color: var(--color-red-90);
+    }
+
+    &-warning {
+      --backgroundColor: var(--color-orange-10);
+      --backgroundColorHover: var(--color-orange-20);
+      --backgroundColorActive: var(--color-orange-20);
+      --color: var(--color-orange-90);
+    }
+
+    &-ai {
+      --backgroundColor: var(--color-violet-20);
+      --backgroundColorHover: var(--color-violet-30);
+      --backgroundColorActive: var(--color-violet-30);
+      --color: var(--color-violet-90);
+    }
+
+    &-blue {
+      --backgroundColor: var(--color-blue-40);
+      --backgroundColorHover: var(--color-blue-50);
+      --backgroundColorActive: var(--color-blue-50);
+      --color: var(--color-neutral-90);
+    }
+
+    &-green {
+      --backgroundColor: var(--color-green-30);
+      --backgroundColorHover: var(--color-green-40);
+      --backgroundColorActive: var(--color-green-40);
+      --color: var(--color-neutral-90);
+    }
+
+    &-orange {
+      --backgroundColor: var(--color-orange-40);
+      --backgroundColorHover: var(--color-orange-50);
+      --backgroundColorActive: var(--color-orange-50);
+      --color: var(--color-neutral-90);
+    }
+
+    &-pink {
+      --backgroundColor: var(--color-pink-40);
+      --backgroundColorHover: var(--color-pink-50);
+      --backgroundColorActive: var(--color-pink-50);
+      --color: var(--color-neutral-90);
+    }
+
+    &-teal {
+      --backgroundColor: var(--color-teal-40);
+      --backgroundColorHover: var(--color-teal-50);
+      --backgroundColorActive: var(--color-teal-50);
+      --color: var(--color-neutral-90);
+    }
+
+    &-violet {
+      --backgroundColor: var(--color-violet-40);
+      --backgroundColorHover: var(--color-violet-50);
+      --backgroundColorActive: var(--color-violet-50);
+      --color: var(--color-neutral-90);
+    }
+  }
+
+  .size {
+    &-xs {
+      --height: 1.25rem; // h-5
+      --paddingVertical: var(--spacing-xxs);
+      --paddingHorizontal: var(--spacing-xs);
+      --gap: var(--spacing-xs);
+      --fontSize: var(--font-size-xs);
+      --borderRadius: var(--radius-sm);
+      --iconWidth: 0.75rem;
+      --iconHeight: 0.75rem;
+      --borderRadius: var(--radius-sm);
+      --removeWidth: 0.5rem;
+    }
+    &-sm {
+      --height: 1.5rem; // h-6
+      --paddingVertical: var(--spacing-xs);
+      --paddingHorizontal: var(--spacing-sm);
+      --gap: var(--spacing-xs);
+      --fontSize: var(--font-size-xs);
+      --iconWidth: 0.75rem;
+      --iconHeight: 0.75rem;
+      --borderRadius: var(--radius-md);
+      --removeWidth: 0.75rem;
+    }
+    &-md {
+      --height: 2rem; // h-8
+      --paddingVertical: var(--spacing-xs);
+      --paddingHorizontal: var(--spacing-sm);
+      --gap: var(--spacing-sm);
+      --fontSize: var(--font-size-sm);
+      --iconWidth: 1rem;
+      --iconHeight: 1rem;
+      --borderRadius: var(--radius-md);
+      --removeWidth: 1rem;
+    }
+  }
+
+  .hasRemoveAction {
+    display: inline-flex;
+    gap: var(--spacing-xs);
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .isSquare {
+    padding: 0;
+    justify-content: center;
+    flex-basis: var(--height);
+  }
+
+  .removeButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity var(--duration-medium);
+    cursor: pointer;
+
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+
+    outline: none;
+    appearance: none;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    width: var(--removeWidth);
+    height: var(--removeWidth);
+
+    flex-shrink: 0;
+
+    // TODO: add focus/active styles
+  }
+}
