@@ -47,7 +47,6 @@ body:
         - Grid
         - Hint
         - Icons
-        - IconsFont
         - InputText
         - Label
         - Link

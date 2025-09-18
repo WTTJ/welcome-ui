@@ -1,6 +1,4 @@
-import type { IconProps } from '@old/Icon'
-
-export const arrows: IconProps['name'][] = [
+export const arrows = [
   'left',
   'right',
   'up',
@@ -15,7 +13,7 @@ export const arrows: IconProps['name'][] = [
   'arrow_line_down',
 ]
 
-export const actions: IconProps['name'][] = [
+export const actions = [
   'activity',
   'add',
   'archive',
@@ -60,7 +58,7 @@ export const actions: IconProps['name'][] = [
   'share2',
 ]
 
-export const miscellaneous: IconProps['name'][] = [
+export const miscellaneous = [
   'actions',
   'cover_letter',
   'details',
@@ -149,7 +147,7 @@ export const miscellaneous: IconProps['name'][] = [
   'thunderclock',
 ]
 
-export const player: IconProps['name'][] = [
+export const player = [
   'play',
   'play_outline',
   'control_stop',
@@ -175,7 +173,7 @@ export const player: IconProps['name'][] = [
   'subtitle',
 ]
 
-export const avatar: IconProps['name'][] = [
+export const avatar = [
   'avatar_accessory',
   'avatar_body',
   'avatar_bottom',
@@ -184,7 +182,7 @@ export const avatar: IconProps['name'][] = [
   'avatar_top',
 ]
 
-export const wtf: IconProps['name'][] = [
+export const wtf = [
   'basketball',
   'book',
   'book2',
@@ -251,7 +249,7 @@ export const wtf: IconProps['name'][] = [
   'unavailable',
 ]
 
-export const files: IconProps['name'][] = [
+export const files = [
   'csv',
   'doc',
   'docx',
@@ -272,7 +270,7 @@ export const files: IconProps['name'][] = [
   'zip',
 ]
 
-export const markdown: IconProps['name'][] = [
+export const markdown = [
   'bold',
   'code',
   'code_block',
@@ -292,7 +290,7 @@ export const markdown: IconProps['name'][] = [
   'underline',
 ]
 
-export const table: IconProps['name'][] = [
+export const table = [
   'table',
   'table_column_add_after',
   'table_column_add_before',
@@ -305,7 +303,7 @@ export const table: IconProps['name'][] = [
   'table_row_remove',
 ]
 
-export const brands: IconProps['name'][] = [
+export const brands = [
   'behance',
   'dribbble',
   'facebook',
@@ -325,13 +323,6 @@ export const brands: IconProps['name'][] = [
   'zapier',
 ]
 
-export const welcome: IconProps['name'][] = ['symbol', 'wttj']
+export const welcome = ['symbol', 'wttj']
 
-export const flags: IconProps['name'][] = [
-  'flag_fr',
-  'flag_en',
-  'flag_cs',
-  'flag_sk',
-  'flag_es',
-  'flag_us',
-]
+export const flags = ['flag_fr', 'flag_en', 'flag_cs', 'flag_sk', 'flag_es', 'flag_us']

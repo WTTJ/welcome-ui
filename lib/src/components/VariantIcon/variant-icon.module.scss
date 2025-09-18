@@ -34,31 +34,4 @@
       --color: var(--color-orange-60);
     }
   }
-
-  // TODO: remove this to have size from Icon component when available
-  .size {
-    &-xs {
-      --size: var(--height-elements-xxs);
-    }
-
-    &-sm {
-      --size: var(--height-elements-xs);
-    }
-
-    &-md {
-      --size: var(--height-elements-sm);
-    }
-
-    &-lg {
-      --size: var(--height-elements-md);
-    }
-
-    &-xl {
-      --size: var(--height-elements-lg);
-    }
-
-    &-xxl {
-      --size: var(--height-elements-xl);
-    }
-  }
 }

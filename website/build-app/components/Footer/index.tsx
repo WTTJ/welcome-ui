@@ -1,7 +1,8 @@
+'use client'
+import { ExternalLinkIcon, HeartIcon } from '@/components/Icon'
 import { Box } from '@old/Box'
 import { Flex } from '@old/Flex'
 import { Grid } from '@old/Grid'
-import { ExternalLinkIcon, HeartIcon } from '@old/Icons'
 import { Logo } from '@old/Logo'
 import { Text } from '@old/Text'
 
@@ -76,7 +77,7 @@ export const Footer = () => {
       <Grid gap="xl" gridTemplateColumns={{ _: '1fr 1fr', md: '1fr 1fr 1fr 1fr' }}>
         <Flex flexDirection="column" gap="xs">
           <Flex alignItems="center" gap="sm">
-            Made with <HeartIcon color="primary-50" /> by
+            Made with <HeartIcon className="text-brand-50" /> by
           </Flex>
           <Box
             as="a"
@@ -107,7 +108,7 @@ export const Footer = () => {
                     textDecoration={{ hover: 'underline' }}
                   >
                     {name}
-                    {isExternal ? <ExternalLinkIcon color="neutral-60" size="xs" /> : null}
+                    <ExternalLinkIcon className="text-neutral-60" size="xs" />
                   </Box>
                 </Box>
               ))}

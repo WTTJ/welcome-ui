@@ -1,0 +1,8 @@
+import { Icon } from '../../Icon'
+import type { IconProps } from '../../Icon.types'
+
+import content from './content.json'
+
+export const ResumeIcon = (props: IconProps) => {
+  return <Icon alt="Resume" content={content} {...props} />
+}

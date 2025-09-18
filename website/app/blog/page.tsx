@@ -1,11 +1,11 @@
 'use client'
 import styled, { th } from '@xstyled/styled-components'
 
+import { RightIcon } from '@/components/Icon'
 import { Avatar } from '@old/Avatar'
 import { Box } from '@old/Box'
 import { Card } from '@old/Card'
 import { Flex } from '@old/Flex'
-import { RightIcon } from '@old/Icons'
 import { Link } from '@old/Link'
 import { Stack } from '@old/Stack'
 import { Tag } from '@old/Tag'

@@ -1,8 +1,8 @@
 import NextLink from 'next/link'
 import React from 'react'
 
+import { GithubIcon, HeartIcon, RightIcon } from '@/components/Icon'
 import { Box } from '@old/Box'
-import { GithubIcon, HeartIcon, RightIcon } from '@old/Icons'
 import { Logo, Symbol } from '@old/Logo'
 import { Text } from '@old/Text'
 

@@ -1,5 +1,6 @@
+import { Button } from '@/components/Button'
+import { GithubIcon } from '@/components/Icon'
 import { Flex } from '@old/Flex'
-import { GithubIcon } from '@old/Icons'
 import { Text } from '@old/Text'
 
 import { PrevNextPage } from '~/build-app/components/PrevNextPage'
@@ -9,8 +10,6 @@ import type { Params } from '~/build-app/types'
 import { getPageContent } from '~/build-app/utils/page-content'
 import { getPages } from '~/build-app/utils/pages-components'
 import { getRepository } from '~/build-app/utils/transform-name'
-
-import { Button } from '../../../../lib/src/components/Button'
 
 import { Tabs } from './tabs'
 

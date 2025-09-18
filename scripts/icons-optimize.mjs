@@ -40,7 +40,7 @@ const svgoConfig = {
 }
 
 const ROOT_PATH = path.join(__dirname, '..')
-const ICONS_PATH = path.join(ROOT_PATH, 'lib/src/old/Icons/_assets')
+const ICONS_PATH = path.join(ROOT_PATH, 'lib/src/components/Icon/assets')
 
 // Write icons
 const optimizeIcons = files => {

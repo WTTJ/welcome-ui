@@ -98,34 +98,6 @@ jobs:
           at: ~/welcome-ui
       - run: cd lib && circleci tests glob "src/**/*.test.{ts,tsx}" | grep -v "/old/" | circleci tests run --command="xargs yarn test --fileParallelism=false"
 
-  release_icon_font:
-    <<: *default
-    executor: nodejs
-    steps:
-      - *checkout
-      - *restore_node_modules
-      - attach_workspace:
-          at: ~/welcome-ui
-      - run:
-          name: Prepare font hash
-          command: |
-            echo "export ICON_FONT_HASH=$(sha1sum lib/src/old/components/IconsFont/fonts/welcome-icon-font.woff2 | awk '{ print $1 }')" >> $BASH_ENV
-            source $BASH_ENV
-      - aws-cli/setup:
-          aws_access_key_id: AWS_ACCESS_KEY_ID
-          aws_secret_access_key: AWS_SECRET_ACCESS_KEY
-          region: ${AWS_REGION}
-      - aws-s3/sync:
-          from: lib/src/old/components/IconsFont/fonts
-          to: s3://welcome-ui/public/fonts/icon-font/$ICON_FONT_HASH
-          arguments: |
-            --cache-control "public, max-age=31536000" --exclude "*" --include "welcome-icon-font.woff" --include "welcome-icon-font.woff2" --metadata GitCommit=$CIRCLE_SHA1 --delete
-      - aws-s3/sync:
-          from: lib/src/old/components/IconsFont/fonts
-          to: s3://wttj-production/fonts/icon-font/$ICON_FONT_HASH
-          arguments: |
-            --cache-control "public, max-age=31536000" --exclude "*" --include "welcome-icon-font.woff" --include "welcome-icon-font.woff2" --metadata GitCommit=$CIRCLE_SHA1 --delete
-
   # current version build (common to previews & prod)
   website_build:
     <<: *default
@@ -273,14 +245,6 @@ workflows:
               only: /.*/
           requires:
             - checkout
-      - release_icon_font:
-          filters:
-            tags:
-              only: /.*/
-          context:
-            - aws
-          requires:
-            - checkout
       - website_build:
           filters:
             tags:
@@ -295,7 +259,6 @@ workflows:
             - lint
             - test
             - website_build
-            - release_icon_font
       - website_deploy_prod:
           filters:
             branches:
@@ -309,7 +272,6 @@ workflows:
             - lint
             - test
             - website_build
-            - release_icon_font
       - previous_website_versions_build_deploy_prod:
           filters:
             # should add branches here to keep previous doc version of future majors
@@ -322,7 +284,6 @@ workflows:
             - lint
             - test
             - website_build
-            - release_icon_font
       - release:
           context:
             - welcome-ui
@@ -331,7 +292,6 @@ workflows:
             - lint
             - test
             - website_build
-            - release_icon_font
           filters:
             branches:
               ignore: /.*/
@@ -344,7 +304,6 @@ workflows:
             - build
             - lint
             - test
-            - release_icon_font
           filters:
             branches:
               ignore: /.*/
@@ -357,7 +316,6 @@ workflows:
             - build
             - lint
             - test
-            - release_icon_font
           filters:
             branches:
               ignore: /.*/

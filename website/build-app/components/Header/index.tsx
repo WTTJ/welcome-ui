@@ -2,15 +2,15 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
+import { Button } from '@/components/Button'
+import { MenuIcon } from '@/components/Icon'
 import { Box } from '@old/Box'
 import { Drawer, useDrawer } from '@old/Drawer'
 import { Flex } from '@old/Flex'
-import { MenuIcon } from '@old/Icons'
 import { WelcomeUILogo } from '@old/Logo'
 
 import type { PageTree } from '~/build-app/types'
 
-import { Button } from '../../../../lib/src/components/Button'
 import { Search } from '../Search'
 import { Sidebar } from '../Sidebar'
 import { VersionSelector } from '../VersionSelector'

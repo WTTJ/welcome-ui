@@ -1,31 +1,33 @@
+import { WttjIcon } from '@/components/Icon'
+
 import { Button } from '../../index'
 
 const Example = () => {
   return (
     <>
       <Button shape="square" size="xs">
-        <i className="wui-icon-wttj wui-icon-font" />
+        <WttjIcon />
       </Button>
       <Button shape="circle" size="xs">
-        <i className="wui-icon-wttj wui-icon-font" />
+        <WttjIcon />
       </Button>
       <Button shape="square" size="sm">
-        <i className="wui-icon-wttj wui-icon-font" />
+        <WttjIcon />
       </Button>
       <Button shape="circle" size="sm">
-        <i className="wui-icon-wttj wui-icon-font" />
+        <WttjIcon />
       </Button>
       <Button shape="square">
-        <i className="wui-icon-wttj wui-icon-font" />
+        <WttjIcon />
       </Button>
       <Button shape="circle">
-        <i className="wui-icon-wttj wui-icon-font" />
+        <WttjIcon />
       </Button>
       <Button shape="square" size="lg">
-        <i className="wui-icon-wttj wui-icon-font" />
+        <WttjIcon />
       </Button>
       <Button shape="circle" size="lg">
-        <i className="wui-icon-wttj wui-icon-font" />
+        <WttjIcon />
       </Button>
     </>
   )

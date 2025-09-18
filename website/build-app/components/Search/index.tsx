@@ -2,8 +2,9 @@
 import { DocSearchModal } from '@docsearch/react'
 import { useEffect, useState } from 'react'
 
-import { IconsFont } from '@old/IconsFont'
+import { SearchIcon } from '@/components/Icon'
 import { InputText } from '@old/InputText'
+
 import '@docsearch/css'
 
 export const Search = () => {
@@ -30,7 +31,7 @@ export const Search = () => {
   return (
     <>
       <InputText
-        icon={<IconsFont.Search />}
+        icon={<SearchIcon />}
         maxW="100%"
         onClick={() => setIsOpen(true)}
         onFocus={() => setIsOpen(true)}

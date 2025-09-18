@@ -1,10 +1,10 @@
+import { CodeBlockIcon, DownloadIcon, StarIcon } from '@/components/Icon'
 import { Box } from '@old/Box'
-import { CodeBlockIcon, DownloadIcon, StarIcon } from '@old/Icons'
 import { Text } from '@old/Text'
 
 const stats = [
   {
-    icon: <CodeBlockIcon h={24} w={24} />,
+    icon: <CodeBlockIcon size="lg" />,
     name: (
       <>
         Amazing
@@ -15,7 +15,7 @@ const stats = [
     number: '50+',
   },
   {
-    icon: <StarIcon h={24} w={24} />,
+    icon: <StarIcon size="lg" />,
     name: (
       <>
         Github
@@ -26,7 +26,7 @@ const stats = [
     number: '600+',
   },
   {
-    icon: <DownloadIcon h={24} w={24} />,
+    icon: <DownloadIcon size="lg" />,
     name: (
       <>
         Weekly

@@ -1,11 +1,10 @@
 'use client'
 import { Highlight as HighlightPrism, themes } from 'prism-react-renderer'
 
+import { Button } from '@/components/Button'
+import { CheckIcon, CopyIcon } from '@/components/Icon'
 import { Box } from '@old/Box'
-import { CheckIcon, CopyIcon } from '@old/Icons'
 import { useCopyText } from '@old/utils'
-
-import { Button } from '../../../../lib/src/components/Button'
 
 export type HighlightProps = {
   children: string
@@ -26,7 +25,7 @@ export const Highlight = ({ children, language = 'tsx' }: HighlightProps) => {
             size="xs"
             variant={copied ? 'primary' : 'ghost'}
           >
-            {copied ? <CheckIcon /> : <CopyIcon color="neutral-10" />}
+            {copied ? <CheckIcon /> : <CopyIcon className="text-neutral-10" />}
           </Button>
           <Box
             as="pre"
