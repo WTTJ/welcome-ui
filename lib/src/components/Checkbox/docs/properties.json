@@ -1,0 +1,67 @@
+{
+  "Checkbox": {
+    "props": {
+      "indeterminate": {
+        "defaultValue": {
+          "value": false
+        },
+        "description": "",
+        "name": "indeterminate",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Checkbox/types.ts",
+          "name": "CheckboxOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Checkbox/types.ts",
+            "name": "CheckboxOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "variant": {
+        "defaultValue": null,
+        "description": "",
+        "name": "variant",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Checkbox/types.ts",
+          "name": "CheckboxOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Checkbox/types.ts",
+            "name": "CheckboxOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Variant",
+          "value": [
+            {
+              "value": "\"danger\""
+            },
+            {
+              "value": "\"success\""
+            },
+            {
+              "value": "\"warning\""
+            }
+          ]
+        }
+      }
+    }
+  }
+}
