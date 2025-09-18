@@ -1,0 +1,39 @@
+import { screen } from '@testing-library/react'
+
+import { render } from '@tests'
+
+import { Label } from './index'
+
+describe('Label', () => {
+  it('renders children correctly', () => {
+    render(<Label>Test Label</Label>)
+
+    expect(screen.getByText('Test Label')).toBeInTheDocument()
+  })
+
+  it('shows required asterisk when required', () => {
+    render(<Label required>Required Label</Label>)
+
+    expect(screen.getByText('*')).toBeInTheDocument()
+  })
+
+  it('shows VariantIcon when variant is provided', () => {
+    render(<Label variant="danger">Label with variant</Label>)
+
+    const svg = screen.getByRole('img')
+    expect(svg).toHaveAccessibleName('SquareAlert')
+  })
+
+  it('shows LockIcon when disabled', () => {
+    render(<Label disabled>Disabled Label</Label>)
+
+    const svg = screen.getByRole('img')
+    expect(svg).toHaveAccessibleName('Lock')
+  })
+
+  it('applies custom className', () => {
+    render(<Label className="custom-class">Custom Label</Label>)
+
+    expect(screen.getByText('Custom Label')).toHaveClass(/custom-class/)
+  })
+})

@@ -4,9 +4,7 @@ import type { IconProps } from '../Icon'
 
 export type VariantIconProps = ComponentPropsWithRef<'div'> &
   HTMLAttributes<HTMLDivElement> &
-  VariantIconOptions & {
-    className?: string
-  }
+  VariantIconOptions
 
 type Variant = 'ai' | 'danger' | 'default' | 'info' | 'success' | 'warning'
 

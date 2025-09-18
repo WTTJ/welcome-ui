@@ -8,7 +8,6 @@ export type IconProps = ComponentPropsWithRef<'svg'> &
   IconOptions &
   Omit<React.SVGProps<SVGSVGElement>, 'size'> & {
     alt?: string
-    className?: string
     content?: {
       block: string
       height?: number

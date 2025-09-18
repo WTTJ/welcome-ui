@@ -1,0 +1,18 @@
+@layer components {
+  .root {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    max-width: 100%;
+    gap: var(--spacing-xs);
+    color: var(--color-neutral-60);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-lg);
+  }
+
+  .required {
+    color: var(--color-brand-50);
+  }
+}
