@@ -16,18 +16,24 @@ export function useButtonGroup() {
 
 export const ButtonGroup = forwardRefWithAs<ButtonGroupProps, 'div'>(
   (
-    { as, children, className, disabled = false, size = 'md', variant = 'primary', ...rest },
+    {
+      as: Component = 'div',
+      children,
+      className,
+      disabled = false,
+      size = 'md',
+      variant = 'primary',
+      ...rest
+    },
     ref
   ) => {
     const state = useMemo(() => ({ disabled, size, variant }), [disabled, size, variant])
 
-    const Element = as || 'div'
-
     return (
       <ButtonGroupContext.Provider value={state}>
-        <Element {...rest} className={cx('root', className)} ref={ref}>
+        <Component {...rest} className={cx('root', className)} ref={ref}>
           {children}
-        </Element>
+        </Component>
       </ButtonGroupContext.Provider>
     )
   }

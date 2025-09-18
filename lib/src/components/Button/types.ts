@@ -1,4 +1,5 @@
 import type { ButtonProps as AriakitButtonProps } from '@ariakit/react'
+import type { ReactNode } from 'react'
 
 import type { MergeProps } from '@/utils/forwardRefWithAs'
 
@@ -18,6 +19,7 @@ export type ButtonVariant =
   | 'tertiary-ai'
   | 'tertiary-danger'
 interface ButtonOptions {
+  children?: ReactNode
   isLoading?: boolean
   shape?: ButtonShape
   size?: ButtonSize
