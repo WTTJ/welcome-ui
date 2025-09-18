@@ -1,6 +1,6 @@
-import { render } from '@tests'
-
 import { Text } from '@/components/Text'
+
+import { render } from '@tests'
 
 const content = 'Jungle'
 const longContent =
