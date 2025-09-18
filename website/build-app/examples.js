@@ -17,6 +17,11 @@ export default {
   "/Button/docs/examples/sizes.tsx": dynamic(() => import("../../lib/src/components/Button/docs/examples/sizes.tsx").then(mod => mod), { ssr: false }),
   "/Button/docs/examples/tailwind-class-overrides.tsx": dynamic(() => import("../../lib/src/components/Button/docs/examples/tailwind-class-overrides.tsx").then(mod => mod), { ssr: false }),
   "/Button/docs/examples/variants.tsx": dynamic(() => import("../../lib/src/components/Button/docs/examples/variants.tsx").then(mod => mod), { ssr: false }),
+  "/Checkbox/docs/examples/hint.tsx": dynamic(() => import("../../lib/src/components/Checkbox/docs/examples/hint.tsx").then(mod => mod), { ssr: false }),
+  "/Checkbox/docs/examples/labels.tsx": dynamic(() => import("../../lib/src/components/Checkbox/docs/examples/labels.tsx").then(mod => mod), { ssr: false }),
+  "/Checkbox/docs/examples/nested.tsx": dynamic(() => import("../../lib/src/components/Checkbox/docs/examples/nested.tsx").then(mod => mod), { ssr: false }),
+  "/Checkbox/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Checkbox/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
+  "/Checkbox/docs/examples/variants.tsx": dynamic(() => import("../../lib/src/components/Checkbox/docs/examples/variants.tsx").then(mod => mod), { ssr: false }),
   "/VariantIcon/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/VariantIcon/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/VariantIcon/docs/examples/sizes.tsx": dynamic(() => import("../../lib/src/components/VariantIcon/docs/examples/sizes.tsx").then(mod => mod), { ssr: false })
 };

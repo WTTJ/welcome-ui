@@ -1,0 +1,97 @@
+---
+ariakit: https://ariakit.org/components/checkbox
+category: forms
+description: The Checkbox component allows users to select multiple options from a set of choices. It consists of a small box that, when clicked, toggles between checked and unchecked states. Checkboxes are commonly used in forms and lists to enable users to make multiple selections efficiently.
+packageName: checkbox
+title: Checkbox
+---
+
+### With Label
+
+Use Field component to add a `label`
+
+<div data-playground="labels.tsx" data-component="Checkbox"></div>
+
+### With hint
+
+Use Field component to add a `hint`
+
+<div data-playground="hint.tsx" data-component="Checkbox"></div>
+
+### Variants
+
+Use `hint`, `warning`, `danger` or `success` properties on Field component to add a variant status on your checkbox. The label, hint or border color are set by magic 🪄
+
+<div data-playground="variants.tsx" data-component="Checkbox"></div>
+
+### Nested checkboxes
+
+Use 'indeterminate' prop to manage the behaviour of a parent checkbox in response to children checkboxes. This can help you create a nested selection menu.
+
+<div data-playground="nested.tsx" data-component="Checkbox"></div>
+
+### React Hook Form
+
+A FieldGroup form with React Hook Form
+
+```jsx
+function() {
+  const FormChildren = ({ control, register }) => (
+    <FieldGroup label="Check the frameworks you have already worked with">
+      <Controller
+        name="react"
+        control={control}
+        render={({ field: { onChange, value, ...field } }) => (
+          <Field label="React">
+            <Checkbox
+              {...field}
+              checked={value}
+              onClick={onChange}
+            />
+          </Field>
+        )}
+      />
+      <Controller
+        name="angular"
+        control={control}
+        render={({ field: { onChange, value, ...field } }) => (
+          <Field label="Angular">
+            <Checkbox
+              {...field}
+              checked={value}
+              onClick={onChange}
+            />
+          </Field>
+        )}
+      />
+      <Controller
+        name="vue"
+        control={control}
+        render={({ field: { onChange, value, ...field } }) => (
+          <Field label="Vue">
+            <Checkbox
+              {...field}
+              onClick={onChange}
+              checked={value}
+            />
+          </Field>
+        )}
+      />
+    </FieldGroup>
+  )
+
+  return (
+    <HookForm
+      defaultValues={{ react: true, angular: false, vue: false  }}
+      schemaValidate={() => yup.object().shape({
+          react: yup.boolean().required().oneOf([true, false]),
+          angular: yup.boolean().required().oneOf([true, false]),
+          vue: yup.boolean().required().oneOf([true, false]),
+        })
+      }
+    >
+      <FormChildren />
+    </HookForm>
+  )
+}
+```
