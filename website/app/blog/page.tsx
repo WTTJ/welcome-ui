@@ -3,6 +3,7 @@ import styled, { th } from '@xstyled/styled-components'
 
 import { Button } from '@/components/Button'
 import { RightIcon } from '@/components/Icon'
+import { Text } from '@/components/Text'
 import { Avatar } from '@old/Avatar'
 import { Box } from '@old/Box'
 import { Card } from '@old/Card'
@@ -10,7 +11,6 @@ import { Flex } from '@old/Flex'
 import { Link } from '@old/Link'
 import { Stack } from '@old/Stack'
 import { Tag } from '@old/Tag'
-import { Text } from '@old/Text'
 
 const posts = [
   {
@@ -81,10 +81,10 @@ const Home = () => {
   return (
     <Box as="main" p="xl">
       <Box margin="0 auto" maxWidth={600} mt="xl">
-        <Text textAlign="center" variant="subtitle-md">
+        <Text className="text-center" variant="subtitle-md">
           Blog
         </Text>
-        <Text textAlign="center" variant="h1">
+        <Text className="text-center" variant="h1">
           The latest about us
         </Text>
         <Box as="ul" listStyleType="none" m="0" mt={{ _: 'xxl', md: '5xl' }} p="0">
@@ -105,13 +105,13 @@ const Home = () => {
                   </Title>
                   <Box alignItems={{ md: 'flex-end' }} display={{ md: 'flex' }}>
                     <Flex direction="column" gap="md">
-                      <Text mt="md">{description}</Text>
+                      <Text className="mt-md">{description}</Text>
                       <Stack direction="row" mb="xxs">
                         {authors?.map(({ name, url }) => (
                           <Avatar key={`${link}_authors_${url}`} name={name} src={url} />
                         ))}
                       </Stack>
-                      <Text as="span" fontWeight="bold" variant="sm">
+                      <Text as="span" className="font-bold" variant="sm">
                         {authors?.map(({ name }, idx) => (
                           <>
                             {idx !== 0 && ', '}
@@ -119,9 +119,7 @@ const Home = () => {
                           </>
                         ))}
                       </Text>
-                      <Text mb="0" variant="xs">
-                        {date.toDateString()}
-                      </Text>
+                      <Text variant="xs">{date.toDateString()}</Text>
                       <Button
                         as="a"
                         className="w-fit shrink-0"

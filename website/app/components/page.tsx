@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
+import { Text } from '@/components/Text'
 import { Box } from '@old/Box'
 import { Card } from '@old/Card'
 import { Flex } from '@old/Flex'
 import { Grid } from '@old/Grid'
-import { Text } from '@old/Text'
 
 import { getPageContent } from '~/build-app/utils/page-content'
 import { getPages } from '~/build-app/utils/pages-components'
@@ -20,12 +20,12 @@ const Page = () => {
 
   return (
     <Flex as="main" direction="column" gap="xxl" margin="0 auto" maxWidth={1000} p="lg">
-      <Text py="3xl" variant="h1">
+      <Text className="py-3xl" variant="h1">
         Components
       </Text>
       {pages.map(category => (
         <Flex direction="column" gap="md" key={category.category}>
-          <Text as="h2" textTransform="uppercase" variant="h6">
+          <Text as="h2" className="uppercase" variant="h6">
             {getName(category.category as string)}
           </Text>
           <Grid gap="lg" templateColumns={{ _: '1fr', lg: '1fr 1fr' }}>
@@ -56,7 +56,7 @@ const Page = () => {
                       <Text as="h3" variant="h4">
                         {page.title}
                       </Text>
-                      <Text color="neutral-70" lines={3} mt="sm" variant="sm">
+                      <Text className="text-neutral-70 mt-sm" lines={3} variant="sm">
                         {data?.description}
                       </Text>
                     </Box>

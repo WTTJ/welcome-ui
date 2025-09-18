@@ -1,4 +1,4 @@
-import { Text } from '@old/Text'
+import { Text } from '@/components/Text'
 
 import { Sidebar } from '~/build-app/components/Sidebar'
 import * as Documentation from '~/build-app/layouts/Documentation'
@@ -16,7 +16,7 @@ const Layout = async ({ children, params }: React.PropsWithChildren<Params>) => 
     <Documentation.Layout>
       <Sidebar display={{ _: 'none', lg: 'flex' }} menu={pages} />
       <div>
-        <Text py="3xl" variant="h1">
+        <Text className="py-3xl" variant="h1">
           {getName(id)}
         </Text>
         <Tabs pages={pages} />

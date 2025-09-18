@@ -3,9 +3,9 @@ import React from 'react'
 
 import { Button } from '@/components/Button'
 import { GithubIcon, HeartIcon, RightIcon } from '@/components/Icon'
+import { Text } from '@/components/Text'
 import { Box } from '@old/Box'
 import { Logo, Symbol } from '@old/Logo'
-import { Text } from '@old/Text'
 
 import { Components } from '~/build-app/components/Homepage/Components'
 import { Expectations } from '~/build-app/components/Homepage/Expectations'
@@ -16,13 +16,13 @@ const Home = () => {
   return (
     <main>
       <Section backgroundColor="beige-30">
-        <Text as="span" color="neutral-90" textTransform="uppercase" variant="subtitle-md">
+        <Text as="span" className="text-neutral-90" variant="subtitle-md">
           Welcome UI
         </Text>
-        <Text maxWidth={820} mb="xl" mt="sm" variant="h1">
+        <Text className="max-w-[820px] mb-xl mt-sm" variant="h1">
           All the components you need to create a delightful React webapp
         </Text>
-        <Text maxWidth={640} variant="lg">
+        <Text className="max-w-[640px]" variant="lg">
           Welcome UI is a customizable design system library made with react, typescript,
           styled-components, ariakit and a lot of love 💛
         </Text>
@@ -32,10 +32,10 @@ const Home = () => {
         </Button>
       </Section>
       <Section>
-        <Text as="h2" mb="xl" mt="sm" variant="h1">
+        <Text as="h2" className="mb-xl mt-sm" variant="h1">
           Some of our components
         </Text>
-        <Text maxWidth={640} mb="3xl" variant="lg">
+        <Text className="max-w-[640px] mb-3xl" variant="lg">
           More than 50 amazing components!
         </Text>
         <Components />
@@ -48,13 +48,13 @@ const Home = () => {
           justifyContent="space-between"
         >
           <Box flex="0 0 auto" maxWidth={{ md: 600 }} mb={{ lg: 0, xs: '5xl' }}>
-            <Text as="span" color="neutral-90" textTransform="uppercase" variant="subtitle-md">
+            <Text as="span" className="text-neutral-90" variant="subtitle-md">
               Open source
             </Text>
-            <Text as="h2" mb="xl" mt="sm" variant="h1">
+            <Text as="h2" className="mb-xl mt-sm" variant="h1">
               Contribute!
             </Text>
-            <Text maxWidth={640} variant="lg">
+            <Text className="max-w-[640px]" variant="lg">
               Welcome UI is open-sourced on GitHub. Contributions, feedback and issues are welcome –
               we want you to be a part of this great project.
             </Text>
@@ -75,22 +75,22 @@ const Home = () => {
         </Box>
       </Section>
       <Section>
-        <Text as="h2" maxWidth={500} mb="xl" mt="0" variant="h1">
+        <Text as="h2" className="max-w-[500px] mb-xl" variant="h1">
           All you’d expect from a design system...
         </Text>
-        <Text maxWidth={640} mb="5xl" variant="lg">
+        <Text className="max-w-[640px] mb-5xl" variant="lg">
           ...and a lot more!
         </Text>
         <Expectations />
       </Section>
       <Section backgroundColor="beige-30">
-        <Text as="span" color="neutral-90" textTransform="uppercase" variant="subtitle-md">
+        <Text as="span" className="text-neutral-90" variant="subtitle-md">
           Example
         </Text>
-        <Text as="h2" mb="xl" mt="sm" variant="h1">
+        <Text as="h2" className="mb-xl mt-sm" variant="h1">
           Going straight to the point!
         </Text>
-        <Text maxWidth={450} variant="lg">
+        <Text className="max-w-[450px]" variant="lg">
           Leave the UI code to our team and focus on building your astonishing project.
         </Text>
         <Box
@@ -107,20 +107,13 @@ const Home = () => {
       </Section>
       <Section pt={{ md: '6xl', xs: '3xl' }}>
         <Logo h={67} />
-        <Text
-          as="span"
-          color="neutral-90"
-          mb="0"
-          mt="3xl"
-          textTransform="uppercase"
-          variant="subtitle-md"
-        >
+        <Text as="span" className="text-neutral-90 mt-3xl" color="neutral-90" variant="subtitle-md">
           Who we are?
         </Text>
-        <Text as="h2" color="neutral-90" maxWidth={950} mb="xl" mt="sm" variant="h1">
+        <Text as="h2" className="max-w-[950px] mb-xl mt-sm" color="neutral-90" variant="h1">
           THE JOB IS YOURS
         </Text>
-        <Text maxWidth={640} variant="lg">
+        <Text className="max-w-[640px]" variant="lg">
           80,000 opportunities to find the job that’s made for you.
         </Text>
         <Box display={{ md: 'flex' }} mt="5xl">
