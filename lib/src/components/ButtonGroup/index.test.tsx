@@ -1,10 +1,12 @@
 import { Button } from '@/components/Button'
 
-import { render } from '@tests'
+import { expectAsSupport, render } from '@tests'
 
 import { ButtonGroup } from '.'
 
 describe('<ButtonGroup>', () => {
+  expectAsSupport(ButtonGroup)
+
   it('should render correctly', () => {
     const { getByTestId } = render(
       <ButtonGroup data-testid="group">
