@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react'
 
-import { render } from '../../../tests'
+import { render } from '@tests'
 
 import { Button } from '.'
 

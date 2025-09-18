@@ -1,6 +1,7 @@
 import { fireEvent, screen } from '@testing-library/react'
-import { render } from '@tests'
 import React from 'react'
+
+import { render } from '@tests'
 
 import { Toggle } from './'
 

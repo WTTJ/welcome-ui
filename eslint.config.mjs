@@ -43,9 +43,11 @@ export default tseslint.config(
         {
           customGroups: {
             type: {
+              'internal-type': ['@tests'],
               'welcome-ui': ['@/', '@old/'],
             },
             value: {
+              'internal-type': ['@tests'],
               'welcome-ui': ['@/', '@old/'],
             },
           },

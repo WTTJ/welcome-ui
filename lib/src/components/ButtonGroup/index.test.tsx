@@ -1,6 +1,6 @@
 import { Button } from '@/components/Button'
 
-import { render } from '../../../tests'
+import { render } from '@tests'
 
 import { ButtonGroup } from '.'
 
