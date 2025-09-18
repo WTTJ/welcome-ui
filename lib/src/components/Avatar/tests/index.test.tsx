@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react'
+import { render } from '@tests'
 
-import { render } from '../../../../tests/index'
 import { Avatar } from '../index'
 
 describe('<Avatar>', () => {

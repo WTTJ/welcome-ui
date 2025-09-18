@@ -4,18 +4,10 @@ import { classNames } from '@/utils'
 import { forwardRef } from '@old/System'
 
 import styles from './avatar.module.scss'
-import type { Size } from './types'
+import type { AvatarProps } from './types'
 import { getInitials as defaultGetInitials, getColorFromName } from './utils'
 
 const cx = classNames(styles)
-
-export interface AvatarProps {
-  className?: string
-  getInitials?: (name: string) => string
-  name: string
-  size?: Size
-  src?: string
-}
 
 export const colors = [
   'secondary-blue',
