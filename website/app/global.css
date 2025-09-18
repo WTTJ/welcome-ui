@@ -15,6 +15,7 @@
 @import '../../lib/src/components/Textarea/textarea.module.scss';
 @import '../../lib/src/components/Toggle/toggle.module.scss';
 @import '../../lib/src/components/VariantIcon/variant-icon.module.scss';
+@import '../../lib/src//components/Tag/tag.module.scss';
 
 @source '../../lib/src/**/*.{ts,tsx}';
 
