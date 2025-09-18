@@ -1,4 +1,4 @@
-import * as Ariakit from '@ariakit/react'
+import { Checkbox } from '@ariakit/react'
 import { forwardRef } from 'react'
 
 import { classNames } from '@/utils'
@@ -26,7 +26,7 @@ export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(
           </div>
         ) : null}
 
-        <Ariakit.Checkbox
+        <Checkbox
           checked={checked}
           className={cx('root', `size-${size}`, className)}
           disabled={disabled}
