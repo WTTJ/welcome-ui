@@ -1,0 +1,63 @@
+{
+  "Textarea": {
+    "props": {
+      "minRows": {
+        "defaultValue": {
+          "value": 5
+        },
+        "description": "",
+        "name": "minRows",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Textarea/types.ts",
+          "name": "TextareaOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Textarea/types.ts",
+            "name": "TextareaOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "number"
+        }
+      },
+      "variant": {
+        "defaultValue": {
+          "value": "default"
+        },
+        "description": "",
+        "name": "variant",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Textarea/types.ts",
+          "name": "TextareaOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Textarea/types.ts",
+            "name": "TextareaOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Variant",
+          "value": [
+            {
+              "value": "\"danger\""
+            },
+            {
+              "value": "\"default\""
+            },
+            {
+              "value": "\"success\""
+            },
+            {
+              "value": "\"warning\""
+            }
+          ]
+        }
+      }
+    }
+  }
+}

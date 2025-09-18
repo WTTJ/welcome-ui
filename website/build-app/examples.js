@@ -35,6 +35,8 @@ export default {
   "/InputText/docs/examples/sizes.tsx": dynamic(() => import("../../lib/src/components/InputText/docs/examples/sizes.tsx").then(mod => mod), { ssr: false }),
   "/InputText/docs/examples/transparent.tsx": dynamic(() => import("../../lib/src/components/InputText/docs/examples/transparent.tsx").then(mod => mod), { ssr: false }),
   "/InputText/docs/examples/variants.tsx": dynamic(() => import("../../lib/src/components/InputText/docs/examples/variants.tsx").then(mod => mod), { ssr: false }),
+  "/Textarea/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Textarea/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
+  "/Textarea/docs/examples/variants.tsx": dynamic(() => import("../../lib/src/components/Textarea/docs/examples/variants.tsx").then(mod => mod), { ssr: false }),
   "/VariantIcon/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/VariantIcon/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/VariantIcon/docs/examples/sizes.tsx": dynamic(() => import("../../lib/src/components/VariantIcon/docs/examples/sizes.tsx").then(mod => mod), { ssr: false })
 };
