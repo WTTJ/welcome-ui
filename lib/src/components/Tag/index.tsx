@@ -1,38 +1,13 @@
-import type { ComponentProps, MouseEvent } from 'react'
+import type { MouseEvent } from 'react'
 import React from 'react'
 
+import { CrossIcon } from '@/components/Icon'
 import { classNames, forwardRefWithAs } from '@/utils'
-//TODO: update icons import when https://github.com/WTTJ/welcome-ui/pull/2837 is merged
-import { CrossIcon } from '@old/Icons'
 
 import tagStyles from './tag.module.scss'
+import type { TagOptions } from './types'
 
 const cx = classNames(tagStyles)
-
-export interface TagProps {
-  icon?: React.ReactNode
-  onRemove?: () => void
-  removeButtonProps?: ComponentProps<'button'>
-  size?: TagSize
-  variant?: TagVariant
-}
-
-export type TagSize = 'md' | 'sm' | 'xs'
-export type TagVariant =
-  | 'ai'
-  | 'blue'
-  | 'danger'
-  | 'default'
-  | 'default'
-  | 'green'
-  | 'info'
-  | 'orange'
-  | 'pink'
-  | 'primary'
-  | 'success'
-  | 'teal'
-  | 'violet'
-  | 'warning'
 
 function getTextLength(children: React.ReactNode): number | undefined {
   if (typeof children === 'string' || typeof children === 'number') {
@@ -44,7 +19,7 @@ function getTextLength(children: React.ReactNode): number | undefined {
   return undefined
 }
 
-export const Tag = forwardRefWithAs<TagProps, 'div'>((props, ref) => {
+export const Tag = forwardRefWithAs<TagOptions, 'div'>((props, ref) => {
   const {
     as,
     children,
@@ -60,7 +35,7 @@ export const Tag = forwardRefWithAs<TagProps, 'div'>((props, ref) => {
 
   const Element = as || 'div'
 
-  // Check if it's a single character (should be shaped)
+  // Determine if the tag should have a square shape (only one character and no remove action)
   const isSquare = getTextLength(children) === 1 && !onRemove
 
   const handleRemove = (e: MouseEvent<HTMLButtonElement>) => {
@@ -92,7 +67,7 @@ export const Tag = forwardRefWithAs<TagProps, 'div'>((props, ref) => {
           className={cx('removeButton', removeButtonProps?.className)}
           onClick={handleRemove}
         >
-          <CrossIcon size="xs" title="Remove" />
+          <CrossIcon size="xs" />
         </button>
       ) : null}
     </Element>
