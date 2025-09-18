@@ -259,7 +259,7 @@
       --outlineColor: var(--outlineColorFocus);
     }
 
-    &:active {
+    &:not([disabled]):active {
       --backgroundColor: var(--backgroundColorActive);
     }
   }
