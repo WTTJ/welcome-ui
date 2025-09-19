@@ -40,6 +40,7 @@ export default {
   "/Label/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Label/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Label/docs/examples/required.tsx": dynamic(() => import("../../lib/src/components/Label/docs/examples/required.tsx").then(mod => mod), { ssr: false }),
   "/Label/docs/examples/variants.tsx": dynamic(() => import("../../lib/src/components/Label/docs/examples/variants.tsx").then(mod => mod), { ssr: false }),
+  "/PasswordInput/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/PasswordInput/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Text/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Text/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Text/docs/examples/overwrite.tsx": dynamic(() => import("../../lib/src/components/Text/docs/examples/overwrite.tsx").then(mod => mod), { ssr: false }),
   "/Text/docs/examples/truncation.tsx": dynamic(() => import("../../lib/src/components/Text/docs/examples/truncation.tsx").then(mod => mod), { ssr: false }),
