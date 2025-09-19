@@ -36,6 +36,6 @@ describe('<Loader>', () => {
     const dot = loader.children[0]
 
     expect(dot.className).toMatch('size-16')
-    expect(dot).toHaveStyle({ '--size': '16rem' })
+    expect(dot).toHaveStyle({ '--size': '16px' })
   })
 })

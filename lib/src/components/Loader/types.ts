@@ -1,12 +1,16 @@
 import type { ComponentPropsWithRef, HTMLAttributes, ReactNode } from 'react'
 
-export type LoaderProps = ComponentPropsWithRef<'div'> &
-  HTMLAttributes<HTMLDivElement> & {
-    children?: ReactNode
-    className?: string
-    size?: Size
-    variant?: Variant
-  }
+import type { MergeProps } from '@/utils/forwardRefWithAs'
+
+export interface LoaderOptions {
+  children?: ReactNode
+  size?: Size
+  variant?: Variant
+}
+
+export type LoaderProps = MergeProps<LoaderOptions, ElementAttributes>
+
+type ElementAttributes = MergeProps<ComponentPropsWithRef<'div'>, HTMLAttributes<HTMLDivElement>>
 
 type Variant = 'neutral' | 'primary' | 'violet'
 
