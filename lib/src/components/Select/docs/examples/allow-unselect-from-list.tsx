@@ -1,10 +1,10 @@
 import * as React from 'react'
 
+import { LinkIcon } from '@/components/Icon'
 import { Select } from '@/components/Select'
 import type { SelectOption, SelectProps } from '@/components/Select/types'
-import { Box } from '@old/Box'
+//TODO migrate WUI-184/checkbox
 import { Checkbox } from '@old/Checkbox'
-import { LinkIcon } from '@old/Icons'
 
 export const ITEMS = [
   { label: 'Bold', value: 'bold' },
@@ -24,7 +24,7 @@ const Example = () => {
     <Select
       allowUnselectFromList
       disableCloseOnSelect
-      icon={<LinkIcon color="neutral-90" title="Social networks" />}
+      icon={<LinkIcon alt="Social networks" color="neutral-90" />}
       isMultiple
       isSearchable
       name="welcome"
@@ -33,12 +33,12 @@ const Example = () => {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       renderItem={(item: SelectOption, selected?: boolean) => (
-        <Box display="flex" justifyContent="space-between">
+        <div className="flex justify-between">
           {item.label}
-          <Box>
+          <div className="flex">
             <Checkbox checked={selected} type="checkbox" />
-          </Box>
-        </Box>
+          </div>
+        </div>
       )}
       value={value}
     />

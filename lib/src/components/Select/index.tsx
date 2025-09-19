@@ -43,6 +43,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
       allowUnselectFromList,
       autoComplete = 'off',
       autoFocus,
+      className,
       dataTestId,
       disableCloseOnSelect,
       disabled,
@@ -300,7 +301,8 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
             variant && `variant-${variant}`,
             isClearable && 'clearable',
             transparent && 'transparent',
-            icon ? 'icon-placement-both' : 'icon-placement-right'
+            icon ? 'icon-placement-both' : 'icon-placement-right',
+            className
           )
 
           return (

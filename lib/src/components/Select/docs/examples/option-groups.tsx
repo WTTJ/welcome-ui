@@ -2,9 +2,9 @@ import * as React from 'react'
 
 import { Select } from '@/components/Select'
 import type { SelectProps } from '@/components/Select/types'
-import { Box } from '@old/Box'
+import { Text } from '@/components/Text'
+//TODO migrate WUI-187/tag
 import { Tag } from '@old/Tag'
-import { Text } from '@old/Text'
 
 export const GROUP_ITEMS = [
   {
@@ -38,15 +38,15 @@ const Example = () => {
       onChange={handleChange}
       options={GROUP_ITEMS}
       renderGroupHeader={({ label, options }) => (
-        <Box p="xxs">
-          <Box alignItems="center" display="flex" justifyContent="space-between">
-            <Text m="0" variant="sm">
+        <div className="p-(--spacing-xxs))">
+          <div className="flex items-center justify-between">
+            <Text className="ml-(--spacing-sm) font-medium" variant="sm">
               {label}
             </Text>
             <Tag>{options.length}</Tag>
-          </Box>
+          </div>
           {options.length === 0 && <Text variant="xs">No results found</Text>}
-        </Box>
+        </div>
       )}
       value={value}
     />
