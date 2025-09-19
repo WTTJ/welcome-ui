@@ -1,4 +1,5 @@
 import { screen } from '@testing-library/react'
+
 import { render } from '@tests'
 
 import { Avatar } from '../index'
@@ -16,7 +17,7 @@ describe('<Avatar>', () => {
     expect(screen.getByText('WE')).toBeInTheDocument()
   })
 
-  it('should render with an image', async () => {
+  it('should render with an image', () => {
     render(
       <Avatar
         name="welcome jungle"
@@ -25,6 +26,6 @@ describe('<Avatar>', () => {
     )
 
     expect(screen.getByAltText('welcome jungle')).toBeInTheDocument()
-    expect(await screen.queryByText('WJ')).toBeNull()
+    expect(screen.queryByText('WJ')).toBeNull()
   })
 })
