@@ -1,10 +1,10 @@
 @layer components {
   .root {
     &:focus {
-      outline: 'none';
+      outline: none;
     }
 
-    [aria-orientation='vertical'] & {
+    [aria-orientation='horizontal'] & {
       margin-top: var(--spacing-xl);
     }
 

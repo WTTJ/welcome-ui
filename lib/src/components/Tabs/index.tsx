@@ -1,52 +1,30 @@
-import * as Ariakit from '@ariakit/react'
-import type { TabStoreProps as AriakitTabStoreProps } from '@ariakit/react'
-import React from 'react'
+import { Tab as AriakitTab } from '@ariakit/react'
 
-import type { PolymorphicProps } from '@/theme/types'
 import { classNames } from '@/utils'
+import { forwardRefWithAs } from '@/utils/forwardRefWithAs'
 
 import { TabList } from './components/TabList'
 import { TabPanel } from './components/TabPanel'
 import styles from './tabs.module.scss'
-
-export type TabProps<T extends React.ElementType = 'button'> = AriakitTabStoreProps &
-  PolymorphicProps<T> &
-  TabOptions
-
-export type UseTab = Ariakit.TabStore
-
-export type UseTabProps = Ariakit.TabStoreProps
-
-export type UseTabState = Ariakit.TabStoreState
-
-type Size = 'md' | 'sm'
-
-interface TabOptions {
-  children: React.ReactNode
-  className?: string
-  id?: string
-  size?: Size
-  store: UseTab
-}
+import type { TabProps } from './types'
 
 const cx = classNames(styles)
 
-export const TabComponent = React.forwardRef(
-  <T extends React.ElementType = 'button'>(
-    { as, children, className, id, store, ...rest }: TabProps<T> & { as?: T },
-    ref: React.Ref<HTMLElement>
-  ) => {
-    const As = (as || 'button') as React.ElementType
+export const TabComponent = forwardRefWithAs<TabProps, 'button'>(
+  ({ as, children, className, id, store, ...rest }, ref) => {
+    const Element = as || 'button'
+
     return (
-      <Ariakit.Tab
+      <AriakitTab
         className={cx('root', className)}
         id={id}
-        render={props => <As {...props} ref={ref} />}
+        ref={ref}
+        render={as ? <Element /> : undefined}
         store={store}
         {...rest}
       >
         {children}
-      </Ariakit.Tab>
+      </AriakitTab>
     )
   }
 )
@@ -54,3 +32,9 @@ export const TabComponent = React.forwardRef(
 export const Tab = Object.assign(TabComponent, { List: TabList, Panel: TabPanel })
 
 export { useTabStore as useTab } from '@ariakit/react'
+
+export type {
+  TabStore as UseTab,
+  TabStoreProps as UseTabProps,
+  TabStoreState as UseTabState,
+} from '@ariakit/react'

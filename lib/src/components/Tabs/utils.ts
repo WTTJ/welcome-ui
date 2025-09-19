@@ -9,7 +9,7 @@ export const getParentScale = (element: HTMLElement | null): number => {
   if (!element || typeof window === 'undefined') return 1
   const elementScale = Number(window.getComputedStyle(element).scale)
 
-  //If the scale property is not unvalid or undefined, return its value
+  //If the scale property is not invalid or undefined, return its value
   //Else check the parent's scale property
   if (!isNaN(elementScale)) {
     return elementScale
@@ -41,8 +41,8 @@ export function useForkRef(
 export function useTrackActiveTabs(
   selectedId: UseTabState['selectedId'],
   children: React.ReactNode
-): { activeTab: HTMLElement; tabs: React.ReactNode } {
-  const [activeTab, setActiveTab] = useState<HTMLElement>(null)
+): { activeTab: HTMLElement | null; tabs: React.ReactNode } {
+  const [activeTab, setActiveTab] = useState<HTMLElement | null>(null)
 
   const tabs = React.Children.map(children, (child: React.ReactElement) => {
     if (child.props.id === selectedId) {

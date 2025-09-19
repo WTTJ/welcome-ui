@@ -1,24 +1,12 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 import { classNames } from '@/utils'
 import { useIsomorphicLayoutEffect, useViewportSize } from '@old/utils'
 
-import type { UseTabState } from '../..'
+import type { ActiveBarProps, ActiveBarReturn } from '../../types'
 import { getParentScale } from '../../utils'
 
 import styles from './active-bar.module.scss'
-
-export interface ActiveBarProps {
-  activeTab: HTMLElement
-  listRef: React.MutableRefObject<undefined>
-  orientation: Omit<UseTabState['orientation'], 'both'>
-}
-
-export interface ActiveBarReturn {
-  offset?: number
-  orientation?: Omit<UseTabState['orientation'], 'both'>
-  size?: number
-}
 
 function useActiveBar({ activeTab, listRef, orientation }: ActiveBarProps): ActiveBarReturn {
   const [state, setState] = useState({})
@@ -58,18 +46,18 @@ function useActiveBar({ activeTab, listRef, orientation }: ActiveBarProps): Acti
 const cx = classNames(styles)
 
 export const ActiveBar = ({ activeTab, listRef, orientation }: ActiveBarProps) => {
-  const activeBar = useActiveBar({ activeTab, listRef, orientation })
+  const { offset: transform, size: height } = useActiveBar({ activeTab, listRef, orientation })
 
   let style = {}
   if (orientation === 'vertical') {
     style = {
-      height: activeBar.size,
-      transform: `translateY(${activeBar.offset}px)`,
+      height: height,
+      transform: `translateY(${transform}px)`,
     }
   } else {
     style = {
-      transform: `translateX(${activeBar.offset}px)`,
-      width: activeBar.size,
+      transform: `translateX(${transform}px)`,
+      width: height,
     }
   }
 

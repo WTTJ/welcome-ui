@@ -1,11 +1,10 @@
 import { Tab, useTab } from '@/components/Tabs'
-import { Box } from '@old/Box'
 
 const Example = () => {
   const tab = useTab({ defaultSelectedId: 'tab2', orientation: 'vertical' })
 
   return (
-    <Box display="flex">
+    <div className="flex">
       <Tab.List aria-label="Tabs" className="mr-lg w-[200px]" store={tab}>
         <Tab id="tab1" store={tab}>
           Tab 1
@@ -32,7 +31,7 @@ const Example = () => {
       <Tab.Panel store={tab} tabId="tab4">
         Tab.Panel 4
       </Tab.Panel>
-    </Box>
+    </div>
   )
 }
 

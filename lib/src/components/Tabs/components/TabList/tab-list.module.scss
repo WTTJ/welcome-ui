@@ -6,13 +6,19 @@
     overflow-x: auto;
     border: 0;
     gap: var(--spacing-xl);
-    box-shadow: inset 0 calc(-1 * var(--border-width-sm)) 0 var(--color-neutral-30);
-    font-size: var(--font-size-md);
+
+    &[aria-orientation='horizontal'] {
+      box-shadow: inset 0 calc(-1 * var(--border-width-sm)) 0 var(--color-neutral-30);
+    }
 
     &[aria-orientation='vertical'] {
       flex-direction: column;
       box-shadow: inset calc(-1 * var(--border-width-sm)) 0 0 var(--color-neutral-30);
     }
+  }
+
+  .size-md {
+    font-size: var(--font-size-md);
   }
 
   .size-sm {
