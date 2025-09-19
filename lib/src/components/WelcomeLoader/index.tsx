@@ -7,7 +7,7 @@ import loader from './loader.json'
 
 const cx = classNames()
 
-export const WelcomeLoader = forwardRef<HTMLDivElement, React.InputHTMLAttributes<HTMLDivElement>>(
+export const WelcomeLoader = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => {
     const options = {
       animationData: loader,
