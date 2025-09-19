@@ -6,6 +6,10 @@ This file is auto-generate with yarn watch command, do not change it directly!
 import dynamic from "next/dynamic";
 
 export default {
+  "/AspectRatio/docs/examples/map.tsx": dynamic(() => import("../../lib/src/components/AspectRatio/docs/examples/map.tsx").then(mod => mod), { ssr: false }),
+  "/AspectRatio/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/AspectRatio/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
+  "/AspectRatio/docs/examples/ratio.tsx": dynamic(() => import("../../lib/src/components/AspectRatio/docs/examples/ratio.tsx").then(mod => mod), { ssr: false }),
+  "/AspectRatio/docs/examples/video.tsx": dynamic(() => import("../../lib/src/components/AspectRatio/docs/examples/video.tsx").then(mod => mod), { ssr: false }),
   "/Avatar/docs/examples/images.tsx": dynamic(() => import("../../lib/src/components/Avatar/docs/examples/images.tsx").then(mod => mod), { ssr: false }),
   "/Avatar/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Avatar/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Avatar/docs/examples/sizes.tsx": dynamic(() => import("../../lib/src/components/Avatar/docs/examples/sizes.tsx").then(mod => mod), { ssr: false }),

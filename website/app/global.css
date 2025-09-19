@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 @import '../../lib/src/theme/theme.css';
 
+@import '../../lib/src/components/AspectRatio/aspect-ratio.module.scss';
 @import '../../lib/src/components/Button/button.module.scss';
 @import '../../lib/src/components/Icon/icon.module.scss';
 @import '../../lib/src/components/InputText/input-text.module.scss';
