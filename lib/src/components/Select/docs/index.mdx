@@ -1,0 +1,71 @@
+---
+category: forms
+description: The Select component is a dropdown menu that allows users to choose one or multiple options from a list of predefined choices. It provides a compact and efficient way to present a large set of options, enhancing user experience by simplifying selection tasks. This component is commonly used in forms, filters, and settings.
+packageName: select
+title: Select
+peerDependencies: 'downshift match-sorter'
+---
+
+### Clearable
+
+<div data-playground="clearable.tsx" data-component="Select"></div>
+
+### Multiple values
+
+Just add the `isMultiple` prop. Note: to be able to choose multiple values you must pass an array for the `value`.
+
+<div data-playground="multiple.tsx" data-component="Select"></div>
+
+### Render multiple
+
+Passing a `renderMultiple` function allows you to format the selected items below the select.
+
+<div data-playground="multiple-render.tsx" data-component="Select"></div>
+
+### Searchable
+
+To be able to filter (i.e. search) the results, add the `isSearchable` prop.
+
+<div data-playground="searchable.tsx" data-component="Select"></div>
+
+### Add an icon
+
+Pass `icon` to decorate your `Select`
+
+<div data-playground="icon.tsx" data-component="Select"></div>
+
+### Formatting options
+
+Passing a `renderItem` function allows you to format the options in the list.
+
+Note: if you use `renderItem` with `isSearchable` or `isCreatable` the selected item will _not_ be formatted
+
+Note: if you want to format the options _and_ the placeholder, create a dummy value as the first of your options with an empty string as the value (see code below).
+
+<div data-playground="formatting.tsx" data-component="Select"></div>
+
+### Creatable
+
+You can _add_ items by passing the `isCreatable` prop. The returned item will be of the shape:
+
+`{ value: 'name-to-be-kebab-cased', label: 'Name to be kebab-cased' }`
+
+<div data-playground="creatable.tsx" data-component="Select"></div>
+
+### Custom creatable
+
+Passing a `renderCreateItem` function allows you to format the create button in the list. It is a function and receives the input value as argument
+
+<div data-playground="creatable-custom.tsx" data-component="Select"></div>
+
+### allowUnselectFromList and disableCloseOnSelect
+
+These two options combined allows you, for example, to build a filter dropdown with checkboxes on each items.
+
+<div data-playground="allow-unselect-from-list.tsx" data-component="Select"></div>
+
+### With option groups
+
+To use option groups, you must provide two additional props: `groupsEnabled` that allow nested options and `renderGroupHeader` that renders the header of a specific group
+
+<div data-playground="option-groups.tsx" data-component="Select"></div>
