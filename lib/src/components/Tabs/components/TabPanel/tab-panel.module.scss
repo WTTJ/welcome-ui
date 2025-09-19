@@ -1,0 +1,15 @@
+@layer components {
+  .root {
+    &:focus {
+      outline: 'none';
+    }
+
+    [aria-orientation='vertical'] & {
+      margin-top: var(--spacing-xl);
+    }
+
+    [aria-orientation='vertical'] & {
+      margin-left: var(--spacing-xl);
+    }
+  }
+}

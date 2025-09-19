@@ -1,4 +1,4 @@
-import { fireEvent, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import React from 'react'
 
 import { render } from '@tests'
@@ -22,15 +22,15 @@ const StateControlledExample = () => {
 }
 
 describe('<Toggle>', () => {
-  it('should render the correct icon based on the checked state', () => {
-    render(<StateControlledExample />)
+  it('should render the correct icon based on the checked state', async () => {
+    const { user } = render(<StateControlledExample />)
 
     const checkbox = screen.getByRole('checkbox')
 
     expect(checkbox).toHaveAttribute('aria-checked', 'false')
     expect(screen.getByTestId('unchecked-icon')).toBeInTheDocument()
 
-    fireEvent.click(checkbox)
+    await user.click(checkbox)
 
     expect(checkbox).toHaveAttribute('aria-checked', 'true')
     expect(screen.getByTestId('checked-icon')).toBeInTheDocument()
@@ -42,11 +42,11 @@ describe('<Toggle>', () => {
     expect(screen.getByRole('checkbox')).toBeDisabled()
   })
 
-  it('should call onClick when clicked', () => {
+  it('should call onClick when clicked', async () => {
     const onClick = vi.fn()
-    render(<Toggle onClick={onClick} />)
+    const { user } = render(<Toggle onClick={onClick} />)
 
-    fireEvent.click(screen.getByRole('checkbox'))
+    await user.click(screen.getByRole('checkbox'))
 
     expect(onClick).toHaveBeenCalled()
   })
