@@ -30,8 +30,6 @@ const Example = () => {
       name="welcome"
       onChange={handleChange}
       options={ITEMS}
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       renderItem={(item: SelectOption, selected?: boolean) => (
         <div className="flex justify-between">
           {item.label}
