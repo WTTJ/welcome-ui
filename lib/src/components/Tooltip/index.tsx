@@ -1,6 +1,7 @@
 import {
   Tooltip as AriakitTooltip,
   TooltipAnchor as AriakitTooltipAnchor,
+  TooltipArrow as AriakitTooltipArrow,
   useStoreState,
   useTooltipStore,
 } from '@ariakit/react'
@@ -13,7 +14,6 @@ import React, { forwardRef, useCallback, useEffect, useState } from 'react'
 import { classNames } from '@/utils'
 
 import tooltipStyles from './tooltip.module.scss'
-import { ARROW_SIZE, ARROW_SPACER, getTransformClass, getYPosition } from './utils'
 
 export interface TooltipOptions {
   children: React.ReactNode
@@ -45,7 +45,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
     ref
   ) => {
     const tooltip = useTooltipStore({ animated: 300, placement })
-    const { anchorElement, currentPlacement, mounted, popoverElement } = useStoreState(tooltip)
+    const { anchorElement, mounted, popoverElement } = useStoreState(tooltip)
     const { render, setState } = tooltip
     const [position, setPosition] = useState({ x: 0, y: 0 })
 
@@ -89,38 +89,21 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       return children as React.ReactElement
     }
 
-    const popoverHeight = popoverElement?.getBoundingClientRect()?.height
-
     return (
       <>
         <AriakitTooltipAnchor render={child as React.ReactElement} store={tooltip} />
         <AriakitTooltip
+          className={cx('root', className)}
           fixed={fixed}
           gutter={gutter}
+          onTransitionEnd={stopAnimation}
           ref={ref}
           render={<div {...rest} />}
           store={tooltip}
           updatePosition={fixed ? undefined : updatePosition}
         >
-          <div
-            className={cx(
-              'root',
-              withArrow && 'withArrow',
-              currentPlacement && `placement-${currentPlacement}`,
-              fixed && currentPlacement && getTransformClass(currentPlacement),
-              className
-            )}
-            onTransitionEnd={stopAnimation}
-            style={
-              {
-                '--tooltipArrowSize': `${ARROW_SIZE}px`,
-                '--tooltipArrowSpacer': `${ARROW_SPACER}px`,
-                '--tooltipYPosition': getYPosition(currentPlacement, popoverHeight),
-              } as React.CSSProperties & Record<string, number | string>
-            }
-          >
-            {content}
-          </div>
+          {withArrow ? <AriakitTooltipArrow /> : null}
+          {content}
         </AriakitTooltip>
       </>
     )
