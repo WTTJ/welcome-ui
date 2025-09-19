@@ -1,5 +1,7 @@
 .root {
   display: flex;
+  /* VARIABLES THAT CHANGE WITH REACT PROPS */
+  color: var(--color);
 }
 
 @keyframes dot-bounce {
@@ -59,5 +61,19 @@
 
   &-lg {
     --size: 1.25rem;
+  }
+}
+
+.variant {
+  &-primary {
+    --color: var(--color-yellow-40);
+  }
+
+  &-neutral {
+    --color: var(--color-neutral-90);
+  }
+
+  &-violet {
+    --color: var(--color-violet-70);
   }
 }

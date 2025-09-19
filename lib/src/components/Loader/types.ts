@@ -1,14 +1,14 @@
 import type { ComponentPropsWithRef, HTMLAttributes, ReactNode } from 'react'
 
-import type { primitives } from '../../theme/tokens'
-
 export type LoaderProps = ComponentPropsWithRef<'div'> &
   HTMLAttributes<HTMLDivElement> & {
     children?: ReactNode
     className?: string
-    color?: keyof typeof primitives.colors
     size?: Size
+    variant?: Variant
   }
+
+type Variant = 'neutral' | 'primary' | 'violet'
 
 export const ValidSize = ['xs', 'sm', 'md', 'lg'] as const
 
