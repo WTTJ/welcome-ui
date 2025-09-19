@@ -1,8 +1,8 @@
 import * as React from 'react'
 
 import { AddIcon } from '@/components/Icon'
-import type { SelectProps } from '@/components/Select'
 import { Select } from '@/components/Select'
+import type { SelectProps } from '@/components/Select/types'
 import { Box } from '@old/Box'
 import { Text } from '@old/Text'
 

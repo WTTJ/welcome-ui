@@ -1,18 +1,23 @@
-import type { ControllerStateAndHelpers, DownshiftProps, GetRootPropsOptions } from 'downshift'
+import type { ControllerStateAndHelpers, GetRootPropsOptions } from 'downshift'
 import DownshiftImport from 'downshift'
 import { matchSorter } from 'match-sorter'
-import React, { Fragment, useEffect, useMemo, useState } from 'react'
+import React, { forwardRef, Fragment, useEffect, useMemo, useState } from 'react'
 
 import { DownIcon } from '@/components/Icon'
+import { FIELD_ICON_SIZE } from '@/constants/field-icon-size'
 import { classNames } from '@/utils'
+import { createEvent } from '@/utils/create-event'
 import { ClearButton } from '@old/ClearButton'
-import type { CreateWuiProps } from '@old/System'
-import { forwardRef } from '@old/System'
-import type { CreateEvent, DefaultFieldStylesProps } from '@old/utils'
-import { createEvent, FIELD_ICON_SIZE } from '@old/utils'
 
 import { multipleSelections } from './multipleSelections'
 import selectStyles from './select.module.scss'
+import type {
+  SelectOption,
+  SelectOptionGroup,
+  SelectOptionItem,
+  SelectOptionValue,
+  SelectProps,
+} from './types'
 import {
   getInputValue,
   getNewOptions,
@@ -27,67 +32,12 @@ import {
 
 const cx = classNames(selectStyles)
 
-export type SelectOption = {
-  disabled?: boolean
-  icon?: React.ReactElement
-  label: string
-  value: SelectOptionValue
-}
-export type SelectOptionGroup = { label: string; options: SelectOption[] }
-export type SelectOptionItem = SelectOption | SelectOptionGroup
-export interface SelectOptions extends DefaultFieldStylesProps {
-  allowUnselectFromList?: boolean
-  /** We need to add `autoComplete` off to avoid select UI issues when is an input */
-  autoComplete?: string
-  autoFocus?: boolean
-  disableCloseOnSelect?: boolean
-  disabled?: boolean
-  groupsEnabled?: boolean
-  icon?: React.ReactElement
-  id?: string
-  isClearable?: boolean
-  isCreatable?: boolean
-  isMultiple?: boolean
-  isSearchable?: boolean
-  name?: string
-  onBlur?: () => void
-  onChange?: (value: SelectOptionValue | SelectOptionValue[], event?: CreateEvent) => void
-  onClick?: (event: React.MouseEvent<HTMLElement>) => void
-  onCreate?: (option: string, event: CreateEvent) => void
-  onFocus?: () => void
-  options: SelectOptionsType
-  placeholder?: string
-  renderCreateItem?: (inputValue: SelectValue) => void
-  renderGroupHeader?: (option: SelectOptionGroup) => React.ReactNode
-  renderItem?: (item: SelectOption, isItemSelected?: boolean) => React.ReactElement | string
-  renderMultiple?: (
-    values: SelectOption[],
-    handleRemove: (value: string) => void
-  ) => React.ReactElement
-  transparent?: boolean
-  value?: SelectValue
-}
-export type SelectOptionsType = Array<SelectOption | SelectOptionGroup>
-export type SelectOptionValue = number | string
-
-export type SelectProps = CreateWuiProps<
-  'input',
-  Omit<DownshiftProps<SelectOption>, 'children' | keyof SelectOptions> & SelectOptions
->
-export type SelectValue =
-  | (number | SelectOption | string)[]
-  | number
-  | SelectOption
-  | string
-  | string[]
-
 // because of this issue: https://github.com/downshift-js/downshift/issues/1505
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 const Downshift: typeof DownshiftImport = DownshiftImport.default || DownshiftImport
-
 /** We need to add autoComplete off to avoid select UI issues when is an input */
-export const Select = forwardRef<'input', SelectProps>(
+export const Select = forwardRef<HTMLInputElement, SelectProps>(
   (
     {
       allowUnselectFromList,
@@ -121,7 +71,7 @@ export const Select = forwardRef<'input', SelectProps>(
       variant,
       ...rest
     }: SelectProps,
-    ref: React.MutableRefObject<HTMLInputElement>
+    ref
   ): JSX.Element => {
     const defaultSelecteds = useMemo(
       () => getOptionsFromSelected(defaultSelected, defaultOptions, groupsEnabled),
@@ -146,7 +96,8 @@ export const Select = forwardRef<'input', SelectProps>(
     // Autofocus
     useEffect(() => {
       if (autoFocus) {
-        ref?.current?.focus()
+        //FIXME(isaac) i don't get it
+        ;(ref as unknown as React.MutableRefObject<HTMLInputElement>)?.current?.focus()
         if (isSearchable) setIsOpen(true)
       }
     }, [isSearchable, autoFocus, ref])

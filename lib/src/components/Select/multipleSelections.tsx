@@ -4,8 +4,7 @@ import { classNames } from '@/utils/classNames'
 import { Tag } from '@old/Tag'
 
 import selectStyles from './select.module.scss'
-
-import type { SelectOption } from './index'
+import type { SelectOption } from './types'
 
 const cx = classNames(selectStyles)
 

@@ -6,8 +6,8 @@ import { AvatarIcon, DateIcon } from '@/components/Icon'
 
 import { render } from '@tests'
 
-import type { SelectOption, SelectProps } from '../'
 import { Select } from '../'
+import type { SelectOption, SelectProps } from '../types'
 
 const SelectWrapper: React.FC<SelectProps> = props => {
   const [value, setValue] = useState<SelectProps['value']>()

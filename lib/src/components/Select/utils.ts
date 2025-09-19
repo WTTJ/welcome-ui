@@ -7,7 +7,7 @@ import type {
   SelectOptionsType,
   SelectOptionValue,
   SelectValue,
-} from './index'
+} from './types'
 
 const EMPTY_STRING = ''
 

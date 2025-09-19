@@ -1,7 +1,7 @@
 import * as React from 'react'
 
-import type { SelectOption, SelectProps } from '@/components/Select'
 import { Select } from '@/components/Select'
+import type { SelectOption, SelectProps } from '@/components/Select/types'
 import { Box } from '@old/Box'
 import { Checkbox } from '@old/Checkbox'
 import { LinkIcon } from '@old/Icons'
