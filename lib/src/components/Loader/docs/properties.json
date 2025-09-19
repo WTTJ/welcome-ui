@@ -1,0 +1,81 @@
+{
+  "Loader": {
+    "props": {
+      "size": {
+        "defaultValue": {
+          "value": "sm"
+        },
+        "description": "",
+        "name": "size",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Loader/types.ts",
+          "name": "LoaderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Loader/types.ts",
+            "name": "LoaderOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Size",
+          "value": [
+            {
+              "value": "Record<never, never> & string"
+            },
+            {
+              "value": "Record<never, never> & number"
+            },
+            {
+              "value": "\"xs\""
+            },
+            {
+              "value": "\"sm\""
+            },
+            {
+              "value": "\"md\""
+            },
+            {
+              "value": "\"lg\""
+            }
+          ]
+        }
+      },
+      "variant": {
+        "defaultValue": {
+          "value": "neutral"
+        },
+        "description": "",
+        "name": "variant",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Loader/types.ts",
+          "name": "LoaderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Loader/types.ts",
+            "name": "LoaderOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Variant",
+          "value": [
+            {
+              "value": "\"neutral\""
+            },
+            {
+              "value": "\"primary\""
+            },
+            {
+              "value": "\"violet\""
+            }
+          ]
+        }
+      }
+    }
+  }
+}

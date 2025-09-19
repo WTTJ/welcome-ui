@@ -17,7 +17,7 @@ export const Loader = ({
   ...rest
 }: LoaderProps) => {
   const regExp = /[a-zA-Z]/
-  const formattedSize = typeof size === 'string' && regExp.test(size) ? size : `${size}rem`
+  const formattedSize = typeof size === 'string' && regExp.test(size) ? size : `${size}px`
   const dotStyle = (
     isValidSize(formattedSize) ? {} : { '--size': formattedSize }
   ) as React.CSSProperties
