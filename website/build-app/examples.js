@@ -6,6 +6,10 @@ This file is auto-generate with yarn watch command, do not change it directly!
 import dynamic from "next/dynamic";
 
 export default {
+  "/Avatar/docs/examples/images.tsx": dynamic(() => import("../../lib/src/components/Avatar/docs/examples/images.tsx").then(mod => mod), { ssr: false }),
+  "/Avatar/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Avatar/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
+  "/Avatar/docs/examples/sizes.tsx": dynamic(() => import("../../lib/src/components/Avatar/docs/examples/sizes.tsx").then(mod => mod), { ssr: false }),
+  "/Avatar/docs/examples/texts.tsx": dynamic(() => import("../../lib/src/components/Avatar/docs/examples/texts.tsx").then(mod => mod), { ssr: false }),
   "/Button/docs/examples/ai.tsx": dynamic(() => import("../../lib/src/components/Button/docs/examples/ai.tsx").then(mod => mod), { ssr: false }),
   "/Button/docs/examples/danger.tsx": dynamic(() => import("../../lib/src/components/Button/docs/examples/danger.tsx").then(mod => mod), { ssr: false }),
   "/Button/docs/examples/disabled.tsx": dynamic(() => import("../../lib/src/components/Button/docs/examples/disabled.tsx").then(mod => mod), { ssr: false }),
