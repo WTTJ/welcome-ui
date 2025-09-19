@@ -7,21 +7,23 @@
     border: 0;
     gap: var(--spacing-xl);
 
-    &[aria-orientation='horizontal'] {
-      box-shadow: inset 0 calc(-1 * var(--border-width-sm)) 0 var(--color-neutral-30);
-    }
+    --tab-font-size: var(--font-size-md);
+    --tab-box-shadow: inset 0 calc(-1 * var(--border-width-sm)) 0 var(--color-neutral-30);
+
+    font-size: var(--tab-font-size);
+    box-shadow: var(--tab-box-shadow);
 
     &[aria-orientation='vertical'] {
       flex-direction: column;
-      box-shadow: inset calc(-1 * var(--border-width-sm)) 0 0 var(--color-neutral-30);
+      --tab-box-shadow: inset calc(-1 * var(--border-width-sm)) 0 0 var(--color-neutral-30);
     }
   }
 
   .size-md {
-    font-size: var(--font-size-md);
+    --tab-font-size: var(--font-size-md);
   }
 
   .size-sm {
-    font-size: var(--font-size-sm);
+    --tab-font-size: var(--font-size-sm);
   }
 }
