@@ -11,11 +11,14 @@ import type {
 
 const EMPTY_STRING = ''
 
+// Regex to split a string into words for kebab-case conversion.
+const KEBAB_CASE_WORD_REGEX = /[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g
+
 export const kebabCase = (str: number | SelectOption | string): string => {
   if (typeof str === 'number') {
     return String(str)
   } else if (typeof str === 'string') {
-    const match = str.match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
+    const match = str.match(KEBAB_CASE_WORD_REGEX)
     return match && match.map(x => x.toLowerCase()).join('-')
   }
 }
@@ -88,7 +91,7 @@ export const getValuesFromOptions = (
   options: SelectOptionsType
 ): SelectOptionValue[] => {
   if (!selected) {
-    return
+    return []
   }
   return selected.map(selected => getValue(selected, options))
 }
@@ -98,7 +101,7 @@ export const getNewOptions = (
   options: SelectOptionsType
 ): SelectOption[] => {
   if (!selected) {
-    return
+    return []
   }
   // Find selected items that aren't in original items
   return selected.filter(

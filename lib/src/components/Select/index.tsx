@@ -291,8 +291,7 @@ export const Select = forwardRefWithAs<SelectProps, 'input'>(
             transparent,
             variant: isOpen ? 'focused' : variant,
             ...rest,
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          }) as any
+          }) as React.InputHTMLAttributes<HTMLInputElement>
           const iconSize = FIELD_ICON_SIZE[size]
 
           const inputClassnames = cx(
@@ -336,8 +335,6 @@ export const Select = forwardRefWithAs<SelectProps, 'input'>(
                       ) => {
                         if (groupsEnabled && 'options' in result) {
                           acc.itemsToRender.push(
-                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                            // @ts-ignore
                             <Fragment key={result.label}>
                               {renderGroupHeader(result)}
                               {result.options
