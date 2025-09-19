@@ -1,12 +1,13 @@
 import type { ControllerStateAndHelpers, GetRootPropsOptions } from 'downshift'
 import DownshiftImport from 'downshift'
 import { matchSorter } from 'match-sorter'
-import React, { forwardRef, Fragment, useEffect, useMemo, useState } from 'react'
+import React, { Fragment, useEffect, useMemo, useState } from 'react'
 
 import { DownIcon } from '@/components/Icon'
 import { FIELD_ICON_SIZE } from '@/constants/field-icon-size'
 import { classNames } from '@/utils'
 import { createEvent } from '@/utils/create-event'
+import { forwardRefWithAs } from '@/utils/forwardRefWithAs'
 import { ClearButton } from '@old/ClearButton'
 
 import { multipleSelections } from './multipleSelections'
@@ -37,7 +38,7 @@ const cx = classNames(selectStyles)
 // @ts-ignore
 const Downshift: typeof DownshiftImport = DownshiftImport.default || DownshiftImport
 /** We need to add autoComplete off to avoid select UI issues when is an input */
-export const Select = forwardRef<HTMLInputElement, SelectProps>(
+export const Select = forwardRefWithAs<SelectProps, 'input'>(
   (
     {
       allowUnselectFromList,
@@ -72,7 +73,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
       variant,
       ...rest
     }: SelectProps,
-    ref
+    ref: React.MutableRefObject<HTMLInputElement>
   ): JSX.Element => {
     const defaultSelecteds = useMemo(
       () => getOptionsFromSelected(defaultSelected, defaultOptions, groupsEnabled),
@@ -97,8 +98,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
     // Autofocus
     useEffect(() => {
       if (autoFocus) {
-        //FIXME(isaac) i don't get it
-        ;(ref as unknown as React.MutableRefObject<HTMLInputElement>)?.current?.focus()
+        ref?.current?.focus()
         if (isSearchable) setIsOpen(true)
       }
     }, [isSearchable, autoFocus, ref])
