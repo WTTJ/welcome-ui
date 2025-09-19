@@ -1,0 +1,27 @@
+{
+  "AspectRatio": {
+    "props": {
+      "ratio": {
+        "defaultValue": {
+          "value": "4 / 3"
+        },
+        "description": "",
+        "name": "ratio",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/AspectRatio/index.tsx",
+          "name": "AspectRatioOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/AspectRatio/index.tsx",
+            "name": "AspectRatioOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "number"
+        }
+      }
+    }
+  }
+}
