@@ -100,7 +100,7 @@
     "brace-expansion": "^2.0.2"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.11",
+    "@tailwindcss/vite": "^4.1.13",
     "tailwindcss": "^4.1.11"
   }
 }
