@@ -1,0 +1,77 @@
+import React, { useState } from 'react'
+
+import { classNames } from '@/utils'
+import { useIsomorphicLayoutEffect, useViewportSize } from '@old/utils'
+
+import type { UseTabState } from '../..'
+import { getParentScale } from '../../utils'
+
+import styles from './active-bar.module.scss'
+
+export interface ActiveBarProps {
+  activeTab: HTMLElement
+  listRef: React.MutableRefObject<undefined>
+  orientation: Omit<UseTabState['orientation'], 'both'>
+}
+
+export interface ActiveBarReturn {
+  offset?: number
+  orientation?: Omit<UseTabState['orientation'], 'both'>
+  size?: number
+}
+
+function useActiveBar({ activeTab, listRef, orientation }: ActiveBarProps): ActiveBarReturn {
+  const [state, setState] = useState({})
+  const { height: viewportHeight, width: viewportWidth } = useViewportSize()
+
+  useIsomorphicLayoutEffect(() => {
+    const list: HTMLElement = listRef.current
+    if (!list || !activeTab) return
+
+    const listRect = list.getBoundingClientRect()
+    const activeTabRect = activeTab.getBoundingClientRect()
+    const scale = getParentScale(list)
+
+    if (orientation === 'vertical') {
+      const top = activeTabRect.top - listRect.top
+      const height = activeTabRect.height
+      setState({
+        offset: top,
+        orientation,
+        size: height,
+      })
+    } else {
+      const left = (activeTabRect.left - listRect.left + list.scrollLeft) / scale
+      const width = activeTabRect.width / scale
+
+      setState({
+        offset: isNaN(left) ? 0 : left,
+        orientation,
+        size: isNaN(width) ? 0 : width,
+      })
+    }
+  }, [listRef, activeTab, viewportWidth, viewportHeight, orientation])
+
+  return state
+}
+
+const cx = classNames(styles)
+
+export const ActiveBar = ({ activeTab, listRef, orientation }: ActiveBarProps) => {
+  const activeBar = useActiveBar({ activeTab, listRef, orientation })
+
+  let style = {}
+  if (orientation === 'vertical') {
+    style = {
+      height: activeBar.size,
+      transform: `translateY(${activeBar.offset}px)`,
+    }
+  } else {
+    style = {
+      transform: `translateX(${activeBar.offset}px)`,
+      width: activeBar.size,
+    }
+  }
+
+  return <span className={cx('root')} style={style} />
+}

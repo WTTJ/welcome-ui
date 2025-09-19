@@ -1,0 +1,23 @@
+@layer components {
+  .root {
+    position: absolute;
+    will-change: width, transform;
+    transition-property: all;
+    transition-duration: var(--duration-medium);
+    transition-timing-function: var(--timing-primary);
+    background-color: var(--color-brand-40);
+
+    [aria-orientation='horizontal'] & {
+      height: var(--border-width-md);
+
+      left: 0;
+      bottom: 0;
+    }
+
+    [aria-orientation='vertical'] & {
+      width: var(--border-width-md);
+      right: 0;
+      top: 0;
+    }
+  }
+}

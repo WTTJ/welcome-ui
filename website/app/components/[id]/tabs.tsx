@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import { useParams, usePathname } from 'next/navigation'
 
-import { Tab, useTab } from '@old/Tabs'
+import { Tab, useTab } from '@/components/Tabs'
 
 import type { PageTree } from '~/build-app/types'
 import { getName } from '~/build-app/utils/transform-name'
@@ -21,13 +21,8 @@ export const Tabs = ({ pages }: TabsProps) => {
   return (
     <Tab.List
       aria-label="Tabs"
-      backgroundColor="neutral-10"
-      mb="xl"
-      position="sticky"
-      pt="xxl"
+      className="bg-neutral-10 mb-xl position-sticky top-70 z-1 pt-xxl"
       store={tab}
-      top={70}
-      zIndex={1}
     >
       <Tab
         as={Link}
