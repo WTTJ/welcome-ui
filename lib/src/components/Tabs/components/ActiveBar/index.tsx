@@ -1,7 +1,8 @@
 import { useState } from 'react'
 
 import { classNames } from '@/utils'
-import { useIsomorphicLayoutEffect, useViewportSize } from '@old/utils'
+import { useIsomorphicLayoutEffect } from '@/utils/use-isomorphic-layout-effect'
+import { useViewportSize } from '@/utils/use-viewport'
 
 import type { ActiveBarProps, ActiveBarReturn } from '../../types'
 import { getParentScale } from '../../utils'
