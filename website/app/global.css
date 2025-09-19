@@ -5,6 +5,7 @@
 @import '../../lib/src/components/Icon/icon.module.scss';
 @import '../../lib/src/components/InputText/input-text.module.scss';
 @import '../../lib/src/components/Label/label.module.scss';
+@import '../../lib/src/components/Pagination/pagination.module.scss';
 @import '../../lib/src/components/Text/text.module.scss';
 @import '../../lib/src/components/Textarea/textarea.module.scss';
 @import '../../lib/src/components/Toggle/toggle.module.scss';
