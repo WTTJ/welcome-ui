@@ -7,12 +7,7 @@ export type ToggleButtonProps = React.ComponentPropsWithoutRef<typeof Button> & 
   isHidden: boolean
 }
 
-export const ToggleButton: React.FC<ToggleButtonProps> = ({
-  isHidden,
-  onClick,
-  title,
-  ...rest
-}) => {
+export const ToggleButton = ({ isHidden, onClick, title, ...rest }: ToggleButtonProps) => {
   return (
     <Button
       aria-controls="password"

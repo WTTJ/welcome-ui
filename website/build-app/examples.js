@@ -148,19 +148,9 @@ export default {
     () => import('../../lib/src/components/Label/docs/examples/variants.tsx').then(mod => mod),
     { ssr: false }
   ),
-  '/Pagination/docs/examples/custom-navigation.tsx': dynamic(
+  '/PasswordInput/docs/examples/overview.tsx': dynamic(
     () =>
-      import('../../lib/src/components/Pagination/docs/examples/custom-navigation.tsx').then(
-        mod => mod
-      ),
-    { ssr: false }
-  ),
-  '/Pagination/docs/examples/overview.tsx': dynamic(
-    () => import('../../lib/src/components/Pagination/docs/examples/overview.tsx').then(mod => mod),
-    { ssr: false }
-  ),
-  '/Pagination/docs/examples/range.tsx': dynamic(
-    () => import('../../lib/src/components/Pagination/docs/examples/range.tsx').then(mod => mod),
+      import('../../lib/src/components/PasswordInput/docs/examples/overview.tsx').then(mod => mod),
     { ssr: false }
   ),
   '/Text/docs/examples/overview.tsx': dynamic(
@@ -211,30 +201,6 @@ export default {
     () => import('../../lib/src/components/Toggle/docs/examples/variant.tsx').then(mod => mod),
     { ssr: false }
   ),
-  '/Tooltip/docs/examples/disabled.tsx': dynamic(
-    () => import('../../lib/src/components/Tooltip/docs/examples/disabled.tsx').then(mod => mod),
-    { ssr: false }
-  ),
-  '/Tooltip/docs/examples/fixed.tsx': dynamic(
-    () => import('../../lib/src/components/Tooltip/docs/examples/fixed.tsx').then(mod => mod),
-    { ssr: false }
-  ),
-  '/Tooltip/docs/examples/long-text.tsx': dynamic(
-    () => import('../../lib/src/components/Tooltip/docs/examples/long-text.tsx').then(mod => mod),
-    { ssr: false }
-  ),
-  '/Tooltip/docs/examples/overview.tsx': dynamic(
-    () => import('../../lib/src/components/Tooltip/docs/examples/overview.tsx').then(mod => mod),
-    { ssr: false }
-  ),
-  '/Tooltip/docs/examples/placement.tsx': dynamic(
-    () => import('../../lib/src/components/Tooltip/docs/examples/placement.tsx').then(mod => mod),
-    { ssr: false }
-  ),
-  '/Tooltip/docs/examples/withArrow.tsx': dynamic(
-    () => import('../../lib/src/components/Tooltip/docs/examples/withArrow.tsx').then(mod => mod),
-    { ssr: false }
-  ),
   '/VariantIcon/docs/examples/overview.tsx': dynamic(
     () =>
       import('../../lib/src/components/VariantIcon/docs/examples/overview.tsx').then(mod => mod),
@@ -242,16 +208,6 @@ export default {
   ),
   '/VariantIcon/docs/examples/sizes.tsx': dynamic(
     () => import('../../lib/src/components/VariantIcon/docs/examples/sizes.tsx').then(mod => mod),
-    { ssr: false }
-  ),
-  '/WelcomeLoader/docs/examples/overview.tsx': dynamic(
-    () =>
-      import('../../lib/src/components/WelcomeLoader/docs/examples/overview.tsx').then(mod => mod),
-    { ssr: false }
-  ),
-  '/WelcomeLoader/docs/examples/resize.tsx': dynamic(
-    () =>
-      import('../../lib/src/components/WelcomeLoader/docs/examples/resize.tsx').then(mod => mod),
     { ssr: false }
   ),
 }
