@@ -4,9 +4,9 @@ import { forwardRef } from 'react'
 
 import { classNames } from '@/utils'
 
-import { Content } from './Content'
+import { ContentWrapper } from './ContentWrapper'
 import popoverStyles from './popover.module.scss'
-import { SubContentComponent, Title } from './Title'
+import { Content, Title } from './Title'
 import { PopoverTrigger } from './Trigger'
 import type { UsePopover } from './usePopover'
 
@@ -29,16 +29,16 @@ const PopoverComponent = forwardRef<HTMLDivElement, PopoverOptions>(
         store={store}
         {...rest}
       >
-        <Content onClose={onClose} store={store}>
+        <ContentWrapper onClose={onClose} store={store}>
           {children}
-        </Content>
+        </ContentWrapper>
       </Ariakit.Popover>
     )
   }
 )
 
 export const Popover = Object.assign(PopoverComponent, {
-  Content: SubContentComponent,
+  Content,
   Title,
   Trigger: PopoverTrigger,
 })
