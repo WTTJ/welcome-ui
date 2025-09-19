@@ -1,36 +1,17 @@
 {
   "Avatar": {
     "props": {
-      "className": {
-        "defaultValue": null,
-        "description": "",
-        "name": "className",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Avatar/index.tsx",
-          "name": "AvatarOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Avatar/index.tsx",
-            "name": "AvatarOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "string"
-        }
-      },
       "getInitials": {
         "defaultValue": null,
         "description": "",
         "name": "getInitials",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Avatar/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Avatar/types.ts",
           "name": "AvatarOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Avatar/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Avatar/types.ts",
             "name": "AvatarOptions"
           }
         ],
@@ -44,12 +25,12 @@
         "description": "",
         "name": "name",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Avatar/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Avatar/types.ts",
           "name": "AvatarOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Avatar/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Avatar/types.ts",
             "name": "AvatarOptions"
           }
         ],
@@ -65,12 +46,12 @@
         "description": "",
         "name": "size",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Avatar/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Avatar/types.ts",
           "name": "AvatarOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Avatar/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Avatar/types.ts",
             "name": "AvatarOptions"
           }
         ],
@@ -102,12 +83,12 @@
         "description": "",
         "name": "src",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Avatar/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Avatar/types.ts",
           "name": "AvatarOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Avatar/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Avatar/types.ts",
             "name": "AvatarOptions"
           }
         ],

@@ -1,12 +1,15 @@
+import type { PolymorphicProps } from '@/theme/types'
+
 import type { colors } from './index'
 
-export interface AvatarProps {
-  className?: string
+export interface AvatarOptions {
   getInitials?: (name: string) => string
   name: string
   size?: Size
   src?: string
 }
+
+export type AvatarProps<T extends React.ElementType = 'div'> = AvatarOptions & PolymorphicProps<T>
 
 export type Colors = (typeof colors)[number]
 
