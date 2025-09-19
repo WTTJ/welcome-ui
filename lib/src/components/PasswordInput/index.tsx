@@ -20,12 +20,14 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
       setType(nextType)
     }
 
+    const dataTestId = rest['data-testid'] ? `${rest['data-testid']}-action` : undefined
+
     return (
       <InputText
         {...rest}
         icon={
           <ToggleButton
-            data-testid={`${rest['data-testid']}-action`}
+            data-testid={dataTestId}
             isHidden={isHidden}
             onClick={handleToggle}
             title={title}
