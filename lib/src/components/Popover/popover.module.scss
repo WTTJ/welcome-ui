@@ -1,0 +1,57 @@
+@layer components {
+  .root {
+    // text.sm
+    font-size: var(--font-size-sm);
+    background-color: var(--color-neutral-90);
+    color: var(--color-neutral-10);
+    max-width: 43.75rem;
+    z-index: 1;
+    outline: none;
+    transition: opacity var(--duration-fast) ease-in-out;
+
+    [data-enter] & {
+      opacity: 1;
+    }
+  }
+
+  .title {
+    // text.md
+    font-size: var(--font-size-md);
+    margin: 0;
+    border-bottom: 1px solid var(--color-neutral-70);
+    color: var(--color-neutral-10);
+    padding: 0.75rem 0.75rem 0.25rem;
+
+    // this class is added to the Popover when the close button is present
+    .with-close-button & {
+        padding-right: 50px;
+    }
+
+  }
+
+  .content-wrapper {
+    position: relative;
+  }
+
+  .sub-content-wrapper {
+    display: block;
+    padding: var(--spacing-md);
+  }
+
+  .close-button {
+    flex: 0 0 auto;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    margin-left: var(--spacing-md);
+  }
+
+  .arrow {
+    color: var(--color-neutral-90);
+  }
+  .arrow-item {
+    transform: var(--transform);
+    width: 30px;
+    height: 30px;
+  }
+}
