@@ -1,6 +1,6 @@
 import capitalize from 'lodash.capitalize'
 
-import type { SelectValue } from '../'
+import type { SelectValue } from '../types'
 import {
   getInputValue,
   getNewOptions,
