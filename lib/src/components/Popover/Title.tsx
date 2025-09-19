@@ -11,8 +11,6 @@ export const Title = forwardRef<HTMLHeadingElement, React.HTMLProps<HTMLHeadingE
   }
 )
 
-export const SubContentComponent = forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>>(
-  (props, ref) => {
-    return <div className={cx('sub-content-wrapper')} ref={ref} {...props} />
-  }
-)
+export const Content = forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>>((props, ref) => {
+  return <div className={cx('content')} ref={ref} {...props} />
+})

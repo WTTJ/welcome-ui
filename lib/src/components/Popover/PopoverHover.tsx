@@ -3,9 +3,9 @@ import * as Ariakit from '@ariakit/react'
 import { classNames } from '@/utils'
 import { forwardRefWithAs } from '@/utils/forwardRefWithAs'
 
-import { Content } from './Content'
+import { ContentWrapper } from './ContentWrapper'
 import popoverStyles from './popover.module.scss'
-import { SubContentComponent, Title } from './Title'
+import { Content, Title } from './Title'
 import { PopoverHoverTrigger } from './Trigger'
 import type { UsePopoverHover } from './usePopover'
 
@@ -22,23 +22,22 @@ const PopoverHoverComponent = forwardRefWithAs<PopoverHoverOptions, 'div'>(
     const { withCloseButton } = store
 
     return (
-      <Ariakit.Popover
-        as={Ariakit.Hovercard}
+      <Ariakit.Hovercard
         className={cx('root', withCloseButton && 'with-close-button')}
         store={store}
         {...rest}
         ref={ref}
       >
-        <Content onClose={onClose} store={store}>
+        <ContentWrapper onClose={onClose} store={store}>
           {children}
-        </Content>
-      </Ariakit.Popover>
+        </ContentWrapper>
+      </Ariakit.Hovercard>
     )
   }
 )
 
 export const PopoverHover = Object.assign(PopoverHoverComponent, {
-  Content: SubContentComponent,
+  Content,
   Title,
   Trigger: PopoverHoverTrigger,
 })

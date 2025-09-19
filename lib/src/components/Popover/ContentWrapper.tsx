@@ -10,14 +10,14 @@ import { Arrow } from './Arrow'
 import type { PopoverOptions } from './Popover'
 import type { UsePopover, UsePopoverHover } from './usePopover'
 
-export interface ContentOptions {
+export interface ContentWrapperOptions {
   children: PopoverOptions['children']
   className?: string
   onClose?: () => void
   store: UsePopover | UsePopoverHover
 }
 
-export const Content = ({ children, className, onClose, store }: ContentOptions) => {
+export const ContentWrapper = ({ children, className, onClose, store }: ContentWrapperOptions) => {
   const handleClose = () => {
     if (onClose) onClose()
     store?.hide()

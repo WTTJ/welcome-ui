@@ -21,7 +21,7 @@ export const PopoverTrigger = forwardRefWithAs<PopoverTriggerProps, 'button'>(
   }
 )
 
-export type PopoverHoverTriggerProps = React.ButtonHTMLAttributes<HTMLAnchorElement> & {
+export type PopoverHoverTriggerProps = React.HTMLAttributes<HTMLElement> & {
   store: UsePopoverHover
 }
 
@@ -29,10 +29,10 @@ export const PopoverHoverTrigger = forwardRefWithAs<PopoverHoverTriggerProps, 'a
   ({ as: As, store, ...rest }, ref) => {
     return (
       <Ariakit.HovercardAnchor
-        store={store}
-        {...rest}
         ref={ref}
         render={As ? props => <As {...props} /> : undefined}
+        store={store}
+        {...rest}
       />
     )
   }
