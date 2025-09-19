@@ -3,8 +3,7 @@ import * as React from 'react'
 import { AddIcon } from '@/components/Icon'
 import { Select } from '@/components/Select'
 import type { SelectProps } from '@/components/Select/types'
-import { Box } from '@old/Box'
-import { Text } from '@old/Text'
+import { Text } from '@/components/Text'
 
 export const ITEMS = [
   { label: 'Bold', value: 'bold' },
@@ -28,12 +27,12 @@ const Example = () => {
       options={ITEMS}
       renderCreateItem={value => {
         return (
-          <Box alignItems="center" display="flex">
+          <div className="flex items-center">
             <AddIcon className="mr-(--spacing-sm)" size="sm" />
             <Text as="span" variant="sm">
               Add <b>{value.toString()}</b> as a new option
             </Text>
-          </Box>
+          </div>
         )
       }}
       value={value}

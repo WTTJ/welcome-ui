@@ -6,12 +6,12 @@
         "description": "",
         "name": "allowUnselectFromList",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
           "name": "SelectOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
             "name": "SelectOptions"
           }
         ],
@@ -36,12 +36,16 @@
         "description": "We need to add `autoComplete` off to avoid select UI issues when is an input",
         "name": "autoComplete",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
-          "name": "SelectOptions"
+          "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+          "name": "InputHTMLAttributes"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+            "name": "InputHTMLAttributes"
+          },
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
             "name": "SelectOptions"
           }
         ],
@@ -55,12 +59,16 @@
         "description": "",
         "name": "autoFocus",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
-          "name": "SelectOptions"
+          "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+          "name": "HTMLAttributes"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+            "name": "HTMLAttributes"
+          },
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
             "name": "SelectOptions"
           }
         ],
@@ -78,17 +86,36 @@
           ]
         }
       },
+      "dataTestId": {
+        "defaultValue": null,
+        "description": "",
+        "name": "dataTestId",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
       "disableCloseOnSelect": {
         "defaultValue": null,
         "description": "",
         "name": "disableCloseOnSelect",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
           "name": "SelectOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
             "name": "SelectOptions"
           }
         ],
@@ -111,12 +138,16 @@
         "description": "",
         "name": "disabled",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
-          "name": "SelectOptions"
+          "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+          "name": "InputHTMLAttributes"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+            "name": "InputHTMLAttributes"
+          },
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
             "name": "SelectOptions"
           }
         ],
@@ -139,12 +170,40 @@
         "description": "",
         "name": "groupsEnabled",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
           "name": "SelectOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "hasIcon": {
+        "defaultValue": null,
+        "description": "",
+        "name": "hasIcon",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
             "name": "SelectOptions"
           }
         ],
@@ -167,12 +226,12 @@
         "description": "",
         "name": "icon",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
           "name": "SelectOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
             "name": "SelectOptions"
           }
         ],
@@ -181,17 +240,52 @@
           "name": "ReactElement<any, string | JSXElementConstructor<any>>"
         }
       },
+      "iconPlacement": {
+        "defaultValue": null,
+        "description": "",
+        "name": "iconPlacement",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"both\" | \"left\" | \"right\"",
+          "value": [
+            {
+              "value": "\"both\""
+            },
+            {
+              "value": "\"left\""
+            },
+            {
+              "value": "\"right\""
+            }
+          ]
+        }
+      },
       "id": {
         "defaultValue": null,
         "description": "",
         "name": "id",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
-          "name": "SelectOptions"
+          "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+          "name": "HTMLAttributes"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+            "name": "HTMLAttributes"
+          },
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
             "name": "SelectOptions"
           }
         ],
@@ -205,12 +299,12 @@
         "description": "",
         "name": "isClearable",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
           "name": "SelectOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
             "name": "SelectOptions"
           }
         ],
@@ -233,12 +327,12 @@
         "description": "",
         "name": "isCreatable",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
           "name": "SelectOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
             "name": "SelectOptions"
           }
         ],
@@ -261,12 +355,12 @@
         "description": "",
         "name": "isMultiple",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
           "name": "SelectOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
             "name": "SelectOptions"
           }
         ],
@@ -289,12 +383,12 @@
         "description": "",
         "name": "isSearchable",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
           "name": "SelectOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
             "name": "SelectOptions"
           }
         ],
@@ -317,12 +411,16 @@
         "description": "",
         "name": "name",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
-          "name": "SelectOptions"
+          "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+          "name": "InputHTMLAttributes"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+            "name": "InputHTMLAttributes"
+          },
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
             "name": "SelectOptions"
           }
         ],
@@ -336,12 +434,12 @@
         "description": "",
         "name": "onBlur",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
           "name": "SelectOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
             "name": "SelectOptions"
           }
         ],
@@ -355,12 +453,12 @@
         "description": "",
         "name": "onChange",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
           "name": "SelectOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
             "name": "SelectOptions"
           }
         ],
@@ -374,12 +472,12 @@
         "description": "",
         "name": "onClick",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
           "name": "SelectOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
             "name": "SelectOptions"
           }
         ],
@@ -393,12 +491,12 @@
         "description": "",
         "name": "onCreate",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
           "name": "SelectOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
             "name": "SelectOptions"
           }
         ],
@@ -412,12 +510,12 @@
         "description": "",
         "name": "onFocus",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
           "name": "SelectOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
             "name": "SelectOptions"
           }
         ],
@@ -433,12 +531,12 @@
         "description": "",
         "name": "options",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
           "name": "SelectOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
             "name": "SelectOptions"
           }
         ],
@@ -454,12 +552,16 @@
         "description": "",
         "name": "placeholder",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
-          "name": "SelectOptions"
+          "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+          "name": "InputHTMLAttributes"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+            "name": "InputHTMLAttributes"
+          },
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
             "name": "SelectOptions"
           }
         ],
@@ -475,12 +577,12 @@
         "description": "",
         "name": "renderCreateItem",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
           "name": "SelectOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
             "name": "SelectOptions"
           }
         ],
@@ -494,12 +596,12 @@
         "description": "",
         "name": "renderGroupHeader",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
           "name": "SelectOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
             "name": "SelectOptions"
           }
         ],
@@ -515,12 +617,12 @@
         "description": "",
         "name": "renderItem",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
           "name": "SelectOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
             "name": "SelectOptions"
           }
         ],
@@ -534,12 +636,12 @@
         "description": "",
         "name": "renderMultiple",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
           "name": "SelectOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
             "name": "SelectOptions"
           }
         ],
@@ -548,17 +650,53 @@
           "name": "(values: SelectOption[], handleRemove: (value: string) => void) => ReactElement<any, string | JSXElementConstructor<any>>"
         }
       },
+      "size": {
+        "defaultValue": {
+          "value": "md"
+        },
+        "description": "",
+        "name": "size",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Size",
+          "value": [
+            {
+              "value": "\"xs\""
+            },
+            {
+              "value": "\"sm\""
+            },
+            {
+              "value": "\"md\""
+            },
+            {
+              "value": "\"lg\""
+            }
+          ]
+        }
+      },
       "transparent": {
         "defaultValue": null,
         "description": "",
         "name": "transparent",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
           "name": "SelectOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
             "name": "SelectOptions"
           }
         ],
@@ -581,12 +719,12 @@
         "description": "",
         "name": "value",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
           "name": "SelectOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Select/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
             "name": "SelectOptions"
           }
         ],
@@ -618,6 +756,37 @@
               "description": "",
               "fullComment": "",
               "tags": {}
+            }
+          ]
+        }
+      },
+      "variant": {
+        "defaultValue": null,
+        "description": "",
+        "name": "variant",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"danger\" | \"success\" | \"warning\"",
+          "value": [
+            {
+              "value": "\"danger\""
+            },
+            {
+              "value": "\"success\""
+            },
+            {
+              "value": "\"warning\""
             }
           ]
         }

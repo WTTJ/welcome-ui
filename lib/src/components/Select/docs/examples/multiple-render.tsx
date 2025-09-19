@@ -2,8 +2,9 @@ import * as React from 'react'
 
 import { Select } from '@/components/Select'
 import type { SelectOption, SelectProps } from '@/components/Select/types'
+import { Text } from '@/components/Text'
+//TODO migrate WUI-187/tag
 import { Tag } from '@old/Tag'
-import { Text } from '@old/Text'
 
 export const ITEMS: SelectOption[] = [
   { label: 'Bold', value: 'bold' },
@@ -36,9 +37,7 @@ const Example = () => {
                 onRemove={() => handleRemove(option.value as string)}
                 size="sm"
               >
-                <Text m="0" variant="sm">
-                  {option.label}
-                </Text>
+                <Text variant="sm">{option.label}</Text>
               </Tag>
             )
           })}

@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { classNames } from '@/utils/classNames'
+//TODO migrate WUI-187/tag
 import { Tag } from '@old/Tag'
 
 import selectStyles from './select.module.scss'
