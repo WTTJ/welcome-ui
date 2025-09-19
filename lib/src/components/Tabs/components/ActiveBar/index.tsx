@@ -48,18 +48,10 @@ const cx = classNames(styles)
 export const ActiveBar = ({ activeTab, listRef, orientation }: ActiveBarProps) => {
   const activeBar = useActiveBar({ activeTab, listRef, orientation })
 
-  let style = {}
-  if (orientation === 'vertical') {
-    style = {
-      height: `${activeBar.size}px`,
-      transform: `translateY(${activeBar.offset}px)`,
-    }
-  } else {
-    style = {
-      transform: `translateX(${activeBar.offset}px)`,
-      width: `${activeBar.size}px`,
-    }
-  }
+  const style = {
+    '--active-bar-offset': `${activeBar.offset}px`,
+    '--active-bar-size': `${activeBar.size}px`,
+  } as React.CSSProperties
 
-  return <span className={cx('root')} style={style} />
+  return <span className={cx('root', `orientation-${orientation}`)} style={style} />
 }
