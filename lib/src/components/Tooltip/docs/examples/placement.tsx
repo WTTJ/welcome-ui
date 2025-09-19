@@ -1,17 +1,17 @@
 import * as React from 'react'
 
 import { Button } from '@/components/Button'
+import { InputText } from '@/components/InputText'
 import { Tooltip } from '@/components/Tooltip'
 import { Checkbox } from '@old/Checkbox'
 import { Field } from '@old/Field'
-import { Flex } from '@old/Flex'
-import { InputText } from '@old/InputText'
+
 const Example = () => {
   const [withArrow, setWithArrow] = React.useState(true)
   const [tooltipContent, setTooltipContent] = React.useState('This is the tooltip content')
 
   return (
-    <Flex flexDirection="column" gap="lg">
+    <div className="flex flex-col gap-lg">
       <Field cursor="pointer" label="Enable the arrow property">
         <Checkbox checked={withArrow} name="arrow" onChange={() => setWithArrow(!withArrow)} />
       </Field>
@@ -23,7 +23,7 @@ const Example = () => {
           value={tooltipContent}
         />
       </Field>
-      <Flex flexWrap="wrap" gap="lg">
+      <div className="flex flex-wrap gap-lg">
         <Tooltip content={tooltipContent} fixed placement="top-start" withArrow={withArrow}>
           <Button className="w-[120px]" size="sm">
             <span>top-start &#8598; </span>
@@ -39,8 +39,8 @@ const Example = () => {
             <span>top-end &#8599; </span>
           </Button>
         </Tooltip>
-      </Flex>
-      <Flex flexWrap="wrap" gap="lg">
+      </div>
+      <div className="flex flex-wrap gap-lg">
         <Tooltip content={tooltipContent} fixed placement="bottom-start" withArrow={withArrow}>
           <Button className="w-[120px]" size="sm">
             <span>bottom-start &#8601; </span>
@@ -56,8 +56,8 @@ const Example = () => {
             <span>bottom-end &#8600; </span>
           </Button>
         </Tooltip>
-      </Flex>
-      <Flex flexWrap="wrap" gap="lg">
+      </div>
+      <div className="flex flex-wrap gap-lg">
         <Tooltip content={tooltipContent} fixed placement="left-start" withArrow={withArrow}>
           <Button className="w-[120px]" size="sm">
             <span>left-start &#8598; </span>
@@ -73,8 +73,8 @@ const Example = () => {
             <span>left-end &#8601; </span>
           </Button>
         </Tooltip>
-      </Flex>
-      <Flex flexWrap="wrap" gap="lg">
+      </div>
+      <div className="flex flex-wrap gap-lg">
         <Tooltip content={tooltipContent} fixed placement="right-start" withArrow={withArrow}>
           <Button className="w-[120px]" size="sm">
             <span>right-start &#8599; </span>
@@ -90,8 +90,8 @@ const Example = () => {
             <span>right-end &#8600; </span>
           </Button>
         </Tooltip>
-      </Flex>
-    </Flex>
+      </div>
+    </div>
   )
 }
 
