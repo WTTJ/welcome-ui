@@ -30,20 +30,14 @@
         }
       },
       "autoComplete": {
-        "defaultValue": {
-          "value": "off"
-        },
+        "defaultValue": null,
         "description": "We need to add `autoComplete` off to avoid select UI issues when is an input",
         "name": "autoComplete",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-          "name": "InputHTMLAttributes"
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
         },
         "declarations": [
-          {
-            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-            "name": "InputHTMLAttributes"
-          },
           {
             "fileName": "welcome-ui/lib/src/components/Select/types.ts",
             "name": "SelectOptions"
@@ -59,14 +53,10 @@
         "description": "",
         "name": "autoFocus",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-          "name": "HTMLAttributes"
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
         },
         "declarations": [
-          {
-            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-            "name": "HTMLAttributes"
-          },
           {
             "fileName": "welcome-ui/lib/src/components/Select/types.ts",
             "name": "SelectOptions"
@@ -138,14 +128,10 @@
         "description": "",
         "name": "disabled",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-          "name": "InputHTMLAttributes"
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
         },
         "declarations": [
-          {
-            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-            "name": "InputHTMLAttributes"
-          },
           {
             "fileName": "welcome-ui/lib/src/components/Select/types.ts",
             "name": "SelectOptions"
@@ -276,14 +262,10 @@
         "description": "",
         "name": "id",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-          "name": "HTMLAttributes"
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
         },
         "declarations": [
-          {
-            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-            "name": "HTMLAttributes"
-          },
           {
             "fileName": "welcome-ui/lib/src/components/Select/types.ts",
             "name": "SelectOptions"
@@ -411,14 +393,10 @@
         "description": "",
         "name": "name",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-          "name": "InputHTMLAttributes"
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
         },
         "declarations": [
-          {
-            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-            "name": "InputHTMLAttributes"
-          },
           {
             "fileName": "welcome-ui/lib/src/components/Select/types.ts",
             "name": "SelectOptions"
@@ -525,9 +503,7 @@
         }
       },
       "options": {
-        "defaultValue": {
-          "value": "[]"
-        },
+        "defaultValue": null,
         "description": "",
         "name": "options",
         "parent": {
@@ -540,26 +516,20 @@
             "name": "SelectOptions"
           }
         ],
-        "required": false,
+        "required": true,
         "type": {
           "name": "SelectOptionsType"
         }
       },
       "placeholder": {
-        "defaultValue": {
-          "value": "Choose from…"
-        },
+        "defaultValue": null,
         "description": "",
         "name": "placeholder",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-          "name": "InputHTMLAttributes"
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
         },
         "declarations": [
-          {
-            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-            "name": "InputHTMLAttributes"
-          },
           {
             "fileName": "welcome-ui/lib/src/components/Select/types.ts",
             "name": "SelectOptions"
@@ -571,9 +541,7 @@
         }
       },
       "renderCreateItem": {
-        "defaultValue": {
-          "value": "(inputValue: string) => `Create \"${inputValue}\"`"
-        },
+        "defaultValue": null,
         "description": "",
         "name": "renderCreateItem",
         "parent": {
@@ -611,9 +579,7 @@
         }
       },
       "renderItem": {
-        "defaultValue": {
-          "value": "(item: SelectOption): string => (item ? item.label : EMPTY_STRING)"
-        },
+        "defaultValue": null,
         "description": "",
         "name": "renderItem",
         "parent": {
@@ -651,9 +617,7 @@
         }
       },
       "size": {
-        "defaultValue": {
-          "value": "md"
-        },
+        "defaultValue": null,
         "description": "",
         "name": "size",
         "parent": {

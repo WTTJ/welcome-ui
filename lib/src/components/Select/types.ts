@@ -3,6 +3,7 @@ import type { ComponentPropsWithRef } from 'react'
 
 import type { Size } from '@/types'
 import type { CreateEvent } from '@/utils/create-event'
+import type { MergeProps } from '@/utils/forwardRefWithAs'
 
 export type SelectOption = {
   disabled?: boolean
@@ -54,13 +55,10 @@ export type SelectOptionsType = Array<SelectOption | SelectOptionGroup>
 
 export type SelectOptionValue = number | string
 
-//FIXME(isaac) is there a better way ?
-export type SelectProps = Omit<
-  ComponentPropsWithRef<'input'>,
-  'onBlur' | 'onChange' | 'onClick' | 'onCreate' | 'onFocus' | 'size' | 'value'
-> &
-  Omit<DownshiftProps<SelectOption>, 'children' | keyof SelectOptions> &
-  SelectOptions
+export type SelectProps = MergeProps<
+  Omit<DownshiftProps<SelectOption>, 'children' | keyof SelectOptions> & SelectOptions,
+  ComponentPropsWithRef<'input'>
+>
 
 export type SelectValue =
   | (number | SelectOption | string)[]
