@@ -40,12 +40,12 @@ export default {
   "/Label/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Label/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Label/docs/examples/required.tsx": dynamic(() => import("../../lib/src/components/Label/docs/examples/required.tsx").then(mod => mod), { ssr: false }),
   "/Label/docs/examples/variants.tsx": dynamic(() => import("../../lib/src/components/Label/docs/examples/variants.tsx").then(mod => mod), { ssr: false }),
-  "/Textarea/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Textarea/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
-  "/Textarea/docs/examples/variants.tsx": dynamic(() => import("../../lib/src/components/Textarea/docs/examples/variants.tsx").then(mod => mod), { ssr: false }),
   "/Text/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Text/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Text/docs/examples/overwrite.tsx": dynamic(() => import("../../lib/src/components/Text/docs/examples/overwrite.tsx").then(mod => mod), { ssr: false }),
   "/Text/docs/examples/truncation.tsx": dynamic(() => import("../../lib/src/components/Text/docs/examples/truncation.tsx").then(mod => mod), { ssr: false }),
   "/Text/docs/examples/withDash.tsx": dynamic(() => import("../../lib/src/components/Text/docs/examples/withDash.tsx").then(mod => mod), { ssr: false }),
+  "/Textarea/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Textarea/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
+  "/Textarea/docs/examples/variants.tsx": dynamic(() => import("../../lib/src/components/Textarea/docs/examples/variants.tsx").then(mod => mod), { ssr: false }),
   "/Toggle/docs/examples/hint.tsx": dynamic(() => import("../../lib/src/components/Toggle/docs/examples/hint.tsx").then(mod => mod), { ssr: false }),
   "/Toggle/docs/examples/icon.tsx": dynamic(() => import("../../lib/src/components/Toggle/docs/examples/icon.tsx").then(mod => mod), { ssr: false }),
   "/Toggle/docs/examples/label.tsx": dynamic(() => import("../../lib/src/components/Toggle/docs/examples/label.tsx").then(mod => mod), { ssr: false }),
@@ -53,5 +53,7 @@ export default {
   "/Toggle/docs/examples/size.tsx": dynamic(() => import("../../lib/src/components/Toggle/docs/examples/size.tsx").then(mod => mod), { ssr: false }),
   "/Toggle/docs/examples/variant.tsx": dynamic(() => import("../../lib/src/components/Toggle/docs/examples/variant.tsx").then(mod => mod), { ssr: false }),
   "/VariantIcon/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/VariantIcon/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
-  "/VariantIcon/docs/examples/sizes.tsx": dynamic(() => import("../../lib/src/components/VariantIcon/docs/examples/sizes.tsx").then(mod => mod), { ssr: false })
+  "/VariantIcon/docs/examples/sizes.tsx": dynamic(() => import("../../lib/src/components/VariantIcon/docs/examples/sizes.tsx").then(mod => mod), { ssr: false }),
+  "/WelcomeLoader/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/WelcomeLoader/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
+  "/WelcomeLoader/docs/examples/resize.tsx": dynamic(() => import("../../lib/src/components/WelcomeLoader/docs/examples/resize.tsx").then(mod => mod), { ssr: false })
 };
