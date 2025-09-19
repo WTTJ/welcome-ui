@@ -177,19 +177,24 @@
 
 "@ariakit/react-core@0.4.15":
   version "0.4.15"
-  resolved "https://registry.npmjs.org/@ariakit/react-core/-/react-core-0.4.15.tgz"
-  integrity sha512-Up8+U97nAPJdyUh9E8BCEhJYTA+eVztWpHoo1R9zZfHd4cnBWAg5RHxEmMH+MamlvuRxBQA71hFKY/735fDg+A==
+  resolved "https://registry.yarnpkg.com/@ariakit/core/-/core-0.4.15.tgz#b44368a5cbf08e2687cf5b4c385b16973415e504"
+  integrity sha512-vvxmZvkNhiisKM+Y1TbGMUfVVchV/sWu9F0xw0RYADXcimWPK31dd9JnIZs/OQ5pwAryAHmERHwuGQVESkSjwQ==
+
+"@ariakit/react-core@0.4.18":
+  version "0.4.18"
+  resolved "https://registry.yarnpkg.com/@ariakit/react-core/-/react-core-0.4.18.tgz#d63114d4b252b9889f2810b89edbb627bf0db38f"
+  integrity sha512-wHtojXF7KPRwGTSbPg50l203Qngg2aGYCzCut+mYEwe3S0ZzuYVpiY+2Yh15HssnQ/S5yiDGRL4q94UEXsyO+w==
   dependencies:
-    "@ariakit/core" "0.4.14"
+    "@ariakit/core" "0.4.15"
     "@floating-ui/dom" "^1.0.0"
     use-sync-external-store "^1.2.0"
 
-"@ariakit/react@0.4.15":
-  version "0.4.15"
-  resolved "https://registry.npmjs.org/@ariakit/react/-/react-0.4.15.tgz"
-  integrity sha512-0V2LkNPFrGRT+SEIiObx/LQjR6v3rR+mKEDUu/3tq7jfCZ+7+6Q6EMR1rFaK+XMkaRY1RWUcj/rRDWAUWnsDww==
+"@ariakit/react@0.4.18":
+  version "0.4.18"
+  resolved "https://registry.yarnpkg.com/@ariakit/react/-/react-0.4.18.tgz#74d199c5899dc67e3db0db8a8a33a8e23737feab"
+  integrity sha512-r38DFvdv6JzjC/8mHekTaJEXO6hmx+YPIiyjq9oL7DckLmqGkAKbFrmQd2CeKZZ1c372DDVw7lLhYjj/VYCBZQ==
   dependencies:
-    "@ariakit/react-core" "0.4.15"
+    "@ariakit/react-core" "0.4.18"
 
 "@asamuzakjp/css-color@^3.1.1":
   version "3.1.1"
