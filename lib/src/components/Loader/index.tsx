@@ -12,8 +12,8 @@ const isValidSize = (size: unknown): size is LoaderSize => {
 
 export const Loader = ({
   className = '',
-  color = '--color-neutral-60',
   size = 'sm',
+  variant = 'neutral',
   ...rest
 }: LoaderProps) => {
   const formattedSize = typeof size === 'string' ? size : `${size}px`
@@ -22,7 +22,7 @@ export const Loader = ({
   ) as React.CSSProperties
 
   return (
-    <div {...rest} className={cx('root', className)} style={{ color: `var(${color})` }}>
+    <div {...rest} className={cx('root', `variant-${variant}`, className)}>
       <span className={cx('dot', `size-${size}`)} style={dotStyle} />
       <span className={cx('dot', `size-${size}`)} style={dotStyle} />
       <span className={cx('dot', `size-${size}`)} style={dotStyle} />

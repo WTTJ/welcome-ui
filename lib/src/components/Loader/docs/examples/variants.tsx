@@ -1,7 +1,7 @@
 import { Loader } from '../../index'
 
 const Example = () => {
-  return <Loader color="--color-yellow-40" />
+  return <Loader variant="primary" />
 }
 
 export default Example
