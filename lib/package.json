@@ -57,7 +57,7 @@
     "@juggle/resize-observer": "^3.4.0",
     "copy-to-clipboard": "^3.3.3",
     "date-fns": "^4.1.0",
-    "downshift": "^7.4.1",
+    "downshift": "^9.0.10",
     "lodash.capitalize": "^4.2.1",
     "lodash.debounce": "^4.0.8",
     "lodash.range": "^3.2.0",
