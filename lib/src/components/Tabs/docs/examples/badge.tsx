@@ -1,6 +1,6 @@
+import { HeartIcon } from '@/components/Icon'
 import { Tab, useTab } from '@/components/Tabs'
 import { Badge } from '@old/Badge'
-import { HeartIcon } from '@old/Icons'
 
 const Example = () => {
   const tab = useTab({ defaultSelectedId: 'tab2' })
