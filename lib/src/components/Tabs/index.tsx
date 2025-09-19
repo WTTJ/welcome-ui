@@ -33,16 +33,15 @@ const cx = classNames(styles)
 
 export const TabComponent = React.forwardRef(
   <T extends React.ElementType = 'button'>(
-    { as: As, children, className, id, store, ...rest }: TabProps<T>,
+    { as, children, className, id, store, ...rest }: TabProps<T> & { as?: T },
     ref: React.Ref<HTMLElement>
   ) => {
+    const As = (as || 'button') as React.ElementType
     return (
       <Ariakit.Tab
         className={cx('root', className)}
         id={id}
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        render={As ? props => <As {...props} ref={ref} /> : undefined}
+        render={props => <As {...props} ref={ref} />}
         store={store}
         {...rest}
       >
