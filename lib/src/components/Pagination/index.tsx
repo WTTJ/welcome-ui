@@ -1,22 +1,11 @@
-import type { ComponentPropsWithRef } from 'react'
 import React, { forwardRef, useCallback, useRef } from 'react'
 
 import { classNames } from '@/utils'
 import { LeftIcon, RightIcon } from '@old/Icons'
 
 import styles from './pagination.module.scss'
+import type { PaginationProps } from './types'
 import { usePages } from './utils'
-
-export interface PaginationOptions {
-  dataTestId?: string
-  getHref?: (page: number | string) => string
-  onChange: (page: number | string) => void
-  page: number
-  pageCount: number
-  rangeDisplay?: number
-}
-
-export type PaginationProps = ComponentPropsWithRef<'nav'> & PaginationOptions
 
 const cx = classNames(styles)
 
@@ -36,7 +25,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
         event.preventDefault()
         const previousPage = page - 1
         if (previousPage === 1) {
-          firstPageRef.current.focus()
+          firstPageRef.current?.focus()
         }
         onChange(previousPage)
       },
@@ -48,7 +37,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
         event.preventDefault()
         const nextPage = page + 1
         if (nextPage === pageCount) {
-          lastPageRef.current.focus()
+          lastPageRef.current?.focus()
         }
         onChange(nextPage)
       },

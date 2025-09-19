@@ -6,12 +6,12 @@
         "description": "",
         "name": "dataTestId",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Pagination/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
           "name": "PaginationOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Pagination/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
             "name": "PaginationOptions"
           }
         ],
@@ -25,12 +25,12 @@
         "description": "",
         "name": "getHref",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Pagination/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
           "name": "PaginationOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Pagination/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
             "name": "PaginationOptions"
           }
         ],
@@ -53,7 +53,7 @@
             "name": "DOMAttributes"
           },
           {
-            "fileName": "welcome-ui/lib/src/components/Pagination/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
             "name": "PaginationOptions"
           }
         ],
@@ -67,12 +67,12 @@
         "description": "",
         "name": "page",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Pagination/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
           "name": "PaginationOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Pagination/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
             "name": "PaginationOptions"
           }
         ],
@@ -86,12 +86,12 @@
         "description": "",
         "name": "pageCount",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Pagination/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
           "name": "PaginationOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Pagination/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
             "name": "PaginationOptions"
           }
         ],
@@ -107,12 +107,12 @@
         "description": "",
         "name": "rangeDisplay",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Pagination/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
           "name": "PaginationOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Pagination/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
             "name": "PaginationOptions"
           }
         ],

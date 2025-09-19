@@ -34,6 +34,7 @@ function getPosition(page: number, pageCount: number): Position {
   if (page < RANGE) return 'before'
   if (page >= RANGE && page <= pageCount - RANGE + 1) return 'center'
   if (page > pageCount - RANGE + 1) return 'after'
+  return 'center'
 }
 
 function joinArrays(arrays: number[][], separator: string): Array<number | string> {
