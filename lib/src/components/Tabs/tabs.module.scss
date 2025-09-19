@@ -1,0 +1,49 @@
+@layer components {
+  .root {
+    border: 0;
+    background: none;
+    color: var(--tabs-color, var(--color-neutral-70));
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-md);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    flex: none;
+    padding: var(--spacing-md) 0;
+    transition: var(--transition-medium);
+    text-transform: none;
+    cursor: pointer;
+    gap: var(--spacing-sm);
+
+    &:focus {
+      outline: none !important; /* important for firefox */
+
+      &:not([aria-selected='true']) {
+        --tabs-color: var(--color-neutral-90);
+      }
+    }
+
+    &[aria-selected='true'] {
+      --tabs-color: var(--color-neutral-90);
+    }
+
+    &[aria-disabled='true'] {
+      --tabs-color: var(--color-neutral-60);
+      cursor: not-allowed;
+    }
+
+    &:hover:not([aria-selected='true']):not([aria-disabled='true']) {
+      --tabs-color: var(--color-neutral-90);
+    }
+
+    & > svg,
+    img {
+      max-height: var(--spacing-lg);
+      max-width: var(--spacing-lg);
+    }
+
+    & > span {
+      max-height: var(--spacing-lg);
+    }
+  }
+}
