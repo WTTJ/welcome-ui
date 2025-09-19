@@ -1,0 +1,126 @@
+{
+  "Pagination": {
+    "props": {
+      "dataTestId": {
+        "defaultValue": null,
+        "description": "",
+        "name": "dataTestId",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
+          "name": "PaginationOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
+            "name": "PaginationOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "getHref": {
+        "defaultValue": null,
+        "description": "",
+        "name": "getHref",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
+          "name": "PaginationOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
+            "name": "PaginationOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(page: string | number) => string"
+        }
+      },
+      "onChange": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onChange",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+          "name": "DOMAttributes"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+            "name": "DOMAttributes"
+          },
+          {
+            "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
+            "name": "PaginationOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "FormEventHandler<HTMLElement> & ((page: string | number) => void)"
+        }
+      },
+      "page": {
+        "defaultValue": null,
+        "description": "",
+        "name": "page",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
+          "name": "PaginationOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
+            "name": "PaginationOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "number"
+        }
+      },
+      "pageCount": {
+        "defaultValue": null,
+        "description": "",
+        "name": "pageCount",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
+          "name": "PaginationOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
+            "name": "PaginationOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "number"
+        }
+      },
+      "rangeDisplay": {
+        "defaultValue": {
+          "value": 5
+        },
+        "description": "",
+        "name": "rangeDisplay",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
+          "name": "PaginationOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
+            "name": "PaginationOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "number"
+        }
+      }
+    }
+  }
+}
