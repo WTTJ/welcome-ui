@@ -46,18 +46,18 @@ function useActiveBar({ activeTab, listRef, orientation }: ActiveBarProps): Acti
 const cx = classNames(styles)
 
 export const ActiveBar = ({ activeTab, listRef, orientation }: ActiveBarProps) => {
-  const { offset: transform, size: height } = useActiveBar({ activeTab, listRef, orientation })
+  const activeBar = useActiveBar({ activeTab, listRef, orientation })
 
   let style = {}
   if (orientation === 'vertical') {
     style = {
-      height: height,
-      transform: `translateY(${transform}px)`,
+      height: `${activeBar.size}px`,
+      transform: `translateY(${activeBar.offset}px)`,
     }
   } else {
     style = {
-      transform: `translateX(${transform}px)`,
-      width: height,
+      transform: `translateX(${activeBar.offset}px)`,
+      width: `${activeBar.size}px`,
     }
   }
 
