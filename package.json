@@ -7,6 +7,7 @@
     "build": "yarn build:lib",
     "check:audit": "/bin/bash -c 'yarn audit --level low; [[ $? -ge 2 ]] && exit 1 || exit 0'",
     "check:audit:fix": "npm_config_yes=true npx yarn-audit-fix",
+    "check:docs": "node ./scripts/check-docs.mjs",
     "icons": "node scripts/icons-optimize.mjs && node scripts/icons-collect.mjs && yarn eslint --fix",
     "lint:tailwindcss": "stylelint 'lib/src/**/**/*.css' ",
     "lint:styled": "stylelint '**/styles.ts'",
@@ -21,7 +22,6 @@
     "release:alpha": "cd lib && yarn release-it --preRelease=alpha",
     "release": "cd lib && yarn release-it",
     "start": "cd website && yarn dev -p 3020",
-    "export-properties": "node ./scripts/generate-types-doc.mjs",
     "test": "cd lib && yarn test"
   },
   "private": true,

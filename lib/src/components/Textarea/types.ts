@@ -1,8 +1,6 @@
 export interface TextareaOptions {
   minRows?: number
-  variant?: Variant
+  variant?: 'danger' | 'default' | 'success' | 'warning'
 }
 
 export type TextareaProps = React.InputHTMLAttributes<HTMLTextAreaElement> & TextareaOptions
-
-export type Variant = 'danger' | 'default' | 'success' | 'warning'

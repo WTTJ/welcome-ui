@@ -1,18 +1,27 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
-const { existsSync, readdirSync, writeFileSync } = require('fs')
-const { join, resolve } = require('path')
+import { existsSync, readdirSync, writeFileSync } from 'fs'
+import { join } from 'path'
 
-function generateWebsiteExamplesPages() {
+const isWebsite = process.cwd().endsWith('website')
+const parentPath = isWebsite ? join(process.cwd(), '..') : process.cwd()
+
+/**
+ * Generates a dynamic import file for website examples.
+ * This function scans component directories for example files and creates
+ * a JavaScript file that dynamically imports all found examples.
+ *
+ * @param {Object} options - Configuration options
+ * @param {boolean} options.isWebsite - Whether running from website directory or root
+ */
+export function generateWebsiteExamplesPages() {
   // eslint-disable-next-line no-console
   console.log('Examples generating...')
 
-  const parentDirectory = resolve(__dirname, '../../')
-  const packagesDirectory = join(parentDirectory, 'lib/src/components')
-  const packagesDirectoryExist = existsSync(packagesDirectory)
+  const packagesDirectory = join(parentPath, 'lib/src/components')
+  const packagesDirectoryExists = existsSync(packagesDirectory)
 
   const examples = []
 
-  if (!packagesDirectoryExist) return
+  if (!packagesDirectoryExists) return null
 
   const folderList = readdirSync(packagesDirectory)
 
@@ -36,10 +45,5 @@ function generateWebsiteExamplesPages() {
     )
     .join(',\n')}\n};\n`
 
-  writeFileSync(join(parentDirectory, 'website', 'build-app', 'examples.js'), fileContent)
-
-  // eslint-disable-next-line no-console
-  console.log('Examples updates ✅')
+  writeFileSync(join(parentPath, 'website', 'build-app', 'examples.js'), fileContent)
 }
-
-module.exports = { generateWebsiteExamplesPages }

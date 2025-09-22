@@ -1,5 +1,8 @@
 import type { PolymorphicProps } from '@/theme/types'
 
-export type AspectRatioProps<T extends React.ElementType = 'div'> = PolymorphicProps<T> & {
+export interface AspectRatioOptions {
   ratio?: number
 }
+
+export type AspectRatioProps<T extends React.ElementType = 'div'> = AspectRatioOptions &
+  PolymorphicProps<T>

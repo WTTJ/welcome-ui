@@ -1,13 +1,9 @@
 import { forwardRef, useState } from 'react'
 
 import { InputText } from '@/components/InputText'
-import type { InputTextProps } from '@/components/InputText/types'
 
 import { ToggleButton } from './ToggleButton'
-
-export type PasswordInputProps = InputTextProps & {
-  'data-testid'?: string
-}
+import type { PasswordInputProps } from './types'
 
 export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
   ({ title, ...rest }, ref) => {

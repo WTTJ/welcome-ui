@@ -60,7 +60,7 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "Variant",
+          "raw": "\"ai\" | \"danger\" | \"info\" | \"success\" | \"warning\"",
           "value": [
             {
               "value": "\"ai\""

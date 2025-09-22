@@ -41,7 +41,7 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "Variant",
+          "raw": "\"danger\" | \"default\" | \"success\" | \"warning\"",
           "value": [
             {
               "value": "\"danger\""

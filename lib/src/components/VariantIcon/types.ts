@@ -6,9 +6,7 @@ export type VariantIconProps = ComponentPropsWithRef<'div'> &
   HTMLAttributes<HTMLDivElement> &
   VariantIconOptions
 
-type Variant = 'ai' | 'danger' | 'info' | 'success' | 'warning'
-
 interface VariantIconOptions {
   size?: IconProps['size']
-  variant?: Variant
+  variant?: 'ai' | 'danger' | 'info' | 'success' | 'warning'
 }

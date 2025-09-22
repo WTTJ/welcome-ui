@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 
 import { render } from '@tests'
 
-import type { PasswordInputProps } from '../'
 import { PasswordInput } from '../'
+import type { PasswordInputProps } from '../types'
 
 const PasswordInputWrapper = (props: PasswordInputProps) => {
   const [value, setValue] = useState('test')
