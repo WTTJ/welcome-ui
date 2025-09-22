@@ -1,4 +1,3 @@
-/* eslint-disable */
 /** WARNING
 This file is auto-generate with yarn watch command, do not change it directly!
 **/
@@ -14,6 +13,11 @@ export default {
   "/Avatar/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Avatar/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Avatar/docs/examples/sizes.tsx": dynamic(() => import("../../lib/src/components/Avatar/docs/examples/sizes.tsx").then(mod => mod), { ssr: false }),
   "/Avatar/docs/examples/texts.tsx": dynamic(() => import("../../lib/src/components/Avatar/docs/examples/texts.tsx").then(mod => mod), { ssr: false }),
+  "/Badge/docs/examples/disabled.tsx": dynamic(() => import("../../lib/src/components/Badge/docs/examples/disabled.tsx").then(mod => mod), { ssr: false }),
+  "/Badge/docs/examples/number-abbreviation.tsx": dynamic(() => import("../../lib/src/components/Badge/docs/examples/number-abbreviation.tsx").then(mod => mod), { ssr: false }),
+  "/Badge/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Badge/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
+  "/Badge/docs/examples/size.tsx": dynamic(() => import("../../lib/src/components/Badge/docs/examples/size.tsx").then(mod => mod), { ssr: false }),
+  "/Badge/docs/examples/variant.tsx": dynamic(() => import("../../lib/src/components/Badge/docs/examples/variant.tsx").then(mod => mod), { ssr: false }),
   "/Button/docs/examples/ai.tsx": dynamic(() => import("../../lib/src/components/Button/docs/examples/ai.tsx").then(mod => mod), { ssr: false }),
   "/Button/docs/examples/danger.tsx": dynamic(() => import("../../lib/src/components/Button/docs/examples/danger.tsx").then(mod => mod), { ssr: false }),
   "/Button/docs/examples/disabled.tsx": dynamic(() => import("../../lib/src/components/Button/docs/examples/disabled.tsx").then(mod => mod), { ssr: false }),
