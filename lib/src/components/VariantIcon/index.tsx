@@ -29,11 +29,7 @@ export const VariantIcon = forwardRef<HTMLDivElement, VariantIconProps>(
     const IconComponent = iconMap[variant] || PromoteIcon
 
     return (
-      <div
-        {...rest}
-        className={cx('root', variant && `variant-${variant}`, `size-${size}`, className)}
-        ref={ref}
-      >
+      <div {...rest} className={cx('root', variant && `variant-${variant}`, className)} ref={ref}>
         <IconComponent size={size} />
       </div>
     )

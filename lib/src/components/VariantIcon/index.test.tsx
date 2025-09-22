@@ -10,7 +10,6 @@ describe('VariantIcon', () => {
 
     const component = screen.getByTestId('component')
 
-    expect(component.className).toMatch(/size-md/)
     expect(component.querySelector('svg')).toHaveAttribute('aria-label', 'Promote')
   })
 
@@ -22,7 +21,6 @@ describe('VariantIcon', () => {
     const component = screen.getByTestId('component')
 
     expect(component.className).toMatch(/variant-success/)
-    expect(component.className).toMatch(/size-lg/)
     expect(component.className).toMatch(/custom-class/)
     expect(component.querySelector('svg')).toHaveAttribute('aria-label', 'Check')
   })
