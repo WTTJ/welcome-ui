@@ -1,11 +1,11 @@
-/* eslint-disable no-console */
-
 import { accessSync, existsSync, readdirSync, writeFileSync } from 'fs'
-import { dirname, join, resolve } from 'path'
+import { join, resolve } from 'path'
 
 import { withCustomConfig } from 'react-docgen-typescript'
 
-const tsConfigPath = join(process.cwd(), 'lib', 'tsconfig.json')
+const isWebsite = process.cwd().endsWith('website')
+const parentPath = isWebsite ? join(process.cwd(), '..') : process.cwd()
+const tsConfigPath = join(parentPath, 'lib', 'tsconfig.json')
 
 // Get only ComponentOptions declarations for prevent all WuiProps
 const propFilter = prop => {
@@ -90,9 +90,28 @@ const arePropsEmpty = obj => {
   })
 }
 
-async function generateTypesDoc() {
-  const parentDirectory = resolve(dirname('../'))
-  const componentsDir = resolve(parentDirectory, 'lib/src/components')
+/**
+ * Generates TypeScript documentation for UI components by scanning component directories,
+ * extracting prop definitions from TypeScript files, and creating properties.json files
+ * for components that have documented props.
+ *
+ * This function:
+ * - Scans the components directory for folders containing a 'docs' subdirectory
+ * - Extracts TypeScript definitions and props from component files
+ * - Sorts and organizes component props by name
+ * - Writes properties.json files for components with valid props
+ * - Logs completion status to console
+ *
+ * @async
+ * @function generateTypesDoc
+ * @returns {Promise<void>} Resolves when all type documentation has been generated
+ */
+export async function generateTypesDoc() {
+  // eslint-disable-next-line no-console
+  console.log('Types doc generating...')
+
+  // Determine the correct components directory to use
+  const componentsDir = join(parentPath, 'lib/src/components')
 
   // Read all directories in the components folder with a docs folder
   const componentDirs = readdirSync(componentsDir, { withFileTypes: true })
@@ -109,8 +128,8 @@ async function generateTypesDoc() {
     .map(dirent => dirent.name)
 
   // Get all files in each component folder
-  componentDirs.map(async dirent => {
-    const componentDir = resolve(parentDirectory, 'lib/src/components', dirent)
+  await componentDirs.map(async dirent => {
+    const componentDir = resolve(componentsDir, dirent)
     const files = await getComponentFiles(componentDir)
 
     // Get definitions from each file
@@ -142,9 +161,3 @@ async function generateTypesDoc() {
     })
   })
 }
-
-async function main() {
-  await generateTypesDoc()
-}
-
-main().catch(console.error)

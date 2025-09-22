@@ -1,10 +1,11 @@
-import { createElement, type CSSProperties, forwardRef, type HTMLAttributes } from 'react'
+import { createElement, type CSSProperties } from 'react'
 
-import { classNames } from '@/utils'
+import { classNames, forwardRefWithAs } from '@/utils'
 
 import textStyles from './text.module.scss'
+import type { TextProps } from './types'
 
-const TAG_NAMES = {
+export const TAG_NAMES = {
   h0: 'h1',
   h1: 'h1',
   h2: 'h2',
@@ -22,20 +23,7 @@ const TAG_NAMES = {
 
 const cx = classNames(textStyles)
 
-export interface TextOptions {
-  lines?: number
-  variant?: Variant
-  withDash?: boolean
-}
-
-export type TextProps = HTMLAttributes<HTMLElement> &
-  TextOptions & {
-    as?: React.ElementType
-  }
-
-type Variant = keyof typeof TAG_NAMES
-
-export const Text = forwardRef<HTMLElement, TextProps>(
+export const Text = forwardRefWithAs<TextProps, 'p'>(
   ({ as, children, className, lines, variant = 'md', withDash, ...rest }, ref) => {
     const tagName = as || TAG_NAMES[variant]
     const isHeading = variant?.startsWith('h')

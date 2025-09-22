@@ -1,42 +1,6 @@
 {
   "Toggle": {
     "props": {
-      "checked": {
-        "defaultValue": null,
-        "description": "Determines if the checkmark should be rendered. This value is automatically\nderived from the context when it exists. Manually setting this prop will\nsupersede the derived value.\n\nLive examples:\n- [Submenu with\n  Combobox](https://ariakit.org/examples/menu-nested-combobox)",
-        "name": "checked",
-        "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/checkbox/checkbox-check.d.ts",
-          "name": "CheckboxCheckOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/checkbox/checkbox-check.d.ts",
-            "name": "CheckboxCheckOptions"
-          },
-          {
-            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-            "name": "InputHTMLAttributes"
-          },
-          {
-            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-            "name": "InputHTMLAttributes"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "enum",
-          "raw": "boolean",
-          "value": [
-            {
-              "value": "false"
-            },
-            {
-              "value": "true"
-            }
-          ]
-        }
-      },
       "checkedIcon": {
         "defaultValue": null,
         "description": "",
@@ -54,43 +18,6 @@
         "required": false,
         "type": {
           "name": "Element"
-        }
-      },
-      "render": {
-        "defaultValue": null,
-        "description": "Allows the component to be rendered as a different HTML element or React\ncomponent. The value can be a React element or a function that takes in the\noriginal component props and gives back a React element with the props\nmerged.\n\nCheck out the [Composition](https://ariakit.org/guide/composition) guide\nfor more details.",
-        "name": "render",
-        "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/utils/types.d.ts",
-          "name": "Options"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/utils/types.d.ts",
-            "name": "Options"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "enum",
-          "raw": "ReactElement<any, string | JSXElementConstructor<any>> | RenderProp<HTMLAttributes<any> & { ref?: Ref<any>; }>",
-          "value": [
-            {
-              "value": "ReactElement<any, string | JSXElementConstructor<any>>",
-              "description": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.",
-              "fullComment": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.\n@template P The type of the props object\n@template T The type of the component or tag\n@example ```tsx\nconst element: ReactElement = <div />;\n```",
-              "tags": {
-                "template": "P The type of the props object\nT The type of the component or tag",
-                "example": "```tsx\nconst element: ReactElement = <div />;\n```"
-              }
-            },
-            {
-              "value": "RenderProp<HTMLAttributes<any> & { ref?: Ref<any>; }>",
-              "description": "",
-              "fullComment": "",
-              "tags": {}
-            }
-          ]
         }
       },
       "size": {
@@ -112,7 +39,7 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "Size",
+          "raw": "\"md\" | \"sm\" | \"xs\"",
           "value": [
             {
               "value": "\"md\""
@@ -124,25 +51,6 @@
               "value": "\"xs\""
             }
           ]
-        }
-      },
-      "store": {
-        "defaultValue": null,
-        "description": "Object returned by the\n[`useCheckboxStore`](https://ariakit.org/reference/use-checkbox-store)\nhook.",
-        "name": "store",
-        "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/checkbox/checkbox-check.d.ts",
-          "name": "CheckboxCheckOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/checkbox/checkbox-check.d.ts",
-            "name": "CheckboxCheckOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "CheckboxStore<CheckboxStoreValue>"
         }
       },
       "uncheckedIcon": {
@@ -162,25 +70,6 @@
         "required": false,
         "type": {
           "name": "Element"
-        }
-      },
-      "wrapElement": {
-        "defaultValue": null,
-        "description": "",
-        "name": "wrapElement",
-        "parent": {
-          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/utils/types.d.ts",
-          "name": "Options"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/utils/types.d.ts",
-            "name": "Options"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "WrapElement"
         }
       }
     }

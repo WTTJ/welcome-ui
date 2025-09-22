@@ -5,28 +5,12 @@ import {
   useStoreState,
   useTooltipStore,
 } from '@ariakit/react'
-import type {
-  TooltipProps as AriakitTooltipProps,
-  TooltipStoreProps as AriakitTooltipStoreProps,
-} from '@ariakit/react'
 import React, { forwardRef, useCallback, useEffect, useState } from 'react'
 
 import { classNames } from '@/utils'
 
 import tooltipStyles from './tooltip.module.scss'
-
-export interface TooltipOptions {
-  children: React.ReactNode
-  content: JSX.Element | string
-  fixed?: boolean
-  gutter?: number
-  placement?: TooltipPlacement
-  withArrow?: boolean
-}
-
-export type TooltipPlacement = AriakitTooltipStoreProps['placement']
-
-export type TooltipProps = Omit<AriakitTooltipProps, 'children' | 'content'> & TooltipOptions
+import type { TooltipProps } from './types'
 
 const cx = classNames(tooltipStyles)
 

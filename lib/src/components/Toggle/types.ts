@@ -9,10 +9,8 @@ export type ToggleProps = Omit<
 > &
   ToggleOptions
 
-type Size = 'md' | 'sm' | 'xs'
-
 interface ToggleOptions {
   checkedIcon?: JSX.Element
-  size?: Size
+  size?: 'md' | 'sm' | 'xs'
   uncheckedIcon?: JSX.Element
 }

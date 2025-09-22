@@ -1,8 +1,8 @@
-const { watch } = require('fs')
-const { join, resolve } = require('path')
+import { watch } from 'fs'
+import { join, resolve } from 'path'
 
-const { generateWebsiteExamplesPages } = require('./loaders/generate-examples')
-const { generateTypesDoc } = require('./loaders/generate-types-doc')
+import { generateWebsiteExamplesPages } from '../scripts/generate-examples.mjs'
+import { generateTypesDoc } from '../scripts/generate-types-doc.mjs'
 
 function watchTypes() {
   const watchPath = join(process.cwd(), '../lib/src/components')
@@ -45,13 +45,16 @@ const watchExamples = () => {
       clearTimeout(timeoutId)
 
       timeoutId = setTimeout(() => {
-        generateWebsiteExamplesPages()
+        generateWebsiteExamplesPages({ isWebsite: true })
       }, 1000)
     }
   })
 }
 
-/** @type {import('next').NextConfig} */
+// @ts-check
+/**
+ * @type {import('next').NextConfig}
+ */
 const nextConfig = {
   experimental: {
     externalDir: true,
@@ -66,12 +69,12 @@ const nextConfig = {
       }
     }
     config.module.rules.push({
-      include: [resolve(__dirname, '../lib/src')],
+      include: [resolve('../lib/src')],
       test: /\.(js|jsx|ts|tsx)$/,
-      use: [resolve(__dirname, 'loaders/use-client-loader.js')],
+      use: [resolve('./loaders/use-client-loader.js')],
     })
     return config
   },
 }
 
-module.exports = nextConfig
+export default nextConfig
