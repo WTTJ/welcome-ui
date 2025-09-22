@@ -1,17 +1,21 @@
 import { Accordion, useAccordion } from '@/components/Accordion'
 import { Avatar } from '@/components/Avatar'
+import { Text } from '@/components/Text'
+import { classNames } from '@/utils'
+
+const cx = classNames()
 
 const Example = () => {
   const accordion = useAccordion()
 
   return (
     <Accordion
+      className={cx('mt-md')}
       store={accordion}
-      style={{ marginTop: 'var(--spacing-md)' }}
       title={
-        <div style={{ alignItems: 'center', display: 'flex' }}>
-          <Avatar name="accordion" style={{ marginRight: '0.5rem' }} />
-          <h3 style={{ fontWeight: 'bold', margin: 0 }}>Accordion title</h3>
+        <div className={cx('items-center', 'flex')}>
+          <Avatar className={cx('mr-sm', 'flex')} name="accordion" />
+          <Text variant="h5">Accordion title</Text>
         </div>
       }
     >

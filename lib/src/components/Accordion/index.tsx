@@ -1,5 +1,5 @@
 import { Disclosure, DisclosureContent, useDisclosureStore } from '@ariakit/react'
-import { cloneElement, forwardRef } from 'react'
+import { forwardRef } from 'react'
 
 import { RightIcon } from '@/components/Icon'
 import { Text } from '@/components/Text'
@@ -11,16 +11,18 @@ import type { AccordionProps, UseAccordion, UseAccordionProps } from './types'
 const cx = classNames(styles)
 
 export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
-  ({ children, icon = <RightIcon />, store, title, ...rest }, ref) => {
+  ({ children, className, store, title, ...rest }, ref) => {
     return (
-      <div className={cx('wrapper', rest.className)} ref={ref} {...rest}>
+      <div className={cx('root', className)} ref={ref} {...rest}>
         <Disclosure
           className={cx('disclosure')}
           data-testid={rest.dataTestId ? `${rest.dataTestId}-title` : undefined}
           store={store}
         >
           <Text variant="h5">{title}</Text>
-          <div className={cx('icon')}>{cloneElement(icon, { size: 'sm' })}</div>
+          <div className={cx('icon')}>
+            <RightIcon size="sm" />
+          </div>
         </Disclosure>
         <DisclosureContent
           className={cx('disclosure-content')}

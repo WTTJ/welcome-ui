@@ -1,5 +1,5 @@
 @layer components {
-  .wrapper {
+  .root {
     background-color: var(--color-neutral-10);
     border: var(--border-width-sm) solid var(--color-neutral-30);
     border-radius: var(--radius-md);
@@ -14,11 +14,12 @@
     flex-shrink: 0;
     transform: rotate3d(0);
     transition: var(--duration-medium);
-    width: 32px;
-    height: 32px;
+    width: var(--size);
+    height: var(--size);
+    padding: var(--spacing-sm);
     color: inherit;
     display: flex;
-    border-radius: 16px;
+    border-radius: var(--radius-circle);
     color: var(--color-neutral-90);
     & *:first-child {
       margin: auto;
@@ -27,8 +28,7 @@
 
   .disclosure {
     width: 100%;
-    padding: var(--spacing-xl);
-    padding-left: var(--spacing-lg);
+    padding: var(--spacing-lg);
     background-color: transparent;
     border: 0;
     display: flex;

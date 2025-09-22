@@ -3,7 +3,6 @@ import type { ComponentPropsWithRef, HTMLAttributes } from 'react'
 
 export interface AccordionOptions {
   dataTestId?: string
-  icon?: JSX.Element
   /**
    * store from useAccordion()
    */
