@@ -28,6 +28,11 @@ export const toast = (component: JSX.Element, options?: ToastOptions) => {
   const toastOptions = {
     duration: 7000,
     position,
+    style: {
+      backgroundColor: 'transparent',
+      boxShadow: 'none',
+      padding: 0,
+    },
     ...options,
   }
 

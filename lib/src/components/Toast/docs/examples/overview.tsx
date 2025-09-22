@@ -1,19 +1,23 @@
 import { Button } from '@/components/Button'
 import { toast } from '@/components/Toast'
-import { Box } from '@old/Box'
+import { classNames } from '@/utils'
+
+const cx = classNames()
 
 const Element = () => (
-  <Box
-    backgroundColor="neutral-10"
-    borderColor="beige-30"
-    borderRadius="lg"
-    borderStyle="solid"
-    borderWidth="1px"
-    color="neutral-90"
-    padding="sm"
+  <div
+    className={cx(
+      'bg-(--color-neutral-10)',
+      'border-(--color-beige-30)',
+      'border-solid',
+      'border-1px',
+      'rounded-(--radius-lg)',
+      'text-(--color-neutral-90)',
+      'p-(--spacing-sm)'
+    )}
   >
     Lorem ipsum dolor sit amet
-  </Box>
+  </div>
 )
 
 const Example = () => {
