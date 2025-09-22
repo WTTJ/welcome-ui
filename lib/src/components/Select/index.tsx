@@ -1,7 +1,7 @@
-import type { ControllerStateAndHelpers, GetRootPropsOptions } from 'downshift'
+import type { ControllerStateAndHelpers, GetItemPropsOptions, GetRootPropsOptions } from 'downshift'
 import DownshiftImport from 'downshift'
 import { matchSorter } from 'match-sorter'
-import React, { forwardRef, Fragment, useEffect, useMemo, useState } from 'react'
+import React, { forwardRef, Fragment, useCallback, useEffect, useMemo, useState } from 'react'
 
 import { DownIcon } from '@/components/Icon'
 import { FIELD_ICON_SIZE } from '@/constants/field-icon-size'
@@ -16,6 +16,7 @@ import type {
   SelectOption,
   SelectOptionGroup,
   SelectOptionItem,
+  SelectOptionsType,
   SelectOptionValue,
   SelectProps,
 } from './types'
@@ -226,6 +227,89 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
       className
     )
 
+    const renderOptions = useCallback(
+      ({
+        getItemProps,
+        highlightedIndex,
+        options,
+      }: {
+        getItemProps: (options: GetItemPropsOptions<SelectOption>) => Record<string, unknown>
+        highlightedIndex?: number
+        options: SelectOptionsType
+      }) =>
+        options.reduce(
+          (
+            acc: { itemIndex: number; itemsToRender: React.ReactElement[] },
+            result: SelectOptionItem,
+            resultIndex: number
+          ) => {
+            if (groupsEnabled && 'options' in result) {
+              acc.itemsToRender.push(
+                <Fragment key={result.label}>
+                  {renderGroupHeader(result)}
+                  {result.options
+                    ? result.options.map(option => {
+                        const index = acc.itemIndex++
+                        const isItemSelected = isValueSelected(option.value, selected)
+                        const isHighlighted = highlightedIndex === index
+
+                        return (
+                          <li
+                            className={cx(
+                              'item',
+                              isHighlighted && 'highlighted',
+                              isMultiple && 'multiple',
+                              allowUnselectFromList && 'allowUnselectFromList',
+                              option.disabled && 'disabled',
+                              isItemSelected && 'selected'
+                            )}
+                            key={option.value}
+                            {...getItemProps({
+                              index,
+                              isSelected: isItemSelected,
+                              item: option,
+                            })}
+                          >
+                            {renderItem(option, isItemSelected)}
+                          </li>
+                        )
+                      })
+                    : null}
+                </Fragment>
+              )
+            } else if ('value' in result) {
+              const isItemSelected = isValueSelected(result.value, selected)
+              const isHighlighted = highlightedIndex === resultIndex
+
+              acc.itemsToRender.push(
+                <li
+                  className={cx(
+                    'item',
+                    isHighlighted && 'highlighted',
+                    isMultiple && 'multiple',
+                    allowUnselectFromList && 'allowUnselectFromList',
+                    result.disabled && 'disabled',
+                    isItemSelected && 'selected'
+                  )}
+                  key={result.value}
+                  {...getItemProps({
+                    index: resultIndex,
+                    isSelected: isItemSelected,
+                    item: result,
+                  })}
+                >
+                  {renderItem(result, isItemSelected)}
+                </li>
+              )
+            }
+
+            return acc
+          },
+          { itemIndex: 0, itemsToRender: [] }
+        ).itemsToRender,
+      [isMultiple, allowUnselectFromList, selected, groupsEnabled, renderGroupHeader, renderItem]
+    )
+
     return (
       <Downshift
         id={id}
@@ -328,6 +412,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
               </div>
               {isShowMenu ? (
                 <ul className={cx('menu')} {...getMenuProps()}>
+                  {renderOptions({ getItemProps, highlightedIndex, options })}
                   {
                     options.reduce(
                       (
