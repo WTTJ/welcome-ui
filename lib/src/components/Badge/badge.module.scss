@@ -1,0 +1,65 @@
+@layer components {
+  .root {
+    /* VARIABLES FROM THEME - DONT CHANGE WITH REACT PROPS */
+    align-items: center;
+    border-radius: var(--radius-xl);
+    display: inline-flex;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    justify-content: center;
+    line-height: var(--line-height-xs);
+
+    /* VARIABLES THAT CHANGE WITH REACT PROPS */
+    background-color: var(--backgroundColor);
+    color: var(--color);
+    height: var(--height);
+    padding: var(--padding);
+    width: var(--width);
+  }
+
+  .disabled {
+    &-default {
+      --backgroundColor: var(--color-beige-20);
+      --color: var(--color-beige-40);
+    }
+
+    &-primary {
+      --backgroundColor: var(--color-brand-50);
+      --color: var(--color-brand-80);
+    }
+  }
+
+  .rounded {
+    &-md {
+      --width: var(--height-20);
+    }
+
+    &-sm {
+      --width: var(--height-16);
+    }
+  }
+
+  .size {
+    &-md {
+      --height: var(--height-20);
+      --padding: var(--spacing-xs);
+    }
+
+    &-sm {
+      --height: var(--height-16);
+      --padding: var(--spacing-xxs);
+    }
+  }
+
+  .variant {
+    &-default {
+      --backgroundColor: var(--color-beige-30);
+      --color: var(--color-beige-70);
+    }
+
+    &-primary {
+      --backgroundColor: var(--color-brand-40);
+      --color: var(--color-neutral-90);
+    }
+  }
+}
