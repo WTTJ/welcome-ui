@@ -1,0 +1,191 @@
+{
+  "Tag": {
+    "props": {
+      "icon": {
+        "defaultValue": null,
+        "description": "",
+        "name": "icon",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Tag/types.ts",
+          "name": "TagOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Tag/types.ts",
+            "name": "TagOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "ReactNode",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            },
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            },
+            {
+              "value": "ReactElement<any, string | JSXElementConstructor<any>>",
+              "description": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.",
+              "fullComment": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.\n@template P The type of the props object\n@template T The type of the component or tag\n@example ```tsx\nconst element: ReactElement = <div />;\n```",
+              "tags": {
+                "template": "P The type of the props object\nT The type of the component or tag",
+                "example": "```tsx\nconst element: ReactElement = <div />;\n```"
+              }
+            },
+            {
+              "value": "Iterable<ReactNode>",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            },
+            {
+              "value": "ReactPortal",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
+        }
+      },
+      "onRemove": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onRemove",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Tag/types.ts",
+          "name": "TagOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Tag/types.ts",
+            "name": "TagOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "() => void"
+        }
+      },
+      "removeButtonProps": {
+        "defaultValue": null,
+        "description": "",
+        "name": "removeButtonProps",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Tag/types.ts",
+          "name": "TagOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Tag/types.ts",
+            "name": "TagOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ButtonProps"
+        }
+      },
+      "size": {
+        "defaultValue": null,
+        "description": "",
+        "name": "size",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Tag/types.ts",
+          "name": "TagOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Tag/types.ts",
+            "name": "TagOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "TagSize",
+          "value": [
+            {
+              "value": "\"md\""
+            },
+            {
+              "value": "\"sm\""
+            },
+            {
+              "value": "\"xs\""
+            }
+          ]
+        }
+      },
+      "variant": {
+        "defaultValue": null,
+        "description": "",
+        "name": "variant",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Tag/types.ts",
+          "name": "TagOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Tag/types.ts",
+            "name": "TagOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "TagVariant",
+          "value": [
+            {
+              "value": "\"default\""
+            },
+            {
+              "value": "\"ai\""
+            },
+            {
+              "value": "\"blue\""
+            },
+            {
+              "value": "\"danger\""
+            },
+            {
+              "value": "\"green\""
+            },
+            {
+              "value": "\"info\""
+            },
+            {
+              "value": "\"orange\""
+            },
+            {
+              "value": "\"pink\""
+            },
+            {
+              "value": "\"primary\""
+            },
+            {
+              "value": "\"success\""
+            },
+            {
+              "value": "\"teal\""
+            },
+            {
+              "value": "\"violet\""
+            },
+            {
+              "value": "\"warning\""
+            }
+          ]
+        }
+      }
+    }
+  }
+}
