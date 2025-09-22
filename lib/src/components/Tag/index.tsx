@@ -1,6 +1,7 @@
 import type { MouseEvent } from 'react'
 import React from 'react'
 
+import { Button } from '@/components/Button'
 import { CrossIcon } from '@/components/Icon'
 import { classNames, forwardRefWithAs } from '@/utils'
 
@@ -21,7 +22,7 @@ function getTextLength(children: React.ReactNode): number | undefined {
 
 export const Tag = forwardRefWithAs<TagOptions, 'div'>((props, ref) => {
   const {
-    as,
+    as: Element = 'div',
     children,
     className,
     icon,
@@ -29,11 +30,9 @@ export const Tag = forwardRefWithAs<TagOptions, 'div'>((props, ref) => {
     onRemove,
     removeButtonProps,
     size = 'md',
-    variant = 'default',
+    variant,
     ...rest
   } = props
-
-  const Element = as || 'div'
 
   // Determine if the tag should have a square shape (only one character and no remove action)
   const isSquare = getTextLength(children) === 1 && !onRemove
@@ -48,7 +47,7 @@ export const Tag = forwardRefWithAs<TagOptions, 'div'>((props, ref) => {
       className={cx(
         'root',
         variant && `variant-${variant}`,
-        size && `size-${size}`,
+        `size-${size}`,
         !!onRemove && 'hasRemoveAction',
         isSquare && 'isSquare',
         className
@@ -60,18 +59,17 @@ export const Tag = forwardRefWithAs<TagOptions, 'div'>((props, ref) => {
       {icon}
       {children}
       {onRemove ? (
-        <button
+        <Button
           aria-label="remove tag"
-          type="button"
           {...removeButtonProps}
           className={cx('removeButton', removeButtonProps?.className)}
           onClick={handleRemove}
+          size="xs"
+          variant="ghost"
         >
           <CrossIcon size="xs" />
-        </button>
+        </Button>
       ) : null}
     </Element>
   )
 })
-
-Tag.displayName = 'Tag'

@@ -1,15 +1,15 @@
-import type { ComponentProps } from 'react'
+import type { ButtonProps } from '@/components/Button/types'
 
 export interface TagOptions {
   icon?: React.ReactNode
   onRemove?: () => void
-  removeButtonProps?: ComponentProps<'button'>
+  removeButtonProps?: ButtonProps
   size?: TagSize
   variant?: TagVariant
 }
 
-export type TagSize = 'md' | 'sm' | 'xs'
-export type TagVariant =
+type TagSize = 'md' | 'sm' | 'xs'
+type TagVariant =
   | 'ai'
   | 'blue'
   | 'danger'

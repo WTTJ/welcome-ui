@@ -2,7 +2,7 @@ import { screen } from '@testing-library/dom'
 
 import { Tag } from '@/components/Tag'
 
-import { expectAsSupport, render } from '../../../tests'
+import { expectAsSupport, render } from '@tests'
 
 describe('Tag', () => {
   expectAsSupport(Tag)

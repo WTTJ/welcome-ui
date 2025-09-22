@@ -91,7 +91,7 @@
         ],
         "required": false,
         "type": {
-          "name": "DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>"
+          "name": "ButtonProps"
         }
       },
       "size": {
