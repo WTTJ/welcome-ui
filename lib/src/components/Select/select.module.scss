@@ -21,59 +21,11 @@
     appearance: none;
     @include text-ellipsis;
 
-    &.variant-danger {
-      --select-border-color: var(--color-red-70);
-      --select-outline-color: var(--color-red-30);
-    }
-
-    &.variant-success {
-      --select-border-color: var(--color-green-60);
-      --select-outline-color: var(--color-green-30);
-    }
-
-    &.variant-warning {
-      --select-border-color: var(--color-orange-60);
-      --select-outline-color: var(--color-orange-20);
-    }
-
     height: var(--select-height);
     padding-bottom: var(--select-padding-bottom);
     padding-left: var(--select-padding-left);
     padding-right: var(--select-padding-right);
     padding-top: var(--select-padding-top);
-
-    &.size-lg {
-      --select-height: var(--height-48);
-      --select-padding-bottom: var(--spacing-16);
-      --select-padding-left: var(--spacing-12);
-      --select-padding-right: var(--spacing-12);
-      --select-padding-top: var(--spacing-16);
-    }
-
-    &.size-md {
-      --select-height: var(--height-40);
-      --select-padding-bottom: var(--spacing-12);
-      --select-padding-left: var(--spacing-12);
-      --select-padding-right: var(--spacing-12);
-      --select-padding-top: var(--spacing-12);
-    }
-
-    &.size-sm {
-      --select-height: var(--height-32);
-      --select-padding-bottom: var(--spacing-8);
-      --select-padding-left: var(--spacing-12);
-      --select-padding-right: var(--spacing-12);
-      --select-padding-top: var(--spacing-8);
-    }
-
-    &.size-xs {
-      --select-height: var(--height-24);
-      --select-padding-bottom: var(--spacing-4);
-      --select-padding-left: var(--spacing-8);
-      --select-padding-right: var(--spacing-8);
-      --select-padding-top: var(--spacing-4);
-      --select-icon-size: 0.75rem;
-    }
 
     /* left icon or both */
     &.icon-placement-left,
@@ -163,6 +115,58 @@
       &::before {
         height: auto;
       }
+    }
+  }
+
+  .variant {
+    &-danger {
+      --select-border-color: var(--color-red-70);
+      --select-outline-color: var(--color-red-30);
+    }
+
+    &-success {
+      --select-border-color: var(--color-green-60);
+      --select-outline-color: var(--color-green-30);
+    }
+
+    &-warning {
+      --select-border-color: var(--color-orange-60);
+      --select-outline-color: var(--color-orange-20);
+    }
+  }
+
+  .size {
+    &-lg {
+      --select-height: var(--height-48);
+      --select-padding-bottom: var(--spacing-16);
+      --select-padding-left: var(--spacing-12);
+      --select-padding-right: var(--spacing-12);
+      --select-padding-top: var(--spacing-16);
+    }
+
+    &-md {
+      --select-height: var(--height-40);
+      --select-padding-bottom: var(--spacing-12);
+      --select-padding-left: var(--spacing-12);
+      --select-padding-right: var(--spacing-12);
+      --select-padding-top: var(--spacing-12);
+    }
+
+    &-sm {
+      --select-height: var(--height-32);
+      --select-padding-bottom: var(--spacing-8);
+      --select-padding-left: var(--spacing-12);
+      --select-padding-right: var(--spacing-12);
+      --select-padding-top: var(--spacing-8);
+    }
+
+    &-xs {
+      --select-height: var(--height-24);
+      --select-padding-bottom: var(--spacing-4);
+      --select-padding-left: var(--spacing-8);
+      --select-padding-right: var(--spacing-8);
+      --select-padding-top: var(--spacing-4);
+      --select-icon-size: 0.75rem;
     }
   }
 
