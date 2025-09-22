@@ -1,0 +1,619 @@
+{
+  "Select": {
+    "props": {
+      "allowUnselectFromList": {
+        "defaultValue": null,
+        "description": "",
+        "name": "allowUnselectFromList",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "autoComplete": {
+        "defaultValue": {
+          "value": "off"
+        },
+        "description": "We need to add `autoComplete` off to avoid select UI issues when is an input",
+        "name": "autoComplete",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "dataTestId": {
+        "defaultValue": null,
+        "description": "",
+        "name": "dataTestId",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "disableCloseOnSelect": {
+        "defaultValue": null,
+        "description": "",
+        "name": "disableCloseOnSelect",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "groupsEnabled": {
+        "defaultValue": null,
+        "description": "",
+        "name": "groupsEnabled",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "hasIcon": {
+        "defaultValue": null,
+        "description": "",
+        "name": "hasIcon",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "icon": {
+        "defaultValue": null,
+        "description": "",
+        "name": "icon",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactElement<any, string | JSXElementConstructor<any>>"
+        }
+      },
+      "iconPlacement": {
+        "defaultValue": null,
+        "description": "",
+        "name": "iconPlacement",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"both\" | \"left\" | \"right\"",
+          "value": [
+            {
+              "value": "\"both\""
+            },
+            {
+              "value": "\"left\""
+            },
+            {
+              "value": "\"right\""
+            }
+          ]
+        }
+      },
+      "isClearable": {
+        "defaultValue": null,
+        "description": "",
+        "name": "isClearable",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "isCreatable": {
+        "defaultValue": null,
+        "description": "",
+        "name": "isCreatable",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "isMultiple": {
+        "defaultValue": null,
+        "description": "",
+        "name": "isMultiple",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "isSearchable": {
+        "defaultValue": null,
+        "description": "",
+        "name": "isSearchable",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "onChange": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onChange",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(value: SelectOptionValue | SelectOptionValue[], event?: CreateEvent) => void"
+        }
+      },
+      "onClick": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onClick",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(event: MouseEvent<HTMLElement, MouseEvent>) => void"
+        }
+      },
+      "onCreate": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onCreate",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(option: string, event: CreateEvent) => void"
+        }
+      },
+      "options": {
+        "defaultValue": {
+          "value": "[]"
+        },
+        "description": "",
+        "name": "options",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "SelectOptionsType"
+        }
+      },
+      "renderCreateItem": {
+        "defaultValue": {
+          "value": "(inputValue: string) => `Create \"${inputValue}\"`"
+        },
+        "description": "",
+        "name": "renderCreateItem",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(inputValue: SelectValue) => void"
+        }
+      },
+      "renderGroupHeader": {
+        "defaultValue": null,
+        "description": "",
+        "name": "renderGroupHeader",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(option: SelectOptionGroup) => ReactNode"
+        }
+      },
+      "renderItem": {
+        "defaultValue": {
+          "value": "(item: SelectOption): string => (item ? item.label : EMPTY_STRING)"
+        },
+        "description": "",
+        "name": "renderItem",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(item: SelectOption, isItemSelected?: boolean) => string | ReactElement<any, string | JSXElementConstructor<any>>"
+        }
+      },
+      "renderMultiple": {
+        "defaultValue": null,
+        "description": "",
+        "name": "renderMultiple",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(values: SelectOption[], handleRemove: (value: string) => void) => ReactElement<any, string | JSXElementConstructor<any>>"
+        }
+      },
+      "size": {
+        "defaultValue": {
+          "value": "md"
+        },
+        "description": "",
+        "name": "size",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Size",
+          "value": [
+            {
+              "value": "\"xs\""
+            },
+            {
+              "value": "\"sm\""
+            },
+            {
+              "value": "\"md\""
+            },
+            {
+              "value": "\"lg\""
+            }
+          ]
+        }
+      },
+      "transparent": {
+        "defaultValue": null,
+        "description": "",
+        "name": "transparent",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "value": {
+        "defaultValue": null,
+        "description": "",
+        "name": "value",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "SelectValue",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            },
+            {
+              "value": "SelectOption",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            },
+            {
+              "value": "(string | number | SelectOption)[]",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            },
+            {
+              "value": "string[]",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
+        }
+      },
+      "variant": {
+        "defaultValue": null,
+        "description": "",
+        "name": "variant",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"danger\" | \"success\" | \"warning\"",
+          "value": [
+            {
+              "value": "\"danger\""
+            },
+            {
+              "value": "\"success\""
+            },
+            {
+              "value": "\"warning\""
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -14,6 +14,7 @@ const cx = classNames(styles)
 export const TabList = forwardRef<'div', TabListProps>(
   ({ children, className, size = 'md', store, ...rest }, ref) => {
     const listRef = useRef()
+    // TODO(Diane): fix this in another PR to use the good useForkRef
     const listForkedRef = useForkRef(ref, listRef)
 
     const { orientation, selectedId } = useStoreState(store)
