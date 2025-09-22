@@ -2,9 +2,7 @@ import type { ComponentPropsWithRef, HTMLAttributes } from 'react'
 
 export type BadgeProps = BadgeOptions &
   ComponentPropsWithRef<'div'> &
-  HTMLAttributes<HTMLDivElement> & {
-    className?: string
-  }
+  HTMLAttributes<HTMLDivElement>
 
 interface BadgeOptions {
   children: number | React.ReactElement | string
