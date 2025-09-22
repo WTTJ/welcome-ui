@@ -1,13 +1,13 @@
 import React from 'react'
+import type { HTMLAttributes } from 'react'
 
 import { classNames } from '@/utils'
 
 import logoStyles from './logo.module.scss'
-import type { LogoProps } from './types'
 
 const cx = classNames(logoStyles)
 
-export const Welcome: React.FC<LogoProps> = props => {
+export const Welcome: React.FC<HTMLAttributes<HTMLOrSVGElement>> = props => {
   return (
     <svg className={cx('logo')} role="img" {...props} viewBox="0 0 100 26">
       <title>Welcome to the jungle logo</title>

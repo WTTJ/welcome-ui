@@ -1,7 +1,7 @@
-import { Symbol } from '@old/Logo'
+import { Symbol } from '@/components/Logo'
 
 const Example = () => {
-  return <Symbol h={100} />
+  return <Symbol className="h-[100px]" />
 }
 
 export default Example

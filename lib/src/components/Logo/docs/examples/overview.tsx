@@ -1,7 +1,7 @@
-import { Logo } from '@old/Logo'
+import { Logo } from '@/components/Logo'
 
 const Example = () => {
-  return <Logo h={100} />
+  return <Logo className="h-[100px]" />
 }
 
 export default Example
