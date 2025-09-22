@@ -97,11 +97,11 @@ const AlertComponent = forwardRef<HTMLDivElement, AlertProps>(
           />
         )}
         {showIcon ? (
-          <VariantIcon className="self-start" size={size} variant={defaultVariantIcon} />
+          <VariantIcon className={cx('variant-icon')} size={size} variant={defaultVariantIcon} />
         ) : null}
         <div className={cx('content')}>
-          <Text className="flex-1">{content}</Text>
-          {!!actions && <div className="flex items-center gap-sm">{actions}</div>}
+          <Text className={cx('content-text')}>{content}</Text>
+          {!!actions && <div className={cx('content-actions')}>{actions}</div>}
         </div>
       </div>
     )

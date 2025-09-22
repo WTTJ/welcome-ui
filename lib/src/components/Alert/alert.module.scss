@@ -98,6 +98,20 @@
     flex: 1;
   }
 
+  .content-text {
+    flex: 1;
+  }
+
+  .content-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+
+  .variant-icon {
+    align-self: start;
+  }
+
   /** Title */
 
   .title {

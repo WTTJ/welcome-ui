@@ -5,7 +5,7 @@ import type {
   ReactElement,
 } from 'react'
 
-import type { TextProps } from '@/components/Text'
+import type { TextProps } from '@/components/Text/types'
 
 export type AlertProps = AlertOptions &
   ComponentPropsWithRef<'div'> &
@@ -31,10 +31,6 @@ interface AlertOptions {
    */
   hideIcon?: boolean
   isFullWidth?: boolean
-  size?: Size
-  variant?: Variant
+  size?: 'md' | 'sm'
+  variant?: 'ai' | 'beige' | 'danger' | 'info' | 'success' | 'warning'
 }
-
-type Size = 'md' | 'sm'
-
-type Variant = 'ai' | 'beige' | 'danger' | 'info' | 'success' | 'warning'
