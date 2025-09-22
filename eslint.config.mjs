@@ -13,7 +13,7 @@ export default tseslint.config(
   eslintPluginPrettierRecommended,
   reactHooks.configs['recommended-latest'],
   perfectionist.configs['recommended-natural'],
-  globalIgnores(['lib/dist', 'website/.next', 'website/out']),
+  globalIgnores(['lib/dist', 'website/.next', 'website/out', 'website/build-app/examples.js']),
   {
     languageOptions: {
       ecmaVersion: 'latest',
