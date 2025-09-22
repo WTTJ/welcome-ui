@@ -1,0 +1,26 @@
+@layer components {
+  .root {
+    position: absolute;
+    will-change: width, transform;
+    transition-property: all;
+    transition-duration: var(--duration-medium);
+    transition-timing-function: var(--timing-primary);
+    background-color: var(--color-brand-40);
+
+    [aria-orientation='horizontal'] & {
+      width: var(--active-bar-size);
+      height: var(--border-width-md);
+      left: 0;
+      bottom: 0;
+      transform: translateX(var(--active-bar-offset));
+    }
+
+    [aria-orientation='vertical'] & {
+      width: var(--border-width-md);
+      height: var(--active-bar-size);
+      right: 0;
+      top: 0;
+      transform: translateY(var(--active-bar-offset));
+    }
+  }
+}
