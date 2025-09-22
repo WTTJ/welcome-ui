@@ -1,0 +1,8 @@
+@layer components {
+  .root {
+    & > svg:only-child {
+      width: var(--spacing-md);
+      height: var(--spacing-md);
+    }
+  }
+}
