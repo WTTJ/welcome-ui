@@ -1,0 +1,218 @@
+{
+  "useAccordion": {
+    "props": {
+      "animated": {
+        "defaultValue": null,
+        "description": "Determines whether the content should animate when it is shown or hidden.\n- If `true`, the `animating` state will be `true` when the content is shown\n  or hidden and it will wait for a CSS animation/transition to end before\n  becoming `false`.\n- If it's set to a number, the `animating` state will be `true` when the\n  content is shown or hidden and it will wait for the number of\n  milliseconds to pass before becoming `false`.\n@deprecated Manually setting the `animated` prop is no longer necessary.\nThis will be removed in a future release.",
+        "name": "animated",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/@ariakit/core/esm/disclosure/disclosure-store.d.ts",
+          "name": "DisclosureStoreOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@ariakit/core/esm/disclosure/disclosure-store.d.ts",
+            "name": "DisclosureStoreOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "number | boolean",
+          "value": [
+            {
+              "value": "number"
+            },
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "defaultOpen": {
+        "defaultValue": {
+          "value": "false"
+        },
+        "description": "Whether the content should be visible by default.",
+        "name": "defaultOpen",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/@ariakit/core/esm/disclosure/disclosure-store.d.ts",
+          "name": "DisclosureStoreOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@ariakit/core/esm/disclosure/disclosure-store.d.ts",
+            "name": "DisclosureStoreOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "disclosure": {
+        "defaultValue": null,
+        "description": "A reference to another disclosure store that controls another disclosure\ncomponent to keep them in sync. Element states like `contentElement` and\n`disclosureElement` won't be synced. For that, use the\n[`store`](https://ariakit.org/reference/disclosure-provider#store) prop\ninstead.\n\nLive examples:\n- [Command Menu](https://ariakit.org/examples/dialog-combobox-command-menu)",
+        "name": "disclosure",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/disclosure/disclosure-store.d.ts",
+          "name": "DisclosureStoreOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/disclosure/disclosure-store.d.ts",
+            "name": "DisclosureStoreOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "DisclosureStore"
+        }
+      },
+      "setMounted": {
+        "defaultValue": null,
+        "description": "A callback that gets called when the `mounted` state changes.\n@example const [mounted, setMounted] = useState(false);\nconst disclosure = useDisclosureStore({ setMounted });",
+        "name": "setMounted",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/disclosure/disclosure-store.d.ts",
+          "name": "DisclosureStoreOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/disclosure/disclosure-store.d.ts",
+            "name": "DisclosureStoreOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(mounted: boolean) => void"
+        }
+      },
+      "setOpen": {
+        "defaultValue": null,
+        "description": "A callback that gets called when the\n[`open`](https://ariakit.org/reference/disclosure-provider#open) state\nchanges.\n@example const [open, setOpen] = useState(false);\nconst disclosure = useDisclosureStore({ open, setOpen });",
+        "name": "setOpen",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/disclosure/disclosure-store.d.ts",
+          "name": "DisclosureStoreOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@ariakit/react-core/esm/disclosure/disclosure-store.d.ts",
+            "name": "DisclosureStoreOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(open: boolean) => void"
+        }
+      }
+    }
+  },
+  "Accordion": {
+    "props": {
+      "dataTestId": {
+        "defaultValue": null,
+        "description": "",
+        "name": "dataTestId",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Accordion/types.ts",
+          "name": "AccordionOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Accordion/types.ts",
+            "name": "AccordionOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "icon": {
+        "defaultValue": {
+          "value": "<RightIcon />"
+        },
+        "description": "",
+        "name": "icon",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Accordion/types.ts",
+          "name": "AccordionOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Accordion/types.ts",
+            "name": "AccordionOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "Element"
+        }
+      },
+      "store": {
+        "defaultValue": null,
+        "description": "store from useAccordion()",
+        "name": "store",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Accordion/types.ts",
+          "name": "AccordionOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Accordion/types.ts",
+            "name": "AccordionOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "DisclosureStore"
+        }
+      },
+      "title": {
+        "defaultValue": null,
+        "description": "",
+        "name": "title",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Accordion/types.ts",
+          "name": "AccordionOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Accordion/types.ts",
+            "name": "AccordionOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "enum",
+          "raw": "string | Element",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "Element",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
+        }
+      }
+    }
+  }
+}
