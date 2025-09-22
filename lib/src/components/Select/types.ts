@@ -1,5 +1,5 @@
 import type { DownshiftProps } from 'downshift'
-import type { ComponentPropsWithRef } from 'react'
+import type { ComponentProps } from 'react'
 
 import type { Size } from '@/types'
 import type { CreateEvent } from '@/utils/create-event'
@@ -56,8 +56,8 @@ export type SelectOptionsType = Array<SelectOption | SelectOptionGroup>
 export type SelectOptionValue = number | string
 
 export type SelectProps = MergeProps<
-  Omit<DownshiftProps<SelectOption>, 'children' | keyof SelectOptions> & SelectOptions,
-  ComponentPropsWithRef<'input'>
+  MergeProps<SelectOptions, DownshiftProps<SelectOption>>,
+  ComponentProps<'input'>
 >
 
 export type SelectValue =

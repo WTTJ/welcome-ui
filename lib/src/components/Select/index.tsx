@@ -1,13 +1,13 @@
 import type { ControllerStateAndHelpers, GetRootPropsOptions } from 'downshift'
 import DownshiftImport from 'downshift'
 import { matchSorter } from 'match-sorter'
-import React, { Fragment, useEffect, useMemo, useState } from 'react'
+import React, { forwardRef, Fragment, useEffect, useMemo, useState } from 'react'
 
 import { DownIcon } from '@/components/Icon'
 import { FIELD_ICON_SIZE } from '@/constants/field-icon-size'
 import { classNames } from '@/utils'
 import { createEvent } from '@/utils/create-event'
-import { forwardRefWithAs } from '@/utils/forwardRefWithAs'
+import { useForkRef } from '@/utils/useForkRef'
 import { ClearButton } from '@old/ClearButton'
 
 import { multipleSelections } from './multipleSelections'
@@ -38,7 +38,7 @@ const cx = classNames(selectStyles)
 // @ts-ignore
 const Downshift: typeof DownshiftImport = DownshiftImport.default || DownshiftImport
 /** We need to add autoComplete off to avoid select UI issues when is an input */
-export const Select = forwardRefWithAs<SelectProps, 'input'>(
+export const Select = forwardRef<HTMLInputElement, SelectProps>(
   (
     {
       allowUnselectFromList,
@@ -73,7 +73,7 @@ export const Select = forwardRefWithAs<SelectProps, 'input'>(
       variant,
       ...rest
     }: SelectProps,
-    ref: React.MutableRefObject<HTMLInputElement>
+    ref
   ): JSX.Element => {
     const defaultSelecteds = useMemo(
       () => getOptionsFromSelected(defaultSelected, defaultOptions, groupsEnabled),
@@ -95,13 +95,15 @@ export const Select = forwardRefWithAs<SelectProps, 'input'>(
     // Set default isSearchable
     isSearchable = isCreatable || isSearchable
 
+    const [currentRef, mergedRefs] = useForkRef<HTMLInputElement>(ref)
+
     // Autofocus
     useEffect(() => {
-      if (autoFocus) {
-        ref?.current?.focus()
+      if (autoFocus && currentRef.current) {
+        currentRef.current.focus()
         if (isSearchable) setIsOpen(true)
       }
-    }, [isSearchable, autoFocus, ref])
+    }, [isSearchable, autoFocus, currentRef])
 
     // Ensure values are controlled by parent
     useEffect(() => {
@@ -285,7 +287,7 @@ export const Select = forwardRefWithAs<SelectProps, 'input'>(
             onFocus,
             onKeyDown: handleInputKeyDown,
             placeholder,
-            ref,
+            ref: mergedRefs,
             size,
             tabIndex: 0,
             transparent,
