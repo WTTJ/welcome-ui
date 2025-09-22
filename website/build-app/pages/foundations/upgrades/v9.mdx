@@ -46,3 +46,12 @@ Size props are only for intern values (xs, sm, ...), you can now use tailwind si
 -<CheckIcon size="24"  />
 +<CheckIcon className="size-[24px]" />
 ```
+
+### Popover
+
+The `animated` prop in `usePopover` and `usePopoverHover` hooks is no longer supported. If you want to customize the animation duration, you can use `hideTimeout` and `showTimeout` props.
+
+```diff
+-const popover = usePopover({ animated: 200 })
++const popover = usePopover({ hideTimeout: 200, showTimeout: 200 })
+```
