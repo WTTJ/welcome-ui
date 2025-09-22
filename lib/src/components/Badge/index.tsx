@@ -12,20 +12,11 @@ export const Badge = forwardRef<HTMLDivElement, BadgeProps>(
     { children, disabled, size = 'md', variant = 'default', withNumberAbbreviation, ...rest },
     ref
   ) => {
-    let text
     const isNumber = Number.isInteger(children)
     const textLength = children.toString().length
     const hasSingleCharacter = textLength === 1
-
-    if (isNumber) {
-      if (withNumberAbbreviation && (children as number) > 99) {
-        text = '99+'
-      } else {
-        text = children
-      }
-    } else {
-      text = children
-    }
+    const shouldUseAbbreviation = isNumber && withNumberAbbreviation && (children as number) > 99
+    const text = shouldUseAbbreviation ? '99+' : children
 
     return (
       <div

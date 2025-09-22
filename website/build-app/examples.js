@@ -1,4 +1,3 @@
-/* eslint-disable */
 /** WARNING
 This file is auto-generate with yarn watch command, do not change it directly!
 **/
