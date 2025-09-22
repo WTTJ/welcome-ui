@@ -1,20 +1,18 @@
-import type { PolymorphicProps } from '@/theme/types'
 import { classNames } from '@/utils'
 import { forwardRefWithAs } from '@/utils/forwardRefWithAs'
 
 import styles from './aspect-ratio.module.scss'
+import type { AspectRatioProps } from './types'
 
 const cx = classNames(styles)
 
-export type AspectRatioProps<T extends React.ElementType = 'div'> = PolymorphicProps<T> & {
-  ratio?: number
-}
-
 export const AspectRatio = forwardRefWithAs<AspectRatioProps, 'div'>(
-  ({ className, ratio = 4 / 3, ...rest }, ref) => {
+  ({ as, className, ratio = 4 / 3, ...rest }, ref) => {
     const style = { '--aspect-ratio': ratio } as React.CSSProperties
 
-    return <div className={cx('root', className)} ref={ref} style={style} {...rest} />
+    const Element = as || 'div'
+
+    return <Element className={cx('root', className)} ref={ref} style={style} {...rest} />
   }
 )
 
