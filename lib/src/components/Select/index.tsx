@@ -75,20 +75,20 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
     }: SelectProps,
     ref
   ): JSX.Element => {
-    const defaultSelecteds = useMemo(
+    const initialSelectedValues = useMemo(
       () => getOptionsFromSelected(defaultSelected, defaultOptions, groupsEnabled),
       [defaultSelected, defaultOptions, groupsEnabled]
     )
-    const selectedItem = (!isMultiple && defaultSelecteds[0]) || null
-    const defaultInputValue = selectedItem ? selectedItem.label : ''
+    const selectedItem = (!isMultiple && initialSelectedValues[0]) || null
+    const initialInputValue = selectedItem ? selectedItem.label : ''
 
     // We keep 3 things in state:
     // a. selected = currently selected item(s)
     // b. inputValue = text in the select/search box
     // c. options = options in the dropdown
     // d. isOpen = the state of the dropdown menu
-    const [selected, setSelected] = useState(defaultSelecteds)
-    const [inputValue, setInputValue] = useState(defaultInputValue)
+    const [selected, setSelected] = useState(initialSelectedValues)
+    const [inputValue, setInputValue] = useState(initialInputValue)
     const [options, setOptions] = useState(defaultOptions)
     const [isOpen, setIsOpen] = useState(false)
 
@@ -107,10 +107,10 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
 
     // Ensure values are controlled by parent
     useEffect(() => {
-      setSelected(defaultSelecteds)
-      setInputValue(defaultInputValue)
+      setSelected(initialSelectedValues)
+      setInputValue(initialInputValue)
       setOptions(defaultOptions)
-    }, [defaultInputValue, defaultOptions, defaultSelecteds])
+    }, [initialInputValue, defaultOptions, initialSelectedValues])
 
     // Update options when searching
     const handleInputChange = (value: string) => {
@@ -216,6 +216,16 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
       renderItem,
     })
 
+    const inputClassnames = cx(
+      'root',
+      `size-${size}`,
+      variant && `variant-${variant}`,
+      isClearable && 'clearable',
+      transparent && 'transparent',
+      icon ? 'icon-placement-both' : 'icon-placement-right',
+      className
+    )
+
     return (
       <Downshift
         id={id}
@@ -295,16 +305,6 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
             ...rest,
           }) as React.InputHTMLAttributes<HTMLInputElement>
           const iconSize = FIELD_ICON_SIZE[size]
-
-          const inputClassnames = cx(
-            'root',
-            `size-${size}`,
-            variant && `variant-${variant}`,
-            isClearable && 'clearable',
-            transparent && 'transparent',
-            icon ? 'icon-placement-both' : 'icon-placement-right',
-            className
-          )
 
           return (
             <div {...rootProps} className={cx('wrapper', disabled && 'disabled')}>
