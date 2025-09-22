@@ -48,34 +48,6 @@
           "name": "string"
         }
       },
-      "autoFocus": {
-        "defaultValue": null,
-        "description": "",
-        "name": "autoFocus",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
-          "name": "SelectOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
-            "name": "SelectOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "enum",
-          "raw": "boolean",
-          "value": [
-            {
-              "value": "false"
-            },
-            {
-              "value": "true"
-            }
-          ]
-        }
-      },
       "dataTestId": {
         "defaultValue": null,
         "description": "",
@@ -99,34 +71,6 @@
         "defaultValue": null,
         "description": "",
         "name": "disableCloseOnSelect",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
-          "name": "SelectOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
-            "name": "SelectOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "enum",
-          "raw": "boolean",
-          "value": [
-            {
-              "value": "false"
-            },
-            {
-              "value": "true"
-            }
-          ]
-        }
-      },
-      "disabled": {
-        "defaultValue": null,
-        "description": "",
-        "name": "disabled",
         "parent": {
           "fileName": "welcome-ui/lib/src/components/Select/types.ts",
           "name": "SelectOptions"
@@ -257,25 +201,6 @@
           ]
         }
       },
-      "id": {
-        "defaultValue": null,
-        "description": "",
-        "name": "id",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
-          "name": "SelectOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
-            "name": "SelectOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "string"
-        }
-      },
       "isClearable": {
         "defaultValue": null,
         "description": "",
@@ -388,44 +313,6 @@
           ]
         }
       },
-      "name": {
-        "defaultValue": null,
-        "description": "",
-        "name": "name",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
-          "name": "SelectOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
-            "name": "SelectOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "string"
-        }
-      },
-      "onBlur": {
-        "defaultValue": null,
-        "description": "",
-        "name": "onBlur",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
-          "name": "SelectOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
-            "name": "SelectOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "() => void"
-        }
-      },
       "onChange": {
         "defaultValue": null,
         "description": "",
@@ -483,25 +370,6 @@
           "name": "(option: string, event: CreateEvent) => void"
         }
       },
-      "onFocus": {
-        "defaultValue": null,
-        "description": "",
-        "name": "onFocus",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
-          "name": "SelectOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
-            "name": "SelectOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "() => void"
-        }
-      },
       "options": {
         "defaultValue": null,
         "description": "",
@@ -519,25 +387,6 @@
         "required": true,
         "type": {
           "name": "SelectOptionsType"
-        }
-      },
-      "placeholder": {
-        "defaultValue": null,
-        "description": "",
-        "name": "placeholder",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
-          "name": "SelectOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
-            "name": "SelectOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "string"
         }
       },
       "renderCreateItem": {
