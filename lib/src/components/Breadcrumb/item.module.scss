@@ -1,0 +1,35 @@
+@layer components {
+  .root {
+    display: inline-flex;
+    flex: 0 0 auto;
+    line-height: normal;
+  }
+
+  .item {
+    color: var(--color-neutral-60);
+    text-decoration: 'none';
+    align-items: center;
+    transition: medium;
+    direction: initial;
+
+    &:hover {
+      color: var(--color-neutral-70);
+    }
+
+    &[aria-current='page'] {
+      color: var(--color-neutral-70);
+    }
+
+    &[aria-disabled='true'] {
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+
+  .separator {
+    color: var(--color-neutral-50);
+    padding: 0 var(--spacing-xs);
+    display: flex;
+    align-items: center;
+  }
+}
