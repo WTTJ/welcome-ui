@@ -1,5 +1,7 @@
-.logo {
-  & path {
-    fill: var(--color-neutral-90);
+@layer components {
+  .logo {
+    & path {
+      fill: var(--color-neutral-90);
+    }
   }
 }
