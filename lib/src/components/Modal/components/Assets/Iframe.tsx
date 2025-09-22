@@ -1,10 +1,7 @@
 import { Box } from '@old/Box'
 
 import * as S from './styles'
-
-type IframeProps = {
-  children: JSX.Element
-}
+import type { IframeProps } from './types'
 
 export const Iframe = ({ children }: IframeProps) => {
   return (

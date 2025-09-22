@@ -1,8 +1,8 @@
 import { screen } from '@testing-library/react'
 import React, { useEffect, useState } from 'react'
 
-import type { UseModal } from '@/components/Modal'
 import { Modal, useModal } from '@/components/Modal'
+import type { UseModal } from '@/components/Modal/types'
 
 import { render } from '@tests'
 

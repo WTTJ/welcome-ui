@@ -1,0 +1,26 @@
+@layer components {
+  .footer {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    flex-shrink: 0;
+    z-index: 1;
+    background-color: var(--color-neutral-10);
+    border-bottom-left-radius: var(--radius-md);
+    border-bottom-right-radius: var(--radius-md);
+    border-top: 0 solid var(--color-neutral-30);
+  }
+
+  .footer-children-wrapper {
+    padding-block: var(--spacing-xl);
+    padding-inline: var(--spacing-xxl);
+  }
+
+  .footer-information {
+    background-color: var(--color-beige-20);
+    padding-bottom: var(--spacing-xxl);
+    padding-left: var(--spacing-xxl);
+    padding-right: var(--spacing-xxl);
+    padding-top: var(--spacing-xl);
+  }
+}

@@ -1,20 +1,8 @@
 import React, { Children, cloneElement, forwardRef, useEffect, useMemo, useState } from 'react'
 
-import { Close } from './Close'
+import { Close } from '@/components/Modal/components/Close'
 
-import type { UseModal } from '.'
-
-export interface ContentOptions {
-  children: React.ReactNode
-}
-
-export type ContentProps = ContentOptions & {
-  store: UseModal
-  /**
-   * show or hide the closing button
-   */
-  withClosingButton?: boolean
-}
+import type { ContentProps } from './types'
 
 /**
  * @name Modal.Content

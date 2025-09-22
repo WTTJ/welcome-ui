@@ -1,13 +1,12 @@
-import * as Ariakit from '@ariakit/react'
+import { DialogDismiss } from '@ariakit/react'
 
 import { CrossIcon } from '@/components/Icon'
+import type { BackdropProps } from '@/components/Modal/types'
 import { forwardRef } from '@old/System'
 
-import * as S from '../styles'
+import * as S from '../../styles'
 
 import { CloseButton } from './styles'
-
-export type BackdropProps = Pick<Ariakit.DialogOptions, 'hideOnInteractOutside'>
 
 export const Backdrop = forwardRef<'div', BackdropProps>(
   ({ hideOnInteractOutside, ...rest }, ref) => {
@@ -18,7 +17,7 @@ export const Backdrop = forwardRef<'div', BackdropProps>(
         {...rest}
         ref={ref}
       >
-        <Ariakit.DialogDismiss
+        <DialogDismiss
           render={
             <CloseButton shape="circle" variant="secondary">
               <CrossIcon />

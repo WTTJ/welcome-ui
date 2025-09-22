@@ -104,3 +104,35 @@ export const Dialog = styled.div`
 export const Title = styled(Text).attrs({ lines: 2, variant: 'h4' })`
   margin: 0;
 `
+
+export const Wrapper = styled.divBox<{
+  $titleBlockDesktop: string
+  $titleBlockMobile: string
+}>(
+  ({ $titleBlockDesktop, $titleBlockMobile }) => css`
+    display: flex;
+    flex-direction: column;
+    border-radius: xxl;
+    overflow: hidden;
+
+    > img {
+      width: auto;
+      max-width: fit-content;
+      max-height: calc(100vh - 2 * 5rem - ${$titleBlockMobile});
+      flex-shrink: 0;
+
+      @media (min-width: md) {
+        max-height: calc(100vh - 2 * 5rem - ${$titleBlockDesktop});
+      }
+    }
+
+    ${Iframe} {
+      background-color: neutral-90;
+      max-height: calc(100vh - 2 * 5rem - ${$titleBlockMobile});
+
+      @media (min-width: md) {
+        max-height: calc(100vh - 2 * 5rem - ${$titleBlockDesktop});
+      }
+    }
+  `
+)

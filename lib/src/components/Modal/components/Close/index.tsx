@@ -1,19 +1,16 @@
-import * as Ariakit from '@ariakit/react'
+import { DialogDismiss } from '@ariakit/react'
 import { useTheme } from '@xstyled/styled-components'
 
 //TODO Migrate CloseButton, but to what?
-import type { CloseButtonProps } from '@old/CloseButton'
 import { CloseButton } from '@old/CloseButton'
 
-type CloseProps = CloseButtonProps & {
-  isOnHeader?: boolean
-}
+import type { CloseProps } from './types'
 
 export const Close = ({ isOnHeader, ...rest }: CloseProps) => {
   const theme = useTheme()
 
   return (
-    <Ariakit.DialogDismiss
+    <DialogDismiss
       render={
         <CloseButton
           left={

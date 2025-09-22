@@ -1,19 +1,11 @@
-import { forwardRef, type HTMLAttributes, type ReactElement } from 'react'
+import { forwardRef } from 'react'
 
+import { Close } from '@/components/Modal/components/Close'
 import { Text } from '@/components/Text'
 import { classNames } from '@/utils/classNames'
-import type { MergeProps } from '@/utils/forwardRefWithAs'
 
-import { Close } from './Close'
-import modalStyles from './modal.module.scss'
-
-export interface HeaderOptions {
-  icon?: ReactElement
-  subtitle?: JSX.Element | string
-  title: JSX.Element | string
-}
-
-export type HeaderProps = MergeProps<HeaderOptions, HTMLAttributes<HTMLDivElement>>
+import modalStyles from './header.module.scss'
+import type { HeaderProps } from './types'
 
 const cx = classNames(modalStyles)
 

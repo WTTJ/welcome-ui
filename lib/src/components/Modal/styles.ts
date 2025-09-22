@@ -1,11 +1,6 @@
-import styled, { css, th, up } from '@xstyled/styled-components'
+import styled, { css, th } from '@xstyled/styled-components'
 
-import { Box } from '@old/Box'
-import { Text } from '@old/Text'
-
-import type { BackdropProps } from './Assets/Backdrop'
-
-import type { ModalOptions } from './index'
+import type { BackdropProps } from './components/Assets/types'
 
 export const Backdrop = styled.divBox.withConfig({
   shouldForwardProp: prop => !['hideOnInteractOutside'].includes(prop),
@@ -30,74 +25,3 @@ export const Backdrop = styled.divBox.withConfig({
     }
   `
 )
-
-export const Dialog = styled.divBox<Pick<ModalOptions, 'size'>>(
-  ({ size }) => css`
-    ${th('cards.default')};
-    ${th('modals.default')};
-    position: fixed;
-    inset: 0;
-    margin: auto;
-    margin-top: xl;
-    top: 50%;
-    transform: translate3d(0, -50%, 0);
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    height: 100%;
-    max-height: 100%;
-    max-width: 100%;
-    overflow: auto;
-    opacity: 0;
-    transition:
-      opacity 250ms ease-in-out,
-      margin-top 250ms ease-in-out;
-
-    &[data-enter] {
-      opacity: 1;
-      margin-top: 0;
-    }
-
-    ${up(
-      'md',
-      css`
-        height: fit-content;
-        max-height: calc(100vh - ${th('space.xl')} * 2);
-        ${th(`modals.sizes.${size}`)};
-      `
-    )}
-  `
-)
-
-export const Body = styled.sectionBox`
-  ${th('modals.body')};
-`
-
-export const Header = styled.headerBox`
-  position: sticky;
-  top: 0;
-  flex-shrink: 0;
-  z-index: 1;
-  ${th('modals.header')};
-`
-
-export const HeaderSubtitle = styled(Text)`
-  ${th('.modals.header.subtitle')};
-  margin-bottom: 0;
-`
-
-export const Footer = styled.footerBox`
-  position: sticky;
-  bottom: 0;
-  flex-shrink: 0;
-  z-index: 1;
-  ${th('modals.footer')};
-`
-
-export const FooterChildrenWrapper = styled(Box)`
-  ${th('modals.footer.children')};
-`
-
-export const FooterInformation = styled.divBox`
-  ${th('modals.footer.information')};
-`

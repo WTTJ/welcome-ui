@@ -1,19 +1,10 @@
-import { forwardRef, type HTMLAttributes } from 'react'
+import { forwardRef } from 'react'
 
 import { Text } from '@/components/Text'
 import { classNames } from '@/utils/classNames'
-import type { MergeProps } from '@/utils/forwardRefWithAs'
 
-import modalStyles from './modal.module.scss'
-
-export interface FooterOptions {
-  information?: {
-    subtitle: string
-    title: string
-  }
-}
-
-export type FooterProps = MergeProps<FooterOptions, HTMLAttributes<HTMLDivElement>>
+import modalStyles from './footer.module.scss'
+import type { FooterProps } from './types'
 
 const cx = classNames(modalStyles)
 
