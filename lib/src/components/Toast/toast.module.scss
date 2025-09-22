@@ -1,20 +1,4 @@
 @layer components {
-  .toast-wrapper {
-    position: fixed;
-    padding-left: var(--spacing-sm);
-    padding-right: var(--spacing-sm);
-    z-index: 9999;
-    transition: all 400ms ease-out;
-
-    &.bottom {
-      padding-bottom: var(--spacing-lg);
-    }
-
-    &.top {
-      padding-top: var(--spacing-lg);
-    }
-  }
-
   .title {
     display: flex;
     align-items: center;

@@ -1,42 +1,16 @@
 import React from 'react'
-import type { ToastPosition } from 'react-hot-toast/headless'
-import toastRHT, { useToaster } from 'react-hot-toast/headless'
+import { toast as toastRHT } from 'react-hot-toast'
+import type { ToastPosition } from 'react-hot-toast'
 
 import type { TextProps } from '@/components/Text'
 import { classNames } from '@/utils'
 
 import { Growl } from './components/Growl'
 import { Snackbar, SnackbarAction } from './components/Snackbar'
-import { ToastWrapper } from './components/ToastWrapper'
 import toastStyles from './toast.module.scss'
-import type { NotificationsProps, ToastOptions } from './types'
+import type { ToastOptions } from './types'
 
 const cx = classNames(toastStyles)
-
-export const Notifications: React.FC<NotificationsProps> = ({ pauseOnHover = true }) => {
-  const { handlers, toasts } = useToaster()
-  const { calculateOffset, endPause, startPause, updateHeight } = handlers
-
-  const onMouseEnter = pauseOnHover ? startPause : undefined
-  const onMouseLeave = pauseOnHover ? endPause : undefined
-
-  return (
-    <>
-      {toasts.length > 0 && (
-        <div data-wui-persistent onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-          {toasts.map(toast => (
-            <ToastWrapper
-              calculateOffset={calculateOffset}
-              key={toast.id}
-              toast={toast}
-              updateHeight={updateHeight}
-            />
-          ))}
-        </div>
-      )}
-    </>
-  )
-}
 
 const Title: React.FC<TextProps> = ({ children, ...rest }) => (
   <p className={cx('title', rest.className)} {...rest}>
@@ -60,12 +34,5 @@ export const toast = (component: JSX.Element, options?: ToastOptions) => {
   return toastRHT(component, toastOptions)
 }
 
-export const remove = (id?: string) => {
-  toastRHT.remove(id)
-}
-
-export const dismiss = (id?: string) => {
-  toastRHT.dismiss(id)
-}
-
+export { Toaster as Notifications } from 'react-hot-toast'
 export const Toast = { Growl, Snackbar, SnackbarAction, Title }

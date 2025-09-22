@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { ThemeProvider as NextThemeProvider } from 'next-themes'
 
-import { Notifications } from '@old/Toast'
+import { Notifications } from '@/components/Toast'
 
 import { Footer } from '~/build-app/components/Footer'
 import { Header } from '~/build-app/components/Header'

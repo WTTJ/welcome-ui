@@ -1,30 +1,28 @@
 import { forwardRef } from 'react'
 
-import { Box } from '@old/Box'
-import { CloseButton } from '@old/CloseButton'
+import { Alert } from '@/components/Alert'
+import { classNames } from '@/utils'
 
+import toastStyles from '../toast.module.scss'
 import type { GrowlProps } from '../types'
+
+const cx = classNames(toastStyles)
+
 /**
  * @name Toast.Growl
  */
 export const Growl = forwardRef<HTMLDivElement, GrowlProps>(
-  ({ children, hasCloseButton = true, icon, onClose, variant = 'default', ...rest }, ref) => {
-    const closeButtonDataTestId = rest['data-testid']
-      ? `${rest['data-testid']}-close-button`
-      : undefined
+  ({ children, className, hasCloseButton = true, onClose, variant, ...rest }, ref) => {
     return (
-      <S.Growl hasCloseButton={hasCloseButton} icon={icon} ref={ref} variant={variant} {...rest}>
-        {hasCloseButton ? (
-          <CloseButton
-            dataTestId={closeButtonDataTestId}
-            onClick={onClose}
-            position="absolute"
-            right="sm"
-            top="sm"
-          />
-        ) : null}
-        <Box pr="xl">{children}</Box>
-      </S.Growl>
+      <Alert
+        className={cx('growl', className)}
+        handleClose={hasCloseButton ? onClose : undefined}
+        ref={ref}
+        variant={variant}
+        {...rest}
+      >
+        <div className={cx('pr-(--spacing-xl)')}>{children}</div>
+      </Alert>
     )
   }
 )

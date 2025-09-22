@@ -5,8 +5,6 @@ export type GrowlProps = ComponentPropsWithRef<'div'> &
   GrowlOptions &
   HTMLAttributes<HTMLDivElement>
 
-export type NotificationsProps = { pauseOnHover?: boolean }
-
 export type SnackbarProps = ComponentPropsWithRef<'div'> &
   HTMLAttributes<HTMLDivElement> &
   SnackbarOptions
@@ -18,17 +16,9 @@ export type ToastOptions = {
   position?: ToastPosition
 }
 
-export type ToastVariant = 'danger' | 'default' | 'info' | 'success' | 'warning'
+export type ToastVariant = 'ai' | 'beige' | 'danger' | 'info' | 'success' | 'warning'
 
 export type ToastWrapperProps = {
-  calculateOffset: (
-    toast: Toast,
-    opts?: {
-      defaultPosition?: ToastPosition
-      gutter?: number
-      reverseOrder?: boolean
-    }
-  ) => number
   toast: CustomToastOptions & Toast
   updateHeight: (toastId: string, height: number) => void
 }
