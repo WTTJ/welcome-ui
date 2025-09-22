@@ -30,7 +30,9 @@
         }
       },
       "autoComplete": {
-        "defaultValue": null,
+        "defaultValue": {
+          "value": "off"
+        },
         "description": "We need to add `autoComplete` off to avoid select UI issues when is an input",
         "name": "autoComplete",
         "parent": {
@@ -371,7 +373,9 @@
         }
       },
       "options": {
-        "defaultValue": null,
+        "defaultValue": {
+          "value": "[]"
+        },
         "description": "",
         "name": "options",
         "parent": {
@@ -384,13 +388,15 @@
             "name": "SelectOptions"
           }
         ],
-        "required": true,
+        "required": false,
         "type": {
           "name": "SelectOptionsType"
         }
       },
       "renderCreateItem": {
-        "defaultValue": null,
+        "defaultValue": {
+          "value": "(inputValue: string) => `Create \"${inputValue}\"`"
+        },
         "description": "",
         "name": "renderCreateItem",
         "parent": {
@@ -428,7 +434,9 @@
         }
       },
       "renderItem": {
-        "defaultValue": null,
+        "defaultValue": {
+          "value": "(item: SelectOption): string => (item ? item.label : EMPTY_STRING)"
+        },
         "description": "",
         "name": "renderItem",
         "parent": {
@@ -466,7 +474,9 @@
         }
       },
       "size": {
-        "defaultValue": null,
+        "defaultValue": {
+          "value": "md"
+        },
         "description": "",
         "name": "size",
         "parent": {

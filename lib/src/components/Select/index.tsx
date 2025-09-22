@@ -75,7 +75,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
       ...rest
     }: SelectProps,
     ref
-  ): JSX.Element => {
+  ) => {
     const initialSelectedValues = useMemo(
       () => getOptionsFromSelected(defaultSelected, defaultOptions, groupsEnabled),
       [defaultSelected, defaultOptions, groupsEnabled]
@@ -196,6 +196,11 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
       handleChange(newItems)
     }
 
+    const handleInputClick = (e: React.MouseEvent<HTMLElement>) => {
+      onClick?.(e)
+      setIsOpen(!isOpen)
+    }
+
     const handleOuterClick = (e: ControllerStateAndHelpers<SelectOption>) => {
       // Reset input value if not selecting a new item
       if (isMultiple && e.selectedItem) {
@@ -216,16 +221,6 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
       options: defaultOptions as SelectOption[],
       renderItem,
     })
-
-    const inputClassnames = cx(
-      'root',
-      `size-${size}`,
-      variant && `variant-${variant}`,
-      isClearable && 'clearable',
-      transparent && 'transparent',
-      icon ? 'icon-placement-both' : 'icon-placement-right',
-      className
-    )
 
     const renderOptions = useCallback(
       ({
@@ -310,6 +305,18 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
       [isMultiple, allowUnselectFromList, selected, groupsEnabled, renderGroupHeader, renderItem]
     )
 
+    const iconSize = FIELD_ICON_SIZE[size]
+
+    const inputClassnames = cx(
+      'root',
+      `size-${size}`,
+      variant && `variant-${variant}`,
+      isClearable && 'clearable',
+      transparent && 'transparent',
+      icon ? 'icon-placement-both' : 'icon-placement-right',
+      className
+    )
+
     return (
       <Downshift
         id={id}
@@ -360,11 +367,6 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
             </div>
           )
 
-          const handleInputClick = (e: React.MouseEvent<HTMLElement>) => {
-            onClick?.(e)
-            setIsOpen(!isOpen)
-          }
-
           const rootProps = getRootProps(rest as GetRootPropsOptions)
           const inputProps = getInputProps({
             autoComplete,
@@ -388,7 +390,6 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
             variant: isOpen ? 'focused' : variant,
             ...rest,
           }) as React.InputHTMLAttributes<HTMLInputElement>
-          const iconSize = FIELD_ICON_SIZE[size]
 
           return (
             <div {...rootProps} className={cx('wrapper', disabled && 'disabled')}>
