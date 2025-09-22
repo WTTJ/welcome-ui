@@ -127,11 +127,6 @@
       "count": 2
     }
   },
-  "website/loaders/generate-examples.js": {
-    "@typescript-eslint/no-require-imports": {
-      "count": 2
-    }
-  },
   "website/loaders/generate-types-doc.js": {
     "@typescript-eslint/no-require-imports": {
       "count": 3

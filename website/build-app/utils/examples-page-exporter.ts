@@ -23,7 +23,7 @@ function getExamplesPages() {
     }
   }
 
-  const fileContent = `/* eslint-disable */\n/** WARNING\nThis file is auto-generate with yarn watch command, do not change it directly!\n**/\n\nimport dynamic from "next/dynamic";\n\nexport default {\n${examples
+  const fileContent = `/** WARNING\nThis file is auto-generate with yarn watch command, do not change it directly!\n**/\n\nimport dynamic from "next/dynamic";\n\nexport default {\n${examples
     .map(
       path =>
         `  "${path}": dynamic(() => import("../../packages${path}").then(mod => mod), { ssr: false })`
