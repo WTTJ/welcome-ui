@@ -9,9 +9,10 @@ export type PopoverTriggerProps = React.ButtonHTMLAttributes<HTMLButtonElement> 
 }
 
 export const PopoverTrigger = forwardRefWithAs<PopoverTriggerProps, 'button'>(
-  ({ as: As, store, ...rest }, ref) => {
+  ({ as: As, className, store, ...rest }, ref) => {
     return (
       <Ariakit.PopoverDisclosure
+        className={className}
         ref={ref}
         render={As ? props => <As {...props} /> : undefined}
         store={store}
@@ -26,9 +27,10 @@ export type PopoverHoverTriggerProps = React.HTMLAttributes<HTMLAnchorElement> &
 }
 
 export const PopoverHoverTrigger = forwardRefWithAs<PopoverHoverTriggerProps, 'a'>(
-  ({ as: As, store, ...rest }, ref) => {
+  ({ as: As, className, store, ...rest }, ref) => {
     return (
       <Ariakit.HovercardAnchor
+        className={className}
         ref={ref}
         render={As ? props => <As {...props} /> : undefined}
         store={store}

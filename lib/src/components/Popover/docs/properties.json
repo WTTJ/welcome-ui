@@ -804,12 +804,12 @@
         "description": "call a function when popover closed",
         "name": "onClose",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Popover/Popover.tsx",
+          "fileName": "welcome-ui/lib/src/components/Popover/index.tsx",
           "name": "PopoverOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Popover/Popover.tsx",
+            "fileName": "welcome-ui/lib/src/components/Popover/index.tsx",
             "name": "PopoverOptions"
           }
         ],
@@ -1214,12 +1214,12 @@
         "description": "Object returned by the\n[`usePopoverStore`](https://ariakit.org/reference/use-popover-store) hook.\nIf not provided, the closest\n[`PopoverProvider`](https://ariakit.org/reference/popover-provider)\ncomponent's context will be used.",
         "name": "store",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Popover/Popover.tsx",
+          "fileName": "welcome-ui/lib/src/components/Popover/index.tsx",
           "name": "PopoverOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Popover/Popover.tsx",
+            "fileName": "welcome-ui/lib/src/components/Popover/index.tsx",
             "name": "PopoverOptions"
           }
         ],

@@ -7,8 +7,9 @@ import popoverStyles from './popover.module.scss'
 const cx = classNames(popoverStyles)
 
 import { Arrow } from './Arrow'
-import type { PopoverOptions } from './Popover'
 import type { UsePopover, UsePopoverHover } from './usePopover'
+
+import type { PopoverOptions } from './'
 
 export interface ContentWrapperOptions {
   children: PopoverOptions['children']

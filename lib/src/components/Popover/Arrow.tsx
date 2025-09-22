@@ -27,7 +27,7 @@ export const Arrow = ({ store }: ArrowProps) => {
     <Ariakit.PopoverArrow className={cx('arrow')} store={store}>
       <svg
         className={cx('arrow-item')}
-        style={{ '--transform': transform } as React.CSSProperties & Record<string, string>}
+        style={{ '--popover-transform': transform } as React.CSSProperties}
         xmlns="http://www.w3.org/2000/svg"
       >
         <path d="M7 30L15 22L23 30H7Z" fill="currentColor" fillRule="nonzero" id="stroke" />
