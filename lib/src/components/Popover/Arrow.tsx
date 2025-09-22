@@ -18,9 +18,9 @@ const rotation = {
 }
 
 export const Arrow = ({ store }: ArrowProps) => {
-  const { placement } = store.getState()
+  const currentPlacement = Ariakit.useStoreState(store, 'currentPlacement')
 
-  const [parentPlacement] = placement.split('-')
+  const [parentPlacement] = currentPlacement.split('-')
   const transform = rotation[parentPlacement as keyof typeof rotation]
 
   return (

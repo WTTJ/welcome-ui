@@ -3,9 +3,10 @@ import * as Ariakit from '@ariakit/react'
 import { classNames } from '@/utils'
 import { forwardRefWithAs } from '@/utils/forwardRefWithAs'
 
+import { Content } from './Content'
 import { ContentWrapper } from './ContentWrapper'
 import popoverStyles from './popover.module.scss'
-import { Content, Title } from './Title'
+import { Title } from './Title'
 import { PopoverHoverTrigger } from './Trigger'
 import type { UsePopoverHover } from './usePopover'
 

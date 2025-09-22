@@ -4,9 +4,10 @@ import { forwardRef } from 'react'
 
 import { classNames } from '@/utils'
 
+import { Content } from './Content'
 import { ContentWrapper } from './ContentWrapper'
 import popoverStyles from './popover.module.scss'
-import { Content, Title } from './Title'
+import { Title } from './Title'
 import { PopoverTrigger } from './Trigger'
 import type { UsePopover } from './usePopover'
 

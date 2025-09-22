@@ -10,7 +10,3 @@ export const Title = forwardRef<HTMLHeadingElement, React.HTMLProps<HTMLHeadingE
     return <h6 className={cx('title')} ref={ref} {...props} />
   }
 )
-
-export const Content = forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>>((props, ref) => {
-  return <div className={cx('content')} ref={ref} {...props} />
-})
