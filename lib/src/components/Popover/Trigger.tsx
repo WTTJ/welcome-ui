@@ -21,7 +21,7 @@ export const PopoverTrigger = forwardRefWithAs<PopoverTriggerProps, 'button'>(
   }
 )
 
-export type PopoverHoverTriggerProps = React.HTMLAttributes<HTMLElement> & {
+export type PopoverHoverTriggerProps = React.HTMLAttributes<HTMLAnchorElement> & {
   store: UsePopoverHover
 }
 

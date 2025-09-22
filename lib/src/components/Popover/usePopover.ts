@@ -13,12 +13,10 @@ export interface UsePopoverProps extends Ariakit.PopoverStoreProps {
 type WithCloseButton = boolean
 
 export const usePopover: (props?: UsePopoverProps) => UsePopover = ({
-  //   animated = 150,
   withCloseButton = false,
   ...options
 } = {}) => {
   const store = Ariakit.usePopoverStore({
-    // animated,
     ...options,
   })
 
@@ -29,14 +27,12 @@ export const usePopover: (props?: UsePopoverProps) => UsePopover = ({
 }
 
 export const usePopoverHover: (props?: UsePopoverHoverProps) => UsePopoverHover = ({
-  //   animated = 150,
   hideTimeout = 300,
   showTimeout = 500,
   withCloseButton = false,
   ...options
 } = {}) => {
   const store = Ariakit.useHovercardStore({
-    // animated,
     hideTimeout,
     showTimeout,
     ...options,
