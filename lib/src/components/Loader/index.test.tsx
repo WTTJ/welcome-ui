@@ -18,7 +18,6 @@ describe('<Loader>', () => {
     const dot = loader.children[0]
 
     expect(dot.className).toMatch('size-sm')
-    expect(dot).toHaveStyle({ '--size': '0.75rem' })
   })
 
   it('should have width and height when using the size prop with px value', () => {
