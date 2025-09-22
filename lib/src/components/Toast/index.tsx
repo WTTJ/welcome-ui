@@ -3,7 +3,7 @@ import type { ToastPosition } from 'react-hot-toast/headless'
 import toastRHT, { useToaster } from 'react-hot-toast/headless'
 
 import type { TextProps } from '@/components/Text'
-import { classNames, useCreatePortal } from '@/utils'
+import { classNames } from '@/utils'
 
 import { Growl } from './components/Growl'
 import { Snackbar, SnackbarAction } from './components/Snackbar'
@@ -14,7 +14,6 @@ import type { NotificationsProps, ToastOptions } from './types'
 const cx = classNames(toastStyles)
 
 export const Notifications: React.FC<NotificationsProps> = ({ pauseOnHover = true }) => {
-  const createPortal = useCreatePortal()
   const { handlers, toasts } = useToaster()
   const { calculateOffset, endPause, startPause, updateHeight } = handlers
 
@@ -23,19 +22,18 @@ export const Notifications: React.FC<NotificationsProps> = ({ pauseOnHover = tru
 
   return (
     <>
-      {toasts.length > 0 &&
-        createPortal(
-          <div data-wui-persistent onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-            {toasts.map(toast => (
-              <ToastWrapper
-                calculateOffset={calculateOffset}
-                key={toast.id}
-                toast={toast}
-                updateHeight={updateHeight}
-              />
-            ))}
-          </div>
-        )}
+      {toasts.length > 0 && (
+        <div data-wui-persistent onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+          {toasts.map(toast => (
+            <ToastWrapper
+              calculateOffset={calculateOffset}
+              key={toast.id}
+              toast={toast}
+              updateHeight={updateHeight}
+            />
+          ))}
+        </div>
+      )}
     </>
   )
 }
