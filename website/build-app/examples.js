@@ -1,4 +1,3 @@
-/* eslint-disable */
 /** WARNING
 This file is auto-generate with yarn watch command, do not change it directly!
 **/
@@ -56,6 +55,10 @@ export default {
   "/Pagination/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Pagination/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Pagination/docs/examples/range.tsx": dynamic(() => import("../../lib/src/components/Pagination/docs/examples/range.tsx").then(mod => mod), { ssr: false }),
   "/PasswordInput/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/PasswordInput/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
+  "/Popover/docs/examples/close-button.tsx": dynamic(() => import("../../lib/src/components/Popover/docs/examples/close-button.tsx").then(mod => mod), { ssr: false }),
+  "/Popover/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Popover/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
+  "/Popover/docs/examples/popover-hover.tsx": dynamic(() => import("../../lib/src/components/Popover/docs/examples/popover-hover.tsx").then(mod => mod), { ssr: false }),
+  "/Popover/docs/examples/title.tsx": dynamic(() => import("../../lib/src/components/Popover/docs/examples/title.tsx").then(mod => mod), { ssr: false }),
   "/Tabs/docs/examples/badge.tsx": dynamic(() => import("../../lib/src/components/Tabs/docs/examples/badge.tsx").then(mod => mod), { ssr: false }),
   "/Tabs/docs/examples/component.tsx": dynamic(() => import("../../lib/src/components/Tabs/docs/examples/component.tsx").then(mod => mod), { ssr: false }),
   "/Tabs/docs/examples/no-border.tsx": dynamic(() => import("../../lib/src/components/Tabs/docs/examples/no-border.tsx").then(mod => mod), { ssr: false }),
