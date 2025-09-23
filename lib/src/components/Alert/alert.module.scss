@@ -1,0 +1,137 @@
+@layer components {
+  .root {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    border-radius: var(--radius-lg);
+    border: var(--border-width-sm) solid;
+
+    /* VARIABLES THAT CHANGE WITH REACT PROPS */
+    padding: var(--padding);
+    max-width: var(--maxWidth, max-content);
+    background-color: var(--backgroundColor, var(--color-neutral-10));
+    border-color: var(--borderColor, var(--color-neutral-30));
+    color: var(--color, var(--color-neutral-80));
+  }
+
+  .size {
+    &-sm {
+      --padding: var(--spacing-lg);
+    }
+
+    &-md {
+      --padding: var(--spacing-xl);
+    }
+  }
+
+  .variant {
+    &-ai {
+      --backgroundColor: var(--color-violet-10);
+      --borderColor: var(--color-violet-10);
+      --color: var(--color-violet-90);
+    }
+
+    &-beige {
+      --backgroundColor: var(--color-beige-20);
+      --borderColor: var(--color-beige-20);
+      --color: var(--color-beige-80);
+    }
+
+    &-danger {
+      --backgroundColor: var(--color-red-10);
+      --borderColor: var(--color-red-10);
+      --color: var(--color-red-90);
+    }
+
+    &-info {
+      --backgroundColor: var(--color-blue-10);
+      --borderColor: var(--color-blue-10);
+      --color: var(--color-blue-90);
+    }
+
+    &-success {
+      --backgroundColor: var(--color-green-10);
+      --borderColor: var(--color-green-10);
+      --color: var(--color-green-90);
+    }
+
+    &-warning {
+      --backgroundColor: var(--color-orange-10);
+      --borderColor: var(--color-orange-10);
+      --color: var(--color-orange-90);
+    }
+  }
+
+  .full-width {
+    --maxWidth: 100%;
+  }
+
+  .icon.size-sm {
+    svg {
+      margin-top: 1px;
+    }
+
+    .content {
+      margin-left: var(--spacing-md);
+    }
+  }
+
+  .icon.size-md {
+    svg {
+      margin-top: -3px;
+    }
+
+    .content {
+      margin-left: var(--spacing-lg);
+    }
+  }
+
+  /** Content */
+
+  .content {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex: 1;
+  }
+
+  .content-text {
+    flex: 1;
+  }
+
+  .content-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+
+  .variant-icon {
+    align-self: start;
+  }
+
+  /** Title */
+
+  .title {
+    font-weight: var(--font-weight-500);
+
+    /* VARIABLES THAT CHANGE WITH REACT PROPS */
+    margin-bottom: var(--titleMarginBottom);
+  }
+
+  .title-size {
+    &-sm {
+      --titleMarginBottom: var(--spacing-xs);
+    }
+
+    &-md {
+      --titleMarginBottom: var(--spacing-sm);
+    }
+  }
+
+  .title-close-button {
+    margin-right: var(--spacing-xl);
+  }
+}

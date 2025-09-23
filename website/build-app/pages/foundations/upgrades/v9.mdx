@@ -24,6 +24,17 @@ We cannot cover all cases, so you may have to fix some issues manually.
 
 ## Components changes
 
+### Alert
+
+To hide and icon you need now to use `hideIcon` prop instead of passing `null` to `icon` prop.
+
+```diff
+-<Alert icon={null} />
++<Alert hideIcon />
+```
+
+You cannot pass a custom icon anymore.
+
 ### Icon
 
 We removed the IconFont component and replaced it with a new Icon component that uses SVG icons. If you already use Icon component, you don't need to change anything (except if you use color or size props, see below).
