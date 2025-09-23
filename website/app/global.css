@@ -17,9 +17,7 @@
 @import '../../lib/src/components/Tabs/tabs.module.scss';
 @import '../../lib/src/components/Tag/tag.module.scss';
 @import '../../lib/src/components/Modal/modal.module.scss';
-@import '../../lib/src/components/Modal/components/Header/header.module.scss';
-@import '../../lib/src/components/Modal/components/Footer/footer.module.scss';
-@import '../../lib/src/components/Modal/components/Assets/assets.module.scss';
+@import '../../lib/src/components/Modal/Assets/assets.module.scss';
 @import '../../lib/src/components/Text/text.module.scss';
 @import '../../lib/src/components/Textarea/textarea.module.scss';
 @import '../../lib/src/components/Toggle/toggle.module.scss';

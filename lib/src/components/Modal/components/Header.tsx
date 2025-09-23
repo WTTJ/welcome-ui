@@ -1,11 +1,10 @@
 import { forwardRef } from 'react'
 
 import { Close } from '@/components/Modal/components/Close'
+import modalStyles from '@/components/Modal/modal.module.scss'
+import type { HeaderProps } from '@/components/Modal/types'
 import { Text } from '@/components/Text'
 import { classNames } from '@/utils/classNames'
-
-import modalStyles from './header.module.scss'
-import type { HeaderProps } from './types'
 
 const cx = classNames(modalStyles)
 
@@ -26,7 +25,7 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
         >
           {title}
         </Text>
-        {subtitle ? <div className={cx('header-subtitle')}>{subtitle}</div> : null}
+        {subtitle ? <Text className={cx('header-subtitle')}>{subtitle}</Text> : null}
       </header>
     )
   }

@@ -1,8 +1,7 @@
 import React, { Children, cloneElement, forwardRef, useEffect, useMemo, useState } from 'react'
 
 import { Close } from '@/components/Modal/components/Close'
-
-import type { ContentProps } from './types'
+import type { ContentProps } from '@/components/Modal/types'
 
 /**
  * @name Modal.Content

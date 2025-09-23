@@ -1,26 +1,18 @@
-import { Dialog, DialogDisclosure, useDialogStore } from '@ariakit/react'
-import { useTheme } from '@xstyled/styled-components'
-import React, { cloneElement, forwardRef } from 'react'
+import { Dialog, useDialogStore } from '@ariakit/react'
 
 import { classNames } from '@/utils'
 import { forwardRefWithAs } from '@/utils/forwardRefWithAs'
-//TODO Migrate shape, but to what?
-import type { ShapeProps } from '@old/Shape'
-import { Shape } from '@old/Shape'
 
-import { Assets } from './components/Assets'
+import { Assets } from './Assets'
+import { Backdrop } from './components/Backdrop'
+import { Body } from './components/Body'
 import { Content } from './components/Content'
+import { Cover } from './components/Cover'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
+import { Trigger } from './components/Trigger'
 import modalStyles from './modal.module.scss'
-import type {
-  BackdropProps,
-  BodyProps,
-  ModalProps,
-  TriggerProps,
-  UseModal,
-  UseModalProps,
-} from './types'
+import type { ModalProps, UseModal, UseModalProps } from './types'
 
 const cx = classNames(modalStyles)
 
@@ -39,26 +31,6 @@ export function useModal(options?: UseModalProps): UseModal {
 
   return dialog
 }
-
-const Backdrop = forwardRef<HTMLDivElement, BackdropProps>(
-  ({ backdrop, hideOnInteractOutside, ...rest }, ref) => {
-    if (backdrop === true) {
-      return (
-        <div
-          className={cx('backdrop', hideOnInteractOutside && 'hideOnInteractOutside')}
-          ref={ref}
-          {...rest}
-        />
-      )
-    }
-
-    if (React.isValidElement(backdrop)) {
-      return cloneElement(backdrop, { ref, ...rest })
-    }
-
-    return null
-  }
-)
 
 const ModalComponent = forwardRefWithAs<ModalProps, 'div'>(
   (
@@ -92,33 +64,6 @@ const ModalComponent = forwardRefWithAs<ModalProps, 'div'>(
     )
   }
 )
-
-const Body = forwardRef<HTMLElement, BodyProps>((props, ref) => {
-  return <section className={cx('body')} ref={ref} {...props} />
-})
-
-Body.displayName = 'Body'
-
-const Cover: React.FC<ShapeProps> = props => {
-  const { modals } = useTheme()
-
-  return (
-    <div>
-      <Shape {...modals.cover} {...props} />
-    </div>
-  )
-}
-
-const Trigger = forwardRefWithAs<TriggerProps, 'button'>(({ as: As, store, ...rest }, ref) => {
-  return (
-    <DialogDisclosure
-      ref={ref}
-      render={As ? props => <As {...props} /> : undefined}
-      store={store}
-      {...rest}
-    />
-  )
-})
 
 // Nested exports
 export const Modal = Object.assign(ModalComponent, {

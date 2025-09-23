@@ -1,26 +1,11 @@
+/* eslint-disable perfectionist/sort-modules */
+
 import type { DialogOptions, DialogStore, DialogStoreProps } from '@ariakit/react'
-import type { HTMLAttributes, PropsWithChildren } from 'react'
+import type { HTMLAttributes, PropsWithChildren, ReactElement } from 'react'
 
 import type { MergeProps } from '@/utils/forwardRefWithAs'
-
-export type BackdropProps = Pick<BaseDialogOptions, 'backdrop' | 'hideOnInteractOutside'>
-
-export type BodyProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
-
-export interface ModalOptions {
-  ariaLabel: string
-  children: React.ReactElement
-  size?: Size
-}
-
-export type ModalProps = MergeProps<
-  BaseDialogOptions & ModalOptions,
-  HTMLAttributes<HTMLDivElement>
->
-
-// we want to keep Size in a natural order for documentation
-// eslint-disable-next-line perfectionist/sort-union-types
-export type Size = 'auto' | 'xs' | 'sm' | 'md' | 'lg'
+//TODO Migrate CloseButton, but to what?
+import type { CloseButtonProps } from '@old/CloseButton'
 
 export type TriggerProps = PropsWithChildren<{ store: DialogStore }>
 
@@ -34,4 +19,52 @@ export type UseModalProps = DialogStoreProps & {
   onClose?: () => void
 }
 
+// we want to keep Size in a natural order for documentation
+// eslint-disable-next-line perfectionist/sort-union-types
+export type Size = 'auto' | 'xs' | 'sm' | 'md' | 'lg'
+
+export interface ModalOptions {
+  ariaLabel: string
+  children: React.ReactElement
+  size?: Size
+}
+
 type BaseDialogOptions = Omit<DialogOptions<'div'>, 'as'>
+
+export type ModalProps = MergeProps<
+  BaseDialogOptions & ModalOptions,
+  HTMLAttributes<HTMLDivElement>
+>
+
+export interface HeaderOptions {
+  icon?: ReactElement
+  subtitle?: JSX.Element | string
+  title: JSX.Element | string
+}
+
+export type HeaderProps = MergeProps<HeaderOptions, HTMLAttributes<HTMLDivElement>>
+
+export type BodyProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
+
+export type ContentProps = PropsWithChildren<{
+  store: UseModal
+  /**
+   * show or hide the closing button
+   */
+  withClosingButton?: boolean
+}>
+
+export type BackdropProps = Pick<BaseDialogOptions, 'backdrop' | 'hideOnInteractOutside'>
+
+export type CloseProps = CloseButtonProps & {
+  isOnHeader?: boolean
+}
+
+export interface FooterOptions {
+  information?: {
+    subtitle: string
+    title: string
+  }
+}
+
+export type FooterProps = MergeProps<FooterOptions, HTMLAttributes<HTMLDivElement>>

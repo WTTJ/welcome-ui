@@ -1,4 +1,5 @@
-import { Text, type TextProps } from '@/components/Text'
+import { Text } from '@/components/Text'
+import type { TextProps } from '@/components/Text/types'
 
 export const AssetTitle = ({ children, ...rest }: TextProps) => {
   return (

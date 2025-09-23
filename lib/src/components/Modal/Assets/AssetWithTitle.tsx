@@ -1,6 +1,7 @@
+import { forwardRef } from 'react'
+
 import { Text } from '@/components/Text'
 import { classNames } from '@/utils'
-import { forwardRef } from '@old/System'
 
 import modalStyles from './assets.module.scss'
 import { AssetTitle } from './AssetTitle'
@@ -8,7 +9,7 @@ import type { AssetWithTitleProps } from './types'
 
 const cx = classNames(modalStyles)
 
-export const AssetWithTitle = forwardRef<'div', AssetWithTitleProps>(
+export const AssetWithTitle = forwardRef<HTMLDivElement, AssetWithTitleProps>(
   ({ children, customContent, subtitle, title, ...rest }, ref) => {
     return (
       <div className={cx('root', 'asset-wrapper')} ref={ref} {...rest}>

@@ -1,10 +1,9 @@
 import { DialogDismiss } from '@ariakit/react'
 import { useTheme } from '@xstyled/styled-components'
 
+import type { CloseProps } from '@/components/Modal/types'
 //TODO Migrate CloseButton, but to what?
 import { CloseButton } from '@old/CloseButton'
-
-import type { CloseProps } from './types'
 
 export const Close = ({ isOnHeader, ...rest }: CloseProps) => {
   const theme = useTheme()
