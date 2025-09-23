@@ -1,4 +1,3 @@
-import type { PropsWithChildren } from 'react'
 import React from 'react'
 
 import { ExternalLinkIcon } from '@/components/Icon'
@@ -10,9 +9,12 @@ import type { LinkOptions } from './types'
 
 const cx = classNames(linkStyles)
 
-const Wrapper: React.FC<PropsWithChildren<{ isExternal?: LinkOptions['isExternal'] }>> = props => {
-  const { children, isExternal } = props
+interface WrapperProps {
+  children?: React.ReactNode
+  isExternal?: LinkOptions['isExternal']
+}
 
+const Wrapper = ({ children, isExternal }: WrapperProps) => {
   return (
     <span className={cx('wui-text')}>
       {children}

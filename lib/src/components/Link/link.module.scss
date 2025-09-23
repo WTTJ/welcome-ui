@@ -15,7 +15,7 @@
 
       .wui-text > svg {
         display: inline;
-        margin-left: 0.5rem;
+        margin-left: var(--spacing-sm);
       }
     }
 
