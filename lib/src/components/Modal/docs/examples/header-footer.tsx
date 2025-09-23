@@ -1,7 +1,7 @@
+import { Button } from '@/components/Button'
+import { ActionsIcon } from '@/components/Icon'
 import { Modal, useModal } from '@/components/Modal'
 import { Box } from '@old/Box'
-import { Button } from '@old/Button'
-import { ActionsIcon } from '@old/Icons'
 
 const Example = () => {
   const modal = useModal()
@@ -9,7 +9,7 @@ const Example = () => {
   const modal3 = useModal()
   const title = 'Nullam non lacinia'
   const subtitle = 'Praesent sit amet quam ac velit faucibus dapibus, quisque sapien ligula.'
-  const icon = <ActionsIcon color="neutral-90" h={40} w={40} />
+  const icon = <ActionsIcon className="h-40 w-[2.5rem] text-(--color-neutral-90)" />
   const informations = {
     subtitle:
       'Sed lorem lacus, hendrerit non sodales id, consectetur quis magna. Mauris auctor blandit porta. In imperdiet rutrum nunc.',
@@ -30,7 +30,7 @@ const Example = () => {
           </Modal.Body>
           <Modal.Footer information={informations}>
             <Box w="100%">
-              <Button mr="sm" variant="secondary">
+              <Button className="mr-(--spacing-sm)" variant="secondary">
                 Lorem dolir
               </Button>
               <Button onClick={() => modal.hide()}>Close</Button>
@@ -51,7 +51,7 @@ const Example = () => {
           </Modal.Body>
           <Modal.Footer>
             <Box w="100%">
-              <Button mr="sm" variant="secondary">
+              <Button className="mr-(--spacing-sm)" variant="secondary">
                 Lorem dolir
               </Button>
               <Button onClick={() => modal2.hide()}>Close</Button>

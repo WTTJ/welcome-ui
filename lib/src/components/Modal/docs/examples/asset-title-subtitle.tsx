@@ -1,5 +1,5 @@
+import { Button } from '@/components/Button'
 import { AssetModal, Modal, useModal } from '@/components/Modal'
-import { Button } from '@old/Button'
 
 const Example = () => {
   const modal = useModal()

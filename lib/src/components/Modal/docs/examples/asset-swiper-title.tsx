@@ -1,5 +1,6 @@
+import { Button } from '@/components/Button'
 import { AssetModal, Modal, useModal } from '@/components/Modal'
-import { Button } from '@old/Button'
+//TODO migrate after WUI-189/swiper
 import { Swiper, useSwiper } from '@old/Swiper'
 
 const Example = () => {

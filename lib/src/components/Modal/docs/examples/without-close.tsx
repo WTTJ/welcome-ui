@@ -1,6 +1,5 @@
+import { Button } from '@/components/Button'
 import { Modal, useModal } from '@/components/Modal'
-import { Button } from '@old/Button'
-import { Flex } from '@old/Flex'
 
 const Example = () => {
   const modal = useModal()
@@ -12,7 +11,7 @@ const Example = () => {
       </Modal.Trigger>
       <Modal ariaLabel="example" store={modal}>
         <Modal.Content store={modal} withClosingButton={false}>
-          <Flex direction="column" gap="xxl" p="3xl">
+          <div className="flex flex-col gap-(--spacing-xxl) p-(--spacing-3xl)">
             <span>
               Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
               aliquam nec, convallis sit amet erat. Mauris auctor blandit porta. In imperdiet rutrum
@@ -26,7 +25,7 @@ const Example = () => {
               consequat nibh.
             </span>
             <Button onClick={() => modal.hide()}>Close here</Button>
-          </Flex>
+          </div>
         </Modal.Content>
       </Modal>
     </>
