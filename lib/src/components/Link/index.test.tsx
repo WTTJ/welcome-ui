@@ -1,11 +1,13 @@
 import { AlertIcon } from '@/components/Icon'
 import { Link } from '@/components/Link'
 
-import { render } from '@tests'
+import { expectAsSupport, render } from '@tests'
 
 const content = 'Jungle'
 
 describe('<Link>', () => {
+  expectAsSupport(Link)
+
   it('should render correctly', () => {
     const { getByTestId } = render(<Link data-testid="link">{content}</Link>)
     const link = getByTestId('link')
