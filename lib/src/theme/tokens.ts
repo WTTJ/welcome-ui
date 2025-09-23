@@ -190,6 +190,7 @@ export const primitives = {
     '--font-family-icons': '"welcome-icon-font"',
   },
   fontSizes: {
+    '--font-size-10': '0.625rem',
     '--font-size-11': '0.6875rem',
     '--font-size-12': '0.75rem',
     '--font-size-13': '0.8125rem',
@@ -273,6 +274,7 @@ export const primitives = {
     '--shadow-sm': '1px 2px 4px 0 color-mix(in oklab, var(--color-neutral-90) 5%, transparent)',
   },
   spacings: {
+    '--spacing-0': '0',
     '--spacing-2': '0.125rem',
     '--spacing-4': '0.25rem',
     '--spacing-8': '0.5rem',
