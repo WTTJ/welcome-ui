@@ -182,7 +182,7 @@
 
 @theme {
   --*: initial;
-
+ 
   /* ===== PRIMITIVES ===== */
 
   /* borders */
@@ -292,9 +292,9 @@
   --color-yellow-90: #423500;
 
   /* fontFamilies */
-  --default-font-family: 'Work Sans', sans-serif;
-  --font-family-headings: 'welcome-font', sans-serif;
-  --font-family-icons: 'welcome-icon-font';
+  --default-font-family: "Work Sans", sans-serif;
+  --font-family-headings: "welcome-font", sans-serif;
+  --font-family-icons: "welcome-icon-font";
 
   /* fontSizes */
   --font-size-10: 0.625rem; /* 10px */
@@ -381,6 +381,7 @@
   --shadow-sm: 1px 2px 4px 0 color-mix(in oklab, var(--color-neutral-90) 5%, transparent);
 
   /* spacings */
+  --spacing-0: 0;
   --spacing-2: 0.125rem; /* 2px */
   --spacing-4: 0.25rem; /* 4px */
   --spacing-8: 0.5rem; /* 8px */
