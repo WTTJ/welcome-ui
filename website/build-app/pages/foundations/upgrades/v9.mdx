@@ -78,3 +78,12 @@ the `ClearButton` component has been removed. You can use the `CloseButton` comp
 -<ClearButton />
 +<CloseButton animatePresence />
 ```
+
+### DropdownMenu
+
+The DropdownMenu component no longer accepts the `gutter` prop. This value is set to 4px by default. If you want to remove the gutter, you can use `withGutter` prop.
+
+```diff
+-<DropdownMenu gutter={0} />
++<DropdownMenu withGutter={false} />
+```
