@@ -3,17 +3,20 @@ import type { HTMLAttributes, PropsWithChildren } from 'react'
 
 import type { MergeProps } from '@/utils/forwardRefWithAs'
 
-export type BackdropProps = Pick<ModalOptions, 'backdrop' | 'hideOnInteractOutside'>
+export type BackdropProps = Pick<BaseDialogOptions, 'backdrop' | 'hideOnInteractOutside'>
 
 export type BodyProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
-export interface ModalOptions extends Omit<DialogOptions<'div'>, 'as'> {
+export interface ModalOptions {
   ariaLabel: string
   children: React.ReactElement
   size?: Size
 }
 
-export type ModalProps = MergeProps<ModalOptions, HTMLAttributes<HTMLDivElement>>
+export type ModalProps = MergeProps<
+  BaseDialogOptions & ModalOptions,
+  HTMLAttributes<HTMLDivElement>
+>
 
 // we want to keep Size in a natural order for documentation
 // eslint-disable-next-line perfectionist/sort-union-types
@@ -30,3 +33,5 @@ export type UseModalProps = DialogStoreProps & {
    */
   onClose?: () => void
 }
+
+type BaseDialogOptions = Omit<DialogOptions<'div'>, 'as'>
