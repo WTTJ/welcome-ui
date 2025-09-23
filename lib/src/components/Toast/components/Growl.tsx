@@ -26,3 +26,5 @@ export const Growl = forwardRef<HTMLDivElement, GrowlProps>(
     )
   }
 )
+
+Growl.displayName = 'Growl'

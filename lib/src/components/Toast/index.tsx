@@ -1,3 +1,4 @@
+import { cloneElement } from 'react'
 import { toast as toastRHT } from 'react-hot-toast'
 import type { ToastPosition } from 'react-hot-toast'
 
@@ -21,6 +22,11 @@ export const toast = (component: JSX.Element, options?: ToastOptions) => {
   const name = 'type' in component ? component.type.displayName || component.type.name : undefined
   const position = (name === 'Growl' ? 'top-right' : 'bottom-center') as ToastPosition
 
+  const onClose = () => {
+    if (options.onClose) options.onClose()
+    toastRHT.dismiss(options.id)
+  }
+
   const toastOptions = {
     duration: 7000,
     position,
@@ -32,7 +38,7 @@ export const toast = (component: JSX.Element, options?: ToastOptions) => {
     ...options,
   }
 
-  return toastRHT(component, toastOptions)
+  return toastRHT(cloneElement(component, { onClose }), toastOptions)
 }
 
 export { Toaster as Notifications } from 'react-hot-toast'

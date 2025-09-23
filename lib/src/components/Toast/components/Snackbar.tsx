@@ -17,15 +17,19 @@ export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
   ({ children, className, cta, hasCloseButton = true, onClose, variant, ...rest }, ref) => (
     <Alert
       className={cx('snackbar', className)}
+      cta={
+        cta ? (
+          <>
+            <div className={cx('snackbar-separator', `${variant}`, 'pr-xl')}>{cta}</div>
+          </>
+        ) : null
+      }
       handleClose={hasCloseButton ? onClose : undefined}
       ref={ref}
       variant={variant}
       {...rest}
     >
-      <div className={cx('items-center', 'flex', 'gap-sm')}>
-        {children}
-        {cta ? <div className={cx('snackbar-separator', `${variant}`)}>{cta}</div> : null}
-      </div>
+      {children}
     </Alert>
   )
 )

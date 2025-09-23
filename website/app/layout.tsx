@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { ThemeProvider as NextThemeProvider } from 'next-themes'
-
-import { Notifications } from '@/components/Toast'
+import { Toaster } from 'react-hot-toast'
 
 import { Footer } from '~/build-app/components/Footer'
 import { Header } from '~/build-app/components/Header'
@@ -36,7 +35,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
             <ThemeProvider>
               <div className="bg-neutral-10">
                 <Header components={pagesComponents} foundations={pagesFoundations} />
-                <Notifications />
+                <Toaster />
                 {children}
                 <Footer />
               </div>

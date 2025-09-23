@@ -21,6 +21,7 @@
 
     & div:first-of-type {
       align-self: baseline;
+      font-size: var(--font-size-sm);
     }
 
     & button {
@@ -33,9 +34,17 @@
     align-items: center;
     padding: var(--spacing-sm) var(--spacing-md);
     border-radius: var(--radius-lg);
+    width: max-content;
+    gap: var(--spacing-sm);
 
-    & > div {
-      align-self: center !important;
+    & div:first-of-type {
+      align-self: center;
+      font-size: var(--font-size-sm);
+    }
+
+    & div:last-of-type {
+      flex-direction: row;
+      margin-left: var(--spacing-xs) !important;
     }
   }
 
