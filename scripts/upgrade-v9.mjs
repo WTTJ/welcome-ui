@@ -1,0 +1,636 @@
+/* eslint-disable no-console */
+import fs from 'fs'
+import path from 'path'
+import readline from 'readline'
+
+// Create readline interface for user input
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+})
+
+function askUser(question) {
+  return new Promise(resolve => {
+    rl.question(question, answer => {
+      resolve(answer.toLowerCase().trim())
+    })
+  })
+}
+
+function findBoxComponents(directory) {
+  const results = []
+
+  function searchFiles(dir) {
+    const files = fs.readdirSync(dir)
+
+    files.forEach(file => {
+      const filePath = path.join(dir, file)
+      const stat = fs.statSync(filePath)
+
+      if (stat.isDirectory()) {
+        searchFiles(filePath)
+      } else if (file.endsWith('.ts') || file.endsWith('.tsx')) {
+        const content = fs.readFileSync(filePath, 'utf8')
+
+        // Find Box components with comprehensive multi-line handling
+        let startIndex = 0
+        while (true) {
+          const boxStart = content.indexOf('<Box', startIndex)
+          if (boxStart === -1) break
+
+          // Find the end of the Box tag
+          let depth = 0
+          let inString = false
+          let stringChar = null
+          let inTemplate = false
+          let templateDepth = 0
+          let i = boxStart + 4 // Start after '<Box'
+
+          while (i < content.length) {
+            const char = content[i]
+            const prevChar = content[i - 1]
+
+            if (!inString && !inTemplate) {
+              if (char === '"' || char === "'") {
+                inString = true
+                stringChar = char
+              } else if (char === '`') {
+                inTemplate = true
+                templateDepth = 0
+              } else if (char === '{') {
+                depth++
+              } else if (char === '}') {
+                depth--
+              } else if ((char === '>' && depth === 0) || (char === '>' && prevChar === '/')) {
+                // Found the end of the Box tag
+                const fullMatch = content.substring(boxStart, i + 1)
+
+                // Extract props from the full match
+                const propsString = fullMatch.replace(/<Box\s*/, '').replace(/\s*\/?>\s*$/, '')
+
+                const props = {}
+
+                // Handle both single-line and multi-line prop extraction
+                if (propsString.includes('\n')) {
+                  // Multi-line Box component - use improved parsing similar to single-line
+                  let index = 0
+                  while (index < propsString.length) {
+                    // Skip whitespace and newlines
+                    while (index < propsString.length && /\s/.test(propsString[index])) {
+                      index++
+                    }
+
+                    if (index >= propsString.length) break
+
+                    // Find prop name
+                    const propNameMatch = propsString.substring(index).match(/^([\w-]+)=/)
+                    if (!propNameMatch) break
+
+                    const propName = propNameMatch[1]
+                    index += propNameMatch[0].length
+
+                    // Extract prop value
+                    let propValue = ''
+                    let isExpression = false
+
+                    if (propsString[index] === '{') {
+                      // Handle braced expressions with proper nesting (including multi-line)
+                      let braceDepth = 0
+                      let valueStart = index
+                      isExpression = true
+
+                      do {
+                        if (propsString[index] === '{') braceDepth++
+                        if (propsString[index] === '}') braceDepth--
+                        index++
+                      } while (index < propsString.length && braceDepth > 0)
+
+                      // Keep the inner content but mark as expression
+                      propValue = propsString.substring(valueStart + 1, index - 1).trim()
+
+                      // If it's a double-braced object {{...}}, remove the outer braces
+                      if (propValue.startsWith('{') && propValue.endsWith('}')) {
+                        propValue = propValue.slice(1, -1).trim()
+                      }
+                    } else if (propsString[index] === '"' || propsString[index] === "'") {
+                      // Handle quoted strings
+                      const quote = propsString[index]
+                      index++ // skip opening quote
+                      const valueStart = index
+
+                      while (index < propsString.length && propsString[index] !== quote) {
+                        if (propsString[index] === '\\') index++ // skip escaped chars
+                        index++
+                      }
+
+                      propValue = propsString.substring(valueStart, index)
+                      index++ // skip closing quote
+                    } else {
+                      // Handle unquoted values
+                      const valueStart = index
+                      while (index < propsString.length && !/\s/.test(propsString[index])) {
+                        index++
+                      }
+                      propValue = propsString.substring(valueStart, index)
+                    }
+
+                    props[propName] = {
+                      isExpression: isExpression,
+                      value: propValue,
+                    }
+                  }
+                } else {
+                  // Single-line Box component - use improved parsing for nested braces
+                  let index = 0
+                  while (index < propsString.length) {
+                    // Skip whitespace
+                    while (index < propsString.length && /\s/.test(propsString[index])) {
+                      index++
+                    }
+
+                    if (index >= propsString.length) break
+
+                    // Find prop name
+                    const propNameMatch = propsString.substring(index).match(/^([\w-]+)=/)
+                    if (!propNameMatch) break
+
+                    const propName = propNameMatch[1]
+                    index += propNameMatch[0].length
+
+                    // Extract prop value
+                    let propValue = ''
+                    let isExpression = false
+
+                    if (propsString[index] === '{') {
+                      // Handle braced expressions with proper nesting
+                      let braceDepth = 0
+                      let valueStart = index
+                      isExpression = true
+
+                      do {
+                        if (propsString[index] === '{') braceDepth++
+                        if (propsString[index] === '}') braceDepth--
+                        index++
+                      } while (index < propsString.length && braceDepth > 0)
+
+                      // Keep the inner content but mark as expression
+                      propValue = propsString.substring(valueStart + 1, index - 1)
+                    } else if (propsString[index] === '"' || propsString[index] === "'") {
+                      // Handle quoted strings
+                      const quote = propsString[index]
+                      index++ // skip opening quote
+                      const valueStart = index
+
+                      while (index < propsString.length && propsString[index] !== quote) {
+                        if (propsString[index] === '\\') index++ // skip escaped chars
+                        index++
+                      }
+
+                      propValue = propsString.substring(valueStart, index)
+                      index++ // skip closing quote
+                    } else {
+                      // Handle unquoted values
+                      const valueStart = index
+                      while (index < propsString.length && !/\s/.test(propsString[index])) {
+                        index++
+                      }
+                      propValue = propsString.substring(valueStart, index)
+                    }
+
+                    // Store both value and type information
+                    props[propName] = {
+                      isExpression: isExpression,
+                      value: propValue,
+                    }
+                  }
+                }
+
+                results.push({
+                  file: filePath,
+                  line: content.substring(0, boxStart).split('\n').length,
+                  matchIndex: boxStart,
+                  originalMatch: fullMatch,
+                  props: props,
+                })
+
+                startIndex = i + 1
+                break
+              }
+            } else if (inString) {
+              if (char === stringChar && prevChar !== '\\') {
+                inString = false
+                stringChar = null
+              }
+            } else if (inTemplate) {
+              if (char === '`' && prevChar !== '\\') {
+                inTemplate = false
+              } else if (char === '{') {
+                templateDepth++
+              } else if (char === '}') {
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                templateDepth--
+              }
+            }
+
+            i++
+          }
+
+          if (i >= content.length) break
+        }
+      }
+    })
+  }
+
+  searchFiles(directory)
+  return results
+}
+
+async function processBoxComponents(components, shouldReplace = false) {
+  if (components.length === 0) {
+    console.log('No Box components found.')
+    rl.close()
+    return
+  }
+
+  const fileChanges = {}
+  const componentsByFile = {}
+
+  // Group components by file
+  components.forEach(component => {
+    if (!componentsByFile[component.file]) {
+      componentsByFile[component.file] = []
+    }
+    componentsByFile[component.file].push(component)
+  })
+
+  console.log(
+    '====================\n\n\n🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀\n\nMigration V9 of Welcome UI\nStyled component to TailwindCss class\n\n🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀\n\n\n===================='
+  )
+
+  console.log(shouldReplace ? '🔄 Interactive Box component replacement...' : '👀 Preview mode:')
+  console.log('====================')
+
+  let totalProcessed = 0
+  let totalReplaced = 0
+  let totalSkipped = 0
+
+  for (const [filePath, fileComponents] of Object.entries(componentsByFile)) {
+    let content = fs.readFileSync(filePath, 'utf8')
+    let fileModified = false
+
+    // Sort components by position (reverse order to maintain indices when replacing)
+    fileComponents.sort((a, b) => b.matchIndex - a.matchIndex)
+
+    console.log(`\n📁 Processing file: ${filePath}`)
+    console.log(`Found ${fileComponents.length} Box component(s)\n`)
+
+    for (let i = 0; i < fileComponents.length; i++) {
+      const component = fileComponents[i]
+      totalProcessed++
+
+      let classnames = []
+      let valuesNotTransformed = []
+
+      Object.entries(component.props).forEach(([key, propData]) => {
+        const value = propData.value
+        const transformedValue = transformValue(key, value)
+
+        // Skip event handlers and special props from being marked as "not transformed"
+        if (
+          transformedValue === undefined &&
+          !key.startsWith('on') &&
+          !['as', 'data-testid', 'href', 'id', 'key', 'ref', 'rel', 'style', 'target'].includes(key)
+        ) {
+          const displayValue = propData.isExpression ? `{${value}}` : `"${value}"`
+          valuesNotTransformed.push(`${key}=${displayValue}`)
+        }
+
+        if (transformedValue) classnames.push(transformedValue)
+      })
+
+      const element = (component.props.as && component.props.as.value) || 'div'
+      const otherProps = Object.entries(component.props)
+        .filter(([key]) => !Object.keys(valueMap).includes(key) && !['as'].includes(key))
+        .map(([key, propData]) => {
+          const value = propData.value
+          // Handle function expressions and template literals
+          if (
+            propData.isExpression ||
+            value.includes('=>') ||
+            value.includes('${') ||
+            value.includes('`')
+          ) {
+            return ` ${key}={${value}}`
+          }
+          return ` ${key}="${value}"`
+        })
+        .join('')
+
+      const classAttribute =
+        classnames.length > 0 ? ` className="${classnames.sort().join(' ')}"` : ''
+      const transformedElement = `<${element}${classAttribute}${otherProps}>`
+
+      // Show transformation details
+      console.log(`\n🕵️‍♀️ [${i + 1}/${fileComponents.length}] Line ${component.line}`)
+      console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+
+      // Convert props back to display format for readable output
+      const displayProps = {}
+      Object.entries(component.props).forEach(([key, propData]) => {
+        displayProps[key] = propData.isExpression ? `{${propData.value}}` : propData.value
+      })
+      console.log('📋 Properties:', JSON.parse(JSON.stringify(displayProps, null, 2)))
+      console.log(`2️⃣ Transformed: ${transformedElement}`)
+
+      if (valuesNotTransformed.length > 0) {
+        console.log(`❌ Values not transformed: ${valuesNotTransformed.join(', ')}`)
+      }
+
+      if (shouldReplace) {
+        console.log('\n🤔 What would you like to do?')
+        console.log('  r) Replace this component')
+        console.log('  s) Skip this component')
+        console.log('  q) Quit the script')
+
+        const answer = await askUser('Your choice (r/s/q): ')
+
+        if (answer === 'q' || answer === 'quit') {
+          console.log('\n🛑 Script stopped by user.')
+          if (fileModified) {
+            console.log(`💾 Saving changes to ${filePath}...`)
+            fileChanges[filePath] = content
+          }
+          break
+        } else if (answer === 's' || answer === 'skip') {
+          console.log('⏭️  Skipped this component.')
+          totalSkipped++
+          continue
+        } else if (answer === 'r' || answer === 'replace') {
+          // Apply the transformation
+          const startIndex = component.matchIndex
+          const originalMatch = component.originalMatch
+
+          // Check if it's a self-closing component
+          const isSelfClosing = originalMatch.endsWith('/>')
+
+          if (isSelfClosing) {
+            // Handle self-closing Box components
+            const selfClosingElement =
+              element === 'div'
+                ? `<${element}${classAttribute}${otherProps}></${element}>`
+                : `<${element}${classAttribute}${otherProps} />`
+
+            content =
+              content.substring(0, startIndex) +
+              selfClosingElement +
+              content.substring(startIndex + originalMatch.length)
+            fileModified = true
+          } else {
+            // Handle regular Box components with children
+            // Find the matching closing tag
+            let depth = 0
+            let searchIndex = startIndex + originalMatch.length
+            let endIndex = -1
+
+            while (searchIndex < content.length) {
+              const remainingContent = content.substring(searchIndex)
+              const openBoxMatch = remainingContent.match(/^<Box(\s|>)/)
+              const closeBoxMatch = remainingContent.match(/^<\/Box>/)
+
+              if (openBoxMatch) {
+                depth++
+                searchIndex += openBoxMatch[0].length
+              } else if (closeBoxMatch) {
+                if (depth === 0) {
+                  endIndex = searchIndex
+                  break
+                }
+                depth--
+                searchIndex += closeBoxMatch[0].length
+              } else {
+                searchIndex++
+              }
+            }
+
+            if (endIndex !== -1) {
+              // Extract the content between opening and closing tags
+              const boxContent = content.substring(startIndex + originalMatch.length, endIndex)
+              const replacement = `${transformedElement}${boxContent}</${element}>`
+
+              content =
+                content.substring(0, startIndex) + replacement + content.substring(endIndex + 6) // +6 for "</Box>"
+              fileModified = true
+            } else {
+              console.log('❌ Could not find matching closing tag for Box component')
+              totalSkipped++
+              continue
+            }
+          }
+
+          console.log('✅ Component replaced!')
+          totalReplaced++
+        } else {
+          console.log('❓ Invalid choice. Skipping this component.')
+          totalSkipped++
+        }
+      }
+    }
+
+    // If we're in replace mode and file was modified, save it
+    if (shouldReplace && fileModified) {
+      fileChanges[filePath] = content
+    }
+  }
+
+  // Write all changes
+  if (shouldReplace && Object.keys(fileChanges).length > 0) {
+    console.log('\n💾 Saving changes to files...')
+    Object.entries(fileChanges).forEach(([filePath, content]) => {
+      fs.writeFileSync(filePath, content, 'utf8')
+      console.log(`✅ Updated: ${filePath}`)
+    })
+  }
+
+  // Show summary
+  console.log('\n📊 Summary:')
+  console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+  console.log(`📦 Total components processed: ${totalProcessed}`)
+  if (shouldReplace) {
+    console.log(`✅ Components replaced: ${totalReplaced}`)
+    console.log(`⏭️  Components skipped: ${totalSkipped}`)
+    console.log(`📁 Files updated: ${Object.keys(fileChanges).length}`)
+  }
+
+  if (!shouldReplace) {
+    console.log('\n💡 Use --replace to start interactive replacement mode')
+  }
+
+  rl.close()
+}
+
+function transform(key, value, forceValue = false) {
+  if (typeof value === 'string') {
+    // Check if this looks like responsive object content without braces
+    if (!value.startsWith('{') && value.includes(':') && !value.includes('?')) {
+      value = `{${value}}`
+    }
+
+    if (value.startsWith('{')) {
+      try {
+        let cleanValue = value
+          .replace(/\n\s*/g, ' ') // Replace newlines and indentation with spaces
+          .replace(/'/g, '"')
+          .replace(/([\w_]+):/g, '"$1":')
+          .replace(/:\s*([a-zA-Z_][a-zA-Z0-9_\s]*)\s*([,}])/g, ':"$1"$2')
+          .replace(/,\s*}/g, '}') // Remove trailing commas before closing braces
+          .trim()
+
+        // Wrap in braces if not already wrapped
+        if (!cleanValue.startsWith('{')) {
+          cleanValue = `{${cleanValue}}`
+        }
+
+        const parsedValue = JSON.parse(cleanValue)
+        return Object.entries(parsedValue)
+          .map(([breakpoint, val]) => {
+            if (breakpoint === '_' || breakpoint === 'xs') {
+              return transform(key, val, forceValue)
+            }
+            return `${breakpoint}:${transform(key, val, forceValue)}`
+          })
+          .join(' ')
+      } catch (error) {
+        console.warn(`Failed to parse object value for ${key}:`, value, error.message)
+        return undefined
+      }
+    }
+
+    if (value.includes('?') || value.includes(':')) {
+      return `${key}_{{ ${value} }}_CSS_TO_EDIT`
+    }
+  }
+
+  console.log('VALUE', value)
+
+  if (value === '100%') {
+    // If the value is '100%', return a full width class
+    return `${key}-full`
+  } else if (!isNaN(value)) {
+    // If the value is 0 or '0', return a specific class
+    if (value === 0 || value === '0') {
+      return `${key}-0`
+    }
+
+    // Convert pixel values to rem for height, minHeight, minWidth, and width
+    // Tailwind uses 1rem = 16px by default
+    // Handle negative values for positioning
+    if (
+      ['bottom', 'h', 'left', 'max-h', 'max-w', 'min-h', 'min-w', 'right', 'top', 'w'].includes(key)
+    ) {
+      let keyFormatted = key
+      let valueFormatted = value
+
+      if (value < 0) {
+        keyFormatted = `-${key}`
+        valueFormatted = value.substring(1)
+      }
+
+      return `${keyFormatted}-[${valueFormatted / 16}rem]`
+    }
+    // For other numeric values, return as is with the key
+    return `${key}-[${value}]`
+  } else {
+    return transformSpecificValue(`${key ? `${key}-` : ''}${value}`)
+  }
+}
+
+function transformSpecificValue(value) {
+  // Handle specific cases for grid-cols to match Tailwind's grid system
+  if (value.includes('grid-cols')) {
+    if (value === 'grid-cols-1fr') return 'grid-cols-1'
+    if (value === 'grid-cols-1fr 1fr') return 'grid-cols-2'
+    if (value === 'grid-cols-1fr 1fr 1fr') return 'grid-cols-3'
+    if (value === 'grid-cols-1fr 1fr 1fr 1fr') return 'grid-cols-4'
+    return `grid-cols_${value}_CSS_TO_EDIT`
+  } else {
+    return value
+  }
+}
+
+const valueMap = {
+  alignItems: value => transform('items', value).replace('flex-', ''),
+  background: value => `background_${value}_CSS_TO_EDIT`,
+  backgroundColor: value => transform('bg', value),
+  backgroundSize: value => transform('bg-size', value),
+  border: value => {
+    if (value === '1px solid') return 'border'
+    if (value === 'none') return 'border-[none]'
+    return `border_${value}_CSS_TO_EDIT`
+  },
+  borderColor: value => transform('border', value),
+  borderRadius: value => transform('rounded', value),
+  bottom: value => transform('bottom', value),
+  br: value => transform('rounded', value),
+  color: value => transform('text', value),
+  cursor: value => transform('cursor', value),
+  display: value => transform(null, value),
+  flex: value => {
+    if (value === '0 0 auto') return 'flex-initial'
+    return transform('flex', value)
+  },
+  flexDirection: value => transform(`flex`, value.replace('column', 'col')),
+  flexShrink: value => transform('shrink', value),
+  flexWrap: value => transform('flex', value),
+  fontSize: value => transform('text', value),
+  fontWeight: value => transform('font', value),
+  gap: value => transform('gap', value),
+  gridTemplateColumns: value => transform('grid-cols', value, true),
+  h: value => transform('h', value),
+  justifyContent: value => transform('justify', value.replace('space-', '').replace('flex-', '')),
+  left: value => transform('left', value),
+  listStyleType: value => transform('list', value),
+  m: value => (value === '0 auto' ? 'mx-auto' : transform('m', value)),
+  margin: value => (value === '0 auto' ? 'mx-auto' : transform('m', value)),
+  maxW: value => transform('max-w', value),
+  maxWidth: value => transform('max-w', value),
+  mb: value => transform('mb', value),
+  minWidth: value => transform('min-w', value),
+  ml: value => transform('ml', value),
+  mr: value => transform('mr', value),
+  mt: value => transform('mt', value),
+  opacity: value => transform('opacity', value * 100),
+  overflow: value => transform('overflow', value),
+  p: value => transform('p', value),
+  padding: value => transform('p', value),
+  position: value => value,
+  pt: value => transform('pt', value),
+  px: value => transform('px', value),
+  py: value => transform('py', value),
+  right: value => transform('right', value),
+  textAlign: value => transform('text', value),
+  textDecoration: value => `textDecoration_${value}_CSS_TO_EDIT`,
+  top: value => transform('top', value),
+  transition: value => `transition_${value}_CSS_TO_EDIT'`,
+  w: value => transform('w', value),
+  whiteSpace: value => transform('whitespace', value),
+}
+
+// Run the script
+async function main() {
+  const searchDirectory = process.argv[2] || './src'
+  const shouldReplace = process.argv[3] === '--replace'
+
+  const components = findBoxComponents(searchDirectory)
+  await processBoxComponents(components, shouldReplace)
+}
+
+function transformValue(key, value) {
+  const transformer = valueMap[key]
+  return transformer ? transformer(value) : undefined
+}
+
+main().catch(error => {
+  console.error('Script failed:', error)
+  rl.close()
+  process.exit(1)
+})
