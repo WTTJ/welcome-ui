@@ -7,7 +7,6 @@ import { Assets } from './Assets'
 import { Backdrop } from './components/Backdrop'
 import { Body } from './components/Body'
 import { Content } from './components/Content'
-import { Cover } from './components/Cover'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { Trigger } from './components/Trigger'
@@ -69,7 +68,6 @@ const ModalComponent = forwardRefWithAs<ModalProps, 'div'>(
 export const Modal = Object.assign(ModalComponent, {
   Body,
   Content,
-  Cover,
   Footer,
   Header,
   Trigger,

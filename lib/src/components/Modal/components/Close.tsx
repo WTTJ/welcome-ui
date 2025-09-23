@@ -1,26 +1,14 @@
 import { DialogDismiss } from '@ariakit/react'
-import { useTheme } from '@xstyled/styled-components'
 
+import { CloseButton } from '@/components/CloseButton'
 import type { CloseProps } from '@/components/Modal/types'
-//TODO Migrate CloseButton, but to what?
-import { CloseButton } from '@old/CloseButton'
 
 export const Close = ({ isOnHeader, ...rest }: CloseProps) => {
-  const theme = useTheme()
-
   return (
     <DialogDismiss
       render={
         <CloseButton
-          left={
-            isOnHeader
-              ? undefined
-              : `calc(100% - ${theme.space.lg} - ${theme.buttons.sizes.sm.height})`
-          }
-          position={isOnHeader ? 'absolute' : 'sticky'}
-          right={isOnHeader ? 'lg' : undefined}
-          top="lg"
-          zIndex="1"
+          className={`top-(--spacing-lg) z-[1] ${isOnHeader ? 'absolute right-(--spacing-lg)' : 'sticky left-[calc(100%-var(--spacing-lg)-var(--height-elements-md))]'}`}
           {...rest}
         />
       }

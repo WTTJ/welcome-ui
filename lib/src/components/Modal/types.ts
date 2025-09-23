@@ -3,9 +3,8 @@
 import type { DialogOptions, DialogStore, DialogStoreProps } from '@ariakit/react'
 import type { HTMLAttributes, PropsWithChildren, ReactElement } from 'react'
 
+import type { CloseButtonProps } from '@/components/CloseButton/types'
 import type { MergeProps } from '@/utils/forwardRefWithAs'
-//TODO Migrate CloseButton, but to what?
-import type { CloseButtonProps } from '@old/CloseButton'
 
 export type TriggerProps = PropsWithChildren<{ store: DialogStore }>
 

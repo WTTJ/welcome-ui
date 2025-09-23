@@ -2,7 +2,7 @@ import type { DialogOptions } from '@ariakit/react'
 
 import type { MergeProps } from '@/utils'
 
-export type AssetWithTitleOptions = {
+export interface AssetWithTitleOptions {
   children: React.ReactNode
   customContent?: JSX.Element | string
   subtitle?: JSX.Element | string
