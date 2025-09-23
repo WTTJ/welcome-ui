@@ -42,6 +42,7 @@ export default {
   "/Button/docs/examples/variants.tsx": dynamic(() => import("../../lib/src/components/Button/docs/examples/variants.tsx").then(mod => mod), { ssr: false }),
   "/ButtonGroup/docs/examples/overload.tsx": dynamic(() => import("../../lib/src/components/ButtonGroup/docs/examples/overload.tsx").then(mod => mod), { ssr: false }),
   "/ButtonGroup/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/ButtonGroup/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
+  "/CloseButton/docs/examples/animate-presence.tsx": dynamic(() => import("../../lib/src/components/CloseButton/docs/examples/animate-presence.tsx").then(mod => mod), { ssr: false }),
   "/CloseButton/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/CloseButton/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Hint/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Hint/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Hint/docs/examples/variants.tsx": dynamic(() => import("../../lib/src/components/Hint/docs/examples/variants.tsx").then(mod => mod), { ssr: false }),

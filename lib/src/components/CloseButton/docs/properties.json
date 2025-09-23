@@ -1,6 +1,36 @@
 {
   "CloseButton": {
     "props": {
+      "animatePresence": {
+        "defaultValue": {
+          "value": false
+        },
+        "description": "",
+        "name": "animatePresence",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/CloseButton/types.ts",
+          "name": "CloseButtonOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/CloseButton/types.ts",
+            "name": "CloseButtonOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
       "isLoading": {
         "defaultValue": null,
         "description": "",

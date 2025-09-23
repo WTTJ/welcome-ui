@@ -66,3 +66,15 @@ The `animated` prop in `usePopover` and `usePopoverHover` hooks is no longer sup
 -const popover = usePopover({ animated: 200 })
 +const popover = usePopover({ hideTimeout: 200, showTimeout: 200 })
 ```
+
+### ClearButton
+
+the `ClearButton` component has been removed. You can use the `CloseButton` component with `animatePresence` prop instead.
+
+```diff
+-import { ClearButton } from '@welcome-ui/clear-button'
++import { CloseButton } from '@welcome-ui/close-button'
+
+-<ClearButton />
++<CloseButton animatePresence />
+```
