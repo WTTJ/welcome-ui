@@ -1,9 +1,9 @@
 import { renderHook, screen, waitFor } from '@testing-library/react'
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 import { render } from '@tests'
 
-import { DropdownMenu, type DropdownMenuOptions, useDropdownMenu } from '../index'
+import { DropdownMenu, useDropdownMenu } from '../index'
 
 const content = 'jungle'
 const triggerDataTestId = 'trigger'
@@ -17,7 +17,7 @@ const options = [
   { label: 'five', value: 5 },
 ]
 
-const DropdownRenderer: React.FC<DropdownMenuOptions> = () => {
+const DropdownRenderer = () => {
   const dropdownMenu = useDropdownMenu()
 
   const [selected, setSelected] = useState('one')

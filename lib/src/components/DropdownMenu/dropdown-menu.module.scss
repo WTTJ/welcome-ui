@@ -30,7 +30,24 @@
     .arrow-item {
         height: 30px;
         width: 30px;
-        transform: var(--dropdown-menu-transform);
+    }
+
+    .arrow-placement {
+        &-bottom {
+            --dropdown-menu-transform: rotateZ(360deg);
+        }
+
+        &-left {
+            --dropdown-menu-transform: rotateZ(90deg);
+        }
+
+        &-right {
+            --dropdown-menu-transform: rotateZ(-90deg);
+        }
+
+        &-top {
+            --dropdown-menu-transform: rotateZ(180deg);
+        }
     }
 
     .item {
@@ -40,25 +57,26 @@
         border: 0;
         appearance: none;
         cursor: pointer;
-        transition: var(--duration-medium);
         text-decoration: none;
+        transition: var(--duration-medium);
         padding: var(--spacing-md);
-        background-color: transparent;
-        color: var(--color-beige-70);
+
+        background-color: var(--backgroundColor, transparent);
+        color: var(--color, --color-beige-70);
 
         &:focus {
             outline: none !important; /* important for firefox */
-            background-color: var(--color-beige-30);
-            color: var(--color-neutral-90);
+            --backgroundColor: var(--color-beige-30);
+            --color: var(--color-neutral-90);
         }
         &:hover {
-            background-color: var(--color-beige-30);
-            color: var(--color-neutral-90);
+            --backgroundColor: var(--color-beige-30);
+            --color: var(--color-neutral-90);
         }
         &[disabled] {
+            --backgroundColor: transparent;
+            --color: var(--color-beige-40);
             cursor: not-allowed;
-            color: var(--color-beige-40);
-            background-color: transparent;
         }
     }
 
