@@ -1,36 +1,65 @@
-import type { CSSObject } from '@xstyled/styled-components'
-import styled, { css, th } from '@xstyled/styled-components'
-import React from 'react'
+@layer components {
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-lg);
+    text-align: left;
 
-import { datePickerStyles } from './datePickerStyles'
-import { fixAriaMessageStyle } from './styles'
+    /* I don't think this is necessary cause 25 and 10 are not valid css properties */
+    /* ${StyledButton} {
+    //     width: 25;
+    //     height: 25;
 
-export const CustomPopper = ({ children }: { children: React.ReactElement }) => {
-  if (!children) {
-    return null
+    //     ${StyledIcon} {
+    //       width: 10;
+    //       height: 10;
+    //     }
+    //   } */
   }
-  // Get any styles passed via `popperProps`
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { modifiers, placement, ...popperProps } = children.props
-  return <StyledCustomPopper popperStyles={popperProps}>{children}</StyledCustomPopper>
-}
 
-const StyledCustomPopper = styled.divBox<{ popperStyles: CSSObject }>(
-  ({ popperStyles }) => css`
-    ${datePickerStyles};
-    ${fixAriaMessageStyle};
-    .react-datepicker-popper {
-      ${popperStyles};
+  .selects {
+    display: flex;
+        /* ${sc-selector StyledSelect}:first-child:not(:last-child) {
+         margin-right: sm;
+       } */
+  }
+
+  .custom-input {
+    &focus {
+        position: relative;
     }
+  }
+
+  .icon-wrapper {
+    &focus {
+        z-index: 1;
+    }
+  }
+
+  .icon-group-wrapper {
+    &focus {
+        z-index: 1;
+    }
+  }
+
+  .custom-popper {
+     /* ${datePickerStyles};
+    ${fixAriaMessageStyle}; */
+     /* .react-datepicker-popper {
+      ${popperStyles};
+    } */
+
     .react-datepicker {
-      padding: lg;
+      padding: var(--spacing-lg);
       font-family: inherit;
-      ${th('cards.default')};
+      /* ${th('cards.default')}; */
 
       &--time-only {
         padding: 0;
+
         .react-datepicker__time-box {
-          border-radius: 0;
+            border-radius: 0;
         }
       }
 
@@ -50,44 +79,44 @@ const StyledCustomPopper = styled.divBox<{ popperStyles: CSSObject }>(
         width: 100%;
         ul.react-datepicker__time-list li.react-datepicker__time-list-item {
           height: auto;
-          padding: sm;
+          padding: var(--spacing-sm);
         }
       }
     }
 
     .react-datepicker__header {
       padding: 0;
-      background-color: neutral-10;
+      background-color: var(--color-neutral-10);
       border: none;
     }
 
     .react-datepicker__day,
     .react-datepicker__day-name,
     .react-datepicker__time-list-item {
-      color: beige-70;
-      font-weight: regular;
+      color: var(--color-beige-70);
+      font-weight: var(--font-weight-regular);
     }
 
-    .react-datepicker__day {
+     .react-datepicker__day {
       &,
       &-name {
         margin: 0.166rem 0.45rem;
       }
       &-name {
         text-transform: uppercase;
-        font-weight: medium;
-        font-size: xs;
+        font-weight: var(--font-weight-medium);
+        font-size: var(--font-size-xs);
         letter-spacing: 1px;
       }
       &--outside-month {
-        color: beige-60;
+        color: var(--color-beige-60);
       }
     }
 
-    .react-datepicker__day--today {
+    /* .react-datepicker__day--today {
       ${th('dateTimePickerCommon.item.today')};
-    }
-
+    } */
+     
     .react-datepicker__day:hover,
     .react-datepicker__month-text:hover,
     .react-datepicker__time-container
@@ -95,7 +124,7 @@ const StyledCustomPopper = styled.divBox<{ popperStyles: CSSObject }>(
       .react-datepicker__time-box
       ul.react-datepicker__time-list
       li.react-datepicker__time-list-item:hover {
-      background-color: beige-20;
+      background-color: var(--color-beige-20);
     }
 
     .react-datepicker__day,
@@ -115,13 +144,13 @@ const StyledCustomPopper = styled.divBox<{ popperStyles: CSSObject }>(
     .react-datepicker__month-text--in-selecting-range,
     .react-datepicker__month-text--in-range,
     .react-datepicker__month-text:hover {
-      border-radius: 2rem;
+      border-radius: var(--radius-2xl);
       &:hover {
-        border-radius: 2rem;
+        border-radius: var(--radius-2xl);
       }
     }
 
-    .react-datepicker__day--keyboard-selected,
+      /* .react-datepicker__day--keyboard-selected,
     .react-datepicker__month-text--keyboard-selected,
     .react-datepicker__time-container
       .react-datepicker__time
@@ -138,7 +167,7 @@ const StyledCustomPopper = styled.divBox<{ popperStyles: CSSObject }>(
       &:hover {
         ${th('dateTimePickerCommon.item.selected')};
       }
-    }
+    } */
 
     .react-datepicker__day-names,
     .react-datepicker__month {
@@ -149,7 +178,7 @@ const StyledCustomPopper = styled.divBox<{ popperStyles: CSSObject }>(
     .react-datepicker__current-month,
     .react-datepicker-time__header,
     .react-datepicker-year-header {
-      font-weight: medium;
+      font-weight: var(--font-weight-medium);
     }
-  `
-)
+  }
+}
