@@ -1,5 +1,78 @@
 {
-  "useAccordion": {
+  "Accordion": {
+    "props": {
+      "dataTestId": {
+        "defaultValue": null,
+        "description": "",
+        "name": "dataTestId",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Accordion/types.ts",
+          "name": "AccordionOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Accordion/types.ts",
+            "name": "AccordionOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "store": {
+        "defaultValue": null,
+        "description": "store from useAccordion()",
+        "name": "store",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Accordion/types.ts",
+          "name": "AccordionOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Accordion/types.ts",
+            "name": "AccordionOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "DisclosureStore"
+        }
+      },
+      "title": {
+        "defaultValue": null,
+        "description": "",
+        "name": "title",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Accordion/types.ts",
+          "name": "AccordionOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Accordion/types.ts",
+            "name": "AccordionOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "enum",
+          "raw": "string | Element",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "Element",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
+        }
+      }
+    }
+  },
+  "useDisclosureStore": {
     "props": {
       "animated": {
         "defaultValue": null,
@@ -117,79 +190,6 @@
         "required": false,
         "type": {
           "name": "(open: boolean) => void"
-        }
-      }
-    }
-  },
-  "Accordion": {
-    "props": {
-      "dataTestId": {
-        "defaultValue": null,
-        "description": "",
-        "name": "dataTestId",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Accordion/types.ts",
-          "name": "AccordionOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Accordion/types.ts",
-            "name": "AccordionOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "string"
-        }
-      },
-      "store": {
-        "defaultValue": null,
-        "description": "store from useAccordion()",
-        "name": "store",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Accordion/types.ts",
-          "name": "AccordionOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Accordion/types.ts",
-            "name": "AccordionOptions"
-          }
-        ],
-        "required": true,
-        "type": {
-          "name": "DisclosureStore"
-        }
-      },
-      "title": {
-        "defaultValue": null,
-        "description": "",
-        "name": "title",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Accordion/types.ts",
-          "name": "AccordionOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Accordion/types.ts",
-            "name": "AccordionOptions"
-          }
-        ],
-        "required": true,
-        "type": {
-          "name": "enum",
-          "raw": "string | Element",
-          "value": [
-            {
-              "value": "string"
-            },
-            {
-              "value": "Element",
-              "description": "",
-              "fullComment": "",
-              "tags": {}
-            }
-          ]
         }
       }
     }

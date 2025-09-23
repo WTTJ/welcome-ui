@@ -1,4 +1,4 @@
-import { Disclosure, DisclosureContent, useDisclosureStore } from '@ariakit/react'
+import { Disclosure, DisclosureContent } from '@ariakit/react'
 import { forwardRef } from 'react'
 
 import { RightIcon } from '@/components/Icon'
@@ -6,7 +6,7 @@ import { Text } from '@/components/Text'
 import { classNames } from '@/utils'
 
 import styles from './accordion.module.scss'
-import type { AccordionProps, UseAccordion, UseAccordionProps } from './types'
+import type { AccordionProps } from './types'
 
 const cx = classNames(styles)
 
@@ -36,8 +36,4 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
   }
 )
 
-export function useAccordion(options?: UseAccordionProps): UseAccordion {
-  const accordion = useDisclosureStore({ animated: true, ...options })
-
-  return accordion
-}
+export { useDisclosureStore as useAccordion } from '@ariakit/react'
