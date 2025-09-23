@@ -2,10 +2,9 @@ import * as Ariakit from '@ariakit/react'
 
 import { forwardRefWithAs } from '@/utils'
 
-export type UseDropdownMenu = Ariakit.MenuStore
+export type TriggerProps = TriggerOptions
 type TriggerOptions = { store: UseDropdownMenu }
-
-type TriggerProps = TriggerOptions
+type UseDropdownMenu = Ariakit.MenuStore
 
 export const Trigger = forwardRefWithAs<TriggerProps, 'button'>(
   ({ as: As, store, ...rest }, ref) => {

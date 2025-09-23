@@ -9,6 +9,13 @@ import { Item } from './Item'
 import { Separator } from './Separator'
 import { Trigger } from './Trigger'
 
+export type { ArrowProps } from './Arrow'
+export type { ItemProps } from './Item'
+export type { SeparatorProps } from './Separator'
+export type { TriggerProps } from './Trigger'
+export type UseDropdownMenu = Ariakit.MenuStore
+export type UseDropdownMenuProps = Ariakit.MenuStoreProps
+export type UseDropdownMenuState = Ariakit.MenuStoreState
 export { useMenuStore as useDropdownMenu } from '@ariakit/react'
 
 const cx = classNames(dropdownMenuStyles)
@@ -17,7 +24,6 @@ const DEFAULT_GUTTER = 4
 
 export interface DropdownMenuOptions extends Omit<Ariakit.MenuProps, 'gutter'> {
   dataTestId?: string
-  /** add custom props from styled system on DropdownMenu inner */
   innerProps?: React.ComponentProps<'div'>
   withGutter?: boolean
 }
@@ -28,8 +34,8 @@ const DropdownMenuComponent = forwardRef<HTMLDivElement, DropdownMenuOptions>(
     ref
   ) => {
     const arrowElement = Ariakit.useStoreState(store, 'arrowElement')
+    const gutter = withGutter && !arrowElement ? DEFAULT_GUTTER : 0
 
-    const parsedGutter: number = arrowElement || !withGutter ? 0 : DEFAULT_GUTTER
     const { className: innerClassName, ...otherInnerProps } = innerProps
 
     return (
@@ -37,7 +43,7 @@ const DropdownMenuComponent = forwardRef<HTMLDivElement, DropdownMenuOptions>(
         aria-label="dropdown-menu"
         className={className}
         data-testid={dataTestId}
-        gutter={parsedGutter}
+        gutter={gutter}
         ref={ref}
         render={<div className={cx('inner', innerClassName)} {...otherInnerProps} />}
         store={store}
