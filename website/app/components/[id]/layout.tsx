@@ -43,7 +43,7 @@ const Layout = async ({ children, params }: LayoutProps) => {
 
   return (
     <Documentation.Layout>
-      <Sidebar className="none lg:flex" isSubPage menu={pages} />
+      <Sidebar className="hidden lg:flex" isSubPage menu={pages} />
       <div>
         <div className="flex flex-col gap-xl mb-lg">
           <Text className="mt-3xl" variant="h1">

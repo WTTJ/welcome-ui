@@ -60,7 +60,7 @@ export const Header = ({ components, foundations }: HeaderProps) => {
         >
           <MenuIcon />
         </Drawer.Trigger>
-        <NavBar className="none lg:flex" />
+        <NavBar className="hidden lg:flex" />
         <Drawer display={{ lg: 'none' }} size="100%" store={drawer} withBackdrop zIndex={999}>
           <Drawer.Content pt="4xl">
             <NavBar onClick={handleCloseDrawer} />

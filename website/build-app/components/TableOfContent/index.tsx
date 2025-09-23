@@ -52,7 +52,7 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
   if (!tree) return null
 
   return (
-    <div className="none xl:block">
+    <div className="hidden xl:block">
       <S.Nav isSubPage={isSubPage}>
         <Text mb="lg" ml="lg" variant="subtitle-sm">
           On this page

@@ -626,7 +626,10 @@ const valueMap = {
   cursor: value => transform('cursor', value),
   // <Flex />
   direction: value => transform(`flex`, value.replace('column', 'col')),
-  display: value => transform(null, value),
+  display: value => {
+    if (value === 'none') return 'hidden'
+    return transform(null, value)
+  },
   flex: value => {
     if (value === '0 0 auto') return 'flex-initial'
     return transform('flex', value)
