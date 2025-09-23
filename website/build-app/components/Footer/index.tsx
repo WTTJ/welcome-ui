@@ -1,6 +1,5 @@
 'use client'
 import { ExternalLinkIcon, HeartIcon } from '@/components/Icon'
-import { Grid } from '@old/Grid'
 import { Logo } from '@old/Logo'
 import { Text } from '@old/Text'
 
@@ -72,7 +71,7 @@ const links = [
 export const Footer = () => {
   return (
     <Section as="footer" className="bg-beige-20">
-      <Grid gap="xl" gridTemplateColumns={{ _: '1fr 1fr', md: '1fr 1fr 1fr 1fr' }}>
+      <div className="gap-xl grid grid-cols-2 md:grid-cols-4">
         <div className="flex flex-col gap-xs">
           <div className="flex gap-sm items-center">
             Made with <HeartIcon className="text-brand-50" /> by
@@ -106,7 +105,7 @@ export const Footer = () => {
             </ul>
           </nav>
         ))}
-      </Grid>
+      </div>
     </Section>
   )
 }
