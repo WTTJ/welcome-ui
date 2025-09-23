@@ -1,7 +1,6 @@
 import { Button } from '@/components/Button'
 import { GithubIcon } from '@/components/Icon'
 import { Text } from '@/components/Text'
-import { Flex } from '@old/Flex'
 
 import { PrevNextPage } from '~/build-app/components/PrevNextPage'
 import { Sidebar } from '~/build-app/components/Sidebar'
@@ -44,9 +43,9 @@ const Layout = async ({ children, params }: LayoutProps) => {
 
   return (
     <Documentation.Layout>
-      <Sidebar display={{ _: 'none', lg: 'flex' }} isSubPage menu={pages} />
+      <Sidebar className="none lg:flex" isSubPage menu={pages} />
       <div>
-        <Flex direction="column" gap="xl" mb="lg">
+        <div className="flex flex-col gap-xl mb-lg">
           <Text className="mt-3xl" variant="h1">
             {title}
           </Text>
@@ -55,7 +54,7 @@ const Layout = async ({ children, params }: LayoutProps) => {
               {description}
             </Text>
           ) : null}
-          <Flex align="center" gap="md">
+          <div className="flex gap-md items-center">
             <Button
               as="a"
               href={`https://github.com/WTTJ/welcome-ui/tree/main/lib/src/components/${title}`}
@@ -92,8 +91,8 @@ const Layout = async ({ children, params }: LayoutProps) => {
                 <span>Built with Ariakit</span>
               </Button>
             ) : null}
-          </Flex>
-        </Flex>
+          </div>
+        </div>
         <Tabs pages={pages} />
         <Documentation.Child>
           {children}

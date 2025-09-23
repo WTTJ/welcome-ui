@@ -3,7 +3,6 @@ import { kebabCase } from 'lodash'
 import React from 'react'
 
 import { Badge } from '@old/Badge'
-import { Flex } from '@old/Flex'
 import { Text } from '@old/Text'
 
 import { Code } from '../Mdx/Code'
@@ -104,17 +103,10 @@ export const Property = ({ id, name, options }: PropertyProps) => {
 
   return (
     <div className="mt-lg scroll-mt-[170px]" id={id}>
-      <Flex
-        alignItems="center"
-        borderBottom="1px solid"
-        borderBottomColor="neutral-30"
-        gap="md"
-        mb="md"
-        pb="md"
-      >
+      <div className="border-b border-b-neutral-30 flex gap-md items-center mb-md pb-md">
         <Code>{name}</Code>
         {required ? <Badge variant="primary">Required</Badge> : null}
-      </Flex>
+      </div>
       <Text color="neutral-90">
         {getType(type)}
         <span className="text-neutral-70">
@@ -136,7 +128,7 @@ export const Properties = ({ items }: PropertiesProps) => {
   }
 
   return (
-    <Flex direction="column" gap="3xl">
+    <div className="flex flex-col gap-3xl">
       {Object.entries(items).map(props => {
         const name = props[0]
         const { props: properties } = props[1]
@@ -144,7 +136,7 @@ export const Properties = ({ items }: PropertiesProps) => {
         return (
           <section key={kebabCase(`property_${name}`)}>
             {name ? <H2 mt={0}>{name}</H2> : null}
-            <Flex direction="column" gap="xl" mt="md">
+            <div className="flex flex-col gap-xl mt-md">
               {Object.entries(properties).map(item => (
                 <Property
                   id={kebabCase(`${name}_${item[0]}`)}
@@ -153,10 +145,10 @@ export const Properties = ({ items }: PropertiesProps) => {
                   options={item[1]}
                 />
               ))}
-            </Flex>
+            </div>
           </section>
         )
       })}
-    </Flex>
+    </div>
   )
 }

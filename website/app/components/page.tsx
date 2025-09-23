@@ -3,7 +3,6 @@ import Link from 'next/link'
 
 import { Text } from '@/components/Text'
 import { Card } from '@old/Card'
-import { Flex } from '@old/Flex'
 import { Grid } from '@old/Grid'
 
 import { getPageContent } from '~/build-app/utils/page-content'
@@ -18,12 +17,12 @@ const Page = () => {
   const pages = getPages()
 
   return (
-    <Flex as="main" direction="column" gap="xxl" margin="0 auto" maxWidth={1000} p="lg">
+    <main className="flex flex-col gap-xxl max-w-[62.5rem] mx-auto p-lg">
       <Text className="py-3xl" variant="h1">
         Components
       </Text>
       {pages.map(category => (
-        <Flex direction="column" gap="md" key={category.category}>
+        <div className="flex flex-col gap-md" key={category.category}>
           <Text as="h2" className="uppercase" variant="h6">
             {getName(category.category as string)}
           </Text>
@@ -58,9 +57,9 @@ const Page = () => {
               )
             })}
           </Grid>
-        </Flex>
+        </div>
       ))}
-    </Flex>
+    </main>
   )
 }
 

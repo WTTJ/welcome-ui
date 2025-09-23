@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { Button } from '@/components/Button'
 import { CodeBlockIcon, GithubIcon, PromoteIcon } from '@/components/Icon'
 import { classNames } from '@/utils'
-import { Flex } from '@old/Flex'
 import { Tooltip } from '@old/Tooltip'
 
 import examples from '~/build-app/examples'
@@ -78,7 +77,7 @@ export const Playground = ({
       {withCodeEditor ? (
         <>
           <div className="bg-beige-30 border border-beige-40 -mt-md overflow-hidden pt-lg rounded-lg pb-xs">
-            <Flex flexDirection="row" gap="xs" pl="sm">
+            <div className="flex flex-row gap-xs pl-sm">
               <Tooltip content="View code" fixed zIndex={2}>
                 <Button
                   onClick={() => setIsHighlightOpen(!isHighlightOpen)}
@@ -107,7 +106,7 @@ export const Playground = ({
                   <GithubIcon />
                 </Button>
               </Tooltip>
-            </Flex>
+            </div>
           </div>
           {isHighlightOpen ? <Highlight>{code}</Highlight> : null}
         </>

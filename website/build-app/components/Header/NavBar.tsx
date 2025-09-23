@@ -4,20 +4,18 @@ import React from 'react'
 
 import { Button } from '@/components/Button'
 import { CrescentMoonIcon, GithubIcon, SunIcon } from '@/components/Icon'
-import { Flex } from '@old/Flex'
 import { Text } from '@old/Text'
-import type { ThemeValues } from '@old/theme'
 
 import * as S from './styles'
 
 import { navigation } from '.'
 
 type NavBarProps = {
-  display?: ThemeValues['display']
+  className?: string
   onClick?: () => void
 }
 
-export const NavBar = ({ display = 'flex', onClick }: NavBarProps) => {
+export const NavBar = ({ className, onClick }: NavBarProps) => {
   const currentRoute = usePathname()
   const { setTheme, theme } = useTheme()
   const isDarkMode = theme === 'dark'
@@ -28,9 +26,9 @@ export const NavBar = ({ display = 'flex', onClick }: NavBarProps) => {
   }
 
   return (
-    <Flex alignItems="center" display={display} gap="xl" h={{ lg: '100%' }}>
+    <div className={`flex gap-xl items-center lg:h-full ${className}`}>
       <nav className="lg:h-full">
-        <Flex aria-label="Main navigation" as="ul" gap="xxl" h={{ lg: '100%' }}>
+        <ul aria-label="Main navigation" className="flex gap-xxl lg:h-full">
           {navigation.map(item => (
             <Text as="li" key={`header_navigation_${item}`} onClick={onClick} variant="subtitle-md">
               <S.A
@@ -41,7 +39,7 @@ export const NavBar = ({ display = 'flex', onClick }: NavBarProps) => {
               </S.A>
             </Text>
           ))}
-        </Flex>
+        </ul>
       </nav>
       <Button
         aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
@@ -64,6 +62,6 @@ export const NavBar = ({ display = 'flex', onClick }: NavBarProps) => {
       >
         <GithubIcon />
       </Button>
-    </Flex>
+    </div>
   )
 }

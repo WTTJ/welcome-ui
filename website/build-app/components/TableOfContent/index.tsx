@@ -2,7 +2,6 @@
 import NextLink from 'next/link'
 import { useEffect, useState } from 'react'
 
-import { Flex } from '@old/Flex'
 import { Text } from '@old/Text'
 
 import type { Toc } from '~/build-app/utils/page-tree'
@@ -58,9 +57,9 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
         <Text mb="lg" ml="lg" variant="subtitle-sm">
           On this page
         </Text>
-        <Flex as="ul" direction="column" gap="lg">
+        <ul className="flex flex-col gap-lg">
           {tree.map(item => (
-            <Flex as="li" direction="column" gap="sm" key={item.href}>
+            <li className="flex flex-col gap-sm" key={item.href}>
               {/* // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               // @ts-expect-error FIXME */}
               <S.Link
@@ -72,7 +71,7 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
                 {item.title}
               </S.Link>
               {item.children ? (
-                <Flex as="ul" direction="column" gap="xs">
+                <ul className="flex flex-col gap-xs">
                   {item.children.map(child => (
                     <li key={child.href}>
                       {/* // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -87,11 +86,11 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
                       </S.Link>
                     </li>
                   ))}
-                </Flex>
+                </ul>
               ) : null}
-            </Flex>
+            </li>
           ))}
-        </Flex>
+        </ul>
       </S.Nav>
     </div>
   )
