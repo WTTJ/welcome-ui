@@ -14,7 +14,7 @@ describe('<Alert>', () => {
   })
 
   it('should render correctly a title', () => {
-    render(
+    const { container } = render(
       <Alert>
         <Alert.Title data-testid="alert-title">title</Alert.Title>
         {content}
@@ -22,7 +22,8 @@ describe('<Alert>', () => {
     )
     const alertTitle = screen.getByTestId('alert-title')
 
-    expect(screen.getByText('Promote')).toBeInTheDocument()
+    // TODO: How do we check the "Promote" content as we don't have an aria-label anymore?
+    expect(container.querySelector('svg')).toBeInTheDocument()
     expect(alertTitle).toHaveClass(/title-size-sm/)
     expect(alertTitle).not.toHaveClass(/title-close-button/)
   })
@@ -53,14 +54,20 @@ describe('<Alert>', () => {
   })
 
   it('should render correctly variant alert', () => {
-    render(
+    const { container } = render(
       <Alert data-testid="alert" variant="success">
         <Alert.Title>title</Alert.Title>
         {content}
       </Alert>
     )
 
-    expect(screen.getByText('Check')).toBeInTheDocument()
+    const icon = container.querySelector('svg')
+    const iconClass = container.querySelector('div')
+
+    expect(icon).toBeInTheDocument()
+    expect(iconClass).toBeInTheDocument()
+    expect(iconClass).toHaveClass(/icon/)
+    expect(iconClass).toHaveClass(/variant-success/)
     expect(screen.getByTestId('alert')).toHaveClass(/variant-success/)
   })
 

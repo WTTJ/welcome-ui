@@ -1,13 +1,11 @@
-import type { ComponentPropsWithRef } from 'react'
+import type { ForwardRefProps } from '@/utils'
 
 export interface IconOptions {
   size?: 'lg' | 'md' | 'sm' | 'xl' | 'xs' | 'xxl'
 }
 
-export type IconProps = ComponentPropsWithRef<'svg'> &
-  IconOptions &
-  Omit<React.SVGProps<SVGSVGElement>, 'size'> & {
-    alt?: string
+export type IconProps = ForwardRefProps<
+  IconOptions & {
     content?: {
       block: string
       height?: number
@@ -16,5 +14,6 @@ export type IconProps = ComponentPropsWithRef<'svg'> &
       viewBox?: string
       width?: number
     }
-    ref?: React.Ref<SVGSVGElement>
-  }
+  },
+  'svg'
+>

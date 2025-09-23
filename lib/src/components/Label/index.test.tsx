@@ -18,17 +18,17 @@ describe('Label', () => {
   })
 
   it('shows VariantIcon when variant is provided', () => {
-    render(<Label variant="danger">Label with variant</Label>)
+    const { container } = render(<Label variant="danger">Label with variant</Label>)
 
-    const svg = screen.getByRole('img')
-    expect(svg).toHaveAccessibleName('SquareAlert')
+    const svg = container.querySelector('svg')
+    expect(svg).toBeInTheDocument()
   })
 
   it('shows LockIcon when disabled', () => {
-    render(<Label disabled>Disabled Label</Label>)
+    const { container } = render(<Label disabled>Disabled Label</Label>)
 
-    const svg = screen.getByRole('img')
-    expect(svg).toHaveAccessibleName('Lock')
+    const svg = container.querySelector('svg')
+    expect(svg).toBeInTheDocument()
   })
 
   it('applies custom className', () => {

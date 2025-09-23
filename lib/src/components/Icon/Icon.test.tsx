@@ -12,14 +12,14 @@ describe('Icon', () => {
   }
 
   it('renders nothing when content is not provided', () => {
-    const { container } = render(<Icon alt="test" />)
+    const { container } = render(<Icon />)
     expect(container.firstChild).toBeNull()
   })
 
   it('renders with correct attributes', () => {
-    render(<Icon alt="star icon" content={mockContent} />)
+    render(<Icon aria-label="star icon" content={mockContent} data-testid="icon" />)
 
-    const svg = screen.getByRole('img')
+    const svg = screen.getByTestId('icon')
     expect(svg).toBeInTheDocument()
     expect(svg).toHaveAttribute('aria-label', 'star icon')
     expect(svg).toHaveAttribute('viewBox', '0 0 24 24')
@@ -33,16 +33,16 @@ describe('Icon', () => {
   })
 
   it('applies custom size class', () => {
-    render(<Icon alt="test" content={mockContent} data-testid="icon" size="lg" />)
+    render(<Icon content={mockContent} data-testid="icon" size="lg" />)
 
-    const svg = screen.getByRole('img')
+    const svg = screen.getByTestId('icon')
     expect(svg).toHaveClass(/size-lg/)
   })
 
   it('applies custom className', () => {
-    render(<Icon alt="test" className="custom-class" content={mockContent} />)
+    render(<Icon className="custom-class" content={mockContent} data-testid="icon" />)
 
-    const svg = screen.getByRole('img')
+    const svg = screen.getByTestId('icon')
     expect(svg).toHaveClass(/custom-class/)
   })
 })

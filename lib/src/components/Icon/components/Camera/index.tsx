@@ -4,5 +4,5 @@ import type { IconProps } from '../../Icon.types'
 import content from './content.json'
 
 export const CameraIcon = (props: IconProps) => {
-  return <Icon alt="Camera" content={content} {...props} />
+  return <Icon content={content} {...props} />
 }
