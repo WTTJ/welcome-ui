@@ -1,4 +1,4 @@
-@import './../../utils/text-ellipsis.scss';
+@use './../../utils/text-ellipsis' as ellipsis;
 
 @layer components {
   .root {
@@ -19,7 +19,7 @@
     transition-timing-function: var(--timing-primary);
     transition-duration: var(--duration-medium);
     appearance: none;
-    @include text-ellipsis;
+    @include ellipsis.text-ellipsis;
 
     height: var(--select-height);
     padding-bottom: var(--select-padding-bottom);
@@ -109,7 +109,7 @@
         left: 0;
         padding: inherit;
         color: var(--select-placeholder-color);
-        @include text-ellipsis;
+        @include ellipsis.text-ellipsis;
       }
 
       &::before {
@@ -253,7 +253,7 @@
     transition-property: background;
     transition-duration: var(--duration-medium);
     transition-timing-function: var(--timing-primary);
-    @include text-ellipsis;
+    @include ellipsis.text-ellipsis;
 
     &.highlighted {
       background-color: var(--color-beige-20);
