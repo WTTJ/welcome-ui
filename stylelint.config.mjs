@@ -8,7 +8,7 @@ export default {
         'at-rule-no-unknown': [
           true,
           {
-            ignoreAtRules: ['apply', 'theme', 'mixin', 'include', 'source'],
+            ignoreAtRules: ['apply', 'theme', 'mixin', 'source', 'use'],
           },
         ],
         'selector-pseudo-class-no-unknown': [
