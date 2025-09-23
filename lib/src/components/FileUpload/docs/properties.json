@@ -1,0 +1,134 @@
+{
+  "FileUpload": {
+    "props": {
+      "accept": {
+        "defaultValue": {
+          "value": "*/*"
+        },
+        "description": "Pass a comma-separated string of file types e.g. \"image/png\" or \"image/png,image/jpeg\"",
+        "name": "accept",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/FileUpload/types.ts",
+          "name": "FileUploadOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/FileUpload/types.ts",
+            "name": "FileUploadOptions"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+            "name": "InputHTMLAttributes"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "handleAddFile": {
+        "defaultValue": null,
+        "description": "",
+        "name": "handleAddFile",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/FileUpload/types.ts",
+          "name": "FileUploadOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/FileUpload/types.ts",
+            "name": "FileUploadOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(files: FileWithPreview | FileWithPreview[]) => void"
+        }
+      },
+      "handleRemoveFile": {
+        "defaultValue": null,
+        "description": "",
+        "name": "handleRemoveFile",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/FileUpload/types.ts",
+          "name": "FileUploadOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/FileUpload/types.ts",
+            "name": "FileUploadOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(file: FileWithPreview) => void"
+        }
+      },
+      "onBlur": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onBlur",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/FileUpload/types.ts",
+          "name": "FileUploadOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/FileUpload/types.ts",
+            "name": "FileUploadOptions"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+            "name": "DOMAttributes"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(() => void) & FocusEventHandler<HTMLInputElement>"
+        }
+      },
+      "onChange": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onChange",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/FileUpload/types.ts",
+          "name": "FileUploadOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/FileUpload/types.ts",
+            "name": "FileUploadOptions"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+            "name": "InputHTMLAttributes"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "((event: CreateEvent) => void) & ChangeEventHandler<HTMLInputElement>"
+        }
+      },
+      "preview": {
+        "defaultValue": null,
+        "description": "",
+        "name": "preview",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/FileUpload/types.ts",
+          "name": "FileUploadOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/FileUpload/types.ts",
+            "name": "FileUploadOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "FC<FileUploadPreviewProps>"
+        }
+      }
+    }
+  }
+}

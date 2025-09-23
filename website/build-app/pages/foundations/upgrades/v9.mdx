@@ -143,6 +143,15 @@ To not showing icon use `hideIcon` property:
 We also removed `onPauseOver` options.
 ```
 
+### FileUpload
+
+The `FileUpload` component no longer accepts the `maxSize` prop. If needed, you can add a custom behavior if the `handleAddFile` callback.
+
+```diff
+-<FileUpload maxSize={200000} />
++<FileUpload handleAddFile={(file) => /* do something if file is too big */ } />
+```
+
 ## Utils
 
 ## useScreens

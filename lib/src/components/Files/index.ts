@@ -16,10 +16,8 @@ import {
   ZipIcon,
 } from '@/components/Icon'
 
+import type { FileType, ForceFileType } from './types'
 import { types } from './types'
-
-export type FileType = File | string
-export type ForceFileType = 'audio' | 'image' | 'video'
 
 const formatBytes = (bytes: number, decimals = 2): string => {
   if (bytes === 0) {
