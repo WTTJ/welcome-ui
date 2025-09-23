@@ -1,5 +1,6 @@
+import { CameraIcon, PdfIcon, PptIcon } from '@/components/Icon'
+
 import { getFileIcon, getFileName, getFileSize, getMimeType } from '../'
-import { CameraIcon, PdfIcon, PptIcon } from '../../Icons'
 import type { Type } from '../types'
 
 function generateFile(name: string, type: Type) {
