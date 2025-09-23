@@ -1,0 +1,77 @@
+@layer components {
+  .root {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    opacity: 1;
+    line-height: var(--line-height-lg);
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: var(--font-weight-medium);
+    color: var(--color, var(--color-neutral-90));
+
+    &.isExternal {
+      --backgroundSize: calc(100% - var(--spacing-lg) - var(--spacing-sm)) 50%;
+
+      .wui-text > svg {
+        display: inline;
+        margin-left: 0.5rem;
+      }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        --color: var(--colorHover);
+        --backgroundPositionY: 100%;
+        --backgroundSize: 100% 100%;
+      }
+    }
+
+    &:focus-visible {
+      outline: none;
+      --color: var(--colorHover);
+      --backgroundPositionY: 100%;
+      --backgroundSize: 100% 100%;
+    }
+
+    &[aria-disabled] {
+      --backgroundImageColor: var(--color-neutral-30);
+      --color: var(--color-neutral-60);
+      pointer-events: none;
+    }
+  }
+
+  .variant {
+    &-primary {
+      --backgroundImageColor: var(--color-brand-40);
+      --colorHover: var(--color-neutral-90);
+    }
+    &-secondary {
+      --backgroundImageColor: var(--color-neutral-90);
+      --colorHover: var(--color-neutral-10);
+    }
+  }
+}
+
+.wui-text {
+  margin-right: -2px;
+  margin-left: -2px;
+  padding-left: 2px;
+  padding-right: 2px;
+  transition: background var(--timing-primary);
+  background-repeat: no-repeat;
+  background-size: var(--backgroundSize, 100% 50%);
+  transition:
+    background 250ms,
+    color 250ms;
+  background-image: linear-gradient(
+    0deg,
+    var(--backgroundImageColor),
+    var(--backgroundImageColor) 100%
+  );
+  background-position-y: var(--backgroundPositionY, calc(200% - 2px));
+}
+
+.isMultiline {
+  display: inline;
+}

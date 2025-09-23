@@ -1,0 +1,81 @@
+---
+category: actions
+description: The Link component is a navigational element that allows users to navigate to internal or external pages. It supports variants, accessibility attributes, and can wrap text or other components to apply consistent styling and behavior. Useful for creating an intuitive, interconnected user experience.
+packageName: link
+title: Link
+---
+
+A flexible link component that can receive an `as` prop to render a custom component (like React Router’s `Link`) while keeping styling and accessibility intact.
+
+### Variants
+
+Two variants are available: `primary` (default) and `secondary`.
+
+<div data-playground="variants.tsx" data-component="Link"></div>
+
+---
+
+### Disabled
+
+Use the `disabled` prop to disable interaction and add the appropriate ARIA attribute.
+
+<div data-playground="disabled.tsx" data-component="Link"></div>
+
+---
+
+### External link
+
+Set `isExternal` to true to automatically add an `<ExternalLinkIcon />` and apply hover effects.
+
+<div data-playground="external.tsx" data-component="Link"></div>
+
+---
+
+### Inline links
+
+If your link contains multiple lines of text, you can use `multiline` to control underline behavior.
+
+<div data-playground="inline.tsx" data-component="Link"></div>
+
+---
+
+### Security
+
+When using `target="_blank"`, the `rel="noopener noreferrer"` attribute is automatically added for security.
+
+<div data-playground="security.tsx" data-component="Link"></div>
+
+---
+
+### Text component
+
+By default, `Link` wraps text nodes and certain elements in a styled `Wrapper`.  
+You can force text styling to inherit from the parent using this wrapper.
+
+<div data-playground="text-component.tsx" data-component="Link"></div>
+
+---
+
+### Underlined by default
+
+`Link` underlines by default all string children, regardless of the parent element. This includes:
+- Plain text nodes
+- `Text` components
+- Any element (`span`, `p`, `div`, etc.) whose children is a single string
+- Components with `as="span"`
+- Components with `data-wui-link` prop
+
+<div data-playground="underline.tsx" data-component="Link"></div>
+
+---
+
+### Usage with React Router
+
+```jsx
+import { Link as RouterLink } from 'react-router-dom'
+
+return (
+  <Link as={RouterLink} to="/jobs">
+    Jobs
+  </Link>
+)
