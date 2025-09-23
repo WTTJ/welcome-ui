@@ -5,6 +5,9 @@ This file is auto-generate with yarn watch command, do not change it directly!
 import dynamic from "next/dynamic";
 
 export default {
+  "/Accordion/docs/examples/avatar.tsx": dynamic(() => import("../../lib/src/components/Accordion/docs/examples/avatar.tsx").then(mod => mod), { ssr: false }),
+  "/Accordion/docs/examples/open-at-start.tsx": dynamic(() => import("../../lib/src/components/Accordion/docs/examples/open-at-start.tsx").then(mod => mod), { ssr: false }),
+  "/Accordion/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Accordion/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/AspectRatio/docs/examples/map.tsx": dynamic(() => import("../../lib/src/components/AspectRatio/docs/examples/map.tsx").then(mod => mod), { ssr: false }),
   "/AspectRatio/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/AspectRatio/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/AspectRatio/docs/examples/ratio.tsx": dynamic(() => import("../../lib/src/components/AspectRatio/docs/examples/ratio.tsx").then(mod => mod), { ssr: false }),
