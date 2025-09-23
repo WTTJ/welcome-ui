@@ -1,14 +1,15 @@
+import { AssetBackdrop } from './AssetBackdrop'
+import { AssetContent } from './AssetContent'
+import { AssetTitle } from './AssetTitle'
 import { AssetWithTitle } from './AssetWithTitle'
-import { Backdrop } from './Backdrop'
+import { Dialog } from './Dialog'
 import { Iframe } from './Iframe'
-import { Content, Dialog } from './styles'
-import * as S from './styles'
 
 // Nested exports
 export const Assets = Object.assign(Dialog, {
   AssetWithTitle,
-  Backdrop,
-  Content,
+  Backdrop: AssetBackdrop,
+  Content: AssetContent,
   Iframe,
-  Title: S.Title,
+  Title: AssetTitle,
 })

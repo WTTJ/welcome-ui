@@ -1,38 +1,24 @@
 import { Text } from '@/components/Text'
-import { Box } from '@old/Box'
+import { classNames } from '@/utils'
 import { forwardRef } from '@old/System'
 
-import * as S from './styles'
+import modalStyles from './assets.module.scss'
+import { AssetTitle } from './AssetTitle'
 import type { AssetWithTitleProps } from './types'
 
-const titleBlockMobile = '4rem'
-const titleBlockDesktop = '6rem'
+const cx = classNames(modalStyles)
 
 export const AssetWithTitle = forwardRef<'div', AssetWithTitleProps>(
-  ({ children, customContent, subtitle, title }, ref) => {
+  ({ children, customContent, subtitle, title, ...rest }, ref) => {
     return (
-      <S.Wrapper
-        $titleBlockDesktop={titleBlockDesktop}
-        $titleBlockMobile={titleBlockMobile}
-        ref={ref}
-      >
+      <div className={cx('root', 'asset-wrapper')} ref={ref} {...rest}>
         {children}
-        <Box
-          backgroundColor="neutral-10"
-          display="flex"
-          flexDirection="column"
-          flexShrink={0}
-          gap="xxs"
-          h={{ _: titleBlockMobile, md: titleBlockDesktop }}
-          justifyContent="center"
-          px={{ _: 'md', md: 'xl' }}
-          w="100%"
-        >
+        <div className={cx('root', 'asset-title-wrapper')}>
           {customContent}
           {!customContent && subtitle ? <Text variant="subtitle-sm">{subtitle}</Text> : null}
-          {!customContent && title ? <S.Title>{title}</S.Title> : null}
-        </Box>
-      </S.Wrapper>
+          {!customContent && title ? <AssetTitle>{title}</AssetTitle> : null}
+        </div>
+      </div>
     )
   }
 )

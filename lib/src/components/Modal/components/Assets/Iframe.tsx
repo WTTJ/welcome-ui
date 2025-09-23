@@ -1,14 +1,14 @@
-import { Box } from '@old/Box'
+import { classNames } from '@/utils'
 
-import * as S from './styles'
+import modalStyles from './assets.module.scss'
 import type { IframeProps } from './types'
+
+const cx = classNames(modalStyles)
 
 export const Iframe = ({ children }: IframeProps) => {
   return (
-    <S.Iframe>
-      <Box h="100%" margin="0 auto" style={{ aspectRatio: 16 / 9 }}>
-        {children}
-      </Box>
-    </S.Iframe>
+    <div className={cx('root', 'iframe-wrapper')}>
+      <div className="h-full mx-0 my-auto aspect-[calc(16/9)]">{children}</div>
+    </div>
   )
 }

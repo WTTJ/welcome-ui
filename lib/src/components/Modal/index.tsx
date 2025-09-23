@@ -42,15 +42,18 @@ export function useModal(options?: UseModalProps): UseModal {
 
 const Backdrop = forwardRef<HTMLDivElement, BackdropProps>(
   ({ backdrop, hideOnInteractOutside, ...rest }, ref) => {
-    const backdropClassNames = cx('backdrop', hideOnInteractOutside && 'hideOnInteractOutside')
-
     if (backdrop === true) {
-      return <div className={backdropClassNames} ref={ref} {...rest} />
+      return (
+        <div
+          className={cx('backdrop', hideOnInteractOutside && 'hideOnInteractOutside')}
+          ref={ref}
+          {...rest}
+        />
+      )
     }
 
     if (React.isValidElement(backdrop)) {
-      //FIXME should we add classes to Backdrop props?
-      return cloneElement(backdrop, { className: backdropClassNames, ref, ...rest })
+      return cloneElement(backdrop, { ref, ...rest })
     }
 
     return null

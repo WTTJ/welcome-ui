@@ -1,11 +1,18 @@
 import type { DialogOptions } from '@ariakit/react'
 
-export type AssetWithTitleProps = {
+import type { MergeProps } from '@/utils'
+
+export interface AssetWithTitleOptions {
   children: React.ReactNode
   customContent?: JSX.Element | string
   subtitle?: JSX.Element | string
   title?: JSX.Element | string
 }
+
+export type AssetWithTitleProps = MergeProps<
+  AssetWithTitleOptions,
+  React.HTMLAttributes<HTMLDivElement>
+>
 
 export type BackdropProps = Pick<DialogOptions, 'hideOnInteractOutside'>
 
