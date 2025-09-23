@@ -5,4 +5,19 @@
       height: var(--spacing-md);
     }
   }
+
+  .animate-presence {
+    animation-duration: var(--duration-medium);
+    animation-timing-function: var(--timing-primary);
+    animation-name: fade;
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 }
