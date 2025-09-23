@@ -153,25 +153,6 @@
           "name": "Element"
         }
       },
-      "dataTestId": {
-        "defaultValue": null,
-        "description": "",
-        "name": "dataTestId",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Alert/types.ts",
-          "name": "AlertOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Alert/types.ts",
-            "name": "AlertOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "string"
-        }
-      },
       "handleClose": {
         "defaultValue": null,
         "description": "@description add a close button with an onclick handleClose function",

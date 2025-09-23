@@ -20,7 +20,6 @@ export type CloneActionsReturns = ReactElement<unknown, JSXElementConstructor<Al
 interface AlertOptions {
   closeButtonDataTestId?: string
   cta?: JSX.Element
-  dataTestId?: string
   /**
    * @description add a close button with an onclick handleClose function
    */

@@ -14,21 +14,9 @@ const cx = classNames(alertStyles)
 
 const AlertComponent = forwardRef<HTMLDivElement, AlertProps>(
   (
-    {
-      children,
-      className,
-      cta,
-      dataTestId,
-      handleClose,
-      hideIcon,
-      isFullWidth,
-      size = 'sm',
-      variant,
-      ...rest
-    },
+    { children, className, cta, handleClose, hideIcon, isFullWidth, size = 'sm', variant, ...rest },
     ref
   ) => {
-    const closeButtonDataTestId = dataTestId ? `${dataTestId}-close-button` : undefined
     const defaultVariantIcon = variant === 'beige' ? undefined : variant
     const withAiButton = variant === 'ai'
     const showIcon = !hideIcon
@@ -82,25 +70,19 @@ const AlertComponent = forwardRef<HTMLDivElement, AlertProps>(
           showIcon && 'icon',
           className
         )}
-        data-testid={dataTestId}
         ref={ref}
         {...rest}
       >
         {!!handleClose && (
-          <CloseButton
-            dataTestId={closeButtonDataTestId}
-            onClick={handleClose}
-            position="absolute"
-            right="sm"
-            size="xs"
-            top="sm"
-          />
+          <CloseButton onClick={handleClose} position="absolute" right="sm" size="xs" top="sm" />
         )}
         {showIcon ? (
           <VariantIcon className={cx('variant-icon')} size={size} variant={defaultVariantIcon} />
         ) : null}
         <div className={cx('content')}>
-          <Text className={cx('content-text')}>{content}</Text>
+          <Text as="div" className={cx('content-text')}>
+            {content}
+          </Text>
           {!!actions && <div className={cx('content-actions')}>{actions}</div>}
         </div>
       </div>
