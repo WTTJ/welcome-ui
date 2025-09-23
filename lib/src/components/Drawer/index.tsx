@@ -4,8 +4,8 @@ import { Dialog } from '@ariakit/react'
 import { classNames } from '@/utils'
 import { forwardRefWithAs } from '@/utils/forwardRefWithAs'
 
-// import { AssetDrawerComponent } from './AssetDrawer'
-// import { Header } from './AssetDrawer/Header'
+import { AssetDrawerComponent } from './AssetDrawer'
+import { Header } from './AssetDrawer/Header'
 import { Backdrop } from './components/Backdrop'
 import { Close } from './components/Close'
 import { Content } from './components/Content'
@@ -68,4 +68,4 @@ export const Drawer = Object.assign(DrawerComponent, {
 
 export { useDialogStore as useDrawer } from '@ariakit/react'
 
-// export const AssetDrawer = Object.assign(AssetDrawerComponent, { Header, Trigger })
+export const AssetDrawer = Object.assign(AssetDrawerComponent, { Header, Trigger })

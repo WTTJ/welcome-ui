@@ -1,3 +1,5 @@
+@use '../../../src/utils/breakpoints' as breakpoints;
+
 @layer components {
   .root {
     background-color: var(--color-neutral-10);
@@ -98,8 +100,7 @@
     flex: 1;
     padding: var(--spacing-xl);
 
-    /* stylelint-disable-next-line media-query-no-invalid */
-    @media screen and (min-width: var(--breakpoint-md)) {
+    @media screen and (min-width: breakpoints.$breakpoint-md) {
       overflow-y: auto;
     }
   }
@@ -112,8 +113,7 @@
     background-color: var(--color-neutral-0);
     padding: var(--spacing-xl);
 
-    /* stylelint-disable-next-line media-query-no-invalid */
-    @media screen and (min-width: var(--breakpoint-md)) {
+    @media screen and (min-width: breakpoints.$breakpoint-md) {
       bottom: auto;
       position: static;
     }

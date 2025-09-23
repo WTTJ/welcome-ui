@@ -114,5 +114,37 @@
   },
   "useDialogStore": {
     "props": {}
+  },
+  "AssetDrawer": {
+    "props": {
+      "maxWidth": {
+        "defaultValue": null,
+        "description": "",
+        "name": "maxWidth",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Drawer/AssetDrawer/types.ts",
+          "name": "AssetDrawerOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Drawer/AssetDrawer/types.ts",
+            "name": "AssetDrawerOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      }
+    }
   }
 }

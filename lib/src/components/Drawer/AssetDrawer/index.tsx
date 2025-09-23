@@ -1,29 +1,25 @@
-import type * as Ariakit from '@ariakit/react'
-import { useTheme } from '@xstyled/styled-components'
+import { classNames } from '@/utils'
+import { forwardRefWithAs } from '@/utils/forwardRefWithAs'
 
-import { Box } from '@/components/Box'
-import type { CreateWuiProps } from '@/components/System'
-import { forwardRef } from '@/components/System'
+import { Drawer } from '../index'
 
-import { Drawer } from '../../../old/components/Drawer'
+import styles from './asset-drawer.module.scss'
+import type { AssetDrawerProps } from './types'
 
-import * as S from './styles'
+const cx = classNames(styles)
 
-export type AssetDrawerProps = CreateWuiProps<'div', Ariakit.DialogOptions>
-
-export const AssetDrawerComponent = forwardRef<'div', AssetDrawerProps>(
+export const AssetDrawerComponent = forwardRefWithAs<AssetDrawerProps, 'div'>(
   (
     {
       children,
+      className,
       getPersistentElements: parentGetPersistentElements,
-      maxWidth = 820,
+      maxWidth,
       store,
       ...rest
     },
     ref
   ) => {
-    const theme = useTheme()
-
     const getPersistentElements = () =>
       Array.from(
         parentGetPersistentElements
@@ -41,26 +37,25 @@ export const AssetDrawerComponent = forwardRef<'div', AssetDrawerProps>(
 
     return (
       <Drawer
-        {...rest}
         autoFocusOnShow={false}
+        className={cx('asset-drawer', className)}
         getPersistentElements={getPersistentElements}
-        h={{ _: '100%', md: 'calc(100% - 3rem)' }}
         hideOnInteractOutside={hideOnInteractOutsideFn}
-        overflow="hidden"
         placement="bottom"
         ref={ref}
+        size={null}
         store={store}
-        style={{
-          borderTopLeftRadius: theme.radii.xxl,
-          borderTopRightRadius: theme.radii.xxl,
-        }}
         withBackdrop
+        {...rest}
       >
-        <Box h="100%" mt={{ _: 'xl', md: '3xl' }} overflowY="auto" w="100%">
-          <S.Content maxWidth={maxWidth}>
-            <Box p={{ _: '0 md xl', md: '0 xl 3xl' }}>{children}</Box>
-          </S.Content>
-        </Box>
+        <div className={cx('content-wrapper')}>
+          <div
+            className={cx('content-max-width')}
+            style={{ '--asset-drawer-content-max-width': maxWidth } as React.CSSProperties}
+          >
+            <div className={cx('content')}>{children}</div>
+          </div>
+        </div>
       </Drawer>
     )
   }

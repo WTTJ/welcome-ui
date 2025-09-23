@@ -1,90 +1,39 @@
-import React from 'react'
+import { Button } from '@/components/Button'
+import { ArrowLeftIcon } from '@/components/Icon'
+import { Text } from '@/components/Text'
+import { classNames } from '@/utils'
 
-import { Box } from '@/components/Box'
-import type { IconProps } from '@/components/Icon'
+import styles from './asset-drawer.module.scss'
+import { IconBlock } from './IconBlock'
+import type { HeaderProps } from './types'
 
-import { Button } from '../../../old/components/Button'
-import { ArrowLeftIcon } from '../../../old/components/Icons'
-import { Text } from '../../../old/components/Text'
+const cx = classNames(styles)
 
-import * as S from './styles'
-
-type HeaderProps = {
-  /**
-   * Show on right a block, for example an HeaderAction
-   */
-  action?: React.ReactNode
-  /**
-   * Icon from Icon component on the gray square
-   */
-  icon?: React.FC<IconProps>
-  /**
-   * Add a back icon on header and call function on click
-   */
-  onBackButtonClick?: (props?: unknown) => void
-  /**
-   * List of tags
-   */
-  subtitle?: React.ReactNode
-  /**
-   * Title of asset
-   */
-  title: React.ReactNode
-}
-
-export const Header: React.FC<HeaderProps> = ({
+export const Header = ({
   action,
+  className,
   icon,
   onBackButtonClick,
   subtitle,
   title,
-}) => {
+}: HeaderProps) => {
   return (
-    <Box
-      alignItems={{ md: 'center' }}
-      backgroundColor="neutral-10"
-      display="flex"
-      flexDirection={{ _: 'column', md: 'row' }}
-      gap="xl"
-      justifyContent="space-between"
-      mb="xl"
-      pb="md"
-      position="sticky"
-      top={0}
-      zIndex={1}
-    >
-      <Box alignItems="center" display="flex" gap={{ _: 'md', md: 'xl' }}>
+    <div className={cx('asset-drawer-header', className)}>
+      <div className={cx('back-button')}>
         {!!onBackButtonClick && (
           <Button onClick={onBackButtonClick} shape="circle" size="lg" variant="ghost">
             <ArrowLeftIcon />
           </Button>
         )}
         {!!icon && <IconBlock icon={icon} />}
-        <Box display="flex" flexDirection="column" gap="xxs">
-          <Text pr="xl" variant="h3">
+        <div className={cx('title')}>
+          <Text className="pr-xl" variant="h3">
             {title}
           </Text>
           {subtitle}
-        </Box>
-      </Box>
-      {action ? (
-        <Box alignItems="center" display="flex" flexShrink={0} gap="md">
-          {action}
-        </Box>
-      ) : null}
-    </Box>
-  )
-}
-
-export type IconBlockProps = {
-  icon: React.FC<IconProps>
-  size?: 'md' | 'sm'
-}
-
-export const IconBlock: React.FC<IconBlockProps> = ({ icon: Icon, size = 'md' }) => {
-  return (
-    <S.IconBlock size={size}>
-      <Icon color="neutral-90" size={size} />
-    </S.IconBlock>
+        </div>
+      </div>
+      {action ? <div className={cx('actions')}>{action}</div> : null}
+    </div>
   )
 }
