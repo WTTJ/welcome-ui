@@ -1,0 +1,103 @@
+@layer components {
+  .root {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .content {
+    width: 100%;
+    overflow-x: auto;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 0;
+
+      td {
+        padding: var(--spacing-xl);
+        text-align: left;
+
+        &:first-child {
+          padding-left: 0;
+        }
+
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+
+      th {
+        border-bottom: var(--border-width-sm) solid var(--color-neutral-90);
+        color: var(--color-neutral-60);
+        font-weight: var(--font-weight-500);
+        text-align: left;
+        padding: var(--spacing-xl);
+        vertical-align: middle;
+
+        &:first-child {
+          padding-left: 0;
+        }
+
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+
+      tr {
+        border-bottom: var(--border-width-sm) solid var(--color-neutral-30);
+        background-color: var(--trBackgroundColor, 'transparent');
+        color: var(--trColor, 'inherit');
+        transition: background-color var(--duration-medium) ease-in-out;
+
+        &:last-child {
+          border: 0;
+        }
+
+        &.clickable {
+          cursor: pointer;
+
+          &:hover {
+            background-color: var(--color-beige-10);
+          }
+        }
+
+        &.variant {
+          &-danger {
+            --trBackgroundColor: var(--color-red-10);
+            --trColor: var(--color-red-70);
+          }
+
+          &-warning {
+            --trBackgroundColor: var(--color-orange-10);
+            --trColor: var(--color-orange-80);
+          }
+
+          &-success {
+            --trBackgroundColor: var(--color-green-10);
+            --trColor: var(--color-green-70);
+          }
+
+          &-info {
+            --trBackgroundColor: var(--color-blue-10);
+            --trColor: var(--color-blue-70);
+          }
+        }
+      }
+    }
+  }
+
+  .indent {
+    table {
+      td,
+      th {
+        &:first-child {
+          padding-left: var(--spacing-xl);
+        }
+
+        &:last-child {
+          padding-right: var(--spacing-xl);
+        }
+      }
+    }
+  }
+}
