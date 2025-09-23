@@ -2,8 +2,6 @@ import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
 
-import { Box } from '@old/Box'
-
 import { A } from './A'
 import { Blockquote } from './Blockquote'
 import { Code } from './Code'
@@ -27,32 +25,24 @@ const components = {
   hr: (): null => null,
   img: Image,
   li: ({ children }: { children: React.ReactElement }) => (
-    <Box as="li" ml="xxl" mt="xs">
-      {children}
-    </Box>
+    <li className="ml-xxl mt-xs">{children}</li>
   ),
   ol: ({ children }: { children: React.ReactElement }) => (
-    <Box as="ol" listStyleType="decimal" mt="sm">
-      {children}
-    </Box>
+    <ol className="list-decimal mt-sm">{children}</ol>
   ),
   p: Paragraph,
   pre: Pre,
   strong: ({ children }: { children: React.ReactElement }) => (
-    <Box as="strong" color="neutral-90" fontWeight="500">
-      {children}
-    </Box>
+    <strong className="font-[500] text-neutral-90">{children}</strong>
   ),
   ul: ({ children }: { children: React.ReactElement }) => (
-    <Box as="ul" listStyleType="disc" mt="sm">
-      {children}
-    </Box>
+    <ul className="list-disc mt-sm">{children}</ul>
   ),
 }
 
 export const Mdx = ({ children = '' }) => {
   return (
-    <Box maxW="100%">
+    <div className="max-w-full">
       <ReactMarkdown
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         //@ts-ignore
@@ -62,6 +52,6 @@ export const Mdx = ({ children = '' }) => {
       >
         {children}
       </ReactMarkdown>
-    </Box>
+    </div>
   )
 }

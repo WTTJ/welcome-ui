@@ -4,7 +4,6 @@ import React from 'react'
 import { Button } from '@/components/Button'
 import { GithubIcon, HeartIcon, RightIcon } from '@/components/Icon'
 import { Text } from '@/components/Text'
-import { Box } from '@old/Box'
 import { Logo, Symbol } from '@old/Logo'
 
 import { Components } from '~/build-app/components/Homepage/Components'
@@ -15,7 +14,7 @@ import { Section } from '~/build-app/components/Section'
 const Home = () => {
   return (
     <main>
-      <Section backgroundColor="beige-30">
+      <Section className="bg-beige-30">
         <Text as="span" className="text-neutral-90" variant="subtitle-md">
           Welcome UI
         </Text>
@@ -40,14 +39,9 @@ const Home = () => {
         </Text>
         <Components />
       </Section>
-      <Section backgroundColor="beige-30">
-        <Box
-          alignItems="center"
-          display="flex"
-          flexDirection={{ lg: 'row', xs: 'column' }}
-          justifyContent="space-between"
-        >
-          <Box flex="0 0 auto" maxWidth={{ md: 600 }} mb={{ lg: 0, xs: '5xl' }}>
+      <Section className="bg-beige-30">
+        <div className="flex items-center justify-between lg:flex-row flex-col">
+          <div className="flex-initial lg:mb-0 mb-5xl md:max-w-[37.5rem]">
             <Text as="span" className="text-neutral-90" variant="subtitle-md">
               Open source
             </Text>
@@ -70,9 +64,9 @@ const Home = () => {
               <GithubIcon size="lg" />
               <span>Contribute on Github</span>
             </Button>
-          </Box>
+          </div>
           <Stats />
-        </Box>
+        </div>
       </Section>
       <Section>
         <Text as="h2" className="max-w-[500px] mb-xl" variant="h1">
@@ -83,7 +77,7 @@ const Home = () => {
         </Text>
         <Expectations />
       </Section>
-      <Section backgroundColor="beige-30">
+      <Section className="bg-beige-30">
         <Text as="span" className="text-neutral-90" variant="subtitle-md">
           Example
         </Text>
@@ -93,19 +87,15 @@ const Home = () => {
         <Text className="max-w-[450px]" variant="lg">
           Leave the UI code to our team and focus on building your astonishing project.
         </Text>
-        <Box
+        <iframe
           allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-          as="iframe"
-          border="0"
-          h={{ md: 600, xs: 300 }}
-          mt="3xl"
+          className="border-0 md:h-[37.5rem] h-[18.75rem] mt-3xl w-full"
           sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
           src="https://codesandbox.io/embed/homepage-example-mcypy?autoresize=1&hidenavigation=1&initialpath=src&module=%2Fsrc%2FExample.tsx&theme=dark&view=split"
           title="homepage-example"
-          w="100%"
         />
       </Section>
-      <Section pt={{ md: '6xl', xs: '3xl' }}>
+      <Section className="pt-3xl md:pt-6xl">
         <Logo h={67} />
         <Text as="span" className="text-neutral-90 mt-3xl" color="neutral-90" variant="subtitle-md">
           Who we are?
@@ -116,7 +106,7 @@ const Home = () => {
         <Text className="max-w-[640px]" variant="lg">
           80,000 opportunities to find the job that’s made for you.
         </Text>
-        <Box display={{ md: 'flex' }} mt="5xl">
+        <div className="md:flex mt-5xl">
           <Button
             as="a"
             className="!mr-md"
@@ -140,16 +130,10 @@ const Home = () => {
             <span>Visit our website</span>
             <RightIcon size="lg" />
           </Button>
-        </Box>
-        <Box
-          bottom={-150}
-          display={{ _: 'none', lg: 'block' }}
-          opacity={0.1}
-          position="absolute"
-          right={-120}
-        >
+        </div>
+        <div className="-bottom-[9.375rem] -right-[7.5rem] absolute none lg:block opacity-[10]">
           <Symbol h={400} />
-        </Box>
+        </div>
       </Section>
     </main>
   )

@@ -1,5 +1,3 @@
-import { Box } from '@old/Box'
-
 import { Properties } from '../Props'
 
 import { Highlight } from './Highlight'
@@ -24,19 +22,8 @@ export const Code = ({ children, className }: CodeProps) => {
   }
 
   return (
-    <Box
-      alignItems="center"
-      as="code"
-      backgroundColor="neutral-30"
-      borderRadius="md"
-      color="neutral-90"
-      display="inline-flex"
-      px="sm"
-      py="xxs"
-      text="sm"
-      whiteSpace="break-spaces"
-    >
+    <code className="bg-neutral-30 inline-flex items-center px-sm py-xxs rounded-md text-neutral-90 whitespace-break-spaces text-sm">
       {children}
-    </Box>
+    </code>
   )
 }

@@ -1,10 +1,7 @@
-import type { BoxProps } from '@old/Box'
-import { Box } from '@old/Box'
-
-type AProps = BoxProps & {
+type AProps = React.HTMLAttributes<HTMLImageElement> & {
   children: React.ReactNode
 }
 
 export const Image = (props: AProps) => {
-  return <Box as="img" maxW="100%" {...props} />
+  return <img className="max-w-full" {...props} />
 }

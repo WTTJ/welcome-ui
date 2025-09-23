@@ -1,25 +1,22 @@
 'use client'
-import type { Theme } from '@xstyled/styled-components'
-import { useTheme } from '@xstyled/styled-components'
+import type { CSSProperties } from 'react'
 
+import { primitives, semantics } from '@/theme/tokens'
+import { classNames } from '@/utils'
 import { Alert } from '@old/Alert'
-import { Box } from '@old/Box'
 import { Grid } from '@old/Grid'
 import { Text } from '@old/Text'
-import type { ThemeValues } from '@old/theme'
 
-const getColors = (name: string, theme: Theme) => {
-  const themeColors = theme.colors as ThemeValues['colors']
-  const endByALetter = name === 'secondary'
-  const pattern = endByALetter
-    ? new RegExp(`^(${name})-\\w+`, 'g')
-    : new RegExp(`^(${name})-\\d+`, 'g')
+const cx = classNames()
+
+const getColors = (name: string) => {
+  const themeColors = { ...primitives.colors, ...semantics.colors }
 
   return Object.keys(themeColors)
-    .filter(color => color.match(pattern))
+    .filter(color => color.startsWith(`--color-${name}`))
     .reduce<{ value: string; variant: string }[]>((acc, colorName) => {
-      const colorValue = theme.colors[colorName as keyof ThemeValues['colors']]
-      acc.push({ value: colorValue, variant: colorName })
+      const colorValue = themeColors[colorName as keyof typeof themeColors]
+      acc.push({ value: colorValue, variant: colorName.replace('--color-', '') })
 
       return acc
     }, [])
@@ -30,12 +27,10 @@ type ColorsProps = {
 }
 
 export const Colors = ({ name }: ColorsProps) => {
-  const theme = useTheme()
-
-  const colors = getColors(name, theme)
+  const colors = getColors(name)
 
   if (colors.length === 0) {
-    return <Alert>Wrong color name</Alert>
+    return <Alert>Wrong color name {name}</Alert>
   }
 
   return (
@@ -44,24 +39,25 @@ export const Colors = ({ name }: ColorsProps) => {
         const isWhite = variant === 'neutral-10'
 
         return (
-          <Box alignItems="center" display="flex" key={`${name}.${variant}`}>
-            <Box
-              backgroundColor={value}
-              border={isWhite ? '1px solid' : undefined}
-              borderColor={isWhite ? 'neutral-30' : undefined}
-              borderRadius="lg"
-              h={50}
-              w={50}
+          <div className="flex items-center" key={`${name}.${variant}`}>
+            <div
+              className={cx(
+                'bg-(--backgroundColor)',
+                isWhite && `border-neutral-30`,
+                isWhite && `border`,
+                'size-[3.125rem] rounded-lg'
+              )}
+              style={{ '--backgroundColor': `var(--color-${variant})` } as CSSProperties}
             />
-            <Box px="sm">
+            <div className="px-sm">
               <Text as="span" variant="h6">
                 {variant}
               </Text>
               <Text as="span" fontSize="sm" mt={3}>
                 {value}
               </Text>
-            </Box>
-          </Box>
+            </div>
+          </div>
         )
       })}
     </Grid>

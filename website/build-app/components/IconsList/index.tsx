@@ -3,7 +3,6 @@ import { camelCase, startCase } from 'lodash'
 import React from 'react'
 
 import * as Icons from '@/components/Icon'
-import { Box } from '@old/Box'
 import { Text } from '@old/Text'
 import { Toast, toast } from '@old/Toast'
 
@@ -71,7 +70,7 @@ export const IconsList = ({ name }: IconListProps) => {
   }
 
   return (
-    <Box display="grid" gap="lg" gridTemplateColumns={{ lg: '1fr 1fr 1fr 1fr', xs: '1fr 1fr' }}>
+    <div className="gap-lg grid lg:grid-cols-4 grid-cols-2">
       {iconsByName[name]?.map(key => {
         const name = startCase(camelCase(key)).replace(/ /g, '')
         const componentName = `${name}Icon`
@@ -101,6 +100,6 @@ export const IconsList = ({ name }: IconListProps) => {
           </S.StyledCard>
         )
       })}
-    </Box>
+    </div>
   )
 }

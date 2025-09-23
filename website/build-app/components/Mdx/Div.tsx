@@ -80,9 +80,9 @@ export const Div = ({ children, node }: DivProps) => {
 
     return (
       <Playground
+        className={playgroundFile === 'overview.tsx' ? 'mt-0' : undefined}
         code={replaceWuiImports(code)}
         isOverview={isOverview === 'true'}
-        mt={playgroundFile === 'overview.tsx' ? 0 : undefined}
         name={component}
         pathToFile={pathToFileFormatted}
         withCodeEditor={withCodeEditor?.toLowerCase() === 'true'}

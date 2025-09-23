@@ -4,7 +4,6 @@ import React from 'react'
 
 import { Button } from '@/components/Button'
 import { CrescentMoonIcon, GithubIcon, SunIcon } from '@/components/Icon'
-import { Box } from '@old/Box'
 import { Flex } from '@old/Flex'
 import { Text } from '@old/Text'
 import type { ThemeValues } from '@old/theme'
@@ -30,7 +29,7 @@ export const NavBar = ({ display = 'flex', onClick }: NavBarProps) => {
 
   return (
     <Flex alignItems="center" display={display} gap="xl" h={{ lg: '100%' }}>
-      <Box as="nav" h={{ lg: '100%' }}>
+      <nav className="lg:h-full">
         <Flex aria-label="Main navigation" as="ul" gap="xxl" h={{ lg: '100%' }}>
           {navigation.map(item => (
             <Text as="li" key={`header_navigation_${item}`} onClick={onClick} variant="subtitle-md">
@@ -43,7 +42,7 @@ export const NavBar = ({ display = 'flex', onClick }: NavBarProps) => {
             </Text>
           ))}
         </Flex>
-      </Box>
+      </nav>
       <Button
         aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
         onClick={switchTheme}

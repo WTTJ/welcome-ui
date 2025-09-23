@@ -2,7 +2,6 @@
 import NextLink from 'next/link'
 import { useEffect, useState } from 'react'
 
-import { Box } from '@old/Box'
 import { Flex } from '@old/Flex'
 import { Text } from '@old/Text'
 
@@ -31,8 +30,7 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
       }, [] as string[])
       .reverse()
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore FIXME
+    // @ts-expect-error FIXME
     const onScroll = () => {
       if (!ids || ids.length === 0) return null
 
@@ -55,7 +53,7 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
   if (!tree) return null
 
   return (
-    <Box display={{ _: 'none', xl: 'block' }}>
+    <div className="none xl:block">
       <S.Nav isSubPage={isSubPage}>
         <Text mb="lg" ml="lg" variant="subtitle-sm">
           On this page
@@ -64,7 +62,7 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
           {tree.map(item => (
             <Flex as="li" direction="column" gap="sm" key={item.href}>
               {/* // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-ignore FIXME */}
+              // @ts-expect-error FIXME */}
               <S.Link
                 aria-current={`#${activeId}` === item.href ? 'page' : undefined}
                 as={NextLink}
@@ -76,9 +74,9 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
               {item.children ? (
                 <Flex as="ul" direction="column" gap="xs">
                   {item.children.map(child => (
-                    <Box as="li" key={child.href}>
+                    <li key={child.href}>
                       {/* // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                      // @ts-ignore FIXME */}
+                      // @ts-expect-error FIXME */}
                       <S.Link
                         aria-current={`#${activeId}` === child.href ? 'page' : undefined}
                         as={NextLink}
@@ -87,7 +85,7 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
                       >
                         {child.title}
                       </S.Link>
-                    </Box>
+                    </li>
                   ))}
                 </Flex>
               ) : null}
@@ -95,6 +93,6 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
           ))}
         </Flex>
       </S.Nav>
-    </Box>
+    </div>
   )
 }

@@ -521,12 +521,10 @@ function transform(key, value, forceValue = false) {
       return `${key}-0`
     }
 
-    // Convert pixel values to rem for height, minHeight, minWidth, and width
+    // Convert pixel values to rem for num values
     // Tailwind uses 1rem = 16px by default
     // Handle negative values for positioning
-    if (
-      ['bottom', 'h', 'left', 'max-h', 'max-w', 'min-h', 'min-w', 'right', 'top', 'w'].includes(key)
-    ) {
+    if (typeof value === 'number') {
       let keyFormatted = key
       let valueFormatted = value
 
@@ -602,7 +600,10 @@ const valueMap = {
   overflow: value => transform('overflow', value),
   p: value => transform('p', value),
   padding: value => transform('p', value),
+  pb: value => transform('pb', value),
+  pl: value => transform('pl', value),
   position: value => value,
+  pr: value => transform('pr', value),
   pt: value => transform('pt', value),
   px: value => transform('px', value),
   py: value => transform('py', value),

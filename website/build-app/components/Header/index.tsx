@@ -4,7 +4,6 @@ import { usePathname } from 'next/navigation'
 
 import { Button } from '@/components/Button'
 import { MenuIcon } from '@/components/Icon'
-import { Box } from '@old/Box'
 import { Drawer, useDrawer } from '@old/Drawer'
 import { Flex } from '@old/Flex'
 import { WelcomeUILogo } from '@old/Logo'
@@ -53,11 +52,11 @@ export const Header = ({ components, foundations }: HeaderProps) => {
         px="md"
       >
         <Flex alignItems="center" gap="lg">
-          <Box flexShrink={0}>
+          <div className="shrink-0">
             <Link href="/">
               <WelcomeUILogo h={40} />
             </Link>
-          </Box>
+          </div>
           <VersionSelector />
           <Search />
         </Flex>
