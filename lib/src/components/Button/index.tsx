@@ -38,6 +38,8 @@ export const Button = forwardRefWithAs<ButtonProps, 'button'>(
 
     return (
       <AriakitButton
+        type="button"
+        {...rest}
         accessibleWhenDisabled={accessibleWhenDisabled}
         className={cx(
           'root',
@@ -49,8 +51,6 @@ export const Button = forwardRefWithAs<ButtonProps, 'button'>(
         disabled={isDisabled}
         ref={ref}
         render={as ? <Element /> : undefined}
-        type="button"
-        {...rest}
       >
         {isLoading ? <span className={cx('loader')} /> : null}
         {!isLoading && children}
