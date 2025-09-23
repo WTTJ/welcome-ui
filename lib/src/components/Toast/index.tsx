@@ -1,8 +1,7 @@
-import React from 'react'
 import { toast as toastRHT } from 'react-hot-toast'
 import type { ToastPosition } from 'react-hot-toast'
 
-import type { TextProps } from '@/components/Text'
+import type { TextProps } from '@/components/Text/types'
 import { classNames } from '@/utils'
 
 import { Growl } from './components/Growl'
@@ -12,17 +11,14 @@ import type { ToastOptions } from './types'
 
 const cx = classNames(toastStyles)
 
-const Title: React.FC<TextProps> = ({ children, ...rest }) => (
-  <p className={cx('title', rest.className)} {...rest}>
+const Title = ({ children, className, ...rest }: TextProps) => (
+  <p className={cx('title', className)} {...rest}>
     {children}
   </p>
 )
 
 export const toast = (component: JSX.Element, options?: ToastOptions) => {
-  const name =
-    typeof component === 'string'
-      ? undefined
-      : component?.type?.displayName || component?.type?.name
+  const name = 'type' in component ? component.type.displayName || component.type.name : undefined
   const position = (name === 'Growl' ? 'top-right' : 'bottom-center') as ToastPosition
 
   const toastOptions = {

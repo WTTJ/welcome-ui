@@ -10,13 +10,13 @@ const Element = () => (
   // write this html tag with tailwind classname
   <div
     className={cx(
-      'bg-(--color-neutral-10)',
-      'border-(--color-beige-30)',
+      'bg-neutral-10',
+      'border-beige-30',
       'border-solid',
       'border-1px',
-      'rounded-(--radius-lg)',
-      'text-(--color-neutral-90)',
-      'p-(--spacing-sm)'
+      'rounded-lg',
+      'text-neutral-90',
+      'p-sm'
     )}
   >
     Lorem ipsum dolor sit amet

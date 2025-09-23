@@ -21,10 +21,8 @@ export const Growl = forwardRef<HTMLDivElement, GrowlProps>(
         variant={variant}
         {...rest}
       >
-        <div className={cx('pr-(--spacing-xl)')}>{children}</div>
+        <div className={cx('pr-xl')}>{children}</div>
       </Alert>
     )
   }
 )
-
-Growl.displayName = 'Growl'

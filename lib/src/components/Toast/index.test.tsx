@@ -13,11 +13,4 @@ describe('<Title>', () => {
 
     expect(title).toHaveTextContent(content)
   })
-
-  it('should render correctly with a state', () => {
-    render(<Toast.Title data-testid="growl-title">{content}</Toast.Title>)
-    const title = screen.getByTestId('growl-title')
-
-    expect(title).toHaveTextContent(content)
-  })
 })

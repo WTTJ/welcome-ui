@@ -42,22 +42,19 @@
   .snackbar-separator {
     padding-left: var(--spacing-sm);
     border-left: 1px solid;
-    border-left-color: var(--color-neutral-90);
+    border-left-color: var(--borderLeftColor, --color-neutral-90);
 
     &.info {
-      border-left-color: var(--color-blue-30);
+      --borderLeftColor: var(--color-blue-30);
     }
-
     &.success {
-      border-left-color: var(--color-green-30);
+      --borderLeftColor: var(--color-green-30);
     }
-
     &.warning {
-      border-left-color: var(--color-orange-20);
+      --borderLeftColor: var(--color-orange-20);
     }
-
     &.danger {
-      border-left-color: var(--color-red-20);
+      --borderLeftColor: var(--color-red-20);
     }
   }
 }

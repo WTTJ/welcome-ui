@@ -22,7 +22,7 @@ export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
       variant={variant}
       {...rest}
     >
-      <div className={cx('items-center', 'flex', 'gap-(--spacing-sm)')}>
+      <div className={cx('items-center', 'flex', 'gap-sm')}>
         {children}
         {cta ? <div className={cx('snackbar-separator', `${variant}`)}>{cta}</div> : null}
       </div>
