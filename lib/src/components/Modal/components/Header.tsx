@@ -13,10 +13,8 @@ const cx = classNames(modalStyles)
  */
 export const Header = forwardRef<HTMLDivElement, HeaderProps>(
   ({ icon, subtitle, title, ...rest }, ref) => {
-    //FIXME text-center no longer works because icons are display block
-    // shold be nline block or should i make the header a display flex
     return (
-      <header className={cx('header', icon && 'text-center')} ref={ref} {...rest}>
+      <header className={cx('header')} ref={ref} {...rest}>
         <Close isOnHeader />
         {icon}
         <Text

@@ -1,3 +1,5 @@
+@use '../../utils/breakpoints.scss' as breakpoints;
+
 @layer components {
   .backdrop {
     background-color: var(--color-overlay);
@@ -51,15 +53,12 @@
       margin-top: 0;
     }
 
-    @media (min-width: 736px) {
+    @media (min-width: breakpoints.$breakpoint-md) {
       height: fit-content;
       max-height: calc(2 * var(--spacing-xl) + 100vh);
       width: var(--dialog-width);
     }
 
-    /* FIXME should we use rem or px ? */
-    /* https://dev.to/nikolab/convert-px-to-rem-using-sass-3-methods-4ep2 */
-    /* TESTME */
     &.size-lg {
       /* 720px; */
       --dialog-width: 45rem;
