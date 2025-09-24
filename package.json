@@ -87,7 +87,7 @@
     "react-router-dom": "7.5.2",
     "sass-embedded": "^1.90.0",
     "standard-version": "9.5.0",
-    "styled-components": "^6.1.15",
+    "styled-components": "^6.1.19",
     "stylelint": "^16.18.0",
     "stylelint-config-recommended": "^16.0.0",
     "svgo": "^3.0.1",
