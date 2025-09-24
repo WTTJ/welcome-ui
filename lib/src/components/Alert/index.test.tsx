@@ -22,8 +22,13 @@ describe('<Alert>', () => {
     )
     const alertTitle = screen.getByTestId('alert-title')
 
-    // TODO: How do we check the "Promote" content as we don't have an aria-label anymore?
-    expect(container.querySelector('svg')).toBeInTheDocument()
+    const icon = container.querySelector('svg')
+    const iconWrapper = icon.parentElement
+
+    expect(iconWrapper).toHaveClass(/variant-icon/)
+    expect(iconWrapper).not.toHaveClass(
+      /variant-success|variant-warning|variant-info|variant-ai|variant-danger/
+    )
     expect(alertTitle).toHaveClass(/title-size-sm/)
     expect(alertTitle).not.toHaveClass(/title-close-button/)
   })
@@ -62,12 +67,11 @@ describe('<Alert>', () => {
     )
 
     const icon = container.querySelector('svg')
-    const iconClass = container.querySelector('div')
+    const iconWrapper = icon.parentElement
 
     expect(icon).toBeInTheDocument()
-    expect(iconClass).toBeInTheDocument()
-    expect(iconClass).toHaveClass(/icon/)
-    expect(iconClass).toHaveClass(/variant-success/)
+    expect(iconWrapper).toBeInTheDocument()
+    expect(iconWrapper).toHaveClass(/variant-icon|variant-success/)
     expect(screen.getByTestId('alert')).toHaveClass(/variant-success/)
   })
 

@@ -10,8 +10,10 @@ describe('VariantIcon', () => {
 
     const component = screen.getByTestId('component')
 
-    // TODO: How do we check the promote content as we don't have an aria-label anymore?
     expect(component.querySelector('svg')).toBeInTheDocument()
+    expect(component.className).not.toMatch(
+      /variant-success|variant-warning|variant-info|variant-ai|variant-danger/
+    )
   })
 
   it('renders with custom props', () => {

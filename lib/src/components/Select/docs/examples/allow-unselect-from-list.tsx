@@ -24,7 +24,7 @@ const Example = () => {
     <Select
       allowUnselectFromList
       disableCloseOnSelect
-      icon={<LinkIcon color="neutral-90" />}
+      icon={<LinkIcon />}
       isMultiple
       isSearchable
       name="welcome"
