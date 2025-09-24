@@ -1,0 +1,275 @@
+{
+  "Radio": {
+    "props": {
+      "dataTestId": {
+        "defaultValue": null,
+        "description": "",
+        "name": "dataTestId",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Radio/types.ts",
+          "name": "RadioOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Radio/types.ts",
+            "name": "RadioOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "disabled": {
+        "defaultValue": null,
+        "description": "",
+        "name": "disabled",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+          "name": "InputHTMLAttributes"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+            "name": "InputHTMLAttributes"
+          },
+          {
+            "fileName": "welcome-ui/lib/src/components/Label/types.ts",
+            "name": "LabelOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "hint": {
+        "defaultValue": null,
+        "description": "",
+        "name": "hint",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Radio/types.ts",
+          "name": "RadioOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Radio/types.ts",
+            "name": "RadioOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "label": {
+        "defaultValue": null,
+        "description": "",
+        "name": "label",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Radio/types.ts",
+          "name": "RadioOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Radio/types.ts",
+            "name": "RadioOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "maxWidth": {
+        "defaultValue": null,
+        "description": "",
+        "name": "maxWidth",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Radio/types.ts",
+          "name": "RadioOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Radio/types.ts",
+            "name": "RadioOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      },
+      "onChange": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onChange",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+          "name": "InputHTMLAttributes"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+            "name": "InputHTMLAttributes"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+            "name": "DOMAttributes"
+          },
+          {
+            "fileName": "welcome-ui/lib/src/components/Radio/types.ts",
+            "name": "RadioOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ChangeEventHandler<HTMLInputElement> & FormEventHandler<HTMLLabelElement> & ((event: MouseEvent<HTMLLabelElement, MouseEvent>) => void)"
+        }
+      },
+      "onClick": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onClick",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+          "name": "DOMAttributes"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+            "name": "DOMAttributes"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+            "name": "DOMAttributes"
+          },
+          {
+            "fileName": "welcome-ui/lib/src/components/Radio/types.ts",
+            "name": "RadioOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "MouseEventHandler<HTMLInputElement> & MouseEventHandler<HTMLLabelElement> & ((event: MouseEvent<HTMLLabelElement, MouseEvent>) => void)"
+        }
+      },
+      "required": {
+        "defaultValue": null,
+        "description": "",
+        "name": "required",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+          "name": "InputHTMLAttributes"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+            "name": "InputHTMLAttributes"
+          },
+          {
+            "fileName": "welcome-ui/lib/src/components/Label/types.ts",
+            "name": "LabelOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "value": {
+        "defaultValue": null,
+        "description": "",
+        "name": "value",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+          "name": "InputHTMLAttributes"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+            "name": "InputHTMLAttributes"
+          },
+          {
+            "fileName": "welcome-ui/lib/src/components/Radio/types.ts",
+            "name": "RadioOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | (readonly string[] & string)",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "readonly string[] & string"
+            }
+          ]
+        }
+      },
+      "variant": {
+        "defaultValue": {
+          "value": "default"
+        },
+        "description": "",
+        "name": "variant",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Label/types.ts",
+          "name": "LabelOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Label/types.ts",
+            "name": "LabelOptions"
+          },
+          {
+            "fileName": "welcome-ui/lib/src/components/Radio/types.ts",
+            "name": "RadioOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"danger\" | \"warning\"",
+          "value": [
+            {
+              "value": "\"danger\""
+            },
+            {
+              "value": "\"warning\""
+            }
+          ]
+        }
+      }
+    }
+  }
+}
