@@ -1,5 +1,5 @@
 import { cloneElement } from 'react'
-import { toast as toastRHT } from 'react-hot-toast'
+import { Toaster, toast as toastRHT } from 'react-hot-toast'
 import type { ToastPosition } from 'react-hot-toast'
 
 import type { TextProps } from '@/components/Text/types'
@@ -41,5 +41,9 @@ export const toast = (component: JSX.Element, options?: ToastOptions) => {
   return toastRHT(cloneElement(component, { onClose }), toastOptions)
 }
 
-export { Toaster as Notifications } from 'react-hot-toast'
-export const Toast = { Growl, Snackbar, SnackbarAction, Title }
+export const Toast = Object.assign(Toaster, {
+  Growl,
+  Snackbar,
+  SnackbarAction,
+  Title,
+})

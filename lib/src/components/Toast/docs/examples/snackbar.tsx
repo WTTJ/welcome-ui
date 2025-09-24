@@ -74,9 +74,20 @@ const Example = () => {
       <Button
         onClick={() =>
           toast(
+            <Toast.Snackbar cta={<Toast.SnackbarAction>Action</Toast.SnackbarAction>} variant="ai">
+              Lorem ipsum dolor sit amet taciti sociosqu ad
+            </Toast.Snackbar>
+          )
+        }
+      >
+        AI
+      </Button>
+      <Button
+        onClick={() =>
+          toast(
             <Toast.Snackbar
               cta={<Toast.SnackbarAction>Action</Toast.SnackbarAction>}
-              icon={null}
+              hideIcon
               variant="info"
             >
               Lorem ipsum dolor sit amet taciti sociosqu ad

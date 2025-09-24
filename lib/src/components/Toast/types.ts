@@ -30,7 +30,7 @@ type CustomToastOptions = {
 interface GrowlOptions {
   'data-testid'?: string
   hasCloseButton?: boolean
-  icon?: JSX.Element | null
+  hideIcon?: boolean
   onClose?: () => void
   variant?: ToastVariant
 }
@@ -41,7 +41,7 @@ interface SnackbarOptions {
    */
   cta?: JSX.Element
   hasCloseButton?: boolean
-  icon?: JSX.Element | null
+  hideIcon?: boolean
   onClose?: () => void
   variant?: ToastVariant
 }

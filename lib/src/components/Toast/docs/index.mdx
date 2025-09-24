@@ -3,26 +3,24 @@ category: feedback
 description: The Toast component is a transient, non-blocking notification that appears briefly to provide feedback to the user. It is typically used to display messages such as success, error, warning, or informational alerts. Toasts appear at a designated area of the screen, often at the bottom or top, and automatically disappear after a few seconds, ensuring a smooth and unobtrusive user experience.
 packageName: toast
 title: Toast
-usage: Notifications, Toast, toast
+usage: Toast, toast
 peerDependencies: 'react-hot-toast'
 ---
 
-Notification component with [react-hot-toast](https://react-hot-toast.com/) and 2 components:
+Toast component with [react-hot-toast](https://react-hot-toast.com/) and 2 components:
 
 - Growl
 - Snackbar
 
 ### Notifications
 
-Before using the `Toast` component, you must add the `Notifications` component in your project root. This component will contain all your toasts.
+Before using the component, you must add the `Toast` component in your project root. This component will contain all your toasts.
 
 ```jsx
 function App() {
-  return <Notifications pauseOnHover={false} />
+  return <Toast />
 }
 ```
-
-You can pass a boolean value to `pauseOnHover` prop (default to `true`) to pause duration of all notifications on mouse hover.
 
 ### toast
 
@@ -78,7 +76,7 @@ You can choose not to show a close button on Growl or Snackbar with the `hasClos
 You can close or dismiss a toast programmatically with the `dismiss` and `remove` functions. Dismiss will hide the toast with a fade out animation, while remove will hide the toast immediately.
 
 ```jsx
-const toastId = toast(<Notification />)
+const toastId = toast(<Toast />)
 
 // Remove or dismiss this specific toast
 remove(toastId)

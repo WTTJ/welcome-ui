@@ -82,7 +82,25 @@ const Example = () => {
       <Button
         onClick={() =>
           toast(
-            <Toast.Growl icon={null} variant="warning">
+            <Toast.Growl variant="ai">
+              <Toast.Title>Lorem ipsum dolor sit amet</Toast.Title>
+              Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+              himenaeos
+              <div className="mt-[1rem]">
+                <Button onClick={() => alert('action')} size="sm" variant="primary-ai">
+                  Action
+                </Button>
+              </div>
+            </Toast.Growl>
+          )
+        }
+      >
+        AI
+      </Button>
+      <Button
+        onClick={() =>
+          toast(
+            <Toast.Growl hideIcon variant="warning">
               <Toast.Title>Lorem ipsum dolor sit amet</Toast.Title>
               Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
               himenaeos
