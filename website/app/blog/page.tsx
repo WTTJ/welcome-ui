@@ -7,7 +7,6 @@ import { RightIcon } from '@/components/Icon'
 import { Text } from '@/components/Text'
 import { Card } from '@old/Card'
 import { Link } from '@old/Link'
-import { Stack } from '@old/Stack'
 import { Tag } from '@old/Tag'
 
 const posts = [
@@ -91,24 +90,24 @@ const Home = () => {
               <Card>
                 {cover ? <Card.Cover src={cover} /> : null}
                 <Card.Body>
-                  <Stack direction="row" mb="xl" spacing="xxs">
+                  <div className="flex flex-row gap-xxs mb-xl">
                     {tags?.map(tag => (
                       <Tag key={`${link}_${tag}`} size="sm" variant="info">
                         {tag}
                       </Tag>
                     ))}
-                  </Stack>
+                  </div>
                   <Title href={link} rel="noopener nofollow" target="_blank">
                     {title}
                   </Title>
                   <div className="md:flex md:items-end">
                     <div className="flex flex-col gap-md">
                       <Text className="mt-md">{description}</Text>
-                      <Stack direction="row" mb="xxs">
+                      <div className="flex flex-row mb-xxs">
                         {authors?.map(({ name, url }) => (
                           <Avatar key={`${link}_authors_${url}`} name={name} src={url} />
                         ))}
-                      </Stack>
+                      </div>
                       <Text as="span" className="font-bold" variant="sm">
                         {authors?.map(({ name }, idx) => (
                           <>
