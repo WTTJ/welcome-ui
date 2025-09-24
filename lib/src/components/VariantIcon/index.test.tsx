@@ -10,7 +10,10 @@ describe('VariantIcon', () => {
 
     const component = screen.getByTestId('component')
 
-    expect(component.querySelector('svg')).toHaveAttribute('aria-label', 'Promote')
+    expect(component.querySelector('svg')).toBeInTheDocument()
+    expect(component.className).not.toMatch(
+      /variant-success|variant-warning|variant-info|variant-ai|variant-danger/
+    )
   })
 
   it('renders with custom props', () => {
@@ -22,6 +25,5 @@ describe('VariantIcon', () => {
 
     expect(component.className).toMatch(/variant-success/)
     expect(component.className).toMatch(/custom-class/)
-    expect(component.querySelector('svg')).toHaveAttribute('aria-label', 'Check')
   })
 })

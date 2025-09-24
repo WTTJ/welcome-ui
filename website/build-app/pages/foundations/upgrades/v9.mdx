@@ -105,6 +105,13 @@ Size props are only for intern values (xs, sm, ...), you can now use tailwind si
 +<CheckIcon className="size-(--spacing-xl)" />
 ```
 
+`alt` prop has been removed, you can now use `aria-label` if your icon is not decorative.
+
+```diff
+-<CheckIcon alt="Check icon" />
++<CheckIcon aria-label="Check icon" />
+```
+
 ### Popover
 
 The `animated` prop in `usePopover` and `usePopoverHover` hooks is no longer supported. If you want to customize the animation duration, you can use `hideTimeout` and `showTimeout` props.

@@ -8,21 +8,21 @@ import type { IconProps } from './Icon.types'
 const cx = classNames(iconStyles)
 
 export const Icon = forwardRef<SVGSVGElement, IconProps>(
-  ({ alt, className, content, size = 'md', ...rest }, ref) => {
+  ({ 'aria-label': ariaLabel, className, content, size = 'md', ...rest }, ref) => {
     if (!content) {
       return null
     }
 
     return (
       <svg
-        aria-label={alt}
+        aria-hidden={ariaLabel ? 'false' : 'true'}
+        aria-label={ariaLabel}
         className={cx('root', `size-${size}`, className)}
         ref={ref}
-        role="img"
+        role={ariaLabel ? 'img' : undefined}
         viewBox={content.viewBox || '0 0 100 100'}
         {...rest}
       >
-        <title>{alt}</title>
         <g dangerouslySetInnerHTML={{ __html: content.block || '' }} />
       </svg>
     )

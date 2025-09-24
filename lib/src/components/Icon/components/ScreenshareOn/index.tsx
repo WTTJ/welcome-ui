@@ -4,5 +4,5 @@ import type { IconProps } from '../../Icon.types'
 import content from './content.json'
 
 export const ScreenshareOnIcon = (props: IconProps) => {
-  return <Icon alt="ScreenshareOn" content={content} {...props} />
+  return <Icon content={content} {...props} />
 }

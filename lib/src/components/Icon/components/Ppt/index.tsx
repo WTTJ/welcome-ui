@@ -4,5 +4,5 @@ import type { IconProps } from '../../Icon.types'
 import content from './content.json'
 
 export const PptIcon = (props: IconProps) => {
-  return <Icon alt="Ppt" content={content} {...props} />
+  return <Icon content={content} {...props} />
 }

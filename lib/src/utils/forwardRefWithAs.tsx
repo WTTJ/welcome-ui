@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import type { ComponentProps } from 'react'
 import React from 'react'
 
 /**
@@ -21,6 +22,15 @@ export type As<BaseProps = any> = React.ElementType<BaseProps>
  *  type Test2 = Omit<Union, 'b'> // B      (because 'b' is not in B)
  */
 export type DistributiveOmit<T, K extends keyof any> = T extends any ? Omit<T, K> : never
+
+/**
+ * Injects in given props the one of the element
+ */
+export type ForwardRefProps<
+  Props extends EmptyProps,
+  CompType extends React.ElementType<any>,
+> = MergeProps<Props, ComponentProps<CompType>>
+
 export interface ForwardRefWithAsRenderFunction<
   DefaultComponentType extends As,
   ComponentProps extends PropsType = Record<string, any>,

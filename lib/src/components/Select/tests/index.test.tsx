@@ -329,7 +329,7 @@ describe('<Select>', () => {
         options={MONTHS}
         renderItem={option => (
           <div style={{ alignItems: 'center', display: 'flex' }}>
-            <DateIcon alt="Calendar" size="sm" />
+            <DateIcon size="sm" />
             <span>{(option as SelectOption).label}</span>
           </div>
         )}
@@ -341,21 +341,21 @@ describe('<Select>', () => {
     const icon = select.querySelector('svg')
 
     expect(select).toHaveTextContent('February')
-    expect(icon).toHaveAttribute('aria-label', 'Calendar')
+    expect(icon).toBeInTheDocument()
   })
 
   it('<Select icon> shows icon', () => {
-    const { container } = render(
+    render(
       <Select
         dataTestId="select"
-        icon={<AvatarIcon alt="Avatar" color="neutral-80" />}
+        icon={<AvatarIcon data-testid="avatar-icon" />}
         name="select"
         options={MONTHS}
         value="february"
       />
     )
 
-    const icon = container.querySelector('[aria-label="Avatar"]')
+    const icon = screen.getByTestId('avatar-icon')
     expect(icon).toBeInTheDocument()
   })
 
