@@ -2,9 +2,7 @@
 import { useParams, usePathname } from 'next/navigation'
 import { useEffect, useRef } from 'react'
 
-import { Flex } from '@old/Flex'
 import { Text } from '@old/Text'
-import type { ThemeValues } from '@old/theme'
 
 import type { PageTree } from '~/build-app/types'
 import { getName } from '~/build-app/utils/transform-name'
@@ -12,13 +10,13 @@ import { getName } from '~/build-app/utils/transform-name'
 import * as S from './styles'
 
 type SidebarProps = {
-  display?: ThemeValues['display']
+  className?: string
   isSubPage?: boolean
   menu: PageTree
   onClick?: () => void
 }
 
-export const Sidebar = ({ display = 'flex', isSubPage, menu, onClick }: SidebarProps) => {
+export const Sidebar = ({ className, isSubPage, menu, onClick }: SidebarProps) => {
   const currentRoute = usePathname()
   const { subPage } = useParams()
   const ref = useRef<HTMLDivElement>(null)
@@ -36,26 +34,18 @@ export const Sidebar = ({ display = 'flex', isSubPage, menu, onClick }: SidebarP
   }, [ref])
 
   return (
-    <Flex
-      as="nav"
-      direction="column"
-      display={display}
-      gap="3xl"
-      h="calc(100vh - 5.5rem)"
-      overflowY="auto"
-      position="sticky"
-      pt="3xl"
+    <nav
+      className={`flex flex-col gap-3xl h-[calc(100vh - 5.5rem)] overflow-y-auto pt-3xl sticky top-[4.375rem] ${className}`}
       ref={ref}
-      top={70}
     >
       {menu.map(({ category, pages, parent }) => (
-        <Flex as="ul" direction="column" flexShrink={0} key={`sidebar_${category}`}>
+        <ul className="flex flex-col shrink-0" key={`sidebar_${category}`}>
           {category ? (
             <Text mb="lg" variant="subtitle-sm">
               {getName(category)}
             </Text>
           ) : null}
-          <Flex as="ul" direction="column" gap="lg">
+          <ul className="flex flex-col gap-lg">
             {pages.map(({ id, parent: pageParent, title }) => {
               const href = `/${parent}/${pageParent ? `${pageParent}/` : ''}${id}`
               const isCurrent =
@@ -69,9 +59,9 @@ export const Sidebar = ({ display = 'flex', isSubPage, menu, onClick }: SidebarP
                 </li>
               )
             })}
-          </Flex>
-        </Flex>
+          </ul>
+        </ul>
       ))}
-    </Flex>
+    </nav>
   )
 }

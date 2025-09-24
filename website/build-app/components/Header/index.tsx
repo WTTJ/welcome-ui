@@ -5,7 +5,6 @@ import { usePathname } from 'next/navigation'
 import { Button } from '@/components/Button'
 import { MenuIcon } from '@/components/Icon'
 import { Drawer, useDrawer } from '@old/Drawer'
-import { Flex } from '@old/Flex'
 import { WelcomeUILogo } from '@old/Logo'
 
 import type { PageTree } from '~/build-app/types'
@@ -42,16 +41,8 @@ export const Header = ({ components, foundations }: HeaderProps) => {
 
   return (
     <S.Header>
-      <Flex
-        alignItems="center"
-        gap="lg"
-        h="100%"
-        justifyContent="space-between"
-        margin="0 auto"
-        maxWidth={1400}
-        px="md"
-      >
-        <Flex alignItems="center" gap="lg">
+      <div className="flex gap-lg h-full items-center justify-between max-w-[87.5rem] mx-auto px-md">
+        <div className="flex gap-lg items-center">
           <div className="shrink-0">
             <Link href="/">
               <WelcomeUILogo h={40} />
@@ -59,7 +50,7 @@ export const Header = ({ components, foundations }: HeaderProps) => {
           </div>
           <VersionSelector />
           <Search />
-        </Flex>
+        </div>
         <Drawer.Trigger
           as={Button}
           className="lg:hidden shrink-0"
@@ -69,14 +60,14 @@ export const Header = ({ components, foundations }: HeaderProps) => {
         >
           <MenuIcon />
         </Drawer.Trigger>
-        <NavBar display={{ _: 'none', lg: 'flex' }} />
+        <NavBar className="hidden lg:flex" />
         <Drawer display={{ lg: 'none' }} size="100%" store={drawer} withBackdrop zIndex={999}>
           <Drawer.Content pt="4xl">
             <NavBar onClick={handleCloseDrawer} />
             {menu ? <Sidebar isSubPage menu={menu} onClick={handleCloseDrawer} /> : null}
           </Drawer.Content>
         </Drawer>
-      </Flex>
+      </div>
     </S.Header>
   )
 }

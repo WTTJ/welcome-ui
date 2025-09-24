@@ -1,6 +1,5 @@
 'use client'
 import { ExternalLinkIcon, HeartIcon } from '@/components/Icon'
-import { Flex } from '@old/Flex'
 import { Grid } from '@old/Grid'
 import { Logo } from '@old/Logo'
 import { Text } from '@old/Text'
@@ -74,10 +73,10 @@ export const Footer = () => {
   return (
     <Section as="footer" className="bg-beige-20">
       <Grid gap="xl" gridTemplateColumns={{ _: '1fr 1fr', md: '1fr 1fr 1fr 1fr' }}>
-        <Flex flexDirection="column" gap="xs">
-          <Flex alignItems="center" gap="sm">
+        <div className="flex flex-col gap-xs">
+          <div className="flex gap-sm items-center">
             Made with <HeartIcon className="text-brand-50" /> by
-          </Flex>
+          </div>
           <a
             className="w-fit-content"
             href="https://www.welcometothejungle.com"
@@ -86,11 +85,11 @@ export const Footer = () => {
           >
             <Logo h={40} />
           </a>
-        </Flex>
+        </div>
         {links.map(({ links, name }) => (
-          <Flex as="nav" flexDirection="column" gap="lg" key={name}>
+          <nav className="flex flex-col gap-lg" key={name}>
             <Text variant="subtitle-md">{name}</Text>
-            <Flex as="ul" flexDirection="column" gap="sm">
+            <ul className="flex flex-col gap-sm">
               {links.map(({ isExternal, link, name }) => (
                 <li key={link}>
                   <a
@@ -104,8 +103,8 @@ export const Footer = () => {
                   </a>
                 </li>
               ))}
-            </Flex>
-          </Flex>
+            </ul>
+          </nav>
         ))}
       </Grid>
     </Section>

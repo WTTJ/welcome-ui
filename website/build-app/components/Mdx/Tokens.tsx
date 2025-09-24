@@ -2,7 +2,6 @@
 import { snakeCase } from 'lodash'
 
 import { Card } from '@old/Card'
-import { Flex } from '@old/Flex'
 import { Text } from '@old/Text'
 
 export const Tokens = ({ children }: { children: React.ReactNode[] }) => {
@@ -13,7 +12,7 @@ export const Tokens = ({ children }: { children: React.ReactNode[] }) => {
     ?.props?.children?.replace('Token Group ', '')
 
   return (
-    <Flex direction="column" gap="md">
+    <div className="flex flex-col gap-md">
       {children.map((child, index) => {
         const key = `${snakeCase(tokenName)}-${index}`
 
@@ -37,6 +36,6 @@ export const Tokens = ({ children }: { children: React.ReactNode[] }) => {
           </Card>
         )
       })}
-    </Flex>
+    </div>
   )
 }

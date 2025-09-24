@@ -131,7 +131,7 @@ const Home = () => {
             <RightIcon size="lg" />
           </Button>
         </div>
-        <div className="-bottom-[9.375rem] -right-[7.5rem] absolute none lg:block opacity-[10]">
+        <div className="-bottom-[9.375rem] -right-[7.5rem] absolute hidden lg:block opacity-[10]">
           <Symbol h={400} />
         </div>
       </Section>

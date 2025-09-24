@@ -6,7 +6,6 @@ import { Button } from '@/components/Button'
 import { RightIcon } from '@/components/Icon'
 import { Text } from '@/components/Text'
 import { Card } from '@old/Card'
-import { Flex } from '@old/Flex'
 import { Link } from '@old/Link'
 import { Stack } from '@old/Stack'
 import { Tag } from '@old/Tag'
@@ -103,7 +102,7 @@ const Home = () => {
                     {title}
                   </Title>
                   <div className="md:flex md:items-end">
-                    <Flex direction="column" gap="md">
+                    <div className="flex flex-col gap-md">
                       <Text className="mt-md">{description}</Text>
                       <Stack direction="row" mb="xxs">
                         {authors?.map(({ name, url }) => (
@@ -129,7 +128,7 @@ const Home = () => {
                       >
                         <span>Read more</span> <RightIcon />
                       </Button>
-                    </Flex>
+                    </div>
                   </div>
                 </Card.Body>
               </Card>

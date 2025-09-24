@@ -3,7 +3,6 @@ import Link from 'next/link'
 
 import { Button } from '@/components/Button'
 import { LeftIcon, RightIcon } from '@/components/Icon'
-import { Flex } from '@old/Flex'
 
 import type { PageTree } from '~/build-app/types'
 import { getName } from '~/build-app/utils/transform-name'
@@ -23,7 +22,7 @@ export const PrevNextPage = ({ basePage, currentId, pages }: PrevNextPageProps) 
   const currentPageIndex = items.indexOf(currentId)
 
   return (
-    <Flex justifyContent="space-between" mt="3xl">
+    <div className="flex justify-between mt-3xl">
       {currentPageIndex > 0 ? (
         <Button as={Link} href={`/${basePage}/${items[currentPageIndex - 1]}`} variant="tertiary">
           <LeftIcon />
@@ -38,6 +37,6 @@ export const PrevNextPage = ({ basePage, currentId, pages }: PrevNextPageProps) 
           <RightIcon />
         </Button>
       )}
-    </Flex>
+    </div>
   )
 }
