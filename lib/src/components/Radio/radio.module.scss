@@ -1,0 +1,83 @@
+@layer components {
+  .root {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    flex-direction: row;
+
+    input {
+      margin-top: var(--spacing-xs);
+    }
+  }
+
+  .input-wrapper {
+    flex-shrink: 0;
+    position: relative;
+    align-items: center;
+    display: flex;
+    align-self: flex-start;
+  }
+
+  .input {
+    border-radius: var(--radius-circle);
+    order: -1;
+    position: relative;
+    outline: none;
+    padding: 0;
+    transition: var(--duration-medium) var(--timing-primary);
+    border-style: solid;
+    border-width: var(--border-width-sm);
+    border-color: var(--borderColor, var(--color-neutral-30));
+    color: var(--color-neutral-10);
+    height: var(--height-16);
+    width: var(--height-16);
+
+    &.variant {
+      &-danger {
+        --borderColor: var(--color-red-70);
+      }
+
+      &-warning {
+        --borderColor: var(--color-orange-60);
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: var(--height-8);
+      height: var(--height-8);
+      border-radius: var(--radius-circle);
+      top: var(--spacing-3);
+      left: var(--spacing-3);
+      transition: medium;
+      background-color: var(--backgroundColor, var(--color-transparent));
+    }
+
+    &[aria-checked='true'] {
+      &:not([disabled]) {
+        --borderColor: var(--color-brand-40);
+        color: var(--color-neutral-90);
+      }
+
+      &[disabled] {
+        &::after {
+          --backgroundColor: var(--color-brand-30);
+        }
+      }
+
+      &::after {
+        --backgroundColor: var(--color-brand-40);
+      }
+    }
+  }
+
+  .label-with-hint {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hint {
+    margin-top: 0;
+  }
+}
