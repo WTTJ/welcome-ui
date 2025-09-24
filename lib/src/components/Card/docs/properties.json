@@ -1,0 +1,25 @@
+{
+  "Card.Cover": {
+    "props": {
+      "src": {
+        "defaultValue": null,
+        "description": "",
+        "name": "src",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Card/types.ts",
+          "name": "CoverOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Card/types.ts",
+            "name": "CoverOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "string"
+        }
+      }
+    }
+  }
+}

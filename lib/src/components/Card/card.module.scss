@@ -1,0 +1,18 @@
+@layer components {
+  .root {
+    /* VARIABLES FROM THEME - DONT CHANGE WITH REACT PROPS */
+    border-radius: var(--radius-md);
+    background-size: cover;
+    background-position: center;
+    background-color: var(--color-neutral-10);
+    border-color: var(--color-neutral-30);
+    border-style: solid;
+    border-width: var(--border-width-sm);
+    overflow: hidden;
+  }
+
+  .body {
+    /* VARIABLES FROM THEME - DONT CHANGE WITH REACT PROPS */
+    padding: var(--spacing-lg);
+  }
+}
