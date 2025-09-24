@@ -33,7 +33,7 @@ const components = {
   p: Paragraph,
   pre: Pre,
   strong: ({ children }: { children: React.ReactElement }) => (
-    <strong className="font-[500] text-neutral-90">{children}</strong>
+    <strong className="font-medium text-neutral-90">{children}</strong>
   ),
   ul: ({ children }: { children: React.ReactElement }) => (
     <ul className="list-disc mt-sm">{children}</ul>

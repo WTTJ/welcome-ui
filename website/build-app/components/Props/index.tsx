@@ -103,7 +103,7 @@ export const Property = ({ id, name, options }: PropertyProps) => {
   }
 
   return (
-    <div className="mt-lg" id={id} style={{ scrollMarginTop: 170 }}>
+    <div className="mt-lg scroll-mt-[170px]" id={id}>
       <Flex
         alignItems="center"
         borderBottom="1px solid"

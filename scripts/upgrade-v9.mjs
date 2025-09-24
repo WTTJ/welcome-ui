@@ -580,7 +580,12 @@ const valueMap = {
   flexShrink: value => transform('shrink', value),
   flexWrap: value => transform('flex', value),
   fontSize: value => transform('text', value),
-  fontWeight: value => transform('font', value),
+  fontWeight: value => {
+    if (value.toString() === '400') return 'font-normal'
+    if (value.toString() === '500') return 'font-medium'
+    if (value.toString() === '600') return 'font-bold'
+    return transform('font', value)
+  },
   gap: value => transform('gap', value),
   gridTemplateColumns: value => transform('grid-cols', value, true),
   h: value => transform('h', value),

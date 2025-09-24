@@ -29,7 +29,10 @@ export const Highlight = ({ children, language = 'tsx' }: HighlightProps) => {
           >
             {copied ? <CheckIcon /> : <CopyIcon className="text-neutral-10" />}
           </Button>
-          <pre className="border border-neutral-30 p-lg 3xl lg xl rounded-lg" style={style}>
+          <pre
+            className="border border-neutral-30 pt-lg pr-3xl pb-lg pl-xl rounded-lg"
+            style={style}
+          >
             {tokens.map((line, i) => (
               <div key={i} {...getLineProps({ line })}>
                 {line.map((token, key) => {
