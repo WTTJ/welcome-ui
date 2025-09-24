@@ -39,6 +39,17 @@ We cannot cover all cases, so you may have to fix some issues manually. Check `_
 
 ## Components changes
 
+### Deprecated components
+
+With the removed of styled-components some components are not needed anymore and have been removed:
+
+- Box
+- Flex
+- Grid
+- Stack
+
+Please use `div` with tailwind classes instead. To help you with the migration, we provide a script to convert Box, Flex, Grid and Stack components to `div` with tailwind classes. See step 2 above.
+
 ### Alert
 
 To hide and icon you need now to use `hideIcon` prop instead of passing `null` to `icon` prop.

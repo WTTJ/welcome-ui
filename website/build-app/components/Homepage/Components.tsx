@@ -6,7 +6,6 @@ import { Pagination } from '@/components/Pagination'
 import { Alert } from '@old/Alert'
 import { Card } from '@old/Card'
 import { Link } from '@old/Link'
-import { Stack } from '@old/Stack'
 import { Tag } from '@old/Tag'
 import { Text } from '@old/Text'
 import { Toggle } from '@old/Toggle'
@@ -21,11 +20,11 @@ type ComponentProps = {
 const components: ComponentProps[] = [
   {
     children: (
-      <Stack direction="row" spacing="md">
+      <div className="flex flex-row gap-md">
         <Tag>Default</Tag>
         <Tag variant="success">Success</Tag>
         <Tag variant="violet">Violet</Tag>
-      </Stack>
+      </div>
     ),
     description: 'Allows user to categorize or organized keywords.',
     link: 'components/tag',
@@ -33,10 +32,10 @@ const components: ComponentProps[] = [
   },
   {
     children: (
-      <Stack direction="row" spacing="md">
+      <div className="flex flex-row gap-md">
         <Toggle aria-label="Toggle unchecked" mb="md" />
         <Toggle aria-label="Toggle checked" checked />
-      </Stack>
+      </div>
     ),
     description: 'Allows user to activate or deactivate an option.',
     link: 'components/toggle',
@@ -70,7 +69,7 @@ const components: ComponentProps[] = [
   },
   {
     children: (
-      <Stack direction="row" spacing="md">
+      <div className="flex flex-row gap-md">
         <Avatar name="Welcome jungle" size="lg" />
         <Avatar name="Other name" size="lg" />
         <Avatar
@@ -78,7 +77,7 @@ const components: ComponentProps[] = [
           size="lg"
           src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4"
         />
-      </Stack>
+      </div>
     ),
     description:
       'Allows user to get an avatar with initials as a fallback letter when have no image.',
@@ -87,10 +86,10 @@ const components: ComponentProps[] = [
   },
   {
     children: (
-      <Stack direction="row" spacing="md">
+      <div className="flex flex-row gap-md">
         <Link>Primary</Link>
         <Link variant="secondary">Secondary</Link>
-      </Stack>
+      </div>
     ),
     description: 'Allows user to get our customized anchor element.',
     link: 'components/link',

@@ -33,7 +33,7 @@ function findBoxComponents(directory) {
         const content = fs.readFileSync(filePath, 'utf8')
 
         // Find Box and Flex components with comprehensive multi-line handling
-        const componentTypes = ['Box', 'Flex', 'Grid']
+        const componentTypes = ['Box', 'Flex', 'Grid', 'Stack']
 
         for (const componentType of componentTypes) {
           let startIndex = 0
@@ -252,9 +252,9 @@ function findBoxComponents(directory) {
   return results
 }
 
-async function processBoxComponents(components, shouldReplace = false) {
+async function processComponents(components, shouldReplace = false) {
   if (components.length === 0) {
-    console.log('No Box or Flex components found.')
+    console.log('No migrated components found.')
     rl.close()
     return
   }
@@ -300,7 +300,7 @@ async function processBoxComponents(components, shouldReplace = false) {
       let valuesNotTransformed = []
 
       // Add default flex class for Flex components
-      if (component.componentType === 'Flex') {
+      if (component.componentType === 'Flex' || component.componentType === 'Stack') {
         classnames.push('flex')
       }
 
@@ -697,6 +697,8 @@ const valueMap = {
   rowGap: value => transform('gap-y', value),
   // <Flex />
   shrink: value => transform('shrink', value),
+  // <Stack />
+  spacing: value => transform('gap', value),
   // <Grid />
   templateColumns: value => transform('grid-cols', value, true),
   textAlign: value => transform('text', value),
@@ -715,7 +717,7 @@ async function main() {
   const shouldReplace = process.argv[3] === '--replace'
 
   const components = findBoxComponents(searchDirectory)
-  await processBoxComponents(components, shouldReplace)
+  await processComponents(components, shouldReplace)
 }
 
 function transformValue(key, value) {
