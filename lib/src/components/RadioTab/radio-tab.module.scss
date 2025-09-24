@@ -1,0 +1,97 @@
+@use './../../utils/text-ellipsis' as ellipsis;
+
+@layer components {
+  .radio {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+
+  .label {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    min-height: var(--height);
+    max-width: 100%;
+    margin: 0;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    transition: var(--duration-medium);
+
+    &:not(.checked):not(:disabled):not([aria-disabled]) {
+      border-color: var(--color-neutral-30);
+
+      &:hover {
+        background-color: var(--color-neutral-30);
+      }
+
+      &:focus,
+      &:active {
+        background-color: var(--color-neutral-50);
+      }
+    }
+
+    &.column-layout {
+      margin-top: -1px;
+
+      &:first-of-type {
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+
+      &:last-of-type {
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+      }
+    }
+
+    &.row-layout {
+      margin-left: -1px;
+
+      &:first-of-type {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      &:last-of-type {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .input {
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .content {
+    @include ellipsis.text-ellipsis;
+    max-width: 100%;
+  }
+
+  .size {
+    &-xs {
+      --height: var(--height-elements-sm);
+    }
+
+    &-sm {
+      --height: var(--height-elements-md);
+    }
+
+    &-md {
+      --height: var(--height-elements-lg);
+    }
+
+    &-lg {
+      --height: var(--height-elements-xl);
+    }
+  }
+}
