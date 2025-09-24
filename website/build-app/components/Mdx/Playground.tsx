@@ -65,9 +65,9 @@ export const Playground = ({
       <div className="block">
         <div
           className={cx(
-            'bg-neutral-10 border border-beige-40 flex-wrap gap-lg mt-xl flex p-sm lg:p-3xl relative rounded-lg',
+            'bg-neutral-10 border border-beige-40 flex-wrap gap-lg mt-xl p-sm lg:p-3xl relative rounded-lg',
             columnDirection ? 'flex-col items-left' : 'items-center',
-            removeFlex && 'block',
+            removeFlex ? 'block' : 'flex',
             className
           )}
         >
