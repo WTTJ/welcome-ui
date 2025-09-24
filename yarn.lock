@@ -10766,10 +10766,10 @@ vite-node@3.2.4:
     pathe "^2.0.3"
     vite "^5.0.0 || ^6.0.0 || ^7.0.0-0"
 
-vite-plugin-dts@^4.5.3:
-  version "4.5.3"
-  resolved "https://registry.npmjs.org/vite-plugin-dts/-/vite-plugin-dts-4.5.3.tgz"
-  integrity sha512-P64VnD00dR+e8S26ESoFELqc17+w7pKkwlBpgXteOljFyT0zDwD8hH4zXp49M/kciy//7ZbVXIwQCekBJjfWzA==
+vite-plugin-dts@^4.5.4:
+  version "4.5.4"
+  resolved "https://registry.yarnpkg.com/vite-plugin-dts/-/vite-plugin-dts-4.5.4.tgz#51b60aaaa760d9cf5c2bb3676c69d81910d6b08c"
+  integrity sha512-d4sOM8M/8z7vRXHHq/ebbblfaxENjogAAekcfcDCCwAyvGqnPrc7f4NZbvItS+g4WTgerW0xDwSz5qz11JT3vg==
   dependencies:
     "@microsoft/api-extractor" "^7.50.1"
     "@rollup/pluginutils" "^5.1.4"
