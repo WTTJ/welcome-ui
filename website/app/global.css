@@ -18,6 +18,7 @@
 @import '../../lib/src/components/Tag/tag.module.scss';
 @import '../../lib/src/components/Text/text.module.scss';
 @import '../../lib/src/components/Textarea/textarea.module.scss';
+@import '../../lib/src/components/Toast/toast.module.scss';
 @import '../../lib/src/components/Toggle/toggle.module.scss';
 @import '../../lib/src/components/VariantIcon/variant-icon.module.scss';
 

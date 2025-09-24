@@ -1,0 +1,16 @@
+import { screen } from '@testing-library/react'
+
+import { render } from '@tests'
+
+import { Toast } from './'
+
+const content = 'Jungle'
+
+describe('<Title>', () => {
+  it('should render correctly', () => {
+    render(<Toast.Title data-testid="growl-title">{content}</Toast.Title>)
+    const title = screen.getByTestId('growl-title')
+
+    expect(title).toHaveTextContent(content)
+  })
+})

@@ -1,0 +1,524 @@
+{
+  "ToastComponent": {
+    "props": {}
+  },
+  "Growl": {
+    "props": {
+      "data-testid": {
+        "defaultValue": null,
+        "description": "",
+        "name": "data-testid",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Toast/types.ts",
+          "name": "GrowlOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Toast/types.ts",
+            "name": "GrowlOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "hasCloseButton": {
+        "defaultValue": null,
+        "description": "",
+        "name": "hasCloseButton",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Toast/types.ts",
+          "name": "GrowlOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Toast/types.ts",
+            "name": "GrowlOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "icon": {
+        "defaultValue": null,
+        "description": "",
+        "name": "icon",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Toast/types.ts",
+          "name": "GrowlOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Toast/types.ts",
+            "name": "GrowlOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "Element"
+        }
+      },
+      "onClose": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onClose",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Toast/types.ts",
+          "name": "GrowlOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Toast/types.ts",
+            "name": "GrowlOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "() => void"
+        }
+      },
+      "variant": {
+        "defaultValue": null,
+        "description": "",
+        "name": "variant",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Toast/types.ts",
+          "name": "GrowlOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Toast/types.ts",
+            "name": "GrowlOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "ToastVariant",
+          "value": [
+            {
+              "value": "\"ai\""
+            },
+            {
+              "value": "\"beige\""
+            },
+            {
+              "value": "\"danger\""
+            },
+            {
+              "value": "\"info\""
+            },
+            {
+              "value": "\"success\""
+            },
+            {
+              "value": "\"warning\""
+            }
+          ]
+        }
+      }
+    }
+  },
+  "Snackbar": {
+    "props": {
+      "cta": {
+        "defaultValue": null,
+        "description": "add correct separator for call to action\nuse SnackbarAction",
+        "name": "cta",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Toast/types.ts",
+          "name": "SnackbarOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Toast/types.ts",
+            "name": "SnackbarOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "Element"
+        }
+      },
+      "hasCloseButton": {
+        "defaultValue": null,
+        "description": "",
+        "name": "hasCloseButton",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Toast/types.ts",
+          "name": "SnackbarOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Toast/types.ts",
+            "name": "SnackbarOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "icon": {
+        "defaultValue": null,
+        "description": "",
+        "name": "icon",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Toast/types.ts",
+          "name": "SnackbarOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Toast/types.ts",
+            "name": "SnackbarOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "Element"
+        }
+      },
+      "onClose": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onClose",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Toast/types.ts",
+          "name": "SnackbarOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Toast/types.ts",
+            "name": "SnackbarOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "() => void"
+        }
+      },
+      "variant": {
+        "defaultValue": null,
+        "description": "",
+        "name": "variant",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Toast/types.ts",
+          "name": "SnackbarOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Toast/types.ts",
+            "name": "SnackbarOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "ToastVariant",
+          "value": [
+            {
+              "value": "\"ai\""
+            },
+            {
+              "value": "\"beige\""
+            },
+            {
+              "value": "\"danger\""
+            },
+            {
+              "value": "\"info\""
+            },
+            {
+              "value": "\"success\""
+            },
+            {
+              "value": "\"warning\""
+            }
+          ]
+        }
+      }
+    }
+  },
+  "SnackbarAction": {
+    "props": {
+      "isLoading": {
+        "defaultValue": null,
+        "description": "",
+        "name": "isLoading",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Button/types.ts",
+          "name": "ButtonOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Button/types.ts",
+            "name": "ButtonOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "shape": {
+        "defaultValue": null,
+        "description": "",
+        "name": "shape",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Button/types.ts",
+          "name": "ButtonOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Button/types.ts",
+            "name": "ButtonOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "ButtonShape",
+          "value": [
+            {
+              "value": "\"circle\""
+            },
+            {
+              "value": "\"default\""
+            },
+            {
+              "value": "\"square\""
+            }
+          ]
+        }
+      },
+      "size": {
+        "defaultValue": null,
+        "description": "",
+        "name": "size",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Button/types.ts",
+          "name": "ButtonOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Button/types.ts",
+            "name": "ButtonOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "ButtonSize",
+          "value": [
+            {
+              "value": "\"lg\""
+            },
+            {
+              "value": "\"md\""
+            },
+            {
+              "value": "\"sm\""
+            },
+            {
+              "value": "\"xs\""
+            }
+          ]
+        }
+      },
+      "variant": {
+        "defaultValue": null,
+        "description": "",
+        "name": "variant",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Button/types.ts",
+          "name": "ButtonOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Button/types.ts",
+            "name": "ButtonOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "ButtonVariant",
+          "value": [
+            {
+              "value": "\"ghost\""
+            },
+            {
+              "value": "\"ghost-ai\""
+            },
+            {
+              "value": "\"ghost-danger\""
+            },
+            {
+              "value": "\"primary\""
+            },
+            {
+              "value": "\"primary-ai\""
+            },
+            {
+              "value": "\"primary-danger\""
+            },
+            {
+              "value": "\"secondary\""
+            },
+            {
+              "value": "\"tertiary\""
+            },
+            {
+              "value": "\"tertiary-ai\""
+            },
+            {
+              "value": "\"tertiary-danger\""
+            }
+          ]
+        }
+      }
+    }
+  },
+  "Title": {
+    "props": {
+      "lines": {
+        "defaultValue": null,
+        "description": "",
+        "name": "lines",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Text/types.ts",
+          "name": "TextOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Text/types.ts",
+            "name": "TextOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "number"
+        }
+      },
+      "variant": {
+        "defaultValue": null,
+        "description": "",
+        "name": "variant",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Text/types.ts",
+          "name": "TextOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Text/types.ts",
+            "name": "TextOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"h1\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\" | \"lg\" | \"md\" | \"sm\" | \"xs\" | \"h0\" | \"subtitle-md\" | \"subtitle-sm\"",
+          "value": [
+            {
+              "value": "\"h1\""
+            },
+            {
+              "value": "\"h2\""
+            },
+            {
+              "value": "\"h3\""
+            },
+            {
+              "value": "\"h4\""
+            },
+            {
+              "value": "\"h5\""
+            },
+            {
+              "value": "\"h6\""
+            },
+            {
+              "value": "\"lg\""
+            },
+            {
+              "value": "\"md\""
+            },
+            {
+              "value": "\"sm\""
+            },
+            {
+              "value": "\"xs\""
+            },
+            {
+              "value": "\"h0\""
+            },
+            {
+              "value": "\"subtitle-md\""
+            },
+            {
+              "value": "\"subtitle-sm\""
+            }
+          ]
+        }
+      },
+      "withDash": {
+        "defaultValue": null,
+        "description": "",
+        "name": "withDash",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Text/types.ts",
+          "name": "TextOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Text/types.ts",
+            "name": "TextOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

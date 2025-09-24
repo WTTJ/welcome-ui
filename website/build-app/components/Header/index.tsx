@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation'
 
 import { Button } from '@/components/Button'
 import { MenuIcon } from '@/components/Icon'
+import { Toast } from '@/components/Toast'
 import { Drawer, useDrawer } from '@old/Drawer'
 import { WelcomeUILogo } from '@old/Logo'
 
@@ -41,6 +42,7 @@ export const Header = ({ components, foundations }: HeaderProps) => {
 
   return (
     <S.Header>
+      <Toast />
       <div className="flex gap-lg h-full items-center justify-between max-w-[87.5rem] mx-auto px-md">
         <div className="flex gap-lg items-center">
           <div className="shrink-0">

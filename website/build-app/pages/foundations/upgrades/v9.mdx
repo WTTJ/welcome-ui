@@ -50,6 +50,27 @@ To hide and icon you need now to use `hideIcon` prop instead of passing `null` t
 
 You cannot pass a custom icon anymore.
 
+### ClearButton
+
+the `ClearButton` component has been removed. You can use the `CloseButton` component with `animatePresence` prop instead.
+
+```diff
+-import { ClearButton } from '@welcome-ui/clear-button'
++import { CloseButton } from '@welcome-ui/close-button'
+
+-<ClearButton />
++<CloseButton animatePresence />
+```
+
+### DropdownMenu
+
+The DropdownMenu component no longer accepts the `gutter` prop. This value is set to 4px by default. If you want to remove the gutter, you can use `withGutter` prop.
+
+```diff
+-<DropdownMenu gutter={0} />
++<DropdownMenu withGutter={false} />
+```
+
 ### Icon
 
 We removed the IconFont component and replaced it with a new Icon component that uses SVG icons. If you already use Icon component, you don't need to change anything (except if you use color or size props, see below).
@@ -82,23 +103,20 @@ The `animated` prop in `usePopover` and `usePopoverHover` hooks is no longer sup
 +const popover = usePopover({ hideTimeout: 200, showTimeout: 200 })
 ```
 
-### ClearButton
+### Toast
 
-the `ClearButton` component has been removed. You can use the `CloseButton` component with `animatePresence` prop instead.
+Change import for Toast:
 
 ```diff
--import { ClearButton } from '@welcome-ui/clear-button'
-+import { CloseButton } from '@welcome-ui/close-button'
-
--<ClearButton />
-+<CloseButton animatePresence />
+-import { Notifications } from '@welcome-ui/toast'
++import { Toast } from '@welcome-ui/toast'
 ```
 
-### DropdownMenu
-
-The DropdownMenu component no longer accepts the `gutter` prop. This value is set to 4px by default. If you want to remove the gutter, you can use `withGutter` prop.
+To not showing icon use `hideIcon` property:
 
 ```diff
--<DropdownMenu gutter={0} />
-+<DropdownMenu withGutter={false} />
+-<Growl icon={null} />
++<Growl hideIcon />
+
+We also removed `onPauseOver` options.
 ```
