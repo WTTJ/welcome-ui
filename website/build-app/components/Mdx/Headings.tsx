@@ -1,6 +1,5 @@
 import { kebabCase } from 'lodash'
 
-import { Box } from '@old/Box'
 import { Text } from '@old/Text'
 import type { ThemeValues } from '@old/theme'
 
@@ -25,9 +24,9 @@ export const H2 = ({ children, mt = '3xl' }: HeadingsProps) => {
       style={{ scrollMarginTop: 170 }}
       variant="h3"
     >
-      <Box as="a" color="inherit" href={`#${id}`} textDecoration={{ hover: 'underline' }}>
+      <a className="text-inherit hover:underline" href={`#${id}`}>
         {children}
-      </Box>
+      </a>
     </Text>
   )
 }
@@ -37,9 +36,9 @@ export const H3 = ({ children, mt = 'xxl' }: HeadingsProps) => {
 
   return (
     <Text as="h3" id={id} mb="lg" mt={mt} style={{ scrollMarginTop: 170 }} variant="h4">
-      <Box as="a" color="inherit" href={`#${id}`} textDecoration={{ hover: 'underline' }}>
+      <a className="text-inherit hover:underline" href={`#${id}`}>
         {children}
-      </Box>
+      </a>
     </Text>
   )
 }

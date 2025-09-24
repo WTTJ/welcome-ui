@@ -1,5 +1,4 @@
 import { CodeBlockIcon, DownloadIcon, StarIcon } from '@/components/Icon'
-import { Box } from '@old/Box'
 import { Text } from '@old/Text'
 
 const stats = [
@@ -40,44 +39,20 @@ const stats = [
 
 export const Stats = () => {
   return (
-    <Box
-      backgroundColor="neutral-10"
-      borderRadius={64}
-      display="flex"
-      justifyContent="space-between"
-      maxWidth={470}
-      px={{ md: '4xl', xs: 'xxl' }}
-      py="xxl"
-      w="100%"
-    >
+    <div className="bg-neutral-10 flex justify-between max-w-[29.375rem] md:px-4xl px-xxl py-xxl rounded-2xl w-full">
       {stats?.map(stat => (
-        <Box
-          alignItems="center"
-          display="flex"
-          flexDirection="column"
-          key={stat.number}
-          textAlign="center"
-        >
-          <Box
-            alignItems="center"
-            backgroundColor="neutral-90"
-            borderRadius={55}
-            color="neutral-10"
-            display="flex"
-            h={55}
-            justifyContent="center"
-            w={55}
-          >
+        <div className="flex flex-col items-center text-center" key={stat.number}>
+          <div className="bg-neutral-90 flex h-[3.4375rem] items-center justify-center rounded-full text-neutral-10 w-[3.4375rem]">
             {stat.icon}
-          </Box>
+          </div>
           <Text as="span" mt="lg" variant="h3">
             {stat.number}
           </Text>
           <Text as="span" mt="sm" variant="sm">
             {stat.name}
           </Text>
-        </Box>
+        </div>
       ))}
-    </Box>
+    </div>
   )
 }

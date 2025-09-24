@@ -12,15 +12,30 @@ TODO
 
 ### 2. Script to migrate
 
-In welcome-ui repository, run this script:
+In welcome-ui repository, run this script to change styled props to tailwind classes in your project, and apply other breaking changes from components listed below.
 
 ```bash
-yarn migrate '../your_project_path'
+yarn migrate '../your_project_path' --replace
+```
+
+You will have to confirm each change, you can press `y` to apply the change, `n` to skip it, `a` to apply all remaining changes and `q` to quit.
+
+If you want to see the changes before applying them, you can run the script without `--replace` flag:
+
+```bash
+yarn migrate '../your_project_path/subfolder'
+```
+
+#### Example of changes
+
+```diff
+-<Box backgroundColor="neutral-10" p="md" rounded="md" />
++<div className="bg-neutral-10 p-md rounded-md" />
 ```
 
 ### 3. Fix remaining issues
 
-We cannot cover all cases, so you may have to fix some issues manually.
+We cannot cover all cases, so you may have to fix some issues manually. Check `_CSS_TO_EDIT` comments in your code to find them, and check the list of components changes below.
 
 ## Components changes
 

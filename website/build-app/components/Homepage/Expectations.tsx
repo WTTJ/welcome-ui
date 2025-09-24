@@ -8,7 +8,6 @@ import {
   PencilIcon,
   UserIcon,
 } from '@/components/Icon'
-import { Box } from '@old/Box'
 import { Card } from '@old/Card'
 import { Text } from '@old/Text'
 
@@ -85,14 +84,10 @@ const Expectation = ({ description, icon: Icon, title }: ExpectationProps) => {
 
 export const Expectations = () => {
   return (
-    <Box
-      display="grid"
-      gap="lg"
-      gridTemplateColumns={{ lg: '1fr 1fr 1fr 1fr', md: '1fr 1fr 1fr', xs: '1fr' }}
-    >
+    <div className="gap-lg grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1">
       {expectations.map(expectation => (
         <Expectation key={expectation.title} {...expectation} />
       ))}
-    </Box>
+    </div>
   )
 }

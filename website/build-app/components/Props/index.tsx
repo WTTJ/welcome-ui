@@ -3,7 +3,6 @@ import { kebabCase } from 'lodash'
 import React from 'react'
 
 import { Badge } from '@old/Badge'
-import { Box } from '@old/Box'
 import { Flex } from '@old/Flex'
 import { Text } from '@old/Text'
 
@@ -104,7 +103,7 @@ export const Property = ({ id, name, options }: PropertyProps) => {
   }
 
   return (
-    <Box id={id} mt="lg" style={{ scrollMarginTop: 170 }}>
+    <div className="mt-lg scroll-mt-[170px]" id={id}>
       <Flex
         alignItems="center"
         borderBottom="1px solid"
@@ -118,26 +117,22 @@ export const Property = ({ id, name, options }: PropertyProps) => {
       </Flex>
       <Text color="neutral-90">
         {getType(type)}
-        <Box as="span" color="neutral-70">
+        <span className="text-neutral-70">
           {defaultLabel ? ` | undefined = ${defaultLabel}` : null}
-        </Box>
+        </span>
       </Text>
       {description ? (
         <Text mt="sm" variant="sm">
           {description}
         </Text>
       ) : null}
-    </Box>
+    </div>
   )
 }
 
 export const Properties = ({ items }: PropertiesProps) => {
   if (!items) {
-    return (
-      <Box as="p" pt="lg">
-        No props specified
-      </Box>
-    )
+    return <p className="pt-lg">No props specified</p>
   }
 
   return (

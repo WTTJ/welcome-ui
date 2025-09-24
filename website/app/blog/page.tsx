@@ -5,7 +5,6 @@ import { Avatar } from '@/components/Avatar'
 import { Button } from '@/components/Button'
 import { RightIcon } from '@/components/Icon'
 import { Text } from '@/components/Text'
-import { Box } from '@old/Box'
 import { Card } from '@old/Card'
 import { Flex } from '@old/Flex'
 import { Link } from '@old/Link'
@@ -79,17 +78,17 @@ const Title = styled(Link)`
 
 const Home = () => {
   return (
-    <Box as="main" p="xl">
-      <Box margin="0 auto" maxWidth={600} mt="xl">
+    <main className="p-xl">
+      <div className="max-w-[37.5rem] mt-xl mx-auto">
         <Text className="text-center" variant="subtitle-md">
           Blog
         </Text>
         <Text className="text-center" variant="h1">
           The latest about us
         </Text>
-        <Box as="ul" listStyleType="none" m="0" mt={{ _: 'xxl', md: '5xl' }} p="0">
+        <ul className="list-none m-0 mt-xxl md:mt-5xl p-0">
           {posts.map(({ authors, cover, date, description, link, tags, title }) => (
-            <Box as="li" key={link} mb="3xl">
+            <li className="mb-3xl" key={link}>
               <Card>
                 {cover ? <Card.Cover src={cover} /> : null}
                 <Card.Body>
@@ -103,7 +102,7 @@ const Home = () => {
                   <Title href={link} rel="noopener nofollow" target="_blank">
                     {title}
                   </Title>
-                  <Box alignItems={{ md: 'flex-end' }} display={{ md: 'flex' }}>
+                  <div className="md:flex md:items-end">
                     <Flex direction="column" gap="md">
                       <Text className="mt-md">{description}</Text>
                       <Stack direction="row" mb="xxs">
@@ -131,14 +130,14 @@ const Home = () => {
                         <span>Read more</span> <RightIcon />
                       </Button>
                     </Flex>
-                  </Box>
+                  </div>
                 </Card.Body>
               </Card>
-            </Box>
+            </li>
           ))}
-        </Box>
-      </Box>
-    </Box>
+        </ul>
+      </div>
+    </main>
   )
 }
 

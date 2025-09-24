@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { Text } from '@/components/Text'
-import { Box } from '@old/Box'
 import { Card } from '@old/Card'
 import { Flex } from '@old/Flex'
 import { Grid } from '@old/Grid'
@@ -45,21 +44,15 @@ const Page = () => {
                     gap="lg"
                     p="md"
                   >
-                    <Box
-                      backgroundColor="neutral-30"
-                      borderRadius="md"
-                      flexShrink={0}
-                      h={80}
-                      w={80}
-                    />
-                    <Box>
+                    <div className="bg-neutral-30 size-[5rem] rounded-md shrink-0"></div>
+                    <div>
                       <Text as="h3" variant="h4">
                         {page.title}
                       </Text>
                       <Text className="text-neutral-70 mt-sm" lines={3} variant="sm">
                         {data?.description}
                       </Text>
-                    </Box>
+                    </div>
                   </Card>
                 </Link>
               )

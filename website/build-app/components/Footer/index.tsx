@@ -1,6 +1,5 @@
 'use client'
 import { ExternalLinkIcon, HeartIcon } from '@/components/Icon'
-import { Box } from '@old/Box'
 import { Flex } from '@old/Flex'
 import { Grid } from '@old/Grid'
 import { Logo } from '@old/Logo'
@@ -73,44 +72,37 @@ const links = [
 
 export const Footer = () => {
   return (
-    <Section as="footer" backgroundColor="beige-20">
+    <Section as="footer" className="bg-beige-20">
       <Grid gap="xl" gridTemplateColumns={{ _: '1fr 1fr', md: '1fr 1fr 1fr 1fr' }}>
         <Flex flexDirection="column" gap="xs">
           <Flex alignItems="center" gap="sm">
             Made with <HeartIcon className="text-brand-50" /> by
           </Flex>
-          <Box
-            as="a"
+          <a
+            className="w-fit-content"
             href="https://www.welcometothejungle.com"
             rel="noreferrer noopener"
             target="_blank"
-            w="fit-content"
           >
             <Logo h={40} />
-          </Box>
+          </a>
         </Flex>
         {links.map(({ links, name }) => (
           <Flex as="nav" flexDirection="column" gap="lg" key={name}>
             <Text variant="subtitle-md">{name}</Text>
             <Flex as="ul" flexDirection="column" gap="sm">
               {links.map(({ isExternal, link, name }) => (
-                <Box as="li" key={link}>
-                  <Box
-                    alignItems="center"
-                    as="a"
-                    color="neutral-90"
-                    display="flex"
-                    fontSize="sm"
-                    gap="xs"
+                <li key={link}>
+                  <a
+                    className="flex gap-xs items-center text-neutral-90 hover:underline"
                     href={link}
                     rel={isExternal ? 'noopener noreferrer' : undefined}
                     target={isExternal ? '_blank' : undefined}
-                    textDecoration={{ hover: 'underline' }}
                   >
                     {name}
                     <ExternalLinkIcon className="text-neutral-60" size="xs" />
-                  </Box>
-                </Box>
+                  </a>
+                </li>
               ))}
             </Flex>
           </Flex>

@@ -3,9 +3,8 @@ import { useState } from 'react'
 
 import { Button } from '@/components/Button'
 import { CodeBlockIcon, GithubIcon, PromoteIcon } from '@/components/Icon'
-import { Box } from '@old/Box'
+import { classNames } from '@/utils'
 import { Flex } from '@old/Flex'
-import type { ThemeValues } from '@old/theme'
 import { Tooltip } from '@old/Tooltip'
 
 import examples from '~/build-app/examples'
@@ -13,19 +12,21 @@ import { openStackBlitz } from '~/build-app/utils/stackblitz'
 
 import { Highlight } from './Highlight'
 
+const cx = classNames()
+
 type PreProps = {
+  className?: string
   code: string
   isOverview?: boolean
-  mt?: ThemeValues['marginTop']
   name: string
   pathToFile: keyof typeof examples
   withCodeEditor?: boolean
 }
 
 export const Playground = ({
+  className,
   code,
   isOverview,
-  mt = 'xl',
   name,
   pathToFile,
   withCodeEditor,
@@ -62,36 +63,21 @@ export const Playground = ({
 
   return (
     <>
-      <Box display="block">
-        <Box
-          alignItems={columnDirection ? 'left' : 'center'}
-          backgroundColor="neutral-10"
-          border="1px solid"
-          borderColor="beige-40"
-          borderRadius="lg"
-          display={removeFlex ? 'block' : 'flex'}
-          flexDirection={columnDirection ? 'column' : 'row'}
-          flexWrap="wrap"
-          gap="lg"
-          mt={mt}
-          p={{ _: 'sm', lg: '3xl' }}
-          position="relative"
+      <div className="block">
+        <div
+          className={cx(
+            'bg-neutral-10 border border-beige-40 flex-wrap gap-lg mt-xl flex p-sm lg:p-3xl relative rounded-lg',
+            columnDirection ? 'flex-column items-left' : 'flex-row items-center',
+            removeFlex && 'block',
+            className
+          )}
         >
           {preview}
-        </Box>
-      </Box>
+        </div>
+      </div>
       {withCodeEditor ? (
         <>
-          <Box
-            backgroundColor="beige-30"
-            border="1px solid"
-            borderColor="beige-40"
-            borderRadius="lg"
-            mt="-md"
-            overflow="hidden"
-            pb="xs"
-            pt="lg"
-          >
+          <div className="bg-beige-30 border border-beige-40 -mt-md overflow-hidden pt-lg rounded-lg pb-xs">
             <Flex flexDirection="row" gap="xs" pl="sm">
               <Tooltip content="View code" fixed zIndex={2}>
                 <Button
@@ -122,7 +108,7 @@ export const Playground = ({
                 </Button>
               </Tooltip>
             </Flex>
-          </Box>
+          </div>
           {isHighlightOpen ? <Highlight>{code}</Highlight> : null}
         </>
       ) : null}

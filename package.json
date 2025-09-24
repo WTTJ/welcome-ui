@@ -16,7 +16,7 @@
     "lint:mdx": "prettier --parser mdx --write '**/docs/index.mdx'",
     "lint:ts": "cd lib && tsc --noEmit && cd ../website && tsc --noEmit",
     "lint": "yarn lint:js && yarn lint:css && yarn lint:ts && yarn lint:mdx",
-    "migrate": "node ./scripts/upgrade-v9.js",
+    "migrate": "node ./scripts/upgrade-v9.mjs",
     "postinstall": "husky install",
     "release:dev": "node .dev-releases/version.mjs",
     "release:alpha": "cd lib && yarn release-it --preRelease=alpha",

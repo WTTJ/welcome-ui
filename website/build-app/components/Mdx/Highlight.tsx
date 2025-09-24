@@ -3,7 +3,7 @@ import { Highlight as HighlightPrism, themes } from 'prism-react-renderer'
 
 import { Button } from '@/components/Button'
 import { CheckIcon, CopyIcon } from '@/components/Icon'
-import { Box } from '@old/Box'
+import { classNames } from '@/utils'
 import { useCopyText } from '@old/utils'
 
 export type HighlightProps = {
@@ -11,15 +11,17 @@ export type HighlightProps = {
   language?: string
 }
 
+const cx = classNames()
+
 export const Highlight = ({ children, language = 'tsx' }: HighlightProps) => {
   const [copy, copied] = useCopyText(children, 3000)
 
   return (
     <HighlightPrism code={children.trim()} language={language} theme={themes.vsDark}>
       {({ getLineProps, getTokenProps, style, tokens }) => (
-        <Box mt="sm" position="relative">
+        <div className="mt-sm relative">
           <Button
-            className="absolute right-14 top-14"
+            className="absolute right-md top-md"
             onClick={copy}
             shape="circle"
             size="xs"
@@ -27,12 +29,8 @@ export const Highlight = ({ children, language = 'tsx' }: HighlightProps) => {
           >
             {copied ? <CheckIcon /> : <CopyIcon className="text-neutral-10" />}
           </Button>
-          <Box
-            as="pre"
-            border="1px solid"
-            borderColor="neutral-30"
-            borderRadius="lg"
-            padding="lg 3xl lg xl"
+          <pre
+            className="border border-neutral-30 pt-lg pr-3xl pb-lg pl-xl rounded-lg"
             style={style}
           >
             {tokens.map((line, i) => (
@@ -41,23 +39,26 @@ export const Highlight = ({ children, language = 'tsx' }: HighlightProps) => {
                   const isAdded = token.content.startsWith('+')
                   const isRemoved = token.content.startsWith('-')
                   const isDiff = isAdded || isRemoved
+                  const textColor = isRemoved ? 'text-red-30' : isAdded ? 'text-green-40' : ''
 
+                  const { className, ...tokenProps } = getTokenProps({ token })
                   return (
-                    <Box
-                      as="span"
-                      backgroundColor={isDiff ? '#2f2f2f' : undefined}
-                      color={isRemoved ? 'red-30' : isAdded ? 'green-40' : undefined}
-                      fontSize="14"
+                    <span
+                      className={cx(
+                        'text-[14px] whitespace-pre-wrap',
+                        textColor,
+                        isDiff && 'text-[#2f2f2f]',
+                        className
+                      )}
                       key={key}
-                      whiteSpace="pre-wrap"
-                      {...getTokenProps({ token })}
+                      {...tokenProps}
                     />
                   )
                 })}
               </div>
             ))}
-          </Box>
-        </Box>
+          </pre>
+        </div>
       )}
     </HighlightPrism>
   )

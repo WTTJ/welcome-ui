@@ -107,34 +107,9 @@
       "count": 1
     }
   },
-  "scripts/generate-types-doc.js": {
-    "@typescript-eslint/no-require-imports": {
-      "count": 3
-    }
-  },
-  "scripts/upgrade-v8.js": {
-    "@typescript-eslint/no-require-imports": {
-      "count": 2
-    }
-  },
   "types/styled.d.ts": {
     "@typescript-eslint/no-empty-object-type": {
       "count": 2
-    }
-  },
-  "website/build-app/components/TableOfContent/index.tsx": {
-    "@typescript-eslint/ban-ts-comment": {
-      "count": 2
-    }
-  },
-  "website/loaders/generate-types-doc.js": {
-    "@typescript-eslint/no-require-imports": {
-      "count": 3
-    }
-  },
-  "website/next.config.js": {
-    "@typescript-eslint/no-require-imports": {
-      "count": 4
     }
   }
 }

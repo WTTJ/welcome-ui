@@ -4,7 +4,6 @@ import NextLink from 'next/link'
 import { Avatar } from '@/components/Avatar'
 import { Pagination } from '@/components/Pagination'
 import { Alert } from '@old/Alert'
-import { Box } from '@old/Box'
 import { Card } from '@old/Card'
 import { Link } from '@old/Link'
 import { Stack } from '@old/Stack'
@@ -117,14 +116,10 @@ const Component = ({ children, description, link, title }: ComponentProps) => {
 
 export const Components = () => {
   return (
-    <Box
-      display="grid"
-      gap="xxl"
-      gridTemplateColumns={{ lg: '1fr 1fr 1fr', md: '1fr 1fr', xs: '1fr' }}
-    >
+    <div className="gap-xxl grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
       {components.map(component => (
         <Component key={component.title} {...component} />
       ))}
-    </Box>
+    </div>
   )
 }

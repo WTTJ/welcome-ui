@@ -1,14 +1,16 @@
-import type { BoxProps } from '@old/Box'
-import { Box } from '@old/Box'
+type SectionProps = React.HTMLAttributes<HTMLElement> & {
+  as?: 'footer' | 'section'
+}
 
-type SectionProps = BoxProps
-
-export const Section = ({ children, ...rest }: SectionProps) => {
+export const Section = ({
+  as: Element = 'section',
+  children,
+  className,
+  ...rest
+}: SectionProps) => {
   return (
-    <Box as="section" position="relative" py={{ md: 90, xs: 'xxl' }} {...rest}>
-      <Box margin="0 auto" maxWidth={1200} position="relative" px="lg">
-        {children}
-      </Box>
-    </Box>
+    <Element className={`md:py-[90px] py-xxl relative ${className}`} {...rest}>
+      <div className="max-w-[75rem] mx-auto px-lg relative">{children}</div>
+    </Element>
   )
 }
