@@ -3,7 +3,6 @@ import Link from 'next/link'
 
 import { Text } from '@/components/Text'
 import { Card } from '@old/Card'
-import { Grid } from '@old/Grid'
 
 import { getPageContent } from '~/build-app/utils/page-content'
 import { getPages } from '~/build-app/utils/pages-components'
@@ -26,7 +25,7 @@ const Page = () => {
           <Text as="h2" className="uppercase" variant="h6">
             {getName(category.category as string)}
           </Text>
-          <Grid gap="lg" templateColumns={{ _: '1fr', lg: '1fr 1fr' }}>
+          <div className="gap-lg grid grid-cols-1 lg:grid-cols-2">
             {category.pages.map(page => {
               const { data } = getPageContent({
                 filename: `${getRepository(page.id)}/docs/index.mdx`,
@@ -56,7 +55,7 @@ const Page = () => {
                 </Link>
               )
             })}
-          </Grid>
+          </div>
         </div>
       ))}
     </main>

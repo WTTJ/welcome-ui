@@ -33,7 +33,7 @@ function findBoxComponents(directory) {
         const content = fs.readFileSync(filePath, 'utf8')
 
         // Find Box and Flex components with comprehensive multi-line handling
-        const componentTypes = ['Box', 'Flex']
+        const componentTypes = ['Box', 'Flex', 'Grid']
 
         for (const componentType of componentTypes) {
           let startIndex = 0
@@ -304,6 +304,10 @@ async function processBoxComponents(components, shouldReplace = false) {
         classnames.push('flex')
       }
 
+      if (component.componentType === 'Grid') {
+        classnames.push('grid')
+      }
+
       Object.entries(component.props).forEach(([key, propData]) => {
         const value = propData.value
         const transformedValue = transformValue(key, value)
@@ -321,6 +325,7 @@ async function processBoxComponents(components, shouldReplace = false) {
             'key',
             'ref',
             'rel',
+            'src',
             'style',
             'target',
           ].includes(key)
@@ -516,7 +521,11 @@ function transform(key, value, forceValue = false) {
           .replace(/\n\s*/g, ' ') // Replace newlines and indentation with spaces
           .replace(/'/g, '"')
           .replace(/([\w_]+):/g, '"$1":')
-          .replace(/:\s*([a-zA-Z_][a-zA-Z0-9_\s]*)\s*([,}])/g, ':"$1"$2')
+          .replace(/:\s*([a-zA-Z_][a-zA-Z0-9_\s]*)\s*([,}])/g, (match, p1) => {
+            // Replace spaces with underscores in the value part
+            const valueWithUnderscores = p1.replace(/\s+/g, '_')
+            return `:"${valueWithUnderscores}"${match.slice(-1)}`
+          })
           .replace(/,\s*}/g, '}') // Remove trailing commas before closing braces
           .trim()
 
@@ -623,6 +632,10 @@ const valueMap = {
   bottom: value => transform('bottom', value),
   br: value => transform('rounded', value),
   color: value => transform('text', value),
+  // <Grid />
+  column: value => transform('cols', value),
+  // <Grid />
+  columnGap: value => transform('gap-x', value),
   cursor: value => transform('cursor', value),
   // <Flex />
   direction: value => transform(`flex`, value.replace('column', 'col')),
@@ -653,6 +666,7 @@ const valueMap = {
   justify: value => transform('justify', value),
   justifyContent: value => transform('justify', value.replace('space-', '').replace('flex-', '')),
   left: value => transform('left', value),
+  lineHeight: value => transform('leading', value),
   listStyleType: value => transform('list', value),
   m: value => (value === '0 auto' ? 'mx-auto' : transform('m', value)),
   margin: value => (value === '0 auto' ? 'mx-auto' : transform('m', value)),
@@ -677,8 +691,14 @@ const valueMap = {
   px: value => transform('px', value),
   py: value => transform('py', value),
   right: value => transform('right', value),
+  // <Grid />
+  row: value => transform('row', value),
+  // <Grid />
+  rowGap: value => transform('gap-y', value),
   // <Flex />
   shrink: value => transform('shrink', value),
+  // <Grid />
+  templateColumns: value => transform('grid-cols', value, true),
   textAlign: value => transform('text', value),
   textDecoration: value => `textDecoration_${value}_CSS_TO_EDIT`,
   top: value => transform('top', value),

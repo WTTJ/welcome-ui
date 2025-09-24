@@ -1,28 +1,15 @@
-import { Grid } from '@old/Grid'
-
 export type LayoutProps = {
   children: React.ReactNode
 }
 
 export const Layout = ({ children }: LayoutProps) => {
   return (
-    <Grid
-      gap="md"
-      margin="0 auto"
-      maxWidth={1400}
-      pb="3xl"
-      px="xl"
-      templateColumns={{ lg: '16rem auto' }}
-    >
+    <div className="gap-md grid lg:grid-cols-[16rem_auto] max-w-[87.5rem] mx-auto pb-3xl px-xl">
       {children}
-    </Grid>
+    </div>
   )
 }
 
 export const Child = ({ children }: LayoutProps) => {
-  return (
-    <Grid gap="xl" templateColumns={{ xl: 'auto 15rem' }}>
-      {children}
-    </Grid>
-  )
+  return <div className="gap-xl grid xl:grid-cols-[auto_15rem]">{children}</div>
 }

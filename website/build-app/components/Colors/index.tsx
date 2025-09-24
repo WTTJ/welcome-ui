@@ -4,7 +4,6 @@ import type { CSSProperties } from 'react'
 import { primitives, semantics } from '@/theme/tokens'
 import { classNames } from '@/utils'
 import { Alert } from '@old/Alert'
-import { Grid } from '@old/Grid'
 import { Text } from '@old/Text'
 
 const cx = classNames()
@@ -34,7 +33,7 @@ export const Colors = ({ name }: ColorsProps) => {
   }
 
   return (
-    <Grid gap="md" mt="md" templateColumns="repeat(auto-fit, minmax(250px, 1fr))">
+    <div className="gap-md grid grid-cols-[repeat(auto-fit,minmax(250px, 1fr))] mt-md">
       {colors.map(({ value, variant }) => {
         const isWhite = variant === 'neutral-10'
 
@@ -59,6 +58,6 @@ export const Colors = ({ name }: ColorsProps) => {
           </div>
         )
       })}
-    </Grid>
+    </div>
   )
 }

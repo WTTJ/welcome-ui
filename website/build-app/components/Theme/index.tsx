@@ -2,7 +2,6 @@
 import { useTheme } from '@xstyled/styled-components'
 
 import { Alert } from '@old/Alert'
-import { Grid } from '@old/Grid'
 import { Text } from '@old/Text'
 
 type ColorsProps = {
@@ -19,28 +18,27 @@ export const Theme = ({ entry }: ColorsProps) => {
   }
 
   return (
-    <Grid backgroundColor="beige-20" borderRadius="lg" gap="sm" mt="lg" p="xxl">
-      {Object.entries(entries).map(([key, value], index) => (
-        <Grid
-          borderTop={index !== 0 && '1px solid'}
-          borderTopColor={index !== 0 && 'neutral-30'}
-          gap="xxl"
-          gridTemplateColumns={entry === 'fontSizes' ? '100px 70px 70px' : '50px 70px 70px'}
-          key={`${entry}-${key}`}
-          pt="sm"
-        >
-          <Text color="violet-80" fontWeight="bold">
-            {key}
-          </Text>
-          <Text color="neutral-70">
-            {value}
-            {typeof value === 'number' && 'px'}
-          </Text>
-          {typeof value === 'string' && (value.endsWith('rem') || value === '0') && (
-            <Text>({theme.toPx(value.replace('rem', ''))})</Text>
-          )}
-        </Grid>
-      ))}
-    </Grid>
+    <div className="bg-beige-20 gap-sm grid mt-lg p-xxl rounded-lg">
+      {Object.entries(entries).map(([key, value], index) => {
+        const border = index !== 0 ? 'border-t border-t-neutral-30' : ''
+        const grid =
+          entry === 'fontSizes' ? 'grid-cols-[100px_70px_70px]' : 'grid-cols-[50px_70px_70px]'
+
+        return (
+          <div className={`${border} gap-xxl grid ${grid} pt-sm`} key={`${entry}-${key}`}>
+            <Text color="violet-80" fontWeight="bold">
+              {key}
+            </Text>
+            <Text color="neutral-70">
+              {value}
+              {typeof value === 'number' && 'px'}
+            </Text>
+            {typeof value === 'string' && (value.endsWith('rem') || value === '0') && (
+              <Text>({theme.toPx(value.replace('rem', ''))})</Text>
+            )}
+          </div>
+        )
+      })}
+    </div>
   )
 }
