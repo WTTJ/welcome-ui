@@ -66,7 +66,7 @@ export const Playground = ({
         <div
           className={cx(
             'bg-neutral-10 border border-beige-40 flex-wrap gap-lg mt-xl flex p-sm lg:p-3xl relative rounded-lg',
-            columnDirection ? 'flex-column items-left' : 'flex-row items-center',
+            columnDirection ? 'flex-col items-left' : 'items-center',
             removeFlex && 'block',
             className
           )}
@@ -77,7 +77,7 @@ export const Playground = ({
       {withCodeEditor ? (
         <>
           <div className="bg-beige-30 border border-beige-40 -mt-md overflow-hidden pt-lg rounded-lg pb-xs">
-            <div className="flex flex-row gap-xs pl-sm">
+            <div className="flex gap-xs pl-sm">
               <Tooltip content="View code" fixed zIndex={2}>
                 <Button
                   onClick={() => setIsHighlightOpen(!isHighlightOpen)}

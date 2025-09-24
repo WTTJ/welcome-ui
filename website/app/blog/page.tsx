@@ -90,7 +90,7 @@ const Home = () => {
               <Card>
                 {cover ? <Card.Cover src={cover} /> : null}
                 <Card.Body>
-                  <div className="flex flex-row gap-xxs mb-xl">
+                  <div className="flex gap-xxs mb-xl">
                     {tags?.map(tag => (
                       <Tag key={`${link}_${tag}`} size="sm" variant="info">
                         {tag}
@@ -103,7 +103,7 @@ const Home = () => {
                   <div className="md:flex md:items-end">
                     <div className="flex flex-col gap-md">
                       <Text className="mt-md">{description}</Text>
-                      <div className="flex flex-row mb-xxs">
+                      <div className="flex mb-xxs">
                         {authors?.map(({ name, url }) => (
                           <Avatar key={`${link}_authors_${url}`} name={name} src={url} />
                         ))}

@@ -299,8 +299,7 @@ async function processComponents(components, shouldReplace = false) {
       let classnames = []
       let valuesNotTransformed = []
 
-      // Add default flex class for Flex components
-      if (component.componentType === 'Flex' || component.componentType === 'Stack') {
+      if (component.componentType === 'Flex') {
         classnames.push('flex')
       }
 
@@ -335,6 +334,22 @@ async function processComponents(components, shouldReplace = false) {
         }
 
         if (transformedValue) classnames.push(transformedValue)
+
+        // Special handling for Stack component to ensure flex and direction classes
+        if (component.componentType === 'Stack') {
+          // Ensure Stack has not already a flex direction class
+          if (!classnames.includes('flex')) {
+            classnames.push('flex')
+
+            // Default to column if no direction is specified (like the Stack behavior)
+            if (!classnames.includes('flex-row')) {
+              classnames.push(`flex-col`)
+            } else {
+              // Remove flex-row if present to avoid useless classes
+              classnames = classnames.filter(cn => cn !== 'flex-row')
+            }
+          }
+        }
       })
 
       const element = (component.props.as && component.props.as.value) || 'div'

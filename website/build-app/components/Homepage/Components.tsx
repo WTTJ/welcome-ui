@@ -20,7 +20,7 @@ type ComponentProps = {
 const components: ComponentProps[] = [
   {
     children: (
-      <div className="flex flex-row gap-md">
+      <div className="flex gap-md">
         <Tag>Default</Tag>
         <Tag variant="success">Success</Tag>
         <Tag variant="violet">Violet</Tag>
@@ -32,7 +32,7 @@ const components: ComponentProps[] = [
   },
   {
     children: (
-      <div className="flex flex-row gap-md">
+      <div className="flex gap-md">
         <Toggle aria-label="Toggle unchecked" mb="md" />
         <Toggle aria-label="Toggle checked" checked />
       </div>
@@ -69,7 +69,7 @@ const components: ComponentProps[] = [
   },
   {
     children: (
-      <div className="flex flex-row gap-md">
+      <div className="flex gap-md">
         <Avatar name="Welcome jungle" size="lg" />
         <Avatar name="Other name" size="lg" />
         <Avatar
@@ -86,7 +86,7 @@ const components: ComponentProps[] = [
   },
   {
     children: (
-      <div className="flex flex-row gap-md">
+      <div className="flex gap-md">
         <Link>Primary</Link>
         <Link variant="secondary">Secondary</Link>
       </div>
