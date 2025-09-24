@@ -9,7 +9,15 @@ const cx = classNames(badgeStyles)
 
 export const Badge = forwardRef<HTMLDivElement, BadgeProps>(
   (
-    { children, disabled, size = 'md', variant = 'default', withNumberAbbreviation, ...rest },
+    {
+      children,
+      className,
+      disabled,
+      size = 'md',
+      variant = 'default',
+      withNumberAbbreviation,
+      ...rest
+    },
     ref
   ) => {
     const isNumber = Number.isInteger(children)
@@ -25,7 +33,8 @@ export const Badge = forwardRef<HTMLDivElement, BadgeProps>(
           'root',
           disabled ? `disabled-${variant}` : `variant-${variant}`,
           `size-${size}`,
-          hasSingleCharacter && `rounded-${size}`
+          hasSingleCharacter && `rounded-${size}`,
+          className
         )}
         ref={ref}
       >

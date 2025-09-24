@@ -1,8 +1,8 @@
 import { screen } from '@testing-library/react'
 
-import { render } from '../../../tests'
+import { Badge } from '@/components/Badge'
 
-import { Badge } from './'
+import { render } from '@tests'
 
 const content = '1'
 
