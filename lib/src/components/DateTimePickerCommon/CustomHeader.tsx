@@ -2,8 +2,8 @@ import { useEffect, useMemo, useState } from 'react'
 
 import { Button } from '@/components/Button'
 import { LeftIcon, RightIcon } from '@/components/Icon'
+import { Select } from '@/components/Select'
 import { classNames } from '@/utils'
-import { Select } from '@old/Select'
 
 import styles from './date-time-picker.module.scss'
 import type { CustomHeaderProps } from './types'
