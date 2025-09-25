@@ -1,6 +1,8 @@
-import { getFileIcon, getFileName, getFileSize, getMimeType } from '../'
-import { CameraIcon, PdfIcon, PptIcon } from '../../Icons'
-import type { Type } from '../types'
+import { CameraIcon, PdfIcon, PptIcon } from '@/components/Icon'
+
+import type { Type } from './types'
+
+import { getFileIcon, getFileName, getFileSize, getMimeType } from '.'
 
 function generateFile(name: string, type: Type) {
   const file = new File(['we-hire-at-welcome-to-the-jungle'], name, { type })
