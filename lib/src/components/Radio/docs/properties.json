@@ -118,60 +118,6 @@
           ]
         }
       },
-      "onChange": {
-        "defaultValue": null,
-        "description": "",
-        "name": "onChange",
-        "parent": {
-          "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-          "name": "InputHTMLAttributes"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-            "name": "InputHTMLAttributes"
-          },
-          {
-            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-            "name": "DOMAttributes"
-          },
-          {
-            "fileName": "welcome-ui/lib/src/components/Radio/types.ts",
-            "name": "RadioOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "ChangeEventHandler<HTMLInputElement> & FormEventHandler<HTMLLabelElement> & ((event: MouseEvent<HTMLLabelElement, MouseEvent>) => void)"
-        }
-      },
-      "onClick": {
-        "defaultValue": null,
-        "description": "",
-        "name": "onClick",
-        "parent": {
-          "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-          "name": "DOMAttributes"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-            "name": "DOMAttributes"
-          },
-          {
-            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-            "name": "DOMAttributes"
-          },
-          {
-            "fileName": "welcome-ui/lib/src/components/Radio/types.ts",
-            "name": "RadioOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "MouseEventHandler<HTMLInputElement> & MouseEventHandler<HTMLLabelElement> & ((event: MouseEvent<HTMLLabelElement, MouseEvent>) => void)"
-        }
-      },
       "required": {
         "defaultValue": null,
         "description": "",

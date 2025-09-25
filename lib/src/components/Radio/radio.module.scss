@@ -4,10 +4,6 @@
     align-items: flex-start;
     gap: var(--spacing-sm);
     flex-direction: row;
-
-    input {
-      margin-top: var(--spacing-xs);
-    }
   }
 
   .input-wrapper {
@@ -31,6 +27,7 @@
     color: var(--color-neutral-10);
     height: var(--height-16);
     width: var(--height-16);
+    margin-top: var(--spacing-xs);
 
     &.variant {
       &-danger {

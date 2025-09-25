@@ -7,8 +7,6 @@ export interface RadioOptions {
   hint?: string
   label?: string
   maxWidth?: number | string
-  onChange?: (event: React.MouseEvent<HTMLLabelElement>) => void
-  onClick?: (event: React.MouseEvent<HTMLLabelElement>) => void
   value?: string
   variant?: 'danger' | 'default' | 'warning'
 }
