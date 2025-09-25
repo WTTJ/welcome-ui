@@ -47,7 +47,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
     // format date at component mount
     useEffect(() => {
       onChange?.(formatDate(value))
-      //eslint-disable-next-line
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     // Ensure values are controlled by parent
@@ -58,7 +58,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
         onChange?.(formattedDate)
       }
       setDate(formattedDate)
-      //eslint-disable-next-line
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value])
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
