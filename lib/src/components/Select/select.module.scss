@@ -57,13 +57,6 @@
       cursor: not-allowed;
     }
 
-    &:invalid,
-    /* @Isaac are you sure when you look at the compiled css that the vendor prefixes aren't already added? I think they are so you might not need these lines below */
-    &:-moz-submit-invalid,
-    &:-moz-ui-invalid {
-      box-shadow: none;
-    }
-
     /* hover when no variant is defined */
     &:hover:not([class*='variant']) {
       --select-border-color: var(--color-brand-40);
