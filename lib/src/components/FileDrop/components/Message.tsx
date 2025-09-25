@@ -12,10 +12,10 @@ export const Message = ({
 }: MessageProps) => {
   return (
     <>
-      <Text className="m-0 color-neutral-90" variant="h4">
+      <Text className="m-0" variant="h4">
         {title}
       </Text>
-      <Text className="m-0 mt-xs" color="beige-70" variant="sm">
+      <Text className="m-0 mt-xs text-beige-70" variant="sm">
         {hint}
       </Text>
       <Button className="mt-lg" disabled={disabled} onClick={openFile} type="button">

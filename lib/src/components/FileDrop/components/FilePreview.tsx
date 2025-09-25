@@ -18,12 +18,12 @@ export const FilePreview = ({
 
   return (
     <>
-      <Icon className="color-neutral-90 mb-lg" color="neutral-90" size="xxl" />
-      <Text className="m-0 max-w-[600px]" color="neutral-90" lines={1} variant="h4">
+      <Icon className="mb-lg" size="xxl" />
+      <Text className="m-0 max-w-[600px]" lines={1} variant="h4">
         {name}
       </Text>
       {!isUrl && (
-        <Text className="font-medium m-0" color="beige-70" lines={1} variant="sm">
+        <Text className="font-medium m-0 text-beige-70" lines={1} variant="sm">
           {size}
         </Text>
       )}
