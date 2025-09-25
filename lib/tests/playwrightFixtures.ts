@@ -45,7 +45,7 @@ export const test = base.extend({
         })
         .join('\n')
 
-      console.error(`❌ Console errors detected:\n${errorDetails}`)
+      throw new Error(`❌ Console errors detected:\n${errorDetails}`)
     }
   },
 })
