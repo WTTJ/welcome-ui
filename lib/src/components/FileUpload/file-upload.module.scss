@@ -1,0 +1,14 @@
+@layer components {
+  .input {
+    display: none;
+  }
+
+  .preview-tag {
+    margin-right: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+  }
+
+  .preview-tag-size {
+    color: var(--color-beige-60);
+  }
+}

@@ -1,6 +1,6 @@
-import type { LiteralUnion } from '@/utils'
+import type { LiteralUnion } from '@/utils/ts-utils'
 
-export type Type = LiteralUnion<string & {}, Types[keyof Types]>
+export type Type = LiteralUnion<Types[keyof Types]>
 
 export interface Types {
   '7z': 'application/x-7z-compressed'
@@ -139,3 +139,6 @@ export const types: TypesWithString = {
   xwd: 'image/x-xwindowdump',
   zip: 'application/zip',
 }
+
+export type FileType = File | string
+export type ForceFileType = 'audio' | 'image' | 'video'

@@ -1,7 +1,7 @@
 import type { ComponentPropsWithRef, HTMLAttributes } from 'react'
 import type { Accept, DropEvent, DropzoneProps, DropzoneState } from 'react-dropzone'
 
-import type { ForceFileType } from '@/components/Files'
+import type { ForceFileType } from '@/components/Files/types'
 import type { CreateEvent } from '@/utils/create-event'
 
 export type FileDropChildren = {
