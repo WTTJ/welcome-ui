@@ -34,11 +34,11 @@ export function useModal(options?: UseModalProps): UseModal {
 const ModalComponent = forwardRefWithAs<ModalProps, 'div'>(
   (
     {
-      ariaLabel,
       /** for render property */
       as: As,
       backdrop = true,
       children,
+      className,
       hideOnInteractOutside = true,
       size = 'lg',
       store,
@@ -48,13 +48,10 @@ const ModalComponent = forwardRefWithAs<ModalProps, 'div'>(
   ) => {
     return (
       <Dialog
-        aria-label={ariaLabel}
         backdrop={<Backdrop backdrop={backdrop} hideOnInteractOutside={hideOnInteractOutside} />}
         hideOnInteractOutside={hideOnInteractOutside}
         ref={ref}
-        render={props =>
-          As ? <As {...props} /> : <div className={cx('root', `size-${size}`)} {...props} />
-        }
+        render={As ? <As /> : <div className={cx('root', `size-${size}`, className)} />}
         store={store}
         {...rest}
       >
