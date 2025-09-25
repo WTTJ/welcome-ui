@@ -1,8 +1,8 @@
 import * as React from 'react'
 
+import { Checkbox } from '@/components/Checkbox'
 import { Label } from '@/components/Label'
-import { Checkbox } from '@old/Checkbox'
-import { Link } from '@old/Link'
+import { Link } from '@/components/Link'
 
 const Example = () => {
   const [checked, setChecked] = React.useState(false)

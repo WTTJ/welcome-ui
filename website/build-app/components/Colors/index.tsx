@@ -51,7 +51,7 @@ export const Colors = ({ name }: ColorsProps) => {
               <Text as="span" variant="h6">
                 {variant}
               </Text>
-              <Text as="span" fontSize="sm" mt={3}>
+              <Text as="span" className="mt-[0.1875rem] text-sm">
                 {value}
               </Text>
             </div>

@@ -3,6 +3,9 @@
   "compilerOptions": {
     "paths": {
       "~/*": ["./*"],
+      "@old/utils": ["../lib/src/old/utils"],
+      "@old/theme": ["../lib/src/old/theme"],
+      "@old/*": ["../lib/src/old/components/*"],
       "@/*": ["../lib/src/*"]
     },
     "plugins": [

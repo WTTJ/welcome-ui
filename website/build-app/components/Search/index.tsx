@@ -31,13 +31,12 @@ export const Search = () => {
   return (
     <>
       <InputText
+        className="max-w-full w-[18.75rem]"
         icon={<SearchIcon />}
-        maxW="100%"
         onClick={() => setIsOpen(true)}
         onFocus={() => setIsOpen(true)}
         placeholder="Search all pages"
         size="sm"
-        w={300}
       />
       {isOpen ? (
         <DocSearchModal
