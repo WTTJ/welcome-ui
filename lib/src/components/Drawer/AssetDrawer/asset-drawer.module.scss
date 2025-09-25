@@ -1,15 +1,10 @@
-@use '../../../../src/utils/breakpoints' as breakpoints;
+@use '../../../utils/breakpoints' as breakpoints;
 
 @layer components {
   .asset-drawer {
-    height: 100%;
     overflow: hidden;
     border-top-left-radius: var(--radius-2xl);
     border-top-right-radius: var(--radius-2xl);
-
-    @media screen and (min-width: breakpoints.$breakpoint-md) {
-      height: calc(100% - 3rem);
-    }
   }
 
   .content-wrapper {
@@ -85,15 +80,17 @@
     background-color: var(--color-beige-20);
     transition: background-color var(--timing-primary);
 
+    --icon-block-size: var(--spacing-3xl); /* 48px */
+
     width: var(--icon-block-size);
     height: var(--icon-block-size);
 
     &.size-md {
-      --icon-block-size: 48px;
+      --icon-block-size: var(--spacing-3xl); /* 48px */
     }
 
     &.size-sm {
-      --icon-block-size: 32px;
+      --icon-block-size: var(--spacing-xxl); /* 32px */
     }
   }
 }

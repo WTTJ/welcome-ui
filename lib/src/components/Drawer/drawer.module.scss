@@ -1,4 +1,4 @@
-@use '../../../src/utils/breakpoints' as breakpoints;
+@use '../../utils/breakpoints' as breakpoints;
 
 @layer components {
   .root {
@@ -14,42 +14,50 @@
     transition: var(--duration-medium);
     max-width: 100%;
 
+    --drawer-left: 0;
+    --drawer-right: 0;
+    --drawer-top: 0;
+    --drawer-bottom: 0;
+    --drawer-height: 100%;
+    --drawer-width: 100%;
+    --drawer-transform: translateY(0, 0);
+
+    left: var(--drawer-left);
+    right: var(--drawer-right);
+    top: var(--drawer-top);
+    bottom: var(--drawer-bottom);
+    width: var(--drawer-width);
+    height: var(--drawer-height);
+    transform: var(--drawer-transform);
+
     &.placement {
       &-bottom {
-        bottom: 0;
-        left: 0;
-        right: 0;
-        transform: translateY(100%);
+        --drawer-top: auto;
+        --drawer-transform: translateY(100%);
       }
       &-left {
-        bottom: 0;
-        left: 0;
-        top: 0;
-        transform: translateX(-100%);
+        --drawer-right: auto;
+        --drawer-transform: translateX(-100%);
       }
       &-right {
-        bottom: 0;
-        right: 0;
-        top: 0;
-        transform: translateX(100%);
+        --drawer-left: auto;
+        --drawer-transform: translateX(100%);
       }
       &-top {
-        left: 0;
-        right: 0;
-        top: 0;
-        transform: translateY(-100%);
+        --drawer-bottom: auto;
+        --drawer-transform: translateY(-100%);
       }
       &-top,
       &-bottom {
         &.size {
           &-sm {
-            height: 25rem; /* 400px */
+            --drawer-height: 25rem; /* 400px */
           }
           &-md {
-            height: 34.375rem; /* 550px */
+            --drawer-height: 34.375rem; /* 550px */
           }
           &-lg {
-            height: 42.5rem; /* 680px */
+            --drawer-height: 42.5rem; /* 680px */
           }
         }
       }
@@ -57,13 +65,13 @@
       &-right {
         &.size {
           &-sm {
-            width: 25rem; /* 400px */
+            --drawer-width: 25rem; /* 400px */
           }
           &-md {
-            width: 34.375rem; /* 550px */
+            --drawer-width: 34.375rem; /* 550px */
           }
           &-lg {
-            width: 42.5rem; /* 680px */
+            --drawer-width: 42.5rem; /* 680px */
           }
         }
       }
@@ -72,7 +80,7 @@
     /* Note: this must come _after_ the placement rules to transition from offscreen to onscreen */
     &[data-enter] {
       opacity: 1;
-      transform: translate(0, 0);
+      --drawer-transform: translateX(0, 0);
     }
   }
 
@@ -131,5 +139,12 @@
     background-color: var(--color-neutral-10);
     margin: 0;
     padding: var(--spacing-xl) var(--spacing-5xl) var(--spacing-xl) var(--spacing-xl);
+  }
+
+  .drawer-close {
+    position: absolute;
+    right: var(--spacing-lg);
+    top: var(--spacing-lg);
+    z-index: 10;
   }
 }

@@ -4,10 +4,8 @@ import { forwardRefWithAs } from '@/utils/forwardRefWithAs'
 
 import type { TriggerProps } from '../types'
 
-export const Trigger = forwardRefWithAs<TriggerProps, 'button'>(({ as, store, ...rest }, ref) => {
-  const Element = as || 'button'
-
-  return (
-    <DialogDisclosure ref={ref} render={props => <Element {...props} />} store={store} {...rest} />
-  )
-})
+export const Trigger = forwardRefWithAs<TriggerProps, 'button'>(
+  ({ as: As, store, ...rest }, ref) => {
+    return <DialogDisclosure ref={ref} render={As ? <As /> : undefined} store={store} {...rest} />
+  }
+)

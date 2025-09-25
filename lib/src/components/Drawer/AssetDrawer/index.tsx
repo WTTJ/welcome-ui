@@ -1,3 +1,5 @@
+import { useCallback } from 'react'
+
 import { classNames } from '@/utils'
 import { forwardRefWithAs } from '@/utils/forwardRefWithAs'
 
@@ -20,20 +22,26 @@ export const AssetDrawerComponent = forwardRefWithAs<AssetDrawerProps, 'div'>(
     },
     ref
   ) => {
-    const getPersistentElements = () =>
-      Array.from(
-        parentGetPersistentElements
-          ? parentGetPersistentElements()
-          : document.querySelectorAll('[data-wui-persistent]')
-      )
+    const getPersistentElements = useCallback(
+      () =>
+        Array.from(
+          parentGetPersistentElements
+            ? parentGetPersistentElements()
+            : document.querySelectorAll('[data-wui-persistent]')
+        ),
+      [parentGetPersistentElements]
+    )
 
-    const hideOnInteractOutsideFn = (event: Event) => {
-      const target = event.target as HTMLElement
-      const isTargetWithinPersistentElements = getPersistentElements().some(element =>
-        element.contains(target)
-      )
-      return !isTargetWithinPersistentElements
-    }
+    const hideOnInteractOutsideFn = useCallback(
+      (event: Event) => {
+        const target = event.target as HTMLElement
+        const isTargetWithinPersistentElements = getPersistentElements().some(element =>
+          element.contains(target)
+        )
+        return !isTargetWithinPersistentElements
+      },
+      [getPersistentElements]
+    )
 
     return (
       <Drawer
@@ -43,8 +51,9 @@ export const AssetDrawerComponent = forwardRefWithAs<AssetDrawerProps, 'div'>(
         hideOnInteractOutside={hideOnInteractOutsideFn}
         placement="bottom"
         ref={ref}
-        size={null}
         store={store}
+        // Needed to override the default height set in drawer.module.scss
+        style={{ '--drawer-height': 'calc(100% - 3rem)' } as React.CSSProperties}
         withBackdrop
         {...rest}
       >

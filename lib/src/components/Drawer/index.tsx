@@ -1,8 +1,8 @@
 import type { DialogProps } from '@ariakit/react'
 import { Dialog } from '@ariakit/react'
+import { forwardRef } from 'react'
 
 import { classNames } from '@/utils'
-import { forwardRefWithAs } from '@/utils/forwardRefWithAs'
 
 import { AssetDrawerComponent } from './AssetDrawer'
 import { Header } from './AssetDrawer/Header'
@@ -17,7 +17,7 @@ import type { DrawerProps } from './types'
 
 const cx = classNames(styles)
 
-const DrawerComponent = forwardRefWithAs<DrawerProps, 'div'>(
+const DrawerComponent = forwardRef<HTMLDivElement, DrawerProps>(
   (
     {
       children,

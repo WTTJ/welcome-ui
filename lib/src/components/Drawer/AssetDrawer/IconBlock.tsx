@@ -8,7 +8,7 @@ const cx = classNames(styles)
 export const IconBlock = ({ icon: Icon, size = 'md' }: IconBlockProps) => {
   return (
     <div className={cx('icon-block', `size-${size}`)}>
-      <Icon color="neutral-90" size={size} />
+      <Icon className="text-neutral-90" size={size} />
     </div>
   )
 }

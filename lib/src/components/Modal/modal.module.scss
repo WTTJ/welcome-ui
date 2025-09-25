@@ -1,26 +1,6 @@
 @use '../../utils/breakpoints.scss' as breakpoints;
 
 @layer components {
-  .backdrop {
-    background-color: var(--color-overlay);
-    z-index: 999;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    opacity: 0;
-    transition: opacity 150ms ease-in-out;
-
-    &.hideOnInteractOutside {
-      cursor: pointer;
-    }
-
-    &[data-enter] {
-      opacity: 1;
-    }
-  }
-
   .root {
     background-color: var(--color-neutral-10);
     border-color: var(--color-neutral-30);
@@ -77,6 +57,26 @@
     &.size-xs {
       /* 320px; */
       --dialog-width: 20rem;
+    }
+  }
+
+  .backdrop {
+    background-color: var(--color-overlay);
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+
+    &.hideOnInteractOutside {
+      cursor: pointer;
+    }
+
+    &[data-enter] {
+      opacity: 1;
     }
   }
 

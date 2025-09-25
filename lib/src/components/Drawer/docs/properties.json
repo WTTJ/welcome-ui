@@ -2,7 +2,9 @@
   "Drawer": {
     "props": {
       "placement": {
-        "defaultValue": null,
+        "defaultValue": {
+          "value": "right"
+        },
         "description": "",
         "name": "placement",
         "parent": {
@@ -36,7 +38,9 @@
         }
       },
       "size": {
-        "defaultValue": null,
+        "defaultValue": {
+          "value": "lg"
+        },
         "description": "",
         "name": "size",
         "parent": {
@@ -55,7 +59,9 @@
         }
       },
       "withBackdrop": {
-        "defaultValue": null,
+        "defaultValue": {
+          "value": false
+        },
         "description": "",
         "name": "withBackdrop",
         "parent": {
@@ -83,7 +89,9 @@
         }
       },
       "withCloseButton": {
-        "defaultValue": null,
+        "defaultValue": {
+          "value": true
+        },
         "description": "",
         "name": "withCloseButton",
         "parent": {

@@ -11,15 +11,13 @@ import type { TabProps } from './types'
 const cx = classNames(styles)
 
 export const TabComponent = forwardRefWithAs<TabProps, 'button'>(
-  ({ as, children, className, id, store, ...rest }, ref) => {
-    const Element = as || 'button'
-
+  ({ as: As, children, className, id, store, ...rest }, ref) => {
     return (
       <AriakitTab
         className={cx('root', className)}
         id={id}
         ref={ref}
-        render={as ? <Element /> : undefined}
+        render={As ? <As /> : undefined}
         store={store}
         {...rest}
       >
