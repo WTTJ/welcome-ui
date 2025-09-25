@@ -1,0 +1,68 @@
+{
+  "useModal": {
+    "props": {}
+  },
+  "Modal": {
+    "props": {
+      "ariaLabel": {
+        "defaultValue": null,
+        "description": "",
+        "name": "ariaLabel",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Modal/types.ts",
+          "name": "ModalOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Modal/types.ts",
+            "name": "ModalOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "string"
+        }
+      },
+      "size": {
+        "defaultValue": null,
+        "description": "",
+        "name": "size",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Modal/types.ts",
+          "name": "ModalOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Modal/types.ts",
+            "name": "ModalOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Size",
+          "value": [
+            {
+              "value": "\"auto\""
+            },
+            {
+              "value": "\"xs\""
+            },
+            {
+              "value": "\"sm\""
+            },
+            {
+              "value": "\"md\""
+            },
+            {
+              "value": "\"lg\""
+            }
+          ]
+        }
+      }
+    }
+  },
+  "AssetModal": {
+    "props": {}
+  }
+}

@@ -1,0 +1,177 @@
+@mixin sizeOfElements {
+  width: var(--contentWidthMobile);
+  max-height: var(--contentHeight);
+
+  /* var(--breakpoint-md) */
+  @media (min-width: 736px) {
+    width: var(--contentWidthDesktop);
+  }
+
+  /* for big screens */
+  @media (min-width: 1700px) {
+    max-width: 1600px;
+  }
+}
+
+@layer components {
+  .root {
+    --contentWidthMobile: calc(100vw - 2 * 1rem);
+    --contentHeight: calc(100vh - 2 * 5rem);
+    --contentWidthDesktop: calc(100vw - 2 * 2rem);
+  }
+
+  .asset-backdrop {
+    background-color: color-mix(in oklab, var(--color-neutral-90) 90%, transparent);
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+
+    &.hideOnInteractOutside {
+      cursor: pointer;
+    }
+
+    &[data-enter] {
+      opacity: 1;
+    }
+  }
+
+  .close-button {
+    position: absolute;
+    right: var(--spacing-xl);
+    top: var(--spacing-xl);
+
+    /* Hack for secondary variant on dark mode */
+    /* FIXME(isaac) this hack was already there, don't know what it does */
+    color: var(--color-neutral-90);
+    border-color: var(--color-neutral-10);
+    background-color: var(--color-neutral-10);
+
+    &:hover {
+      background-color: var(--color-neutral-40);
+    }
+  }
+
+  .iframe-wrapper {
+    height: 100%;
+    margin: auto 0;
+    flex: 1;
+    aspect-ratio: 16 / 9;
+
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+
+    @include sizeOfElements;
+  }
+
+  .asset-content {
+    transition: margin-top 250ms ease-in-out;
+
+    > img,
+    > div {
+      max-width: var(--contentWidthMobile);
+      max-height: var(--contentHeight);
+
+      /* var(--breakpoint-md) */
+      @media (min-width: 736px) {
+        max-width: var(--contentWidthDesktop);
+      }
+
+      /* for big screens */
+      @media (min-width: 1700px) {
+        max-width: 1600px;
+      }
+    }
+  }
+
+  .dialog {
+    position: fixed;
+    z-index: 999;
+    inset: 0;
+    margin: auto;
+    display: flex;
+    height: fit-content;
+    width: fit-content;
+    flex-direction: column;
+    border-radius: var(--radius-md);
+    opacity: 0;
+    transition: opacity 250ms ease-in-out;
+
+    /* TODO migrate after WUI-189/swiper */
+    /* &:has(${StyledSwiper}) {
+      @include sizeOfElements;
+    } */
+    /* temporary workaround: select any ul that has at least on li with id containing "swiper" */
+    ul:has(> [id*='swiper']) {
+      @include sizeOfElements;
+    }
+
+    .asset-content {
+      margin-top: var(--spacing-xl);
+    }
+
+    &[data-enter] {
+      opacity: 1;
+
+      .asset-content {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .asset-wrapper {
+    --titleBlockMobile: 4rem;
+    --titleBlockDesktop: 6rem;
+
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--spacing-xxl);
+    overflow: hidden;
+
+    .asset-title-wrapper {
+      background-color: var(--color-neutral-10);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex-shrink: 0;
+      gap: var(--spacing-xxs);
+      width: 100%;
+      height: var(--titleBlockMobile);
+      padding-inline: var(--spacing-md);
+
+      /* var(--breakpoint-md) */
+      @media (min-width: 736px) {
+        height: var(--titleBlockDesktop);
+        padding-inline: var(--spacing-xl);
+      }
+    }
+
+    > img {
+      width: auto;
+      max-width: fit-content;
+      max-height: calc(100vh - 2 * 5rem - var(--titleBlockMobile));
+      flex-shrink: 0;
+
+      /* var(--breakpoint-md) */
+      @media (min-width: 736px) {
+        max-height: calc(100vh - 2 * 5rem - var(--titleBlockDesktop));
+      }
+    }
+
+    .iframe-wrapper {
+      background-color: var(--color-neutral-90);
+      max-height: calc(100vh - 2 * 5rem - var(--titleBlockMobile));
+
+      /* var(--breakpoint-md) */
+      @media (min-width: 736px) {
+        max-height: calc(100vh - 2 * 5rem - var(--titleBlockDesktop));
+      }
+    }
+  }
+}
