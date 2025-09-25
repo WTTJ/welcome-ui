@@ -1,7 +1,6 @@
 import { Button } from '@/components/Button'
 import { ActionsIcon } from '@/components/Icon'
 import { Modal, useModal } from '@/components/Modal'
-import { Box } from '@old/Box'
 
 const Example = () => {
   const modal = useModal()
@@ -29,12 +28,12 @@ const Example = () => {
             aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
           </Modal.Body>
           <Modal.Footer information={informations}>
-            <Box w="100%">
+            <div className="w-full">
               <Button className="mr-(--spacing-sm)" variant="secondary">
                 Lorem dolir
               </Button>
               <Button onClick={() => modal.hide()}>Close</Button>
-            </Box>
+            </div>
           </Modal.Footer>
         </Modal.Content>
       </Modal>
@@ -50,12 +49,12 @@ const Example = () => {
             aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
           </Modal.Body>
           <Modal.Footer>
-            <Box w="100%">
+            <div className="w-full">
               <Button className="mr-(--spacing-sm)" variant="secondary">
                 Lorem dolir
               </Button>
               <Button onClick={() => modal2.hide()}>Close</Button>
-            </Box>
+            </div>
           </Modal.Footer>
         </Modal.Content>
       </Modal>
