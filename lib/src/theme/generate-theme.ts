@@ -11,6 +11,7 @@ const __dirname = path.dirname(__filename)
 const fontFacesPath = path.join(__dirname, 'fontFaces.css')
 const basePath = path.join(__dirname, 'base.css')
 const themePath = path.join(__dirname, 'theme.css')
+const breakpointsPath = path.join(__dirname, 'utils', 'breakpoints.scss')
 
 const fontFaces = fs.readFileSync(fontFacesPath, 'utf8')
 const baseStyles = fs.readFileSync(basePath, 'utf8')
@@ -72,4 +73,12 @@ const baseLayer = { property: '@layer base', value: baseStyles }
 const generateThemeCss = () =>
   [fontFaces, getStringFrom(theme), getStringFrom(baseLayer)].join('\n')
 
+// Generate main theme.css file
 fs.writeFileSync(themePath, generateThemeCss(), 'utf8')
+
+// Generate scss breakpoints file
+const breakpointsContent = Object.entries(primitives.screens).reduce((acc, [key, value]) => {
+  return acc + `${key.replace('--', '$')}: ${value};\n`
+}, '/* screens - auto-generated from token.ts - do not edit directly */\n')
+
+fs.writeFileSync(breakpointsPath, breakpointsContent, 'utf8')
