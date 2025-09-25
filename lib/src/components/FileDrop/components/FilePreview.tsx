@@ -18,7 +18,7 @@ export const FilePreview = ({
 
   return (
     <>
-      <Icon className="color-neutral-90 mb-lg h-[50px]" color="neutral-90" />
+      <Icon className="color-neutral-90 mb-lg" color="neutral-90" size="xxl" />
       <Text className="m-0 max-w-[600px]" color="neutral-90" lines={1} variant="h4">
         {name}
       </Text>
@@ -28,7 +28,14 @@ export const FilePreview = ({
         </Text>
       )}
       {isUrl ? (
-        <Button as="a" className="mt-md" href={file} rel="noopener" size="sm" target="_blank">
+        <Button
+          as="a"
+          className="mt-md"
+          href={file}
+          rel="noopener noreferrer"
+          size="sm"
+          target="_blank"
+        >
           <span>{previewButtonText}</span>
           <ExternalLinkIcon />
         </Button>

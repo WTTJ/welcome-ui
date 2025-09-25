@@ -1,13 +1,10 @@
 @layer components {
   .root {
-    // defaultFields.default
-    background-color: var(--backgroundColor, var(--color-neutral-10));
-    border-color: var(--borderColor, var(--color-neutral-30));
     border-radius: var(--radius-sm);
     border-width: var(--border-width-sm);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-regular);
-    line-height: 1rem;
+    line-height: var(--line-height-16);
     outline: none;
     border-style: dashed;
     min-height: 12.5rem;
@@ -26,7 +23,7 @@
 
     &:focus {
       --borderColor: var(--color-yellow-40);
-      box-sizing: var(--color-yellow-20) 0px 0px 0px 2px;
+      box-shadow: var(--color-yellow-20) 0px 0px 0px 2px;
     }
 
     &.disabled {
@@ -39,6 +36,13 @@
     &.drag-reject {
       --borderColor: var(--color-red-40);
     }
+  }
+
+  .file-input {
+    display: block;
+    height: 0;
+    weight: 0;
+    opacity: 0;
   }
 
   .file-preview {

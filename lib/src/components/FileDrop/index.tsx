@@ -1,19 +1,7 @@
 import React, { forwardRef, useEffect, useState } from 'react'
-import type {
-  DropEvent,
-  DropzoneProps,
-  DropzoneState,
-  FileError,
-  FileRejection,
-} from 'react-dropzone'
-import * as reactDropzone from 'react-dropzone'
+import type { DropEvent, FileError, FileRejection } from 'react-dropzone'
+import { useDropzone } from 'react-dropzone'
 
-// because of this issue: https://github.com/react-dropzone/react-dropzone/issues/1259
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-const useDropzone = (reactDropzone.useDropzone || reactDropzone.default.useDropzone) as (
-  o?: DropzoneProps
-) => DropzoneState
 import { Button } from '@/components/Button'
 import { EditIcon, TrashIcon } from '@/components/Icon'
 import { classNames } from '@/utils'
@@ -147,7 +135,7 @@ export const FileDrop = forwardRef<HTMLDivElement, FileDropProps>(
         {...rest}
       >
         <input
-          className={cx('block', 'h-0', 'w-0', 'opacity-0')}
+          className={cx('file-input')}
           {...getInputProps({ disabled, multiple, name, onError: inputPropsOnError })}
           // for extern validator we need to have access to this input
         />

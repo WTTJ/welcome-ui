@@ -1,4 +1,4 @@
-import { getFileName } from '@old/Files'
+import { getFileName } from '@/components/Files'
 
 import type { FileDropChildren } from './types'
 

@@ -1,5 +1,6 @@
-// https://stackoverflow.com/questions/66500729/union-type-of-keyof-and-string-with-working-autocompletion
-export type Type = (string & {}) | Types[keyof Types]
+import type { LiteralUnion } from '@/utils'
+
+export type Type = LiteralUnion<string & {}, Types[keyof Types]>
 
 export interface Types {
   '7z': 'application/x-7z-compressed'
