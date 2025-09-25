@@ -9,7 +9,7 @@ export const ITEMS = [
 ]
 
 const Example = () => {
-  return <RadioGroup name="social" options={ITEMS.slice(0, 5)} renderOption={RadioTab} />
+  return <RadioGroup name="social" options={ITEMS} renderOption={RadioTab} />
 }
 
 export default Example

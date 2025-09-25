@@ -1,16 +1,8 @@
 @use './../../utils/text-ellipsis' as ellipsis;
 
 @layer components {
-  .radio {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-  }
-
   .label {
-    flex: 1;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     min-width: 0;
@@ -67,9 +59,16 @@
     padding-bottom: 0;
   }
 
-  .input {
+  .input-wrapper {
     flex-shrink: 0;
     position: relative;
+  }
+
+  .input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
   }
 
   .content {
