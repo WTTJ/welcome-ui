@@ -19,10 +19,7 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
       <header className={cx('header')} ref={ref} {...rest}>
         <Close isOnHeader />
         {icon}
-        <Text
-          className={`${subtitle && 'mb-(--spacing-lg)'} ${icon && 'mt-(--spacing-xl)'}`}
-          variant="h4"
-        >
+        <Text className={cx('header-title', icon && 'icon')} variant="h4">
           {title}
         </Text>
         {subtitle ? <Text className={cx('header-subtitle')}>{subtitle}</Text> : null}
