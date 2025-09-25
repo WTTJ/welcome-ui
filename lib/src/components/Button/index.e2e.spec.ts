@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test'
+import { expect, test } from '../../../tests/playwrightFixtures'
 
 test.describe('Button component variants', () => {
   test('should render variant-primary button with the correct background-color', async ({

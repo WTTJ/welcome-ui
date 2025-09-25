@@ -13,3 +13,7 @@ dist/
 
 # vite
 vite.config.mjs.*
+
+# playwright
+lib/playwright-report/
+lib/test-results/
