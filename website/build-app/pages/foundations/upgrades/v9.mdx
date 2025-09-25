@@ -142,3 +142,17 @@ To not showing icon use `hideIcon` property:
 
 We also removed `onPauseOver` options.
 ```
+
+## Utils
+
+## useScreens
+
+To get the screens values from the theme, you need to use `useScreens` hook instead of `useTheme`.
+
+```diff
+-import { useTheme } from '@styled/styled-components'
++ import { useScreens } from '@welcome-ui/utils'
+- const theme = useTheme()
+- const screens = theme.screens
++ const screens = useScreens()
+```
