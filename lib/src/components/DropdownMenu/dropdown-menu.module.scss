@@ -30,11 +30,11 @@
   .arrow-item {
     height: var(--height-30);
     width: var(--height-30);
+    transform: var(--dropdown-menu-transform);
   }
 
   .arrow-placement {
     &-bottom {
-      /* @Robel this css variable is not used anywhere! */
       --dropdown-menu-transform: rotateZ(360deg);
     }
 
