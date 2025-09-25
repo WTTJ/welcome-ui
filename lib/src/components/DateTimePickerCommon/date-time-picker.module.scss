@@ -1,0 +1,9 @@
+@layer components {
+  .custom-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-lg);
+    text-align: left;
+  }
+}
