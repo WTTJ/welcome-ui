@@ -1,0 +1,530 @@
+{
+  "SliderComponent": {
+    "props": {
+      "borderSelectorColor": {
+        "defaultValue": null,
+        "description": "",
+        "name": "borderSelectorColor",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+          "name": "SliderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+            "name": "SliderOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "disabled": {
+        "defaultValue": null,
+        "description": "",
+        "name": "disabled",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+          "name": "SliderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+            "name": "SliderOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "hint": {
+        "defaultValue": null,
+        "description": "",
+        "name": "hint",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+          "name": "SliderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+            "name": "SliderOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "label": {
+        "defaultValue": null,
+        "description": "",
+        "name": "label",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+          "name": "SliderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+            "name": "SliderOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "max": {
+        "defaultValue": null,
+        "description": "",
+        "name": "max",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+          "name": "SliderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+            "name": "SliderOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "number"
+        }
+      },
+      "min": {
+        "defaultValue": null,
+        "description": "",
+        "name": "min",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+          "name": "SliderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+            "name": "SliderOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "number"
+        }
+      },
+      "onChange": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onChange",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+          "name": "SliderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+            "name": "SliderOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "(value: number) => void"
+        }
+      },
+      "step": {
+        "defaultValue": {
+          "value": 1
+        },
+        "description": "",
+        "name": "step",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+          "name": "SliderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+            "name": "SliderOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "number"
+        }
+      },
+      "tooltip": {
+        "defaultValue": null,
+        "description": "",
+        "name": "tooltip",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+          "name": "SliderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+            "name": "SliderOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "type": {
+        "defaultValue": null,
+        "description": "",
+        "name": "type",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+          "name": "SliderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+            "name": "SliderOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Type",
+          "value": [
+            {
+              "value": "\"inline\""
+            },
+            {
+              "value": "\"left-field\""
+            },
+            {
+              "value": "\"right-field\""
+            }
+          ]
+        }
+      },
+      "value": {
+        "defaultValue": null,
+        "description": "",
+        "name": "value",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+          "name": "SliderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+            "name": "SliderOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "number"
+        }
+      },
+      "values": {
+        "defaultValue": null,
+        "description": "",
+        "name": "values",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+          "name": "SliderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+            "name": "SliderOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "number[]"
+        }
+      }
+    }
+  },
+  "Slider": {
+    "props": {
+      "borderSelectorColor": {
+        "defaultValue": null,
+        "description": "",
+        "name": "borderSelectorColor",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+          "name": "SliderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+            "name": "SliderOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "disabled": {
+        "defaultValue": null,
+        "description": "",
+        "name": "disabled",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+          "name": "SliderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+            "name": "SliderOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "hint": {
+        "defaultValue": null,
+        "description": "",
+        "name": "hint",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+          "name": "SliderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+            "name": "SliderOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "label": {
+        "defaultValue": null,
+        "description": "",
+        "name": "label",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+          "name": "SliderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+            "name": "SliderOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "max": {
+        "defaultValue": null,
+        "description": "",
+        "name": "max",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+          "name": "SliderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+            "name": "SliderOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "number"
+        }
+      },
+      "min": {
+        "defaultValue": null,
+        "description": "",
+        "name": "min",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+          "name": "SliderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+            "name": "SliderOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "number"
+        }
+      },
+      "onChange": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onChange",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+          "name": "SliderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+            "name": "SliderOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "(value: number) => void"
+        }
+      },
+      "step": {
+        "defaultValue": {
+          "value": 1
+        },
+        "description": "",
+        "name": "step",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+          "name": "SliderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+            "name": "SliderOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "number"
+        }
+      },
+      "tooltip": {
+        "defaultValue": null,
+        "description": "",
+        "name": "tooltip",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+          "name": "SliderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+            "name": "SliderOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "type": {
+        "defaultValue": null,
+        "description": "",
+        "name": "type",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+          "name": "SliderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+            "name": "SliderOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Type",
+          "value": [
+            {
+              "value": "\"inline\""
+            },
+            {
+              "value": "\"left-field\""
+            },
+            {
+              "value": "\"right-field\""
+            }
+          ]
+        }
+      },
+      "value": {
+        "defaultValue": null,
+        "description": "",
+        "name": "value",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+          "name": "SliderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+            "name": "SliderOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "number"
+        }
+      },
+      "values": {
+        "defaultValue": null,
+        "description": "",
+        "name": "values",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+          "name": "SliderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
+            "name": "SliderOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "number[]"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,202 @@
+@layer components {
+  .slider-root {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+  }
+
+  .range-root {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .input-wrapper {
+    align-items: center;
+    display: flex;
+    gap: var(--spacing-sm);
+  }
+
+  .hint {
+    margin-top: 0;
+  }
+
+  .input-text {
+    width: 72px;
+  }
+
+  .slider-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 1.25rem;
+    position: relative;
+  }
+
+  .range-wrapper {
+    position: relative;
+    flex-grow: 1;
+  }
+
+  .tick-markers {
+    height: 24px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+    position: relative;
+  }
+
+  .input-range-wrapper {
+    height: 1.25rem;
+    padding-bottom: var(--spacing-sm);
+    position: relative;
+    padding-top: var(--spacing-sm);
+    width: 100%;
+  }
+
+  .input-range {
+    appearance: none;
+    width: 100%;
+    height: var(--spacing-xs);
+    margin: auto 0;
+  
+    &::-webkit-slider-thumb,
+    &::-moz-range-thumb {
+      background-color: var(--color-neutral-90);
+      border: var(--border-width-md) solid var(--color-neutral-10);
+      border-radius: 50%;
+      appearance: none;
+      cursor: pointer;
+      height: 1.25rem;
+      width: 1.25rem;
+      transform: scale(1);
+
+      transition:
+        background-color var(--duration-medium),
+        border-color var(--duration-medium),
+        transform 100ms ease-in-out;
+    }
+
+    &:active,
+    &:focus-visible {
+      outline: none;
+
+      &::-webkit-slider-thumb,
+      &::-moz-range-thumb {
+        transform: scale(1.2);
+        outline: var(--border-width-md) solid var(--color-yellow-40);
+      }
+    }
+
+    &:disabled {
+      background-image: linear-gradient(var(--color-beige-60), var(--color-beige-60));
+      cursor: not-allowed;
+
+      &::-webkit-slider-thumb,
+      &::-moz-range-thumb {
+        background-color: var(--color-beige-60);
+        cursor: not-allowed;
+      }
+
+      &:active {
+
+        &::-webkit-slider-thumb,
+        &::-moz-range-thumb {
+          outline: none;
+        }
+      }
+    }
+
+  }
+
+  .slider-input-range {
+    background-color: var(--color-beige-40);
+    background-image: linear-gradient(var(--color-yellow-40), var(--color-yellow-40));
+    cursor: pointer;
+    background-repeat: no-repeat;
+    border-radius: 0;
+  }
+
+  .range-input-range {
+    pointer-events: none;
+    position: absolute;
+    outline: none;
+    z-index: 1;
+
+    &::-webkit-slider-thumb,
+    &::-moz-range-thumb {
+      top: var(--spacing-sm);
+      pointer-events: all;
+      position: relative;
+    }
+  }
+
+  .output {
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 150ms ease-in-out,
+      visibility 150ms ease-in-out,
+      transform 150ms ease-in-out;
+    position: absolute;
+    text-align: center;
+    transform: translate(-50%, calc(-100% + -var(--spacing-xs)));
+  }
+
+  .output-visible {
+    opacity: 100;
+    visibility: visible;
+    transform: translate(-50%, calc(-100% + -var(--spacing-sm)));
+  }
+
+  .tooltip {
+    background-color: var(--color-neutral-90);
+    border: var(--border-width-sm) solid var(--color-neutral-70);
+    color: var(--color-neutral-10);
+    flex: 1 1 auto;
+    margin: auto;
+    min-width: var(--spacing-xxs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+
+  .thick {
+    position: absolute;
+
+    :before {
+      content: '';
+      position: absolute;
+      background-color: var(--color-neutral-30);
+      height: 6;
+      width: 1;
+      transform: translate(-50%);
+    }
+  }
+
+  .thick-label {
+    position: absolute;
+    top: 0;
+    transform: translate(-50%);
+    white-space: nowrap;
+  }
+
+  .range-track {
+    position: absolute;
+    width: 100%;
+    height: var(--spacing-xs);
+    background-color: var(--color-beige-40);
+  }
+
+  .range {
+    position: absolute;
+    width: 100%;
+    height: var(--spacing-xs);
+    background-color: var(--color-yellow-40);
+  }
+
+  .range-disabled {
+    background-image: linear-gradient(var(--color-beige-60), var(--color-beige-60));
+    cursor: not-allowed;
+  }
+}
