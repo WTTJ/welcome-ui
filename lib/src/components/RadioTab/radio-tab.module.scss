@@ -2,16 +2,6 @@
 
 @layer components {
   .label {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 0;
-    min-height: var(--height);
-    max-width: 100%;
-    margin: 0;
-    text-align: center;
-    position: relative;
-    cursor: pointer;
     transition: var(--duration-medium);
 
     &:not(.checked):not(:disabled):not([aria-disabled]) {
@@ -26,35 +16,6 @@
         background-color: var(--color-neutral-50);
       }
     }
-
-    &.column-layout {
-      margin-top: -1px;
-
-      &:first-of-type {
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
-      }
-
-      &:last-of-type {
-        border-top-right-radius: 0;
-        border-top-left-radius: 0;
-      }
-    }
-
-    &.row-layout {
-      margin-left: -1px;
-
-      &:first-of-type {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-      }
-
-      &:last-of-type {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-      }
-    }
-
     padding-top: 0;
     padding-bottom: 0;
   }
@@ -74,23 +35,5 @@
   .content {
     @include ellipsis.text-ellipsis;
     max-width: 100%;
-  }
-
-  .size {
-    &-xs {
-      --height: var(--height-elements-sm);
-    }
-
-    &-sm {
-      --height: var(--height-elements-md);
-    }
-
-    &-md {
-      --height: var(--height-elements-lg);
-    }
-
-    &-lg {
-      --height: var(--height-elements-xl);
-    }
   }
 }
