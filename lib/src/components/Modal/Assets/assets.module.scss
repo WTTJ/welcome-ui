@@ -40,22 +40,6 @@
     }
   }
 
-  .close-button {
-    position: absolute;
-    right: var(--spacing-xl);
-    top: var(--spacing-xl);
-
-    /* Hack for secondary variant on dark mode */
-    /* FIXME(isaac) this hack was already there, don't know what it does */
-    color: var(--color-neutral-90);
-    border-color: var(--color-neutral-10);
-    background-color: var(--color-neutral-10);
-
-    &:hover {
-      background-color: var(--color-neutral-40);
-    }
-  }
-
   .iframe-wrapper {
     height: 100%;
     margin: auto 0;
@@ -68,6 +52,60 @@
     }
 
     @include sizeOfElements;
+  }
+
+  .asset-wrapper {
+    --titleBlockMobile: 4rem;
+    --titleBlockDesktop: 6rem;
+
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--spacing-xxl);
+    overflow: hidden;
+
+    .asset-title-wrapper {
+      background-color: var(--color-neutral-10);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex-shrink: 0;
+      gap: var(--spacing-xxs);
+      width: 100%;
+      height: var(--titleBlockMobile);
+      padding-inline: var(--spacing-md);
+
+      /* var(--breakpoint-md) */
+      @media (min-width: 736px) {
+        height: var(--titleBlockDesktop);
+        padding-inline: var(--spacing-xl);
+      }
+    }
+
+    > img {
+      width: auto;
+      max-width: fit-content;
+      max-height: calc(100vh - 2 * 5rem - var(--titleBlockMobile));
+      flex-shrink: 0;
+
+      /* var(--breakpoint-md) */
+      @media (min-width: 736px) {
+        max-height: calc(100vh - 2 * 5rem - var(--titleBlockDesktop));
+      }
+    }
+
+    .iframe-wrapper {
+      background-color: var(--color-neutral-90);
+      max-height: calc(100vh - 2 * 5rem - var(--titleBlockMobile));
+
+      /* var(--breakpoint-md) */
+      @media (min-width: 736px) {
+        max-height: calc(100vh - 2 * 5rem - var(--titleBlockDesktop));
+      }
+    }
+  }
+
+  .asset-title {
+    margin: var(--spacing-0);
   }
 
   .asset-content {
@@ -125,53 +163,19 @@
     }
   }
 
-  .asset-wrapper {
-    --titleBlockMobile: 4rem;
-    --titleBlockDesktop: 6rem;
+  .close-button {
+    position: absolute;
+    right: var(--spacing-xl);
+    top: var(--spacing-xl);
 
-    display: flex;
-    flex-direction: column;
-    border-radius: var(--spacing-xxl);
-    overflow: hidden;
+    /* Hack for secondary variant on dark mode */
+    /* FIXME(isaac) this hack was already there, don't know what it does */
+    color: var(--color-neutral-90);
+    border-color: var(--color-neutral-10);
+    background-color: var(--color-neutral-10);
 
-    .asset-title-wrapper {
-      background-color: var(--color-neutral-10);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      flex-shrink: 0;
-      gap: var(--spacing-xxs);
-      width: 100%;
-      height: var(--titleBlockMobile);
-      padding-inline: var(--spacing-md);
-
-      /* var(--breakpoint-md) */
-      @media (min-width: 736px) {
-        height: var(--titleBlockDesktop);
-        padding-inline: var(--spacing-xl);
-      }
-    }
-
-    > img {
-      width: auto;
-      max-width: fit-content;
-      max-height: calc(100vh - 2 * 5rem - var(--titleBlockMobile));
-      flex-shrink: 0;
-
-      /* var(--breakpoint-md) */
-      @media (min-width: 736px) {
-        max-height: calc(100vh - 2 * 5rem - var(--titleBlockDesktop));
-      }
-    }
-
-    .iframe-wrapper {
-      background-color: var(--color-neutral-90);
-      max-height: calc(100vh - 2 * 5rem - var(--titleBlockMobile));
-
-      /* var(--breakpoint-md) */
-      @media (min-width: 736px) {
-        max-height: calc(100vh - 2 * 5rem - var(--titleBlockDesktop));
-      }
+    &:hover {
+      background-color: var(--color-neutral-40);
     }
   }
 }
