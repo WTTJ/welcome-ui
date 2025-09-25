@@ -389,24 +389,23 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
 
           return (
             <div {...rootProps} className={cx('wrapper', disabled && 'disabled')}>
-              <div className="relative">
-                {isSearchable ? (
-                  <input className={inputClassnames} type="text" {...inputProps} />
-                ) : (
-                  <div className={inputClassnames} {...inputProps}>
-                    {inputContent}
-                  </div>
-                )}
-                {icon ? (
-                  <div className={cx('icon-wrapper', `icon-placement-left`, `size-${size}`)}>
-                    {React.cloneElement(icon, { ...icon.props, size: iconSize })}
-                  </div>
-                ) : null}
-                <div className={cx('indicators', `size-${size}`)}>
-                  {isShowDeleteIcon ? DeleteIcon : null}
-                  {ArrowIcon}
+              {isSearchable ? (
+                <input className={inputClassnames} type="text" {...inputProps} />
+              ) : (
+                <div className={inputClassnames} {...inputProps}>
+                  {inputContent}
                 </div>
+              )}
+              {icon ? (
+                <div className={cx('icon-wrapper', `icon-placement-left`, `size-${size}`)}>
+                  {React.cloneElement(icon, { ...icon.props, size: iconSize })}
+                </div>
+              ) : null}
+              <div className={cx('indicators', `size-${size}`)}>
+                {isShowDeleteIcon ? DeleteIcon : null}
+                {ArrowIcon}
               </div>
+
               {isShowMenu ? (
                 <ul className={cx('menu')} {...getMenuProps()}>
                   {renderOptions({ getItemProps, highlightedIndex, options })}

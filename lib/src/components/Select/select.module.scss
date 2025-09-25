@@ -200,6 +200,7 @@
 
   .wrapper {
     position: relative;
+    width: 100%;
 
     &.disabled .icon-wrapper {
       color: var(--color-beige-60);
@@ -322,7 +323,6 @@
     margin-top: var(--spacing-lg);
 
     .styled-tag:not(:last-child) {
-      border: 1px solid red;
       margin-right: var(--spacing-sm);
       margin-bottom: var(--spacing-sm);
     }
