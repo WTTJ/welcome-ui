@@ -1,8 +1,7 @@
 import React, { forwardRef } from 'react'
 
+import { CloseButton } from '@/components/CloseButton'
 import { classNames } from '@/utils'
-// @WUI-214 - replace old CleanButton component when it will be updated
-import { ClearButton } from '@old/ClearButton'
 
 import inputTextStyles from './input-text.module.scss'
 import type { InputTextProps, Size } from './types'
@@ -24,7 +23,7 @@ export const InputText = forwardRef<HTMLInputElement, InputTextProps>(
       transparent,
       type = 'text',
       value,
-      variant = 'default',
+      variant,
       ...rest
     },
     ref
@@ -48,8 +47,8 @@ export const InputText = forwardRef<HTMLInputElement, InputTextProps>(
           {...rest}
           className={cx(
             'root',
-            `variant-${variant}`,
             `size-${size}`,
+            variant && `variant-${variant}`,
             transparent && 'transparent',
             hasIcon && `placement-${iconPlacement}`,
             className
@@ -70,7 +69,7 @@ export const InputText = forwardRef<HTMLInputElement, InputTextProps>(
 
         {isClearable || hasRightIcon ? (
           <div className={cx('icon-wrapper', `icon-placement-right-${iconSize}`)}>
-            {isClearable && value ? <ClearButton onClick={handleReset} /> : null}
+            {isClearable && value ? <CloseButton onClick={handleReset} size="xs" /> : null}
             {hasRightIcon ? React.cloneElement(icon, { ...icon.props, size: iconSize }) : null}
           </div>
         ) : null}

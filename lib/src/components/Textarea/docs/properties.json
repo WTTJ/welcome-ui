@@ -23,9 +23,7 @@
         }
       },
       "variant": {
-        "defaultValue": {
-          "value": "default"
-        },
+        "defaultValue": null,
         "description": "",
         "name": "variant",
         "parent": {
@@ -41,13 +39,10 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "\"danger\" | \"default\" | \"success\" | \"warning\"",
+          "raw": "\"danger\" | \"success\" | \"warning\"",
           "value": [
             {
               "value": "\"danger\""
-            },
-            {
-              "value": "\"default\""
             },
             {
               "value": "\"success\""

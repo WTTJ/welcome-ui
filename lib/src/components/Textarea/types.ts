@@ -1,6 +1,8 @@
+import type { ComponentProps } from 'react'
+
 export interface TextareaOptions {
   minRows?: number
-  variant?: 'danger' | 'default' | 'success' | 'warning'
+  variant?: 'danger' | 'success' | 'warning'
 }
 
-export type TextareaProps = React.InputHTMLAttributes<HTMLTextAreaElement> & TextareaOptions
+export type TextareaProps = ComponentProps<'textarea'> & TextareaOptions
