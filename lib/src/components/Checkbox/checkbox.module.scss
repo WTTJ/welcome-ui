@@ -1,0 +1,129 @@
+@layer components {
+  .root {
+    position: relative;
+    padding: 0;
+    cursor: pointer;
+    transition: medium;
+    overflow: hidden;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-regular);
+    line-height: 1rem;
+    appearance: none;
+    outline: transparent solid var(--border-width-md);
+    border-radius: var(--radius-sm);
+    border-style: solid;
+    border-width: var(--border-width-sm);
+    flex-shrink: 0;
+    height: 1rem;
+    width: 1rem;
+    color: var(--color-neutral-90);
+
+    /* VARIABLES THAT CHANGE WITH REACT PROPS */
+    background-color: var(--backgroundColor, var(--color-neutral-10));
+    border-color: var(--borderColor, var(--color-neutral-30));
+
+    &::after {
+      background-color: var(--afterBackgroundColor);
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      mask-size: contain;
+      width: 10px;
+    }
+
+    &:disabled,
+    &[aria-disabled] {
+      --backgroundColor: var(--color-beige-40);
+      --borderColor: var(--color-beige-50);
+
+      cursor: not-allowed;
+    }
+
+    &:hover {
+      --borderColor: var(--borderColorHover, var(--color-neutral-40));
+    }
+
+    &[data-focus-visible],
+    &:focus-visible {
+      --borderColor: var(--borderColorFocused, var(--color-brand-40));
+      outline-color: var(--outlineColorFocus, var(--color-brand-20));
+    }
+
+    &::placeholder {
+      --color: var(--color-neutral-60);
+    }
+
+    &[aria-checked='true'] {
+      &:not(:disabled) {
+        --backgroundColor: var(--color-brand-40);
+        --borderColor: var(--color-brand-40);
+        --color: var(--color-neutral-90);
+
+        &::after {
+          --afterBackgroundColor: var(--color-beige-90);
+        }
+      }
+
+      &:hover {
+        --backgroundColor: var(--color-brand-30);
+        --borderColor: var(--backgroundColor);
+      }
+
+      &::after {
+        --afterBackgroundColor: var(--color-beige-50);
+        height: 8px;
+        mask: url('data:image/svg+xml; utf8, <svg viewBox="0 0 10 8" xmlns="http://www.w3.org/2000/svg"><path fill="000000" d="M7.96171 0.596898C8.24912 0.27893 8.74024 0.25262 9.06024 0.537743C9.37208 0.815607 9.40671 1.28712 9.14514 1.60662L9.11975 1.63611L3.90331 7.40311C3.75365 7.5687 3.54304 7.66003 3.32401 7.66003C3.15017 7.66003 2.98077 7.60235 2.84241 7.49383L2.80848 7.46564L0.943652 5.82577C0.620151 5.54147 0.590221 5.04928 0.877091 4.72749C1.15398 4.41772 1.62383 4.38076 1.94536 4.6368L1.97506 4.66166L3.26156 5.79276L7.96171 0.596898Z" /></svg>');
+      }
+    }
+  }
+
+  .variant {
+    &-danger {
+      --borderColor: var(--color-red-70);
+      --borderColorHover: var(--color-red-70);
+      --borderColorFocused: var(--color-red-70);
+      --outlineColorFocus: var(--color-red-30);
+    }
+
+    &-warning {
+      --borderColor: var(--color-orange-60);
+      --borderColorHover: var(--color-orange-60);
+      --borderColorFocused: var(--color-orange-60);
+      --outlineColorFocus: var(--color-orange-30);
+    }
+
+    &-success {
+      --borderColor: var(--color-green-60);
+      --borderColorHover: var(--color-green-60);
+      --borderColorFocused: var(--color-green-60);
+      --outlineColorFocus: var(--color-green-30);
+    }
+  }
+
+  .indeterminate {
+    &:not(:disabled) {
+      --backgroundColor: var(--color-brand-40);
+      --borderColor: var(--color-brand-40);
+      --color: var(--color-neutral-90);
+
+      &::after {
+        --afterBackgroundColor: var(--color-beige-90);
+      }
+    }
+
+    &:hover {
+      --backgroundColor: var(--color-brand-30);
+      --borderColor: var(--backgroundColor);
+    }
+
+    &::after {
+      --afterBackgroundColor: var(--color-beige-50);
+      height: 4px;
+      mask: url("data:image/svg+xml,%3Csvg width='10' height='4' viewBox='0 0 10 4' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1.3973 1.76919C0.953776 1.81988 0.634816 2.04775 0.685235 2.49156C0.732149 2.90436 1.08212 3.03624 1.48789 3.03624L8.6029 2.23086C9.04669 2.18017 9.36538 1.9523 9.31469 1.50849C9.26427 1.06468 8.86389 0.917163 8.41956 0.969201C4.90971 1.38026 4.90828 1.36792 1.3973 1.76919Z' fill='000000'/%3E%3C/svg%3E");
+    }
+  }
+}

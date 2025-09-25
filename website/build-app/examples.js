@@ -49,6 +49,8 @@ export default {
   "/Card/docs/examples/content.tsx": dynamic(() => import("../../lib/src/components/Card/docs/examples/content.tsx").then(mod => mod), { ssr: false }),
   "/Card/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Card/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Card/docs/examples/picture.tsx": dynamic(() => import("../../lib/src/components/Card/docs/examples/picture.tsx").then(mod => mod), { ssr: false }),
+  "/Checkbox/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Checkbox/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
+  "/Checkbox/docs/examples/variants.tsx": dynamic(() => import("../../lib/src/components/Checkbox/docs/examples/variants.tsx").then(mod => mod), { ssr: false }),
   "/CloseButton/docs/examples/animate-presence.tsx": dynamic(() => import("../../lib/src/components/CloseButton/docs/examples/animate-presence.tsx").then(mod => mod), { ssr: false }),
   "/CloseButton/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/CloseButton/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/DropdownMenu/docs/examples/arrow.tsx": dynamic(() => import("../../lib/src/components/DropdownMenu/docs/examples/arrow.tsx").then(mod => mod), { ssr: false }),
