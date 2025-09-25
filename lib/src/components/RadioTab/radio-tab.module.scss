@@ -1,0 +1,39 @@
+@use './../../theme/utils/text-ellipsis' as ellipsis;
+
+@layer components {
+  .label {
+    transition: var(--duration-medium);
+
+    &:not(.checked):not(:disabled):not([aria-disabled]) {
+      border-color: var(--color-neutral-30);
+
+      &:hover {
+        background-color: var(--color-neutral-30);
+      }
+
+      &:focus,
+      &:active {
+        background-color: var(--color-neutral-50);
+      }
+    }
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .input-wrapper {
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+
+  .content {
+    @include ellipsis.text-ellipsis;
+    max-width: 100%;
+  }
+}
