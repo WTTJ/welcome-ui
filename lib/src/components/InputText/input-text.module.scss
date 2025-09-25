@@ -15,16 +15,12 @@
   appearance: none;
 
   /* VARIABLES THAT CHANGE WITH REACT PROPS */
-  background-color: var(--backgroundColor);
-  color: var(--color);
-  border-color: var(--borderColor);
+  background-color: var(--backgroundColor, var(--color-neutral-10));
+  color: var(--color, var(--color-neutral-90));
+  border-color: var(--borderColor, var(--color-neutral-30));
   height: var(--height);
   padding-inline: var(--paddingInline);
   padding-block: var(--paddingBlock);
-
-  --borderColor: var(--color-neutral-30);
-  --backgroundColor: var(--color-neutral-10);
-  --color: var(--color-neutral-90);
 
   &:disabled,
   &[aria-disabled] {
@@ -34,13 +30,13 @@
   }
 
   &:hover {
-    --borderColor: var(--borderColorHover);
+    --borderColor: var(--borderColorHover, var(--color-neutral-40));
   }
 
   &[data-focus-visible],
   &:focus-visible {
-    --borderColor: var(--borderColorFocused);
-    outline-color: var(--outlineColorFocus);
+    --borderColor: var(--borderColorFocused, var(--color-brand-40));
+    outline-color: var(--outlineColorFocus, var(--color-brand-20));
   }
 
   &::placeholder {
@@ -49,12 +45,6 @@
 }
 
 .variant {
-  &-default {
-    --borderColorHover: var(--color-neutral-40);
-    --outlineColorFocus: var(--color-brand-20);
-    --borderColorFocused: var(--color-brand-40);
-  }
-
   &-danger {
     --borderColor: var(--color-red-70);
     --borderColorHover: var(--color-red-70);

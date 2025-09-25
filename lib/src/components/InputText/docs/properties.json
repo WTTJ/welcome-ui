@@ -143,9 +143,7 @@
         }
       },
       "variant": {
-        "defaultValue": {
-          "value": "default"
-        },
+        "defaultValue": null,
         "description": "",
         "name": "variant",
         "parent": {
@@ -165,9 +163,6 @@
           "value": [
             {
               "value": "\"danger\""
-            },
-            {
-              "value": "\"default\""
             },
             {
               "value": "\"success\""
