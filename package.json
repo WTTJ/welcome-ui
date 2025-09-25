@@ -8,6 +8,7 @@
     "check:audit": "/bin/bash -c 'yarn audit --level low; [[ $? -ge 2 ]] && exit 1 || exit 0'",
     "check:audit:fix": "npm_config_yes=true npx yarn-audit-fix",
     "check:docs": "node ./scripts/check-docs.mjs",
+    "check:theme": "node --import=tsx lib/src/theme/generate-theme.ts",
     "icons": "node scripts/icons-optimize.mjs && node scripts/icons-collect.mjs && yarn eslint --fix",
     "lint:tailwindcss": "stylelint 'lib/src/**/**/*.css' ",
     "lint:styled": "stylelint '**/styles.ts'",
