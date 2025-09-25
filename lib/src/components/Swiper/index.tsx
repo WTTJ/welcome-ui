@@ -1,4 +1,3 @@
-import { useTheme } from '@xstyled/styled-components'
 import debounce from 'lodash.debounce'
 import type { CSSProperties } from 'react'
 import { Children, cloneElement, useCallback, useEffect, useMemo, useRef, useState } from 'react'
@@ -6,6 +5,7 @@ import { Children, cloneElement, useCallback, useEffect, useMemo, useRef, useSta
 import { Button } from '@/components/Button'
 import { LeftIcon, RightIcon } from '@/components/Icon'
 import { classNames } from '@/utils'
+import { useScreens } from '@/utils/use-screens'
 import { useViewportSize } from '@/utils/use-viewport'
 
 import swiperStyles from './swiper.module.scss'
@@ -37,7 +37,7 @@ export const useSwiper = (options: UseSwiperOptions = {}) => {
   const [showLeftArrow, setShowLeftArrow] = useState(false)
   const [showRightArrow, setShowRightArrow] = useState(false)
   const ref = useRef<HTMLUListElement>()
-  const { screens } = useTheme()
+  const screens = useScreens()
 
   const currentSlidesPerView = useMemo(() => {
     if (viewportWidth <= screens.md) {
@@ -49,7 +49,7 @@ export const useSwiper = (options: UseSwiperOptions = {}) => {
     } else {
       return slidesPerView.desktop
     }
-  }, [fullWidth, viewportWidth, screens, slidesPerView])
+  }, [viewportWidth, screens, fullWidth, slidesPerView])
 
   return {
     autoplay,
@@ -271,7 +271,7 @@ export const Swiper = ({ children, className, store, ...rest }: SwiperProps) => 
         aria-label="Previous slide"
         className={cx(
           'arrow',
-          'left-[10px]',
+          'arrow-left',
           !withDarkUI && 'arrow-background',
           withNavigationMobile && 'arrow-mobile',
           withNavigationDesktop && 'arrow-desktop'
@@ -288,7 +288,7 @@ export const Swiper = ({ children, className, store, ...rest }: SwiperProps) => 
         aria-label="Next slide"
         className={cx(
           'arrow',
-          'right-[10px]',
+          'arrow-right',
           !withDarkUI && 'arrow-background',
           withNavigationMobile && 'arrow-mobile',
           withNavigationDesktop && 'arrow-desktop'

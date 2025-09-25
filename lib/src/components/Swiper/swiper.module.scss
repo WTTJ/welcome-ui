@@ -1,3 +1,5 @@
+@use '../../utils/breakpoints' as breakpoints;
+
 @layer components {
   .root {
     overflow-y: hidden;
@@ -47,59 +49,58 @@
         margin-right: 0;
       }
     }
-  }
 
-  .container-mobile {
-    @media (min-width: 480px) {
-      > * {
-        min-width: var(--slideWidthMobile);
-        max-width: var(--slideWidthMobile);
+    &-mobile {
+      @media (min-width: breakpoints.$breakpoint-sm) {
+        > * {
+          min-width: var(--slideWidthMobile);
+          max-width: var(--slideWidthMobile);
 
-        &:nth-of-type(var(--slideMobile)n + 1) {
-          scroll-snap-align: start;
+          &:nth-of-type(var(--slideMobile)n + 1) {
+            scroll-snap-align: start;
+          }
         }
       }
     }
-  }
 
-  .container-tablet {
-    @media (min-width: 736px) {
-      > * {
-        min-width: var(--slideWidthTablet);
-        max-width: var(--slideWidthTablet);
+    &-tablet {
+      @media (min-width: breakpoints.$breakpoint-md) {
+        > * {
+          min-width: var(--slideWidthTablet);
+          max-width: var(--slideWidthTablet);
 
-        &:nth-of-type(var(--slideTablet)n + 1) {
-          scroll-snap-align: start;
+          &:nth-of-type(var(--slideTablet)n + 1) {
+            scroll-snap-align: start;
+          }
         }
       }
     }
-  }
 
-  .container-desktop {
-    @media (min-width: 980px) {
-      background-color: red;
-      > * {
-        min-width: var(--slideWidthDesktop);
-        max-width: var(--slideWidthDesktop);
+    &-desktop {
+      @media (min-width: breakpoints.$breakpoint-lg) {
+        > * {
+          min-width: var(--slideWidthDesktop);
+          max-width: var(--slideWidthDesktop);
 
-        scroll-snap-align: unset;
-
-        &:nth-of-type(var(--slideDesktop)n + 1) {
-          scroll-snap-align: start;
-        }
-
-        &:not(:nth-of-type(var(--slideDesktop)n + 1)) {
           scroll-snap-align: unset;
+
+          &:nth-of-type(var(--slideDesktop)n + 1) {
+            scroll-snap-align: start;
+          }
+
+          &:not(:nth-of-type(var(--slideDesktop)n + 1)) {
+            scroll-snap-align: unset;
+          }
         }
       }
     }
-  }
 
-  .container-full-width {
-    @media (min-width: 1280px) {
-      > * {
-        min-width: var(--slideWithDesktopFullWidth);
-        max-width: var(--slideWithDesktopFullWidth);
+    &-full-width {
+      @media (min-width: breakpoints.$breakpoint-xl) {
+        > * {
+          min-width: var(--slideWithDesktopFullWidth);
+          max-width: var(--slideWithDesktopFullWidth);
+        }
       }
     }
   }
@@ -116,12 +117,20 @@
       z-index: -1;
     }
 
+    &-left {
+      left: 10px;
+    }
+
+    &-right {
+      right: 10px;
+    }
+
     &-mobile {
       display: flex;
       z-index: 1;
     }
 
-    @media (min-width: 980px) {
+    @media (min-width: breakpoints.$breakpoint-md) {
       display: none;
       z-index: -1;
 
@@ -154,7 +163,7 @@
       z-index: 1;
     }
 
-    @media (min-width: 980px) {
+    @media (min-width: breakpoints.$breakpoint-md) {
       display: none;
       z-index: -1;
 
