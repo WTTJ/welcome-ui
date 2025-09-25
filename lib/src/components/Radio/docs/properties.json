@@ -52,62 +52,6 @@
           ]
         }
       },
-      "disabledIcon": {
-        "defaultValue": null,
-        "description": "",
-        "name": "disabledIcon",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Radio/types.ts",
-          "name": "RadioOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Radio/types.ts",
-            "name": "RadioOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "enum",
-          "raw": "boolean",
-          "value": [
-            {
-              "value": "false"
-            },
-            {
-              "value": "true"
-            }
-          ]
-        }
-      },
-      "flexDirection": {
-        "defaultValue": null,
-        "description": "",
-        "name": "flexDirection",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Radio/types.ts",
-          "name": "RadioOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Radio/types.ts",
-            "name": "RadioOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "enum",
-          "raw": "\"row\" | \"column\"",
-          "value": [
-            {
-              "value": "\"row\""
-            },
-            {
-              "value": "\"column\""
-            }
-          ]
-        }
-      },
       "hint": {
         "defaultValue": null,
         "description": "",
@@ -172,60 +116,6 @@
               "value": "number"
             }
           ]
-        }
-      },
-      "onChange": {
-        "defaultValue": null,
-        "description": "",
-        "name": "onChange",
-        "parent": {
-          "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-          "name": "InputHTMLAttributes"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-            "name": "InputHTMLAttributes"
-          },
-          {
-            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-            "name": "DOMAttributes"
-          },
-          {
-            "fileName": "welcome-ui/lib/src/components/Radio/types.ts",
-            "name": "RadioOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "ChangeEventHandler<HTMLInputElement> & FormEventHandler<HTMLLabelElement> & ((event: MouseEvent<HTMLLabelElement, MouseEvent>) => void)"
-        }
-      },
-      "onClick": {
-        "defaultValue": null,
-        "description": "",
-        "name": "onClick",
-        "parent": {
-          "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-          "name": "DOMAttributes"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-            "name": "DOMAttributes"
-          },
-          {
-            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-            "name": "DOMAttributes"
-          },
-          {
-            "fileName": "welcome-ui/lib/src/components/Radio/types.ts",
-            "name": "RadioOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "MouseEventHandler<HTMLInputElement> & MouseEventHandler<HTMLLabelElement> & ((event: MouseEvent<HTMLLabelElement, MouseEvent>) => void)"
         }
       },
       "required": {
@@ -293,7 +183,9 @@
         }
       },
       "variant": {
-        "defaultValue": null,
+        "defaultValue": {
+          "value": "default"
+        },
         "description": "",
         "name": "variant",
         "parent": {
@@ -313,13 +205,10 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "\"danger\" | \"success\" | \"warning\"",
+          "raw": "\"danger\" | \"warning\"",
           "value": [
             {
               "value": "\"danger\""
-            },
-            {
-              "value": "\"success\""
             },
             {
               "value": "\"warning\""
