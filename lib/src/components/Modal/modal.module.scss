@@ -1,0 +1,136 @@
+@use '../../utils/breakpoints.scss' as breakpoints;
+
+@layer components {
+  .root {
+    background-color: var(--color-neutral-10);
+    border-color: var(--color-neutral-30);
+    border-style: solid;
+    border-width: var(--border-width-sm);
+    z-index: 999;
+    border-radius: var(--radius-md);
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    margin-top: var(--spacing-xl);
+    top: 50%;
+    transform: translate3d(0, -50%, 0);
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    height: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    overflow: auto;
+    opacity: 0;
+    transition:
+      opacity 250ms ease-in-out,
+      margin-top 250ms ease-in-out;
+
+    --dialog-width: 100%;
+
+    &[data-enter] {
+      opacity: 1;
+      margin-top: 0;
+    }
+
+    @media (min-width: breakpoints.$breakpoint-md) {
+      height: fit-content;
+      max-height: calc(2 * var(--spacing-xl) + 100vh);
+      width: var(--dialog-width);
+    }
+
+    &.size-lg {
+      /* 720px; */
+      --dialog-width: 45rem;
+    }
+
+    &.size-md {
+      /* 600px; */
+      --dialog-width: 37.5rem;
+    }
+
+    &.size-sm {
+      /* 450px; */
+      --dialog-width: 28.125rem;
+    }
+
+    &.size-xs {
+      /* 320px; */
+      --dialog-width: 20rem;
+    }
+  }
+
+  .backdrop {
+    background-color: var(--color-overlay);
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+
+    &.hideOnInteractOutside {
+      cursor: pointer;
+    }
+
+    &[data-enter] {
+      opacity: 1;
+    }
+  }
+
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--color-neutral-10);
+    border-top-left-radius: var(--radius-md);
+    border-top-right-radius: var(--radius-md);
+    padding-bottom: var(--spacing-xxl);
+    padding-left: var(--spacing-xxl);
+    padding-right: var(--spacing-3xl);
+    padding-top: var(--spacing-xxl);
+  }
+
+  .header-subtitle {
+    color: var(--color-neutral-70);
+    margin: 0;
+  }
+
+  .body {
+    color: var(--color-neutral-90);
+    padding-left: var(--spacing-xxl);
+    padding-right: var(--spacing-3xl);
+    padding-bottom: var(--spacing-xxl);
+  }
+
+  .footer {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    flex-shrink: 0;
+    z-index: 1;
+    background-color: var(--color-neutral-10);
+    border-bottom-left-radius: var(--radius-md);
+    border-bottom-right-radius: var(--radius-md);
+    border-top: 0 solid var(--color-neutral-30);
+  }
+
+  .footer-children-wrapper {
+    padding-block: var(--spacing-xl);
+    padding-inline: var(--spacing-xxl);
+  }
+
+  .footer-information {
+    background-color: var(--color-beige-20);
+    padding-bottom: var(--spacing-xxl);
+    padding-left: var(--spacing-xxl);
+    padding-right: var(--spacing-xxl);
+    padding-top: var(--spacing-xl);
+  }
+}

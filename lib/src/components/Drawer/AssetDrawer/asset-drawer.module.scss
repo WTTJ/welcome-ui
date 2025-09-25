@@ -1,0 +1,96 @@
+@use '../../../utils/breakpoints' as breakpoints;
+
+@layer components {
+  .asset-drawer {
+    overflow: hidden;
+    border-top-left-radius: var(--radius-2xl);
+    border-top-right-radius: var(--radius-2xl);
+  }
+
+  .content-wrapper {
+    height: 100%;
+    margin-top: var(--spacing-xl);
+    overflow-y: auto;
+    width: 100%;
+
+    @media screen and (min-width: breakpoints.$breakpoint-md) {
+      margin-top: var(--spacing-3xl);
+    }
+  }
+
+  .content-max-width {
+    flex: 1;
+    margin: 0 auto;
+    width: 100%;
+    max-width: var(--asset-drawer-content-max-width, 51.25rem); /* 820px */
+  }
+
+  .content {
+    --asset-drawer-content-padding: 0 var(--spacing-md) var(--spacing-xl);
+
+    padding: var(--asset-drawer-content-padding);
+
+    @media screen and (min-width: breakpoints.$breakpoint-md) {
+      --asset-drawer-content-padding: 0 var(--spacing-xl) var(--spacing-3xl);
+    }
+  }
+
+  .asset-drawer-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    justify-content: space-between;
+
+    background-color: var(--color-neutral-10);
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-md);
+
+    position: sticky;
+    top: 0;
+    z-index: 1;
+
+    @media screen and (min-width: breakpoints.$breakpoint-md) {
+      align-items: center;
+      flex-direction: row;
+    }
+  }
+
+  .back-button {
+    align-items: center;
+    display: flex;
+    gap: var(--spacing-md);
+
+    @media screen and (min-width: breakpoints.$breakpoint-md) {
+      gap: var(--spacing-xl);
+    }
+  }
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xxs);
+  }
+
+  .icon-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: var(--radius-md);
+    background-color: var(--color-beige-20);
+    transition: background-color var(--timing-primary);
+
+    --icon-block-size: var(--spacing-3xl); /* 48px */
+
+    width: var(--icon-block-size);
+    height: var(--icon-block-size);
+
+    &.size-md {
+      --icon-block-size: var(--spacing-3xl); /* 48px */
+    }
+
+    &.size-sm {
+      --icon-block-size: var(--spacing-xxl); /* 32px */
+    }
+  }
+}

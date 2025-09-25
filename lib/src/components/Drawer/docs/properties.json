@@ -1,0 +1,158 @@
+{
+  "Drawer": {
+    "props": {
+      "placement": {
+        "defaultValue": {
+          "value": "right"
+        },
+        "description": "",
+        "name": "placement",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Drawer/types.ts",
+          "name": "DrawerOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Drawer/types.ts",
+            "name": "DrawerOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Placement",
+          "value": [
+            {
+              "value": "\"bottom\""
+            },
+            {
+              "value": "\"left\""
+            },
+            {
+              "value": "\"right\""
+            },
+            {
+              "value": "\"top\""
+            }
+          ]
+        }
+      },
+      "size": {
+        "defaultValue": {
+          "value": "lg"
+        },
+        "description": "",
+        "name": "size",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Drawer/types.ts",
+          "name": "DrawerOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Drawer/types.ts",
+            "name": "DrawerOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "withBackdrop": {
+        "defaultValue": {
+          "value": false
+        },
+        "description": "",
+        "name": "withBackdrop",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Drawer/types.ts",
+          "name": "DrawerOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Drawer/types.ts",
+            "name": "DrawerOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "withCloseButton": {
+        "defaultValue": {
+          "value": true
+        },
+        "description": "",
+        "name": "withCloseButton",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Drawer/types.ts",
+          "name": "DrawerOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Drawer/types.ts",
+            "name": "DrawerOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "useDialogStore": {
+    "props": {}
+  },
+  "AssetDrawer": {
+    "props": {
+      "maxWidth": {
+        "defaultValue": null,
+        "description": "",
+        "name": "maxWidth",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Drawer/AssetDrawer/types.ts",
+          "name": "AssetDrawerOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Drawer/AssetDrawer/types.ts",
+            "name": "AssetDrawerOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | number",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

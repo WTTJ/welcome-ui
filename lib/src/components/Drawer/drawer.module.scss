@@ -1,0 +1,150 @@
+@use '../../utils/breakpoints' as breakpoints;
+
+@layer components {
+  .root {
+    background-color: var(--color-neutral-10);
+    border: var(--border-width-sm) solid var(--color-neutral-30);
+    z-index: 999;
+
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    opacity: 0;
+    transition: var(--duration-medium);
+    max-width: 100%;
+
+    --drawer-left: 0;
+    --drawer-right: 0;
+    --drawer-top: 0;
+    --drawer-bottom: 0;
+    --drawer-height: 100%;
+    --drawer-width: 100%;
+    --drawer-transform: translateY(0, 0);
+
+    left: var(--drawer-left);
+    right: var(--drawer-right);
+    top: var(--drawer-top);
+    bottom: var(--drawer-bottom);
+    width: var(--drawer-width);
+    height: var(--drawer-height);
+    transform: var(--drawer-transform);
+
+    &.placement {
+      &-bottom {
+        --drawer-top: auto;
+        --drawer-transform: translateY(100%);
+      }
+      &-left {
+        --drawer-right: auto;
+        --drawer-transform: translateX(-100%);
+      }
+      &-right {
+        --drawer-left: auto;
+        --drawer-transform: translateX(100%);
+      }
+      &-top {
+        --drawer-bottom: auto;
+        --drawer-transform: translateY(-100%);
+      }
+      &-top,
+      &-bottom {
+        &.size {
+          &-sm {
+            --drawer-height: 25rem; /* 400px */
+          }
+          &-md {
+            --drawer-height: 34.375rem; /* 550px */
+          }
+          &-lg {
+            --drawer-height: 42.5rem; /* 680px */
+          }
+        }
+      }
+      &-left,
+      &-right {
+        &.size {
+          &-sm {
+            --drawer-width: 25rem; /* 400px */
+          }
+          &-md {
+            --drawer-width: 34.375rem; /* 550px */
+          }
+          &-lg {
+            --drawer-width: 42.5rem; /* 680px */
+          }
+        }
+      }
+    }
+
+    /* Note: this must come _after_ the placement rules to transition from offscreen to onscreen */
+    &[data-enter] {
+      opacity: 1;
+      --drawer-transform: translateX(0, 0);
+    }
+  }
+
+  .backdrop {
+    background-color: var(--color-overlay);
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+
+    &.drawer-hide-on-interact-outside {
+      cursor: pointer;
+    }
+
+    &[data-enter] {
+      opacity: 1;
+    }
+  }
+
+  .content {
+    flex: 1;
+    padding: var(--spacing-xl);
+
+    @media screen and (min-width: breakpoints.$breakpoint-md) {
+      overflow-y: auto;
+    }
+  }
+
+  .footer {
+    bottom: 0;
+    position: sticky;
+    z-index: 1;
+    width: 100%;
+    background-color: var(--color-neutral-0);
+    padding: var(--spacing-xl);
+
+    @media screen and (min-width: breakpoints.$breakpoint-md) {
+      bottom: auto;
+      position: static;
+    }
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+
+    background-color: var(--color-neutral-10);
+    margin: 0;
+    padding: var(--spacing-xl) var(--spacing-5xl) var(--spacing-xl) var(--spacing-xl);
+  }
+
+  .drawer-close {
+    position: absolute;
+    right: var(--spacing-lg);
+    top: var(--spacing-lg);
+    z-index: 10;
+  }
+}
