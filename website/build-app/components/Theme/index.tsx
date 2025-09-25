@@ -1,8 +1,8 @@
 'use client'
 import { useTheme } from '@xstyled/styled-components'
 
-import { Alert } from '@old/Alert'
-import { Text } from '@old/Text'
+import { Alert } from '@/components/Alert'
+import { Text } from '@/components/Text'
 
 type ColorsProps = {
   entry: string

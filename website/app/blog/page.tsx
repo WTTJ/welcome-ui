@@ -3,11 +3,11 @@ import styled, { th } from '@xstyled/styled-components'
 
 import { Avatar } from '@/components/Avatar'
 import { Button } from '@/components/Button'
+import { Card } from '@/components/Card'
 import { RightIcon } from '@/components/Icon'
+import { Link } from '@/components/Link'
+import { Tag } from '@/components/Tag'
 import { Text } from '@/components/Text'
-import { Card } from '@old/Card'
-import { Link } from '@old/Link'
-import { Tag } from '@old/Tag'
 
 const posts = [
   {

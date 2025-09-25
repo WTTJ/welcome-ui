@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
+import { Card } from '@/components/Card'
 import { Text } from '@/components/Text'
-import { Card } from '@old/Card'
 
 import { getPageContent } from '~/build-app/utils/page-content'
 import { getPages } from '~/build-app/utils/pages-components'

@@ -3,8 +3,8 @@ import { useState } from 'react'
 
 import { Button } from '@/components/Button'
 import { CodeBlockIcon, GithubIcon, PromoteIcon } from '@/components/Icon'
+import { Tooltip } from '@/components/Tooltip'
 import { classNames } from '@/utils'
-import { Tooltip } from '@old/Tooltip'
 
 import examples from '~/build-app/examples'
 import { openStackBlitz } from '~/build-app/utils/stackblitz'

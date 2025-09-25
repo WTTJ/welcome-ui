@@ -3,8 +3,8 @@ import React from 'react'
 
 import { Button } from '@/components/Button'
 import { GithubIcon, HeartIcon, RightIcon } from '@/components/Icon'
+import { Logo, Symbol } from '@/components/Logo'
 import { Text } from '@/components/Text'
-import { Logo, Symbol } from '@old/Logo'
 
 import { Components } from '~/build-app/components/Homepage/Components'
 import { Expectations } from '~/build-app/components/Homepage/Expectations'

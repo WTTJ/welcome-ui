@@ -1,3 +1,4 @@
+import { Card } from '@/components/Card'
 import {
   ActionsIcon,
   BookIcon,
@@ -8,8 +9,7 @@ import {
   PencilIcon,
   UserIcon,
 } from '@/components/Icon'
-import { Card } from '@old/Card'
-import { Text } from '@old/Text'
+import { Text } from '@/components/Text'
 
 type ExpectationProps = {
   description: string

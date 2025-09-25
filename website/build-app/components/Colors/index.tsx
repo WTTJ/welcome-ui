@@ -1,10 +1,10 @@
 'use client'
 import type { CSSProperties } from 'react'
 
+import { Alert } from '@/components/Alert'
+import { Text } from '@/components/Text'
 import { primitives, semantics } from '@/theme/tokens'
 import { classNames } from '@/utils'
-import { Alert } from '@old/Alert'
-import { Text } from '@old/Text'
 
 const cx = classNames()
 

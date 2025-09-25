@@ -1,5 +1,5 @@
 import { CodeBlockIcon, DownloadIcon, StarIcon } from '@/components/Icon'
-import { Text } from '@old/Text'
+import { Text } from '@/components/Text'
 
 const stats = [
   {
