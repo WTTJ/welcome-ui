@@ -58,7 +58,10 @@
 
   .iframe-wrapper {
     @include sizeOfElements;
+    height: 100%;
+    margin: auto 0;
     flex: 1;
+    aspect-ratio: 16 / 9;
 
     /* var(--breakpoint-md) */
     @media (min-width: 736px) {
