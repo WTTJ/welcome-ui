@@ -13,6 +13,7 @@
 @import '../../lib/src/components/Label/label.module.scss';
 @import '../../lib/src/components/Loader/loader.module.scss';
 @import '../../lib/src/components/Pagination/pagination.module.scss';
+@import '../../lib/src/components/Swiper/swiper.module.scss';
 @import '../../lib/src/components/Table/table.module.scss';
 @import '../../lib/src/components/Tabs/components/ActiveBar/active-bar.module.scss';
 @import '../../lib/src/components/Tabs/components/TabList/tab-list.module.scss';
