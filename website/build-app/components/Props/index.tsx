@@ -107,14 +107,14 @@ export const Property = ({ id, name, options }: PropertyProps) => {
         <Code>{name}</Code>
         {required ? <Badge variant="primary">Required</Badge> : null}
       </div>
-      <Text color="neutral-90">
+      <Text className="text-neutral-90">
         {getType(type)}
         <span className="text-neutral-70">
           {defaultLabel ? ` | undefined = ${defaultLabel}` : null}
         </span>
       </Text>
       {description ? (
-        <Text mt="sm" variant="sm">
+        <Text className="mt-sm" variant="sm">
           {description}
         </Text>
       ) : null}
@@ -135,7 +135,7 @@ export const Properties = ({ items }: PropertiesProps) => {
 
         return (
           <section key={kebabCase(`property_${name}`)}>
-            {name ? <H2 mt={0}>{name}</H2> : null}
+            {name ? <H2 className="mt-0">{name}</H2> : null}
             <div className="flex flex-col gap-xl mt-md">
               {Object.entries(properties).map(item => (
                 <Property

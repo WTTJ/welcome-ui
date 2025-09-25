@@ -70,12 +70,12 @@ const expectations: ExpectationProps[] = [
 
 const Expectation = ({ description, icon: Icon, title }: ExpectationProps) => {
   return (
-    <Card p="md" w="100%">
+    <Card className="p-md w-full">
       <Icon color="neutral-90" size="xl" />
-      <Text as="span" mb="md" mt="lg" textTransform="uppercase" variant="h6">
+      <Text as="span" className="mb-md mt-lg uppercase" variant="h6">
         {title}
       </Text>
-      <Text m="0" variant="sm">
+      <Text className="m-0" variant="sm">
         {description}
       </Text>
     </Card>

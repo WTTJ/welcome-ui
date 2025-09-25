@@ -2,9 +2,8 @@ import * as React from 'react'
 
 import { Select } from '@/components/Select'
 import type { SelectProps } from '@/components/Select/types'
+import { Tag } from '@/components/Tag'
 import { Text } from '@/components/Text'
-//TODO migrate WUI-187/tag
-import { Tag } from '@old/Tag'
 
 export const GROUP_ITEMS = [
   {

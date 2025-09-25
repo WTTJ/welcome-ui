@@ -1,7 +1,6 @@
 import { Button } from '@/components/Button'
 import { AssetModal, Modal, useModal } from '@/components/Modal'
-//TODO migrate after WUI-189/swiper
-import { Swiper, useSwiper } from '@old/Swiper'
+import { Swiper, useSwiper } from '@/components/Swiper'
 
 const Example = () => {
   const modal = useModal()

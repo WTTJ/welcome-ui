@@ -1,27 +1,22 @@
 import { kebabCase } from 'lodash'
 
 import { Text } from '@/components/Text'
-import type { ThemeValues } from '@/components/theme'
 
 type HeadingsProps = {
   children: React.ReactNode
-  mt?: ThemeValues['marginTop']
+  className?: string
 }
 
-export const H2 = ({ children, mt = '3xl' }: HeadingsProps) => {
+export const H2 = ({ children, className }: HeadingsProps) => {
   const id = `${kebabCase(children?.toString())}`
 
   return (
     <Text
-      alignItems="center"
       as="h2"
-      borderBottom="1px solid"
-      borderBottomColor="neutral-30"
-      display="flex"
+      className={`
+        'border-b border-b-neutral-30 flex items-center mt-3xl pb-sm scroll-mt-[170px]
+        ${className}`}
       id={id}
-      mt={mt}
-      pb="sm"
-      style={{ scrollMarginTop: 170 }}
       variant="h3"
     >
       <a className="text-inherit hover:underline" href={`#${id}`}>
@@ -31,11 +26,11 @@ export const H2 = ({ children, mt = '3xl' }: HeadingsProps) => {
   )
 }
 
-export const H3 = ({ children, mt = 'xxl' }: HeadingsProps) => {
+export const H3 = ({ children, className }: HeadingsProps) => {
   const id = `${kebabCase(children?.toString())}`
 
   return (
-    <Text as="h3" id={id} mb="lg" mt={mt} style={{ scrollMarginTop: 170 }} variant="h4">
+    <Text as="h3" className={`mb-lg mt-xxl scroll-mt-[170px] ${className}`} id={id} variant="h4">
       <a className="text-inherit hover:underline" href={`#${id}`}>
         {children}
       </a>
@@ -43,25 +38,39 @@ export const H3 = ({ children, mt = 'xxl' }: HeadingsProps) => {
   )
 }
 
-export const H4 = ({ children, mt = 'xl' }: HeadingsProps) => {
+export const H4 = ({ children, className }: HeadingsProps) => {
   return (
-    <Text as="h4" id={`${kebabCase(children?.toString())}`} mb="md" mt={mt} variant="h5">
+    <Text
+      as="h4"
+      className={`mb-md mt-xl ${className}`}
+      id={`${kebabCase(children?.toString())}`}
+      variant="h5"
+    >
       {children}
     </Text>
   )
 }
 
-export const H5 = ({ children, mt = 'lg' }: HeadingsProps) => {
+export const H5 = ({ children, className }: HeadingsProps) => {
   return (
-    <Text as="h5" id={`${kebabCase(children?.toString())}`} mb="sm" mt={mt} variant="h6">
+    <Text
+      as="h5"
+      className={`mb-sm mt-lg ${className}`}
+      id={`${kebabCase(children?.toString())}`}
+      variant="h6"
+    >
       {children}
     </Text>
   )
 }
 
-export const H6 = ({ children, mt = 'lg' }: HeadingsProps) => {
+export const H6 = ({ children, className }: HeadingsProps) => {
   return (
-    <Text id={`${kebabCase(children?.toString())}`} mb="sm" mt={mt} variant="h6">
+    <Text
+      className={`mb-sm mt-lg ${className}`}
+      id={`${kebabCase(children?.toString())}`}
+      variant="h6"
+    >
       {children}
     </Text>
   )

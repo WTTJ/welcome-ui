@@ -2,10 +2,10 @@ import React, { Children, cloneElement, forwardRef } from 'react'
 
 import { Button } from '@/components/Button'
 import type { ButtonProps } from '@/components/Button/types'
+import { CloseButton } from '@/components/CloseButton'
 import { Text } from '@/components/Text'
 import { VariantIcon } from '@/components/VariantIcon'
 import { classNames } from '@/utils'
-import { CloseButton } from '@old/CloseButton'
 
 import alertStyles from './alert.module.scss'
 import type { AlertProps, AlertTitleProps, CloneActionsReturns } from './types'
@@ -74,7 +74,7 @@ const AlertComponent = forwardRef<HTMLDivElement, AlertProps>(
         {...rest}
       >
         {!!handleClose && (
-          <CloseButton onClick={handleClose} position="absolute" right="sm" size="xs" top="sm" />
+          <CloseButton className="absolute right-sm top-sm" onClick={handleClose} size="xs" />
         )}
         {showIcon ? (
           <VariantIcon className={cx('variant-icon')} size={size} variant={defaultVariantIcon} />

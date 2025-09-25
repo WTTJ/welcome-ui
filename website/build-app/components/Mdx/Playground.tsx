@@ -78,7 +78,7 @@ export const Playground = ({
         <>
           <div className="bg-beige-30 border border-beige-40 -mt-md overflow-hidden pt-lg rounded-lg pb-xs">
             <div className="flex gap-xs pl-sm">
-              <Tooltip content="View code" fixed zIndex={2}>
+              <Tooltip content="View code">
                 <Button
                   onClick={() => setIsHighlightOpen(!isHighlightOpen)}
                   shape="circle"
@@ -88,12 +88,12 @@ export const Playground = ({
                   <CodeBlockIcon />
                 </Button>
               </Tooltip>
-              <Tooltip content="Edit on StackBlitz" fixed zIndex={2}>
+              <Tooltip content="Edit on StackBlitz">
                 <Button onClick={handleClickStackBlitz} shape="circle" size="xs" variant="ghost">
                   <PromoteIcon />
                 </Button>
               </Tooltip>
-              <Tooltip content="View on Github" fixed zIndex={2}>
+              <Tooltip content="View on Github">
                 <Button
                   as="a"
                   href={`https://github.com/WTTJ/welcome-ui/tree/main/lib/src/components${pathToFile}`}

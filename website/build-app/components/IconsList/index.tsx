@@ -87,12 +87,8 @@ export const IconsList = ({ name }: IconListProps) => {
             {Icon ? <Icon size="lg" /> : <Icons.CrossIcon size="lg" />}
             <Text
               as="span"
-              color="beige-70"
+              className="pt-md px-sm text-beige-70 text-center break-words"
               lines={2}
-              pt="md"
-              px="sm"
-              style={{ wordBreak: 'break-word' }}
-              textAlign="center"
               variant="sm"
             >
               {componentName}

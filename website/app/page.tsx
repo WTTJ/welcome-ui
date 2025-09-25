@@ -96,7 +96,7 @@ const Home = () => {
         />
       </Section>
       <Section className="pt-3xl md:pt-6xl">
-        <Logo h={67} />
+        <Logo className="h-[67px]" />
         <Text as="span" className="text-neutral-90 mt-3xl" color="neutral-90" variant="subtitle-md">
           Who we are?
         </Text>
@@ -132,7 +132,7 @@ const Home = () => {
           </Button>
         </div>
         <div className="-bottom-[9.375rem] -right-[7.5rem] absolute hidden lg:block opacity-[10]">
-          <Symbol h={400} />
+          <Symbol className="h-[400px]" />
         </div>
       </Section>
     </main>

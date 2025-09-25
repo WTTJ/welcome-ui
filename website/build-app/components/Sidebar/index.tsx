@@ -41,7 +41,7 @@ export const Sidebar = ({ className, isSubPage, menu, onClick }: SidebarProps) =
       {menu.map(({ category, pages, parent }) => (
         <ul className="flex flex-col shrink-0" key={`sidebar_${category}`}>
           {category ? (
-            <Text mb="lg" variant="subtitle-sm">
+            <Text className="mb-lg" variant="subtitle-sm">
               {getName(category)}
             </Text>
           ) : null}

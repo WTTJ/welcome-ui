@@ -173,7 +173,7 @@ describe('<Select>', () => {
     expect(select).toHaveTextContent('February')
 
     // Click cross to remove selected option
-    const clearButton = screen.getByTitle('Clear')
+    const clearButton = screen.getByTitle('Close')
 
     await user.click(clearButton)
 
@@ -316,7 +316,7 @@ describe('<Select>', () => {
     expect(select).toHaveTextContent('February')
 
     // Use `queryByTitle` to expect no clear button
-    const clearButton = screen.queryByTitle('Clear')
+    const clearButton = screen.queryByTitle('Close')
 
     expect(clearButton).toBeNull()
   })

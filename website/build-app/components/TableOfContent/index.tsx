@@ -54,7 +54,7 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
   return (
     <div className="hidden xl:block">
       <S.Nav isSubPage={isSubPage}>
-        <Text mb="lg" ml="lg" variant="subtitle-sm">
+        <Text className="mb-lg ml-lg" variant="subtitle-sm">
           On this page
         </Text>
         <ul className="flex flex-col gap-lg">

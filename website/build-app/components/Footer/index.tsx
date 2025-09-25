@@ -82,7 +82,7 @@ export const Footer = () => {
             rel="noreferrer noopener"
             target="_blank"
           >
-            <Logo h={40} />
+            <Logo className="h-[40px]" />
           </a>
         </div>
         {links.map(({ links, name }) => (
