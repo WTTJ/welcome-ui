@@ -1,10 +1,11 @@
+/* eslint-disable perfectionist/sort-modules */
 import { primitives } from '@/theme/tokens'
 
-type Screens = Record<'2xl' | '3xl' | '4xl' | 'lg' | 'md' | 'sm' | 'xl' | 'xs', number>
+type ScreenSize = keyof typeof primitives.screens extends `--breakpoint-${infer K}` ? K : never
+type Screens = Record<ScreenSize, number>
 
 export function useScreens() {
-  return Object.keys(primitives.screens).reduce((acc, key) => {
-    const value = primitives.screens[key as keyof typeof primitives.screens]
+  return Object.entries(primitives.screens).reduce((acc, [key, value]) => {
     acc[key.replace('--breakpoint-', '') as keyof Screens] = Number(value.replace('px', ''))
     return acc
   }, {} as Screens)
