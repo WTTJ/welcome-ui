@@ -1,7 +1,8 @@
 import { DialogDismiss } from '@ariakit/react'
 
 import { CloseButton } from '@/components/CloseButton'
-import type { CloseProps } from '@/components/Modal/types'
+
+import type { CloseProps } from '../types'
 
 export const Close = ({ isOnHeader, ...rest }: CloseProps) => {
   return (

@@ -1,9 +1,10 @@
 import { forwardRef } from 'react'
 
-import modalStyles from '@/components/Modal/modal.module.scss'
-import type { FooterProps } from '@/components/Modal/types'
 import { Text } from '@/components/Text'
-import { classNames } from '@/utils/classNames'
+import { classNames } from '@/utils'
+
+import modalStyles from '../modal.module.scss'
+import type { FooterProps } from '../types'
 
 const cx = classNames(modalStyles)
 

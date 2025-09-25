@@ -1,8 +1,9 @@
 import { cloneElement, forwardRef, isValidElement } from 'react'
 
-import modalStyles from '@/components/Modal/modal.module.scss'
-import type { BackdropProps } from '@/components/Modal/types'
 import { classNames } from '@/utils'
+
+import modalStyles from '../modal.module.scss'
+import type { BackdropProps } from '../types'
 
 const cx = classNames(modalStyles)
 

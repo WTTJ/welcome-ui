@@ -2,11 +2,13 @@ import { DialogDismiss } from '@ariakit/react'
 import { forwardRef } from 'react'
 
 import { CrossIcon } from '@/components/Icon'
-import type { BackdropProps } from '@/components/Modal/types'
 import { classNames } from '@/utils'
+
+import type { BackdropProps } from '../types'
 
 import modalStyles from './assets.module.scss'
 import { CloseButton } from './CloseButton'
+
 const cx = classNames(modalStyles)
 
 export const AssetBackdrop = forwardRef<HTMLDivElement, BackdropProps>(
