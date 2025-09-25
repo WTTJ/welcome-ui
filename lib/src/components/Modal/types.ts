@@ -1,7 +1,7 @@
 /* eslint-disable perfectionist/sort-modules */
 
 import type { DialogOptions, DialogStore, DialogStoreProps } from '@ariakit/react'
-import type { HTMLAttributes, PropsWithChildren, ReactElement } from 'react'
+import type { ComponentProps, HTMLAttributes, PropsWithChildren, ReactElement } from 'react'
 
 import type { CloseButtonProps } from '@/components/CloseButton/types'
 import type { MergeProps } from '@/utils/forwardRefWithAs'
@@ -30,10 +30,7 @@ export interface ModalOptions {
 
 type BaseDialogOptions = Omit<DialogOptions<'div'>, 'as'>
 
-export type ModalProps = MergeProps<
-  BaseDialogOptions & ModalOptions,
-  HTMLAttributes<HTMLDivElement>
->
+export type ModalProps = MergeProps<BaseDialogOptions & ModalOptions, ComponentProps<'div'>>
 
 export interface HeaderOptions {
   icon?: ReactElement
