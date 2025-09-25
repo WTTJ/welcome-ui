@@ -11,12 +11,12 @@ import type { AccordionProps } from './types'
 const cx = classNames(styles)
 
 export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
-  ({ children, className, store, title, ...rest }, ref) => {
+  ({ children, className, dataTestId, store, title, ...rest }, ref) => {
     return (
       <div className={cx('root', className)} ref={ref} {...rest}>
         <Disclosure
           className={cx('disclosure')}
-          data-testid={rest.dataTestId ? `${rest.dataTestId}-title` : undefined}
+          data-testid={dataTestId ? `${dataTestId}-title` : undefined}
           store={store}
         >
           <Text variant="h5">{title}</Text>
@@ -26,7 +26,7 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
         </Disclosure>
         <DisclosureContent
           className={cx('disclosure-content')}
-          data-testid={rest.dataTestId ? `${rest.dataTestId}-content` : undefined}
+          data-testid={dataTestId ? `${dataTestId}-content` : undefined}
           store={store}
         >
           <div className={cx('content-child')}>{children}</div>

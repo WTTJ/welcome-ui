@@ -261,7 +261,6 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
                             key={option.value}
                             {...getItemProps({
                               index,
-                              isSelected: isItemSelected,
                               item: option,
                             })}
                           >
@@ -289,7 +288,6 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
                   key={result.value}
                   {...getItemProps({
                     index: resultIndex,
-                    isSelected: isItemSelected,
                     item: result,
                   })}
                 >
@@ -367,16 +365,14 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
             </div>
           )
 
-          const rootProps = getRootProps(rest as GetRootPropsOptions)
+          const rootProps = getRootProps(rest as GetRootPropsOptions, { suppressRefError: true })
           const inputProps = getInputProps({
             autoComplete,
             autoFocus,
             'data-spacer': spacer || placeholder,
             'data-testid': dataTestId,
             disabled,
-            iconPlacement: icon ? 'both' : 'right',
             id,
-            isClearable,
             name,
             onBlur,
             onClick: disabled ? undefined : handleInputClick,
