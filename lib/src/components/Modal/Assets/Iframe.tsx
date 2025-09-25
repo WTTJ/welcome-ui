@@ -1,10 +1,9 @@
 import { classNames } from '@/utils'
 
 import modalStyles from './assets.module.scss'
-import type { IframeProps } from './types'
 
 const cx = classNames(modalStyles)
 
-export const Iframe = ({ children }: IframeProps) => {
+export const Iframe = ({ children }: React.PropsWithChildren) => {
   return <div className={cx('root', 'iframe-wrapper')}>{children}</div>
 }
