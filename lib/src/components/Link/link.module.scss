@@ -54,22 +54,21 @@
 }
 
 .wui-text {
-  margin-right: -2px;
-  margin-left: -2px;
-  padding-left: 2px;
-  padding-right: 2px;
-  transition: background var(--timing-primary);
+  margin-right: calc(var(--spacing-2) * -1);
+  margin-left: calc(var(--spacing-2) * -1);
+  padding-left: var(--spacing-2);
+  padding-right: var(--spacing-2);
+  transition:
+    background var(--timing-primary),
+    color var(--timing-primary);
   background-repeat: no-repeat;
   background-size: var(--backgroundSize, 100% 50%);
-  transition:
-    background 250ms,
-    color 250ms;
   background-image: linear-gradient(
     0deg,
     var(--backgroundImageColor),
     var(--backgroundImageColor) 100%
   );
-  background-position-y: var(--backgroundPositionY, calc(200% - 2px));
+  background-position-y: var(--backgroundPositionY, calc(200% - var(--spacing-2)));
 }
 
 .isMultiline {

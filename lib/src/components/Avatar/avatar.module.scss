@@ -7,13 +7,16 @@
     position: relative;
     overflow: hidden;
     aspect-ratio: 1 / 1;
-    border-radius: 50%;
 
-    width: var(--avatar-size);
-    height: var(--avatar-size);
-    font-size: calc(var(--avatar-size) / 2.5);
+    border-radius: var(--radius-circle);
     color: var(--color-neutral-90);
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
+
+    /* VARIABLES THAT CHANGE WITH REACT PROPS */
+    width: var(--size);
+    height: var(--size);
+    background-color: var(--backgroundColor);
+    font-size: calc(var(--size) / 2.5);
 
     img {
       object-fit: cover;
@@ -24,49 +27,49 @@
 
   .size {
     &-sm {
-      --avatar-size: 1.25rem; // 20px
+      --size: var(--height-20);
     }
 
     &-md {
-      --avatar-size: 1.875rem; // 30px
+      --size: var(--height-30);
     }
 
     &-lg {
-      --avatar-size: 2.5rem; // 40px
+      --size: var(--height-40);
     }
 
     &-xl {
-      --avatar-size: 3.125rem; // 50px
+      --size: var(--height-50);
     }
 
     &-xxl {
-      --avatar-size: 3.75rem; // 60px
+      --size: var(--height-60);
     }
   }
 
   .background {
     &-secondary-blue {
-      background-color: var(--color-secondary-blue);
+      --backgroundColor: var(--color-secondary-blue);
     }
 
     &-secondary-green {
-      background-color: var(--color-secondary-green);
+      --backgroundColor: var(--color-secondary-green);
     }
 
     &-secondary-orange {
-      background-color: var(--color-secondary-orange);
+      --backgroundColor: var(--color-secondary-orange);
     }
 
     &-secondary-pink {
-      background-color: var(--color-secondary-pink);
+      --backgroundColor: var(--color-secondary-pink);
     }
 
     &-secondary-teal {
-      background-color: var(--color-secondary-teal);
+      --backgroundColor: var(--color-secondary-teal);
     }
 
     &-secondary-violet {
-      background-color: var(--color-secondary-violet);
+      --backgroundColor: var(--color-secondary-violet);
     }
   }
 }

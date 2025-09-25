@@ -316,15 +316,19 @@
   --font-weight-600: 600;
 
   /* heights */
+  --height-4: 0.25rem; /* 4px */
   --height-8: 0.5rem; /* 8px */
   --height-10: 0.625rem; /* 10px */
   --height-12: 0.75rem; /* 12px */
   --height-16: 1rem; /* 16px */
   --height-20: 1.25rem; /* 20px */
   --height-24: 1.5rem; /* 24px */
+  --height-30: 1.875rem; /* 30px */
   --height-32: 2rem; /* 32px */
   --height-40: 2.5rem; /* 40px */
   --height-48: 3rem; /* 48px */
+  --height-50: 3.125rem; /* 50px */
+  --height-60: 3.75rem; /* 60px */
   --height-64: 4rem; /* 64px */
 
   /* letterSpacings */
@@ -355,7 +359,7 @@
 
   /* radii */
   --radius-2xl: 1.5rem; /* 24px */
-  --radius-circle: 100%;
+  --radius-circle: calc(infinity * 1px);
   --radius-lg: 0.5rem; /* 8px */
   --radius-md: 0.25rem; /* 4px */
   --radius-sm: 0.125rem; /* 2px */
@@ -387,7 +391,9 @@
   --spacing-12: 0.75rem; /* 12px */
   --spacing-16: 1rem; /* 16px */
   --spacing-24: 1.5rem; /* 24px */
+  --spacing-28: 1.75rem; /* 28px */
   --spacing-32: 2rem; /* 32px */
+  --spacing-36: 2.25rem; /* 36px */
   --spacing-48: 3rem; /* 48px */
   --spacing-64: 4rem; /* 64px */
   --spacing-96: 6rem; /* 96px */

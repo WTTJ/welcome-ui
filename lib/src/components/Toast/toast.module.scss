@@ -16,7 +16,7 @@
     padding: var(--spacing-lg);
     border-radius: var(--radius-lg);
     border-style: solid;
-    border-width: 1px;
+    border-width: var(--border-width-sm);
     max-width: 340px;
 
     & div:first-of-type {

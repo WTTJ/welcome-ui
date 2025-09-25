@@ -1,6 +1,6 @@
 @layer components {
   .root {
-    // text.sm
+    /* text.sm */
     font-size: var(--font-size-sm);
     background-color: var(--color-neutral-90);
     color: var(--color-neutral-10);
@@ -15,18 +15,17 @@
   }
 
   .title {
-    // text.md
+    /* text.md */
     font-size: var(--font-size-md);
     margin: 0;
-    border-bottom: 1px solid var(--color-neutral-70);
+    border-bottom: var(--border-width-sm) solid var(--color-neutral-70);
     color: var(--color-neutral-10);
-    padding: 0.75rem 0.75rem 0.25rem;
+    padding: var(--spacing-md) var(--spacing-md) var(--spacing-xs);
 
-    // this class is added to the Popover when the close button is present
+    /* this class is added to the Popover when the close button is present */
     .with-close-button & {
-        padding-right: 50px;
+      padding-right: var(--spacing-3xl);
     }
-
   }
 
   .content-wrapper {
@@ -41,8 +40,8 @@
   .close-button {
     flex: 0 0 auto;
     position: absolute;
-    top: 1px;
-    right: 1px;
+    top: var(--border-width-sm);
+    right: var(--border-width-sm);
     margin-left: var(--spacing-md);
   }
 
@@ -50,8 +49,23 @@
     color: var(--color-neutral-90);
   }
   .arrow-item {
-    transform: var(--popover-transform);
-    width: 30px;
-    height: 30px;
+    transform: var(--transform);
+    width: var(--height-30);
+    height: var(--height-30);
+
+    &.placement {
+      &-top {
+        --transform: rotateZ(180deg);
+      }
+      &-right {
+        --transform: rotateZ(-90deg);
+      }
+      &-left {
+        --transform: rotateZ(90deg);
+      }
+      &-bottom {
+        --transform: rotateZ(360deg);
+      }
+    }
   }
 }

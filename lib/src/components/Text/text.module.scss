@@ -22,15 +22,15 @@
     &-h4,
     &-h5,
     &-h6 {
-     --fontWeight: var(--font-weight-bold);
-     --fontFamily: var(--font-family-headings);
-     --color: var(--color-neutral-90)
+      --fontWeight: var(--font-weight-bold);
+      --fontFamily: var(--font-family-headings);
+      --color: var(--color-neutral-90);
     }
 
     &-h0 {
-     --fontSize: var(--font-size-h0);
-     --lineHeight: var(--line-height-h0);
-     --letterSpacing: var(--letter-spacing-h0);
+      --fontSize: var(--font-size-h0);
+      --lineHeight: var(--line-height-h0);
+      --letterSpacing: var(--letter-spacing-h0);
     }
 
     &-h1 {
@@ -52,7 +52,7 @@
     }
 
     &-h4 {
-       --fontSize: var(--font-size-h4);
+      --fontSize: var(--font-size-h4);
       --lineHeight: var(--line-height-h4);
       --letterSpacing: var(--letter-spacing-h4);
     }
@@ -145,9 +145,9 @@
 
   .with-dash::before {
     --display: inline-block;
-    content: "";
+    content: '';
     width: var(--spacing-lg);
-    height: 0.25rem;
+    height: var(--height-4);
     background-color: var(--color-brand-40);
     margin-right: var(--spacing-lg);
     flex-shrink: 0;

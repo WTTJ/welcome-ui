@@ -19,19 +19,19 @@
 
     &:focus {
       border-color: var(--color-brand-30);
-      box-shadow: 0 0 0 2px var(--color-brand-30);
+      box-shadow: 0 0 0 var(--border-width-md) var(--color-brand-30);
     }
 
     &::after {
       background-color: var(--color-neutral-10);
       border-color: var(--color-neutral-50);
-      border-radius: 50%;
+      border-radius: var(--radius-circle);
       border-style: solid;
       border-width: var(--border-width-sm);
       content: '';
       top: 0;
       bottom: 0;
-      left: 2px;
+      left: var(--spacing-xxs);
       position: absolute;
       margin: auto;
       z-index: 1;
@@ -78,7 +78,7 @@
     --toggle-height: var(--height-24);
     --toggle-after-height: var(--height-20);
     --toggle-icon-height: var(--height-16);
-    --toggle-icon-position-offset: 0.25rem;
+    --toggle-icon-position-offset: var(--spacing-xs);
     --toggle-icon-font-size: var(--font-size-16);
   }
 
@@ -88,7 +88,7 @@
     --toggle-height: var(--height-20);
     --toggle-after-height: var(--height-16);
     --toggle-icon-height: var(--height-12);
-    --toggle-icon-position-offset: 0.25rem;
+    --toggle-icon-position-offset: var(--spacing-xs);
     --toggle-icon-font-size: var(--font-size-12);
   }
 
@@ -98,7 +98,7 @@
     --toggle-height: var(--height-16);
     --toggle-after-height: var(--height-12);
     --toggle-icon-height: var(--height-10);
-    --toggle-icon-position-offset: 0.125rem;
+    --toggle-icon-position-offset: var(--spacing-xxs);
     --toggle-icon-font-size: var(--font-size-10);
   }
 

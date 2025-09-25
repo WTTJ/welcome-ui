@@ -59,6 +59,7 @@
     }
 
     &:invalid,
+    /* @Isaac are you sure when you look at the compiled css that the vendor prefixes aren't already added? I think they are so you might not need these lines below */
     &:-moz-submit-invalid,
     &:-moz-ui-invalid {
       box-shadow: none;
@@ -328,6 +329,7 @@
   .tags {
     margin-top: var(--spacing-lg);
 
+    /* @Isaac not sure about the & here as you are already nested in .tags */
     & .styled-tag:not(:last-child) {
       margin-right: var(--spacing-sm);
       margin-bottom: var(--spacing-sm);
