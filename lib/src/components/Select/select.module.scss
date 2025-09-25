@@ -19,13 +19,12 @@
     transition-timing-function: var(--timing-primary);
     transition-duration: var(--duration-medium);
     appearance: none;
-    @include ellipsis.text-ellipsis;
-
     height: var(--select-height);
     padding-bottom: var(--select-padding-bottom);
     padding-left: var(--select-padding-left);
     padding-right: var(--select-padding-right);
     padding-top: var(--select-padding-top);
+    @include ellipsis.text-ellipsis;
 
     /* left icon or both */
     &.icon-placement-left,
@@ -329,8 +328,8 @@
   .tags {
     margin-top: var(--spacing-lg);
 
-    /* @Isaac not sure about the & here as you are already nested in .tags */
-    & .styled-tag:not(:last-child) {
+    .styled-tag:not(:last-child) {
+      border: 1px solid red;
       margin-right: var(--spacing-sm);
       margin-bottom: var(--spacing-sm);
     }
