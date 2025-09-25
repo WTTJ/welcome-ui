@@ -8,9 +8,10 @@ export default {
         'at-rule-no-unknown': [
           true,
           {
-            ignoreAtRules: ['apply', 'theme', 'mixin', 'source', 'use'],
+            ignoreAtRules: ['apply', 'theme', 'mixin', 'source', 'use', 'include'],
           },
         ],
+        'media-query-no-invalid': [null],
         'selector-pseudo-class-no-unknown': [
           true,
           {
