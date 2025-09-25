@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { snakeCase } from 'lodash'
 
-import { Card } from '@old/Card'
-import { Text } from '@old/Text'
+import { Card } from '@/components/Card'
+import { Text } from '@/components/Text'
 
 export const Tokens = ({ children }: { children: React.ReactNode[] }) => {
   const tokenName = children

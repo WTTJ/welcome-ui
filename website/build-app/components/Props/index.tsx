@@ -2,8 +2,8 @@
 import { kebabCase } from 'lodash'
 import React from 'react'
 
-import { Badge } from '@old/Badge'
-import { Text } from '@old/Text'
+import { Badge } from '@/components/Badge'
+import { Text } from '@/components/Text'
 
 import { Code } from '../Mdx/Code'
 import { H2 } from '../Mdx/Headings'

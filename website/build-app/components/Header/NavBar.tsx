@@ -4,7 +4,7 @@ import React from 'react'
 
 import { Button } from '@/components/Button'
 import { CrescentMoonIcon, GithubIcon, SunIcon } from '@/components/Icon'
-import { Text } from '@old/Text'
+import { Text } from '@/components/Text'
 
 import * as S from './styles'
 

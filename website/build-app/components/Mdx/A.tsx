@@ -1,4 +1,4 @@
-import { Link } from '@old/Link'
+import { Link } from '@/components/Link'
 
 type AProps = {
   children: React.ReactNode

@@ -1,7 +1,7 @@
 'use client'
 import { ExternalLinkIcon, HeartIcon } from '@/components/Icon'
-import { Logo } from '@old/Logo'
-import { Text } from '@old/Text'
+import { Logo } from '@/components/Logo'
+import { Text } from '@/components/Text'
 
 import { Section } from '../Section'
 

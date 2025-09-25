@@ -3,7 +3,7 @@ import { DocSearchModal } from '@docsearch/react'
 import { useEffect, useState } from 'react'
 
 import { SearchIcon } from '@/components/Icon'
-import { InputText } from '@old/InputText'
+import { InputText } from '@/components/InputText'
 
 import '@docsearch/css'
 

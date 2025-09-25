@@ -3,8 +3,8 @@ import { camelCase, startCase } from 'lodash'
 import React from 'react'
 
 import * as Icons from '@/components/Icon'
-import { Text } from '@old/Text'
-import { Toast, toast } from '@old/Toast'
+import { Text } from '@/components/Text'
+import { Toast, toast } from '@/components/Toast'
 
 import {
   actions,
