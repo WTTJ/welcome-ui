@@ -12,7 +12,7 @@
 
   .icon {
     flex-shrink: 0;
-    transform: rotate3d(0, 0, 0, 0);
+    transform: rotate3d(0);
     transition: var(--duration-medium);
     padding: var(--spacing-sm);
     display: flex;

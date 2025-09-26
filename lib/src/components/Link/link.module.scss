@@ -54,10 +54,10 @@
 }
 
 .wui-text {
-  margin-right: calc(var(--spacing-2) * -1);
-  margin-left: calc(var(--spacing-2) * -1);
-  padding-left: var(--spacing-2);
-  padding-right: var(--spacing-2);
+  margin-right: calc(var(--spacing-xxs) * -1);
+  margin-left: calc(var(--spacing-xxs) * -1);
+  padding-left: var(--spacing-xxs);
+  padding-right: var(--spacing-xxs);
   transition:
     background var(--timing-primary),
     color var(--timing-primary);
@@ -68,7 +68,7 @@
     var(--backgroundImageColor),
     var(--backgroundImageColor) 100%
   );
-  background-position-y: var(--backgroundPositionY, calc(200% - var(--spacing-2)));
+  background-position-y: var(--backgroundPositionY, calc(200% - var(--spacing-xxs)));
 }
 
 .isMultiline {
