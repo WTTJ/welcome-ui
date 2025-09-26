@@ -119,11 +119,6 @@ input::-webkit-search-cancel-button {
   display: none;
 }
 
-/* Remove focus outline completely */
-:focus {
-  outline: none !important;
-}
-
 /* Font smoothing */
 *,
 *::after,
