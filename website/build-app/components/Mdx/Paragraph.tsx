@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 'use client'
-import { Text } from '@old/Text'
+import { Text } from '@/components/Text'
 
 import { Tokens } from './Tokens'
 
@@ -15,5 +15,5 @@ export const Paragraph = ({ children }: { children: JSX.Element | JSX.Element[] 
   //@ts-ignore
   if (isToken) return <Tokens>{children}</Tokens>
 
-  return <Text mt="md">{children}</Text>
+  return <Text className="mt-md">{children}</Text>
 }

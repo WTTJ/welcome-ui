@@ -3,6 +3,48 @@ import fs from 'fs'
 import path from 'path'
 import readline from 'readline'
 
+// Find components who changed to an html element
+const componentTypes = ['Box', 'Flex', 'Grid', 'Stack']
+
+// Find components who did not changed of element but only move props style to className
+const componentTypesUnchanged = [
+  'Accordion',
+  'Alert',
+  'AspectRatio',
+  'Avatar',
+  'Badge',
+  'Breadcrumb',
+  'Button',
+  'ButtonGroup',
+  'Card',
+  'Checkbox',
+  'CloseButton',
+  'Drawer',
+  'DropdownMenu',
+  'FileDrop',
+  'Files',
+  'Form',
+  'Hint',
+  'InputText',
+  'Label',
+  'Link',
+  'Modal',
+  'Pagination',
+  'Popover',
+  'Radio',
+  'Select',
+  'Swiper',
+  'Table',
+  'Tabs',
+  'Tag',
+  'Text',
+  'Textarea',
+  'Toast',
+  'Toggle',
+  'Tooltip',
+  'UniversalLink',
+]
+
 // Create readline interface for user input
 const rl = readline.createInterface({
   input: process.stdin,
@@ -32,10 +74,16 @@ function findBoxComponents(directory) {
       } else if (file.endsWith('.ts') || file.endsWith('.tsx')) {
         const content = fs.readFileSync(filePath, 'utf8')
 
-        // Find Box and Flex components with comprehensive multi-line handling
-        const componentTypes = ['Box', 'Flex', 'Grid', 'Stack']
+        const components = [...componentTypes, ...componentTypesUnchanged]
 
-        for (const componentType of componentTypes) {
+        for (const componentType of components) {
+          // Skip if component already has a className prop
+          if (
+            content.includes(`<${componentType}`) &&
+            content.match(new RegExp(`<${componentType}[^>]*className=`))
+          ) {
+            continue
+          }
           let startIndex = 0
           while (true) {
             const componentStart = content.indexOf(`<${componentType}`, startIndex)
@@ -352,9 +400,17 @@ async function processComponents(components, shouldReplace = false) {
         }
       })
 
-      const element = (component.props.as && component.props.as.value) || 'div'
+      const element = componentTypesUnchanged.includes(component.componentType)
+        ? component.componentType
+        : (component.props.as && component.props.as.value) || 'div'
       const otherProps = Object.entries(component.props)
-        .filter(([key]) => !Object.keys(valueMap).includes(key) && !['as'].includes(key))
+        .filter(([key]) => {
+          // Keep 'as' property for componentTypesUnchanged, filter it out for others
+          if (key === 'as') {
+            return componentTypesUnchanged.includes(component.componentType)
+          }
+          return !Object.keys(valueMap).includes(key)
+        })
         .map(([key, propData]) => {
           const value = propData.value
           // Handle function expressions and template literals
@@ -383,6 +439,7 @@ async function processComponents(components, shouldReplace = false) {
       Object.entries(component.props).forEach(([key, propData]) => {
         displayProps[key] = propData.isExpression ? `{${propData.value}}` : propData.value
       })
+      console.log(`🔷 Original: ${component.componentType}`)
       console.log('📋 Properties:', JSON.parse(JSON.stringify(displayProps, null, 2)))
       console.log(`2️⃣  Transformed: ${transformedElement}`)
 
@@ -626,21 +683,21 @@ const valueMap = {
   // <Flex />
   basis: value => transform('basis', value),
   border: value => {
-    if (value === '1px solid') return 'border'
-    if (value === 'none') return 'border-[none]'
+    if (value === '1px solid') return transform('border', value.replace('1px solid', ''))
+    if (value === 'none') return transform('border', value.replace('1px solid', '[none]'))
     return `border_${value}_CSS_TO_EDIT`
   },
   borderBottom: value => {
-    if (value === '1px solid') return 'border-b'
-    if (value === 'none') return 'border-b-[none]'
+    if (value === '1px solid') return transform('border', value.replace('1px solid', 'b'))
+    if (value === 'none') return transform('border', value.replace('1px solid', 'b-[none]'))
     return `borderBottom_${value}_CSS_TO_EDIT`
   },
   borderBottomColor: value => transform(`border-b`, value),
   borderColor: value => transform('border', value),
   borderRadius: value => transform('rounded', value),
   borderTop: value => {
-    if (value === '1px solid') return 'border-t'
-    if (value === 'none') return 'border-t-[none]'
+    if (value === '1px solid') return transform('border', value.replace('1px solid', 't'))
+    if (value === 'none') return transform('border', value.replace('1px solid', 't-[none]'))
     return `borderBottom_${value}_CSS_TO_EDIT`
   },
   borderTopColor: value => transform(`border-t`, value),
@@ -655,8 +712,7 @@ const valueMap = {
   // <Flex />
   direction: value => transform(`flex`, value.replace('column', 'col')),
   display: value => {
-    if (value === 'none') return 'hidden'
-    return transform(null, value)
+    return transform(null, value.replace('none', 'hidden'))
   },
   flex: value => {
     if (value === '0 0 auto') return 'flex-initial'
@@ -683,8 +739,8 @@ const valueMap = {
   left: value => transform('left', value),
   lineHeight: value => transform('leading', value),
   listStyleType: value => transform('list', value),
-  m: value => (value === '0 auto' ? 'mx-auto' : transform('m', value)),
-  margin: value => (value === '0 auto' ? 'mx-auto' : transform('m', value)),
+  m: value => transform('m', value.replace('0 auto', 'auto')),
+  margin: value => transform('m', value.replace('0 auto', 'auto')),
   maxW: value => transform('max-w', value),
   maxWidth: value => transform('max-w', value),
   mb: value => transform('mb', value),
@@ -692,6 +748,8 @@ const valueMap = {
   ml: value => transform('ml', value),
   mr: value => transform('mr', value),
   mt: value => transform('mt', value),
+  mx: value => transform('mx', value.replace('0 auto', 'auto')),
+  my: value => transform('my', value.replace('0 auto', 'auto')),
   opacity: value => transform('opacity', value * 100),
   overflow: value => transform('overflow', value),
   overflowX: value => transform('overflow-x', value),
@@ -718,6 +776,7 @@ const valueMap = {
   templateColumns: value => transform('grid-cols', value, true),
   textAlign: value => transform('text', value),
   textDecoration: value => `textDecoration_${value}_CSS_TO_EDIT`,
+  textTransform: value => transform(null, value),
   top: value => transform('top', value),
   transition: value => `transition_${value}_CSS_TO_EDIT'`,
   w: value => transform('w', value),

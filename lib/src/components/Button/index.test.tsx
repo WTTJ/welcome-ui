@@ -1,8 +1,7 @@
 import { screen } from '@testing-library/react'
 
 import { SunIcon } from '@/components/Icon'
-// FIXME: update when Link will be migrated to tailwind (remove old alias)
-import { Link } from '@old/Link'
+import { Link } from '@/components/Link'
 
 import { expectAsSupport, render } from '@tests'
 

@@ -1,4 +1,4 @@
-import { Link } from '@old/Link'
+import { Link } from '@/components/Link'
 
 type AProps = {
   children: React.ReactNode
@@ -7,7 +7,7 @@ type AProps = {
 
 export const A = ({ children, href, ...rest }: AProps) => {
   return (
-    <Link href={href} isExternal rel="noreferrer noopener" target="_blank" {...rest}>
+    <Link href={href} {...rest}>
       {children}
     </Link>
   )

@@ -1,14 +1,14 @@
 'use client'
 import NextLink from 'next/link'
 
+import { Alert } from '@/components/Alert'
 import { Avatar } from '@/components/Avatar'
+import { Card } from '@/components/Card'
+import { Link } from '@/components/Link'
 import { Pagination } from '@/components/Pagination'
-import { Alert } from '@old/Alert'
-import { Card } from '@old/Card'
-import { Link } from '@old/Link'
-import { Tag } from '@old/Tag'
-import { Text } from '@old/Text'
-import { Toggle } from '@old/Toggle'
+import { Tag } from '@/components/Tag'
+import { Text } from '@/components/Text'
+import { Toggle } from '@/components/Toggle'
 
 type ComponentProps = {
   children: React.ReactElement
@@ -33,8 +33,8 @@ const components: ComponentProps[] = [
   {
     children: (
       <div className="flex gap-md">
-        <Toggle aria-label="Toggle unchecked" mb="md" />
-        <Toggle aria-label="Toggle checked" checked />
+        <Toggle aria-label="Toggle unchecked" className="mb-md" />
+        <Toggle aria-label="Toggle checked" />
       </div>
     ),
     description: 'Allows user to activate or deactivate an option.',
@@ -43,7 +43,7 @@ const components: ComponentProps[] = [
   },
   {
     children: (
-      <Alert m="md" variant="info">
+      <Alert className="md" variant="info">
         <Alert.Title>Info variant</Alert.Title>
         <span>Nunc laoreet egestas nulla, et dapibus sem malesuada in</span>
       </Alert>
@@ -57,10 +57,9 @@ const components: ComponentProps[] = [
       <Pagination
         aria-label="Pagination"
         getHref={page => `?page=${page}`}
-        // eslint-disable-next-line no-console
-        onChange={page => console.log(page)}
-        page={2}
-        pageCount={10}
+        onChange={() => {}}
+        page={1}
+        pageCount={5}
       />
     ),
     description: 'Allows user to switch between pages of a list items.',
@@ -100,13 +99,11 @@ const components: ComponentProps[] = [
 const Component = ({ children, description, link, title }: ComponentProps) => {
   return (
     <div>
-      <Card alignItems="center" display="flex" h={170} justifyContent="center" w="100%">
-        {children}
-      </Card>
-      <Link as={NextLink} fontWeight="bold" href={link} mt="md" textTransform="uppercase">
+      <Card className="flex h-[10.625rem] items-center justify-center w-full">{children}</Card>
+      <Link as={NextLink} className="font-bold mt-md uppercase" href={link}>
         {title}
       </Link>
-      <Text mb="0" mt="sm" variant="sm">
+      <Text className="mb-0 mt-sm" variant="sm">
         {description}
       </Text>
     </div>

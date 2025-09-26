@@ -134,4 +134,11 @@
   .title-close-button {
     margin-right: var(--spacing-xl);
   }
+
+  /* Close button */
+  .close-button {
+    position: absolute;
+    right: var(--spacing-sm);
+    top: var(--spacing-sm);
+  }
 }

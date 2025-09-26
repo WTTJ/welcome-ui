@@ -1,8 +1,8 @@
 'use client'
 import { useTheme } from '@xstyled/styled-components'
 
-import { Alert } from '@old/Alert'
-import { Text } from '@old/Text'
+import { Alert } from '@/components/Alert'
+import { Text } from '@/components/Text'
 
 type ColorsProps = {
   entry: string
@@ -26,10 +26,8 @@ export const Theme = ({ entry }: ColorsProps) => {
 
         return (
           <div className={`${border} gap-xxl grid ${grid} pt-sm`} key={`${entry}-${key}`}>
-            <Text color="violet-80" fontWeight="bold">
-              {key}
-            </Text>
-            <Text color="neutral-70">
+            <Text className="font-bold text-violet-80">{key}</Text>
+            <Text className="text-neutral-70">
               {value}
               {typeof value === 'number' && 'px'}
             </Text>

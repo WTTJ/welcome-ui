@@ -2,9 +2,8 @@ import * as React from 'react'
 
 import { Select } from '@/components/Select'
 import type { SelectOption, SelectProps } from '@/components/Select/types'
+import { Tag } from '@/components/Tag'
 import { Text } from '@/components/Text'
-//TODO migrate WUI-187/tag
-import { Tag } from '@old/Tag'
 
 export const ITEMS: SelectOption[] = [
   { label: 'Bold', value: 'bold' },
@@ -31,9 +30,8 @@ const Example = () => {
           {values.map(option => {
             return (
               <Tag
+                className="mr-sm mt-sm"
                 key={option.value}
-                mr="sm"
-                mt="sm"
                 onRemove={() => handleRemove(option.value as string)}
                 size="sm"
               >

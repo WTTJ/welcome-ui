@@ -3,10 +3,10 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 import { Button } from '@/components/Button'
+import { Drawer, useDrawer } from '@/components/Drawer'
 import { MenuIcon } from '@/components/Icon'
+import { WelcomeUILogo } from '@/components/Logo'
 import { Toast } from '@/components/Toast'
-import { Drawer, useDrawer } from '@old/Drawer'
-import { WelcomeUILogo } from '@old/Logo'
 
 import type { PageTree } from '~/build-app/types'
 
@@ -47,7 +47,7 @@ export const Header = ({ components, foundations }: HeaderProps) => {
         <div className="flex gap-lg items-center">
           <div className="shrink-0">
             <Link href="/">
-              <WelcomeUILogo h={40} />
+              <WelcomeUILogo className="h-[40px]" />
             </Link>
           </div>
           <VersionSelector />
@@ -63,8 +63,8 @@ export const Header = ({ components, foundations }: HeaderProps) => {
           <MenuIcon />
         </Drawer.Trigger>
         <NavBar className="hidden lg:flex" />
-        <Drawer display={{ lg: 'none' }} size="100%" store={drawer} withBackdrop zIndex={999}>
-          <Drawer.Content pt="4xl">
+        <Drawer className="lg:hidden z-[999]" size="100%" store={drawer} withBackdrop>
+          <Drawer.Content className="pt-4xl">
             <NavBar onClick={handleCloseDrawer} />
             {menu ? <Sidebar isSubPage menu={menu} onClick={handleCloseDrawer} /> : null}
           </Drawer.Content>
