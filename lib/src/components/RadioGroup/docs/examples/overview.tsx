@@ -1,10 +1,10 @@
 import { RadioGroup } from '@/components/RadioGroup'
 
 export const ITEMS = [
-  { hint: 'coco', label: 'Bold', value: 'bold' },
-  { hint: 'coco', label: 'Italic', value: 'italic' },
-  { hint: 'coco', label: 'Strikethrough', value: 'strikethrough' },
-  { hint: 'cococolo', label: 'Underline', value: 'underline' },
+  { label: 'Bold', value: 'bold' },
+  { label: 'Italic', value: 'italic' },
+  { label: 'Strikethrough', value: 'strikethrough' },
+  { label: 'Underline', value: 'underline' },
 ]
 
 const Example = () => {
