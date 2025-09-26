@@ -9,13 +9,12 @@ export interface TimePickerOptions {
   dataTestId?: string
   onChange?: (date?: Date) => void
   placeholder?: string
-  transparent?: boolean
-  value: Date | string
+  value?: Date | string
 }
 
 export type TimePickerProps = ComponentProps<'div'> &
   Omit<ReactDatePickerProps, keyof TimePickerOptions> &
   Partial<Pick<CustomHeaderProps, 'endYear' | 'startYear'>> &
   Pick<CustomHeaderProps, 'locale'> &
-  Pick<InputTextOptions, 'icon' | 'iconPlacement' | 'size'> &
+  Pick<InputTextOptions, 'icon' | 'iconPlacement' | 'size' | 'transparent'> &
   TimePickerOptions
