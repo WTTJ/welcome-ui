@@ -13,7 +13,6 @@
     outline: transparent solid var(--border-width-md);
     width: 100%;
     transition: var(--duration-medium);
-    appearance: none;
 
     /* VARIABLES THAT CHANGE WITH REACT PROPS */
     background-color: var(--backgroundColor, var(--color-neutral-10));

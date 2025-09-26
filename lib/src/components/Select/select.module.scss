@@ -18,7 +18,6 @@
     transition-property: all;
     transition-timing-function: var(--timing-primary);
     transition-duration: var(--duration-medium);
-    appearance: none;
     height: var(--select-height);
     padding-bottom: var(--select-padding-bottom);
     padding-left: var(--select-padding-left);
@@ -289,7 +288,6 @@
     height: 100%;
     padding: 0;
     outline: none !important; /* important for firefox */
-    appearance: none;
     cursor: pointer;
     border: none;
     background: transparent;
