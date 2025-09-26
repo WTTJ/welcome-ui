@@ -173,7 +173,9 @@
         }
       },
       "iconPlacement": {
-        "defaultValue": null,
+        "defaultValue": {
+          "value": "left"
+        },
         "description": "",
         "name": "iconPlacement",
         "parent": {

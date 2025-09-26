@@ -1,6 +1,66 @@
 @use './../../theme/utils/text-ellipsis' as ellipsis;
 
 @layer components {
+  .indicators {
+    position: absolute;
+    padding: 0;
+    top: 0;
+    bottom: 0;
+    right: var(--indicators-right, var(--spacing-md));
+    display: flex;
+    gap: var(--spacing-xs);
+
+    &.size-xs {
+      --indicators-right: var(--spacing-sm);
+    }
+  }
+
+  .dropdown-indicator {
+    position: relative;
+    height: 100%;
+    padding: 0;
+    outline: none !important; /* important for firefox */
+    appearance: none;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .styled-icon {
+      transform: none;
+      transition-property: transform;
+      transition-duration: var(--duration-medium);
+      transition-timing-function: var(--timing-primary);
+    }
+
+    &.open {
+      .styled-icon {
+        transform: rotate3d(0, 0, 1, 180deg);
+      }
+    }
+
+    &:not(:last-child) {
+      width: auto;
+    }
+
+    &:disabled {
+      color: var(--color-beige-60);
+    }
+  }
+
+  .input-wrapper {
+    position: relative;
+
+    &:has(> .icon-placement-right) {
+      .indicators {
+        /* icon size + spacing */
+        --indicators-right: calc(var(--spacing-lg) + var(--spacing-md) * 2);
+      }
+    }
+  }
+
   .root {
     --select-placeholder-color: var(--color-neutral-60);
     background-color: var(--select-background-color, var(--color-neutral-10));
@@ -266,54 +326,6 @@
     &.disabled {
       --item-text-color: var(--color-beige-60);
       --item-cursor: not-allowed;
-    }
-  }
-
-  .indicators {
-    position: absolute;
-    padding: 0;
-    top: 0;
-    bottom: 0;
-    right: var(--indicators-right, var(--spacing-md));
-    display: flex;
-    gap: var(--spacing-xs);
-
-    &.size-xs {
-      --indicators-right: var(--spacing-sm);
-    }
-  }
-
-  .dropdown-indicator {
-    position: relative;
-    height: 100%;
-    padding: 0;
-    outline: none !important; /* important for firefox */
-    cursor: pointer;
-    border: none;
-    background: transparent;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    .styled-icon {
-      transform: none;
-      transition-property: transform;
-      transition-duration: var(--duration-medium);
-      transition-timing-function: var(--timing-primary);
-    }
-
-    &.open {
-      .styled-icon {
-        transform: rotate3d(0, 0, 1, 180deg);
-      }
-    }
-
-    &:not(:last-child) {
-      width: auto;
-    }
-
-    &:disabled {
-      color: var(--color-beige-60);
     }
   }
 
