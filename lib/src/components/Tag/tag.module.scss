@@ -10,7 +10,6 @@
     white-space: nowrap;
     transition: background-color var(--duration-medium) var(--timing-primary);
     font-weight: var(--font-weight-medium);
-    border-radius: var(--radius-md);
     border: var(--border-width-md) solid var(--color-neutral-10);
     line-height: initial;
 
@@ -22,16 +21,16 @@
     padding: var(--paddingVertical) var(--paddingHorizontal);
     gap: var(--gap);
     font-size: var(--fontSize);
-    border-radius: var(--borderRadius);
+    border-radius: var(--borderRadius, var(--radius-md));
 
-    // Text overflow for children
+    /* Text overflow for children */
     > span,
     > p {
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
-    // Icon sizing
+    /* Icon sizing */
     > svg {
       flex-shrink: 0;
       width: var(--iconWidth);
@@ -39,7 +38,7 @@
     }
   }
 
-  // Interactive states for button and anchor tags
+  /* Interactive states for button and anchor tags */
   button.root,
   a.root {
     cursor: pointer;
@@ -182,7 +181,6 @@
       --borderRadius: var(--radius-sm);
       --iconWidth: 0.75rem;
       --iconHeight: var(--height-12);
-      --borderRadius: var(--radius-sm);
       --removeWidth: 0.5rem;
     }
     &-sm {

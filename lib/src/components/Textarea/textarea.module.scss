@@ -1,63 +1,65 @@
-.root {
-  border-radius: var(--radius-md);
-  border-style: solid;
-  border-width: var(--border-width-sm);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-16);
-  outline: transparent solid var(--border-width-md);
-  width: 100%;
-  transition: var(--duration-medium);
-  appearance: none;
-  padding: var(--spacing-md);
-  min-height: 8.125rem;
+@layer components {
+  .root {
+    border-radius: var(--radius-md);
+    border-style: solid;
+    border-width: var(--border-width-sm);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-16);
+    outline: transparent solid var(--border-width-md);
+    width: 100%;
+    transition: var(--duration-medium);
+    appearance: none;
+    padding: var(--spacing-md);
+    min-height: 8.125rem;
 
-  /* VARIABLES THAT CHANGE WITH REACT PROPS */
-  background-color: var(--backgroundColor, var(--color-neutral-10));
-  color: var(--color, var(--color-neutral-90));
-  border-color: var(--borderColor, var(--color-neutral-30));
+    /* VARIABLES THAT CHANGE WITH REACT PROPS */
+    background-color: var(--backgroundColor, var(--color-neutral-10));
+    color: var(--color, var(--color-neutral-90));
+    border-color: var(--borderColor, var(--color-neutral-30));
 
-  &:disabled,
-  &[aria-disabled] {
-    --backgroundColor: var(--color-beige-40);
-    --color: var(--color-beige-70);
-    cursor: not-allowed;
+    &:disabled,
+    &[aria-disabled] {
+      --backgroundColor: var(--color-beige-40);
+      --color: var(--color-beige-70);
+      cursor: not-allowed;
+    }
+
+    &:hover {
+      --borderColor: var(--borderColorHover, var(--color-neutral-40));
+    }
+
+    &[data-focus-visible],
+    &:focus-visible {
+      --borderColor: var(--borderColorFocused, var(--color-brand-40));
+      outline-color: var(--outlineColorFocus, var(--color-brand-20));
+    }
+
+    &::placeholder {
+      --color: var(--color-neutral-60);
+    }
   }
 
-  &:hover {
-    --borderColor: var(--borderColorHover, var(--color-neutral-40));
-  }
+  .variant {
+    &-danger {
+      --borderColor: var(--color-red-70);
+      --borderColorHover: var(--color-red-70);
+      --borderColorFocused: var(--color-red-70);
+      --outlineColorFocus: var(--color-red-30);
+    }
 
-  &[data-focus-visible],
-  &:focus-visible {
-    --borderColor: var(--borderColorFocused, var(--color-brand-40));
-    outline-color: var(--outlineColorFocus, var(--color-brand-20));
-  }
+    &-warning {
+      --borderColor: var(--color-orange-60);
+      --borderColorHover: var(--color-orange-60);
+      --borderColorFocused: var(--color-orange-60);
+      --outlineColorFocus: var(--color-orange-30);
+    }
 
-  &::placeholder {
-    --color: var(--color-neutral-60);
-  }
-}
-
-.variant {
-  &-danger {
-    --borderColor: var(--color-red-70);
-    --borderColorHover: var(--color-red-70);
-    --borderColorFocused: var(--color-red-70);
-    --outlineColorFocus: var(--color-red-30);
-  }
-
-  &-warning {
-    --borderColor: var(--color-orange-60);
-    --borderColorHover: var(--color-orange-60);
-    --borderColorFocused: var(--color-orange-60);
-    --outlineColorFocus: var(--color-orange-30);
-  }
-
-  &-success {
-    --borderColor: var(--color-green-60);
-    --borderColorHover: var(--color-green-60);
-    --borderColorFocused: var(--color-green-60);
-    --outlineColorFocus: var(--color-green-30);
+    &-success {
+      --borderColor: var(--color-green-60);
+      --borderColorHover: var(--color-green-60);
+      --borderColorFocused: var(--color-green-60);
+      --outlineColorFocus: var(--color-green-30);
+    }
   }
 }

@@ -10,15 +10,12 @@
   }
 
   .item {
-    --pagination-color: var(--color-neutral-90);
-    --pagination-background-color: var(--color-neutral-10);
-
-    color: var(--pagination-color);
-    background-color: var(--pagination-background-color);
+    color: var(--color, var(--color-neutral-90));
+    background-color: var(--backgroundColor, var(--color-neutral-10));
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-bold);
-    height: 2rem; /* 32px */
-    width: 2rem; /* 32px */
+    height: var(--height-elements-md);
+    width: var(--height-elements-md);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -28,11 +25,11 @@
 
     &:hover,
     &:focus {
-      --pagination-background-color: var(--color-neutral-30);
+      --backgroundColor: var(--color-neutral-30);
     }
 
     &:focus {
-      --pagination-color: var(--color-neutral-90);
+      --color: var(--color-neutral-90);
       outline: none !important; /* important for firefox */
     }
   }
@@ -41,19 +38,19 @@
     &[aria-disabled='true'] {
       pointer-events: none;
       cursor: not-allowed;
-      --pagination-color: var(--color-beige-70);
-      --pagination-background-color: var(--color-beige-40);
+      --color: var(--color-beige-70);
+      --backgroundColor: var(--color-beige-40);
     }
   }
 
   .page {
     &[aria-current='true'] {
-      --pagination-background-color: var(--color-neutral-90);
-      --pagination-color: var(--color-neutral-10);
+      --backgroundColor: var(--color-neutral-90);
+      --color: var(--color-neutral-10);
 
       &:hover,
       &:focus {
-        --pagination-background-color: var(--color-neutral-90);
+        --backgroundColor: var(--color-neutral-90);
       }
     }
   }

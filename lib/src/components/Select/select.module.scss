@@ -19,13 +19,12 @@
     transition-timing-function: var(--timing-primary);
     transition-duration: var(--duration-medium);
     appearance: none;
-    @include ellipsis.text-ellipsis;
-
     height: var(--select-height);
     padding-bottom: var(--select-padding-bottom);
     padding-left: var(--select-padding-left);
     padding-right: var(--select-padding-right);
     padding-top: var(--select-padding-top);
+    @include ellipsis.text-ellipsis;
 
     /* left icon or both */
     &.icon-placement-left,
@@ -56,12 +55,6 @@
       --select-background-color: var(--select-color-beige-40);
       --select-text-color: var(--select-color-beige-70);
       cursor: not-allowed;
-    }
-
-    &:invalid,
-    &:-moz-submit-invalid,
-    &:-moz-ui-invalid {
-      box-shadow: none;
     }
 
     /* hover when no variant is defined */
@@ -207,6 +200,7 @@
 
   .wrapper {
     position: relative;
+    width: 100%;
 
     &.disabled .icon-wrapper {
       color: var(--color-beige-60);
@@ -328,7 +322,7 @@
   .tags {
     margin-top: var(--spacing-lg);
 
-    & .styled-tag:not(:last-child) {
+    .styled-tag:not(:last-child) {
       margin-right: var(--spacing-sm);
       margin-bottom: var(--spacing-sm);
     }

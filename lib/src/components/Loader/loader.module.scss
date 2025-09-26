@@ -36,25 +36,25 @@
 
   .size {
     &-xs {
-      --size: 0.5rem;
+      --size: var(--height-8);
     }
 
     &-sm {
-      --size: 0.75rem;
+      --size: var(--height-elements-xxs);
     }
 
     &-md {
-      --size: 1rem;
+      --size: var(--height-elements-xs);
     }
 
     &-lg {
-      --size: 1.25rem;
+      --size: var(--height-20);
     }
   }
 
   .variant {
     &-primary {
-      --color: var(--color-yellow-40);
+      --color: var(--color-brand-40);
     }
 
     &-neutral {

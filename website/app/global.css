@@ -1,36 +1,6 @@
 @import 'tailwindcss';
 @import '../../lib/src/theme/theme.css';
 
-@import '../../lib/src/components/Accordion/accordion.module.scss';
-@import '../../lib/src/components/Alert/alert.module.scss';
-@import '../../lib/src/components/AspectRatio/aspect-ratio.module.scss';
-@import '../../lib/src/components/Button/button.module.scss';
-@import '../../lib/src/components/Checkbox/checkbox.module.scss';
-@import '../../lib/src/components/Drawer/drawer.module.scss';
-@import '../../lib/src/components/Drawer/AssetDrawer/asset-drawer.module.scss';
-@import '../../lib/src/components/FileDrop/filedrop.module.scss';
-@import '../../lib/src/components/Icon/icon.module.scss';
-@import '../../lib/src/components/InputText/input-text.module.scss';
-@import '../../lib/src/components/Label/label.module.scss';
-@import '../../lib/src/components/Loader/loader.module.scss';
-@import '../../lib/src/components/Pagination/pagination.module.scss';
-@import '../../lib/src/components/Swiper/swiper.module.scss';
-@import '../../lib/src/components/Table/table.module.scss';
-@import '../../lib/src/components/Tabs/components/ActiveBar/active-bar.module.scss';
-@import '../../lib/src/components/Tabs/components/TabList/tab-list.module.scss';
-@import '../../lib/src/components/Tabs/components/TabPanel/tab-panel.module.scss';
-@import '../../lib/src/components/Tabs/tabs.module.scss';
-@import '../../lib/src/components/Tag/tag.module.scss';
-@import '../../lib/src/components/Modal/modal.module.scss';
-@import '../../lib/src/components/Modal/Assets/assets.module.scss';
-@import '../../lib/src/components/Text/text.module.scss';
-@import '../../lib/src/components/Textarea/textarea.module.scss';
-@import '../../lib/src/components/Toast/toast.module.scss';
-@import '../../lib/src/components/Toggle/toggle.module.scss';
-@import '../../lib/src/components/VariantIcon/variant-icon.module.scss';
-@import '../../lib/src//components/Tag/tag.module.scss';
-@import '../../lib/src/components/Loader/loader.module.scss';
-
 @source '../../lib/src/**/*.{ts,tsx}';
 
 :root {

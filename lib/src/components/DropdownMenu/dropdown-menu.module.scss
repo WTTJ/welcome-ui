@@ -1,89 +1,90 @@
 @layer components {
-    .inner {
-        background-color: var(--color-neutral-10);
-        border-color: var(--color-neutral-30);
-        border-style: solid;
-        border-width: var(--border-width-sm);
-        border-radius: var(--radius-md);
-        font-size: var(--font-size-sm);
-        min-width: 8.125rem;
-        z-index: 1;
-        opacity: 0;
-        transition: opacity var(--duration-fast) ease-in-out;
+  .inner {
+    background-color: var(--color-neutral-10);
+    border-color: var(--color-neutral-30);
+    border-style: solid;
+    border-width: var(--border-width-sm);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    min-width: 8.125rem;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity var(--duration-fast) ease-in-out;
 
-        &[data-enter] {
-            opacity: 1;
-        }
+    &[data-enter] {
+      opacity: 1;
+    }
+  }
+
+  .arrow {
+    display: flex;
+    z-index: 2;
+    color: var(--color-neutral-70);
+    stroke-width: 0 !important;
+
+    #stroke {
+      color: var(--color-neutral-70);
+    }
+  }
+
+  .arrow-item {
+    height: var(--height-30);
+    width: var(--height-30);
+    transform: var(--dropdown-menu-transform);
+  }
+
+  .arrow-placement {
+    &-bottom {
+      --dropdown-menu-transform: rotateZ(360deg);
     }
 
-    .arrow {
-        display: flex;
-        z-index: 2;
-        color: var(--color-neutral-70); 
-        stroke-width: 0 !important;
-
-        #stroke {
-            color: var(--color-neutral-70);
-        }
+    &-left {
+      --dropdown-menu-transform: rotateZ(90deg);
     }
 
-    .arrow-item {
-        height: 30px;
-        width: 30px;
+    &-right {
+      --dropdown-menu-transform: rotateZ(-90deg);
     }
 
-    .arrow-placement {
-        &-bottom {
-            --dropdown-menu-transform: rotateZ(360deg);
-        }
-
-        &-left {
-            --dropdown-menu-transform: rotateZ(90deg);
-        }
-
-        &-right {
-            --dropdown-menu-transform: rotateZ(-90deg);
-        }
-
-        &-top {
-            --dropdown-menu-transform: rotateZ(180deg);
-        }
+    &-top {
+      --dropdown-menu-transform: rotateZ(180deg);
     }
+  }
 
-    .item {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        border: 0;
-        appearance: none;
-        cursor: pointer;
-        text-decoration: none;
-        transition: var(--duration-medium);
-        padding: var(--spacing-md);
+  .item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border: 0;
+    appearance: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: var(--duration-medium);
+    padding: var(--spacing-md);
 
-        background-color: var(--backgroundColor, transparent);
-        color: var(--color, --color-beige-70);
+    background-color: var(--backgroundColor, transparent);
+    color: var(--color, --color-beige-70);
 
-        &:focus {
-            outline: none !important; /* important for firefox */
-            --backgroundColor: var(--color-beige-30);
-            --color: var(--color-neutral-90);
-        }
-        &:hover {
-            --backgroundColor: var(--color-beige-30);
-            --color: var(--color-neutral-90);
-        }
-        &[disabled] {
-            --backgroundColor: transparent;
-            --color: var(--color-beige-40);
-            cursor: not-allowed;
-        }
+    &:focus {
+      outline: none !important; /* important for firefox */
+      --backgroundColor: var(--color-beige-30);
+      --color: var(--color-neutral-90);
     }
-
-    .separator {
-        background-color: var(--color-beige-30);
-        border: 0;
-        height: var(--border-width-sm);
-        margin: 0;
+    &:hover {
+      --backgroundColor: var(--color-beige-30);
+      --color: var(--color-neutral-90);
     }
+    &[disabled] {
+      --backgroundColor: transparent;
+      --color: var(--color-beige-40);
+      cursor: not-allowed;
+    }
+  }
+
+  .separator {
+    background-color: var(--color-beige-30);
+    border: 0;
+    height: var(--border-width-sm);
+    margin: 0;
+  }
 }
