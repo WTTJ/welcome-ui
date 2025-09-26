@@ -278,13 +278,13 @@
         "description": "",
         "name": "transparent",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/TimePicker/types.ts",
-          "name": "TimePickerOptions"
+          "fileName": "welcome-ui/lib/src/components/InputText/types.ts",
+          "name": "InputTextOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/TimePicker/types.ts",
-            "name": "TimePickerOptions"
+            "fileName": "welcome-ui/lib/src/components/InputText/types.ts",
+            "name": "InputTextOptions"
           }
         ],
         "required": false,

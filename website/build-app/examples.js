@@ -59,6 +59,8 @@ export default {
   "/DatePicker/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/DatePicker/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/DatePicker/docs/examples/react-date-picker.tsx": dynamic(() => import("../../lib/src/components/DatePicker/docs/examples/react-date-picker.tsx").then(mod => mod), { ssr: false }),
   "/DatePicker/docs/examples/sizes.tsx": dynamic(() => import("../../lib/src/components/DatePicker/docs/examples/sizes.tsx").then(mod => mod), { ssr: false }),
+  "/DateTimePicker/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/DateTimePicker/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
+  "/DateTimePicker/docs/examples/sizes.tsx": dynamic(() => import("../../lib/src/components/DateTimePicker/docs/examples/sizes.tsx").then(mod => mod), { ssr: false }),
   "/Drawer/docs/examples/asset.tsx": dynamic(() => import("../../lib/src/components/Drawer/docs/examples/asset.tsx").then(mod => mod), { ssr: false }),
   "/Drawer/docs/examples/backdrop.tsx": dynamic(() => import("../../lib/src/components/Drawer/docs/examples/backdrop.tsx").then(mod => mod), { ssr: false }),
   "/Drawer/docs/examples/layout.tsx": dynamic(() => import("../../lib/src/components/Drawer/docs/examples/layout.tsx").then(mod => mod), { ssr: false }),

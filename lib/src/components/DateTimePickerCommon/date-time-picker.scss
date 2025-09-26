@@ -19,6 +19,10 @@
   }
 }
 
+.react-datepicker__input-container {
+  display: block;
+}
+
 .react-datepicker__aria-live {
   position: absolute;
   clip-path: circle(0);

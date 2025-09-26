@@ -10,9 +10,8 @@ export interface DatePickerOptions {
   onChange?: (date?: Date) => void
   placeholder?: string
   preventVirtualKeyboard?: boolean
-  transparent?: boolean
   useWeekdaysShort?: boolean
-  value: Date | string
+  value?: Date | string
 }
 
 export type DatePickerProps = ComponentProps<'div'> &
@@ -20,4 +19,4 @@ export type DatePickerProps = ComponentProps<'div'> &
   Omit<ReactDatePickerProps, 'locale' | keyof DatePickerOptions> &
   Partial<Pick<CustomHeaderProps, 'endYear' | 'startYear'>> &
   Pick<CustomHeaderProps, 'locale'> &
-  Pick<InputTextOptions, 'icon' | 'iconPlacement' | 'size'>
+  Pick<InputTextOptions, 'icon' | 'iconPlacement' | 'size' | 'transparent'>
