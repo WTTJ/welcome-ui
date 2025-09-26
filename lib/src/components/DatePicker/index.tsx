@@ -104,7 +104,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
     return (
       // type issue in react-datepicker (https://github.com/Hacker0x01/react-datepicker/issues/5391)
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
+      // @ts-expect-error
       <ReactDatePicker
         autoComplete="off"
         calendarClassName="date-picker-popper"

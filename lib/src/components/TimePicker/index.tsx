@@ -43,7 +43,7 @@ export const TimePicker = forwardRef<HTMLInputElement, TimePickerProps>(
     // format date at component mount
     useEffect(() => {
       onChange?.(formatDate(value))
-      //eslint-disable-next-line
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     // Ensure values are controlled by parent
@@ -53,7 +53,7 @@ export const TimePicker = forwardRef<HTMLInputElement, TimePickerProps>(
         onChange?.(formattedDate)
       }
       setDate(formattedDate)
-      //eslint-disable-next-line
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value])
 
     const handleReset: EventHandler<React.MouseEvent<HTMLInputElement>> = e => {
@@ -87,7 +87,7 @@ export const TimePicker = forwardRef<HTMLInputElement, TimePickerProps>(
     return (
       // type issue in react-datepicker (https://github.com/Hacker0x01/react-datepicker/issues/5391)
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
+      // @ts-expect-error
       <ReactDatePicker
         calendarClassName="time-picker-popper"
         customInput={
