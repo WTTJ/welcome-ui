@@ -6,4 +6,32 @@
     margin-bottom: var(--spacing-lg);
     text-align: left;
   }
+
+  .date-picker {
+    text-align: left;
+  }
+
+  .time-picker {
+    text-align: center;
+  }
+
+  .date-time-picker {
+    position: relative;
+    display: inline-flex;
+    flex-wrap: nowrap;
+
+    div:first-child {
+      margin-right: -1px;
+    }
+
+    .date-picker {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .time-picker {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
 }
