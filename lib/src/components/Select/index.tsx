@@ -3,12 +3,12 @@ import DownshiftImport from 'downshift'
 import { matchSorter } from 'match-sorter'
 import React, { forwardRef, Fragment, useCallback, useEffect, useMemo, useState } from 'react'
 
+import { CloseButton as ClearButton } from '@/components/CloseButton'
 import { DownIcon } from '@/components/Icon'
 import { FIELD_ICON_SIZE } from '@/constants/field-icon-size'
 import { classNames } from '@/utils'
 import { createEvent } from '@/utils/create-event'
 import { useForkRef } from '@/utils/useForkRef'
-import { ClearButton } from '@old/ClearButton'
 
 import { multipleSelections } from './multipleSelections'
 import selectStyles from './select.module.scss'
@@ -51,6 +51,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
       disabled,
       groupsEnabled,
       icon,
+      iconPlacement = 'left',
       id,
       isClearable,
       isCreatable,
@@ -311,7 +312,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
       variant && `variant-${variant}`,
       isClearable && 'clearable',
       transparent && 'transparent',
-      icon ? 'icon-placement-both' : 'icon-placement-right',
+      icon && `icon-placement-${iconPlacement}`,
       className
     )
 
@@ -345,9 +346,9 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
 
           const DeleteIcon = (
             <div className={cx('dropdown-indicator', isOpen && 'open')}>
-              {/* TODO migrate after WUI-214/clearbutton */}
               <ClearButton
                 onClick={clearSelection as unknown as React.MouseEventHandler<HTMLButtonElement>}
+                title="Clear"
               />
             </div>
           )
@@ -389,7 +390,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
 
           return (
             <div {...rootProps} className={cx('wrapper', disabled && 'disabled')}>
-              <div className="relative">
+              <div className={cx('input-wrapper')}>
                 {isSearchable ? (
                   <input className={inputClassnames} type="text" {...inputProps} />
                 ) : (
@@ -398,7 +399,13 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
                   </div>
                 )}
                 {icon ? (
-                  <div className={cx('icon-wrapper', `icon-placement-left`, `size-${size}`)}>
+                  <div
+                    className={cx(
+                      'icon-wrapper',
+                      `icon-placement-${iconPlacement}`,
+                      `size-${size}`
+                    )}
+                  >
                     {React.cloneElement(icon, { ...icon.props, size: iconSize })}
                   </div>
                 ) : null}
