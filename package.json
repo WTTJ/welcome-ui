@@ -3,7 +3,7 @@
   "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
   "scripts": {
     "build": "yarn workspace welcome-ui run build",
-    "build:website": "yarn workspace welcome-ui install && yarn build",
+    "build:website": "yarn workspace website install && yarn workspace website build",
     "check:audit": "/bin/bash -c 'yarn audit --level low; [[ $? -ge 2 ]] && exit 1 || exit 0'",
     "check:audit:fix": "npm_config_yes=true npx yarn-audit-fix",
     "check:docs": "node ./scripts/check-docs.mjs",
