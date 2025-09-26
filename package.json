@@ -86,7 +86,7 @@
     "react-docgen-typescript": "^2.4.0",
     "react-dom": "^18.3.1",
     "react-router-dom": "7.5.2",
-    "sass-embedded": "^1.90.0",
+    "sass-embedded": "^1.93.2",
     "standard-version": "9.5.0",
     "styled-components": "^6.1.15",
     "stylelint": "^16.18.0",
