@@ -25,13 +25,13 @@
         "description": "",
         "name": "label",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/RadioGroup/types.ts",
-          "name": "RadioGroupOptions"
+          "fileName": "welcome-ui/lib/src/old/components/FieldGroup/index.tsx",
+          "name": "FieldGroupOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/RadioGroup/types.ts",
-            "name": "RadioGroupOptions"
+            "fileName": "welcome-ui/lib/src/old/components/FieldGroup/index.tsx",
+            "name": "FieldGroupOptions"
           }
         ],
         "required": false,
@@ -63,10 +63,14 @@
         "description": "",
         "name": "onChange",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/RadioGroup/types.ts",
-          "name": "RadioGroupOptions"
+          "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+          "name": "DOMAttributes"
         },
         "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+            "name": "DOMAttributes"
+          },
           {
             "fileName": "welcome-ui/lib/src/components/RadioGroup/types.ts",
             "name": "RadioGroupOptions"
@@ -74,11 +78,28 @@
         ],
         "required": false,
         "type": {
-          "name": "(value: string | number) => void"
+          "name": "enum",
+          "raw": "FormEventHandler<HTMLFieldSetElement> | ((value: string | number) => void)",
+          "value": [
+            {
+              "value": "FormEventHandler<HTMLFieldSetElement>",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            },
+            {
+              "value": "(value: string | number) => void",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
         }
       },
       "options": {
-        "defaultValue": null,
+        "defaultValue": {
+          "value": "[]"
+        },
         "description": "",
         "name": "options",
         "parent": {
@@ -91,13 +112,15 @@
             "name": "RadioGroupOptions"
           }
         ],
-        "required": true,
+        "required": false,
         "type": {
           "name": "RadioGroupOption[]"
         }
       },
       "renderOption": {
-        "defaultValue": null,
+        "defaultValue": {
+          "value": "forwardRef<'input', RadioProps>(\n  (\n    {\n      dataTestId,\n      disabled,\n      disabledIcon,\n      flexDirection,\n      hint,\n      label,\n      maxWidth,\n      onChange,\n      onClick,\n      variant,\n      ...rest\n    },\n    ref\n  ) => {\n    const handleClick = (event: React.MouseEvent<HTMLLabelElement>) => {\n      event.stopPropagation()\n      onClick && onClick(event)\n      onChange && onChange(event)\n    }\n\n    return (\n      <S.Label\n        alignItems=\"flex-start\"\n        checkableField\n        disabled={disabled}\n        disabledIcon={disabledIcon}\n        flexDirection=\"column\"\n        maxWidth={maxWidth}\n        onClick={handleClick}\n        variant={variant}\n        withDisabledIcon={false}\n      >\n        <S.Wrapper flexDirection={flexDirection}>\n          <S.Input>\n            <S.Radio\n              data-testid={dataTestId}\n              disabled={disabled}\n              label={label}\n              ref={ref}\n              variant={variant}\n              {...rest}\n            />\n          </S.Input>\n          <S.LabelWithHint>\n            <div data-testid={dataTestId ? `${dataTestId}-label` : undefined}>{label}</div>\n            {hint ? (\n              <Hint data-testid={dataTestId ? `${dataTestId}-hint` : undefined} mt=\"0\">\n                {hint}\n              </Hint>\n            ) : null}\n          </S.LabelWithHint>\n        </S.Wrapper>\n      </S.Label>\n    )\n  }\n)"
+        },
         "description": "",
         "name": "renderOption",
         "parent": {
@@ -122,7 +145,22 @@
               "value": "\"object\""
             },
             {
-              "value": "\"fieldset\""
+              "value": "\"label\""
+            },
+            {
+              "value": "\"slot\""
+            },
+            {
+              "value": "\"style\""
+            },
+            {
+              "value": "\"title\""
+            },
+            {
+              "value": "\"map\""
+            },
+            {
+              "value": "\"filter\""
             },
             {
               "value": "\"a\""
@@ -230,6 +268,9 @@
               "value": "\"embed\""
             },
             {
+              "value": "\"fieldset\""
+            },
+            {
               "value": "\"figcaption\""
             },
             {
@@ -296,9 +337,6 @@
               "value": "\"keygen\""
             },
             {
-              "value": "\"label\""
-            },
-            {
               "value": "\"legend\""
             },
             {
@@ -309,9 +347,6 @@
             },
             {
               "value": "\"main\""
-            },
-            {
-              "value": "\"map\""
             },
             {
               "value": "\"mark\""
@@ -386,9 +421,6 @@
               "value": "\"search\""
             },
             {
-              "value": "\"slot\""
-            },
-            {
               "value": "\"script\""
             },
             {
@@ -408,9 +440,6 @@
             },
             {
               "value": "\"strong\""
-            },
-            {
-              "value": "\"style\""
             },
             {
               "value": "\"sub\""
@@ -447,9 +476,6 @@
             },
             {
               "value": "\"time\""
-            },
-            {
-              "value": "\"title\""
             },
             {
               "value": "\"tr\""
@@ -578,9 +604,6 @@
               "value": "\"feTurbulence\""
             },
             {
-              "value": "\"filter\""
-            },
-            {
               "value": "\"foreignObject\""
             },
             {
@@ -675,13 +698,13 @@
         "description": "",
         "name": "required",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/RadioGroup/types.ts",
-          "name": "RadioGroupOptions"
+          "fileName": "welcome-ui/lib/src/old/components/FieldGroup/index.tsx",
+          "name": "FieldGroupOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/RadioGroup/types.ts",
-            "name": "RadioGroupOptions"
+            "fileName": "welcome-ui/lib/src/old/components/FieldGroup/index.tsx",
+            "name": "FieldGroupOptions"
           }
         ],
         "required": false,

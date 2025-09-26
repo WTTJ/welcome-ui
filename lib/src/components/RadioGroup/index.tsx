@@ -42,11 +42,11 @@ export const RadioGroup = forwardRef<HTMLFieldSetElement, RadioGroupProps>(
       <FieldGroup
         as={AriakitRadioGroup}
         dataTestId={dataTestId}
+        disabled={disabled}
         label={label}
         mb={0}
         ref={ref}
         required={required}
-        {...rest}
       >
         <div className={cx('root', className)}>
           {options.map((option: RadioGroupOption) => {
@@ -54,6 +54,7 @@ export const RadioGroup = forwardRef<HTMLFieldSetElement, RadioGroupProps>(
               <Component
                 checked={option.value === activeValue}
                 dataTestId={dataTestId ? `${dataTestId}-${option.value}` : undefined}
+                disabled={disabled}
                 hint={option.hint}
                 id={`${id || name}.${option.value}`}
                 key={option.value}
@@ -61,6 +62,7 @@ export const RadioGroup = forwardRef<HTMLFieldSetElement, RadioGroupProps>(
                 name={name}
                 onChange={() => handleChange(option.value)}
                 value={option.value}
+                {...rest}
               />
             )
           })}
@@ -69,5 +71,3 @@ export const RadioGroup = forwardRef<HTMLFieldSetElement, RadioGroupProps>(
     )
   }
 )
-
-RadioGroup.displayName = 'RadioGroup'
