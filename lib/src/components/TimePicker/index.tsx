@@ -1,50 +1,40 @@
 import type { EventHandler } from 'react'
-import React, { useEffect, useRef, useState } from 'react'
-import { forwardRef } from 'react'
+import { forwardRef, useEffect, useRef, useState } from 'react'
 import ReactDatePicker from 'react-datepicker'
-import 'react-datepicker/dist/react-datepicker.css'
 
 import '@/components/DateTimePickerCommon/date-time-picker.scss'
-import { CustomHeader } from '@/components/DateTimePickerCommon/CustomHeader'
 import { CustomPopper } from '@/components/DateTimePickerCommon/CustomPopper'
 import styles from '@/components/DateTimePickerCommon/date-time-picker.module.scss'
-import type { CustomHeaderProps } from '@/components/DateTimePickerCommon/types'
 import { DEFAULT_DATE, getDate } from '@/components/DateTimePickerCommon/utils'
 import { InputText } from '@/components/InputText'
 import { classNames } from '@/utils'
 
-import type { DatePickerProps } from './types'
+import type { TimePickerProps } from './types'
 
 const cx = classNames(styles)
 
-export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
+export const TimePicker = forwardRef<HTMLInputElement, TimePickerProps>(
   (
     {
       autoFocus,
       className,
       dataTestId,
-      dateFormat = 'dd/MM/yyyy',
+      dateFormat = 'HH:mm',
       disabled,
-      endYear = DEFAULT_DATE.getFullYear(),
       icon,
       iconPlacement = 'left',
-      locale,
       onChange,
       placeholder,
       popperProps,
-      preventVirtualKeyboard = false,
-      showMonthYearPicker,
       size = 'md',
-      startYear = 1900,
+      timeIntervals = 15,
       transparent,
-      useWeekdaysShort = true,
       value = DEFAULT_DATE,
       ...rest
     },
     ref
   ) => {
-    const timeIntervals = rest?.timeIntervals
-    const formatDate = (date: Date | number | string) => getDate(date, timeIntervals)
+    const formatDate: (date: Date | number | string) => Date = date => getDate(date, timeIntervals)
 
     const [date, setDate] = useState(formatDate(value))
     const localRef = useRef<HTMLInputElement>()
@@ -53,25 +43,18 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
     // format date at component mount
     useEffect(() => {
       onChange?.(formatDate(value))
-      // eslint-disable-next-line react-hooks/exhaustive-deps
+      //eslint-disable-next-line
     }, [])
 
     // Ensure values are controlled by parent
     useEffect(() => {
       const formattedDate = formatDate(value)
-      const valueToParse = typeof value === 'object' ? value?.toISOString() : value
-      if (new Date(Date.parse(valueToParse))?.getTime() - formattedDate?.getTime() !== 0) {
+      if (new Date(value)?.getTime() - formattedDate?.getTime() !== 0) {
         onChange?.(formattedDate)
       }
       setDate(formattedDate)
-      // eslint-disable-next-line react-hooks/exhaustive-deps
+      //eslint-disable-next-line
     }, [value])
-
-    const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-      if (['Enter', 'Escape'].includes(e.key)) {
-        inputRef.current?.blur()
-      }
-    }
 
     const handleReset: EventHandler<React.MouseEvent<HTMLInputElement>> = e => {
       e.preventDefault()
@@ -106,43 +89,31 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       <ReactDatePicker
-        autoComplete="off"
-        calendarClassName="date-picker-popper"
+        calendarClassName="time-picker-popper"
         customInput={
           <InputText
             autoFocus={autoFocus}
-            className={cx('date-picker', className)}
+            className={cx('time-picker', className)}
             data-testid={dataTestId}
             disabled={disabled}
             icon={icon}
             iconPlacement={iconPlacement}
-            inputMode={preventVirtualKeyboard ? 'none' : 'text'}
-            isClearable
+            isClearable={false}
             onReset={handleReset}
-            placeholder={placeholder}
-            ref={inputRef}
+            ref={ref}
             size={size}
             transparent={transparent}
           />
         }
         dateFormat={dateFormat}
-        locale={locale}
         onChange={handleChange}
-        onKeyDown={handleKeyDown}
+        placeholderText={placeholder}
         popperContainer={CustomPopper}
         popperProps={popperProps}
-        renderCustomHeader={(props: CustomHeaderProps) => (
-          <CustomHeader
-            endYear={endYear}
-            isMonthYearPicker={showMonthYearPicker}
-            locale={locale}
-            startYear={startYear}
-            {...props}
-          />
-        )}
         selected={date}
-        showMonthYearPicker={showMonthYearPicker}
-        useWeekdaysShort={useWeekdaysShort}
+        showTimeSelect
+        showTimeSelectOnly
+        timeIntervals={timeIntervals}
         {...rest}
       />
     )
