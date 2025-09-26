@@ -10,11 +10,13 @@ const __dirname = path.dirname(__filename)
 
 const fontFacesPath = path.join(__dirname, 'fontFaces.css')
 const basePath = path.join(__dirname, 'base.css')
+const resetPath = path.join(__dirname, 'resets.css')
 const themePath = path.join(__dirname, 'theme.css')
 const breakpointsPath = path.join(__dirname, 'utils', 'breakpoints.scss')
 
 const fontFaces = fs.readFileSync(fontFacesPath, 'utf8')
 const baseStyles = fs.readFileSync(basePath, 'utf8')
+const resetStyles = fs.readFileSync(resetPath, 'utf8')
 
 /**
  * @param {Record<string, string>} map
@@ -68,7 +70,7 @@ const theme = {
   value: `${resetTailwindTokens} ${getCSSFrom({ primitives, semantics })}`,
 }
 
-const baseLayer = { property: '@layer base', value: baseStyles }
+const baseLayer = { property: '@layer base', value: `${resetStyles}\n${baseStyles}` }
 
 const generateThemeCss = () =>
   [fontFaces, getStringFrom(theme), getStringFrom(baseLayer)].join('\n')

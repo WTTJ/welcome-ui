@@ -28,6 +28,7 @@
   "scripts": {
     "start": "vite build --watch",
     "build": "vite build",
+    "theme:generate": "tsx src/theme/generate-theme.ts && yarn run -W prettier --write 'src/theme/theme.css'",
     "test": "vitest"
   },
   "repository": {
