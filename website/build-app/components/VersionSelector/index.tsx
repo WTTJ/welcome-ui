@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Select } from '@old/Select'
+import { Select } from '@/components/Select'
 
 import lib from '../../../../lib/package.json'
 
@@ -23,7 +23,7 @@ export const VersionSelector = () => {
 
   return (
     <Select
-      display={{ _: 'none', md: 'block' }}
+      className="hidden md:block"
       name="welcome"
       onChange={handleChange}
       options={versions}
