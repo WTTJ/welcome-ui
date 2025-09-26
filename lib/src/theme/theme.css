@@ -182,7 +182,7 @@
 
 @theme {
   --*: initial;
- 
+
   /* ===== PRIMITIVES ===== */
 
   /* borders */
@@ -292,11 +292,12 @@
   --color-yellow-90: #423500;
 
   /* fontFamilies */
-  --default-font-family: "Work Sans", sans-serif;
-  --font-family-headings: "welcome-font", sans-serif;
-  --font-family-icons: "welcome-icon-font";
+  --default-font-family: 'Work Sans', sans-serif;
+  --font-family-headings: 'welcome-font', sans-serif;
+  --font-family-icons: 'welcome-icon-font';
 
   /* fontSizes */
+  --font-size-10: 0.625rem; /* 10px */
   --font-size-11: 0.6875rem; /* 11px */
   --font-size-12: 0.75rem; /* 12px */
   --font-size-13: 0.8125rem; /* 13px */
@@ -344,7 +345,7 @@
   --letter-spacing-sm: -0.019rem; /* -0.304px */
   --letter-spacing-subtitle-md: -0.0125rem; /* -0.2px */
   --letter-spacing-subtitle-sm: -0.0125rem; /* -0.2px */
-   --letter-spacing-xs: -0.0125rem; /* -0.2px */
+  --letter-spacing-xs: -0.0125rem; /* -0.2px */
 
   /* lineHeights */
   --line-height-14: 0.875rem; /* 14px */
@@ -489,6 +490,146 @@
 }
 
 @layer base {
+  html,
+  body,
+  div,
+  span,
+  applet,
+  object,
+  iframe,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  blockquote,
+  pre,
+  a,
+  abbr,
+  acronym,
+  address,
+  big,
+  cite,
+  code,
+  del,
+  dfn,
+  em,
+  img,
+  ins,
+  kbd,
+  q,
+  s,
+  samp,
+  small,
+  strike,
+  strong,
+  sub,
+  sup,
+  tt,
+  var,
+  b,
+  u,
+  i,
+  center,
+  dl,
+  dt,
+  dd,
+  ol,
+  ul,
+  li,
+  fieldset,
+  form,
+  label,
+  legend,
+  table,
+  caption,
+  tbody,
+  tfoot,
+  thead,
+  tr,
+  th,
+  td,
+  article,
+  aside,
+  canvas,
+  details,
+  embed,
+  figure,
+  figcaption,
+  footer,
+  header,
+  hgroup,
+  menu,
+  nav,
+  output,
+  ruby,
+  section,
+  summary,
+  time,
+  mark,
+  audio,
+  video {
+    min-width: 0;
+    min-height: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+  }
+
+  /* Remove quotes from blockquotes */
+  blockquote,
+  q {
+    quotes: none;
+  }
+  blockquote::before,
+  blockquote::after,
+  q::before,
+  q::after {
+    content: '';
+    content: none;
+  }
+
+  /* Remove text decoration from links (Tailwind only inherits, doesn't remove) */
+  a {
+    text-decoration: none;
+  }
+
+  /* Image overflow handling */
+  img {
+    overflow: hidden;
+  }
+
+  input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  /* Remove webkit search cancel button */
+  input::-webkit-search-cancel-button {
+    display: none;
+  }
+
+  /* Font smoothing */
+  *,
+  *::after,
+  *::before {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Body height and margin hack */
+  html {
+    height: 100%;
+  }
+
+  body {
+    min-height: 100%;
+    padding-top: 1px;
+    margin-top: -1px;
+  }
+
   h1,
   h2,
   h3,

@@ -1,0 +1,139 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  min-width: 0;
+  min-height: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* Remove quotes from blockquotes */
+blockquote,
+q {
+  quotes: none;
+}
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+  content: '';
+  content: none;
+}
+
+/* Remove text decoration from links (Tailwind only inherits, doesn't remove) */
+a {
+  text-decoration: none;
+}
+
+/* Image overflow handling */
+img {
+  overflow: hidden;
+}
+
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Remove webkit search cancel button */
+input::-webkit-search-cancel-button {
+  display: none;
+}
+
+/* Font smoothing */
+*,
+*::after,
+*::before {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Body height and margin hack */
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  padding-top: 1px;
+  margin-top: -1px;
+}
