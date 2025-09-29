@@ -9,11 +9,11 @@ import { transform, transformSpecificValue, transformValue } from './transform.m
 
 describe('upgrade-v9 migration script', () => {
   describe('processComponents (integration)', () => {
-    it('migrates fixtures/Component.tsx as expected', async () => {
+    it('migrates fixtures/Component1.tsx as expected', async () => {
       // Setup temp dir and copy fixture
       const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'wui-upgrade-test-'))
       const srcFile = path.join(__dirname, './fixtures/Component1.tsx')
-      const destFile = path.join(tmpDir, 'Component.tsx')
+      const destFile = path.join(tmpDir, 'Component1.tsx')
       fs.copyFileSync(srcFile, destFile)
 
       // Find components in the temp file

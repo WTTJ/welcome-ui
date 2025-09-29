@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`upgrade-v9 migration script > processComponents (integration) > migrates fixtures/Component.tsx as expected 1`] = `
+exports[`upgrade-v9 migration script > processComponents (integration) > migrates fixtures/Component1.tsx as expected 1`] = `
 "import { Alert } from '../../../lib/src/old/components/Alert'
 import { Box } from '../../../lib/src/old/components/Box'
 import { IconsFont } from '../../../lib/src/old/components/IconsFont'
