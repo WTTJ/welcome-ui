@@ -1,7 +1,6 @@
 import type { ButtonSize, ButtonVariant } from '@/components/Button/types'
-import type { PolymorphicProps } from '@/theme/types'
 
-export type ButtonGroupProps<T extends React.ElementType = 'div'> = PolymorphicProps<T> & {
+export type ButtonGroupProps = {
   disabled?: boolean
   size?: ButtonSize
   variant?: ButtonVariant

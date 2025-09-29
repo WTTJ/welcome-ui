@@ -1,0 +1,79 @@
+@layer components {
+  .root {
+    display: grid;
+    grid-template-areas:
+      'label'
+      'input';
+    width: 100%;
+
+    &:has(.label):has(.hint) {
+      grid-template-areas:
+        'label'
+        'input'
+        'hint';
+    }
+
+    &:not(:has(.label)):has(.hint) {
+      grid-template-areas:
+        'input'
+        'hint';
+    }
+
+    &:not(.inline) {
+      .hint {
+        margin-top: var(--spacing-xs);
+      }
+      .label {
+        margin-bottom: var(--spacing-sm);
+      }
+    }
+  }
+
+  .inline {
+    grid-template-areas: 'input label';
+    grid-template-columns: min-content 1fr;
+    height: fit-content;
+
+    grid-row-gap: var(--spacing-xs);
+    grid-column-gap: var(--spacing-sm);
+
+    &:has(.label):has(.hint) {
+      grid-template-areas:
+        'input label'
+        '. hint';
+    }
+
+    &:not(:has(.label)):has(.hint) {
+      grid-template-areas:
+        'input .'
+        '. hint';
+    }
+  }
+
+  .label {
+    grid-area: label;
+  }
+
+  .input {
+    display: flex;
+    align-items: center;
+    grid-area: input;
+    width: 100%;
+  }
+
+  .hint {
+    grid-area: hint;
+  }
+
+  .visuallyHidden {
+    border: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;
+  }
+}
