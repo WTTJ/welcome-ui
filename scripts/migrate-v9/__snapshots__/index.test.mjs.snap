@@ -1,6 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 exports[`upgrade-v9 migration script > processComponents (integration) > migrates fixtures/Component1.tsx as expected 1`] = `
 "import { Alert } from '../../../lib/src/old/components/Alert'
 import { Box } from '../../../lib/src/old/components/Box'
@@ -10,6 +11,9 @@ import { Link } from '../../../lib/src/old/components/Link'
 import { Stack } from '../../../lib/src/old/components/Stack'
 =======
 exports[`upgrade-v9 migration script > processComponents (integration) > migrates fixtures/Component.tsx as expected 1`] = `
+=======
+exports[`upgrade-v9 migration script > processComponents (integration) > migrates fixtures/Component1.tsx as expected 1`] = `
+>>>>>>> f32d507fd (chore: clean tests)
 "import { Alert } from '../../../lib/src/old/components/Alert'
 import { Box } from '../../../lib/src/old/components/Box'
 import { IconsFont } from '../../../lib/src/old/components/IconsFont'
@@ -40,12 +44,9 @@ export const Example = () => (
         </Link>
       </aside>
     </div>
-<<<<<<< HEAD
     <div className="grid" columns={2} gutter="sm"></div>
     <div className="flex flex-1 flex-col gap-xxl"></div>
     <div className="flex flex-row gap-xxs items-center"></div>
-=======
->>>>>>> 3b7f36c20 (refactor: migration script to be easier to update)
     <Alert isFullWidth mx="auto" variant="danger">
       <Alert.Title mb="sm">
         <FormattedMessage defaultMessage="Please sign in with provider" id="5nmpcx" />
