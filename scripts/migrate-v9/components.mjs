@@ -1,5 +1,10 @@
 // Find components who changed to an html element
 export const componentTypes = [
+  'Accordion',
+  'Alert',
+  'Alert.Button',
+  'Alert.SecondaryButton',
+  'Alert.Title',
   'Box',
   'Flex',
   'Grid',

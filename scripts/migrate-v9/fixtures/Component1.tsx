@@ -67,7 +67,21 @@ export const Example = () => {
       <Grid columns={2} gutter="sm"></Grid>
       <Stack flex={1} gap="xxl"></Stack>
       <Stack alignItems="center" direction="row" spacing="xxs"></Stack>
-      <Alert isFullWidth variant="danger">
+      <Alert
+        actions={
+          <>
+            <Alert.Button mb="sm">
+              <FormattedMessage defaultMessage="Please sign in with provider" id="5nmpcx" />
+            </Alert.Button>
+            <Alert.SecondaryButton mb="sm">
+              <FormattedMessage defaultMessage="Please sign in with provider" id="5nmpcx" />
+            </Alert.SecondaryButton>
+          </>
+        }
+        isFullWidth
+        mb="lg"
+        variant="danger"
+      >
         <Alert.Title mb="sm">
           <FormattedMessage defaultMessage="Please sign in with provider" id="5nmpcx" />
         </Alert.Title>

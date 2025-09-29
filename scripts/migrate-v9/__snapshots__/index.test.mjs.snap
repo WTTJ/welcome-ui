@@ -53,8 +53,15 @@ export const Example = () => {
       <div className="grid" columns={2} gutter="sm"></div>
       <div className="flex flex-1 flex-col gap-xxl"></div>
       <div className="flex flex-row gap-xxs items-center"></div>
-      <Alert isFullWidth variant="danger">
-        <Alert.Title mb="sm">
+      <Alert className="mb-lg" actions={<>
+            <Alert.Button className="mb-sm">
+              <FormattedMessage defaultMessage="Please sign in with provider" id="5nmpcx" />
+            </Alert.Button>
+            <Alert.SecondaryButton className="mb-sm">
+              <FormattedMessage defaultMessage="Please sign in with provider" id="5nmpcx" />
+            </Alert.SecondaryButton>
+          </>} isFullWidth variant="danger">
+        <Alert.Title className="mb-sm">
           <FormattedMessage defaultMessage="Please sign in with provider" id="5nmpcx" />
         </Alert.Title>
         <span>
