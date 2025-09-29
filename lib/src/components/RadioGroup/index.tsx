@@ -1,9 +1,9 @@
 import { RadioGroup as AriakitRadioGroup, useRadioStore, useStoreState } from '@ariakit/react'
 import { forwardRef } from 'react'
 
+import { Radio } from '@/components/Radio'
 import { classNames } from '@/utils'
 import { FieldGroup } from '@old/FieldGroup'
-import { Radio } from '@old/Radio'
 
 import radioGroupStyles from './radio-group.module.scss'
 import type { RadioGroupOption, RadioGroupProps } from './types'
