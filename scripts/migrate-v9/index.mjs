@@ -2,6 +2,10 @@
 import fs from 'fs'
 import readline from 'readline'
 
+import generate from '@babel/generator'
+import { parse } from '@babel/parser'
+import traverse from '@babel/traverse'
+
 import { componentTypes, componentTypesUnchanged } from './components.mjs'
 import { walkDirectory } from './file-ops.mjs'
 import { getStackClassnames, parsePropsString } from './parsing.mjs'
@@ -124,23 +128,32 @@ export async function processComponents(components, shouldReplace = false) {
         : (component.props.as && component.props.as.value) || 'div'
       // Build other props string, filtering out migrated props
       const otherProps = Object.entries(component.props)
-        .filter(([key]) => {
+        .filter(([key, propData]) => {
           // Keep 'as' property for componentTypesUnchanged, filter it out for others
           if (key === 'as') {
             return componentTypesUnchanged.includes(component.componentType)
           }
+          // Always keep spread attributes
+          if (propData.isSpread) return true
           return !Object.keys(valueMap).includes(key)
         })
         .map(([key, propData]) => {
           const value = propData.value
-          // Handle function expressions and template literals
-          if (
-            propData.isExpression ||
-            value.includes('=>') ||
-            value.includes('${') ||
-            value.includes('`')
-          ) {
-            return ` ${key}={${value}}`
+          if (propData.isSpread) {
+            return ` {...${value}}`
+          }
+          // Special handling for boolean props (e.g. required)
+          if (typeof value === 'boolean' || value === 'true' || value === 'false') {
+            if (value === true || value === 'true') {
+              return ` ${key}`
+            } else {
+              return ''
+            }
+          }
+          if (propData.isExpression) {
+            // Escape any accidental closing braces in the value
+            const safeValue = value.replace(/}/g, '\u007d')
+            return ` ${key}={` + safeValue + `}`
           }
           return ` ${key}="${value}"`
         })
@@ -334,34 +347,49 @@ async function main() {
 function processComponentFile(filePath, results) {
   if (filePath.endsWith('.ts') || filePath.endsWith('.tsx')) {
     const content = fs.readFileSync(filePath, 'utf8')
-    // const components = [...componentTypes, ...componentTypesUnchanged]
+    let ast
+    try {
+      ast = parse(content, { plugins: ['jsx', 'typescript'], sourceType: 'module' })
+    } catch (e) {
+      console.error('Failed to parse file:', filePath)
+      return
+    }
+    traverse(ast, {
+      JSXOpeningElement(path) {
+        const nameNode = path.node.name
+        let componentName = ''
+        if (nameNode.type === 'JSXIdentifier') {
+          componentName = nameNode.name
+        } else if (nameNode.type === 'JSXMemberExpression') {
+          // Ignore subcomponents like Alert.Title
+          return
+        }
+        if (!componentTypes.includes(componentName)) return
+        // Get the full opening tag source
+        const start = path.node.start
+        const end = path.node.end
+        const fullMatch = content.slice(start, end)
 
-    for (const componentType of componentTypes) {
-      if (
-        content.includes(`<${componentType}`) &&
-        content.match(new RegExp(`<${componentType}[^>]*className=`))
-      ) {
-        continue
-      }
-      // Regex: match <Component ...> or <Component .../> but not <Component.Something ...>
-      // Captures props string in group 1
-      const regex = new RegExp(`<${componentType}(?![\\w.])([\\s\\S]*?)\\/?>`, 'gm')
-      let match
-      while ((match = regex.exec(content)) !== null) {
-        const fullMatch = match[0]
-        const propsString = (match[1] || '').trim()
+        // Reconstruct the props string (everything after <Component and before > or />)
+        const openTag = `<${componentName}`
+        let propsString = fullMatch.slice(openTag.length, fullMatch.endsWith('>') ? -1 : -2).trim()
+
+        // Remove trailing slash if present (for self-closing tags)
+        if (propsString.endsWith('/')) {
+          propsString = propsString.slice(0, -1).trim()
+        }
         const props = parsePropsString(propsString)
 
         results.push({
-          componentType: componentType,
+          componentType: componentName,
           file: filePath,
-          line: content.substring(0, match.index).split('\n').length,
-          matchIndex: match.index,
+          line: content.substring(0, start).split('\n').length,
+          matchIndex: start,
           originalMatch: fullMatch,
           props: props,
         })
-      }
-    }
+      },
+    })
   }
 }
 

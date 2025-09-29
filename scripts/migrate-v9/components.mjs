@@ -1,5 +1,19 @@
 // Find components who changed to an html element
-export const componentTypes = ['Box', 'Flex', 'Grid', 'Stack']
+export const componentTypes = [
+  'Box',
+  'Flex',
+  'Grid',
+  'Stack',
+  'Text',
+  'Button',
+  'Field',
+  'InputText',
+  'Label',
+  'Link',
+  'Textarea',
+  'CloseButton',
+  'Toggle',
+]
 
 export // Find components who did not changed of element but only move props style to className
 const componentTypesUnchanged = [

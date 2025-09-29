@@ -154,6 +154,7 @@ export const valueMap = {
   ml: value => transform('ml', value),
   mr: value => transform('mr', value),
   mt: value => transform('mt', value),
+  my: value => transform('my', value),
   opacity: value => transform('opacity', value * 100),
   overflow: value => transform('overflow', value),
   overflowX: value => transform('overflow-x', value),

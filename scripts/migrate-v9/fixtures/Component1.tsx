@@ -1,8 +1,10 @@
 import { Alert } from '../../../lib/src/old/components/Alert'
 import { Box } from '../../../lib/src/old/components/Box'
 import { Button } from '../../../lib/src/old/components/Button'
+import { Field } from '../../../lib/src/old/components/Field'
 import { Grid } from '../../../lib/src/old/components/Grid'
 import { IconsFont } from '../../../lib/src/old/components/IconsFont'
+import { InputText } from '../../../lib/src/old/components/InputText'
 import { Link } from '../../../lib/src/old/components/Link'
 import { Stack } from '../../../lib/src/old/components/Stack'
 import { Text } from '../../../lib/src/old/components/Text'
@@ -14,6 +16,10 @@ const FormattedMessage = ({
   defaultMessage: string
   id: string
 }): React.ReactNode => <span id={id}>{defaultMessage}</span>
+
+const register = (name: string, options: object) => {
+  return { name, ...options }
+}
 
 const signinPath = '/signin'
 
@@ -45,23 +51,6 @@ export const Example = () => (
             <FormattedMessage defaultMessage="Terms of use" id="EBDrtq" />
           </Text>
         </Link>
-        <Button
-          as="a"
-          dataTestId="my-button-1"
-          disabled={false}
-          mt="xxl"
-          to={signinPath}
-          type="submit"
-          w="100%"
-        >
-          <FormattedMessage defaultMessage="Back to Sign in" id="D7hbFB" />
-        </Button>
-        <Button
-          dataTestId="my-button-2"
-          onClick={() => {}} // eslint-disable-line
-        >
-          <FormattedMessage defaultMessage="Back to Sign in" id="D7hbFB" />
-        </Button>
         <Text as="span" color="dark-50" fontSize="sm" mt="auto" textAlign="center">
           <FormattedMessage defaultMessage="© 2024 Acme Corp. All rights reserved." id="8XKXo+" />
         </Text>
@@ -81,5 +70,26 @@ export const Example = () => (
         />
       </span>
     </Alert>
+    <form>
+      <Field error="my error message" label="Email" my="lg" required>
+        <InputText
+          autoFocus
+          dataTestId="wa-forgot-input-email"
+          name="email"
+          {...register('email', {
+            pattern: 'This field has invalid format',
+            required: 'This field is required',
+            value: /fish/,
+          })}
+        />
+      </Field>
+      <Button as="a" dataTestId="my-button-1" disabled={false} mt="xxl" to={signinPath} w="100%">
+        <FormattedMessage defaultMessage="Back to Sign in" id="D7hbFB" />
+      </Button>
+      {/* eslint-disable-next-line no-console */}
+      <Button dataTestId="my-button-2" onClick={() => console.debug('submit')} type="submit">
+        <FormattedMessage defaultMessage="Back to Sign in" id="D7hbFB" />
+      </Button>
+    </form>
   </>
 )
