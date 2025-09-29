@@ -1,7 +1,9 @@
 import { Alert } from '../../../lib/src/old/components/Alert'
 import { Box } from '../../../lib/src/old/components/Box'
+import { Grid } from '../../../lib/src/old/components/Grid'
 import { IconsFont } from '../../../lib/src/old/components/IconsFont'
 import { Link } from '../../../lib/src/old/components/Link'
+import { Stack } from '../../../lib/src/old/components/Stack'
 import { Text } from '../../../lib/src/old/components/Text'
 
 const FormattedMessage = ({
@@ -44,6 +46,9 @@ export const Example = () => (
         </Link>
       </Box>
     </Box>
+    <Grid columns={2} gutter="sm"></Grid>
+    <Stack flex={1} gap="xxl"></Stack>
+    <Stack alignItems="center" direction="row" spacing="xxs"></Stack>
     <Alert isFullWidth mx="auto" variant="danger">
       <Alert.Title mb="sm">
         <FormattedMessage defaultMessage="Please sign in with provider" id="5nmpcx" />

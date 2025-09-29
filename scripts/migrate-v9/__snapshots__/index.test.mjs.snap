@@ -3,8 +3,10 @@
 exports[`upgrade-v9 migration script > processComponents (integration) > migrates fixtures/Component1.tsx as expected 1`] = `
 "import { Alert } from '../../../lib/src/old/components/Alert'
 import { Box } from '../../../lib/src/old/components/Box'
+import { Grid } from '../../../lib/src/old/components/Grid'
 import { IconsFont } from '../../../lib/src/old/components/IconsFont'
 import { Link } from '../../../lib/src/old/components/Link'
+import { Stack } from '../../../lib/src/old/components/Stack'
 import { Text } from '../../../lib/src/old/components/Text'
 
 const FormattedMessage = ({
@@ -30,6 +32,9 @@ export const Example = () => (
         </Link>
       </aside>
     </div>
+    <div className="grid" columns={2} gutter="sm"></div>
+    <div className="flex flex-1 flex-col gap-xxl"></div>
+    <div className="flex flex-row gap-xxs items-center"></div>
     <Alert isFullWidth mx="auto" variant="danger">
       <Alert.Title mb="sm">
         <FormattedMessage defaultMessage="Please sign in with provider" id="5nmpcx" />

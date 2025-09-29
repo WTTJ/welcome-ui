@@ -50,6 +50,9 @@ export function transform(key, value, forceValue = false) {
     if (value === 0 || value === '0') {
       return `${key}-0`
     }
+    if (value === 1 || value === '1') {
+      return `${key}-1`
+    }
     if (isNumber) {
       let keyFormatted = key
       let valueFormatted = value
@@ -100,7 +103,7 @@ export const valueMap = {
   borderTop: value => {
     if (value === '1px solid') return 'border-t'
     if (value === 'none') return 'border-t-[none]'
-    return `borderBottom_${value}_CSS_TO_EDIT`
+    return `borderTop_${value}_CSS_TO_EDIT`
   },
   borderTopColor: value => transform(`border-t`, value),
   bottom: value => transform('bottom', value),
@@ -173,7 +176,7 @@ export const valueMap = {
   textAlign: value => transform('text', value),
   textDecoration: value => `textDecoration_${value}_CSS_TO_EDIT`,
   top: value => transform('top', value),
-  transition: value => `transition_${value}_CSS_TO_EDIT'`,
+  transition: value => `transition_${value}_CSS_TO_EDIT`,
   w: value => transform('w', value),
   whiteSpace: value => transform('whitespace', value),
   wrap: value => transform('flex', value),

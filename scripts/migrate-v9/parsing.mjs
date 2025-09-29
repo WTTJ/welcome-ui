@@ -7,11 +7,9 @@ export function getStackClassnames(classnames) {
   let result = [...classnames]
   if (!result.includes('flex')) {
     result.push('flex')
-    if (!result.includes('flex-row')) {
-      result.push('flex-col')
-    } else {
-      result = result.filter(cn => cn !== 'flex-row')
-    }
+  }
+  if (!result.includes('flex-row')) {
+    result.push('flex-col')
   }
   return result
 }
