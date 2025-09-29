@@ -70,7 +70,7 @@ const links = [
 
 export const Footer = () => {
   return (
-    <Section as="footer" className="bg-beige-20">
+    <Section as="footer" className="bg-beige-20 text-neutral-50">
       <div className="gap-xl grid grid-cols-2 md:grid-cols-4">
         <div className="flex flex-col gap-xs">
           <div className="flex gap-sm items-center">

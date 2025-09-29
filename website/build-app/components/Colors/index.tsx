@@ -33,7 +33,7 @@ export const Colors = ({ name }: ColorsProps) => {
   }
 
   return (
-    <div className="gap-md grid grid-cols-[repeat(auto-fit,minmax(250px, 1fr))] mt-md">
+    <div className="gap-md grid grid-cols-3 mt-md">
       {colors.map(({ value, variant }) => {
         const isWhite = variant === 'neutral-10'
 

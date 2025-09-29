@@ -43,7 +43,7 @@ export const Header = ({ components, foundations }: HeaderProps) => {
   return (
     <S.Header>
       <Toast />
-      <div className="flex gap-lg h-full items-center justify-between max-w-[87.5rem] mx-auto px-md">
+      <div className="flex gap-lg h-full items-center justify-between max-w-[87.5rem] mx-auto px-md text-neutral-60">
         <div className="flex gap-lg items-center">
           <div className="shrink-0">
             <Link href="/">

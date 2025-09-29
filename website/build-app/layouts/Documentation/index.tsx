@@ -4,7 +4,7 @@ export type LayoutProps = {
 
 export const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="gap-md grid lg:grid-cols-[16rem_auto] max-w-[87.5rem] mx-auto pb-3xl px-xl">
+    <div className="gap-md grid lg:grid-cols-[16rem_auto] max-w-[87.5rem] mx-auto pb-3xl px-xl text-neutral-80">
       {children}
     </div>
   )
