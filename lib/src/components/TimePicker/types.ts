@@ -5,17 +5,16 @@ import type { InputTextOptions } from '@/components/InputText/types'
 
 import type { CustomHeaderProps } from '../DateTimePickerCommon/types'
 
-export interface DatePickerOptions {
+export interface TimePickerOptions {
+  dataTestId?: string
   onChange?: (date?: Date) => void
   placeholder?: string
-  preventVirtualKeyboard?: boolean
-  useWeekdaysShort?: boolean
   value?: Date | string
 }
 
-export type DatePickerProps = ComponentProps<'div'> &
-  DatePickerOptions &
-  Omit<ReactDatePickerProps, 'locale' | keyof DatePickerOptions> &
+export type TimePickerProps = ComponentProps<'div'> &
+  Omit<ReactDatePickerProps, keyof TimePickerOptions> &
   Partial<Pick<CustomHeaderProps, 'endYear' | 'startYear'>> &
   Pick<CustomHeaderProps, 'locale'> &
-  Pick<InputTextOptions, 'icon' | 'iconPlacement' | 'size' | 'transparent'>
+  Pick<InputTextOptions, 'icon' | 'iconPlacement' | 'size' | 'transparent'> &
+  TimePickerOptions

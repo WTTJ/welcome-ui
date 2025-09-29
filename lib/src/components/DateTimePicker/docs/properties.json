@@ -1,0 +1,145 @@
+{
+  "DateTimePicker": {
+    "props": {
+      "locale": {
+        "defaultValue": null,
+        "description": "",
+        "name": "locale",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/DateTimePickerCommon/types.ts",
+          "name": "CustomHeaderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/DateTimePickerCommon/types.ts",
+            "name": "CustomHeaderOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "Locale"
+        }
+      },
+      "onChange": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onChange",
+        "parent": {
+          "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+          "name": "DOMAttributes"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+            "name": "DOMAttributes"
+          },
+          {
+            "fileName": "welcome-ui/lib/src/components/DateTimePicker/types.ts",
+            "name": "DateTimePickerOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "FormEventHandler<HTMLDivElement> & ((date?: Date) => void)"
+        }
+      },
+      "size": {
+        "defaultValue": {
+          "value": "md"
+        },
+        "description": "",
+        "name": "size",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/InputText/types.ts",
+          "name": "InputTextOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/InputText/types.ts",
+            "name": "InputTextOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Size",
+          "value": [
+            {
+              "value": "\"lg\""
+            },
+            {
+              "value": "\"md\""
+            },
+            {
+              "value": "\"sm\""
+            },
+            {
+              "value": "\"xs\""
+            }
+          ]
+        }
+      },
+      "transparent": {
+        "defaultValue": null,
+        "description": "",
+        "name": "transparent",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/InputText/types.ts",
+          "name": "InputTextOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/InputText/types.ts",
+            "name": "InputTextOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "value": {
+        "defaultValue": {
+          "value": "new Date()"
+        },
+        "description": "",
+        "name": "value",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/DateTimePicker/types.ts",
+          "name": "DateTimePickerOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/DateTimePicker/types.ts",
+            "name": "DateTimePickerOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "string | Date",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "Date",
+              "description": "Enables basic storage and retrieval of dates and times.",
+              "fullComment": "Enables basic storage and retrieval of dates and times.",
+              "tags": {}
+            }
+          ]
+        }
+      }
+    }
+  }
+}

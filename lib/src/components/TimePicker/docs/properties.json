@@ -1,10 +1,27 @@
 {
-  "DatePicker": {
+  "TimePicker": {
     "props": {
-      "endYear": {
-        "defaultValue": {
-          "value": "DEFAULT_DATE.getFullYear()"
+      "dataTestId": {
+        "defaultValue": null,
+        "description": "",
+        "name": "dataTestId",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/TimePicker/types.ts",
+          "name": "TimePickerOptions"
         },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/TimePicker/types.ts",
+            "name": "TimePickerOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "endYear": {
+        "defaultValue": null,
         "description": "",
         "name": "endYear",
         "parent": {
@@ -104,10 +121,42 @@
         "description": "",
         "name": "locale",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/DateTimePickerCommon/types.ts",
-          "name": "CustomHeaderOptions"
+          "fileName": "welcome-ui/node_modules/react-datepicker/dist/month_dropdown.d.ts",
+          "name": "MonthDropdownProps"
         },
         "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/month_dropdown.d.ts",
+            "name": "MonthDropdownProps"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/month_year_dropdown.d.ts",
+            "name": "MonthYearDropdownProps"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/day.d.ts",
+            "name": "DayProps"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/time.d.ts",
+            "name": "TimeProps"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/month_dropdown.d.ts",
+            "name": "MonthDropdownProps"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/month_year_dropdown.d.ts",
+            "name": "MonthYearDropdownProps"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/day.d.ts",
+            "name": "DayProps"
+          },
+          {
+            "fileName": "welcome-ui/node_modules/react-datepicker/dist/time.d.ts",
+            "name": "TimeProps"
+          },
           {
             "fileName": "welcome-ui/lib/src/components/DateTimePickerCommon/types.ts",
             "name": "CustomHeaderOptions"
@@ -115,7 +164,16 @@
         ],
         "required": false,
         "type": {
-          "name": "Locale"
+          "name": "enum",
+          "raw": "Locale & Locale",
+          "value": [
+            {
+              "value": "string & Locale"
+            },
+            {
+              "value": "LocaleObj & Locale"
+            }
+          ]
         }
       },
       "onChange": {
@@ -132,8 +190,8 @@
             "name": "DOMAttributes"
           },
           {
-            "fileName": "welcome-ui/lib/src/components/DatePicker/types.ts",
-            "name": "DatePickerOptions"
+            "fileName": "welcome-ui/lib/src/components/TimePicker/types.ts",
+            "name": "TimePickerOptions"
           }
         ],
         "required": false,
@@ -146,48 +204,18 @@
         "description": "",
         "name": "placeholder",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/DatePicker/types.ts",
-          "name": "DatePickerOptions"
+          "fileName": "welcome-ui/lib/src/components/TimePicker/types.ts",
+          "name": "TimePickerOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/DatePicker/types.ts",
-            "name": "DatePickerOptions"
+            "fileName": "welcome-ui/lib/src/components/TimePicker/types.ts",
+            "name": "TimePickerOptions"
           }
         ],
         "required": false,
         "type": {
           "name": "string"
-        }
-      },
-      "preventVirtualKeyboard": {
-        "defaultValue": {
-          "value": false
-        },
-        "description": "",
-        "name": "preventVirtualKeyboard",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/DatePicker/types.ts",
-          "name": "DatePickerOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/DatePicker/types.ts",
-            "name": "DatePickerOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "enum",
-          "raw": "boolean",
-          "value": [
-            {
-              "value": "false"
-            },
-            {
-              "value": "true"
-            }
-          ]
         }
       },
       "size": {
@@ -227,9 +255,7 @@
         }
       },
       "startYear": {
-        "defaultValue": {
-          "value": 1900
-        },
+        "defaultValue": null,
         "description": "",
         "name": "startYear",
         "parent": {
@@ -275,36 +301,6 @@
           ]
         }
       },
-      "useWeekdaysShort": {
-        "defaultValue": {
-          "value": true
-        },
-        "description": "",
-        "name": "useWeekdaysShort",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/DatePicker/types.ts",
-          "name": "DatePickerOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/DatePicker/types.ts",
-            "name": "DatePickerOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "enum",
-          "raw": "boolean",
-          "value": [
-            {
-              "value": "false"
-            },
-            {
-              "value": "true"
-            }
-          ]
-        }
-      },
       "value": {
         "defaultValue": {
           "value": "new Date()"
@@ -312,13 +308,13 @@
         "description": "",
         "name": "value",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/DatePicker/types.ts",
-          "name": "DatePickerOptions"
+          "fileName": "welcome-ui/lib/src/components/TimePicker/types.ts",
+          "name": "TimePickerOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/DatePicker/types.ts",
-            "name": "DatePickerOptions"
+            "fileName": "welcome-ui/lib/src/components/TimePicker/types.ts",
+            "name": "TimePickerOptions"
           }
         ],
         "required": false,

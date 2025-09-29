@@ -33,6 +33,7 @@ export const CustomHeader = ({
   const isPreviousDisabled = isMonthYearPicker
     ? year === startYear
     : month === months[0].label && year === startYear
+
   const isNextDisabled = isMonthYearPicker
     ? year === endYear
     : month === months[months.length - 1].label && year === endYear
