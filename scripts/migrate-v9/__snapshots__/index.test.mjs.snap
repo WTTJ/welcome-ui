@@ -1,7 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 exports[`upgrade-v9 migration script > processComponents (integration) > migrates fixtures/Component1.tsx as expected 1`] = `
 "import { Alert } from '../../../lib/src/old/components/Alert'
 import { Box } from '../../../lib/src/old/components/Box'
@@ -9,16 +7,6 @@ import { Grid } from '../../../lib/src/old/components/Grid'
 import { IconsFont } from '../../../lib/src/old/components/IconsFont'
 import { Link } from '../../../lib/src/old/components/Link'
 import { Stack } from '../../../lib/src/old/components/Stack'
-=======
-exports[`upgrade-v9 migration script > processComponents (integration) > migrates fixtures/Component.tsx as expected 1`] = `
-=======
-exports[`upgrade-v9 migration script > processComponents (integration) > migrates fixtures/Component1.tsx as expected 1`] = `
->>>>>>> f32d507fd (chore: clean tests)
-"import { Alert } from '../../../lib/src/old/components/Alert'
-import { Box } from '../../../lib/src/old/components/Box'
-import { IconsFont } from '../../../lib/src/old/components/IconsFont'
-import { Link } from '../../../lib/src/old/components/Link'
->>>>>>> 3b7f36c20 (refactor: migration script to be easier to update)
 import { Text } from '../../../lib/src/old/components/Text'
 
 const FormattedMessage = ({
