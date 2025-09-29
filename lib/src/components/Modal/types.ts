@@ -3,7 +3,6 @@
 import type { DialogOptions, DialogStore, DialogStoreProps } from '@ariakit/react'
 import type { ComponentProps, HTMLAttributes, PropsWithChildren, ReactElement } from 'react'
 
-import type { CloseButtonProps } from '@/components/CloseButton/types'
 import type { MergeProps } from '@/utils/forwardRefWithAs'
 
 export type TriggerProps = PropsWithChildren<{ store: DialogStore }>
@@ -43,7 +42,6 @@ export type HeaderProps = MergeProps<HeaderOptions, HTMLAttributes<HTMLDivElemen
 export type BodyProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
 export type ContentProps = PropsWithChildren<{
-  store: UseModal
   /**
    * show or hide the closing button
    */
@@ -51,10 +49,6 @@ export type ContentProps = PropsWithChildren<{
 }>
 
 export type BackdropProps = Pick<BaseDialogOptions, 'backdrop' | 'hideOnInteractOutside'>
-
-export type CloseProps = CloseButtonProps & {
-  isOnHeader?: boolean
-}
 
 export interface FooterOptions {
   information?: {

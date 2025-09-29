@@ -1,4 +1,5 @@
-import { Dialog, useDialogStore } from '@ariakit/react'
+import { Dialog, useDialogStore, useStoreState } from '@ariakit/react'
+import { useEffect, useState } from 'react'
 
 import { classNames } from '@/utils'
 import { forwardRefWithAs } from '@/utils/forwardRefWithAs'
@@ -47,12 +48,27 @@ const ModalComponent = forwardRefWithAs<ModalProps, 'div'>(
     },
     ref
   ) => {
+    const [scrollable, setScrollable] = useState(false)
+    const { contentElement, open } = useStoreState(store)
+
+    // calculate the contentElement height when the modal open
+    useEffect(() => {
+      if (open && contentElement)
+        setScrollable(contentElement.scrollHeight > contentElement.offsetHeight)
+    }, [contentElement, open])
+
     return (
       <Dialog
         backdrop={<Backdrop backdrop={backdrop} hideOnInteractOutside={hideOnInteractOutside} />}
         hideOnInteractOutside={hideOnInteractOutside}
         ref={ref}
-        render={As ? <As /> : <div className={cx('root', `size-${size}`, className)} />}
+        render={
+          As ? (
+            <As />
+          ) : (
+            <div className={cx('root', `size-${size}`, scrollable && 'scrollable', className)} />
+          )
+        }
         store={store}
         {...rest}
         aria-label={ariaLabel}

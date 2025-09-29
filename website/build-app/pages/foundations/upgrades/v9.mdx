@@ -86,6 +86,22 @@ The DropdownMenu component no longer accepts the `gutter` prop. This value is se
 +<DropdownMenu withGutter={false} />
 ```
 
+### Field
+
+The `Field` component has been updated to improve accessibility.
+
+The `label` and `hint` elements now have unique IDs that are linked to the input element using `aria-labelledby` and `aria-describedby` attributes.
+The automatic passing of props to the child input element has been removed. You can now use the `useField` hook to get the necessary props for your input element.
+
+### FileUpload
+
+The `FileUpload` component no longer accepts the `maxSize` prop. If needed, you can add a custom behavior in the `handleAddFile` callback.
+
+```diff
+-<FileUpload maxSize={200000} />
++<FileUpload handleAddFile={(file) => /* do something if file is too big */ } />
+```
+
 ### Icon
 
 We removed the IconFont component and replaced it with a new Icon component that uses SVG icons. If you already use Icon component, you don't need to change anything (except if you use color or size props, see below).
@@ -116,6 +132,11 @@ Size props are only for intern values (xs, sm, ...), you can now use tailwind si
 +<CheckIcon aria-label="Check icon" />
 ```
 
+### Modal
+
+The `Modal.Content` component has been updated to improve its internal styling logic.
+The props `store` is no longer necessary and has been removed.
+
 ### Popover
 
 The `animated` prop in `usePopover` and `usePopoverHover` hooks is no longer supported. If you want to customize the animation duration, you can use `hideTimeout` and `showTimeout` props.
@@ -142,22 +163,6 @@ To not showing icon use `hideIcon` property:
 
 We also removed `onPauseOver` options.
 ```
-
-### FileUpload
-
-The `FileUpload` component no longer accepts the `maxSize` prop. If needed, you can add a custom behavior if the `handleAddFile` callback.
-
-```diff
--<FileUpload maxSize={200000} />
-+<FileUpload handleAddFile={(file) => /* do something if file is too big */ } />
-```
-
-### Field
-
-The `Field` component has been updated to improve accessibility.
-
-The `label` and `hint` elements now have unique IDs that are linked to the input element using `aria-labelledby` and `aria-describedby` attributes.
-The automatic passing of props to the child input element has been removed. You can now use the `useField` hook to get the necessary props for your input element.
 
 #### New props
 To display a label, use the `label` prop.

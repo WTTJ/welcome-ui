@@ -1,18 +1,13 @@
 import { DialogDismiss } from '@ariakit/react'
 
 import { CloseButton } from '@/components/CloseButton'
+import type { CloseButtonProps } from '@/components/CloseButton/types'
+import { classNames } from '@/utils'
 
-import type { CloseProps } from '../types'
+import modalStyles from '../modal.module.scss'
 
-export const Close = ({ isOnHeader, ...rest }: CloseProps) => {
-  return (
-    <DialogDismiss
-      render={
-        <CloseButton
-          className={`top-(--spacing-lg) z-[1] ${isOnHeader ? 'absolute right-(--spacing-lg)' : 'sticky left-[calc(100%-var(--spacing-lg)-var(--height-elements-md))]'}`}
-          {...rest}
-        />
-      }
-    />
-  )
+const cx = classNames(modalStyles)
+
+export const Close = (props: CloseButtonProps) => {
+  return <DialogDismiss render={<CloseButton className={cx('close')} {...props} />} />
 }
