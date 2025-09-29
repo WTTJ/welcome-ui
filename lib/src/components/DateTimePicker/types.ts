@@ -11,7 +11,6 @@ export type DateTimePickerProps = ComponentProps<'div'> &
   Pick<InputTextOptions, 'size' | 'transparent'>
 
 interface DateTimePickerOptions {
-  dataTestId?: string
   onChange?: (date?: Date) => void
   value?: Date | string
 }

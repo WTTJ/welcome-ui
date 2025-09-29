@@ -22,7 +22,6 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
     {
       autoFocus,
       className,
-      dataTestId,
       dateFormat = 'dd/MM/yyyy',
       disabled,
       endYear = DEFAULT_DATE.getFullYear(),
@@ -31,7 +30,6 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
       locale,
       onChange,
       placeholder,
-      popperProps,
       preventVirtualKeyboard = false,
       showMonthYearPicker,
       size = 'md',
@@ -112,7 +110,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
           <InputText
             autoFocus={autoFocus}
             className={cx('date-picker', className)}
-            data-testid={dataTestId}
+            data-testid={rest['data-testid']}
             disabled={disabled}
             icon={icon}
             iconPlacement={iconPlacement}
@@ -130,7 +128,6 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
         onChange={handleChange}
         onKeyDown={handleKeyDown}
         popperContainer={CustomPopper}
-        popperProps={popperProps}
         renderCustomHeader={(props: CustomHeaderProps) => (
           <CustomHeader
             endYear={endYear}

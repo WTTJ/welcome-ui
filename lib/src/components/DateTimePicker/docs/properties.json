@@ -1,25 +1,6 @@
 {
   "DateTimePicker": {
     "props": {
-      "dataTestId": {
-        "defaultValue": null,
-        "description": "",
-        "name": "dataTestId",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/DateTimePicker/types.ts",
-          "name": "DateTimePickerOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/DateTimePicker/types.ts",
-            "name": "DateTimePickerOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "string"
-        }
-      },
       "locale": {
         "defaultValue": null,
         "description": "",

@@ -12,14 +12,14 @@ import { getLocale } from '../utils'
 describe('<DateTimePicker />', () => {
   it('<DateTimePicker> renders correctly', () => {
     render(
-      <DateTimePicker dataTestId="dateTimePicker" name="welcome" value={new Date()}>
-        <DatePicker />
-        <TimePicker />
+      <DateTimePicker name="welcome" value={new Date()}>
+        <DatePicker data-testid="date-picker" />
+        <TimePicker data-testid="time-picker" />
       </DateTimePicker>
     )
 
-    const datePicker = screen.getByTestId('dateTimePicker-date-picker')
-    const timePicker = screen.getByTestId('dateTimePicker-time-picker')
+    const datePicker = screen.getByTestId('date-picker')
+    const timePicker = screen.getByTestId('time-picker')
 
     expect(datePicker).toBeInTheDocument()
     expect(timePicker).toBeInTheDocument()
@@ -27,14 +27,14 @@ describe('<DateTimePicker />', () => {
 
   it('<DateTimePicker> renders correctly with invalid date', () => {
     render(
-      <DateTimePicker dataTestId="dateTimePicker" name="welcome" value="2019-11-23">
-        <DatePicker />
-        <TimePicker />
+      <DateTimePicker name="welcome" value="2019-11-23">
+        <DatePicker data-testid="date-picker" />
+        <TimePicker data-testid="time-picker" />
       </DateTimePicker>
     )
 
-    const datePicker = screen.getByTestId('dateTimePicker-date-picker')
-    const timePicker = screen.getByTestId('dateTimePicker-time-picker')
+    const datePicker = screen.getByTestId('date-picker')
+    const timePicker = screen.getByTestId('time-picker')
 
     expect(datePicker).toBeInTheDocument()
     expect(timePicker).toBeInTheDocument()
@@ -42,13 +42,13 @@ describe('<DateTimePicker />', () => {
 
   it('can render and opens the datePicker on click', async () => {
     const { user } = render(
-      <DateTimePicker dataTestId="dateTimePicker" name="welcome" value={new Date()}>
-        <DatePicker />
-        <TimePicker />
+      <DateTimePicker name="welcome" value={new Date()}>
+        <DatePicker data-testid="date-picker" />
+        <TimePicker data-testid="time-picker" />
       </DateTimePicker>
     )
 
-    const datePicker = screen.getByTestId('dateTimePicker-date-picker')
+    const datePicker = screen.getByTestId('date-picker')
 
     await user.click(datePicker)
 
@@ -61,13 +61,13 @@ describe('<DateTimePicker />', () => {
 
   it('can render and opens the timePicker on click', async () => {
     const { user } = render(
-      <DateTimePicker dataTestId="dateTimePicker" name="welcome" value={new Date()}>
-        <DatePicker />
-        <TimePicker />
+      <DateTimePicker name="welcome" value={new Date()}>
+        <DatePicker data-testid="date-picker" />
+        <TimePicker data-testid="time-picker" />
       </DateTimePicker>
     )
 
-    const timePicker = screen.getByTestId('dateTimePicker-time-picker')
+    const timePicker = screen.getByTestId('time-picker')
 
     await user.click(timePicker)
 
@@ -80,13 +80,13 @@ describe('<DateTimePicker />', () => {
 
   it('<DateTimePicker> renders month select', async () => {
     const { user } = render(
-      <DateTimePicker dataTestId="dateTimePicker" name="welcome" value={new Date('09/11/2001')}>
-        <DatePicker />
-        <TimePicker />
+      <DateTimePicker name="welcome" value={new Date('09/11/2001')}>
+        <DatePicker data-testid="date-picker" />
+        <TimePicker data-testid="time-picker" />
       </DateTimePicker>
     )
 
-    const datePicker = screen.getByTestId('dateTimePicker-date-picker')
+    const datePicker = screen.getByTestId('date-picker')
 
     expect(datePicker).toHaveValue('11/09/2001')
 
@@ -99,13 +99,13 @@ describe('<DateTimePicker />', () => {
 
   it('<DateTimePicker> can proceed through next/prev months', async () => {
     const { user } = render(
-      <DateTimePicker dataTestId="dateTimePicker" name="welcome" value={new Date('09/11/2001')}>
-        <DatePicker />
-        <TimePicker />
+      <DateTimePicker name="welcome" value={new Date('09/11/2001')}>
+        <DatePicker data-testid="date-picker" />
+        <TimePicker data-testid="time-picker" />
       </DateTimePicker>
     )
 
-    const datePicker = screen.getByTestId('dateTimePicker-date-picker')
+    const datePicker = screen.getByTestId('date-picker')
 
     await user.click(datePicker)
 
@@ -142,13 +142,13 @@ describe('<DateTimePicker />', () => {
 
   it('<DateTimePicker> updating text updates selects', async () => {
     const { user } = render(
-      <DateTimePicker dataTestId="dateTimePicker" name="welcome" value={new Date('09/11/2001')}>
-        <DatePicker />
-        <TimePicker />
+      <DateTimePicker name="welcome" value={new Date('09/11/2001')}>
+        <DatePicker data-testid="date-picker" />
+        <TimePicker data-testid="time-picker" />
       </DateTimePicker>
     )
 
-    const datePicker = screen.getByTestId('dateTimePicker-date-picker')
+    const datePicker = screen.getByTestId('date-picker')
 
     await user.clear(datePicker)
     await user.type(datePicker, '20/06/2018')
@@ -161,14 +161,14 @@ describe('<DateTimePicker />', () => {
 
   it('<DateTimePicker> timeIntervals prop defaults to 15', async () => {
     const { baseElement, user } = render(
-      <DateTimePicker dataTestId="dateTimePicker" name="welcome" value={new Date('11/23/1987')}>
-        <DatePicker />
-        <TimePicker />
+      <DateTimePicker name="welcome" value={new Date('11/23/1987')}>
+        <DatePicker data-testid="date-picker" />
+        <TimePicker data-testid="time-picker" />
       </DateTimePicker>
     )
 
-    const datePicker = screen.getByTestId('dateTimePicker-date-picker')
-    const timePicker = screen.getByTestId('dateTimePicker-time-picker')
+    const datePicker = screen.getByTestId('date-picker')
+    const timePicker = screen.getByTestId('time-picker')
 
     expect(datePicker).toHaveValue('23/11/1987')
     expect(timePicker).toHaveValue('00:00')
@@ -185,19 +185,14 @@ describe('<DateTimePicker />', () => {
 
   it('<DateTimePicker> timeIntervals works properly', async () => {
     const { baseElement, user } = render(
-      <DateTimePicker
-        dataTestId="dateTimePicker"
-        name="welcome"
-        timeIntervals={5}
-        value={new Date('11/23/1987')}
-      >
-        <DatePicker />
-        <TimePicker />
+      <DateTimePicker name="welcome" timeIntervals={5} value={new Date('11/23/1987')}>
+        <DatePicker data-testid="date-picker" />
+        <TimePicker data-testid="time-picker" />
       </DateTimePicker>
     )
 
-    const datePicker = screen.getByTestId('dateTimePicker-date-picker')
-    const timePicker = screen.getByTestId('dateTimePicker-time-picker')
+    const datePicker = screen.getByTestId('date-picker')
+    const timePicker = screen.getByTestId('time-picker')
 
     expect(datePicker).toHaveValue('23/11/1987')
     expect(timePicker).toHaveValue('00:00')
@@ -218,13 +213,13 @@ describe('<DateTimePicker />', () => {
 
   it('<DatePicker> can be cleared and has no `ClearButton` when no value', async () => {
     const { user } = render(
-      <DateTimePicker dataTestId="dateTimePicker" name="welcome" value={new Date()}>
-        <DatePicker />
-        <TimePicker />
+      <DateTimePicker name="welcome" value={new Date()}>
+        <DatePicker data-testid="date-picker" />
+        <TimePicker data-testid="time-picker" />
       </DateTimePicker>
     )
 
-    const datePicker = screen.getByTestId('dateTimePicker-date-picker')
+    const datePicker = screen.getByTestId('date-picker')
     const [clearButton] = screen.getAllByRole('button')
 
     await user.click(clearButton)

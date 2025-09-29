@@ -12,7 +12,6 @@ export const DateTimePicker = forwardRef<HTMLInputElement, DateTimePickerProps>(
   (
     {
       children,
-      dataTestId,
       disabled,
       locale,
       onChange,
@@ -69,12 +68,11 @@ export const DateTimePicker = forwardRef<HTMLInputElement, DateTimePickerProps>(
     }, [value])
 
     return (
-      <div className={cx('date-time-picker')} data-testid={dataTestId}>
+      <div className={cx('date-time-picker')}>
         {Children.map(children, (child: React.ReactElement, i) => {
           const isDatePicker = i === 0
 
           return cloneElement(child, {
-            dataTestId: isDatePicker ? `${dataTestId}-date-picker` : `${dataTestId}-time-picker`,
             disabled,
             inputRef: isDatePicker ? inputRef : null, // give ref only to the DatePicker
             key: i,

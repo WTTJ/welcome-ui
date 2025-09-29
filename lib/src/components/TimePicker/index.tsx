@@ -18,14 +18,12 @@ export const TimePicker = forwardRef<HTMLInputElement, TimePickerProps>(
     {
       autoFocus,
       className,
-      dataTestId,
       dateFormat = 'HH:mm',
       disabled,
       icon,
       iconPlacement = 'left',
       onChange,
       placeholder,
-      popperProps,
       size = 'md',
       timeIntervals = 15,
       transparent,
@@ -94,7 +92,7 @@ export const TimePicker = forwardRef<HTMLInputElement, TimePickerProps>(
           <InputText
             autoFocus={autoFocus}
             className={cx('time-picker', className)}
-            data-testid={dataTestId}
+            data-testid={rest['data-testid']}
             disabled={disabled}
             icon={icon}
             iconPlacement={iconPlacement}
@@ -109,7 +107,6 @@ export const TimePicker = forwardRef<HTMLInputElement, TimePickerProps>(
         onChange={handleChange}
         placeholderText={placeholder}
         popperContainer={CustomPopper}
-        popperProps={popperProps}
         selected={date}
         showTimeSelect
         showTimeSelectOnly

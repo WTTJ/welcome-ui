@@ -1,25 +1,6 @@
 {
   "DatePicker": {
     "props": {
-      "dataTestId": {
-        "defaultValue": null,
-        "description": "",
-        "name": "dataTestId",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/DatePicker/types.ts",
-          "name": "DatePickerOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/DatePicker/types.ts",
-            "name": "DatePickerOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "string"
-        }
-      },
       "endYear": {
         "defaultValue": {
           "value": "DEFAULT_DATE.getFullYear()"
