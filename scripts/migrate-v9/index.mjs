@@ -153,14 +153,16 @@ export async function processComponents(components, shouldReplace = false) {
       // Show transformation details for user
       console.log(`\n🕵️‍♀️ [${i + 1}/${fileComponents.length}] Line ${component.line}`)
       console.log('━━━━━━━━━━━━━━━━')
+      console.log(component.props)
 
       // Convert props back to display format for readable output
       const displayProps = {}
       Object.entries(component.props).forEach(([key, propData]) => {
         displayProps[key] = propData.isExpression ? `{${propData.value}}` : propData.value
       })
+      console.log('📦 Component:', component.componentType)
       console.log('📋 Properties:', JSON.parse(JSON.stringify(displayProps, null, 2)))
-      console.log(`2️⃣  Transformed: ${transformedElement}`)
+      console.log(`👀 Transformed: ${transformedElement}`)
 
       if (valuesNotTransformed.length > 0) {
         console.log(`❌ Values not transformed: ${valuesNotTransformed.join(', ')}`)

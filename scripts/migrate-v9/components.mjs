@@ -24,6 +24,7 @@ const componentTypesUnchanged = [
   'Files',
   'Form',
   'Hint',
+  'IconsFont',
   'InputText',
   'Label',
   'Link',

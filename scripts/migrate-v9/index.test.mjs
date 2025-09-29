@@ -4,7 +4,7 @@ import path from 'path'
 
 import { describe, expect, it } from 'vitest'
 
-import * as upgradeScript from './index.mjs'
+import { findBoxComponents, processComponents } from './index.mjs'
 import { transform, transformSpecificValue, transformValue } from './transform.mjs'
 
 describe('upgrade-v9 migration script', () => {
@@ -17,9 +17,9 @@ describe('upgrade-v9 migration script', () => {
       fs.copyFileSync(srcFile, destFile)
 
       // Find components in the temp file
-      const components = upgradeScript.findBoxComponents(tmpDir)
+      const components = findBoxComponents(tmpDir)
       // Run migration (shouldReplace = true)
-      await upgradeScript.processComponents(components, true)
+      await processComponents(components, true)
 
       // Read migrated file
       const migrated = fs.readFileSync(destFile, 'utf8')
@@ -33,7 +33,7 @@ describe('upgrade-v9 migration script', () => {
     it('finds Box, Flex, Grid, Stack components in a directory', () => {
       // Setup: create a mock directory structure in memory or use a temp dir
       // For demonstration, just check that the function runs and returns an array
-      const result = upgradeScript.findBoxComponents(path.join(__dirname, './fixtures'))
+      const result = findBoxComponents(path.join(__dirname, './fixtures'))
       expect(Array.isArray(result)).toBe(true)
     })
   })
