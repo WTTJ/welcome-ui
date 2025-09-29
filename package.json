@@ -21,7 +21,8 @@
     "release:alpha": "yarn workspace welcome-ui run release-it --preRelease=alpha",
     "release": "yarn workspace welcome-ui run release-it",
     "start": "yarn workspace website dev -p 3020",
-    "test": "yarn workspace welcome-ui test"
+    "test": "yarn workspace welcome-ui test",
+    "test:scripts": "vitest scripts/*.test.mjs"
   },
   "private": true,
   "workspaces": [
