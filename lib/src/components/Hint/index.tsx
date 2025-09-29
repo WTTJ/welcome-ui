@@ -10,7 +10,12 @@ const cx = classNames(hintStyles)
 export const Hint = forwardRef<HTMLSpanElement, HintProps>(
   ({ children, className, variant, ...rest }, ref) => {
     return (
-      <span className={cx('root', variant && `variant-${variant}`, className)} ref={ref} {...rest}>
+      <span
+        className={cx('root', variant && `variant-${variant}`, className)}
+        ref={ref}
+        role={variant === 'danger' ? 'alert' : undefined}
+        {...rest}
+      >
         {children}
       </span>
     )

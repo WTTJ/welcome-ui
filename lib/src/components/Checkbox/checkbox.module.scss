@@ -42,7 +42,7 @@
       cursor: not-allowed;
     }
 
-    &:hover {
+    &:not([disabled]):hover {
       --borderColor: var(--borderColorHover, var(--color-neutral-40));
     }
 
@@ -65,11 +65,11 @@
         &::after {
           --afterBackgroundColor: var(--color-beige-90);
         }
-      }
 
-      &:hover {
-        --backgroundColor: var(--color-brand-30);
-        --borderColor: var(--backgroundColor);
+        &:hover {
+          --backgroundColor: var(--color-brand-30);
+          --borderColor: var(--backgroundColor);
+        }
       }
 
       &::after {
@@ -112,11 +112,11 @@
       &::after {
         --afterBackgroundColor: var(--color-beige-90);
       }
-    }
 
-    &:hover {
-      --backgroundColor: var(--color-brand-30);
-      --borderColor: var(--backgroundColor);
+      &:hover {
+        --backgroundColor: var(--color-brand-30);
+        --borderColor: var(--backgroundColor);
+      }
     }
 
     &::after {

@@ -2,9 +2,9 @@ import * as React from 'react'
 
 import { Button } from '@/components/Button'
 import { Checkbox } from '@/components/Checkbox'
+import { Field } from '@/components/Field'
 import { InputText } from '@/components/InputText'
 import { Tooltip } from '@/components/Tooltip'
-import { Field } from '@old/Field'
 
 const Example = () => {
   const [withArrow, setWithArrow] = React.useState(true)
@@ -12,7 +12,7 @@ const Example = () => {
 
   return (
     <div className="flex flex-col gap-lg">
-      <Field cursor="pointer" label="Enable the arrow property">
+      <Field label="Enable the arrow property">
         <Checkbox checked={withArrow} name="arrow" onChange={() => setWithArrow(!withArrow)} />
       </Field>
 
