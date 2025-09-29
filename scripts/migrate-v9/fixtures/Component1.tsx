@@ -1,6 +1,11 @@
 import { Alert } from '../../../lib/src/old/components/Alert'
+import { AspectRatio } from '../../../lib/src/old/components/AspectRatio'
+import { Badge } from '../../../lib/src/old/components/Badge'
 import { Box } from '../../../lib/src/old/components/Box'
+import { Breadcrumb } from '../../../lib/src/old/components/Breadcrumb'
 import { Button } from '../../../lib/src/old/components/Button'
+import { ButtonGroup } from '../../../lib/src/old/components/ButtonGroup'
+import { CloseButton } from '../../../lib/src/old/components/CloseButton'
 import { Field } from '../../../lib/src/old/components/Field'
 import { Grid } from '../../../lib/src/old/components/Grid'
 import { IconsFont } from '../../../lib/src/old/components/IconsFont'
@@ -26,6 +31,8 @@ const register = (name: string, options?: object) => {
 
 const SIGN_IN_PATH = '/signin'
 const BOOLEAN_VALUE = false
+// eslint-disable-next-line no-console
+const ON_CLICK = () => console.debug('submit')
 
 // Usage examples
 export const Example = () => {
@@ -92,6 +99,29 @@ export const Example = () => {
           />
         </span>
       </Alert>
+      <AspectRatio flex="1" maxH={{ _: 160, md: 80 }} maxW={{ _: '100%', md: '128' }}>
+        <Box
+          alt="video_thumbnail"
+          as="img"
+          borderRadius="md"
+          loading="lazy"
+          src="https://via.placeholder.com/160"
+        />
+      </AspectRatio>
+      <Badge ml="sm" size="sm" variant="primary">
+        14
+      </Badge>
+      <Breadcrumb mb="lg" separator=">">
+        <Breadcrumb.Item href="/">Introduction</Breadcrumb.Item>
+        <Breadcrumb.Item>Disabled</Breadcrumb.Item>
+        <Breadcrumb.Item>Breadcrumb</Breadcrumb.Item>
+      </Breadcrumb>
+      <ButtonGroup>
+        <Button data-testid="my-draft-button" disabled={BOOLEAN_VALUE} onClick={ON_CLICK} size="sm">
+          Published
+        </Button>
+      </ButtonGroup>
+      <CloseButton backgroundColor="neutral-90" border="none" />
       <form>
         <Field error="my error message" label="Email" my="lg" required>
           <Label alignItems="center" mb="sm" required={BOOLEAN_VALUE}></Label>

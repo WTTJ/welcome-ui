@@ -89,12 +89,12 @@ export const valueMap = {
   basis: value => transform('basis', value),
   border: value => {
     if (value === '1px solid') return 'border'
-    if (value === 'none') return 'border-[none]'
+    if (value === 'none') return 'border-none'
     return `border_${value}_CSS_TO_EDIT`
   },
   borderBottom: value => {
     if (value === '1px solid') return 'border-b'
-    if (value === 'none') return 'border-b-[none]'
+    if (value === 'none') return 'border-b-none'
     return `borderBottom_${value}_CSS_TO_EDIT`
   },
   borderBottomColor: value => transform(`border-b`, value),
@@ -102,7 +102,7 @@ export const valueMap = {
   borderRadius: value => transform('rounded', value),
   borderTop: value => {
     if (value === '1px solid') return 'border-t'
-    if (value === 'none') return 'border-t-[none]'
+    if (value === 'none') return 'border-t-none'
     return `borderTop_${value}_CSS_TO_EDIT`
   },
   borderTopColor: value => transform(`border-t`, value),

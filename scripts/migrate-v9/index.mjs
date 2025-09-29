@@ -340,7 +340,7 @@ async function main() {
 }
 
 /**
- * For a given file, find all components and push to results.
+ * For a given file, find all Box/Flex/Grid/Stack (and related) component usages and push to results.
  * Uses parsePropsString to extract props for each found component.
  */
 function processComponentFile(filePath, results) {
@@ -361,26 +361,10 @@ function processComponentFile(filePath, results) {
         if (nameNode.type === 'JSXIdentifier') {
           componentName = nameNode.name
         } else if (nameNode.type === 'JSXMemberExpression') {
-          // Reconstruct full name for subcomponents, e.g., Alert.Button
-          let parts = []
-          let curr = nameNode
-          while (curr) {
-            if (curr.property) parts.unshift(curr.property.name)
-            if (curr.object) {
-              if (curr.object.type === 'JSXIdentifier') {
-                parts.unshift(curr.object.name)
-                break
-              }
-              curr = curr.object
-            } else {
-              break
-            }
-          }
-          componentName = parts.join('.')
+          // Ignore subcomponents for now, e.g., Alert.Button
+          return
         }
-
         if (!componentTypes.includes(componentName)) return
-
         // Get the full opening tag source
         const start = path.node.start
         const end = path.node.end

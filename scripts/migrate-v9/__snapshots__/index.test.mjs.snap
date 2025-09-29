@@ -2,8 +2,13 @@
 
 exports[`upgrade-v9 migration script > processComponents (integration) > migrates fixtures/Component1.tsx as expected 1`] = `
 "import { Alert } from '../../../lib/src/old/components/Alert'
+import { AspectRatio } from '../../../lib/src/old/components/AspectRatio'
+import { Badge } from '../../../lib/src/old/components/Badge'
 import { Box } from '../../../lib/src/old/components/Box'
+import { Breadcrumb } from '../../../lib/src/old/components/Breadcrumb'
 import { Button } from '../../../lib/src/old/components/Button'
+import { ButtonGroup } from '../../../lib/src/old/components/ButtonGroup'
+import { CloseButton } from '../../../lib/src/old/components/CloseButton'
 import { Field } from '../../../lib/src/old/components/Field'
 import { Grid } from '../../../lib/src/old/components/Grid'
 import { IconsFont } from '../../../lib/src/old/components/IconsFont'
@@ -29,6 +34,8 @@ const register = (name: string, options?: object) => {
 
 const SIGN_IN_PATH = '/signin'
 const BOOLEAN_VALUE = false
+// eslint-disable-next-line no-console
+const ON_CLICK = () => console.debug('submit')
 
 // Usage examples
 export const Example = () => {
@@ -54,14 +61,14 @@ export const Example = () => {
       <div className="flex flex-1 flex-col gap-xxl"></div>
       <div className="flex flex-row gap-xxs items-center"></div>
       <Alert className="mb-lg" actions={<>
-            <Alert.Button className="mb-sm">
+            <Alert.Button mb="sm">
               <FormattedMessage defaultMessage="Please sign in with provider" id="5nmpcx" />
             </Alert.Button>
-            <Alert.SecondaryButton className="mb-sm">
+            <Alert.SecondaryButton mb="sm">
               <FormattedMessage defaultMessage="Please sign in with provider" id="5nmpcx" />
             </Alert.SecondaryButton>
           </>} isFullWidth variant="danger">
-        <Alert.Title className="mb-sm">
+        <Alert.Title mb="sm">
           <FormattedMessage defaultMessage="Please sign in with provider" id="5nmpcx" />
         </Alert.Title>
         <span>
@@ -71,6 +78,23 @@ export const Example = () => {
           />
         </span>
       </Alert>
+      <AspectRatio className="flex-1 max-w-full md:max-w-[8rem]">
+        <img className="rounded-md" alt="video_thumbnail" loading="lazy" src="https://via.placeholder.com/160" />
+      </AspectRatio>
+      <Badge className="ml-sm" size="sm" variant="primary">
+        14
+      </Badge>
+      <Breadcrumb className="mb-lg" separator=">">
+        <Breadcrumb.Item href="/">Introduction</Breadcrumb.Item>
+        <Breadcrumb.Item>Disabled</Breadcrumb.Item>
+        <Breadcrumb.Item>Breadcrumb</Breadcrumb.Item>
+      </Breadcrumb>
+      <ButtonGroup>
+        <Button data-testid="my-draft-button" disabled={BOOLEAN_VALUE} onClick={ON_CLICK} size="sm">
+          Published
+        </Button>
+      </ButtonGroup>
+      <CloseButton className="bg-neutral-90 border-none" />
       <form>
         <Field className="my-lg" error="my error message" label="Email" required>
           <Label className="items-center mb-sm" required={BOOLEAN_VALUE}></Label>
