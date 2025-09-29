@@ -15,13 +15,14 @@
     "lint:ts": "yarn workspaces run tsc --noEmit",
     "lint": "yarn lint:js && yarn lint:css && yarn lint:ts && yarn lint:mdx",
     "theme:generate": "yarn workspace welcome-ui run theme:generate",
-    "migrate": "node ./scripts/upgrade-v9.mjs",
+    "migrate": "node ./scripts/migrate-v9/index.mjs",
     "postinstall": "husky install",
     "release:dev": "node .dev-releases/version.mjs",
     "release:alpha": "yarn workspace welcome-ui run release-it --preRelease=alpha",
     "release": "yarn workspace welcome-ui run release-it",
     "start": "yarn workspace website dev -p 3020",
-    "test": "yarn workspace welcome-ui test"
+    "test": "yarn workspace welcome-ui test",
+    "test:scripts": "vitest scripts/**/*.test.mjs"
   },
   "private": true,
   "workspaces": [
