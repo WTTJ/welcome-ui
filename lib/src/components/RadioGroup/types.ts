@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'react'
 
-import type { FieldGroupOptions } from '@old/FieldGroup'
+import type { FieldGroupOptions } from '@/components/FieldGroup/types'
 
 export type RadioGroupOption = {
   hint?: string
@@ -20,5 +20,4 @@ export interface RadioGroupOptions {
 
 export type RadioGroupProps = FieldGroupOptions &
   HTMLAttributes<HTMLFieldSetElement> &
-  RadioGroupOptions &
   RadioGroupOptions
