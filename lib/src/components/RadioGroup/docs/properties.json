@@ -20,17 +20,45 @@
           "name": "string"
         }
       },
+      "disabled": {
+        "defaultValue": null,
+        "description": "",
+        "name": "disabled",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/RadioGroup/types.ts",
+          "name": "RadioGroupOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/RadioGroup/types.ts",
+            "name": "RadioGroupOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
       "label": {
         "defaultValue": null,
         "description": "",
         "name": "label",
         "parent": {
-          "fileName": "welcome-ui/lib/src/old/components/FieldGroup/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/FieldGroup/types.ts",
           "name": "FieldGroupOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/old/components/FieldGroup/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/FieldGroup/types.ts",
             "name": "FieldGroupOptions"
           }
         ],
@@ -119,7 +147,7 @@
       },
       "renderOption": {
         "defaultValue": {
-          "value": "forwardRef<'input', RadioProps>(\n  (\n    {\n      dataTestId,\n      disabled,\n      disabledIcon,\n      flexDirection,\n      hint,\n      label,\n      maxWidth,\n      onChange,\n      onClick,\n      variant,\n      ...rest\n    },\n    ref\n  ) => {\n    const handleClick = (event: React.MouseEvent<HTMLLabelElement>) => {\n      event.stopPropagation()\n      onClick && onClick(event)\n      onChange && onChange(event)\n    }\n\n    return (\n      <S.Label\n        alignItems=\"flex-start\"\n        checkableField\n        disabled={disabled}\n        disabledIcon={disabledIcon}\n        flexDirection=\"column\"\n        maxWidth={maxWidth}\n        onClick={handleClick}\n        variant={variant}\n        withDisabledIcon={false}\n      >\n        <S.Wrapper flexDirection={flexDirection}>\n          <S.Input>\n            <S.Radio\n              data-testid={dataTestId}\n              disabled={disabled}\n              label={label}\n              ref={ref}\n              variant={variant}\n              {...rest}\n            />\n          </S.Input>\n          <S.LabelWithHint>\n            <div data-testid={dataTestId ? `${dataTestId}-label` : undefined}>{label}</div>\n            {hint ? (\n              <Hint data-testid={dataTestId ? `${dataTestId}-hint` : undefined} mt=\"0\">\n                {hint}\n              </Hint>\n            ) : null}\n          </S.LabelWithHint>\n        </S.Wrapper>\n      </S.Label>\n    )\n  }\n)"
+          "value": "forwardRef<HTMLInputElement, RadioProps>(\n  (\n    {\n      className,\n      dataTestId,\n      disabled,\n      hint,\n      label,\n      onChange,\n      onClick,\n      value,\n      variant = 'default',\n      ...rest\n    },\n    ref\n  ) => {\n    const handleClick = (event: React.MouseEvent<HTMLLabelElement>) => {\n      event.stopPropagation()\n      if (onClick) onClick(event)\n      if (onChange) onChange(event)\n    }\n\n    return (\n      <Label className={cx('root', className)} onClick={handleClick}>\n        <div className={cx('input-wrapper')}>\n          <AriakitRadio\n            aria-label={label}\n            className={cx('input', `variant-${variant}`, disabled && 'disabled')}\n            data-testid={dataTestId}\n            disabled={disabled}\n            ref={ref}\n            value={value}\n            {...rest}\n          />\n        </div>\n        <div className={cx('label-with-hint')}>\n          <div data-testid={dataTestId ? `${dataTestId}-label` : undefined}>{label}</div>\n          {hint ? (\n            <Hint\n              className={cx('hint')}\n              data-testid={dataTestId ? `${dataTestId}-hint` : undefined}\n            >\n              {hint}\n            </Hint>\n          ) : null}\n        </div>\n      </Label>\n    )\n  }\n)"
         },
         "description": "",
         "name": "renderOption",
@@ -698,12 +726,12 @@
         "description": "",
         "name": "required",
         "parent": {
-          "fileName": "welcome-ui/lib/src/old/components/FieldGroup/index.tsx",
+          "fileName": "welcome-ui/lib/src/components/FieldGroup/types.ts",
           "name": "FieldGroupOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/old/components/FieldGroup/index.tsx",
+            "fileName": "welcome-ui/lib/src/components/FieldGroup/types.ts",
             "name": "FieldGroupOptions"
           }
         ],

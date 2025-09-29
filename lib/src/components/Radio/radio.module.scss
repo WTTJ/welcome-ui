@@ -28,6 +28,11 @@
     height: var(--height-16);
     width: var(--height-16);
     margin-top: var(--spacing-xs);
+    
+    
+    &.disabled {
+      background-color: var(--color-beige-40);
+    }
 
     &.variant {
       &-danger {

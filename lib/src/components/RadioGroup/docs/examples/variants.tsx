@@ -1,5 +1,5 @@
+import { Field } from '@/components/Field'
 import { RadioGroup } from '@/components/RadioGroup'
-import { Field } from '@old/Field'
 
 export const ITEMS = [
   { label: 'Bold', value: 'bold' },
