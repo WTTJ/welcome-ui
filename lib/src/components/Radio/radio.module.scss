@@ -28,10 +28,15 @@
     height: var(--height-16);
     width: var(--height-16);
     margin-top: var(--spacing-xs);
-    
-    
+    cursor: var(--inputCursor, pointer);
+
+    &:hover {
+      --borderColor: var(--color-neutral-40);
+    }
+
     &.disabled {
       background-color: var(--color-beige-40);
+      --inputCursor: not-allowed;
     }
 
     &.variant {
