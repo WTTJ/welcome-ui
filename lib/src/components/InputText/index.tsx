@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react'
 
 import { CloseButton } from '@/components/CloseButton'
+import { useField } from '@/components/Field'
 import { classNames } from '@/utils'
 
 import inputTextStyles from './input-text.module.scss'
@@ -28,6 +29,10 @@ export const InputText = forwardRef<HTMLInputElement, InputTextProps>(
     },
     ref
   ) => {
+    const { getInputProps, variant: fieldVariant } = useField()
+
+    const _variant = fieldVariant || variant
+
     const hasIcon = icon && iconPlacement
     const hasRightIcon = hasIcon && iconPlacement === 'right'
     const hasLeftIcon = hasIcon && iconPlacement === 'left'
@@ -44,16 +49,15 @@ export const InputText = forwardRef<HTMLInputElement, InputTextProps>(
     return (
       <div className={cx('input-text-wrapper')}>
         <input
-          {...rest}
+          {...getInputProps(rest)}
           className={cx(
             'root',
             `size-${size}`,
-            variant && `variant-${variant}`,
+            _variant && `variant-${_variant}`,
             transparent && 'transparent',
             hasIcon && `placement-${iconPlacement}`,
             className
           )}
-          id={name}
           name={name}
           onChange={onChange}
           ref={ref}

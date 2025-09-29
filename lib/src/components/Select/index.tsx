@@ -4,6 +4,7 @@ import { matchSorter } from 'match-sorter'
 import React, { forwardRef, Fragment, useCallback, useEffect, useMemo, useState } from 'react'
 
 import { CloseButton } from '@/components/CloseButton'
+import { useField } from '@/components/Field'
 import { DownIcon } from '@/components/Icon'
 import { FIELD_ICON_SIZE } from '@/constants/field-icon-size'
 import { classNames } from '@/utils'
@@ -76,6 +77,9 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
     }: SelectProps,
     ref
   ) => {
+    const { getInputProps: getFieldInputProps, variant: fieldVariant } = useField()
+    const _variant = fieldVariant || variant
+
     const initialSelectedValues = useMemo(
       () => getOptionsFromSelected(defaultSelected, defaultOptions, groupsEnabled),
       [defaultSelected, defaultOptions, groupsEnabled]
@@ -308,7 +312,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
     const inputClassnames = cx(
       'root',
       `size-${size}`,
-      variant && `variant-${variant}`,
+      _variant && `variant-${_variant}`,
       isClearable && 'clearable',
       transparent && 'transparent',
       icon ? 'icon-placement-both' : 'icon-placement-right',
@@ -390,9 +394,13 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
           return (
             <div {...rootProps} className={cx('wrapper', disabled && 'disabled')}>
               {isSearchable ? (
-                <input className={inputClassnames} type="text" {...inputProps} />
+                <input
+                  className={inputClassnames}
+                  type="text"
+                  {...getFieldInputProps(inputProps)}
+                />
               ) : (
-                <div className={inputClassnames} {...inputProps}>
+                <div className={inputClassnames} {...getFieldInputProps(inputProps)}>
                   {inputContent}
                 </div>
               )}

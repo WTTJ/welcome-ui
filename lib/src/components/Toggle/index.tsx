@@ -1,6 +1,7 @@
 import { Checkbox } from '@ariakit/react'
 import { forwardRef } from 'react'
 
+import { useField } from '@/components/Field'
 import { classNames } from '@/utils'
 
 import toggleStyles from './toggle.module.scss'
@@ -13,6 +14,8 @@ export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(
     { checked, checkedIcon, className, disabled, onClick, size = 'xs', uncheckedIcon, ...rest },
     ref
   ) => {
+    const { getInputProps } = useField()
+
     const hasIcon = checkedIcon && uncheckedIcon
 
     return (
@@ -31,7 +34,7 @@ export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(
           className={cx('root', `size-${size}`, className)}
           disabled={disabled}
           ref={ref}
-          {...rest}
+          {...getInputProps(rest)}
         />
       </div>
     )

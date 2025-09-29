@@ -152,6 +152,20 @@ The `FileUpload` component no longer accepts the `maxSize` prop. If needed, you 
 +<FileUpload handleAddFile={(file) => /* do something if file is too big */ } />
 ```
 
+### Field
+
+The `Field` component has been updated to improve accessibility.
+
+The `label` and `hint` elements now have unique IDs that are linked to the input element using `aria-labelledby` and `aria-describedby` attributes.
+The automatic passing of props to the child input element has been removed. You can now use the `useField` hook to get the necessary props for your input element.
+
+#### New props
+To display a label, use the `label` prop.
+
+To hide it visually but keep it accessible for screen readers, use the `hideLabel` prop.
+
+To display the label next to the input, use the `inline` prop.
+
 ## Utils
 
 ## useScreens

@@ -1,4 +1,4 @@
-import type { ComponentPropsWithoutRef } from 'react'
+import type { HTMLAttributes } from 'react'
 
 import type { HintProps } from '@/components/Hint/types'
 import type { LabelProps } from '@/components/Label/types'
@@ -33,12 +33,7 @@ export type FieldState = {
 
 export type FieldStateVariant = 'danger' | 'success' | 'warning'
 
-type FieldGetInputPropsFunction = <T extends ComponentPropsWithoutRef<'input'>>(
-  ownProps?: T
-) => Pick<
-  ComponentPropsWithoutRef<'input'>,
-  'aria-describedby' | 'aria-invalid' | 'aria-labelledby' | 'disabled' | 'id' | 'required'
->
+type FieldGetInputPropsFunction = <T extends HTMLAttributes<HTMLElement>>(ownProps?: T) => T
 
 type VariantProps = {
   error?: React.ReactNode

@@ -9,7 +9,12 @@ import type { FieldOptions, FieldState, FieldStateVariant } from './types'
 
 const cx = classNames(fieldStyles)
 
-export const FieldContext = createContext<FieldState>({} as FieldState)
+export const FieldContext = createContext<FieldState>({
+  getInputProps: props => props,
+  hintID: '',
+  labelID: '',
+  variant: undefined,
+})
 
 export function useDefaultID(defaultID?: string) {
   const generatedID = useId()
@@ -39,7 +44,6 @@ export const Field = forwardRefWithAs<FieldOptions, 'div'>((props, ref) => {
     ...rest
   } = props
 
-  // TODO(Didi): clean this up
   const variant: FieldStateVariant = error
     ? 'danger'
     : success
@@ -85,6 +89,7 @@ export const Field = forwardRefWithAs<FieldOptions, 'div'>((props, ref) => {
           className={cx('label', hideLabel && 'visuallyHidden')}
           disabled={disabled}
           htmlFor={inputId}
+          id={labelID}
           required={required}
           variant={variant}
           {...labelProps}
@@ -93,7 +98,7 @@ export const Field = forwardRefWithAs<FieldOptions, 'div'>((props, ref) => {
         </Label>
         <div className={cx('input')}>{children}</div>
         {hintText ? (
-          <Hint className={cx('hint')} variant={variant} {...hintProps}>
+          <Hint className={cx('hint')} id={hintID} variant={variant} {...hintProps}>
             {hintText}
           </Hint>
         ) : null}

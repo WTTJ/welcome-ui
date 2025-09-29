@@ -1,8 +1,8 @@
-import type { ComponentProps } from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
 
 export interface TextareaOptions {
   minRows?: number
   variant?: 'danger' | 'success' | 'warning'
 }
 
-export type TextareaProps = ComponentProps<'textarea'> & TextareaOptions
+export type TextareaProps = ComponentPropsWithoutRef<'textarea'> & TextareaOptions
