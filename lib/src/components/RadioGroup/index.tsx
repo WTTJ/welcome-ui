@@ -1,9 +1,10 @@
 import { RadioGroup as AriakitRadioGroup, useRadioStore, useStoreState } from '@ariakit/react'
+import type { Ref } from 'react'
 import { forwardRef } from 'react'
 
+import { FieldGroup } from '@/components/FieldGroup'
 import { Radio } from '@/components/Radio'
 import { classNames } from '@/utils'
-import { FieldGroup } from '@old/FieldGroup'
 
 import radioGroupStyles from './radio-group.module.scss'
 import type { RadioGroupOption, RadioGroupProps } from './types'
@@ -41,11 +42,11 @@ export const RadioGroup = forwardRef<HTMLFieldSetElement, RadioGroupProps>(
     return (
       <FieldGroup
         as={AriakitRadioGroup}
-        dataTestId={dataTestId}
+        className="mb-0"
+        data-tesid={dataTestId}
         disabled={disabled}
         label={label}
-        mb={0}
-        ref={ref}
+        ref={ref as unknown as Ref<HTMLDivElement>}
         required={required}
       >
         <div className={cx('root', className)}>

@@ -18,6 +18,7 @@ export interface RadioGroupOptions {
   value?: string
 }
 
-export type RadioGroupProps = HTMLAttributes<HTMLFieldSetElement> &
-  Omit<FieldGroupOptions, 'children'> &
+export type RadioGroupProps = FieldGroupOptions &
+  HTMLAttributes<HTMLFieldSetElement> &
+  RadioGroupOptions &
   RadioGroupOptions
