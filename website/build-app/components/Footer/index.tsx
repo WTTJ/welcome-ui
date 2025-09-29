@@ -1,7 +1,7 @@
 'use client'
 import { ExternalLinkIcon, HeartIcon } from '@/components/Icon'
-import { Logo } from '@old/Logo'
-import { Text } from '@old/Text'
+import { Logo } from '@/components/Logo'
+import { Text } from '@/components/Text'
 
 import { Section } from '../Section'
 
@@ -70,7 +70,7 @@ const links = [
 
 export const Footer = () => {
   return (
-    <Section as="footer" className="bg-beige-20">
+    <Section as="footer" className="bg-beige-20 text-neutral-50">
       <div className="gap-xl grid grid-cols-2 md:grid-cols-4">
         <div className="flex flex-col gap-xs">
           <div className="flex gap-sm items-center">
@@ -82,7 +82,7 @@ export const Footer = () => {
             rel="noreferrer noopener"
             target="_blank"
           >
-            <Logo h={40} />
+            <Logo className="h-[40px]" />
           </a>
         </div>
         {links.map(({ links, name }) => (

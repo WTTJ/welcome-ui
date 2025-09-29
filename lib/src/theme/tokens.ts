@@ -165,6 +165,7 @@ export const primitives = {
     '--color-teal-70': '#00544a',
     '--color-teal-80': '#003d35',
     '--color-teal-90': '#00211d',
+    '--color-transparent': 'transparent',
     '--color-violet-10': '#f2f2ff',
     '--color-violet-20': '#e0e0ff',
     '--color-violet-30': '#c9c9ff',
@@ -280,6 +281,7 @@ export const primitives = {
   spacings: {
     '--spacing-0': '0',
     '--spacing-2': '0.125rem',
+    '--spacing-3': '0.1875rem',
     '--spacing-4': '0.25rem',
     '--spacing-8': '0.5rem',
     '--spacing-12': '0.75rem',

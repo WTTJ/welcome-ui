@@ -1,9 +1,9 @@
 import * as React from 'react'
 
 import { Button } from '@/components/Button'
+import { Checkbox } from '@/components/Checkbox'
 import { InputText } from '@/components/InputText'
 import { Tooltip } from '@/components/Tooltip'
-import { Checkbox } from '@old/Checkbox'
 import { Field } from '@old/Field'
 
 const Example = () => {

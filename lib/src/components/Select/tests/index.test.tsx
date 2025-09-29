@@ -1,4 +1,4 @@
-import { act, screen } from '@testing-library/react'
+import { act, screen, waitFor } from '@testing-library/react'
 import capitalize from 'lodash.capitalize'
 import React, { useState } from 'react'
 
@@ -173,7 +173,7 @@ describe('<Select>', () => {
     expect(select).toHaveTextContent('February')
 
     // Click cross to remove selected option
-    const clearButton = screen.getByTitle('Clear')
+    const clearButton = screen.getByLabelText('Close')
 
     await user.click(clearButton)
 
@@ -285,20 +285,19 @@ describe('<Select>', () => {
       />
     )
 
-    const select = screen.getByTestId('select')
     let tags = screen.getAllByRole('listitem')
 
     expect(tags.length).toBe(2)
+    expect(tags.map(tag => tag.textContent)).toStrictEqual(['February', 'March'])
 
-    const removeButton = tags[1].querySelector('[title=Remove]')
-
+    const removeButton = tags[1].querySelector('[aria-label="remove tag"]')
     await user.click(removeButton)
 
-    tags = screen.getAllByRole('listitem')
+    await waitFor(() => {
+      tags = screen.getAllByRole('listitem')
+      expect(tags.length).toBe(1)
+    })
 
-    expect(tags.length).toBe(1)
-
-    expect(select).toHaveTextContent('')
     expect(tags.map(tag => tag.textContent)).toStrictEqual(['February'])
   })
 
@@ -315,8 +314,7 @@ describe('<Select>', () => {
 
     expect(select).toHaveTextContent('February')
 
-    // Use `queryByTitle` to expect no clear button
-    const clearButton = screen.queryByTitle('Clear')
+    const clearButton = screen.queryByLabelText('Close')
 
     expect(clearButton).toBeNull()
   })

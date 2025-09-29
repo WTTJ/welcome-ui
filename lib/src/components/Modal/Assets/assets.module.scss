@@ -1,14 +1,15 @@
+@use '../../../theme/utils/breakpoints' as breakpoints;
+
 @mixin sizeOfElements {
   width: var(--contentWidthMobile);
   max-height: var(--contentHeight);
 
-  /* var(--breakpoint-md) */
-  @media (min-width: 736px) {
+  @media (min-width: breakpoints.$breakpoint-md) {
     width: var(--contentWidthDesktop);
   }
 
   /* for big screens */
-  @media (min-width: 1700px) {
+  @media (min-width: breakpoints.$breakpoint-3xl) {
     max-width: 1600px;
   }
 }
@@ -74,8 +75,7 @@
       height: var(--titleBlockMobile);
       padding-inline: var(--spacing-md);
 
-      /* var(--breakpoint-md) */
-      @media (min-width: 736px) {
+      @media (min-width: breakpoints.$breakpoint-md) {
         height: var(--titleBlockDesktop);
         padding-inline: var(--spacing-xl);
       }
@@ -87,8 +87,7 @@
       max-height: calc(100vh - 2 * 5rem - var(--titleBlockMobile));
       flex-shrink: 0;
 
-      /* var(--breakpoint-md) */
-      @media (min-width: 736px) {
+      @media (min-width: breakpoints.$breakpoint-md) {
         max-height: calc(100vh - 2 * 5rem - var(--titleBlockDesktop));
       }
     }
@@ -97,8 +96,7 @@
       background-color: var(--color-neutral-90);
       max-height: calc(100vh - 2 * 5rem - var(--titleBlockMobile));
 
-      /* var(--breakpoint-md) */
-      @media (min-width: 736px) {
+      @media (min-width: breakpoints.$breakpoint-md) {
         max-height: calc(100vh - 2 * 5rem - var(--titleBlockDesktop));
       }
     }
@@ -116,13 +114,12 @@
       max-width: var(--contentWidthMobile);
       max-height: var(--contentHeight);
 
-      /* var(--breakpoint-md) */
-      @media (min-width: 736px) {
+      @media (min-width: breakpoints.$breakpoint-md) {
         max-width: var(--contentWidthDesktop);
       }
 
       /* for big screens */
-      @media (min-width: 1700px) {
+      @media (min-width: breakpoints.$breakpoint-3xl) {
         max-width: 1600px;
       }
     }

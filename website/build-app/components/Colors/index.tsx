@@ -1,10 +1,10 @@
 'use client'
 import type { CSSProperties } from 'react'
 
+import { Alert } from '@/components/Alert'
+import { Text } from '@/components/Text'
 import { primitives, semantics } from '@/theme/tokens'
 import { classNames } from '@/utils'
-import { Alert } from '@old/Alert'
-import { Text } from '@old/Text'
 
 const cx = classNames()
 
@@ -33,7 +33,7 @@ export const Colors = ({ name }: ColorsProps) => {
   }
 
   return (
-    <div className="gap-md grid grid-cols-[repeat(auto-fit,minmax(250px, 1fr))] mt-md">
+    <div className="gap-md grid grid-cols-3 mt-md">
       {colors.map(({ value, variant }) => {
         const isWhite = variant === 'neutral-10'
 
@@ -51,7 +51,7 @@ export const Colors = ({ name }: ColorsProps) => {
               <Text as="span" variant="h6">
                 {variant}
               </Text>
-              <Text as="span" fontSize="sm" mt={3}>
+              <Text as="span" className="mt-[0.1875rem] text-sm">
                 {value}
               </Text>
             </div>

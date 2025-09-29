@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { snakeCase } from 'lodash'
 
-import { Card } from '@old/Card'
-import { Text } from '@old/Text'
+import { Card } from '@/components/Card'
+import { Text } from '@/components/Text'
 
 export const Tokens = ({ children }: { children: React.ReactNode[] }) => {
   const tokenName = children
@@ -23,7 +23,7 @@ export const Tokens = ({ children }: { children: React.ReactNode[] }) => {
         //@ts-ignore
         if (child?.props?.children?.startsWith('Token Group')) {
           return (
-            <Text key={key} mx="lg" variant="h4">
+            <Text className="mx-lg" key={key} variant="h4">
               {/* @ts-ignore */}
               {child?.props?.children?.replace('Token Group ', '')}
             </Text>

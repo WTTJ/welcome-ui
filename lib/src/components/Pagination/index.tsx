@@ -1,7 +1,7 @@
 import React, { forwardRef, useCallback, useRef } from 'react'
 
+import { LeftIcon, RightIcon } from '@/components/Icon'
 import { classNames } from '@/utils'
-import { LeftIcon, RightIcon } from '@old/Icons'
 
 import styles from './pagination.module.scss'
 import type { PaginationProps } from './types'

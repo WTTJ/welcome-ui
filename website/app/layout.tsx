@@ -3,7 +3,6 @@ import { ThemeProvider as NextThemeProvider } from 'next-themes'
 
 import { Footer } from '~/build-app/components/Footer'
 import { Header } from '~/build-app/components/Header'
-import { ThemeProvider } from '~/build-app/components/ThemeProvider'
 import StyledComponentsRegistry from '~/build-app/registry'
 import { getPages } from '~/build-app/utils/pages-components'
 import { getPages as getPagesExport } from '~/build-app/utils/pages-exports'
@@ -31,13 +30,11 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       <body>
         <StyledComponentsRegistry>
           <NextThemeProvider>
-            <ThemeProvider>
-              <div className="bg-neutral-10">
-                <Header components={pagesComponents} foundations={pagesFoundations} />
-                {children}
-                <Footer />
-              </div>
-            </ThemeProvider>
+            <div className="bg-neutral-10">
+              <Header components={pagesComponents} foundations={pagesFoundations} />
+              {children}
+              <Footer />
+            </div>
           </NextThemeProvider>
         </StyledComponentsRegistry>
       </body>

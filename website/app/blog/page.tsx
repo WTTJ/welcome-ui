@@ -3,11 +3,11 @@ import styled, { th } from '@xstyled/styled-components'
 
 import { Avatar } from '@/components/Avatar'
 import { Button } from '@/components/Button'
+import { Card } from '@/components/Card'
 import { RightIcon } from '@/components/Icon'
+import { Link } from '@/components/Link'
+import { Tag } from '@/components/Tag'
 import { Text } from '@/components/Text'
-import { Card } from '@old/Card'
-import { Link } from '@old/Link'
-import { Tag } from '@old/Tag'
 
 const posts = [
   {
@@ -88,7 +88,7 @@ const Home = () => {
           {posts.map(({ authors, cover, date, description, link, tags, title }) => (
             <li className="mb-3xl" key={link}>
               <Card>
-                {cover ? <Card.Cover src={cover} /> : null}
+                {cover ? <Card /> : null}
                 <Card.Body>
                   <div className="flex gap-xxs mb-xl">
                     {tags?.map(tag => (

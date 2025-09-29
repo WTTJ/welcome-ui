@@ -1,7 +1,6 @@
 import { Button } from '@/components/Button'
 import { AssetModal, Modal, useModal } from '@/components/Modal'
-//TODO migrate after WUI-189/swiper
-import { Swiper, useSwiper } from '@old/Swiper'
+import { Swiper, useSwiper } from '@/components/Swiper'
 
 const Example = () => {
   const modal = useModal()
@@ -22,7 +21,7 @@ const Example = () => {
           store={modal}
         >
           <AssetModal.Content>
-            <Swiper h="calc(100vh - 10rem)" store={swiper}>
+            <Swiper className="h-[calc(100vh - 10rem)]" store={swiper}>
               <img
                 src="https://cdn-images.welcometothejungle.com/H6cEYCT1JsY1ipyX37LWouwduQZNHlUikfeUaHhUagA/rs:auto:1500::/q:85/czM6Ly93dHRqLXByb2R1Y3Rpb24vdXBsb2Fkcy9pbWFnZS9maWxlLzk4NTMvMTYzMzYyL2I5OTdhMzIxLTJlNjktNGM1Ny05NzcyLWE0YjU3ZmQ0YWNiMi5qcGc"
                 style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }}
