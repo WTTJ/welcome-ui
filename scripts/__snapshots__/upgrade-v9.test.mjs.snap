@@ -1,0 +1,58 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`upgrade-v9 migration script > processComponents (integration) > migrates fixtures/Component.tsx as expected 1`] = `
+"import { Suspense } from 'react'
+import { Outlet } from 'react-router-dom'
+
+import { Box } from '../../lib/src/old/components/Box'
+import { IconsFont } from '../../lib/src/old/components/IconsFont'
+import { Link } from '../../lib/src/old/components/Link'
+import { Loader } from '../../lib/src/old/components/Loader'
+import { Text } from '../../lib/src/old/components/Text'
+
+const FormattedMessage = ({
+  defaultMessage,
+  id,
+}: {
+  defaultMessage: string
+  id: string
+}): React.ReactNode => <span id={id}>{defaultMessage}</span>
+
+const signinPath = '/signin'
+
+const LAYOUT_WIDTH = {
+  normal: 400,
+  terms: 560,
+}
+
+// Usage examples
+export const Example = () => (
+  <>
+    <div className="flex h-full">
+      <aside className="bg-beige-20 flex-col h-max-content items-center justify-center max-w-[30rem] md:flex none w-40%" minH="100%">
+        <div className="pt-3xl">
+          <Link to={signinPath}>
+            <IconsFont.Add h={58} />
+          </Link>
+        </div>
+        <div className="flex flex-col items-center justify-center lg:px-3xl md:px-xl max-w-[26.25rem] pb-xl w-full" flexGrow="1">
+          <Text as="h2" mb="xxl" mt="0" variant="h3">
+            This is my content
+          </Text>
+        </div>
+      </aside>
+      <div className="flex flex-[0.0625rem] flex-col">
+        <div className="grid items-center max-w-LAYOUT_WIDTH['normal'] px-lg w-full" flexGrow="1" mx="auto">
+          <Suspense fallback={<Loader />}>
+            <Outlet context={{}} />
+          </Suspense>
+        </div>
+        <div className="md:none mt-xl">
+          <FormattedMessage defaultMessage="Terms of use" id="EBDrtq" />
+        </div>
+      </div>
+    </div>
+  </>
+)
+"
+`;
