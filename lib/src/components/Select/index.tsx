@@ -3,7 +3,7 @@ import DownshiftImport from 'downshift'
 import { matchSorter } from 'match-sorter'
 import React, { forwardRef, Fragment, useCallback, useEffect, useMemo, useState } from 'react'
 
-import { CloseButton } from '@/components/CloseButton'
+import { CloseButton as ClearButton } from '@/components/CloseButton'
 import { useField } from '@/components/Field'
 import { DownIcon } from '@/components/Icon'
 import { FIELD_ICON_SIZE } from '@/constants/field-icon-size'
@@ -52,6 +52,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
       disabled,
       groupsEnabled,
       icon,
+      iconPlacement = 'left',
       id,
       isClearable,
       isCreatable,
@@ -315,7 +316,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
       _variant && `variant-${_variant}`,
       isClearable && 'clearable',
       transparent && 'transparent',
-      icon ? 'icon-placement-both' : 'icon-placement-right',
+      icon && `icon-placement-${iconPlacement}`,
       className
     )
 
@@ -349,9 +350,10 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
 
           const DeleteIcon = (
             <div className={cx('dropdown-indicator', isOpen && 'open')}>
-              <CloseButton
+              <ClearButton
                 animatePresence
                 onClick={clearSelection as unknown as React.MouseEventHandler<HTMLButtonElement>}
+                title="Clear"
               />
             </div>
           )

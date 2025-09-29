@@ -150,6 +150,8 @@ export default {
   "/Radio/docs/examples/variants.tsx": dynamic(() => import("../../lib/src/components/Radio/docs/examples/variants.tsx").then(mod => mod), { ssr: false }),
   "/RadioTab/docs/examples/disabled.tsx": dynamic(() => import("../../lib/src/components/RadioTab/docs/examples/disabled.tsx").then(mod => mod), { ssr: false }),
   "/RadioTab/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/RadioTab/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
+  "/Search/docs/examples/option-groups.tsx": dynamic(() => import("../../lib/src/components/Search/docs/examples/option-groups.tsx").then(mod => mod), { ssr: false }),
+  "/Search/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Search/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Select/docs/examples/allow-unselect-from-list.tsx": dynamic(() => import("../../lib/src/components/Select/docs/examples/allow-unselect-from-list.tsx").then(mod => mod), { ssr: false }),
   "/Select/docs/examples/clearable.tsx": dynamic(() => import("../../lib/src/components/Select/docs/examples/clearable.tsx").then(mod => mod), { ssr: false }),
   "/Select/docs/examples/creatable-custom.tsx": dynamic(() => import("../../lib/src/components/Select/docs/examples/creatable-custom.tsx").then(mod => mod), { ssr: false }),
