@@ -8,7 +8,7 @@ export const ITEMS = [
 ]
 
 const Example = () => {
-  return <RadioGroup disabled={true} name="social" options={ITEMS} />
+  return <RadioGroup disabled name="social" options={ITEMS} />
 }
 
 export default Example
