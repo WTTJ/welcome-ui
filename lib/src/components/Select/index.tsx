@@ -3,12 +3,12 @@ import DownshiftImport from 'downshift'
 import { matchSorter } from 'match-sorter'
 import React, { forwardRef, Fragment, useCallback, useEffect, useMemo, useState } from 'react'
 
+import { CloseButton } from '@/components/CloseButton'
 import { DownIcon } from '@/components/Icon'
 import { FIELD_ICON_SIZE } from '@/constants/field-icon-size'
 import { classNames } from '@/utils'
 import { createEvent } from '@/utils/create-event'
 import { useForkRef } from '@/utils/useForkRef'
-import { ClearButton } from '@old/ClearButton'
 
 import { multipleSelections } from './multipleSelections'
 import selectStyles from './select.module.scss'
@@ -345,8 +345,8 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
 
           const DeleteIcon = (
             <div className={cx('dropdown-indicator', isOpen && 'open')}>
-              {/* TODO migrate after WUI-214/clearbutton */}
-              <ClearButton
+              <CloseButton
+                animatePresence
                 onClick={clearSelection as unknown as React.MouseEventHandler<HTMLButtonElement>}
               />
             </div>

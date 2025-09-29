@@ -1,10 +1,9 @@
 import * as React from 'react'
 
+import { Checkbox } from '@/components/Checkbox'
 import { LinkIcon } from '@/components/Icon'
 import { Select } from '@/components/Select'
 import type { SelectOption, SelectProps } from '@/components/Select/types'
-//TODO migrate WUI-184/checkbox
-import { Checkbox } from '@old/Checkbox'
 
 export const ITEMS = [
   { label: 'Bold', value: 'bold' },

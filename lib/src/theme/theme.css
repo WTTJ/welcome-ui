@@ -639,4 +639,9 @@
   h6 {
     font-family: var(--font-family-headings);
   }
+
+  p,
+  span {
+    color: var(--color-neutral-60);
+  }
 }

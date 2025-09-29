@@ -2,7 +2,7 @@
 import { useParams, usePathname } from 'next/navigation'
 import { useEffect, useRef } from 'react'
 
-import { Text } from '@old/Text'
+import { Text } from '@/components/Text'
 
 import type { PageTree } from '~/build-app/types'
 import { getName } from '~/build-app/utils/transform-name'
@@ -41,7 +41,7 @@ export const Sidebar = ({ className, isSubPage, menu, onClick }: SidebarProps) =
       {menu.map(({ category, pages, parent }) => (
         <ul className="flex flex-col shrink-0" key={`sidebar_${category}`}>
           {category ? (
-            <Text mb="lg" variant="subtitle-sm">
+            <Text className="mb-lg" variant="subtitle-sm">
               {getName(category)}
             </Text>
           ) : null}

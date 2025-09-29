@@ -1,10 +1,9 @@
-import { useTheme } from 'next-themes'
 import { usePathname } from 'next/navigation'
 import React from 'react'
 
 import { Button } from '@/components/Button'
-import { CrescentMoonIcon, GithubIcon, SunIcon } from '@/components/Icon'
-import { Text } from '@old/Text'
+import { GithubIcon } from '@/components/Icon'
+import { Text } from '@/components/Text'
 
 import * as S from './styles'
 
@@ -17,13 +16,6 @@ type NavBarProps = {
 
 export const NavBar = ({ className, onClick }: NavBarProps) => {
   const currentRoute = usePathname()
-  const { setTheme, theme } = useTheme()
-  const isDarkMode = theme === 'dark'
-
-  const switchTheme = () => {
-    const newTheme = isDarkMode ? 'light' : 'dark'
-    setTheme(newTheme)
-  }
 
   return (
     <div className={`flex gap-xl items-center lg:h-full ${className}`}>
@@ -41,15 +33,6 @@ export const NavBar = ({ className, onClick }: NavBarProps) => {
           ))}
         </ul>
       </nav>
-      <Button
-        aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
-        onClick={switchTheme}
-        shape="circle"
-        size="sm"
-        variant="ghost"
-      >
-        {isDarkMode ? <SunIcon /> : <CrescentMoonIcon />}
-      </Button>
       <Button
         aria-label="Github"
         as="a"

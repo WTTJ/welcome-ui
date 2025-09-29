@@ -2,7 +2,7 @@
 import NextLink from 'next/link'
 import { useEffect, useState } from 'react'
 
-import { Text } from '@old/Text'
+import { Text } from '@/components/Text'
 
 import type { Toc } from '~/build-app/utils/page-tree'
 
@@ -54,7 +54,7 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
   return (
     <div className="hidden xl:block">
       <S.Nav isSubPage={isSubPage}>
-        <Text mb="lg" ml="lg" variant="subtitle-sm">
+        <Text className="mb-lg ml-lg" variant="subtitle-sm">
           On this page
         </Text>
         <ul className="flex flex-col gap-lg">

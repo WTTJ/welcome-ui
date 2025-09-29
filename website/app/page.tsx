@@ -3,8 +3,8 @@ import React from 'react'
 
 import { Button } from '@/components/Button'
 import { GithubIcon, HeartIcon, RightIcon } from '@/components/Icon'
+import { Logo, Symbol } from '@/components/Logo'
 import { Text } from '@/components/Text'
-import { Logo, Symbol } from '@old/Logo'
 
 import { Components } from '~/build-app/components/Homepage/Components'
 import { Expectations } from '~/build-app/components/Homepage/Expectations'
@@ -96,7 +96,7 @@ const Home = () => {
         />
       </Section>
       <Section className="pt-3xl md:pt-6xl">
-        <Logo h={67} />
+        <Logo className="h-[67px]" />
         <Text as="span" className="text-neutral-90 mt-3xl" color="neutral-90" variant="subtitle-md">
           Who we are?
         </Text>
@@ -132,7 +132,7 @@ const Home = () => {
           </Button>
         </div>
         <div className="-bottom-[9.375rem] -right-[7.5rem] absolute hidden lg:block opacity-[10]">
-          <Symbol h={400} />
+          <Symbol className="h-[400px]" />
         </div>
       </Section>
     </main>

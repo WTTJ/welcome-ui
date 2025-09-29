@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 'use client'
-import type { AlertProps } from '@old/Alert'
-import { Alert } from '@old/Alert'
+import { Alert } from '@/components/Alert'
+import type { AlertProps } from '@/components/Alert/types'
 
 export const Blockquote = ({ children }: { children: JSX.Element[] }) => {
   const type = children[1].props.children[0]
   const child = children[1].props.children
 
-  let variant: AlertProps['variant'] = 'default'
+  let variant: AlertProps['variant']
   let title
 
   if (type === 'Yay:') {
@@ -52,7 +52,7 @@ export const Blockquote = ({ children }: { children: JSX.Element[] }) => {
   }, [])
 
   return (
-    <Alert maxW="100vw" variant={variant} w="100%">
+    <Alert className="max-w-[100vh] w-full" variant={variant}>
       {title ? <Alert.Title>{title}</Alert.Title> : null}
       {childFormatted}
     </Alert>
