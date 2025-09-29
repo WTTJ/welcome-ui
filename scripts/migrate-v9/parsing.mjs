@@ -29,6 +29,7 @@ export function parsePropsString(propsString) {
   let ast
   try {
     ast = parse(code, { plugins: ['jsx', 'typescript'], sourceType: 'module' })
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (e) {
     // fallback: return empty object if parsing fails
     return {}

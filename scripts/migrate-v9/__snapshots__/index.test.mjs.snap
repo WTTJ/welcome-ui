@@ -8,9 +8,12 @@ import { Field } from '../../../lib/src/old/components/Field'
 import { Grid } from '../../../lib/src/old/components/Grid'
 import { IconsFont } from '../../../lib/src/old/components/IconsFont'
 import { InputText } from '../../../lib/src/old/components/InputText'
+import { Label } from '../../../lib/src/old/components/Label'
 import { Link } from '../../../lib/src/old/components/Link'
 import { Stack } from '../../../lib/src/old/components/Stack'
 import { Text } from '../../../lib/src/old/components/Text'
+import { Textarea } from '../../../lib/src/old/components/Textarea'
+import { Toggle } from '../../../lib/src/old/components/Toggle'
 
 const FormattedMessage = ({
   defaultMessage,
@@ -20,59 +23,72 @@ const FormattedMessage = ({
   id: string
 }): React.ReactNode => <span id={id}>{defaultMessage}</span>
 
-const register = (name: string, options: object) => {
+const register = (name: string, options?: object) => {
   return { name, ...options }
 }
 
-const signinPath = '/signin'
+const SIGN_IN_PATH = '/signin'
+const BOOLEAN_VALUE = false
 
 // Usage examples
-export const Example = () => (
-  <>
-    <div className="flex h-full">
-      <aside className="bg-beige-20 flex-col grow h-max-content items-center justify-center lg:px-3xl md:px-xl max-w-[30rem] md:flex none min-h-full pb-xl w-40%">
-        <Link to={signinPath}>
-          <IconsFont.Add h={58} />
-          <Text className="mt-md text-h3" as="h1" variant="h4">
-            <FormattedMessage defaultMessage="Terms of use" id="EBDrtq" />
+export const Example = () => {
+  return (
+    <>
+      <div className="flex h-full">
+        <aside className="bg-beige-20 flex-col grow h-max-content items-center justify-center lg:px-3xl md:px-xl max-w-[30rem] md:flex none min-h-full pb-xl w-40%">
+          <Link as={Button} to={SIGN_IN_PATH}>
+            <IconsFont.Add h={58} />
+            <Text className="mt-md text-h3" as="h1" variant="h4">
+              <FormattedMessage defaultMessage="Terms of use" id="EBDrtq" />
+            </Text>
+          </Link>
+          <Text className="mt-auto text-center text-dark-50 text-sm" as="span">
+            <FormattedMessage
+              defaultMessage="© 2024 Acme Corp. All rights reserved."
+              id="8XKXo+"
+            />
           </Text>
-        </Link>
-        <Text className="mt-auto text-center text-dark-50 text-sm" as="span">
-          <FormattedMessage defaultMessage="© 2024 Acme Corp. All rights reserved." id="8XKXo+" />
-        </Text>
-      </aside>
-    </div>
-    <div className="grid" columns={2} gutter="sm"></div>
-    <div className="flex flex-1 flex-col gap-xxl"></div>
-    <div className="flex flex-row gap-xxs items-center"></div>
-    <Alert isFullWidth variant="danger">
-      <Alert.Title mb="sm">
-        <FormattedMessage defaultMessage="Please sign in with provider" id="5nmpcx" />
-      </Alert.Title>
-      <span>
-        <FormattedMessage
-          defaultMessage="Your organization enforces provider sign-in. Contact your administrator if you need help."
-          id="TzKv+W"
-        />
-      </span>
-    </Alert>
-    <form>
-      <Field className="my-lg" error="my error message" label="Email" required>
-        <InputText autoFocus dataTestId="wa-forgot-input-email" name="email" {...register('email', {
+        </aside>
+      </div>
+      <div className="grid" columns={2} gutter="sm"></div>
+      <div className="flex flex-1 flex-col gap-xxl"></div>
+      <div className="flex flex-row gap-xxs items-center"></div>
+      <Alert isFullWidth variant="danger">
+        <Alert.Title mb="sm">
+          <FormattedMessage defaultMessage="Please sign in with provider" id="5nmpcx" />
+        </Alert.Title>
+        <span>
+          <FormattedMessage
+            defaultMessage="Your organization enforces provider sign-in. Contact your administrator if you need help."
+            id="TzKv+W"
+          />
+        </span>
+      </Alert>
+      <form>
+        <Field className="my-lg" error="my error message" label="Email" required>
+          <Label className="items-center mb-sm" required={BOOLEAN_VALUE}></Label>
+          <InputText autoFocus dataTestId="wa-forgot-input-email" name="email" {...register('email', {
   pattern: 'This field has invalid format',
   required: 'This field is required',
   value: /fish/
 })} />
-      </Field>
-      <Button className="mt-xxl w-full" as="a" dataTestId="my-button-1" to={signinPath}>
-        <FormattedMessage defaultMessage="Back to Sign in" id="D7hbFB" />
-      </Button>
-      {/* eslint-disable-next-line no-console */}
-      <Button dataTestId="my-button-2" onClick={() => console.debug('submit')} type="submit">
-        <FormattedMessage defaultMessage="Back to Sign in" id="D7hbFB" />
-      </Button>
-    </form>
-  </>
-)
+        </Field>
+        <Textarea className="mt-md" name="i18n_description_en" {...register('i18n_description_en')} />
+        <Toggle className="inline-flex" checked={BOOLEAN_VALUE} onClick={() => console.debug()} {...register('email', {
+  pattern: 'This field has invalid format',
+  required: 'This field is required',
+  value: /fish/
+})} />
+        <Button className="mt-xxl w-full" as="a" dataTestId="my-button-1" to={SIGN_IN_PATH}>
+          <FormattedMessage defaultMessage="Back to Sign in" id="D7hbFB" />
+        </Button>
+        {/* eslint-disable-next-line no-console */}
+        <Button dataTestId="my-button-2" onClick={() => console.debug('submit')} type="submit">
+          <FormattedMessage defaultMessage="Back to Sign in" id="D7hbFB" />
+        </Button>
+      </form>
+    </>
+  )
+}
 "
 `;

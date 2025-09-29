@@ -2,7 +2,6 @@
 import fs from 'fs'
 import readline from 'readline'
 
-import generate from '@babel/generator'
 import { parse } from '@babel/parser'
 import traverse from '@babel/traverse'
 
@@ -350,6 +349,7 @@ function processComponentFile(filePath, results) {
     let ast
     try {
       ast = parse(content, { plugins: ['jsx', 'typescript'], sourceType: 'module' })
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (e) {
       console.error('Failed to parse file:', filePath)
       return
