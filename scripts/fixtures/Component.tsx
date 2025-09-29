@@ -1,10 +1,7 @@
-import { Suspense } from 'react'
-import { Outlet } from 'react-router-dom'
-
+import { Alert } from '../../lib/src/old/components/Alert'
 import { Box } from '../../lib/src/old/components/Box'
 import { IconsFont } from '../../lib/src/old/components/IconsFont'
 import { Link } from '../../lib/src/old/components/Link'
-import { Loader } from '../../lib/src/old/components/Loader'
 import { Text } from '../../lib/src/old/components/Text'
 
 const FormattedMessage = ({
@@ -72,14 +69,23 @@ export const Example = () => (
           px="lg"
           w="100%"
         >
-          <Suspense fallback={<Loader />}>
-            <Outlet context={{}} />
-          </Suspense>
+          <FormattedMessage defaultMessage="Terms of use" id="EBDrtq" />
         </Box>
         <Box display={{ md: 'none' }} mt="xl">
           <FormattedMessage defaultMessage="Terms of use" id="EBDrtq" />
         </Box>
       </Box>
     </Box>
+    <Alert className="mb-xl" isFullWidth variant="danger">
+      <Alert.Title>
+        <FormattedMessage defaultMessage="Please sign in with provider" id="5nmpcx" />
+      </Alert.Title>
+      <span>
+        <FormattedMessage
+          defaultMessage="Your organization enforces provider sign-in. Contact your administrator if you need help."
+          id="TzKv+W"
+        />
+      </span>
+    </Alert>
   </>
 )

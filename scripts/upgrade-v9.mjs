@@ -83,7 +83,6 @@ export function findBoxComponents(directory) {
             let inString = false
             let stringChar = null
             let inTemplate = false
-            // removed unused templateDepth
             let i = componentStart + componentType.length + 1
             while (i < content.length) {
               const char = content[i]
@@ -559,6 +558,8 @@ export function transform(key, value, forceValue = false) {
     return `${key}-full`
   } else if (value.includes('calc')) {
     return `${key}_${value}_CSS_TO_EDIT`
+  } else if (value === null || value === '') {
+    return key
   } else if (!isNaN(value)) {
     const isNumber = !isNaN(parseFloat(value))
 
@@ -660,7 +661,7 @@ const valueMap = {
     return transform('flex', value)
   },
   flexDirection: value => transform(`flex`, value.replace('column', 'col')),
-  flexGrow: value => transform('grow', value),
+  flexGrow: value => transform('grow', value.replace(/^1$/, '')),
   flexShrink: value => transform('shrink', value),
   flexWrap: value => transform('flex', value),
   fontSize: value => transform('text', value),
@@ -672,8 +673,6 @@ const valueMap = {
   },
   gap: value => transform('gap', value),
   gridTemplateColumns: value => transform('grid-cols', value, true),
-  // <Flex />
-  grow: value => transform('grow', value),
   h: value => transform('h', value),
   // <Flex />
   justify: value => transform('justify', value),
@@ -681,24 +680,17 @@ const valueMap = {
   left: value => transform('left', value),
   lineHeight: value => transform('leading', value),
   listStyleType: value => transform('list', value),
-<<<<<<< HEAD
-  m: value => transform('m', value.replace('0 auto', 'auto')),
-  margin: value => transform('m', value.replace('0 auto', 'auto')),
-  maxW: value => transform('max-w', value),
-  maxWidth: value => transform('max-w', value),
-=======
   m: value => (value === '0 auto' ? 'mx-auto' : transform('m', value)),
   margin: value => (value === '0 auto' ? 'mx-auto' : transform('m', value)),
-  maxH: value => transform('max-h', value.replace('100%', 'full')),
-  maxHeight: value => transform('max-h', value.replace('100%', 'full')),
-  maxW: value => transform('max-w', value.replace('100%', 'full')),
-  maxWidth: value => transform('max-w', value.replace('100%', 'full')),
->>>>>>> d00a49e99 (chore: add test for v9 upgrade script)
+  maxH: value => transform('max-h', value),
+  maxHeight: value => transform('max-h', value),
+  maxW: value => transform('max-w', value),
+  maxWidth: value => transform('max-w', value),
   mb: value => transform('mb', value),
-  minH: value => transform('min-h', value.replace('100%', 'full')),
-  minHeight: value => transform('min-h', value.replace('100%', 'full')),
-  minW: value => transform('min-w', value.replace('100%', 'full')),
-  minWidth: value => transform('min-w', value.replace('100%', 'full')),
+  minH: value => transform('min-h', value),
+  minHeight: value => transform('min-h', value),
+  minW: value => transform('min-w', value),
+  minWidth: value => transform('min-w', value),
   ml: value => transform('ml', value),
   mr: value => transform('mr', value),
   mt: value => transform('mt', value),
@@ -741,14 +733,13 @@ const valueMap = {
 
 export function transformValue(key, value) {
   const transformer = valueMap[key]
-  return transformer ? transformer(value) : undefined
+  return transformer?.(value)
 }
 
 // Run the script
 async function main() {
   const searchDirectory = process.argv[2] || './src'
   const shouldReplace = process.argv[3] === '--replace'
-  console.debug('main', { searchDirectory, shouldReplace })
 
   const components = findBoxComponents(searchDirectory)
   await processComponents(components, shouldReplace)
