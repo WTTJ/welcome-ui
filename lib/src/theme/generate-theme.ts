@@ -2,6 +2,8 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
+import type { LiteralUnion } from '@old/utils'
+
 const indentation = '  ' // 2 spaces for indentation
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -19,12 +21,15 @@ const baseStyles = fs.readFileSync(basePath, 'utf8')
 const resetStyles = fs.readFileSync(resetPath, 'utf8')
 const variableStyles = fs.readFileSync(variablesPath, 'utf8')
 
-export type Tokens = Record<
-  string,
-  Record<string, { $value: number | string }> & { $type: TokenType }
->
+type FamilyToken = Record<string, TokenFamilyVariant>
 
-type TokenBreakpoint = Tokens['breakpoint']
+type MyLiteralUnion = LiteralUnion<'$type' | string>
+
+// type TokenBreakpoint = FamilyToken['breakpoint']
+
+type TokenFamilyShade = Record<MyLiteralUnion, TokenType | TokenValue>
+
+type TokenFamilyVariant = Record<MyLiteralUnion, TokenFamilyShade | TokenType>
 
 type TokenType =
   | 'color'
@@ -35,7 +40,9 @@ type TokenType =
   | 'fontWeight'
   | 'shadow'
 
-export const tokens = JSON.parse(fs.readFileSync(tokensPath, 'utf8')) as Tokens
+type TokenValue = Record<'$value', number | string>
+
+export const tokens = JSON.parse(fs.readFileSync(tokensPath, 'utf8')) as FamilyToken
 
 const getStringFrom = (map: Record<string, string>) => `${map.property} {\n${map.value}}\n`
 
@@ -54,14 +61,11 @@ const generateThemeCss = () =>
 fs.writeFileSync(themePath, generateThemeCss(), 'utf8')
 
 // Generate scss breakpoints file
-const breakpointsContent = Object.entries(tokens.breakpoint).reduce(
-  (acc, [key, { ['$value']: value }]) => {
-    if (key !== '$type') {
-      return acc + `$breakpoint-${key}: ${value};\n`
-    }
-    return acc
-  },
-  '/* screens - auto-generated from token.ts - do not edit directly */\n'
-)
+const breakpointsContent = Object.entries(tokens.breakpoint).reduce((acc, [key, value]) => {
+  if (key !== '$type' && value && typeof value === 'object' && '$value' in value) {
+    return acc + `$breakpoint-${key}: ${value['$value']};\n`
+  }
+  return acc
+}, '/* screens - auto-generated from token.ts - do not edit directly */\n')
 
 fs.writeFileSync(breakpointsPath, breakpointsContent, 'utf8')
