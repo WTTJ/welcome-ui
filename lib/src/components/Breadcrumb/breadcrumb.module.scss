@@ -9,6 +9,7 @@
     letter-spacing: var(--letter-spacing-subtitle-sm);
     line-height: var(--line-height-subtitle-sm);
     text-transform: uppercase;
+    font-family: var(--font-family-headings);
   }
 
   .list {
@@ -38,5 +39,36 @@
     bottom: 0;
     top: 0;
     width: var(--spacing-xxl);
+  }
+
+  .item-wrapper {
+    display: inline-flex;
+    flex: 0 0 auto;
+    line-height: normal;
+  }
+
+  .item-content {
+    color: var(--breadcrumbItemColor, var(--color-neutral-50));
+    text-decoration: none;
+    align-items: center;
+    transition: medium;
+    direction: initial;
+
+    &:hover,
+    &[aria-current='page'] {
+     --breadcrumbItemColor: var(--color-neutral-70);
+    }
+
+    &[aria-disabled='true'] {
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+
+  .item-separator {
+    color: var(--color-neutral-50);
+    padding: 0 var(--spacing-xs);
+    display: flex;
+    align-items: center;
   }
 }
