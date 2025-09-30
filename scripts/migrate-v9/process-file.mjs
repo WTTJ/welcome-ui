@@ -1,9 +1,11 @@
 import fs from 'fs'
 
 import { parse } from '@babel/parser'
-import traverse from '@babel/traverse'
+import traverseModule from '@babel/traverse'
 
 import { parsePropsString } from './parsing.mjs'
+
+const traverse = typeof traverseModule === 'function' ? traverseModule : traverseModule.default
 
 /**
  * For a given file, find all JSX component and subcomponent usages and push their info to results.

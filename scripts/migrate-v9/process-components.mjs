@@ -2,14 +2,18 @@
 import fs from 'fs'
 import path from 'path'
 
-import generate from '@babel/generator'
+import generateModule from '@babel/generator'
 import { parse } from '@babel/parser'
-import traverse from '@babel/traverse'
+import traverseModule from '@babel/traverse'
 import prettier from 'prettier'
 
+import { getModule } from './esm.mjs'
 import { userInputInterface } from './index.mjs'
 import { getStackClassnames } from './parsing.mjs'
 import { transformValue, valueMap } from './transform.mjs'
+
+const traverse = getModule(traverseModule)
+const generate = getModule(generateModule)
 
 // Read .prettierrc once at module load
 let prettierConfig = {}
