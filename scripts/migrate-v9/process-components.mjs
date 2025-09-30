@@ -1,11 +1,41 @@
 /* eslint-disable no-console */
 import fs from 'fs'
+import path from 'path'
+
+import generate from '@babel/generator'
+import { parse } from '@babel/parser'
+import traverse from '@babel/traverse'
+import prettier from 'prettier'
 
 import { userInputInterface } from './index.mjs'
 import { getStackClassnames } from './parsing.mjs'
 import { transformValue, valueMap } from './transform.mjs'
 
+// Read .prettierrc once at module load
+let prettierConfig = {}
+try {
+  const prettierRcPath = path.resolve(process.cwd(), '.prettierrc')
+  prettierConfig = JSON.parse(fs.readFileSync(prettierRcPath, 'utf8'))
+} catch (e) {
+  console.error('Prettier config not read', e)
+  prettierConfig = {}
+}
+
 const COMPONENTS_TO_REPLACE = ['Box', 'Flex', 'Grid', 'Stack']
+
+const PROPS_WHITELIST = [
+  'aria-label',
+  'as',
+  'data-testid',
+  'href',
+  'id',
+  'key',
+  'ref',
+  'rel',
+  'src',
+  'style',
+  'target',
+]
 
 /**
  * Main migration routine: preview or interactively replace found components in files.
@@ -13,7 +43,7 @@ const COMPONENTS_TO_REPLACE = ['Box', 'Flex', 'Grid', 'Stack']
  * - For each file, processes and optionally replaces components
  * - Handles user interaction for each component if shouldReplace is true
  */
-export async function processComponents(components, shouldReplace = false) {
+export async function processComponents(components, shouldReplace = false, verbose = false) {
   if (components.length === 0) {
     console.log('No migrated components found.')
     userInputInterface.close()
@@ -39,247 +69,151 @@ export async function processComponents(components, shouldReplace = false) {
   let totalSkipped = 0
 
   // Process each file and its found components
+
   for (const [filePath, fileComponents] of Object.entries(componentsByFile)) {
     let content = fs.readFileSync(filePath, 'utf8')
-    let fileModified = false
+    let ast
+    try {
+      ast = parse(content, { plugins: ['jsx', 'typescript'], sourceType: 'module' })
+    } catch (e) {
+      console.error('Failed to parse file:', filePath, e)
+      continue
+    }
 
-    // Sort components by position (reverse order to maintain indices when replacing)
-    fileComponents.sort((a, b) => b.matchIndex - a.matchIndex)
+    // Map for quick lookup of components to migrate in this file
+    const componentLookup = new Map()
+    fileComponents.forEach(c => {
+      componentLookup.set(c.matchIndex, c)
+    })
 
-    console.log('\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
-    console.log(`🔵 Processing file: ${filePath}`)
-    console.log(`Found ${fileComponents.length} component(s)`)
+    // Collect all transformable JSXElement paths
+    const transformable = []
+    traverse(ast, {
+      JSXElement(path) {
+        const opening = path.node.openingElement
+        const start = opening.start
+        const component = componentLookup.get(start)
+        if (component) {
+          transformable.push({ component, path })
+        }
+      },
+    })
 
-    // Process each found component in the file
-    for (let i = 0; i < fileComponents.length; i++) {
-      const component = fileComponents[i]
+    // Process each transformable node sequentially (async)
+    for (let i = 0; i < transformable.length; i++) {
+      const { component, path } = transformable[i]
+      const opening = path.node.openingElement
+      const closing = path.node.closingElement
+
       totalProcessed++
-
       let classnames = []
       let valuesNotTransformed = []
 
-      // Add base classnames for Flex/Grid
-      if (component.componentType === 'Flex') {
-        classnames.push('flex')
-      }
-      if (component.componentType === 'Grid') {
-        classnames.push('grid')
-      }
+      if (component.componentType === 'Flex') classnames.push('flex')
+      if (component.componentType === 'Grid') classnames.push('grid')
 
-      // Transform each prop and collect classnames
       Object.entries(component.props).forEach(([key, propData]) => {
         const value = propData.value
         const transformedValue = transformValue(key, value)
-
-        // Skip event handlers and special props from being marked as "not transformed"
         if (
           transformedValue === undefined &&
           !key.startsWith('on') &&
-          ![
-            'aria-label',
-            'as',
-            'data-testid',
-            'href',
-            'id',
-            'key',
-            'ref',
-            'rel',
-            'src',
-            'style',
-            'target',
-          ].includes(key)
+          !PROPS_WHITELIST.includes(key)
         ) {
           const displayValue = propData.isExpression ? `{${value}}` : `"${value}"`
           valuesNotTransformed.push(`${key}=${displayValue}`)
         }
-
         if (transformedValue) classnames.push(transformedValue)
       })
 
-      // Special handling for Stack component to ensure flex and direction classes
       if (component.componentType === 'Stack') {
         classnames = getStackClassnames(classnames)
       }
 
-      // Determine the element to use:
-      // - If componentType is in COMPONENTS_TO_REPLACE (Box, Flex, Grid, Stack), use 'div' (or as prop)
-      // - Otherwise, keep the original componentType (including subcomponents)
       let element
       if (COMPONENTS_TO_REPLACE.includes(component.componentType)) {
         element = (component.props.as && component.props.as.value) || 'div'
       } else {
         element = component.componentType
       }
-      // Build other props string, filtering out migrated props
-      const otherProps = Object.entries(component.props)
-        .filter(([key, propData]) => {
-          // Remove 'as' prop for components being converted to div
-          if (key === 'as') {
-            return !COMPONENTS_TO_REPLACE.includes(component.componentType)
-          }
-          // Always keep spread attributes
-          if (propData.isSpread) return true
-          return !Object.keys(valueMap).includes(key)
+
+      // Only print transformation details if in interactive mode or verbose mode
+      if (shouldReplace || verbose) {
+        console.log(`\n🕵️‍♀️ [${i + 1}/${transformable.length}] Line ${component.line}`)
+        console.log('━━━━━━━━━━━━━━━━')
+        const displayProps = {}
+        Object.entries(component.props).forEach(([key, propData]) => {
+          displayProps[key] = propData.isExpression ? `{${propData.value}}` : propData.value
         })
-        .map(([key, propData]) => {
-          const value = propData.value
-          if (propData.isSpread) {
-            return ` {...${value}}`
-          }
-          // Special handling for boolean props (e.g. required)
-          if (typeof value === 'boolean' || value === 'true' || value === 'false') {
-            if (value === true || value === 'true') {
-              return ` ${key}`
-            } else {
-              return ''
-            }
-          }
-          if (propData.isExpression) {
-            // Escape any accidental closing braces in the value
-            const safeValue = value.replace(/}/g, '\u007d')
-            return ` ${key}={` + safeValue + `}`
-          }
-          return ` ${key}="${value}"`
-        })
-        .join('')
-
-      const classAttribute =
-        classnames.length > 0 ? ` className="${classnames.sort().join(' ')}"` : ''
-      const transformedElement = `<${element}${classAttribute}${otherProps}>`
-
-      // Show transformation details for user
-      console.log(`\n🕵️‍♀️ [${i + 1}/${fileComponents.length}] Line ${component.line}`)
-      console.log('━━━━━━━━━━━━━━━━')
-      console.log(component.props)
-
-      // Convert props back to display format for readable output
-      const displayProps = {}
-      Object.entries(component.props).forEach(([key, propData]) => {
-        displayProps[key] = propData.isExpression ? `{${propData.value}}` : propData.value
-      })
-      console.log('📦 Component:', component.componentType)
-      console.log('📋 Properties:', JSON.parse(JSON.stringify(displayProps, null, 2)))
-      console.log(`👀 Transformed: ${transformedElement}`)
-
-      if (valuesNotTransformed.length > 0) {
-        console.log(`❌ Values not transformed: ${valuesNotTransformed.join(', ')}`)
+        console.log('📦 Component:', component.componentType)
+        console.log('📋 Properties:', JSON.parse(JSON.stringify(displayProps, null, 2)))
+        console.log('👀 Transformed:', element)
+        if (valuesNotTransformed.length > 0) {
+          console.log(`❌ Values not transformed: ${valuesNotTransformed.join(', ')}`)
+        }
       }
 
       // Interactive replacement mode
+      let doTransform = true
       if (shouldReplace) {
-        console.log('\n🤔 What would you like to do?')
-        console.log('  r) Replace this component')
-        console.log('  s) Skip this component')
-        console.log('  q) Quit the script')
-
-        const answer = await askUser('Your choice (r/s/q): ')
-
-        if (answer === 'q' || answer === 'quit') {
+        const action = await promptUserForAction()
+        if (action === 'quit') {
           console.log('\n🛑 Script stopped by user.')
-          if (fileModified) {
-            console.log(`💾 Saving changes to ${filePath}...`)
-            fileChanges[filePath] = content
-          }
-          break
-        } else if (answer === 's' || answer === 'skip') {
+          userInputInterface.close()
+          process.exit(1)
+        } else if (action === 'skip') {
           console.log('⏭️  Skipped this component.')
           totalSkipped++
-          continue
-        } else if (answer === 'r' || answer === 'replace') {
-          // Apply the transformation (replace the component in the file)
-          const startIndex = component.matchIndex
-          const originalMatch = component.originalMatch
-
-          // Check if it's a self-closing component
-          const isSelfClosing = originalMatch.endsWith('/>')
-
-          if (isSelfClosing) {
-            // Handle self-closing Box components
-            const selfClosingElement =
-              element === 'div'
-                ? `<${element}${classAttribute}${otherProps}></${element}>`
-                : `<${element}${classAttribute}${otherProps} />`
-
-            content =
-              content.substring(0, startIndex) +
-              selfClosingElement +
-              content.substring(startIndex + originalMatch.length)
-            fileModified = true
-          } else {
-            // Handle regular components with children
-            // Find the matching closing tag
-            let depth = 0
-            let searchIndex = startIndex + originalMatch.length
-            let endIndex = -1
-            const componentType = component.componentType
-
-            while (searchIndex < content.length) {
-              const remainingContent = content.substring(searchIndex)
-              const openComponentMatch = remainingContent.match(
-                new RegExp(`^<${componentType}(\\s|>)`)
-              )
-              const closeComponentMatch = remainingContent.match(
-                new RegExp(`^<\\/${componentType}>`)
-              )
-
-              if (openComponentMatch) {
-                depth++
-                searchIndex += openComponentMatch[0].length
-              } else if (closeComponentMatch) {
-                if (depth === 0) {
-                  endIndex = searchIndex
-                  break
-                }
-                depth--
-                searchIndex += closeComponentMatch[0].length
-              } else {
-                searchIndex++
-              }
-            }
-
-            if (endIndex !== -1) {
-              // Extract the content between opening and closing tags
-              const componentContent = content.substring(
-                startIndex + originalMatch.length,
-                endIndex
-              )
-              const replacement = `${transformedElement}${componentContent}</${element}>`
-              const closingTagLength = componentType.length + 3 // +3 for "</" and ">"
-
-              content =
-                content.substring(0, startIndex) +
-                replacement +
-                content.substring(endIndex + closingTagLength)
-              fileModified = true
-            } else {
-              console.log(`❌ Could not find matching closing tag for ${componentType} component`)
-              totalSkipped++
-              continue
-            }
-          }
-
-          console.log('✅ Component replaced!')
+          doTransform = false
+        } else if (action === 'replace') {
+          doTransform = true
           totalReplaced++
         } else {
           console.log('❓ Invalid choice. Skipping this component.')
           totalSkipped++
+          doTransform = false
         }
+      }
+
+      if (doTransform) {
+        // Update the tag name in the AST
+        opening.name = { name: element, type: 'JSXIdentifier' }
+        if (closing) closing.name = { name: element, type: 'JSXIdentifier' }
+
+        // Use helper to build new attributes
+        opening.attributes = buildAttributes(component, classnames)
       }
     }
 
-    // If we're in replace mode and file was modified, save it
-    if (shouldReplace && fileModified) {
-      fileChanges[filePath] = content
+    // If we're in replace mode, generate and store the transformed file output (but don't write yet)
+    if (shouldReplace) {
+      let output
+      try {
+        output = generate(ast, { retainLines: true }, content).code
+        // Format with Prettier using cached .prettierrc config
+        const parser =
+          filePath.endsWith('.ts') || filePath.endsWith('.tsx') ? 'typescript' : 'babel'
+        output = await prettier.format(output, { ...prettierConfig, parser })
+        fileChanges[filePath] = output
+        // Only log here, don't write yet
+        console.log(`✅ Ready to update: ${filePath}`)
+      } catch (err) {
+        console.error(`❌ Error formatting or preparing file ${filePath}:`, err)
+      }
     }
   }
 
   // Write all changes to disk if in replace mode
   if (shouldReplace && Object.keys(fileChanges).length > 0) {
     console.log('\n💾 Saving changes to files...')
-    Object.entries(fileChanges).forEach(([filePath, content]) => {
-      fs.writeFileSync(filePath, content, 'utf8')
-      console.log(`✅ Updated: ${filePath}`)
-    })
+    for (const [filePath, content] of Object.entries(fileChanges)) {
+      try {
+        await fs.promises.writeFile(filePath, content, 'utf8')
+        console.log(`✅ Updated: ${filePath}`)
+      } catch (err) {
+        console.error(`❌ Error writing file ${filePath}:`, err)
+      }
+    }
   }
 
   // Show summary
@@ -313,4 +247,79 @@ function askUser(question) {
       resolve(answer.toLowerCase().trim())
     })
   })
+}
+
+/**
+ * Helper to build new attributes array for a JSX element, including className and other props.
+ */
+function buildAttributes(component, classnames) {
+  const newAttributes = []
+  if (classnames.length > 0) {
+    newAttributes.push({
+      name: { name: 'className', type: 'JSXIdentifier' },
+      type: 'JSXAttribute',
+      value: {
+        type: 'StringLiteral',
+        value: classnames.sort().join(' '),
+      },
+    })
+  }
+  Object.entries(component.props).forEach(([key, propData]) => {
+    if (key === 'as' && COMPONENTS_TO_REPLACE.includes(component.componentType)) return
+    if (Object.keys(valueMap).includes(key)) return
+    if (propData.isSpread) {
+      newAttributes.push({
+        argument: { name: propData.value, type: 'Identifier' },
+        type: 'JSXSpreadAttribute',
+      })
+      return
+    }
+    if (
+      typeof propData.value === 'boolean' ||
+      propData.value === 'true' ||
+      propData.value === 'false'
+    ) {
+      if (propData.value === true || propData.value === 'true') {
+        newAttributes.push({
+          name: { name: key, type: 'JSXIdentifier' },
+          type: 'JSXAttribute',
+          value: null,
+        })
+      }
+      return
+    }
+    if (propData.isExpression) {
+      newAttributes.push({
+        name: { name: key, type: 'JSXIdentifier' },
+        type: 'JSXAttribute',
+        value: {
+          expression: { name: propData.value, type: 'Identifier' },
+          type: 'JSXExpressionContainer',
+        },
+      })
+      return
+    }
+    newAttributes.push({
+      name: { name: key, type: 'JSXIdentifier' },
+      type: 'JSXAttribute',
+      value: { type: 'StringLiteral', value: propData.value },
+    })
+  })
+  return newAttributes
+}
+
+/**
+ * Helper for interactive CLI: prompt the user for an action on a component.
+ * Returns 'replace', 'skip', or 'quit'.
+ */
+async function promptUserForAction() {
+  console.log('\n🤔 What would you like to do?')
+  console.log('  r) Replace this component')
+  console.log('  s) Skip this component')
+  console.log('  q) Quit the script')
+  const answer = await askUser('Your choice (r/s/q): ')
+  if (answer === 'q' || answer === 'quit') return 'quit'
+  if (answer === 's' || answer === 'skip') return 'skip'
+  if (answer === 'r' || answer === 'replace') return 'replace'
+  return 'invalid'
 }

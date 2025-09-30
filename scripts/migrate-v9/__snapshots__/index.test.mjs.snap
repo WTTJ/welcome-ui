@@ -60,14 +60,20 @@ export const Example = () => {
       <div className="grid" columns={2} gutter="sm"></div>
       <div className="flex flex-1 flex-col gap-xxl"></div>
       <div className="flex flex-row gap-xxs items-center"></div>
-      <Alert className="mb-lg" actions={<>
+      <Alert
+        className="mb-lg"
+        actions={
+          <>
             <Alert.Button mb="sm">
               <FormattedMessage defaultMessage="Please sign in with provider" id="5nmpcx" />
             </Alert.Button>
             <Alert.SecondaryButton mb="sm">
               <FormattedMessage defaultMessage="Please sign in with provider" id="5nmpcx" />
             </Alert.SecondaryButton>
-          </>} isFullWidth variant="danger">ant="danger"
+          </>
+        }
+        isFullWidth
+        variant="danger"
       >
         <Alert.Title className="mb-sm">
           <FormattedMessage defaultMessage="Please sign in with provider" id="5nmpcx" />
@@ -80,7 +86,12 @@ export const Example = () => {
         </span>
       </Alert>
       <AspectRatio className="flex-1 max-w-full md:max-w-[8rem]">
-        <img className="rounded-md" alt="video_thumbnail" loading="lazy" src="https://via.placeholder.com/160" />
+        <img
+          className="rounded-md"
+          alt="video_thumbnail"
+          loading="lazy"
+          src="https://via.placeholder.com/160"
+        />
       </AspectRatio>
       <Badge className="ml-sm" size="sm" variant="primary">
         14
@@ -101,18 +112,33 @@ export const Example = () => {
       <form>
         <Field className="my-lg" error="my error message" label="Email" required>
           <Label className="items-center mb-sm" required={BOOLEAN_VALUE}></Label>
-          <InputText autoFocus dataTestId="wa-forgot-input-email" name="email" {...register('email', {
-  pattern: 'This field has invalid format',
-  required: 'This field is required',
-  value: /fish/
-})} />
+          <InputText
+            autoFocus
+            dataTestId="wa-forgot-input-email"
+            name="email"
+            {...register('email', {
+              pattern: 'This field has invalid format',
+              required: 'This field is required',
+              value: /fish/,
+            })}
+          />
         </Field>
-        <Textarea className="mt-md" name="i18n_description_en" {...register('i18n_description_en')} />
-        <Toggle className="inline-flex" checked={BOOLEAN_VALUE} onClick={() => console.debug()} {...register('email', {
-  pattern: 'This field has invalid format',
-  required: 'This field is required',
-  value: /fish/
-})} />
+        <Textarea
+          className="mt-md"
+          name="i18n_description_en"
+          {...register('i18n_description_en')}
+        />
+        <Toggle
+          className="inline-flex"
+          checked={BOOLEAN_VALUE}
+          onClick={() => console.debug()}
+          {...register('email', {
+            pattern: 'This field has invalid format',
+            required: 'This field is required',
+            value: /fish/,
+          })}
+        />
+
         <Button className="mt-xxl w-full" as="a" dataTestId="my-button-1" to={SIGN_IN_PATH}>
           <FormattedMessage defaultMessage="Back to Sign in" id="D7hbFB" />
         </Button>
