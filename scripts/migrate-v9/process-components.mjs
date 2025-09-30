@@ -112,7 +112,9 @@ export async function processComponents(components, shouldReplace = false, verbo
       if (component.componentType === 'Flex') classnames.push('flex')
       if (component.componentType === 'Grid') classnames.push('grid')
 
-      Object.entries(component.props).forEach(([key, propData]) => {
+      const componentProps = Object.entries(component.props)
+
+      componentProps.forEach(([key, propData]) => {
         const value = propData.value
         const transformedValue = transformValue(key, value)
         if (
@@ -142,7 +144,7 @@ export async function processComponents(components, shouldReplace = false, verbo
         console.log(`\n🕵️‍♀️ [${i + 1}/${transformable.length}] Line ${component.line}`)
         console.log('━━━━━━━━━━━━━━━━')
         const displayProps = {}
-        Object.entries(component.props).forEach(([key, propData]) => {
+        componentProps.forEach(([key, propData]) => {
           displayProps[key] = propData.isExpression ? `{${propData.value}}` : propData.value
         })
         console.log('📦 Component:', component.componentType)
@@ -264,9 +266,13 @@ function buildAttributes(component, classnames) {
       },
     })
   }
+
+  // Set for quick lookup
+  const availableTransormers = new Set(Object.keys(valueMap))
+
   Object.entries(component.props).forEach(([key, propData]) => {
     if (key === 'as' && COMPONENTS_TO_REPLACE.includes(component.componentType)) return
-    if (Object.keys(valueMap).includes(key)) return
+    if (availableTransormers.has(key)) return
     if (propData.isSpread) {
       newAttributes.push({
         argument: { name: propData.value, type: 'Identifier' },
@@ -289,6 +295,10 @@ function buildAttributes(component, classnames) {
       return
     }
     if (propData.isExpression) {
+      // Modal.Content deprecation: intercept 'store' prop
+      if (component.componentType === 'Modal.Content' && key === 'store') {
+        return
+      }
       newAttributes.push({
         name: { name: key, type: 'JSXIdentifier' },
         type: 'JSXAttribute',
