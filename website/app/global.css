@@ -19,6 +19,7 @@
 @import '../../lib/src/components/Modal/Assets/assets.module.scss';
 @import '../../lib/src/components/Modal/modal.module.scss';
 @import '../../lib/src/components/Pagination/pagination.module.scss';
+@import '../../lib/src/components/RadioGroup/radio-group.module.scss';
 @import '../../lib/src/components/Swiper/swiper.module.scss';
 @import '../../lib/src/components/Table/table.module.scss';
 @import '../../lib/src/components/Tabs/components/ActiveBar/active-bar.module.scss';

@@ -105,5 +105,6 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.1.13",
     "tailwindcss": "^4.1.11"
-  }
+  },
+  "packageManager": "yarn@1.22.22"
 }

@@ -1,15 +1,13 @@
-import { forwardRef } from 'react'
-
 import { LockIcon } from '@/components/Icon'
 import { VariantIcon } from '@/components/VariantIcon'
-import { classNames } from '@/utils'
+import { classNames, forwardRefWithAs } from '@/utils'
 
 import labelStyles from './label.module.scss'
 import type { LabelProps } from './types'
 
 const cx = classNames(labelStyles)
 
-export const Label = forwardRef<HTMLLabelElement, LabelProps>(
+export const Label = forwardRefWithAs<LabelProps, 'label'>(
   ({ children, className, disabled, required, variant, ...rest }, ref) => {
     return (
       <label className={cx('root', className)} ref={ref} {...rest}>
