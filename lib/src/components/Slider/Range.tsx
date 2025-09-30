@@ -56,10 +56,10 @@ const ensureMax = ({
 /**
  * @name Slider.Range
  */
-// BREAKING CHANGE: removed `borderSelectorColor` default value
 export const Range = forwardRef<HTMLDivElement, RangeProps>(
   (
     {
+      borderSelectorColor,
       className,
       disabled,
       hint,
@@ -294,11 +294,15 @@ export const Range = forwardRef<HTMLDivElement, RangeProps>(
             <div className={cx('input-range-wrapper')}>
               <input
                 {...restProps}
-                className={cx('input-range', 'range-input-range')}
+                className={cx(
+                  'input-range',
+                  'range-input-range',
+                  borderSelectorColor && `border-selector-${borderSelectorColor}`
+                )}
                 disabled={disabled}
+                id={`${rangeId}-min`}
                 max={max}
                 min={min}
-                id={`${rangeId}-min`}
                 onChange={handleMinValue}
                 onKeyDown={(e: KeyboardEvent<HTMLInputElement>) => handleKeyDown(e, 'min')}
                 onMouseDown={() => {
@@ -320,11 +324,15 @@ export const Range = forwardRef<HTMLDivElement, RangeProps>(
 
               <input
                 {...restProps}
-                className={cx('input-range', 'range-input-range')}
+                className={cx(
+                  'input-range',
+                  'range-input-range',
+                  borderSelectorColor && `border-selector-${borderSelectorColor}`
+                )}
                 disabled={disabled}
+                id={`${rangeId}-max`}
                 max={max}
                 min={min}
-                id={`${rangeId}-max`}
                 onChange={handleMaxValue}
                 onKeyDown={(e: KeyboardEvent<HTMLInputElement>) => handleKeyDown(e, 'max')}
                 onMouseDown={() => {

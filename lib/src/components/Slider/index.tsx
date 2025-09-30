@@ -24,6 +24,7 @@ const cx = classNames(SliderStyles)
 export const SliderComponent = forwardRef<HTMLDivElement, SliderProps>(
   (
     {
+      borderSelectorColor,
       className,
       disabled,
       hint,
@@ -40,7 +41,7 @@ export const SliderComponent = forwardRef<HTMLDivElement, SliderProps>(
     },
     ref
   ) => {
-  const range = useRef<HTMLInputElement>(null)
+    const range = useRef<HTMLInputElement>(null)
     const tooltipRef = useRef<HTMLOutputElement>(null)
     const [tooltipVisible, setTooltipVisible] = useState<boolean>(false)
     const [inputValue, setInputValue] = useState<number>(ensureMinMax(value, min, max, step))
@@ -148,12 +149,16 @@ export const SliderComponent = forwardRef<HTMLDivElement, SliderProps>(
 
           <div className={cx('slider-wrapper')}>
             <input
-              className={cx('input-range', 'slider-input-range')}
+              className={cx(
+                'input-range',
+                'slider-input-range',
+                borderSelectorColor && `border-selector-${borderSelectorColor}`
+              )}
               disabled={disabled}
+              id={sliderId}
               list="tickmarks"
               max={max}
               min={min}
-              id={sliderId}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 const value = parseInt(e.target.value, 10)
 

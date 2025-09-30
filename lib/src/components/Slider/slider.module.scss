@@ -7,6 +7,7 @@
   height: 1.25rem;
   width: 1.25rem;
   transform: scale(1);
+  border: var(--border-width-md) solid var(--borderColor, var(--color-neutral-10));
 
   transition:
     background-color var(--duration-medium),
@@ -140,6 +141,32 @@
           @include input-range-slider-disabled-active;
         }
       }
+    }
+  }
+
+  .border-selector {
+    &-secondary-blue {
+      --borderColor: var(--color-secondary-blue);
+    }
+
+    &-secondary-green {
+      --borderColor: var(--color-secondary-green);
+    }
+
+    &-secondary-orange {
+      --borderColor: var(--color-secondary-orange);
+    }
+
+    &-secondary-pink {
+      --borderColor: var(--color-secondary-pink);
+    }
+
+    &-secondary-teal {
+      --borderColor: var(--color-secondary-teal);
+    }
+
+    &-secondary-violet {
+      --borderColor: var(--color-secondary-violet);
     }
   }
 
