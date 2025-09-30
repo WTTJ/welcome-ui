@@ -30,5 +30,3 @@ export const AssetBackdrop = forwardRef<HTMLDivElement, BackdropProps>(
     )
   }
 )
-
-AssetBackdrop.displayName = 'Backdrop'

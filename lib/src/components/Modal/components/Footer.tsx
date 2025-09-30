@@ -30,5 +30,3 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(
     )
   }
 )
-
-Footer.displayName = 'Footer'
