@@ -12,7 +12,8 @@ import React, {
 
 import { RightIcon } from '@/components/Icon'
 import { classNames } from '@/utils'
-import { clamp, throttle } from '@old/utils'
+import { clamp } from '@/utils/clamp'
+import { throttle } from '@/utils/throttle'
 
 import breadcrumbStyles from './breadcrumb.module.scss'
 import { Item } from './Item'
