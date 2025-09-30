@@ -63,7 +63,7 @@ const nextConfig = {
   webpack: (config, { isServer }) => {
     if (process.env.NODE_ENV === 'development' && isServer) {
       if (!global.__WATCHERS_INITIALIZED__) {
-        watchTypes()
+        // watchTypes()
         watchExamples()
         global.__WATCHERS_INITIALIZED__ = true
       }
