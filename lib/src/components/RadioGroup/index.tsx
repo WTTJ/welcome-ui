@@ -42,7 +42,6 @@ export const RadioGroup = forwardRef<HTMLFieldSetElement, RadioGroupProps>(
     return (
       <FieldGroup
         as={AriakitRadioGroup}
-        className="mb-0"
         data-tesid={dataTestId}
         disabled={disabled}
         label={label}
