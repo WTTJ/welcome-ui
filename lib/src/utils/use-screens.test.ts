@@ -1,25 +1,32 @@
-// import * as tokens from '@/theme/tokens'
-
 import { useScreens } from './use-screens'
 
-vi.mock('@/theme/tokens', () => ({
-  primitives: {
-    screens: {
-      '--breakpoint-md': '768px',
-      '--breakpoint-sm': '640px',
-      mobile: '24rem',
-      tablet: 380,
+vi.mock(import('@/theme/tokens.json'), async importOriginal => {
+  const actual = await importOriginal()
+  return {
+    default: {
+      ...actual,
+      breakpoint: {
+        ...actual.breakpoint,
+        mobile: { $value: '24rem' },
+        tablet: { $value: '380' },
+      },
     },
-  },
-}))
+  }
+})
 
 describe('useScreens', () => {
   it('should return the correct screen sizes', async () => {
     const screens = useScreens()
     expect(screens).toEqual({
-      md: 768,
-      sm: 640,
+      '2xl': 1440,
+      '3xl': 1620,
+      '4xl': 1920,
+      lg: 980,
+      md: 736,
+      sm: 480,
       tablet: 380,
+      xl: 1280,
+      xs: 0,
     })
   })
 })

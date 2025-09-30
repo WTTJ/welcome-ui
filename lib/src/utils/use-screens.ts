@@ -1,8 +1,9 @@
 /* eslint-disable perfectionist/sort-modules */
-import { primitives } from '@/theme/tokens'
+import { tokens } from '@/theme/generate-theme'
+import type { Tokens } from '@/theme/generate-theme'
 
-type ScreenSize = keyof typeof primitives.screens extends `--breakpoint-${infer K}` ? K : never
-type Screens = Record<ScreenSize, number>
+type ScreenSize = Tokens['breakpoint']
+type Screens = Record<ScreenSize, Tokens['breakpoint']['$value']>
 
 /**
  * A custom hook to retrieve the screen sizes defined in the theme tokens.
@@ -11,10 +12,10 @@ type Screens = Record<ScreenSize, number>
  * Only supports number values (e.g. no 'rem', '%', etc.).
  */
 export function useScreens() {
-  return Object.entries(primitives.screens).reduce((acc, [key, value]) => {
+  return Object.entries(tokens.breakpoint).reduce((acc, [key, { ['$value']: value }]) => {
     const parsedValue = typeof value === 'string' ? Number(value.replace('px', '')) : value
     if (!isNaN(parsedValue)) {
-      acc[key.replace('--breakpoint-', '') as keyof Screens] = parsedValue
+      acc[key as keyof Screens] = parsedValue
     }
     return acc
   }, {} as Screens)
