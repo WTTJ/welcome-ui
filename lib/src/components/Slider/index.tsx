@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useEffect, useRef, useState } from 'react'
+import React, { forwardRef, useCallback, useEffect, useId, useRef, useState } from 'react'
 
 import { Hint } from '@/components/Hint'
 import { InputText } from '@/components/InputText'
@@ -40,7 +40,7 @@ export const SliderComponent = forwardRef<HTMLDivElement, SliderProps>(
     },
     ref
   ) => {
-    const range = useRef<HTMLInputElement>(null)
+  const range = useRef<HTMLInputElement>(null)
     const tooltipRef = useRef<HTMLOutputElement>(null)
     const [tooltipVisible, setTooltipVisible] = useState<boolean>(false)
     const [inputValue, setInputValue] = useState<number>(ensureMinMax(value, min, max, step))
@@ -117,10 +117,13 @@ export const SliderComponent = forwardRef<HTMLDivElement, SliderProps>(
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value])
 
+    // useId ensures stable id generation between SSR and CSR preventing hydration mismatches
+    const sliderId = useId()
+
     return (
       <div className={cx('slider-root', className)} ref={ref}>
         {label ? (
-          <Text as="label" variant="sm">
+          <Text as="label" htmlFor={sliderId} variant="sm">
             {label}
           </Text>
         ) : null}
@@ -150,6 +153,7 @@ export const SliderComponent = forwardRef<HTMLDivElement, SliderProps>(
               list="tickmarks"
               max={max}
               min={min}
+              id={sliderId}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 const value = parseInt(e.target.value, 10)
 

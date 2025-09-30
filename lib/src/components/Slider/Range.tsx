@@ -1,5 +1,5 @@
 import type { ChangeEvent, KeyboardEvent } from 'react'
-import { forwardRef, useCallback, useEffect, useRef, useState } from 'react'
+import { forwardRef, useCallback, useEffect, useId, useRef, useState } from 'react'
 
 import { Hint } from '@/components/Hint'
 import { InputText } from '@/components/InputText'
@@ -78,7 +78,8 @@ export const Range = forwardRef<HTMLDivElement, RangeProps>(
   ) => {
     const [minValue, setMinValue] = useState(min)
     const [maxValue, setMaxValue] = useState(max)
-    const [inputMinValue, setInputMinValue] = useState<number>(max)
+    // Initialize inputMinValue with the provided min (was max causing hydration mismatch if min != max)
+    const [inputMinValue, setInputMinValue] = useState<number>(min)
     const [inputMaxValue, setInputMaxValue] = useState<number>(max)
     const minValueRef = useRef<HTMLInputElement>(null)
     const maxValueRef = useRef<HTMLInputElement>(null)
@@ -216,10 +217,12 @@ export const Range = forwardRef<HTMLDivElement, RangeProps>(
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value])
 
+    const rangeId = useId()
+
     return (
       <div className={cx('range-root', className)} ref={ref}>
         {label ? (
-          <Text as="label" variant="sm">
+          <Text as="label" htmlFor={`${rangeId}-min`} variant="sm">
             {label}
           </Text>
         ) : null}
@@ -295,6 +298,7 @@ export const Range = forwardRef<HTMLDivElement, RangeProps>(
                 disabled={disabled}
                 max={max}
                 min={min}
+                id={`${rangeId}-min`}
                 onChange={handleMinValue}
                 onKeyDown={(e: KeyboardEvent<HTMLInputElement>) => handleKeyDown(e, 'min')}
                 onMouseDown={() => {
@@ -320,6 +324,7 @@ export const Range = forwardRef<HTMLDivElement, RangeProps>(
                 disabled={disabled}
                 max={max}
                 min={min}
+                id={`${rangeId}-max`}
                 onChange={handleMaxValue}
                 onKeyDown={(e: KeyboardEvent<HTMLInputElement>) => handleKeyDown(e, 'max')}
                 onMouseDown={() => {
