@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
-import type { LiteralUnion } from '@old/utils'
+import tokens from './tokens.json' assert { type: 'json' }
 
 const indentation = '  ' // 2 spaces for indentation
 const __filename = fileURLToPath(import.meta.url)
@@ -12,7 +12,6 @@ const fontFacesPath = path.join(__dirname, 'fontFaces.css')
 const basePath = path.join(__dirname, 'base.css')
 const resetPath = path.join(__dirname, 'resets.css')
 const themePath = path.join(__dirname, 'theme.css')
-const tokensPath = path.join(__dirname, 'tokens.json')
 const variablesPath = path.join(__dirname, 'variables.css')
 const breakpointsPath = path.join(__dirname, 'utils', 'breakpoints.scss')
 
@@ -20,29 +19,6 @@ const fontFaces = fs.readFileSync(fontFacesPath, 'utf8')
 const baseStyles = fs.readFileSync(basePath, 'utf8')
 const resetStyles = fs.readFileSync(resetPath, 'utf8')
 const variableStyles = fs.readFileSync(variablesPath, 'utf8')
-
-type FamilyToken = Record<string, TokenFamilyVariant>
-
-type MyLiteralUnion = LiteralUnion<'$type' | string>
-
-// type TokenBreakpoint = FamilyToken['breakpoint']
-
-type TokenFamilyShade = Record<MyLiteralUnion, TokenType | TokenValue>
-
-type TokenFamilyVariant = Record<MyLiteralUnion, TokenFamilyShade | TokenType>
-
-type TokenType =
-  | 'color'
-  | 'cubicBezier'
-  | 'dimension'
-  | 'duration'
-  | 'fontFamily'
-  | 'fontWeight'
-  | 'shadow'
-
-type TokenValue = Record<'$value', number | string>
-
-export const tokens = JSON.parse(fs.readFileSync(tokensPath, 'utf8')) as FamilyToken
 
 const getStringFrom = (map: Record<string, string>) => `${map.property} {\n${map.value}}\n`
 
@@ -62,7 +38,7 @@ fs.writeFileSync(themePath, generateThemeCss(), 'utf8')
 
 // Generate scss breakpoints file
 const breakpointsContent = Object.entries(tokens.breakpoint).reduce((acc, [key, value]) => {
-  if (key !== '$type' && value && typeof value === 'object' && '$value' in value) {
+  if (key !== '$type' && typeof value === 'object' && '$value' in value) {
     return acc + `$breakpoint-${key}: ${value['$value']};\n`
   }
   return acc
