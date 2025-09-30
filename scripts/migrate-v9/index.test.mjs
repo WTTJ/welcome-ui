@@ -4,7 +4,8 @@ import path from 'path'
 
 import { describe, expect, it } from 'vitest'
 
-import { findBoxComponents, processComponents } from './index.mjs'
+import { findAllComponentUsages } from './index.mjs'
+import { processComponents } from './process-components.mjs'
 import { transform, transformSpecificValue, transformValue } from './transform.mjs'
 
 describe('upgrade-v9 migration script', () => {
@@ -17,7 +18,26 @@ describe('upgrade-v9 migration script', () => {
       fs.copyFileSync(srcFile, destFile)
 
       // Find components in the temp file
-      const components = findBoxComponents(tmpDir)
+      const components = findAllComponentUsages(tmpDir)
+      // Run migration (shouldReplace = true)
+      await processComponents(components, true)
+
+      // Read migrated file
+      const migrated = fs.readFileSync(destFile, 'utf8')
+
+      // Assert output (snapshot or inline string)
+      expect(migrated).toMatchSnapshot()
+    })
+
+    it('migrates fixtures/Component2.tsx as expected', async () => {
+      // Setup temp dir and copy fixture
+      const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'wui-upgrade-test-'))
+      const srcFile = path.join(__dirname, './fixtures/Component2.tsx')
+      const destFile = path.join(tmpDir, 'Component2.tsx')
+      fs.copyFileSync(srcFile, destFile)
+
+      // Find components in the temp file
+      const components = findAllComponentUsages(tmpDir)
       // Run migration (shouldReplace = true)
       await processComponents(components, true)
 
@@ -29,11 +49,11 @@ describe('upgrade-v9 migration script', () => {
     })
   })
 
-  describe('findBoxComponents', () => {
+  describe('findAllComponentUsages', () => {
     it('finds Box, Flex, Grid, Stack components in a directory', () => {
       // Setup: create a mock directory structure in memory or use a temp dir
       // For demonstration, just check that the function runs and returns an array
-      const result = findBoxComponents(path.join(__dirname, './fixtures'))
+      const result = findAllComponentUsages(path.join(__dirname, './fixtures'))
       expect(Array.isArray(result)).toBe(true)
     })
   })

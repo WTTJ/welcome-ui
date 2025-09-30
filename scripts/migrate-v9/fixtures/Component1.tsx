@@ -112,9 +112,11 @@ export const Example = () => {
         14
       </Badge>
       <Breadcrumb mb="lg" separator=">">
-        <Breadcrumb.Item href="/">Introduction</Breadcrumb.Item>
-        <Breadcrumb.Item>Disabled</Breadcrumb.Item>
-        <Breadcrumb.Item>Breadcrumb</Breadcrumb.Item>
+        <Breadcrumb.Item href="/" mb="xl">
+          Introduction
+        </Breadcrumb.Item>
+        <Breadcrumb.Item mb="xl">Disabled</Breadcrumb.Item>
+        <Breadcrumb.Item mb="xl">Breadcrumb</Breadcrumb.Item>
       </Breadcrumb>
       <ButtonGroup>
         <Button data-testid="my-draft-button" disabled={BOOLEAN_VALUE} onClick={ON_CLICK} size="sm">

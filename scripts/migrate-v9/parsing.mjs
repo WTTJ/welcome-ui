@@ -11,10 +11,13 @@ export function getStackClassnames(classnames) {
   if (!result.includes('flex')) {
     result.push('flex')
   }
-  if (!result.includes('flex-row')) {
+
+  // Only add 'flex-col' if neither 'flex-row' nor 'flex-col' is present
+  if (!result.includes('flex-row') && !result.includes('flex-col')) {
     result.push('flex-col')
   }
-  return result
+
+  return result.sort()
 }
 
 /**
@@ -29,9 +32,10 @@ export function parsePropsString(propsString) {
   let ast
   try {
     ast = parse(code, { plugins: ['jsx', 'typescript'], sourceType: 'module' })
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (e) {
     // fallback: return empty object if parsing fails
+    // eslint-disable-next-line no-console
+    console.error('Failed to create ast', e)
     return {}
   }
   const attrs = ast.program.body[0].expression.openingElement.attributes

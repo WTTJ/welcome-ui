@@ -67,8 +67,9 @@ export const Example = () => {
             <Alert.SecondaryButton mb="sm">
               <FormattedMessage defaultMessage="Please sign in with provider" id="5nmpcx" />
             </Alert.SecondaryButton>
-          </>} isFullWidth variant="danger">
-        <Alert.Title mb="sm">
+          </>} isFullWidth variant="danger">ant="danger"
+      >
+        <Alert.Title className="mb-sm">
           <FormattedMessage defaultMessage="Please sign in with provider" id="5nmpcx" />
         </Alert.Title>
         <span>
@@ -85,9 +86,11 @@ export const Example = () => {
         14
       </Badge>
       <Breadcrumb className="mb-lg" separator=">">
-        <Breadcrumb.Item href="/">Introduction</Breadcrumb.Item>
-        <Breadcrumb.Item>Disabled</Breadcrumb.Item>
-        <Breadcrumb.Item>Breadcrumb</Breadcrumb.Item>
+        <Breadcrumb.Item className="mb-xl" href="/">
+          Introduction
+        </Breadcrumb.Item>
+        <Breadcrumb.Item className="mb-xl">Disabled</Breadcrumb.Item>
+        <Breadcrumb.Item className="mb-xl">Breadcrumb</Breadcrumb.Item>
       </Breadcrumb>
       <ButtonGroup>
         <Button data-testid="my-draft-button" disabled={BOOLEAN_VALUE} onClick={ON_CLICK} size="sm">
@@ -119,6 +122,24 @@ export const Example = () => {
         </Button>
       </form>
     </>
+  )
+}
+"
+`;
+
+exports[`upgrade-v9 migration script > processComponents (integration) > migrates fixtures/Component2.tsx as expected 1`] = `
+"import { Breadcrumb } from '../../../lib/src/old/components/Breadcrumb'
+
+// Usage examples
+export const Example = () => {
+  return (
+    <Breadcrumb className="mb-lg" separator=">">
+      <Breadcrumb.Item className="mb-xl" href="/">
+        Introduction
+      </Breadcrumb.Item>
+      <Breadcrumb.Item className="mb-xl">Disabled</Breadcrumb.Item>
+      <Breadcrumb.Item className="mb-xl">Breadcrumb</Breadcrumb.Item>
+    </Breadcrumb>
   )
 }
 "
