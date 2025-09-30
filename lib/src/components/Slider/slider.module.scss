@@ -54,14 +54,11 @@
     align-items: center;
     display: flex;
     gap: var(--spacing-sm);
+    --inputTextWrapperWidth: 72px;
   }
 
   .hint {
     margin-top: 0;
-  }
-
-  .input-text {
-    width: 72px;
   }
 
   .slider-wrapper {
@@ -91,6 +88,7 @@
     position: relative;
     padding-top: var(--spacing-sm);
     width: 100%;
+     --inputTextWrapperWidth: 72px;
   }
 
   .input-range {

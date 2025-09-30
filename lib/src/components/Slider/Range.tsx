@@ -231,7 +231,6 @@ export const Range = forwardRef<HTMLDivElement, RangeProps>(
           {(type === 'inline' || type === 'fields') &&
             (type === 'fields' ? (
               <InputText
-                className={cx('input-text')}
                 disabled={disabled}
                 max={maxValue}
                 min={min}
@@ -377,7 +376,6 @@ export const Range = forwardRef<HTMLDivElement, RangeProps>(
           {(type === 'inline' || type === 'fields') &&
             (type === 'fields' ? (
               <InputText
-                className={cx('input-text')}
                 disabled={disabled}
                 max={max}
                 min={minValue + 1}

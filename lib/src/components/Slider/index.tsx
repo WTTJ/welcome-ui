@@ -132,7 +132,6 @@ export const SliderComponent = forwardRef<HTMLDivElement, SliderProps>(
           {(type === 'inline' || type === 'left-field') &&
             (type === 'left-field' ? (
               <InputText
-                className={cx('input-text')}
                 disabled={disabled}
                 max={max}
                 min={min}

@@ -1,6 +1,9 @@
 @layer components {
   .input-text-wrapper {
     position: relative;
+    width: 100%;
+    /* Set --inputTextWrapperWidth if you need to edit the input width */
+    width: var(--inputTextWrapperWidth, 100%);
   }
 
   .root {
