@@ -2,12 +2,23 @@
 
 exports[`upgrade-v9 migration script > processComponents (integration) > migrates fixtures/Component1.tsx as expected 1`] = `
 "import { Alert } from '../../../lib/src/old/components/Alert'
+import { AspectRatio } from '../../../lib/src/old/components/AspectRatio'
+import { Badge } from '../../../lib/src/old/components/Badge'
 import { Box } from '../../../lib/src/old/components/Box'
+import { Breadcrumb } from '../../../lib/src/old/components/Breadcrumb'
+import { Button } from '../../../lib/src/old/components/Button'
+import { ButtonGroup } from '../../../lib/src/old/components/ButtonGroup'
+import { CloseButton } from '../../../lib/src/old/components/CloseButton'
+import { Field } from '../../../lib/src/old/components/Field'
 import { Grid } from '../../../lib/src/old/components/Grid'
 import { IconsFont } from '../../../lib/src/old/components/IconsFont'
+import { InputText } from '../../../lib/src/old/components/InputText'
+import { Label } from '../../../lib/src/old/components/Label'
 import { Link } from '../../../lib/src/old/components/Link'
 import { Stack } from '../../../lib/src/old/components/Stack'
 import { Text } from '../../../lib/src/old/components/Text'
+import { Textarea } from '../../../lib/src/old/components/Textarea'
+import { Toggle } from '../../../lib/src/old/components/Toggle'
 
 const FormattedMessage = ({
   defaultMessage,
@@ -17,36 +28,145 @@ const FormattedMessage = ({
   id: string
 }): React.ReactNode => <span id={id}>{defaultMessage}</span>
 
-const signinPath = '/signin'
+const register = (name: string, options?: object) => {
+  return { name, ...options }
+}
+
+const SIGN_IN_PATH = '/signin'
+const BOOLEAN_VALUE = false
+// eslint-disable-next-line no-console
+const ON_CLICK = () => console.debug('submit')
 
 // Usage examples
-export const Example = () => (
-  <>
-    <div className="flex h-full">
-      <aside className="bg-beige-20 flex-col grow h-max-content items-center justify-center lg:px-3xl md:px-xl max-w-[30rem] md:flex none min-h-full pb-xl w-40%">
-        <Link to={signinPath}>
-          <IconsFont.Add h={58} />
-          <Text as="h1" mt="md" variant="h4">
-            <FormattedMessage defaultMessage="Terms of use" id="EBDrtq" />
+export const Example = () => {
+  return (
+    <>
+      <div className="flex h-full">
+        <aside className="bg-beige-20 flex-col grow h-max-content items-center justify-center lg:px-3xl md:px-xl max-w-[30rem] md:flex none min-h-full pb-xl w-40%">
+          <Link as={Button} to={SIGN_IN_PATH}>
+            <IconsFont.Add h={58} />
+            <Text className="mt-md text-h3" as="h1" variant="h4">
+              <FormattedMessage defaultMessage="Terms of use" id="EBDrtq" />
+            </Text>
+          </Link>
+          <Text className="mt-auto text-center text-dark-50 text-sm" as="span">
+            <FormattedMessage
+              defaultMessage="© 2024 Acme Corp. All rights reserved."
+              id="8XKXo+"
+            />
           </Text>
-        </Link>
-      </aside>
-    </div>
-    <div className="grid" columns={2} gutter="sm"></div>
-    <div className="flex flex-1 flex-col gap-xxl"></div>
-    <div className="flex flex-row gap-xxs items-center"></div>
-    <Alert isFullWidth mx="auto" variant="danger">
-      <Alert.Title mb="sm">
-        <FormattedMessage defaultMessage="Please sign in with provider" id="5nmpcx" />
-      </Alert.Title>
-      <span>
-        <FormattedMessage
-          defaultMessage="Your organization enforces provider sign-in. Contact your administrator if you need help."
-          id="TzKv+W"
+        </aside>
+      </div>
+      <div className="grid" columns={2} gutter="sm"></div>
+      <div className="flex flex-1 flex-col gap-xxl"></div>
+      <div className="flex flex-row gap-xxs items-center"></div>
+      <Alert
+        className="mb-lg"
+        actions={
+          <>
+            <Alert.Button mb="sm">
+              <FormattedMessage defaultMessage="Please sign in with provider" id="5nmpcx" />
+            </Alert.Button>
+            <Alert.SecondaryButton mb="sm">
+              <FormattedMessage defaultMessage="Please sign in with provider" id="5nmpcx" />
+            </Alert.SecondaryButton>
+          </>
+        }
+        isFullWidth
+        variant="danger"
+      >
+        <Alert.Title className="mb-sm">
+          <FormattedMessage defaultMessage="Please sign in with provider" id="5nmpcx" />
+        </Alert.Title>
+        <span>
+          <FormattedMessage
+            defaultMessage="Your organization enforces provider sign-in. Contact your administrator if you need help."
+            id="TzKv+W"
+          />
+        </span>
+      </Alert>
+      <AspectRatio className="flex-1 max-w-full md:max-w-[8rem]">
+        <img
+          className="rounded-md"
+          alt="video_thumbnail"
+          loading="lazy"
+          src="https://via.placeholder.com/160"
         />
-      </span>
-    </Alert>
-  </>
-)
+      </AspectRatio>
+      <Badge className="ml-sm" size="sm" variant="primary">
+        14
+      </Badge>
+      <Breadcrumb className="mb-lg" separator=">">
+        <Breadcrumb.Item className="mb-xl" href="/">
+          Introduction
+        </Breadcrumb.Item>
+        <Breadcrumb.Item className="mb-xl">Disabled</Breadcrumb.Item>
+        <Breadcrumb.Item className="mb-xl">Breadcrumb</Breadcrumb.Item>
+      </Breadcrumb>
+      <ButtonGroup>
+        <Button data-testid="my-draft-button" disabled={BOOLEAN_VALUE} onClick={ON_CLICK} size="sm">
+          Published
+        </Button>
+      </ButtonGroup>
+      <CloseButton className="bg-neutral-90 border-none" />
+      <form>
+        <Field className="my-lg" error="my error message" label="Email" required>
+          <Label className="items-center mb-sm" required={BOOLEAN_VALUE}></Label>
+          <InputText
+            autoFocus
+            dataTestId="wa-forgot-input-email"
+            name="email"
+            {...register('email', {
+              pattern: 'This field has invalid format',
+              required: 'This field is required',
+              value: /fish/,
+            })}
+          />
+        </Field>
+        <Textarea
+          className="mt-md"
+          name="i18n_description_en"
+          {...register('i18n_description_en')}
+        />
+        <Toggle
+          className="inline-flex"
+          checked={BOOLEAN_VALUE}
+          onClick={() => console.debug()}
+          {...register('email', {
+            pattern: 'This field has invalid format',
+            required: 'This field is required',
+            value: /fish/,
+          })}
+        />
+
+        <Button className="mt-xxl w-full" as="a" dataTestId="my-button-1" to={SIGN_IN_PATH}>
+          <FormattedMessage defaultMessage="Back to Sign in" id="D7hbFB" />
+        </Button>
+        {/* eslint-disable-next-line no-console */}
+        <Button dataTestId="my-button-2" onClick={() => console.debug('submit')} type="submit">
+          <FormattedMessage defaultMessage="Back to Sign in" id="D7hbFB" />
+        </Button>
+      </form>
+    </>
+  )
+}
+"
+`;
+
+exports[`upgrade-v9 migration script > processComponents (integration) > migrates fixtures/Component2.tsx as expected 1`] = `
+"import { Breadcrumb } from '../../../lib/src/old/components/Breadcrumb'
+
+// Usage examples
+export const Example = () => {
+  return (
+    <Breadcrumb className="mb-lg" separator=">">
+      <Breadcrumb.Item className="mb-xl" href="/">
+        Introduction
+      </Breadcrumb.Item>
+      <Breadcrumb.Item className="mb-xl">Disabled</Breadcrumb.Item>
+      <Breadcrumb.Item className="mb-xl">Breadcrumb</Breadcrumb.Item>
+    </Breadcrumb>
+  )
+}
 "
 `;

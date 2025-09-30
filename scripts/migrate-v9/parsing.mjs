@@ -1,3 +1,6 @@
+import generate from '@babel/generator'
+import { parse } from '@babel/parser'
+
 /**
  * Ensure Stack component has correct classnames (flex, flex-col).
  * @param {string[]} classnames
@@ -8,10 +11,13 @@ export function getStackClassnames(classnames) {
   if (!result.includes('flex')) {
     result.push('flex')
   }
-  if (!result.includes('flex-row')) {
+
+  // Only add 'flex-col' if neither 'flex-row' nor 'flex-col' is present
+  if (!result.includes('flex-row') && !result.includes('flex-col')) {
     result.push('flex-col')
   }
-  return result
+
+  return result.sort()
 }
 
 /**
@@ -21,55 +27,42 @@ export function getStackClassnames(classnames) {
  * @returns {Record<string, {isExpression: boolean, value: string}>}
  */
 export function parsePropsString(propsString) {
+  // Wrap the props string in a fake JSX element
+  const code = `<X ${propsString} />`
+  let ast
+  try {
+    ast = parse(code, { plugins: ['jsx', 'typescript'], sourceType: 'module' })
+  } catch (e) {
+    // fallback: return empty object if parsing fails
+    // eslint-disable-next-line no-console
+    console.error('Failed to create ast', e)
+    return {}
+  }
+  const attrs = ast.program.body[0].expression.openingElement.attributes
   const props = {}
-  let charIndex = 0
-  while (charIndex < propsString.length) {
-    // Skip whitespace and newlines
-    while (charIndex < propsString.length && /\s/.test(propsString[charIndex])) {
-      charIndex++
-    }
-    if (charIndex >= propsString.length) break
-    const propNameMatch = propsString.substring(charIndex).match(/^([\w-]+)=/)
-    if (!propNameMatch) break
-    const propName = propNameMatch[1]
-    charIndex += propNameMatch[0].length
-    let propValue = ''
-    let isExpression = false
-    if (propsString[charIndex] === '{') {
-      let braceDepth = 0
-      let valueStart = charIndex
-      isExpression = true
-      do {
-        if (propsString[charIndex] === '{') braceDepth++
-        if (propsString[charIndex] === '}') braceDepth--
-        charIndex++
-      } while (charIndex < propsString.length && braceDepth > 0)
-      propValue = propsString.substring(valueStart + 1, charIndex - 1).trim()
-      if (propValue.startsWith('{') && propValue.endsWith('}')) {
-        propValue = propValue.slice(1, -1).trim()
+  let spreadCount = 0
+  for (const attr of attrs) {
+    if (attr.type === 'JSXAttribute') {
+      const key = attr.name.name
+      if (!attr.value) {
+        // Boolean prop (e.g. required)
+        props[key] = { isExpression: false, value: true }
+      } else if (attr.value.type === 'StringLiteral') {
+        props[key] = { isExpression: false, value: attr.value.value }
+      } else if (attr.value.type === 'JSXExpressionContainer') {
+        // Use @babel/generator to get the source code for the expression
+        props[key] = {
+          isExpression: true,
+          value: generate(attr.value.expression).code,
+        }
       }
-    } else if (propsString[charIndex] === '"' || propsString[charIndex] === "'") {
-      const quote = propsString[charIndex]
-      charIndex++
-      const valueStart = charIndex
-      while (charIndex < propsString.length && propsString[charIndex] !== quote) {
-        if (propsString[charIndex] === '\\') charIndex++
-        charIndex++
+    } else if (attr.type === 'JSXSpreadAttribute') {
+      // Use @babel/generator to get the source code for the spread expression
+      props[`__spread${spreadCount++}__`] = {
+        isSpread: true,
+        value: generate(attr.argument).code,
       }
-      propValue = propsString.substring(valueStart, charIndex)
-      charIndex++
-    } else {
-      const valueStart = charIndex
-      while (charIndex < propsString.length && !/\s/.test(propsString[charIndex])) {
-        charIndex++
-      }
-      propValue = propsString.substring(valueStart, charIndex)
-    }
-    props[propName] = {
-      isExpression: isExpression,
-      value: propValue,
     }
   }
-
   return props
 }
