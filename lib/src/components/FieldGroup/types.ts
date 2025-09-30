@@ -1,9 +1,11 @@
 import type { HTMLAttributes } from 'react'
+import type React from 'react'
 
 import type { LabelProps } from '@/components/Label/types'
 
 export interface FieldGroupOptions {
-  label?: React.ReactElement
+  hideLabel?: boolean
+  label: React.ReactNode
   required?: LabelProps['required']
 }
 

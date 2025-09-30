@@ -19,7 +19,13 @@ describe('<RadioGroup />', () => {
     const onChange = vi.fn()
 
     const { user } = render(
-      <RadioGroup dataTestId={name} name={name} onChange={onChange} options={options} />
+      <RadioGroup
+        dataTestId={name}
+        label="Radio Group"
+        name={name}
+        onChange={onChange}
+        options={options}
+      />
     )
 
     const radio3 = screen.getByTestId('radio-group-value3')
@@ -42,6 +48,7 @@ describe('<RadioGroup />', () => {
       <RadioGroup
         dataTestId={name}
         id="dumb_id"
+        label="Radio Group with specific id"
         name={name}
         onChange={onChange}
         options={options}
@@ -59,6 +66,7 @@ describe('<RadioGroup />', () => {
     render(
       <RadioGroup
         dataTestId={name}
+        label="Radio Group with default value"
         name={name}
         onChange={onChange}
         options={options}
@@ -77,6 +85,7 @@ describe('<RadioGroup />', () => {
     render(
       <RadioGroup
         dataTestId={name}
+        label="Radio Group with hint"
         name={name}
         onChange={onChange}
         options={[{ hint: 'hint', label: 'labelHint', value: 'valueHint' }, ...options]}
@@ -92,12 +101,13 @@ describe('<RadioGroup />', () => {
     expect(hint).toHaveTextContent('hint')
   })
 
-  it('should render correctly with a "as" component', async () => {
+  it('should render correctly with renderOption', async () => {
     const onChange = vi.fn()
 
     const { user } = render(
       <RadioGroup
         dataTestId={name}
+        label="test"
         name={name}
         onChange={onChange}
         options={options}

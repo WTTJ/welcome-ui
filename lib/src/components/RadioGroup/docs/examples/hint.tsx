@@ -12,7 +12,14 @@ export const ITEMS = [
 ]
 
 const Example = () => {
-  return <RadioGroup name="social" options={ITEMS} />
+  return (
+    <RadioGroup
+      hideLabel
+      label="Radio Group with hint on the second item"
+      name="social"
+      options={ITEMS}
+    />
+  )
 }
 
 export default Example

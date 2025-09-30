@@ -11,7 +11,13 @@ export const ITEMS = [
 const Example = () => {
   return (
     <Field error="an error" label="Label">
-      <RadioGroup className="flex-col" name="social" options={ITEMS} />
+      <RadioGroup
+        className="flex-col"
+        hideLabel
+        label="Radio Group with error"
+        name="social"
+        options={ITEMS}
+      />
     </Field>
   )
 }

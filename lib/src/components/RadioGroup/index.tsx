@@ -13,6 +13,7 @@ export const RadioGroup = ({
   className,
   dataTestId,
   disabled,
+  hideLabel,
   id,
   label,
   name,
@@ -34,7 +35,7 @@ export const RadioGroup = ({
   }
 
   return (
-    <FieldGroup data-testid={dataTestId} label={label} required={required}>
+    <FieldGroup data-testid={dataTestId} hideLabel={hideLabel} label={label} required={required}>
       <div className={cx('root', className)}>
         {options.map((option: RadioGroupOption) => {
           return (

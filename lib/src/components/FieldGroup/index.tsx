@@ -9,13 +9,11 @@ import type { FieldGroupProps } from './types'
 const cx = classNames(fieldGroupStyles)
 
 export const FieldGroup = forwardRef<HTMLFieldSetElement, FieldGroupProps>(
-  ({ children, className, label, required, ...rest }, ref) => (
+  ({ children, className, hideLabel, label, required, ...rest }, ref) => (
     <fieldset className={cx('root', className)} ref={ref} {...rest}>
-      {label ? (
-        <Label as="legend" required={required}>
-          {label}
-        </Label>
-      ) : null}
+      <Label as="legend" className={cx(hideLabel && 'visually-hidden')} required={required}>
+        {label}
+      </Label>
       {children}
     </fieldset>
   )
