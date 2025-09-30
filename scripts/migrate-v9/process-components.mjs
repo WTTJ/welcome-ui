@@ -21,7 +21,7 @@ try {
   prettierConfig = {}
 }
 
-const COMPONENTS_TO_REPLACE = ['Box', 'Flex', 'Grid', 'Stack']
+const COMPONENTS_TO_REPLACE = ['Box', 'Flex', 'Grid', 'Stack', 'Modal.Content']
 
 const PROPS_WHITELIST = [
   'aria-label',
@@ -297,6 +297,11 @@ function buildAttributes(component, classnames) {
     if (propData.isExpression) {
       // Modal.Content deprecation: intercept 'store' prop
       if (component.componentType === 'Modal.Content' && key === 'store') {
+        newAttributes.push({
+          name: { name: 'data-migration', type: 'JSXIdentifier' },
+          type: 'JSXAttribute',
+          value: { type: 'StringLiteral', value: 'DEPRECATED' },
+        })
         return
       }
       newAttributes.push({

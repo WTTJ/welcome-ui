@@ -180,6 +180,7 @@ export const valueMap = {
   transition: value => `transition_${value}_CSS_TO_EDIT`,
   w: value => transform('w', value),
   whiteSpace: value => transform('whitespace', value),
+  withClosingButton: value => (value === true || value === 'true' ? 'with-closing-button' : ''),
   wrap: value => transform('flex', value),
 }
 

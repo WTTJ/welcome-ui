@@ -185,27 +185,27 @@ export const Example = () => {
         Open modal
       </Modal.Trigger>
       <Modal ariaLabel="example" store={modal}>
-        <Modal.Content
-          className="bg-neutral-90 items-center"
+        <div
+          className="bg-neutral-90 items-center with-closing-button"
           data-testid="modal-content"
-          withClosingButton
+          data-migration="DEPRECATED"
         >
           <Modal.Body>
             Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
             aliquam nec, convallis sit amet erat. Mauris auctor blandit porta. In imperdiet rutrum
             nunc.
           </Modal.Body>
-        </Modal.Content>
+        </div>
       </Modal>
 
       <Modal ariaLabel="example" store={modal}>
-        <Modal.Content>
+        <div data-migration="DEPRECATED">
           <Modal.Body>
             Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
             aliquam nec, convallis sit amet erat. Mauris auctor blandit porta. In imperdiet rutrum
             nunc.
           </Modal.Body>
-        </Modal.Content>
+        </div>
       </Modal>
     </>
   )
