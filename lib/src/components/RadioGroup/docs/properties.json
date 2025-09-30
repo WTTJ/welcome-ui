@@ -176,21 +176,6 @@
               "value": "\"label\""
             },
             {
-              "value": "\"slot\""
-            },
-            {
-              "value": "\"style\""
-            },
-            {
-              "value": "\"title\""
-            },
-            {
-              "value": "\"map\""
-            },
-            {
-              "value": "\"filter\""
-            },
-            {
               "value": "\"a\""
             },
             {
@@ -377,6 +362,9 @@
               "value": "\"main\""
             },
             {
+              "value": "\"map\""
+            },
+            {
               "value": "\"mark\""
             },
             {
@@ -449,6 +437,9 @@
               "value": "\"search\""
             },
             {
+              "value": "\"slot\""
+            },
+            {
               "value": "\"script\""
             },
             {
@@ -468,6 +459,9 @@
             },
             {
               "value": "\"strong\""
+            },
+            {
+              "value": "\"style\""
             },
             {
               "value": "\"sub\""
@@ -504,6 +498,9 @@
             },
             {
               "value": "\"time\""
+            },
+            {
+              "value": "\"title\""
             },
             {
               "value": "\"tr\""
@@ -630,6 +627,9 @@
             },
             {
               "value": "\"feTurbulence\""
+            },
+            {
+              "value": "\"filter\""
             },
             {
               "value": "\"foreignObject\""
