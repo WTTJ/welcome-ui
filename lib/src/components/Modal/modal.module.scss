@@ -148,26 +148,6 @@
       width: var(--dialog-width);
     }
 
-    &.size-lg {
-      /* 720px; */
-      --dialog-width: 45rem;
-    }
-
-    &.size-md {
-      /* 600px; */
-      --dialog-width: 37.5rem;
-    }
-
-    &.size-sm {
-      /* 450px; */
-      --dialog-width: 28.125rem;
-    }
-
-    &.size-xs {
-      /* 320px; */
-      --dialog-width: 20rem;
-    }
-
     /* Styles the Header */
     /* if the Modal have a Body, but not a Footer || have a Footer, but not a Body */
     &:has(.body):not(:has(.footer)),
@@ -205,6 +185,28 @@
       .content.with-close-button > .close {
         display: none;
       }
+    }
+  }
+
+  .size {
+    &-lg {
+      /* 720px; */
+      --dialog-width: 45rem;
+    }
+
+    &-md {
+      /* 600px; */
+      --dialog-width: 37.5rem;
+    }
+
+    &-sm {
+      /* 450px; */
+      --dialog-width: 28.125rem;
+    }
+
+    &-xs {
+      /* 320px; */
+      --dialog-width: 20rem;
     }
   }
 }
