@@ -6,11 +6,11 @@ import generateModule from '@babel/generator'
 import { parse } from '@babel/parser'
 import traverseModule from '@babel/traverse'
 
-import { getModule } from './esm.mjs'
-import { formatWithPrettier } from './formatWithPrettier.mjs'
-import { userInputInterface } from './inline/index.mjs'
-import { getStackClassnames } from './inline/parsing.mjs'
+import { getModule } from '../esm.mjs'
+import { userInputInterface } from './index.mjs'
+import { getStackClassnames } from './parsing.mjs'
 import { transformValue, valueMap } from './transform.mjs'
+import { formatWithPrettier } from '../formatWithPrettier.mjs'
 
 const traverse = getModule(traverseModule)
 const generate = getModule(generateModule)
@@ -116,9 +116,7 @@ export async function processComponents(components, shouldReplace = false, verbo
       if (component.componentType === 'Flex') classnames.push('flex')
       if (component.componentType === 'Grid') classnames.push('grid')
 
-      const componentProps = Object.entries(component.props)
-
-      componentProps.forEach(([key, propData]) => {
+      Object.entries(component.props).forEach(([key, propData]) => {
         const value = propData.value
         const transformedValue = transformValue(key, value)
         if (
@@ -148,7 +146,7 @@ export async function processComponents(components, shouldReplace = false, verbo
         console.log(`\n🕵️‍♀️ [${i + 1}/${transformable.length}] Line ${component.line}`)
         console.log('━━━━━━━━━━━━━━━━')
         const displayProps = {}
-        componentProps.forEach(([key, propData]) => {
+        Object.entries(component.props).forEach(([key, propData]) => {
           displayProps[key] = propData.isExpression ? `{${propData.value}}` : propData.value
         })
         console.log('📦 Component:', component.componentType)
@@ -270,13 +268,9 @@ function buildAttributes(component, classnames) {
       },
     })
   }
-
-  // Set for quick lookup
-  const availableTransormers = new Set(Object.keys(valueMap))
-
   Object.entries(component.props).forEach(([key, propData]) => {
     if (key === 'as' && COMPONENTS_TO_REPLACE.includes(component.componentType)) return
-    if (availableTransormers.has(key)) return
+    if (Object.keys(valueMap).includes(key)) return
     if (propData.isSpread) {
       newAttributes.push({
         argument: { name: propData.value, type: 'Identifier' },
@@ -299,10 +293,6 @@ function buildAttributes(component, classnames) {
       return
     }
     if (propData.isExpression) {
-      // Modal.Content deprecation: intercept 'store' prop
-      if (component.componentType === 'Modal.Content' && key === 'store') {
-        return
-      }
       newAttributes.push({
         name: { name: key, type: 'JSXIdentifier' },
         type: 'JSXAttribute',

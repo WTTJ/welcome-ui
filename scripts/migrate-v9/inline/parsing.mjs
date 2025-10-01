@@ -1,7 +1,7 @@
 import generateModule from '@babel/generator'
 import { parse } from '@babel/parser'
 
-import { getModule } from './esm.mjs'
+import { getModule } from '../esm.mjs'
 
 const generate = getModule(generateModule)
 
