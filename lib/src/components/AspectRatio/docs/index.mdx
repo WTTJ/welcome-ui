@@ -7,15 +7,15 @@ title: AspectRatio
 
 ### Square
 
-Ratio default is set to `4 / 3`, and the child image or video get and `object-fit: cover`.
+`ratio` prop default is set to `4 / 3`, and the child image or video get an `object-fit: cover`.
 
-You can change `ratio` by `1` to get a square:
+You can update the ratio using the `ratio` prop. Here we use `square` for 1 / 1 ratio.
 
 <div data-playground="ratio.tsx" data-component="AspectRatio"></div>
 
 ### Video
 
-Embed a youtube video
+Use `video` to embed a youtube video. A video ratio corresponds to 16 / 9.
 
 <div data-playground="video.tsx" data-component="AspectRatio"></div>
 
@@ -24,3 +24,9 @@ Embed a youtube video
 Embed a Google map
 
 <div data-playground="map.tsx" data-component="AspectRatio"></div>
+
+### Landscape (3 / 2)
+
+Use `3-2` for a landscape. A `3-2` ratio corresponds to 3 / 2.
+
+<div data-playground="landscape.tsx" data-component="AspectRatio"></div>

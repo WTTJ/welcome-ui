@@ -16,6 +16,7 @@ export default {
   "/Alert/docs/examples/sizes.tsx": dynamic(() => import("../../lib/src/components/Alert/docs/examples/sizes.tsx").then(mod => mod), { ssr: false }),
   "/Alert/docs/examples/title.tsx": dynamic(() => import("../../lib/src/components/Alert/docs/examples/title.tsx").then(mod => mod), { ssr: false }),
   "/Alert/docs/examples/variants.tsx": dynamic(() => import("../../lib/src/components/Alert/docs/examples/variants.tsx").then(mod => mod), { ssr: false }),
+  "/AspectRatio/docs/examples/landscape.tsx": dynamic(() => import("../../lib/src/components/AspectRatio/docs/examples/landscape.tsx").then(mod => mod), { ssr: false }),
   "/AspectRatio/docs/examples/map.tsx": dynamic(() => import("../../lib/src/components/AspectRatio/docs/examples/map.tsx").then(mod => mod), { ssr: false }),
   "/AspectRatio/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/AspectRatio/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/AspectRatio/docs/examples/ratio.tsx": dynamic(() => import("../../lib/src/components/AspectRatio/docs/examples/ratio.tsx").then(mod => mod), { ssr: false }),

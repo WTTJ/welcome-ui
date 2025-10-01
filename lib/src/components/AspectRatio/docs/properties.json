@@ -2,8 +2,10 @@
   "AspectRatio": {
     "props": {
       "ratio": {
-        "defaultValue": null,
-        "description": "",
+        "defaultValue": {
+          "value": "'4-3'\n\nOptions:\n- 'square' → 1 / 1\n- '4-3'    → 4 / 3\n- '3-2'    → 3 / 2\n- 'video'  → 16 / 9"
+        },
+        "description": "The aspect ratio of the component.",
         "name": "ratio",
         "parent": {
           "fileName": "welcome-ui/lib/src/components/AspectRatio/types.ts",
@@ -17,7 +19,22 @@
         ],
         "required": false,
         "type": {
-          "name": "number"
+          "name": "enum",
+          "raw": "\"video\" | \"3-2\" | \"4-3\" | \"square\"",
+          "value": [
+            {
+              "value": "\"video\""
+            },
+            {
+              "value": "\"3-2\""
+            },
+            {
+              "value": "\"4-3\""
+            },
+            {
+              "value": "\"square\""
+            }
+          ]
         }
       }
     }
