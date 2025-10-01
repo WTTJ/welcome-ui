@@ -2,10 +2,10 @@
 import fs from 'fs'
 import path from 'path'
 
-import { migrate as migrateExternal } from './external/index.mjs'
-import { copyDirSync, deleteDirRecursive } from './file-utils.mjs'
-import { findAllComponentUsages } from './inline/index.mjs'
-import { processComponents } from './process-components.mjs'
+import { copyDirSync, deleteDirRecursive } from './helpers/file-utils.mjs'
+import { processComponents } from './helpers/process-components.mjs'
+import { migrate as migrateExternal } from './migrate-external-files.mjs'
+import { findAllComponentUsages } from './migrate-inline-files.mjs'
 
 /**
  * Unified migration script that handles both external styled components

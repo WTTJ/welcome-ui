@@ -2,10 +2,9 @@ import fs from 'fs'
 import path from 'path'
 import readline from 'readline'
 
-import { processComponents } from '../process-components.mjs'
-
-import { walkDirectory } from './file-ops.mjs'
-import { processFile } from './process-file.mjs'
+import { walkDirectory } from './helpers/file-ops.mjs'
+import { processComponents } from './helpers/process-components.mjs'
+import { processFile } from './helpers/process-file.mjs'
 
 // Create readline interface for user input for interactive CLI
 export const userInputInterface = readline.createInterface({
