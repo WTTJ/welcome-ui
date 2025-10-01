@@ -1,41 +1,41 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`upgrade-v9 migration script > processComponents (integration) > migrates fixtures/Component1.tsx as expected 1`] = `
-"import { Alert } from '../../../lib/src/old/components/Alert'
-import { AspectRatio } from '../../../lib/src/old/components/AspectRatio'
-import { Badge } from '../../../lib/src/old/components/Badge'
-import { Box } from '../../../lib/src/old/components/Box'
-import { Breadcrumb } from '../../../lib/src/old/components/Breadcrumb'
-import { Button } from '../../../lib/src/old/components/Button'
-import { ButtonGroup } from '../../../lib/src/old/components/ButtonGroup'
-import { CloseButton } from '../../../lib/src/old/components/CloseButton'
-import { Field } from '../../../lib/src/old/components/Field'
-import { Grid } from '../../../lib/src/old/components/Grid'
-import { IconsFont } from '../../../lib/src/old/components/IconsFont'
-import { InputText } from '../../../lib/src/old/components/InputText'
-import { Label } from '../../../lib/src/old/components/Label'
-import { Link } from '../../../lib/src/old/components/Link'
-import { Stack } from '../../../lib/src/old/components/Stack'
-import { Text } from '../../../lib/src/old/components/Text'
-import { Textarea } from '../../../lib/src/old/components/Textarea'
-import { Toggle } from '../../../lib/src/old/components/Toggle'
+"import { Alert } from "../../../../lib/src/old/components/Alert";
+import { AspectRatio } from "../../../../lib/src/old/components/AspectRatio";
+import { Badge } from "../../../../lib/src/old/components/Badge";
+import { Box } from "../../../../lib/src/old/components/Box";
+import { Breadcrumb } from "../../../../lib/src/old/components/Breadcrumb";
+import { Button } from "../../../../lib/src/old/components/Button";
+import { ButtonGroup } from "../../../../lib/src/old/components/ButtonGroup";
+import { CloseButton } from "../../../../lib/src/old/components/CloseButton";
+import { Field } from "../../../../lib/src/old/components/Field";
+import { Grid } from "../../../../lib/src/old/components/Grid";
+import { IconsFont } from "../../../../lib/src/old/components/IconsFont";
+import { InputText } from "../../../../lib/src/old/components/InputText";
+import { Label } from "../../../../lib/src/old/components/Label";
+import { Link } from "../../../../lib/src/old/components/Link";
+import { Stack } from "../../../../lib/src/old/components/Stack";
+import { Text } from "../../../../lib/src/old/components/Text";
+import { Textarea } from "../../../../lib/src/old/components/Textarea";
+import { Toggle } from "../../../../lib/src/old/components/Toggle";
 
 const FormattedMessage = ({
   defaultMessage,
   id,
 }: {
-  defaultMessage: string
-  id: string
-}): React.ReactNode => <span id={id}>{defaultMessage}</span>
+  defaultMessage: string;
+  id: string;
+}): React.ReactNode => <span id={id}>{defaultMessage}</span>;
 
 const register = (name: string, options?: object) => {
-  return { name, ...options }
-}
+  return { name, ...options };
+};
 
-const SIGN_IN_PATH = '/signin'
-const BOOLEAN_VALUE = false
+const SIGN_IN_PATH = "/signin";
+const BOOLEAN_VALUE = false;
 // eslint-disable-next-line no-console
-const ON_CLICK = () => console.debug('submit')
+const ON_CLICK = () => console.debug("submit");
 
 // Usage examples
 export const Example = () => {
@@ -65,10 +65,16 @@ export const Example = () => {
         actions={
           <>
             <Alert.Button mb="sm">
-              <FormattedMessage defaultMessage="Please sign in with provider" id="5nmpcx" />
+              <FormattedMessage
+                defaultMessage="Please sign in with provider"
+                id="5nmpcx"
+              />
             </Alert.Button>
             <Alert.SecondaryButton mb="sm">
-              <FormattedMessage defaultMessage="Please sign in with provider" id="5nmpcx" />
+              <FormattedMessage
+                defaultMessage="Please sign in with provider"
+                id="5nmpcx"
+              />
             </Alert.SecondaryButton>
           </>
         }
@@ -76,7 +82,10 @@ export const Example = () => {
         variant="danger"
       >
         <Alert.Title className="mb-sm">
-          <FormattedMessage defaultMessage="Please sign in with provider" id="5nmpcx" />
+          <FormattedMessage
+            defaultMessage="Please sign in with provider"
+            id="5nmpcx"
+          />
         </Alert.Title>
         <span>
           <FormattedMessage
@@ -104,21 +113,34 @@ export const Example = () => {
         <Breadcrumb.Item className="mb-xl">Breadcrumb</Breadcrumb.Item>
       </Breadcrumb>
       <ButtonGroup>
-        <Button data-testid="my-draft-button" disabled={BOOLEAN_VALUE} onClick={ON_CLICK} size="sm">
+        <Button
+          data-testid="my-draft-button"
+          disabled={BOOLEAN_VALUE}
+          onClick={ON_CLICK}
+          size="sm"
+        >
           Published
         </Button>
       </ButtonGroup>
       <CloseButton className="bg-neutral-90 border-none" />
       <form>
-        <Field className="my-lg" error="my error message" label="Email" required>
-          <Label className="items-center mb-sm" required={BOOLEAN_VALUE}></Label>
+        <Field
+          className="my-lg"
+          error="my error message"
+          label="Email"
+          required
+        >
+          <Label
+            className="items-center mb-sm"
+            required={BOOLEAN_VALUE}
+          ></Label>
           <InputText
             autoFocus
             dataTestId="wa-forgot-input-email"
             name="email"
-            {...register('email', {
-              pattern: 'This field has invalid format',
-              required: 'This field is required',
+            {...register("email", {
+              pattern: "This field has invalid format",
+              required: "This field is required",
               value: /fish/,
             })}
           />
@@ -126,35 +148,44 @@ export const Example = () => {
         <Textarea
           className="mt-md"
           name="i18n_description_en"
-          {...register('i18n_description_en')}
+          {...register("i18n_description_en")}
         />
         <Toggle
           className="inline-flex"
           checked={BOOLEAN_VALUE}
           onClick={() => console.debug()}
-          {...register('email', {
-            pattern: 'This field has invalid format',
-            required: 'This field is required',
+          {...register("email", {
+            pattern: "This field has invalid format",
+            required: "This field is required",
             value: /fish/,
           })}
         />
 
-        <Button className="mt-xxl w-full" as="a" dataTestId="my-button-1" to={SIGN_IN_PATH}>
+        <Button
+          className="mt-xxl w-full"
+          as="a"
+          dataTestId="my-button-1"
+          to={SIGN_IN_PATH}
+        >
           <FormattedMessage defaultMessage="Back to Sign in" id="D7hbFB" />
         </Button>
         {/* eslint-disable-next-line no-console */}
-        <Button dataTestId="my-button-2" onClick={() => console.debug('submit')} type="submit">
+        <Button
+          dataTestId="my-button-2"
+          onClick={() => console.debug("submit")}
+          type="submit"
+        >
           <FormattedMessage defaultMessage="Back to Sign in" id="D7hbFB" />
         </Button>
       </form>
     </>
-  )
-}
+  );
+};
 "
 `;
 
 exports[`upgrade-v9 migration script > processComponents (integration) > migrates fixtures/Component2.tsx as expected 1`] = `
-"import { Breadcrumb } from '../../../lib/src/old/components/Breadcrumb'
+"import { Breadcrumb } from "../../../../lib/src/old/components/Breadcrumb";
 
 // Usage examples
 export const Example = () => {
@@ -166,8 +197,8 @@ export const Example = () => {
       <Breadcrumb.Item className="mb-xl">Disabled</Breadcrumb.Item>
       <Breadcrumb.Item className="mb-xl">Breadcrumb</Breadcrumb.Item>
     </Breadcrumb>
-  )
-}
+  );
+};
 "
 `;
 

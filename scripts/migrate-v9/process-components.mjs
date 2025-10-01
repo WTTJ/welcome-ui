@@ -1,29 +1,18 @@
 /* eslint-disable no-console */
 import fs from 'fs'
-import path from 'path'
 
 import generateModule from '@babel/generator'
 import { parse } from '@babel/parser'
 import traverseModule from '@babel/traverse'
 
 import { getModule } from './esm.mjs'
-import { formatWithPrettier } from './formatWithPrettier.mjs'
+import { formatWithPrettier } from './format-with-prettier.mjs'
 import { userInputInterface } from './inline/index.mjs'
 import { getStackClassnames } from './inline/parsing.mjs'
-import { transformValue, valueMap } from './transform.mjs'
+import { transformValue, valueMap } from './inline/transform.mjs'
 
 const traverse = getModule(traverseModule)
 const generate = getModule(generateModule)
-
-// Read .prettierrc once at module load
-let prettierConfig = {}
-try {
-  const prettierRcPath = path.resolve(process.cwd(), '.prettierrc')
-  prettierConfig = JSON.parse(fs.readFileSync(prettierRcPath, 'utf8'))
-} catch (e) {
-  console.error('Prettier config not read', e)
-  prettierConfig = {}
-}
 
 const COMPONENTS_TO_REPLACE = ['Box', 'Flex', 'Grid', 'Stack']
 
