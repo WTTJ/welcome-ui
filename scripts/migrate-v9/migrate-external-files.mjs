@@ -6,9 +6,9 @@ import generateModule from '@babel/generator'
 import { parse } from '@babel/parser'
 import traverseModule from '@babel/traverse'
 
-import { getModule } from '../esm.mjs'
-import { copyDirSync, deleteDirRecursive } from '../file-utils.mjs'
-import { formatWithPrettier } from '../format-with-prettier.mjs'
+import { getModule } from './helpers/esm.mjs'
+import { copyDirSync, deleteDirRecursive } from './helpers/file-utils.mjs'
+import { formatWithPrettier } from './helpers/format-with-prettier.mjs'
 
 const traverse = getModule(traverseModule)
 const generate = getModule(generateModule)

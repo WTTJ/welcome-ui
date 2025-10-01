@@ -1,6 +1,6 @@
 import styled from '@xstyled/styled-components'
 
-import { TOPNAV_HEIGHT } from '../constants'
+const TOPNAV_HEIGHT = 140
 
 export const TopNav = styled.headerBox`
   position: sticky;
