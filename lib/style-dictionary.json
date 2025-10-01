@@ -9,7 +9,7 @@
           "destination": "variables.css",
           "format": "css/variables",
           "options": {
-            "selector": "@theme"
+            "selector": "@theme static"
           }
         }
       ]

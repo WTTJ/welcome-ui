@@ -22,10 +22,11 @@ const variableStyles = fs.readFileSync(variablesPath, 'utf8')
 
 const getStringFrom = (map: Record<string, string>) => `${map.property} {\n${map.value}}\n`
 
+const addedVariables = '--spacing: 0.0625rem;'
 const resetTailwindTokens = `${indentation}--*: initial;\n`
 const variablesStylesWithTailwindResets = variableStyles.replace(
-  '@theme {\n',
-  `@theme {\n${resetTailwindTokens}`
+  '@theme static {\n',
+  `@theme static {\n${resetTailwindTokens}\n${addedVariables}`
 )
 
 const baseLayer = { property: '@layer base', value: `${resetStyles}\n${baseStyles}` }

@@ -184,8 +184,10 @@
  * Do not edit directly, this file was auto-generated.
  */
 
-@theme {
+@theme static {
   --*: initial;
+
+  --spacing: 0.0625rem;
   --border-width-lg: 3px;
   --border-width-md: 2px;
   --border-width-sm: 1px;
