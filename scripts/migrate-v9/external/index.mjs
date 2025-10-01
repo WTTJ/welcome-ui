@@ -7,6 +7,7 @@ import { parse } from '@babel/parser'
 import traverseModule from '@babel/traverse'
 
 import { getModule } from '../esm.mjs'
+import { copyDirSync, deleteDirRecursive } from '../file-utils.mjs'
 import { formatWithPrettier } from '../format-with-prettier.mjs'
 
 const traverse = getModule(traverseModule)
@@ -80,38 +81,6 @@ function camelToKebab(str) {
 }
 
 // Recursively copy a directory
-function copyDirSync(src, dest) {
-  if (!fs.existsSync(dest)) {
-    fs.mkdirSync(dest, { recursive: true })
-  }
-  fs.readdirSync(src).forEach(item => {
-    const srcPath = path.join(src, item)
-    const destPath = path.join(dest, item)
-    if (fs.lstatSync(srcPath).isDirectory()) {
-      copyDirSync(srcPath, destPath)
-    } else {
-      fs.copyFileSync(srcPath, destPath)
-    }
-  })
-}
-
-/**
- * Main migration function
- */
-function deleteDirRecursive(dirPath) {
-  if (fs.existsSync(dirPath)) {
-    fs.readdirSync(dirPath).forEach(file => {
-      const curPath = path.join(dirPath, file)
-      if (fs.lstatSync(curPath).isDirectory()) {
-        deleteDirRecursive(curPath)
-      } else {
-        fs.unlinkSync(curPath)
-      }
-    })
-    fs.rmdirSync(dirPath)
-  }
-}
-
 /**
  * Updates component file: replaces <S.MyElement /> with <li className="my-element" />
  */
