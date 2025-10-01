@@ -5,11 +5,12 @@ import generateModule from '@babel/generator'
 import { parse } from '@babel/parser'
 import traverseModule from '@babel/traverse'
 
+import { userInputInterface } from '../migrate-inline-files.mjs'
+
 import { getModule } from './esm.mjs'
 import { formatWithPrettier } from './format-with-prettier.mjs'
-import { userInputInterface } from './inline/index.mjs'
-import { getStackClassnames } from './inline/parsing.mjs'
-import { transformValue, valueMap } from './inline/transform.mjs'
+import { getStackClassnames } from './parsing.mjs'
+import { transformValue, valueMap } from './transform.mjs'
 
 const traverse = getModule(traverseModule)
 const generate = getModule(generateModule)

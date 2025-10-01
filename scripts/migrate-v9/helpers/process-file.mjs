@@ -3,8 +3,7 @@ import fs from 'fs'
 import { parse } from '@babel/parser'
 import traverseModule from '@babel/traverse'
 
-import { getModule } from '../esm.mjs'
-
+import { getModule } from './esm.mjs'
 import { parsePropsString } from './parsing.mjs'
 
 const traverse = getModule(traverseModule)
