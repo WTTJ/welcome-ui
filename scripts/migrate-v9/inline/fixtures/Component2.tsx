@@ -1,4 +1,4 @@
-import { Breadcrumb } from '../../../lib/src/old/components/Breadcrumb'
+import { Breadcrumb } from '../../../../lib/src/old/components/Breadcrumb'
 
 // Usage examples
 export const Example = () => {

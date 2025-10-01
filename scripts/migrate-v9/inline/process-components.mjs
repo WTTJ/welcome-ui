@@ -6,11 +6,11 @@ import generateModule from '@babel/generator'
 import { parse } from '@babel/parser'
 import traverseModule from '@babel/traverse'
 
-import { getModule } from './esm.mjs'
-import { formatWithPrettier } from './formatWithPrettier.mjs'
-import { userInputInterface } from './inline/index.mjs'
-import { getStackClassnames } from './inline/parsing.mjs'
+import { getModule } from '../esm.mjs'
+import { userInputInterface } from './index.mjs'
+import { getStackClassnames } from './parsing.mjs'
 import { transformValue, valueMap } from './transform.mjs'
+import { formatWithPrettier } from '../formatWithPrettier.mjs'
 
 const traverse = getModule(traverseModule)
 const generate = getModule(generateModule)

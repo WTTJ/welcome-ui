@@ -5,7 +5,7 @@ import path from 'path'
 import { describe, expect, it } from 'vitest'
 
 import { findAllComponentUsages } from './index.mjs'
-import { processComponents } from './process-components.mjs'
+import { processComponents } from '../process-components.mjs'
 import { transform, transformSpecificValue, transformValue } from './transform.mjs'
 
 describe('upgrade-v9 migration script', () => {
