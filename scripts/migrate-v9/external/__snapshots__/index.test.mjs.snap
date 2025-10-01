@@ -1,0 +1,125 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`External Migration Tests > migrates styled-components fixture to CSS classes > generated-styles.scss 1`] = `
+".top-nav {
+  position: sticky;
+  top: 0;
+  background-color: neutral-10;
+  z-index: 1;
+}
+
+.top-nav-list {
+  padding: 0 var(--spacing-lg);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  height:;
+  border-bottom: 1px solid;
+  border-color: neutral-30;
+}
+
+.top-nav-list-item {
+  list-style: none;
+  min-width: auto;
+}
+
+.top-nav-link {
+  display: inline-flex;
+  align-items: center;
+  color: beige-70;
+  padding: var(--spacing-sm);
+  border-radius: var(--spacing-md);
+  cursor: pointer;
+  margin-right: var(--spacing-sm);
+  text-decoration: none;
+  transition: background-color 300ms;
+  white-space: nowrap;
+  font-size: var(--spacing-sm);
+
+  &[aria-current="page"] {
+    color: neutral-90;
+    background-color: beige-30;
+  }
+
+  &:hover {
+    color: beige-80;
+    background-color: beige-20;
+  }
+}
+
+.top-nav-mobile-section {
+  height:;
+  display: flex;
+  align-items: center;
+  background-color: beige-20;
+  padding: 0 var(--spacing-md);
+}
+
+.menu-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  width: 48px;
+  border: none;
+  border-radius: var(--spacing-md);
+  cursor: pointer;
+  color: beige-70;
+  background-color: inherit;
+  transition:
+    color 300ms,
+    background-color 300ms;
+
+  &:hover {
+    color: beige-80;
+    background-color: beige-30;
+  }
+
+  &:active {
+    color: neutral-90;
+  }
+}
+"
+`;
+
+exports[`External Migration Tests > migrates styled-components fixture to CSS classes > migrated-component.tsx 1`] = `
+"import React from "react";
+import { Text } from "welcome-ui-new/Text";
+import { MenuIcon } from "welcome-ui-new/Icon";
+import "./styles.scss";
+type TopNavOptions = {
+  children?: React.ReactNode;
+  title: string | JSX.Element;
+};
+type TopNavProps = TopNavOptions;
+export const TopNav: React.FC<TopNavProps> = ({
+  children,
+  title,
+  ...props
+}) => {
+  const { isMobile, setIsExpanded } = {
+    isMobile: true,
+    setIsExpanded: (_) => {},
+  };
+  const handleClickExpand = () => {
+    setIsExpanded(true);
+  };
+  return (
+    <header {...props} className="top-nav">
+      {isMobile && (
+        <section className="top-nav-mobile-section">
+          <button onClick={handleClickExpand} className="menu-button">
+            <MenuIcon />
+          </button>
+          <Text className="ml-sm text-h4" variant="h5">
+            {title}
+          </Text>
+        </section>
+      )}
+      {children && <ul className="top-nav-list">{children}</ul>}
+    </header>
+  );
+};
+"
+`;

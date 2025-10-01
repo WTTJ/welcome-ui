@@ -7,7 +7,7 @@ import { parse } from '@babel/parser'
 import traverseModule from '@babel/traverse'
 
 import { getModule } from '../esm.mjs'
-import { formatWithPrettier } from '../formatWithPrettier.mjs'
+import { formatWithPrettier } from '../format-with-prettier.mjs'
 
 const traverse = getModule(traverseModule)
 const generate = getModule(generateModule)
