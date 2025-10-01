@@ -184,10 +184,11 @@ export async function processComponents(components, shouldReplace = false, verbo
       try {
         output = generate(ast, { retainLines: true }, content).code
         // Format with Prettier using cached .prettierrc config
-        const parser =
-          filePath.endsWith('.ts') || filePath.endsWith('.tsx') ? 'typescript' : 'babel'
+
         output = await formatWithPrettier(output, filePath)
+
         fileChanges[filePath] = output
+
         // Only log here, don't write yet
         console.log(`✅ Ready to update: ${filePath}`)
       } catch (err) {

@@ -85,12 +85,12 @@ exports[`External Migration Tests > migrates styled-components fixture to CSS cl
 
 exports[`External Migration Tests > migrates styled-components fixture to CSS classes > migrated-component.tsx 1`] = `
 "import React from "react";
-import { Text } from "welcome-ui-new/Text";
 import { MenuIcon } from "welcome-ui-new/Icon";
+import { Text } from "welcome-ui-new/Text";
 import "./styles.scss";
 type TopNavOptions = {
   children?: React.ReactNode;
-  title: string | JSX.Element;
+  title: JSX.Element | string;
 };
 type TopNavProps = TopNavOptions;
 export const TopNav: React.FC<TopNavProps> = ({
@@ -107,7 +107,7 @@ export const TopNav: React.FC<TopNavProps> = ({
   };
   return (
     <header {...props} className="top-nav">
-      {isMobile && (
+      {isMobile ? (
         <section className="top-nav-mobile-section">
           <button onClick={handleClickExpand} className="menu-button">
             <MenuIcon />
@@ -116,8 +116,8 @@ export const TopNav: React.FC<TopNavProps> = ({
             {title}
           </Text>
         </section>
-      )}
-      {children && <ul className="top-nav-list">{children}</ul>}
+      ) : null}
+      {children ? <ul className="top-nav-list">{children}</ul> : null}
     </header>
   );
 };
