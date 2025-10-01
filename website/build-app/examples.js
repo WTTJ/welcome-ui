@@ -115,6 +115,7 @@ export default {
   "/Link/docs/examples/external.tsx": dynamic(() => import("../../lib/src/components/Link/docs/examples/external.tsx").then(mod => mod), { ssr: false }),
   "/Link/docs/examples/inline.tsx": dynamic(() => import("../../lib/src/components/Link/docs/examples/inline.tsx").then(mod => mod), { ssr: false }),
   "/Link/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Link/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
+  "/Link/docs/examples/react-router.tsx": dynamic(() => import("../../lib/src/components/Link/docs/examples/react-router.tsx").then(mod => mod), { ssr: false }),
   "/Link/docs/examples/security.tsx": dynamic(() => import("../../lib/src/components/Link/docs/examples/security.tsx").then(mod => mod), { ssr: false }),
   "/Link/docs/examples/text-component.tsx": dynamic(() => import("../../lib/src/components/Link/docs/examples/text-component.tsx").then(mod => mod), { ssr: false }),
   "/Link/docs/examples/underline.tsx": dynamic(() => import("../../lib/src/components/Link/docs/examples/underline.tsx").then(mod => mod), { ssr: false }),
