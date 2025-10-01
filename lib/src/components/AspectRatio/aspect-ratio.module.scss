@@ -1,31 +1,27 @@
 @layer components {
   .root {
-    position: relative;
-
     & > * {
-      overflow: hidden;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      height: 100%;
+      aspect-ratio: var(--aspect-ratio, 4 / 3);
     }
 
     & > img,
     & > video {
       object-fit: cover;
     }
+  }
 
-    &:before {
-      height: 0;
-      content: '';
-      display: block;
-      padding-bottom: calc((1 / var(--aspect-ratio)) * 100%);
+  .ratio {
+    &-square {
+      --aspect-ratio: 1 / 1;
+    }
+    &-4-3 {
+      --aspect-ratio: 4 / 3;
+    }
+    &-3-2 {
+      --aspect-ratio: 3 / 2;
+    }
+    &-video {
+      --aspect-ratio: 16 / 9;
     }
   }
 }

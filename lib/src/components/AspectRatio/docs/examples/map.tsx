@@ -2,7 +2,7 @@ import { AspectRatio } from '@/components/AspectRatio'
 
 const Example = () => {
   return (
-    <AspectRatio ratio={16 / 9}>
+    <AspectRatio ratio="video">
       <iframe
         allowFullScreen
         loading="lazy"
