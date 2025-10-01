@@ -1,12 +1,12 @@
 import React from 'react'
-import { Text } from 'welcome-ui-new/Text'
 import { MenuIcon } from 'welcome-ui-new/Icon'
+import { Text } from 'welcome-ui-new/Text'
 
 import * as S from './styles'
 
 type TopNavOptions = {
   children?: React.ReactNode
-  title: string | JSX.Element
+  title: JSX.Element | string
 }
 
 type TopNavProps = TopNavOptions
@@ -20,7 +20,7 @@ export const TopNav: React.FC<TopNavProps> = ({ children, title, ...props }) => 
 
   return (
     <S.TopNav {...props}>
-      {isMobile && (
+      {isMobile ? (
         <S.TopNavMobileSection>
           <S.MenuButton onClick={handleClickExpand}>
             <MenuIcon />
@@ -29,8 +29,8 @@ export const TopNav: React.FC<TopNavProps> = ({ children, title, ...props }) => 
             {title}
           </Text>
         </S.TopNavMobileSection>
-      )}
-      {children && <S.TopNavList>{children}</S.TopNavList>}
+      ) : null}
+      {children ? <S.TopNavList>{children}</S.TopNavList> : null}
     </S.TopNav>
   )
 }
