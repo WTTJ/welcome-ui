@@ -1,29 +1,19 @@
 /* eslint-disable no-console */
 import fs from 'fs'
-import path from 'path'
 
 import generateModule from '@babel/generator'
 import { parse } from '@babel/parser'
 import traverseModule from '@babel/traverse'
-import prettier from 'prettier'
+
+import { userInputInterface } from '../migrate-inline-files.mjs'
 
 import { getModule } from './esm.mjs'
-import { userInputInterface } from './index.mjs'
+import { formatWithPrettier } from './format-with-prettier.mjs'
 import { getStackClassnames } from './parsing.mjs'
 import { transformValue, valueMap } from './transform.mjs'
 
 const traverse = getModule(traverseModule)
 const generate = getModule(generateModule)
-
-// Read .prettierrc once at module load
-let prettierConfig = {}
-try {
-  const prettierRcPath = path.resolve(process.cwd(), '.prettierrc')
-  prettierConfig = JSON.parse(fs.readFileSync(prettierRcPath, 'utf8'))
-} catch (e) {
-  console.error('Prettier config not read', e)
-  prettierConfig = {}
-}
 
 const COMPONENTS_TO_REPLACE = ['Box', 'Flex', 'Grid', 'Stack']
 
@@ -195,10 +185,11 @@ export async function processComponents(components, shouldReplace = false, verbo
       try {
         output = generate(ast, { retainLines: true }, content).code
         // Format with Prettier using cached .prettierrc config
-        const parser =
-          filePath.endsWith('.ts') || filePath.endsWith('.tsx') ? 'typescript' : 'babel'
-        output = await prettier.format(output, { ...prettierConfig, parser })
+
+        output = await formatWithPrettier(output, filePath)
+
         fileChanges[filePath] = output
+
         // Only log here, don't write yet
         console.log(`✅ Ready to update: ${filePath}`)
       } catch (err) {

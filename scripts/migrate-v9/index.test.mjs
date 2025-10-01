@@ -4,89 +4,65 @@ import path from 'path'
 
 import { describe, expect, it } from 'vitest'
 
-import { findAllComponentUsages } from './index.mjs'
-import { processComponents } from './process-components.mjs'
-import { transform, transformSpecificValue, transformValue } from './transform.mjs'
+import { deleteDirRecursive } from './helpers/file-utils.mjs'
+import { migrateAll } from './index.mjs'
 
-describe('upgrade-v9 migration script', () => {
-  describe('processComponents (integration)', () => {
-    it('migrates fixtures/Component1.tsx as expected', async () => {
-      // Setup temp dir and copy fixture
-      const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'wui-upgrade-test-'))
-      const srcFile = path.join(__dirname, './fixtures/Component1.tsx')
-      const destFile = path.join(tmpDir, 'Component1.tsx')
-      fs.copyFileSync(srcFile, destFile)
+describe('Unified Migration', () => {
+  it('handles directory with no styled components', async () => {
+    // Setup temp directory with a regular component (no styles)
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'wui-unified-test-empty-'))
+    const currentDir = path.dirname(new URL(import.meta.url).pathname)
+    const fixtureFile = path.resolve(currentDir, '__fixtures__/RegularComponent.tsx')
 
-      // Find components in the temp file
-      const components = findAllComponentUsages(tmpDir)
-      // Run migration (shouldReplace = true)
-      await processComponents(components, true)
+    fs.mkdirSync(tmpDir, { recursive: true })
+    fs.copyFileSync(fixtureFile, path.join(tmpDir, 'RegularComponent.tsx'))
 
-      // Read migrated file
-      const migrated = fs.readFileSync(destFile, 'utf8')
+    // Get original content for comparison
+    const originalContent = fs.readFileSync(fixtureFile, 'utf8')
 
-      // Assert output (snapshot or inline string)
-      expect(migrated).toMatchSnapshot()
-    })
+    // Run unified migration
+    const result = await migrateAll(tmpDir, { copyDir: false, interactive: false, verbose: false })
 
-    it('migrates fixtures/Component2.tsx as expected', async () => {
-      // Setup temp dir and copy fixture
-      const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'wui-upgrade-test-'))
-      const srcFile = path.join(__dirname, './fixtures/Component2.tsx')
-      const destFile = path.join(tmpDir, 'Component2.tsx')
-      fs.copyFileSync(srcFile, destFile)
+    // Should return the working directory and not crash
+    expect(result).toBe(tmpDir)
 
-      // Find components in the temp file
-      const components = findAllComponentUsages(tmpDir)
-      // Run migration (shouldReplace = true)
-      await processComponents(components, true)
+    // File should remain unchanged
+    const unchanged = fs.readFileSync(path.join(tmpDir, 'RegularComponent.tsx'), 'utf8')
+    expect(unchanged.trim()).toBe(originalContent.trim())
 
-      // Read migrated file
-      const migrated = fs.readFileSync(destFile, 'utf8')
-
-      // Assert output (snapshot or inline string)
-      expect(migrated).toMatchSnapshot()
-    })
+    // Cleanup
+    deleteDirRecursive(tmpDir)
   })
 
-  describe('findAllComponentUsages', () => {
-    it('finds Box, Flex, Grid, Stack components in a directory', () => {
-      // Setup: create a mock directory structure in memory or use a temp dir
-      // For demonstration, just check that the function runs and returns an array
-      const result = findAllComponentUsages(path.join(__dirname, './fixtures'))
-      expect(Array.isArray(result)).toBe(true)
-    })
-  })
+  it('migrates comprehensive mixed components (external + inline in same file)', async () => {
+    // Setup temp directory with a component that has both S.* and <Box> in same file
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'wui-unified-test-same-file-'))
+    const currentDir = path.dirname(new URL(import.meta.url).pathname)
+    const fixturesDir = path.resolve(currentDir, '__fixtures__')
 
-  describe('transformValue', () => {
-    it('transforms known keys using valueMap', () => {
-      expect(transformValue('align', 'center')).toContain('items')
-      expect(transformValue('backgroundColor', 'red')).toContain('bg')
-    })
-    it('returns undefined for unknown keys', () => {
-      expect(transformValue('unknownKey', 'foo')).toBeUndefined()
-    })
-  })
+    // Copy fixtures (styles.ts + MixedComponent.tsx)
+    fs.mkdirSync(tmpDir, { recursive: true })
+    fs.copyFileSync(path.join(fixturesDir, 'styles.ts'), path.join(tmpDir, 'styles.ts'))
+    fs.copyFileSync(
+      path.join(fixturesDir, 'MixedComponent.tsx'),
+      path.join(tmpDir, 'MixedComponent.tsx')
+    )
 
-  describe('transform', () => {
-    it('handles 100% as full', () => {
-      expect(transform('w', '100%')).toBe('w-full')
-    })
-    it('handles numeric values', () => {
-      expect(transform('w', '16')).toContain('w-[')
-    })
-    it('handles 0 as zero class', () => {
-      expect(transform('m', '0')).toBe('m-0')
-    })
-  })
+    // Run unified migration with copyDir=false (migrate in place)
+    await migrateAll(tmpDir, { copyDir: false, interactive: false, verbose: false })
 
-  describe('transformSpecificValue', () => {
-    it('handles grid-cols special cases', () => {
-      expect(transformSpecificValue('grid-cols-1fr')).toBe('grid-cols-1')
-      expect(transformSpecificValue('grid-cols-1fr 1fr')).toBe('grid-cols-2')
-    })
-    it('returns value for non-grid-cols', () => {
-      expect(transformSpecificValue('foo')).toBe('foo')
-    })
+    // Check that styles.scss was created
+    const stylesScssPath = path.join(tmpDir, 'styles.scss')
+    expect(fs.existsSync(stylesScssPath)).toBe(true)
+
+    const stylesScss = fs.readFileSync(stylesScssPath, 'utf8')
+    expect(stylesScss).toMatchSnapshot('same-file-styles.scss')
+
+    // Check that MixedComponent.tsx was migrated with BOTH transformations
+    const migratedComponent = fs.readFileSync(path.join(tmpDir, 'MixedComponent.tsx'), 'utf8')
+    expect(migratedComponent).toMatchSnapshot('same-file-component.tsx')
+
+    // Cleanup
+    deleteDirRecursive(tmpDir)
   })
 })
