@@ -3,7 +3,7 @@ import path from 'path'
 import readline from 'readline'
 
 import { walkDirectory } from './file-ops.mjs'
-import { processComponents } from './process-components.mjs'
+import { processComponents } from '../process-components.mjs'
 import { processFile } from './process-file.mjs'
 
 // Create readline interface for user input for interactive CLI
