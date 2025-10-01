@@ -4,7 +4,7 @@ export interface TokensStructure {
   [key: string]: TokenNode
 }
 
-type TokenNode = TokenValue | TokenWithType | { [key: string]: TokenNode }
+type TokenNode = string | TokenValue | TokenWithType | { [key: string]: TokenNode }
 
 interface TokenValue {
   $value: string
