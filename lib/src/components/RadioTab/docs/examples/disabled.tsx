@@ -1,5 +1,5 @@
+import { RadioGroup } from '@/components/RadioGroup'
 import { RadioTab } from '@/components/RadioTab'
-import { RadioGroup } from '@old/RadioGroup'
 
 export const ITEMS = [
   { label: 'Bold', value: 'bold' },
@@ -9,7 +9,16 @@ export const ITEMS = [
 ]
 
 const Example = () => {
-  return <RadioGroup disabled name="social" options={ITEMS} renderOption={RadioTab} />
+  return (
+    <RadioGroup
+      disabled
+      hideLabel
+      label="Disabled RadioGroup component rendered as RadioTab"
+      name="social"
+      options={ITEMS}
+      renderOption={RadioTab}
+    />
+  )
 }
 
 export default Example

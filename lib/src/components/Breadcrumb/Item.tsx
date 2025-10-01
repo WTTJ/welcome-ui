@@ -2,10 +2,10 @@ import { forwardRef } from 'react'
 
 import { classNames } from '@/utils'
 
-import breadcrumbItemStyles from './item.module.scss'
+import breadcrumStyles from './breadcrumb.module.scss'
 import type { BreadcrumbItemProps } from './types'
 
-const cx = classNames(breadcrumbItemStyles)
+const cx = classNames(breadcrumStyles)
 
 /**
  * @name Breadcrumb.Item
@@ -15,9 +15,9 @@ export const Item = forwardRef<HTMLAnchorElement, BreadcrumbItemProps>(
     const isClickable = rest.href || rest.to
 
     return (
-      <li aria-label="breadcrumb" className={cx('root')} data-testid={dataTestId}>
+      <li aria-label="breadcrumb" className={cx('item-wrapper')} data-testid={dataTestId}>
         {separator ? (
-          <span className={cx('separator')} role="presentation">
+          <span className={cx('item-separator')} role="presentation">
             {separator}
           </span>
         ) : null}
@@ -25,7 +25,7 @@ export const Item = forwardRef<HTMLAnchorElement, BreadcrumbItemProps>(
           aria-current={isActive ? 'page' : undefined}
           aria-disabled={!isClickable}
           {...rest}
-          className={cx('item', rest.className)}
+          className={cx('item-content', rest.className)}
           ref={ref}
         >
           {children}
