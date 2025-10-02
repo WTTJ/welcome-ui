@@ -124,9 +124,13 @@ export function transformCssTemplateLiteral(quasi, expressions = [], mixins = ne
     }
   })
 
-  // Combine static parts with transformed expressions
+  // Combine static parts with transformed expressions using AST structure
   for (let i = 0; i < quasi.quasis.length; i++) {
-    const quasiValue = quasi.quasis[i].value.cooked || quasi.quasis[i].value.raw
+    let quasiValue = quasi.quasis[i].value.cooked || quasi.quasis[i].value.raw
+
+    // Transform tokens in each static part individually
+    quasiValue = transformTokensInCss(quasiValue)
+
     css += quasiValue
 
     if (i < transformedExpressions.length) {
@@ -142,13 +146,10 @@ export function transformCssTemplateLiteral(quasi, expressions = [], mixins = ne
     }
   }
 
-  // Transform spacing and color tokens in the CSS
-  css = transformTokensInCss(css)
-
   // Post-process to properly comment out problematic CSS rules
   css = postProcessComments(css)
 
-  // Add conditional modifiers as nested selectors
+  // Add conditional modifiers as nested selectors at the end
   if (conditionalModifiers.length > 0) {
     for (const { className, value } of conditionalModifiers) {
       css += `
@@ -161,10 +162,11 @@ export function transformCssTemplateLiteral(quasi, expressions = [], mixins = ne
 
   // Clean up empty lines and malformed CSS
   css = css
-    .replace(/([^:]+):\s*;\s*$/gm, '') // Remove properties with empty values like "margin-top: ;"
+    .replace(/^\s*[^:]+:\s*;\s*$/gm, '') // Remove properties with empty values like "margin-top: ;" (line by line)
     .replace(/;\s*;/g, ';') // Fix double semicolons
     .replace(/;\s*\n/g, ';\n') // Clean up semicolons
     .replace(/^\s*;\s*$/gm, '') // Remove lines with just semicolons
+    .replace(/\/\*[^*]*\*\/\s*;/g, match => match.replace(/\s*;$/, '')) // Remove semicolons after comments
     .replace(/\n\s*\n\s*\n/g, '\n\n') // Reduce multiple empty lines
     .replace(/^\s*\n/gm, '') // Remove leading empty lines
 
@@ -542,19 +544,57 @@ function transformTokensInCss(css) {
     return `__VAR_PROTECTION_${index}__`
   })
 
-  // Transform spacing tokens - be more specific to avoid conflicts
-  css = css.replace(/\bpadding:\s*(xs|sm|md|lg|xl|xxl|3xl)\b/g, 'padding: var(--spacing-$1)')
-  css = css.replace(/\bmargin:\s*(xs|sm|md|lg|xl|xxl|3xl)\b/g, 'margin: var(--spacing-$1)')
+  // Transform spacing tokens - handle multi-value patterns (1-4 values)
+  // Function to transform spacing token values
+  const transformSpacingValues = (property, valuesString) => {
+    const values = valuesString.trim().split(/\s+/)
+    const transformedValues = values.map(value => {
+      // If it's a spacing token, transform it
+      if (/^(xs|sm|md|lg|xl|xxl|3xl)$/.test(value)) {
+        return `var(--spacing-${value})`
+      }
+      // Otherwise keep as-is (0, auto, etc.)
+      return value
+    })
+    return `${property}: ${transformedValues.join(' ')}`
+  }
+
+  // Transform padding (shorthand and individual properties)
   css = css.replace(
-    /\bpadding:\s*(xs|sm|md|lg|xl|xxl|3xl)\s+(xs|sm|md|lg|xl|xxl|3xl)\b/g,
-    'padding: var(--spacing-$1) var(--spacing-$2)'
+    /\b(padding(?:-(?:top|right|bottom|left))?):\s*([^;]+)/g,
+    (match, property, values) => {
+      return transformSpacingValues(property, values)
+    }
   )
+
+  // Transform margin (shorthand and individual properties)
   css = css.replace(
-    /\bborder-radius:\s*(xs|sm|md|lg|xl|xxl|3xl)\b/g,
-    'border-radius: var(--spacing-$1)'
+    /\b(margin(?:-(?:top|right|bottom|left))?):\s*([^;]+)/g,
+    (match, property, values) => {
+      return transformSpacingValues(property, values)
+    }
   )
-  css = css.replace(/\bheight:\s*(\d+)px\b/g, 'height: var(--spacing-$1)')
-  css = css.replace(/\bwidth:\s*(\d+)px\b/g, 'width: var(--spacing-$1px)')
+
+  // Transform other spacing properties (border-radius, etc.)
+  css = css.replace(/\b(border-radius):\s*([^;]+)/g, (match, property, values) => {
+    return transformSpacingValues(property, values)
+  })
+
+  // Transform height and width with spacing tokens or pixel values
+  css = css.replace(/\b(height|width):\s*([^;]+)/g, (match, property, values) => {
+    const value = values.trim()
+    // Handle pixel values - convert to height variables
+    if (/^\d+px$/.test(value)) {
+      const pixels = value.replace('px', '')
+      return `${property}: var(--height-${pixels})`
+    }
+    // Handle spacing tokens - convert to height variables
+    if (/^(xs|sm|md|lg|xl|xxl|3xl)$/.test(value)) {
+      return `${property}: var(--height-${value})`
+    }
+    // Other values (100vh, 100%, auto, etc.) pass through unchanged
+    return match
+  })
 
   // Transform color tokens - only standalone color values
   css = css.replace(/\bbackground-color:\s*([a-z]+-\d+)\b/g, 'background-color: var(--color-$1)')
