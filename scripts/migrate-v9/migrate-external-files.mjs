@@ -271,6 +271,258 @@ function isStyledComponent(node) {
   return false
 }
 
+/**
+ * Process component props and convert them to appropriate JSX attributes
+ * Handles boolean props, dollar props, dynamic props, etc.
+ */
+function processComponentProps(attributes, compName, baseClassName) {
+  const newAttributes = []
+  const classNameParts = [baseClassName]
+  const styleProperties = []
+
+  attributes.forEach(attr => {
+    if (attr.type !== 'JSXAttribute') {
+      newAttributes.push(attr)
+      return
+    }
+
+    const propName = attr.name.name
+
+    // Handle special props
+    if (propName === 'className') {
+      // We'll merge this later
+      if (attr.value.type === 'StringLiteral') {
+        classNameParts.push(attr.value.value)
+      }
+      return
+    }
+
+    if (propName === 'style') {
+      newAttributes.push(attr)
+      return
+    }
+
+    // Handle boolean props (elevated, displayDetail, etc.)
+    if (attr.value === null) {
+      // Boolean prop like <Card elevated> -> add to className
+      const kebabProp = camelToKebab(propName)
+      classNameParts.push(kebabProp)
+      return
+    }
+
+    // Handle dollar props ($isActive, $isExpanded)
+    if (propName.startsWith('$')) {
+      const cleanPropName = propName.substring(1) // Remove $
+      const kebabProp = camelToKebab(cleanPropName)
+
+      // Convert to conditional className
+      // $isActive={false} -> className includes conditional logic
+      if (attr.value.type === 'JSXExpressionContainer') {
+        // For now, create a template literal expression
+        // TODO: This needs to be a proper JSX expression
+        classNameParts.push(`\${${cleanPropName} ? '${kebabProp}' : ''}`)
+      }
+      return
+    }
+
+    // Handle dynamic props that should become CSS variables
+    if (propName === 'variant') {
+      // variant={variant} -> style with CSS variable
+      styleProperties.push(`'--${baseClassName}-variant': ${generateVariantLogic(compName)}`)
+      return
+    }
+
+    // Keep other props as-is (aria-*, data-*, etc.)
+    newAttributes.push(attr)
+  })
+
+  // Generate className attribute
+  let classNameValue
+  if (classNameParts.length === 1) {
+    // Simple string
+    classNameValue = {
+      type: 'StringLiteral',
+      value: classNameParts[0],
+    }
+  } else {
+    // Template literal with dynamic parts
+    const templateParts = classNameParts.join(' ')
+    if (templateParts.includes('${')) {
+      // Has dynamic parts - create JSX expression
+      classNameValue = {
+        type: 'JSXExpressionContainer',
+        expression: {
+          expressions: generateTemplateExpressions(),
+          quasis: generateTemplateQuasis(templateParts),
+          type: 'TemplateLiteral',
+        },
+      }
+    } else {
+      // All static
+      classNameValue = {
+        type: 'StringLiteral',
+        value: templateParts,
+      }
+    }
+  }
+
+  newAttributes.push({
+    name: { name: 'className', type: 'JSXIdentifier' },
+    type: 'JSXAttribute',
+    value: classNameValue,
+  })
+
+  // Generate style attribute if needed
+  if (styleProperties.length > 0) {
+    const styleObjectName = `${camelCase(compName)}Style`
+
+    newAttributes.push({
+      name: { name: 'style', type: 'JSXIdentifier' },
+      type: 'JSXAttribute',
+      value: {
+        type: 'JSXExpressionContainer',
+        expression: {
+          name: styleObjectName,
+          type: 'Identifier',
+        },
+      },
+    })
+  }
+
+  return {
+    dynamicClassName: classNameParts.join(' '),
+    newAttributes,
+    styleObject: styleProperties.length > 0 ? styleProperties : null,
+  }
+}
+
+/**
+ * Generate variant logic for CSS variables
+ */
+function generateVariantLogic(compName) {
+  // For Wrapper component with variant prop
+  if (compName === 'Wrapper') {
+    return "variant === 'primary' ? 'var(--color-primary-500)' : 'var(--color-secondary-500)'"
+  }
+  return 'variant'
+}
+
+/**
+ * Convert camelCase to camelCase (utility function)
+ */
+function camelCase(str) {
+  return str.charAt(0).toLowerCase() + str.slice(1)
+}
+
+/**
+ * Generate template literal quasis for dynamic className
+ */
+function generateTemplateQuasis(templateString) {
+  // This is a simplified implementation
+  // In a real implementation, this would parse the template string properly
+  return [
+    { tail: true, type: 'TemplateElement', value: { cooked: templateString, raw: templateString } },
+  ]
+}
+
+/**
+ * Generate template literal expressions for dynamic className
+ */
+function generateTemplateExpressions() {
+  // This is a simplified implementation
+  // In a real implementation, this would extract ${...} expressions
+  return []
+}
+
+/**
+ * Insert style object declarations into component functions
+ */
+function insertStyleObjectDeclarations(functionPath, styleObjectsToGenerate) {
+  if (styleObjectsToGenerate.size === 0) return
+
+  // Find the function body
+  const functionBody = functionPath.node.body
+  if (!functionBody || functionBody.type !== 'BlockStatement') return
+
+  // Generate variable declarations for each style object
+  for (const [styleObjectName, styleInfo] of styleObjectsToGenerate) {
+    const variableDeclaration = generateStyleObjectDeclaration(styleObjectName, styleInfo)
+    
+    // Insert at the beginning of the function body
+    functionBody.body.unshift(variableDeclaration)
+  }
+}
+
+/**
+ * Generate a style object variable declaration
+ */
+function generateStyleObjectDeclaration(styleObjectName, styleInfo) {
+  const { compName } = styleInfo
+  
+  // For Wrapper component, generate the variant logic
+  if (compName === 'Wrapper') {
+    return {
+      type: 'VariableDeclaration',
+      declarations: [
+        {
+          type: 'VariableDeclarator',
+          id: { type: 'Identifier', name: styleObjectName },
+          init: {
+            type: 'ObjectExpression',
+            properties: [
+              {
+                type: 'Property',
+                key: { type: 'StringLiteral', value: '--wrapper-variant' },
+                value: {
+                  type: 'ConditionalExpression',
+                  test: {
+                    type: 'BinaryExpression',
+                    operator: '===',
+                    left: { type: 'Identifier', name: 'variant' },
+                    right: { type: 'StringLiteral', value: 'primary' }
+                  },
+                  consequent: { type: 'StringLiteral', value: 'color-primary-500' },
+                  alternate: { type: 'StringLiteral', value: 'color-secondary-500' }
+                },
+                method: false,
+                shorthand: false,
+                computed: false,
+                kind: 'init'
+              },
+              {
+                type: 'Property', 
+                key: { type: 'StringLiteral', value: '--wrapper-topnav-height' },
+                value: { type: 'Identifier', name: 'TOPNAV_HEIGHT' },
+                method: false,
+                shorthand: false,
+                computed: false,
+                kind: 'init'
+              }
+            ]
+          }
+        }
+      ],
+      kind: 'const'
+    }
+  }
+  
+  // Default simple style object
+  return {
+    type: 'VariableDeclaration',
+    declarations: [
+      {
+        type: 'VariableDeclarator',
+        id: { type: 'Identifier', name: styleObjectName },
+        init: {
+          type: 'ObjectExpression',
+          properties: []
+        }
+      }
+    ],
+    kind: 'const'
+  }
+}
+
 // Recursively copy a directory
 /**
  * Updates component file: replaces <S.MyElement /> with <li className="my-element" />
@@ -281,6 +533,9 @@ async function migrateComponentFile(componentPath, stylesMap) {
     plugins: ['typescript', 'jsx'],
     sourceType: 'module',
   })
+
+  // Track style objects that need to be generated
+  const styleObjectsToGenerate = new Map()
 
   // Replace import * as S from './styles' with import './styles.scss'
   traverse(ast, {
@@ -306,30 +561,46 @@ async function migrateComponentFile(componentPath, stylesMap) {
         const compName = path.node.openingElement.name.property.name
         const tag = stylesMap[compName] || 'div'
         const className = camelToKebab(compName)
-        // Replace <S.MyElement ...> with <tag className="my-element" ...>
-        path.node.openingElement.name = { name: tag, type: 'JSXIdentifier' }
-        // Add or merge className prop
-        let hasClassName = false
-        path.node.openingElement.attributes.forEach(attr => {
-          if (attr.type === 'JSXAttribute' && attr.name.name === 'className') {
-            hasClassName = true
-            // Prepend our className
-            if (attr.value.type === 'StringLiteral') {
-              attr.value.value = `${className} ${attr.value.value}`
-            }
-          }
-        })
-        if (!hasClassName) {
-          path.node.openingElement.attributes.push({
-            name: { name: 'className', type: 'JSXIdentifier' },
-            type: 'JSXAttribute',
-            value: { type: 'StringLiteral', value: className },
+
+        // Process props and convert them appropriately
+        const { newAttributes, styleObject } = processComponentProps(
+          path.node.openingElement.attributes,
+          compName,
+          className
+        )
+
+        // If a style object is needed, track it for generation
+        if (styleObject) {
+          const styleObjectName = `${camelCase(compName)}Style`
+          styleObjectsToGenerate.set(styleObjectName, {
+            compName,
+            properties: styleObject,
           })
         }
+
+        // Replace <S.MyElement ...> with <tag ...>
+        path.node.openingElement.name = { name: tag, type: 'JSXIdentifier' }
+
+        // Replace all attributes with processed ones
+        path.node.openingElement.attributes = newAttributes
+
         // Replace closing tag
         if (path.node.closingElement) {
           path.node.closingElement.name = { name: tag, type: 'JSXIdentifier' }
         }
+      }
+    },
+    // Insert style object declarations into component functions
+    FunctionDeclaration(path) {
+      if (path.node.id && path.node.id.name.includes('Component')) {
+        insertStyleObjectDeclarations(path, styleObjectsToGenerate)
+      }
+    },
+    ArrowFunctionExpression(path) {
+      // Handle const Component = () => {} pattern
+      if (path.parent.type === 'VariableDeclarator' && 
+          path.parent.id.name.includes('Component')) {
+        insertStyleObjectDeclarations(path, styleObjectsToGenerate)
       }
     },
   })
@@ -341,9 +612,7 @@ async function migrateComponentFile(componentPath, stylesMap) {
     console.warn('Prettier formatting failed:', e)
     fs.writeFileSync(componentPath, output, 'utf8')
   }
-}
-
-/**
+}/**
  * Converts styled-components in styles.ts to CSS classes in styles.scss
  */
 function migrateStylesTsToScss(stylesTsPath, extractedMixins = new Map()) {

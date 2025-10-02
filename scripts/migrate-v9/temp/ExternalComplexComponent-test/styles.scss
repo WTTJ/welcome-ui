@@ -1,0 +1,72 @@
+// Generated SCSS mixins from CSS template literals
+
+@mixin trigger-active-styles {
+background-color: var(--color-beige-30);
+
+  
+  /* WUI V9 TO MIGRATE: OrganizationLogo */
+  /* 
+  ${OrganizationLogo} {
+    outline-color: var(--color-beige-30) !important;
+  }
+  */ {
+    outline-color: var(--color-beige-30) !important;
+  }
+
+  
+  /* WUI V9 TO MIGRATE: OrganizationName */
+  /* 
+  ${OrganizationName} {
+    outline-color: var(--color-beige-30) !important;
+  }
+  */ {
+    color: var(--color-neutral-90);
+  }
+}
+
+
+
+.card {
+background: white;
+  border-radius: var(--spacing-md);
+  padding: var(--spacing-lg);
+  /* FUNCTION_EXPRESSION - NEEDS_MANUAL_REVIEW */
+}
+
+.title {
+color: var(--color-neutral-90);
+  margin: 0;;
+  color: var(--color-neutral-90);
+  margin-top: /* FUNCTION_EXPRESSION - NEEDS_MANUAL_REVIEW */;
+}
+
+.trigger-button {
+border: none;
+  background-color: transparent;
+  padding: var(--spacing-md) lg;
+  cursor: pointer;
+  width: 100%;
+  border-radius: var(--spacing-md);
+  transition: background-color 300ms;
+
+  /* FUNCTION_EXPRESSION - NEEDS_MANUAL_REVIEW */
+
+  &:hover {
+    @include trigger-active-styles;
+
+    
+  /* WUI V9 TO MIGRATE: OrganizationName */
+  /* 
+  ${OrganizationName} {
+    outline-color: var(--color-beige-30) !important;
+  }
+  */ {
+      color: var(--color-beige-80);
+    }
+  }
+
+  /* FUNCTION_EXPRESSION - NEEDS_MANUAL_REVIEW */;
+  &:active {
+    @include trigger-active-styles
+  }
+}

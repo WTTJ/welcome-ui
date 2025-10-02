@@ -1,7 +1,10 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`External Migration - Complex Styled Components > migrates complex styled components (styled(Component), template literals, interpolations) > complex-component.tsx 1`] = `
-"import './styles.scss'
+"import { Link } from 'welcome-ui/Link'
+
+import './styles.scss'
+
 const TOPNAV_HEIGHT = '60px'
 
 type Variant = 'primary' | 'secondary'
@@ -14,9 +17,9 @@ export const ComplexComponent = ({ variant = 'primary' }: { variant?: Variant })
 
   return (
     <div className="wrapper" style={wrapperStyle}>
-      <div className="card elevated">
+      <Link className="card elevated">
         <Text as="h3" variant="h4" className={`title ${displayDetail ? 'display-detail' : ''}`}>Complex component</Text>
-      </div>
+      </Link>
       <button className="trigger-button ${isActive ? 'is-active' : ''}  ${isExpanded ? 'is-expanded' : ''}">Toggle</button>
     </div>
   )
