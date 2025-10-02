@@ -12,23 +12,51 @@ export const userInputInterface = readline.createInterface({
   output: process.stdout,
 })
 
+// Cache for component whitelist to avoid recreating it
+let cachedWhitelist = null
+let cachedDirectory = null
+
 /**
  * Find all Box/Flex/Grid/Stack (and related) component usages in a directory tree.
  * Returns an array of found component usages with their props and file info.
  */
 export function findAllComponentUsages(directory) {
-  // Build whitelist of component root names from lib/src/components
-  const componentsDir = path.resolve('lib/src/components')
-  const whitelist = new Set(
-    fs
-      .readdirSync(componentsDir, { withFileTypes: true })
-      .filter(dirent => dirent.isDirectory())
-      .map(dirent => dirent.name)
-  )
+  // Return cached whitelist if we've already processed this directory
+  if (cachedDirectory === directory && cachedWhitelist) {
+    const results = []
+    walkDirectory(directory, filePath => processFile(filePath, results, cachedWhitelist))
+    return results
+  }
+
+  // Build whitelist from the actual welcome-ui project components directory
+  // This ensures we always have the complete list of available components
+  const scriptDir = path.dirname(new URL(import.meta.url).pathname)
+  const welcomeUiComponentsDir = path.resolve(scriptDir, '../../lib/src/components')
+
+  let whitelist = new Set()
+  try {
+    if (
+      fs.existsSync(welcomeUiComponentsDir) &&
+      fs.statSync(welcomeUiComponentsDir).isDirectory()
+    ) {
+      whitelist = new Set(
+        fs
+          .readdirSync(welcomeUiComponentsDir, { withFileTypes: true })
+          .filter(dirent => dirent.isDirectory())
+          .map(dirent => dirent.name)
+      )
+    }
+  } catch {
+    // If we can't read the welcome-ui components directory, continue with empty whitelist
+  }
 
   // Always include COMPONENTS_TO_REPLACE in the whitelist
   const COMPONENTS_TO_REPLACE = ['Box', 'Flex', 'Grid', 'Stack']
   COMPONENTS_TO_REPLACE.forEach(name => whitelist.add(name))
+
+  // Cache the whitelist for this directory
+  cachedWhitelist = whitelist
+  cachedDirectory = directory
 
   const results = []
   // Recursively walk all files in the directory and process each file, passing whitelist

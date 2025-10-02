@@ -1,23 +1,15 @@
 import { readFileSync } from 'fs'
-import { dirname, resolve } from 'path'
-import { fileURLToPath } from 'url'
+import { resolve } from 'path'
 
 import { describe, expect, it } from 'vitest'
 
-import { copyDirSync, deleteDirRecursive } from '../helpers/file-utils.mjs'
+import { setupMigrationTest } from '../helpers/test-setup.mjs'
 import { migrateAll } from '../index.mjs'
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
-
 describe('Inline Migration - CloseButton Components', () => {
+  const tempDir = setupMigrationTest('inline-closebutton-test', '__fixtures__')
+
   it('migrates CloseButton components with styling props to CloseButton with classNames', async () => {
-    const fixturesDir = resolve(__dirname, './__fixtures__')
-    const tempDir = resolve(__dirname, '../temp/inline-closebutton-test')
-
-    // Clean up and copy fixtures
-    deleteDirRecursive(tempDir)
-    copyDirSync(fixturesDir, tempDir)
-
     // Run migration
     await migrateAll(tempDir, { copyDir: false, interactive: false })
 
@@ -26,8 +18,5 @@ describe('Inline Migration - CloseButton Components', () => {
 
     // Verify with snapshots
     expect(migratedComponent).toMatchSnapshot('closebutton-component.tsx')
-
-    // Cleanup
-    deleteDirRecursive(tempDir)
   })
 })

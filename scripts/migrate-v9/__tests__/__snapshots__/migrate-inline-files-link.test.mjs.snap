@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Inline Migration - Link Components > migrates Link components with FormattedMessage to a with classNames > link-component.tsx 1`] = `
+exports[`Inline Migration - Link Components > migrates Link components with styling props to Link with classNames > link-component.tsx 1`] = `
 "import { Button } from 'welcome-ui/Button'
 import { Link } from 'welcome-ui/Link'
 
