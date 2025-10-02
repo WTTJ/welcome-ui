@@ -18,7 +18,8 @@ import { findAllComponentUsages } from './migrate-inline-files.mjs'
  * @param {boolean} options.verbose - Whether to show verbose output (default: false)
  */
 export async function migrateAll(directory, options = {}) {
-  const { copyDir = true, interactive = true, verbose = false } = options
+  const isTest = process.env.VITEST === 'true'
+  const { copyDir = true, interactive = !isTest, verbose = false } = options
 
   console.log('🚀 Starting unified migration...')
   console.log(`📁 Directory: ${directory}`)
@@ -63,7 +64,7 @@ export async function migrateAll(directory, options = {}) {
     console.log(`✨ Found ${components.length} inline styled component(s)`)
     console.log('🔄 Running inline migration (Box mt="sm" -> div.mt-sm)...')
 
-    await processComponents(components, !interactive, verbose)
+    await processComponents(components, interactive, verbose)
   } else {
     console.log('ℹ️  No inline styled components found')
   }

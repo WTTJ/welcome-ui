@@ -1,7 +1,58 @@
 // Value transformation helpers for upgrade-v9.mjs
 
 export function transform(key, value, forceValue = false) {
+  // Handle objects first (responsive props like { _: 160, md: 80 })
+  if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+    try {
+      return Object.entries(value)
+        .map(([breakpoint, val]) => {
+          if (breakpoint === '_' || breakpoint === 'xs') {
+            return transform(key, val, forceValue)
+          }
+          return `${breakpoint}:${transform(key, val, forceValue)}`
+        })
+        .join(' ')
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.warn(`Failed to parse object value for ${key}:`, value, error.message)
+      return undefined
+    }
+  }
+
+  // Handle null/empty values
+  if (value === null || value === '') {
+    return key
+  }
+
+  // Handle numbers (from recursive calls)
+  if (!isNaN(value)) {
+    const isNumber = !isNaN(parseFloat(value))
+    if (value === 0 || value === '0') {
+      return `${key}-0`
+    }
+    if (value === 1 || value === '1') {
+      return `${key}-1`
+    }
+    if (isNumber) {
+      let keyFormatted = key
+      let valueFormatted = String(value)
+      if (value < 0) {
+        keyFormatted = `-${key}`
+        valueFormatted = valueFormatted.substring(1)
+      }
+      return `${keyFormatted}-[${parseFloat(valueFormatted) / 16}rem]`
+    }
+    return `${key}-[${value}]`
+  }
+
+  // Handle strings
   if (typeof value === 'string') {
+    if (value === '100%') {
+      return `${key}-full`
+    }
+    if (value.includes('calc')) {
+      return `${key}_${value}_CSS_TO_EDIT`
+    }
     if (!value.startsWith('{') && value.includes(':') && !value.includes('?')) {
       value = `{${value}}`
     }
@@ -39,33 +90,8 @@ export function transform(key, value, forceValue = false) {
       return `${key}_{{ ${value} }}_CSS_TO_EDIT`
     }
   }
-  if (value === '100%') {
-    return `${key}-full`
-  } else if (value.includes('calc')) {
-    return `${key}_${value}_CSS_TO_EDIT`
-  } else if (value === null || value === '') {
-    return key
-  } else if (!isNaN(value)) {
-    const isNumber = !isNaN(parseFloat(value))
-    if (value === 0 || value === '0') {
-      return `${key}-0`
-    }
-    if (value === 1 || value === '1') {
-      return `${key}-1`
-    }
-    if (isNumber) {
-      let keyFormatted = key
-      let valueFormatted = value
-      if (value < 0) {
-        keyFormatted = `-${key}`
-        valueFormatted = value.substring(1)
-      }
-      return `${keyFormatted}-[${valueFormatted / 16}rem]`
-    }
-    return `${key}-[${value}]`
-  } else {
-    return transformSpecificValue(`${key ? `${key}-` : ''}${value}`)
-  }
+
+  return transformSpecificValue(`${key ? `${key}-` : ''}${value}`)
 }
 
 export function transformSpecificValue(value) {
