@@ -6,6 +6,10 @@ import generateModule from '@babel/generator'
 import { parse } from '@babel/parser'
 import traverseModule from '@babel/traverse'
 
+import {
+  extractCssTemplateLiterals,
+  transformStyledComponentCss,
+} from './helpers/css-transformer.mjs'
 import { getModule } from './helpers/esm.mjs'
 import { copyDirSync, deleteDirRecursive } from './helpers/file-utils.mjs'
 import { formatWithPrettier } from './helpers/format-with-prettier.mjs'
@@ -15,59 +19,75 @@ const generate = getModule(generateModule)
 
 export async function migrate(dir, copyDir = true) {
   let workingDir = dir
-  if (copyDir) {
-    const parent = path.dirname(dir)
-    const base = path.basename(dir)
-    const dest = path.join(parent, base + '-Migrated')
-    if (fs.existsSync(dest)) {
-      console.log(`Destination directory already exists, deleting: ${dest}`)
-      deleteDirRecursive(dest)
-    }
-    copyDirSync(dir, dest)
-    workingDir = dest
-    console.log(`Copied ${dir} to ${dest}`)
-  }
+  let tempDir = null
 
-  const stylesTs = path.join(workingDir, 'styles.ts')
-  const stylesScss = path.join(workingDir, 'styles.scss')
-  if (!fs.existsSync(stylesTs)) return
-
-  // Use babel to extract stylesMap
-  const content = fs.readFileSync(stylesTs, 'utf8')
-  const ast = parse(content, {
-    plugins: ['typescript'],
-    sourceType: 'module',
-  })
-  const stylesMap = {}
-  function stripBox(tag) {
-    return tag.endsWith('Box') ? tag.slice(0, -3) : tag
-  }
-
-  traverse(ast, {
-    VariableDeclaration(path) {
-      path.node.declarations.forEach(decl => {
-        if (decl.init && isStyledComponent(decl.init)) {
-          const compName = decl.id.name
-          let tag = getStyledTag(decl.init)
-          tag = stripBox(tag)
-          stylesMap[compName] = tag
-        }
-      })
-    },
-  })
-  const scss = migrateStylesTsToScss(stylesTs)
   try {
-    const formatted = await formatWithPrettier(scss, stylesScss)
-    fs.writeFileSync(stylesScss, formatted, 'utf8')
-  } catch (e) {
-    console.warn('Prettier formatting failed:', e)
-    fs.writeFileSync(stylesScss, scss, 'utf8')
-  }
+    if (copyDir) {
+      const parent = path.dirname(dir)
+      const base = path.basename(dir)
+      const dest = path.join(parent, base + '-Migrated')
+      if (fs.existsSync(dest)) {
+        console.log(`Destination directory already exists, deleting: ${dest}`)
+        deleteDirRecursive(dest)
+      }
+      copyDirSync(dir, dest)
+      workingDir = dest
+      tempDir = dest // Track temp directory for cleanup
+      console.log(`Copied ${dir} to ${dest}`)
+    }
 
-  // Update component files in the same dir
-  const files = fs.readdirSync(workingDir).filter(f => f.endsWith('.tsx') && f !== 'styles.tsx')
-  for (const f of files) {
-    await migrateComponentFile(path.join(workingDir, f), stylesMap)
+    const stylesTs = path.join(workingDir, 'styles.ts')
+    const stylesScss = path.join(workingDir, 'styles.scss')
+    if (!fs.existsSync(stylesTs)) return
+
+    // Use babel to extract stylesMap
+    const content = fs.readFileSync(stylesTs, 'utf8')
+    const ast = parse(content, {
+      plugins: ['typescript'],
+      sourceType: 'module',
+    })
+    const stylesMap = {}
+    const extractedMixins = new Map()
+    function stripBox(tag) {
+      return tag.endsWith('Box') ? tag.slice(0, -3) : tag
+    }
+
+    traverse(ast, {
+      VariableDeclaration(path) {
+        path.node.declarations.forEach(decl => {
+          // Extract CSS template literals for mixins
+          extractCssTemplateLiterals(decl, extractedMixins)
+
+          if (decl.init && isStyledComponent(decl.init)) {
+            const compName = decl.id.name
+            let tag = getStyledTag(decl.init)
+            tag = stripBox(tag)
+            stylesMap[compName] = tag
+          }
+        })
+      },
+    })
+    const scss = migrateStylesTsToScss(stylesTs, extractedMixins)
+    try {
+      const formatted = await formatWithPrettier(scss, stylesScss)
+      fs.writeFileSync(stylesScss, formatted, 'utf8')
+    } catch (e) {
+      console.warn('Prettier formatting failed:', e)
+      fs.writeFileSync(stylesScss, scss, 'utf8')
+    }
+
+    // Update component files in the same dir
+    const files = fs.readdirSync(workingDir).filter(f => f.endsWith('.tsx') && f !== 'styles.tsx')
+    for (const f of files) {
+      await migrateComponentFile(path.join(workingDir, f), stylesMap)
+    }
+  } catch (error) {
+    // If there's an error and we created a temp directory, clean it up
+    if (tempDir && copyDir && fs.existsSync(tempDir)) {
+      console.log(`Migration failed, cleaning up temp directory: ${tempDir}`)
+      deleteDirRecursive(tempDir)
+    }
+    throw error // Re-throw the error
   }
 }
 
@@ -78,14 +98,14 @@ function camelToKebab(str) {
 /**
  * Extract CSS content from various styled component patterns
  */
-function extractCssFromStyledComponent(node) {
+function extractCssFromStyledComponent(node, mixins = new Map()) {
   // Pattern 1: styled.div`css` (simple TaggedTemplateExpression)
   if (
     node.type === 'TaggedTemplateExpression' &&
     node.tag.type === 'MemberExpression' &&
     node.tag.object.name === 'styled'
   ) {
-    return extractCssFromTemplateLiteral(node.quasi)
+    return extractCssFromTemplateLiteral(node.quasi, mixins)
   }
 
   // Pattern 2: styled(Box)`css` (TaggedTemplateExpression with CallExpression)
@@ -94,7 +114,7 @@ function extractCssFromStyledComponent(node) {
     node.tag.type === 'CallExpression' &&
     node.tag.callee.name === 'styled'
   ) {
-    return extractCssFromTemplateLiteral(node.quasi)
+    return extractCssFromTemplateLiteral(node.quasi, mixins)
   }
 
   // Pattern 3: styled(Box)((props) => css`...`) (CallExpression with function)
@@ -112,7 +132,7 @@ function extractCssFromStyledComponent(node) {
     ) {
       // Look for css`` template literal in the function body
       if (funcArg.body.type === 'TaggedTemplateExpression' && funcArg.body.tag.name === 'css') {
-        return extractCssFromTemplateLiteral(funcArg.body.quasi)
+        return extractCssFromTemplateLiteral(funcArg.body.quasi, mixins)
       }
     }
   }
@@ -123,24 +143,31 @@ function extractCssFromStyledComponent(node) {
 /**
  * Extract CSS string from template literal, handling interpolations
  */
-function extractCssFromTemplateLiteral(quasi) {
+function extractCssFromTemplateLiteral(quasi, mixins = new Map()) {
   if (!quasi.quasis) return null
 
-  // For now, just extract the static parts and skip interpolations
-  // In a more advanced version, we could try to resolve some interpolations
+  // Use our enhanced CSS transformer instead of just adding placeholders
+  const result = transformStyledComponentCss(quasi, quasi.expressions || [], mixins)
+
+  // Extract CSS from the result object
+  if (result && result.css) {
+    return result.css.trim()
+  }
+
+  // Fallback to simple extraction if transformer returns null
   const staticParts = quasi.quasis.map(q => q.value.cooked || q.value.raw).filter(Boolean)
 
   // Join with placeholder comments for interpolations
-  let css = ''
+  let fallbackCss = ''
   for (let i = 0; i < staticParts.length; i++) {
-    css += staticParts[i]
+    fallbackCss += staticParts[i]
     if (i < quasi.expressions.length) {
       // Add a comment for the interpolation
-      css += '/* ${...} */'
+      fallbackCss += '/* ${...} */'
     }
   }
 
-  return css.trim()
+  return fallbackCss.trim()
 }
 
 /**
@@ -319,7 +346,7 @@ async function migrateComponentFile(componentPath, stylesMap) {
 /**
  * Converts styled-components in styles.ts to CSS classes in styles.scss
  */
-function migrateStylesTsToScss(stylesTsPath) {
+function migrateStylesTsToScss(stylesTsPath, extractedMixins = new Map()) {
   const content = fs.readFileSync(stylesTsPath, 'utf8')
   const ast = parse(content, {
     plugins: ['typescript'],
@@ -334,20 +361,35 @@ function migrateStylesTsToScss(stylesTsPath) {
           const className = camelToKebab(compName)
 
           // Extract CSS from different styled component patterns
-          const css = extractCssFromStyledComponent(decl.init)
+          const css = extractCssFromStyledComponent(decl.init, extractedMixins)
           if (css) {
-            // Replace spacing tokens with CSS vars (e.g., md, lg -> var(--spacing-md))
-            const cssWithVars = css.replace(
-              /\b(xs|sm|md|lg|xl|xxl|3xl)\b/g,
-              v => `var(--spacing-${v})`
-            )
-            classDefs.push(`.${className} {\n${cssWithVars}\n}`)
+            // CSS transformation is now handled by extractCssFromStyledComponent
+            classDefs.push(`.${className} {\n${css}\n}`)
           }
         }
       })
     },
   })
-  return classDefs.join('\n\n')
+
+  // Generate SCSS mixins from extracted CSS template literals
+  const mixinDefs = []
+  for (const [mixinName, mixinData] of extractedMixins) {
+    const mixinScss = `@mixin ${mixinName} {
+${mixinData.css}
+}`
+    mixinDefs.push(mixinScss)
+  }
+
+  // Combine mixins and classes
+  const scssContent = []
+  if (mixinDefs.length > 0) {
+    scssContent.push('// Generated SCSS mixins from CSS template literals')
+    scssContent.push(...mixinDefs)
+    scssContent.push('') // Empty line separator
+  }
+  scssContent.push(...classDefs)
+
+  return scssContent.join('\n\n')
 }
 
 // Usage: node migrate-wui-v9.mjs path/to/component/dir

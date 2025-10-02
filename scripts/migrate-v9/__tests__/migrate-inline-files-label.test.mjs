@@ -1,23 +1,15 @@
 import { readFileSync } from 'fs'
-import { dirname, resolve } from 'path'
-import { fileURLToPath } from 'url'
+import { resolve } from 'path'
 
 import { describe, expect, it } from 'vitest'
 
-import { copyDirSync, deleteDirRecursive } from '../helpers/file-utils.mjs'
+import { setupMigrationTest } from '../helpers/test-setup.mjs'
 import { migrateAll } from '../index.mjs'
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
-
 describe('Inline Migration - Label Components', () => {
-  it('migrates Label components with form props to Label with classNames', async () => {
-    const fixturesDir = resolve(__dirname, './__fixtures__')
-    const tempDir = resolve(__dirname, '../temp/inline-label-test')
+  const tempDir = setupMigrationTest('inline-label-test', '__fixtures__')
 
-    // Clean up and copy fixtures
-    deleteDirRecursive(tempDir)
-    copyDirSync(fixturesDir, tempDir)
-
+  it('migrates Label components with styling props to Label with classNames', async () => {
     // Run migration
     await migrateAll(tempDir, { copyDir: false, interactive: false })
 
@@ -26,8 +18,5 @@ describe('Inline Migration - Label Components', () => {
 
     // Verify with snapshots
     expect(migratedComponent).toMatchSnapshot('label-component.tsx')
-
-    // Cleanup
-    deleteDirRecursive(tempDir)
   })
 })

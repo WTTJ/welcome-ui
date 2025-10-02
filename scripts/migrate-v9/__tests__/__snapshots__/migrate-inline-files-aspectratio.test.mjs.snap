@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Inline Migration - AspectRatio Components > migrates AspectRatio components with responsive props to AspectRatio with classNames > aspectratio-component.tsx 1`] = `
+exports[`Inline Migration - AspectRatio Components > migrates AspectRatio components with styling props to AspectRatio with classNames > aspectratio-component.tsx 1`] = `
 "import { AspectRatio } from 'welcome-ui/AspectRatio'
 import { Box } from 'welcome-ui/Box'
 

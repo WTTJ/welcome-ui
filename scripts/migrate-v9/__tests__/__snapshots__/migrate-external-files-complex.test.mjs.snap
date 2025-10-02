@@ -25,7 +25,25 @@ export const ComplexComponent = ({ variant = 'primary' }: { variant?: Variant })
 `;
 
 exports[`External Migration - Complex Styled Components > migrates complex styled components (styled(Component), template literals, interpolations) > complex-styles.scss 1`] = `
-".wrapper {
+"@mixin trigger-active-styles {
+  background-color: var(--color-beige-30);
+
+  /* WUI V9 TO MIGRATE */
+  /* 
+  ${OrganizationLogo} {
+    outline-color: var(--color-beige-30) !important;
+  }
+  */
+
+  /* WUI V9 TO MIGRATE */
+  /* 
+  ${OrganizationName} {
+    color: var(--color-neutral-90);
+  }
+  */
+}
+
+.wrapper {
   background-color: var(--wrapper-variant);
   padding: var(--spacing-xxl) 0;
   position: relative;
@@ -53,20 +71,6 @@ exports[`External Migration - Complex Styled Components > migrates complex style
 
   &.display-detail {
     margin-top: var(--spacing.sm);
-  }
-}
-
-@mixin trigger-active-styles {
-  background-color: var(--color-beige-30);
-
-  /* WUI V9 TO MIGRATE */
-  ${OrganizationLogo} {
-    outline-color: var(--color-beige-30) !important;
-  }
-
-  /* WUI V9 TO MIGRATE */
-  ${OrganizationName} {
-    color: var(--color-neutral-90);
   }
 }
 
