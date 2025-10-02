@@ -6,8 +6,11 @@ export const ComplexComponent = ({ variant = 'primary' }: { variant?: Variant })
   return (
     <S.Wrapper variant={variant}>
       <S.Card elevated>
-        <S.Title>Complex Component</S.Title>
+        <S.Title displayDetail>Complex component</S.Title>
       </S.Card>
+      <S.TriggerButton $isActive={false} $isExpanded={false}>
+        Toggle
+      </S.TriggerButton>
     </S.Wrapper>
   )
 }

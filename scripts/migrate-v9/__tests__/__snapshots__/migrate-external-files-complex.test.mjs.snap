@@ -2,13 +2,22 @@
 
 exports[`External Migration - Complex Styled Components > migrates complex styled components (styled(Component), template literals, interpolations) > complex-component.tsx 1`] = `
 "import './styles.scss'
+const TOPNAV_HEIGHT = '60px'
+
 type Variant = 'primary' | 'secondary'
+
 export const ComplexComponent = ({ variant = 'primary' }: { variant?: Variant }) => {
+  const wrapperStyle = {
+    '--wrapper-variant': variant === 'primary' ? 'color-primary-500' : 'color-secondary-500',
+    '--wrapper-topnav-height': TOPNAV_HEIGHT,
+  }
+
   return (
-    <div variant={variant} className="wrapper">
-      <div elevated className="card">
-        <h2 className="title">Complex Component</h2>
+    <div className="wrapper" style={wrapperStyle}>
+      <div className="card elevated">
+        <Text as="h3" variant="h4" className={`title ${displayDetail ? 'display-detail' : ''}`}>Complex component</Text>
       </div>
+      <button className="trigger-button ${isActive ? 'is-active' : ''}  ${isExpanded ? 'is-expanded' : ''}">Toggle</button>
     </div>
   )
 }
@@ -16,17 +25,92 @@ export const ComplexComponent = ({ variant = 'primary' }: { variant?: Variant })
 `;
 
 exports[`External Migration - Complex Styled Components > migrates complex styled components (styled(Component), template literals, interpolations) > complex-styles.scss 1`] = `
-".card {
+".wrapper {
+  background-color: var(--wrapper-variant);
+  padding: var(--spacing-xxl) 0;
+  position: relative;
+  isolation: isolate;
+  min-height: calc(100vh - var(--wrapper-topnav-height));
+
+  @media (min-width: lg) {
+    padding: var(--spacing-3xl) 0;
+  }
+}
+
+.card {
   background: white;
   border-radius: var(--spacing-md);
   padding: var(--spacing-lg);
-  /* \${...} */
+  
+  &.elevated {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
 }
 
 .title {
-  color: neutral-900;
-  font-size: var(--spacing-xl);
+  color: var(--color-neutral-90);
   margin: 0;
+
+  &.display-detail {
+    margin-top: var(--spacing.sm);
+  }
+}
+
+@mixin trigger-active-styles {
+  background-color: var(--color-beige-30);
+
+  /* WUI V9 TO MIGRATE */
+  ${OrganizationLogo} {
+    outline-color: var(--color-beige-30) !important;
+  }
+
+  /* WUI V9 TO MIGRATE */
+  ${OrganizationName} {
+    color: var(--color-neutral-90);
+  }
+}
+
+.trigger-button {
+  border: none;
+  background-color: transparent;
+  padding: var(--spacing-md) var(--spacing-lg);
+  cursor: pointer;
+  width: 100%;
+  border-radius: var(--spacing-md);
+  transition: background-color 300ms;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  height: var(--spacing-48);
+  width: var(--spacing-48px);
+
+  .is-expanded {
+    display: inherit;
+    align-items: inherit;
+    justify-content: inherit;
+    padding: inherit;
+    height: inherit;
+    width: inherit;
+  }
+
+  &:hover {
+    @include trigger-active-styles;
+
+    /* WUI V9 TO MIGRATE */
+    ${OrganizationName} {
+      color: var(--color-beige-80);
+    }
+  }
+
+  .is-active {
+    @include trigger-active-styles;
+  }
+
+  :active {
+    @include trigger-active-styles;
+  }
 }
 "
 `;

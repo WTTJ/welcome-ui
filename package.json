@@ -23,7 +23,7 @@
     "release": "yarn workspace welcome-ui run release-it",
     "start": "yarn workspace website dev -p 3020",
     "test": "yarn workspace welcome-ui test",
-    "test:scripts": "vitest run scripts/"
+    "test:scripts": "CI=1 vitest scripts/ --run"
   },
   "private": true,
   "workspaces": [

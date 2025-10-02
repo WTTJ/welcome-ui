@@ -1,10 +1,10 @@
-import { readFileSync } from 'fs'
+import { copyFileSync, mkdirSync, readFileSync } from 'fs'
 import { dirname, resolve } from 'path'
 import { fileURLToPath } from 'url'
 
 import { describe, expect, it } from 'vitest'
 
-import { copyDirSync, deleteDirRecursive } from '../helpers/file-utils.mjs'
+import { deleteDirRecursive } from '../helpers/file-utils.mjs'
 import { migrateAll } from '../index.mjs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -16,7 +16,8 @@ describe('Inline Migration - Alert Components', () => {
 
     // Clean up and copy fixtures
     deleteDirRecursive(tempDir)
-    copyDirSync(fixturesDir, tempDir)
+    mkdirSync(tempDir, { recursive: true })
+    copyFileSync(resolve(fixturesDir, 'AlertComponent.tsx'), resolve(tempDir, 'AlertComponent.tsx'))
 
     // Run migration
     await migrateAll(tempDir, { copyDir: false, interactive: false })

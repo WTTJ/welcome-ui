@@ -7,7 +7,7 @@ import { Box } from 'welcome-ui/Box'
 export const AspectRatioComponent = () => {
   return (
     <div>
-      <AspectRatio className="flex-1 max-w-full md:max-w-[8rem]">
+      <AspectRatio className="flex-1 max-h-[10rem] md:max-h-[5rem] max-w-full md:max-w-[8rem]">
         <img
           className="rounded-md"
           alt="video_thumbnail"
