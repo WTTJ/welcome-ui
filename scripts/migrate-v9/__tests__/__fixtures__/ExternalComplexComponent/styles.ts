@@ -90,6 +90,6 @@ export const TriggerButton = styled.buttonBox<{
 
   ${({ $isActive }) => $isActive && triggerActiveStyles};
   &:active {
-    ${triggerActiveStyles}
+    ${triggerActiveStyles};
   }
 `

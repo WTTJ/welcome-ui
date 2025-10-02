@@ -82,6 +82,32 @@ export function processConditionalLogic() {
 }
 
 /**
+ * Process identifier references
+ * Note: Context (single line vs inline) is handled in transformCssTemplateLiteral
+ */
+export function processIdentifier(expr, context = {}) {
+  const name = expr.name
+
+  // 1. PascalCase for components (starts with uppercase, but not constants like TOPNAV_HEIGHT)
+  // Components: MyComponent, UserProfile, CSS, A, B
+  // Constants: TOPNAV_HEIGHT, API_KEY, USER_PREFERENCES
+  if (/^[A-Z]/.test(name) && !/^[A-Z]+_[A-Z_]*$/.test(name)) {
+    return `__COMPONENT_SELECTOR_COMMENT__${name}__`
+  }
+
+  // 2. Check if this appears to be a mixin (by context)
+  if (context.isStandalone) {
+    // ${xxx}; by itself on a single line: convert to @include mixin
+    const mixinName = name
+      .replace(/([A-Z])/g, '-$1')
+      .toLowerCase()
+      .replace(/^-/, '')
+    return `@include ${mixinName}`
+  }
+
+  // 3. Everything else is a variable for manual migration
+  return `/* WUI V9 TO MIGRATE - DYNAMIC VALUE: ${name} */`
+} /**
  * Transform color tokens to CSS variables
  * 'primary-500' -> 'var(--color-primary-500)'
  */
@@ -103,9 +129,25 @@ export function transformCssTemplateLiteral(quasi, expressions = [], mixins = ne
   const transformedExpressions = []
   const conditionalModifiers = []
 
-  // Process expressions (interpolations)
+  // Process expressions (interpolations) with context
   expressions.forEach((expr, index) => {
-    const transformed = processExpression(expr, mixins)
+    // Determine context: check if this expression appears standalone on a line
+    const beforeText = quasi.quasis[index]?.value?.cooked || ''
+    const afterText = quasi.quasis[index + 1]?.value?.cooked || ''
+
+    // Check if expression is standalone (appears by itself on a line)
+    // Look for patterns like: ";\n  " before and "\n" or ";" after
+    const beforeLines = beforeText.split('\n')
+    const afterLines = afterText.split('\n')
+
+    const beforeLastLine = beforeLines[beforeLines.length - 1] || ''
+    const afterFirstLine = afterLines[0] || ''
+
+    // Standalone if: previous line ends with whitespace, next starts with whitespace/semicolon
+    const isStandalone = /^\s*$/.test(beforeLastLine) && /^[\s;]*$/.test(afterFirstLine)
+
+    const context = { isStandalone }
+    const transformed = processExpression(expr, mixins, context)
 
     // Check for conditional prop marker
     if (typeof transformed === 'string' && transformed.startsWith('__CONDITIONAL_PROP__')) {
@@ -169,6 +211,7 @@ export function transformCssTemplateLiteral(quasi, expressions = [], mixins = ne
     .replace(/\/\*[^*]*\*\/\s*;/g, match => match.replace(/\s*;$/, '')) // Remove semicolons after comments
     .replace(/\n\s*\n\s*\n/g, '\n\n') // Reduce multiple empty lines
     .replace(/^\s*\n/gm, '') // Remove leading empty lines
+    .replace(/\}\s*;/g, '}') // Remove semicolons after closing braces
 
   return css.trim()
 }
@@ -259,14 +302,25 @@ function expandTextVariant() {
  */
 function postProcessComments(css) {
   // Handle function expression comments that appear standalone
-  css = css.replace(/\s*__FUNCTION_EXPRESSION_COMMENT__\s*/g, () => {
-    return `\n  /* FUNCTION_EXPRESSION - NEEDS_MANUAL_REVIEW */`
+  css = css.replace(/\s*\/\*\s*FUNCTION_EXPRESSION - NEEDS_MANUAL_REVIEW\s*\*\/\s*/g, () => {
+    return `
+  /* WUI V9 TO MIGRATE */
+  /*
+  \${({ prop }) => condition && css\`...\`}
+  */`
   })
 
   // Handle function expression comments in property context
-  css = css.replace(/([^{}]*?):\s*__FUNCTION_EXPRESSION_COMMENT__[^;]*;/g, (match, property) => {
-    return `/* FUNCTION_EXPRESSION - NEEDS_MANUAL_REVIEW: ${property.trim()}: <expression>; */`
-  })
+  css = css.replace(
+    /([^{}]*?):\s*\/\*\s*FUNCTION_EXPRESSION - NEEDS_MANUAL_REVIEW[^*]*\*\/[^;]*;?/g,
+    (match, property) => {
+      return `
+  /* WUI V9 TO MIGRATE */
+  /*
+  ${property.trim()}: \${({ prop }) => value};
+  */`
+    }
+  )
 
   // Handle component selector comments - simplified approach
   css = css.replace(/__COMPONENT_SELECTOR_COMMENT__([^_]+)__/g, (match, componentName) => {
@@ -314,12 +368,26 @@ ${cleanContent}
 
 /**
  * Process function calls like th(), css(), etc.
+ * Patterns:
+ * - ${th('texts.xxx')}; by itself on single line: add variant="xxx" to Text tag
+ * - ${th('xxx.yyy')} with dot: replace with styles from theme.json
  */
 function processCallExpression(expr) {
   if (expr.callee.name === 'th') {
     const arg = expr.arguments[0]
     if (arg && arg.type === 'StringLiteral') {
-      return transformThemeFunction(`th('${arg.value}')`)
+      const thPath = arg.value
+
+      // ${th('texts.xxx')}; by itself on single line: for Text component variants
+      if (thPath.startsWith('texts.')) {
+        const variant = thPath.replace('texts.', '')
+        return { type: 'textVariant', variant }
+      }
+
+      // ${th('xxx.yyy')} with at least one dot: replace with theme values
+      if (thPath.includes('.')) {
+        return transformThemeFunction(`th('${thPath}')`)
+      }
     }
   }
   return '/* ${...} */'
@@ -367,7 +435,7 @@ function processConditionalExpressionWithProp(expr, paramName) {
 /**
  * Process individual expression nodes in template literals
  */
-function processExpression(expr, mixins) {
+function processExpression(expr, mixins, context = {}) {
   if (!expr) return '/* ${...} */'
 
   switch (expr.type) {
@@ -382,7 +450,7 @@ function processExpression(expr, mixins) {
       return processConditionalExpression(expr)
 
     case 'Identifier':
-      return processIdentifier(expr)
+      return processIdentifier(expr, context)
 
     case 'LogicalExpression':
       return processLogicalExpression(expr, mixins)
@@ -417,6 +485,19 @@ function processFunctionExpression(expr, mixins = new Map()) {
           // Delegate to the logical expression handler
           return processLogicalExpression(expr.body, mixins)
         }
+
+        // Check if the body is a negated logical expression: !propName && css`...`
+        if (
+          expr.body.type === 'LogicalExpression' &&
+          expr.body.operator === '&&' &&
+          expr.body.left.type === 'UnaryExpression' &&
+          expr.body.left.operator === '!' &&
+          expr.body.left.argument.type === 'Identifier' &&
+          expr.body.left.argument.name === propName
+        ) {
+          // Delegate to the logical expression handler
+          return processLogicalExpression(expr.body, mixins)
+        }
       }
     }
 
@@ -444,51 +525,12 @@ function processFunctionExpression(expr, mixins = new Map()) {
 }
 
 /**
- * Process identifier references
- */
-function processIdentifier(expr) {
-  const name = expr.name
-
-  // Component selectors like ${OrganizationLogo}, ${OrganizationName}
-  if (
-    name.includes('Organization') ||
-    name.includes('Component') ||
-    name.includes('Logo') ||
-    name.includes('Name')
-  ) {
-    return `__COMPONENT_SELECTOR_COMMENT__${name}__`
-  }
-
-  // CSS/Style variable references like ${triggerActiveStyles}
-  if (
-    name.includes('Style') ||
-    name.includes('styles') ||
-    name.includes('CSS') ||
-    name.includes('css')
-  ) {
-    const mixinName = name
-      .replace(/([A-Z])/g, '-$1')
-      .toLowerCase()
-      .replace(/^-/, '')
-    return `@include ${mixinName}`
-  }
-
-  // Constants like TOPNAV_HEIGHT
-  if (name === name.toUpperCase()) {
-    return `var(--${name.toLowerCase().replace(/_/g, '-')})`
-  }
-
-  // Other identifiers - likely component props
-  return `/* WUI V9 TO MIGRATE - DYNAMIC VALUE: ${name} */`
-}
-
-/**
- * Process logical expressions: ${prop && css`...`} or ${!prop && css`...`}
+ * Process logical expressions: ${prop && css`...`} or ${!prop && css`...`} or ${prop && mixinName}
  */
 function processLogicalExpression(expr, mixins) {
   // For ${elevated && css`...`} patterns, we return a nested class selector
   if (expr.operator === '&&' && expr.left.type === 'Identifier') {
-    const propName = expr.left.name
+    const propName = expr.left.name.replace(/^\$/, '') // Remove $ prefix if present
     const className = propName.replace(/([A-Z])/g, '-$1').toLowerCase()
 
     if (expr.right.type === 'TaggedTemplateExpression' && expr.right.tag.name === 'css') {
@@ -504,9 +546,24 @@ function processLogicalExpression(expr, mixins) {
     ${nestedCss}
   }`
     }
+
+    // Handle ${prop && mixinName} patterns - right side is an identifier (mixin)
+    if (expr.right.type === 'Identifier') {
+      const mixinName = expr.right.name
+        .replace(/([A-Z])/g, '-$1')
+        .toLowerCase()
+        .replace(/^-/, '')
+
+      return `
+  
+  &.${className} {
+    @include ${mixinName};
+  }`
+    }
   }
 
   // For ${!$isExpanded && css`...`} patterns
+  // When negated, apply styles to base selector (default state) and create override class
   if (
     expr.operator === '&&' &&
     expr.left.type === 'UnaryExpression' &&
@@ -521,14 +578,41 @@ function processLogicalExpression(expr, mixins) {
         expr.right.quasi.expressions || [],
         mixins
       )
+
+      // Generate default styles + override class
+      // The CSS properties that need to be overridden with 'inherit'
+      const cssLines = nestedCss.split('\n').filter(line => line.trim())
+      const inheritOverrides = cssLines
+        .filter(line => line.includes(':'))
+        .map(line => {
+          const property = line.split(':')[0].trim()
+          return `    ${property}: inherit;`
+        })
+        .join('\n')
+
       return `
-  
-  .${className} {
-    ${nestedCss}
+${nestedCss}
+
+  &.${className} {
+${inheritOverrides}
   }`
     }
-  }
 
+    // Handle ${!prop && mixinName} patterns
+    if (expr.right.type === 'Identifier') {
+      const mixinName = expr.right.name
+        .replace(/([A-Z])/g, '-$1')
+        .toLowerCase()
+        .replace(/^-/, '')
+
+      // For negated mixin patterns, we can't easily generate inherit overrides
+      // So we'll use a comment approach
+      return `
+  @include ${mixinName};
+  
+  /* TODO: Add .${className} class to override ${mixinName} when ${propName} is true */`
+    }
+  }
   return '/* LOGICAL_EXPRESSION */'
 }
 
