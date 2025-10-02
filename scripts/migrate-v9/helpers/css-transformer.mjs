@@ -101,10 +101,27 @@ export function transformCssTemplateLiteral(quasi, expressions = [], mixins = ne
 
   let css = ''
   const transformedExpressions = []
+  const conditionalModifiers = []
 
   // Process expressions (interpolations)
   expressions.forEach((expr, index) => {
-    transformedExpressions[index] = processExpression(expr, mixins)
+    const transformed = processExpression(expr, mixins)
+
+    // Check for conditional prop marker
+    if (typeof transformed === 'string' && transformed.startsWith('__CONDITIONAL_PROP__')) {
+      // Format: __CONDITIONAL_PROP__className__value__
+      const match = transformed.match(/__CONDITIONAL_PROP__(.+?)__(.+)__$/)
+      if (match) {
+        const className = match[1]
+        const value = match[2]
+        conditionalModifiers.push({ className, value })
+        transformedExpressions[index] = '' // Remove the property entirely - it becomes a conditional modifier
+      } else {
+        transformedExpressions[index] = transformed
+      }
+    } else {
+      transformedExpressions[index] = transformed
+    }
   })
 
   // Combine static parts with transformed expressions
@@ -130,6 +147,26 @@ export function transformCssTemplateLiteral(quasi, expressions = [], mixins = ne
 
   // Post-process to properly comment out problematic CSS rules
   css = postProcessComments(css)
+
+  // Add conditional modifiers as nested selectors
+  if (conditionalModifiers.length > 0) {
+    for (const { className, value } of conditionalModifiers) {
+      css += `
+
+  &.${className} {
+    margin-top: ${value};
+  }`
+    }
+  }
+
+  // Clean up empty lines and malformed CSS
+  css = css
+    .replace(/([^:]+):\s*;\s*$/gm, '') // Remove properties with empty values like "margin-top: ;"
+    .replace(/;\s*;/g, ';') // Fix double semicolons
+    .replace(/;\s*\n/g, ';\n') // Clean up semicolons
+    .replace(/^\s*;\s*$/gm, '') // Remove lines with just semicolons
+    .replace(/\n\s*\n\s*\n/g, '\n\n') // Reduce multiple empty lines
+    .replace(/^\s*\n/gm, '') // Remove leading empty lines
 
   return css.trim()
 }
@@ -205,16 +242,14 @@ export function transformThemeFunction(thCall) {
 /**
  * Expand text variant to actual CSS properties
  */
-function expandTextVariant(variant) {
-  // For h4 variant, return the actual properties
-  switch (variant) {
-    case 'h4':
-      return `
-  color: var(--color-neutral-90);
+function expandTextVariant() {
+  // For text variants, we should NOT expand them to CSS properties
+  // Instead, they should be handled by the component transformer
+  // to add variant props to Text components
+
+  // Return basic reset styles that are commonly needed
+  return `
   margin: 0;`
-    default:
-      return `/* TEXT_VARIANT_${variant.toUpperCase()} */`
-  }
 }
 
 /**
@@ -231,19 +266,45 @@ function postProcessComments(css) {
     return `/* FUNCTION_EXPRESSION - NEEDS_MANUAL_REVIEW: ${property.trim()}: <expression>; */`
   })
 
-  // Handle component selector comments
+  // Handle component selector comments - simplified approach
   css = css.replace(/__COMPONENT_SELECTOR_COMMENT__([^_]+)__/g, (match, componentName) => {
-    return `/* WUI V9 TO MIGRATE: ${componentName} - Rule needs manual review */`
+    return `/* \${${componentName}} */`
   })
+
+  // Now find and comment out CSS rules that start with these component selector comments
+  css = css.replace(
+    /\/\*\s*\$\{([^}]+)\}\s*\*\/\s*\{([^}]*)\}/g,
+    (match, componentName, content) => {
+      // Clean up the content and format it properly
+      const cleanContent = content
+        .split('\n')
+        .map(line => line.trim())
+        .filter(line => line && line !== '')
+        .map(line => `    ${line}`)
+        .join('\n')
+
+      return `
+  /* WUI V9 TO MIGRATE */
+  /*
+  \${${componentName}} {
+${cleanContent}
+  }
+  */`
+    }
+  )
 
   // Clean up any remaining orphaned selectors that just have comments
   css = css.replace(/\s*\/\* WUI V9 TO MIGRATE:[^*]*\*\/\s*\{([^}]*)\}/g, (match, content) => {
     const lines = content
       .split('\n')
-      .map(line => (line.trim() ? `  /* ${line.trim()} */` : ''))
+      .map(line => {
+        // Remove any existing comment markers to avoid nesting
+        const cleanLine = line.replace(/\/\*|\*\//g, '').trim()
+        return cleanLine ? `  /* ${cleanLine} */` : ''
+      })
       .filter(Boolean)
       .join('\n')
-    return `\n  /* WUI V9 TO MIGRATE: Component selector rule\n${lines}\n  */`
+    return `\n  /* WUI V9 TO MIGRATE: Component selector rule */\n${lines}`
   })
 
   return css
@@ -270,6 +331,35 @@ function processConditionalExpression() {
   // ${variant === 'primary' ? 'primary-500' : 'secondary-500'}
   // This becomes a CSS variable that's set dynamically
   return 'var(--wrapper-variant)'
+}
+
+/**
+ * Process conditional expressions with props: props.displayDetail ? th('space.sm') : 0
+ */
+function processConditionalExpressionWithProp(expr, paramName) {
+  // Handle patterns like: props.displayDetail ? th('space.sm') : 0
+  if (expr.test.type === 'MemberExpression' && expr.test.object.name === paramName) {
+    const propName = expr.test.property.name
+    const className = propName.replace(/([A-Z])/g, '-$1').toLowerCase()
+
+    // Check if the consequent (true value) is th() call and alternate (false value) is 0
+    if (
+      expr.consequent.type === 'CallExpression' &&
+      expr.consequent.callee.name === 'th' &&
+      expr.alternate.type === 'NumericLiteral' &&
+      expr.alternate.value === 0
+    ) {
+      const thValue = expr.consequent.arguments[0]?.value
+      if (thValue) {
+        const transformedValue = transformThemeFunction(`th('${thValue}')`)
+
+        // Return a special marker that will be handled during CSS property processing
+        return `__CONDITIONAL_PROP__${className}__${transformedValue}__`
+      }
+    }
+  }
+
+  return '/* CONDITIONAL_EXPRESSION - NEEDS_MANUAL_REVIEW */'
 }
 
 /**
@@ -325,6 +415,24 @@ function processFunctionExpression(expr, mixins = new Map()) {
           // Delegate to the logical expression handler
           return processLogicalExpression(expr.body, mixins)
         }
+      }
+    }
+
+    // Handle patterns like: props => (props.displayDetail ? th('space.sm') : 0)
+    if (params.length === 1 && params[0].type === 'Identifier') {
+      const paramName = params[0].name
+
+      // Check if body is a conditional expression (ternary)
+      if (expr.body.type === 'ConditionalExpression') {
+        return processConditionalExpressionWithProp(expr.body, paramName)
+      }
+
+      // Check if body is a parenthesized conditional expression
+      if (
+        expr.body.type === 'ParenthesizedExpression' &&
+        expr.body.expression.type === 'ConditionalExpression'
+      ) {
+        return processConditionalExpressionWithProp(expr.body.expression, paramName)
       }
     }
   }
