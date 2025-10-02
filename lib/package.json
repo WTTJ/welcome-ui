@@ -82,7 +82,7 @@
     "@types/react-datepicker": "^7.0.0",
     "jsdom": "^26.0.0",
     "lodash.merge": "^4.6.2",
-    "ramda": "^0.30.1",
+    "ramda": "^0.31.3",
     "release-it": "^18.1.2",
     "rollup": "^4.39.0",
     "rollup-preserve-directives": "^1.1.3",
