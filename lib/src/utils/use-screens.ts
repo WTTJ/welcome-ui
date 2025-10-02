@@ -1,7 +1,7 @@
 /* eslint-disable perfectionist/sort-modules */
-import { primitives } from '@/theme/tokens'
+import tokens from '@/theme/tokens.json' assert { type: 'json' }
 
-type ScreenSize = keyof typeof primitives.screens extends `--breakpoint-${infer K}` ? K : never
+type ScreenSize = keyof Omit<typeof tokens.breakpoint, '$type'>
 type Screens = Record<ScreenSize, number>
 
 /**
@@ -11,10 +11,15 @@ type Screens = Record<ScreenSize, number>
  * Only supports number values (e.g. no 'rem', '%', etc.).
  */
 export function useScreens() {
-  return Object.entries(primitives.screens).reduce((acc, [key, value]) => {
-    const parsedValue = typeof value === 'string' ? Number(value.replace('px', '')) : value
-    if (!isNaN(parsedValue)) {
-      acc[key.replace('--breakpoint-', '') as keyof Screens] = parsedValue
+  return Object.entries(tokens.breakpoint).reduce((acc, [key, value]) => {
+    if (key !== '$type' && typeof value === 'object' && '$value' in value) {
+      const parsedValue =
+        typeof value['$value'] === 'string'
+          ? Number(value['$value'].replace('px', ''))
+          : value['$value']
+      if (!isNaN(parsedValue)) {
+        acc[key as ScreenSize] = parsedValue
+      }
     }
     return acc
   }, {} as Screens)

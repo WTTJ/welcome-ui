@@ -21,7 +21,7 @@ export const Tabs = ({ pages }: TabsProps) => {
   return (
     <Tab.List
       aria-label="Tabs"
-      className="bg-neutral-10 mb-xl position-sticky top-70 z-1 pt-xxl"
+      className="bg-neutral-10 mb-xl sticky top-70 z-1 pt-xxl"
       store={tab}
     >
       <Tab

@@ -3,19 +3,20 @@ import type { CSSProperties } from 'react'
 
 import { Alert } from '@/components/Alert'
 import { Text } from '@/components/Text'
-import { primitives, semantics } from '@/theme/tokens'
+import tokens from '@/theme/tokens.json' assert { type: 'json' }
+import type { TokensStructure } from '@/theme/utils/parseTokens'
+import { parseTokens } from '@/theme/utils/parseTokens'
 import { classNames } from '@/utils'
 
 const cx = classNames()
 
 const getColors = (name: string) => {
-  const themeColors = { ...primitives.colors, ...semantics.colors }
-
-  return Object.keys(themeColors)
-    .filter(color => color.startsWith(`--color-${name}`))
+  const themeValues = parseTokens(tokens as unknown as TokensStructure)
+  return Object.keys(themeValues)
+    .filter(color => color.startsWith(`color-${name}`))
     .reduce<{ value: string; variant: string }[]>((acc, colorName) => {
-      const colorValue = themeColors[colorName as keyof typeof themeColors]
-      acc.push({ value: colorValue, variant: colorName.replace('--color-', '') })
+      const colorValue = themeValues[colorName as keyof typeof themeValues]
+      acc.push({ value: colorValue, variant: colorName.replace('color-', '') })
 
       return acc
     }, [])

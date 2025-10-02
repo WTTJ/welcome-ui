@@ -3,7 +3,7 @@
   "compilerOptions": {
     "sourceMap": true,
     "declaration": true,
-    "target": "ES6",
+    "target": "ES2018",
     "paths": {
       "@old/utils": ["./src/old/utils"],
       "@old/theme": ["./src/old/theme"],
