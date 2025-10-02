@@ -138,6 +138,12 @@
 @font-face {
   font-family: welcome-font;
   font-weight: 500;
+  src: url('https://cdn.welcome-ui.com/fonts/welcome-font-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: welcome-font;
+  font-weight: 700;
   src: url('https://cdn.welcome-ui.com/fonts/welcome-font-medium.woff2') format('woff2');
 }
 
@@ -156,7 +162,7 @@
 @font-face {
   font-family: welcome-font;
   font-style: italic;
-  font-weight: 500;
+  font-weight: 700;
   src: url('https://cdn.welcome-ui.com/fonts/welcome-font-medium-italic.woff2') format('woff2');
 }
 
