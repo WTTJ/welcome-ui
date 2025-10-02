@@ -1,0 +1,32 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`External Migration - Complex Styled Components > migrates complex styled components (styled(Component), template literals, interpolations) > complex-component.tsx 1`] = `
+"import './styles.scss'
+type Variant = 'primary' | 'secondary'
+export const ComplexComponent = ({ variant = 'primary' }: { variant?: Variant }) => {
+  return (
+    <div variant={variant} className="wrapper">
+      <div elevated className="card">
+        <h2 className="title">Complex Component</h2>
+      </div>
+    </div>
+  )
+}
+"
+`;
+
+exports[`External Migration - Complex Styled Components > migrates complex styled components (styled(Component), template literals, interpolations) > complex-styles.scss 1`] = `
+".card {
+  background: white;
+  border-radius: var(--spacing-md);
+  padding: var(--spacing-lg);
+  /* \${...} */
+}
+
+.title {
+  color: neutral-900;
+  font-size: var(--spacing-xl);
+  margin: 0;
+}
+"
+`;

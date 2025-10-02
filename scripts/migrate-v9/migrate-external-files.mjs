@@ -46,14 +46,9 @@ export async function migrate(dir, copyDir = true) {
   traverse(ast, {
     VariableDeclaration(path) {
       path.node.declarations.forEach(decl => {
-        if (
-          decl.init &&
-          decl.init.type === 'TaggedTemplateExpression' &&
-          decl.init.tag.type === 'MemberExpression' &&
-          decl.init.tag.object.name === 'styled'
-        ) {
+        if (decl.init && isStyledComponent(decl.init)) {
           const compName = decl.id.name
-          let tag = decl.init.tag.property.name
+          let tag = getStyledTag(decl.init)
           tag = stripBox(tag)
           stylesMap[compName] = tag
         }
@@ -78,6 +73,175 @@ export async function migrate(dir, copyDir = true) {
 
 function camelToKebab(str) {
   return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
+}
+
+/**
+ * Extract CSS content from various styled component patterns
+ */
+function extractCssFromStyledComponent(node) {
+  // Pattern 1: styled.div`css` (simple TaggedTemplateExpression)
+  if (
+    node.type === 'TaggedTemplateExpression' &&
+    node.tag.type === 'MemberExpression' &&
+    node.tag.object.name === 'styled'
+  ) {
+    return extractCssFromTemplateLiteral(node.quasi)
+  }
+
+  // Pattern 2: styled(Box)`css` (TaggedTemplateExpression with CallExpression)
+  if (
+    node.type === 'TaggedTemplateExpression' &&
+    node.tag.type === 'CallExpression' &&
+    node.tag.callee.name === 'styled'
+  ) {
+    return extractCssFromTemplateLiteral(node.quasi)
+  }
+
+  // Pattern 3: styled(Box)((props) => css`...`) (CallExpression with function)
+  if (
+    node.type === 'CallExpression' &&
+    node.callee.type === 'TaggedTemplateExpression' &&
+    node.callee.tag.type === 'CallExpression' &&
+    node.callee.tag.callee.name === 'styled'
+  ) {
+    // The function argument contains the CSS
+    const funcArg = node.arguments[0]
+    if (
+      funcArg &&
+      (funcArg.type === 'ArrowFunctionExpression' || funcArg.type === 'FunctionExpression')
+    ) {
+      // Look for css`` template literal in the function body
+      if (funcArg.body.type === 'TaggedTemplateExpression' && funcArg.body.tag.name === 'css') {
+        return extractCssFromTemplateLiteral(funcArg.body.quasi)
+      }
+    }
+  }
+
+  return null
+}
+
+/**
+ * Extract CSS string from template literal, handling interpolations
+ */
+function extractCssFromTemplateLiteral(quasi) {
+  if (!quasi.quasis) return null
+
+  // For now, just extract the static parts and skip interpolations
+  // In a more advanced version, we could try to resolve some interpolations
+  const staticParts = quasi.quasis.map(q => q.value.cooked || q.value.raw).filter(Boolean)
+
+  // Join with placeholder comments for interpolations
+  let css = ''
+  for (let i = 0; i < staticParts.length; i++) {
+    css += staticParts[i]
+    if (i < quasi.expressions.length) {
+      // Add a comment for the interpolation
+      css += '/* ${...} */'
+    }
+  }
+
+  return css.trim()
+}
+
+/**
+ * Map component names to appropriate HTML tags
+ */
+function getHtmlTagFromComponent(componentName) {
+  const componentMap = {
+    Article: 'article',
+    Aside: 'aside',
+    Box: 'div',
+    Footer: 'footer',
+    Header: 'header',
+    Image: 'img',
+    Input: 'input',
+    List: 'ul',
+    ListItem: 'li',
+    Main: 'main',
+    Nav: 'nav',
+    Section: 'section',
+  }
+
+  return componentMap[componentName] || 'div'
+}
+
+/**
+ * Extract the HTML tag from a styled component
+ * Handles various patterns and defaults to 'div'
+ */
+function getStyledTag(node) {
+  // Pattern 1: styled.div`` -> 'div'
+  if (
+    node.type === 'TaggedTemplateExpression' &&
+    node.tag.type === 'MemberExpression' &&
+    node.tag.object.name === 'styled'
+  ) {
+    return node.tag.property.name
+  }
+
+  // Pattern 2: styled(Box)`` -> 'div' (Box component becomes div)
+  if (
+    node.type === 'TaggedTemplateExpression' &&
+    node.tag.type === 'CallExpression' &&
+    node.tag.callee.name === 'styled'
+  ) {
+    const arg = node.tag.arguments[0]
+    if (arg.type === 'Identifier') {
+      // For known components like Box, return appropriate HTML tag
+      return getHtmlTagFromComponent(arg.name)
+    }
+  }
+
+  // Pattern 3: styled(Box)(...)`...` -> 'div'
+  if (
+    node.type === 'CallExpression' &&
+    node.callee.type === 'TaggedTemplateExpression' &&
+    node.callee.tag.type === 'CallExpression' &&
+    node.callee.tag.callee.name === 'styled'
+  ) {
+    const arg = node.callee.tag.arguments[0]
+    if (arg.type === 'Identifier') {
+      return getHtmlTagFromComponent(arg.name)
+    }
+  }
+
+  return 'div' // Default fallback
+}
+
+/**
+ * Check if a node represents a styled component
+ * Handles both: styled.div`` and styled(Box)`` patterns
+ */
+function isStyledComponent(node) {
+  // Pattern 1: styled.div`...` (TaggedTemplateExpression with MemberExpression)
+  if (
+    node.type === 'TaggedTemplateExpression' &&
+    node.tag.type === 'MemberExpression' &&
+    node.tag.object.name === 'styled'
+  ) {
+    return true
+  }
+
+  // Pattern 2: styled(Box)`...` (TaggedTemplateExpression with CallExpression)
+  if (
+    node.type === 'TaggedTemplateExpression' &&
+    node.tag.type === 'CallExpression' &&
+    node.tag.callee.name === 'styled'
+  ) {
+    return true
+  }
+
+  // Pattern 3: styled(Box)(...)`...` (CallExpression with styled(Component) and generics/props)
+  if (
+    node.type === 'CallExpression' &&
+    node.callee.type === 'TaggedTemplateExpression' &&
+    node.callee.tag.type === 'CallExpression' &&
+    node.callee.tag.callee.name === 'styled'
+  ) {
+    return true
+  }
+
+  return false
 }
 
 // Recursively copy a directory
@@ -165,20 +329,20 @@ function migrateStylesTsToScss(stylesTsPath) {
   traverse(ast, {
     VariableDeclaration(path) {
       path.node.declarations.forEach(decl => {
-        if (
-          decl.init &&
-          decl.init.type === 'TaggedTemplateExpression' &&
-          decl.init.tag.type === 'MemberExpression' &&
-          decl.init.tag.object.name === 'styled'
-        ) {
+        if (decl.init && isStyledComponent(decl.init)) {
           const compName = decl.id.name
           const className = camelToKebab(compName)
-          // Get the CSS string from the template literal
-          const quasis = decl.init.quasi.quasis
-          let css = quasis.map(q => q.value.cooked).join('')
-          // Replace tokens like md, lg with CSS vars
-          const cssWithVars = css.replace(/\b(md|lg|sm|xl)\b/g, v => `var(--spacing-${v})`)
-          classDefs.push(`.${className} {${cssWithVars}}`)
+
+          // Extract CSS from different styled component patterns
+          const css = extractCssFromStyledComponent(decl.init)
+          if (css) {
+            // Replace spacing tokens with CSS vars (e.g., md, lg -> var(--spacing-md))
+            const cssWithVars = css.replace(
+              /\b(xs|sm|md|lg|xl|xxl|3xl)\b/g,
+              v => `var(--spacing-${v})`
+            )
+            classDefs.push(`.${className} {\n${cssWithVars}\n}`)
+          }
         }
       })
     },

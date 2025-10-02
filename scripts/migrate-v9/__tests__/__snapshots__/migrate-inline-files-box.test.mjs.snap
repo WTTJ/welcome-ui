@@ -1,0 +1,18 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Inline Migration - Box Components > migrates Box components with various props to div with classNames > box-component.tsx 1`] = `
+"import { Box } from 'welcome-ui/Box'
+
+export const BoxComponent = () => {
+  return (
+    <div>
+      <div className="bg-primary-500 flex mt-lg">Main content</div>
+      <div className="border border-neutral-200 p-md rounded-sm">Card content</div>
+      <section className="max-w-container" mx="auto">
+        Container content
+      </section>
+    </div>
+  )
+}
+"
+`;
