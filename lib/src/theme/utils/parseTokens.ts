@@ -7,11 +7,11 @@ export interface TokensStructure {
 type TokenNode = string | TokenValue | TokenWithType | { [key: string]: TokenNode }
 
 interface TokenValue {
-  $value: string
+  value: string
 }
 
 type TokenWithType = TokensStructure & {
-  $type: string
+  type: string
 }
 
 const getValue = (tokens: TokensStructure, path: string): TokenNode | undefined =>
@@ -23,14 +23,14 @@ const recurseUntilValue = (
   value: TokenNode,
   tokens: TokensStructure
 ): FlatTokens => {
-  if (key === '$type') return acc
+  if (key === 'type') return acc
 
   const hasValue = (node: TokenNode): node is TokenValue => {
-    return typeof node === 'object' && node !== null && '$value' in node
+    return typeof node === 'object' && node !== null && 'value' in node
   }
 
   if (hasValue(value)) {
-    const finalValue = value.$value
+    const finalValue = value.value
     const regex = new RegExp(/{(?<color>[^}]+)}/gm)
 
     if (finalValue.match(regex)) {
@@ -39,7 +39,7 @@ const recurseUntilValue = (
         const { color } = colorMatches.groups!
         const tokenNode = getValue(tokens, color)
         if (tokenNode && hasValue(tokenNode)) {
-          processedValue = processedValue.replace(`{${color}}`, tokenNode.$value)
+          processedValue = processedValue.replace(`{${color}}`, tokenNode.value)
         }
       }
       acc[key] = processedValue
@@ -51,7 +51,7 @@ const recurseUntilValue = (
 
   if (typeof value === 'object' && value !== null) {
     for (const [k, v] of Object.entries(value)) {
-      if (k === '$type') continue
+      if (k === 'type') continue
       const nestedKey = `${key}-${k}`
       recurseUntilValue(acc, nestedKey, v, tokens)
     }
