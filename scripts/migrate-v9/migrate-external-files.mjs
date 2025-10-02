@@ -148,12 +148,11 @@ function extractCssFromStyledComponent(node, mixins = new Map()) {
     return extractCssFromTemplateLiteral(node.quasi, mixins)
   }
 
-  // Pattern 3: styled(Box)((props) => css`...`) (CallExpression with function)
+    // Pattern 3: styled(Box)((props) => css`...`) (CallExpression with function)
   if (
     node.type === 'CallExpression' &&
-    node.callee.type === 'TaggedTemplateExpression' &&
-    node.callee.tag.type === 'CallExpression' &&
-    node.callee.tag.callee.name === 'styled'
+    node.callee.type === 'CallExpression' &&
+    node.callee.callee.name === 'styled'
   ) {
     // The function argument contains the CSS
     const funcArg = node.arguments[0]
@@ -392,12 +391,11 @@ function isStyledComponent(node) {
     return true
   }
 
-  // Pattern 3: styled(Box)(...)`...` (CallExpression with styled(Component) and generics/props)
+  // Pattern 3: styled(Box)((props) => css`...`) (CallExpression with function)
   if (
     node.type === 'CallExpression' &&
-    node.callee.type === 'TaggedTemplateExpression' &&
-    node.callee.tag.type === 'CallExpression' &&
-    node.callee.tag.callee.name === 'styled'
+    node.callee.type === 'CallExpression' &&
+    node.callee.callee.name === 'styled'
   ) {
     return true
   }

@@ -363,6 +363,20 @@ ${cleanContent}
     return `\n  /* WUI V9 TO MIGRATE: Component selector rule */\n${lines}`
   })
 
+  // Handle dynamic value comments in CSS properties
+  css = css.replace(
+    /([^{};]*?):([^;{]*?)\/\*\s*WUI V9 TO MIGRATE - DYNAMIC VALUE:\s*([^*]+)\s*\*\/([^;{}]*?);/g,
+    (match, property, beforeComment, variableName, afterComment) => {
+      // Reconstruct the original line with ${variable}
+      const originalValue = `${beforeComment}\${${variableName.trim()}}${afterComment}`
+      return `
+  /* WUI V9 TO MIGRATE - DYNAMIC VALUE */
+  /*
+  ${property.trim()}: ${originalValue.trim()};
+  */`
+    }
+  )
+
   return css
 }
 
@@ -396,11 +410,26 @@ function processCallExpression(expr) {
 /**
  * Process ternary expressions: ${condition ? value1 : value2}
  */
-function processConditionalExpression() {
-  // For ternary expressions in CSS, we need to extract the logic
-  // ${variant === 'primary' ? 'primary-500' : 'secondary-500'}
-  // This becomes a CSS variable that's set dynamically
-  return 'var(--wrapper-variant)'
+function processConditionalExpression(expr, context = {}) {
+  if (!expr || expr.type !== 'ConditionalExpression') {
+    return 'var(--component-variant)'
+  }
+
+  // Extract the property being tested (e.g., 'variant' from 'variant === "primary"')
+  let propName = 'variant' // default
+
+  if (expr.test.type === 'BinaryExpression' && expr.test.left.type === 'Identifier') {
+    propName = expr.test.left.name
+  } else if (expr.test.type === 'Identifier') {
+    propName = expr.test.name
+  }
+
+  // Generate CSS variable name based on context
+  const componentName = context.componentName || 'component'
+  const kebabComponentName = componentName.replace(/([A-Z])/g, '-$1').toLowerCase()
+  const cssVarName = `--${kebabComponentName}-${propName}`
+
+  return `var(${cssVarName})`
 }
 
 /**
@@ -447,7 +476,7 @@ function processExpression(expr, mixins, context = {}) {
       return processCallExpression(expr)
 
     case 'ConditionalExpression':
-      return processConditionalExpression(expr)
+      return processConditionalExpression(expr, context)
 
     case 'Identifier':
       return processIdentifier(expr, context)
