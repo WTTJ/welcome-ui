@@ -68,6 +68,7 @@ export const TriggerButton = styled.buttonBox<{
   width: 100%;
   border-radius: md;
   transition: background-color 300ms;
+  bottom: ${th('space.md')};
 
   ${({ $isExpanded }) =>
     !$isExpanded &&
