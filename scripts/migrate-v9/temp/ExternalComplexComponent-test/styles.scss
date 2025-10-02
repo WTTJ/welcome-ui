@@ -1,7 +1,7 @@
 // Generated SCSS mixins from CSS template literals
 
 @mixin trigger-active-styles {
-  background-color: var(--color-beige-30);
+background-color: var(--color-beige-30);
   /* WUI V9 TO MIGRATE */
   /*
   ${OrganizationLogo} {
@@ -16,8 +16,10 @@
   */
 }
 
+
+
 .card {
-  background: white;
+background: white;
   border-radius: var(--spacing-md);
   padding: var(--spacing-lg);
   &.elevated {
@@ -26,16 +28,17 @@
 }
 
 .title {
-  margin: 0;
-  color: &.display-detail {
+margin: 0;
+  color: var(--color-neutral-90);
+  &.display-detail {
     margin-top: var(--spacing-sm);
   }
 }
 
 .trigger-button {
-  border: none;
+border: none;
   background-color: transparent;
-  padding: var(--spacing-md) lg;
+  padding: var(--spacing-md) var(--spacing-lg);
   cursor: pointer;
   width: 100%;
   border-radius: var(--spacing-md);
@@ -43,8 +46,8 @@
   /* FUNCTION_EXPRESSION - NEEDS_MANUAL_REVIEW */
   &:hover {
     @include trigger-active-styles;
-    /* WUI V9 TO MIGRATE */
-    /*
+  /* WUI V9 TO MIGRATE */
+  /*
   ${OrganizationName} {
     color: var(--color-beige-80);
   }
@@ -52,6 +55,6 @@
   }
   /* LOGICAL_EXPRESSION */
   &:active {
-    @include trigger-active-styles;
+    @include trigger-active-styles
   }
 }
