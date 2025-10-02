@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 @use '../../theme/utils/breakpoints.scss' as breakpoints;
 
 @layer components {
@@ -39,22 +40,63 @@
       width: var(--dialog-width);
     }
 
-    &.size-lg {
+    /* Styles the Header */
+    /* if the Modal have a Body, but not a Footer || have a Footer, but not a Body */
+    &:has(.body):not(:has(.footer)),
+    &:has(.footer):not(:has(.body)) {
+      .header {
+        padding-bottom: var(--spacing-lg);
+      }
+    }
+
+    /* Styles the Body */
+    /* if the Modal have a Footer */
+    &:has(.footer) {
+      .body {
+        padding-bottom: var(--spacing-lg);
+      }
+      /* AND if the Modal have a Header */
+      &:has(.header) .body {
+        padding-right: var(--spacing-xxl);
+      }
+    }
+
+    /* Styles the Footer */
+    /* if the Modal is scrollable */
+    &.scrollable .footer {
+      border-top-width: var(--border-width-sm);
+    }
+
+    /* if the Modal has a Footer, but no Header and no Body */
+    &:not(:has(.header)):not(:has(.body)) .footer {
+      padding-top: var(--spacing-lg);
+    }
+    /* Styles the close button */
+    /* if the Modal has a Header, hide the Content's close button */
+    &:has(.header) {
+      .content.with-close-button > .close {
+        display: none;
+      }
+    }
+  }
+
+  .size {
+    &-lg {
       /* 720px; */
       --dialog-width: 45rem;
     }
 
-    &.size-md {
+    &-md {
       /* 600px; */
       --dialog-width: 37.5rem;
     }
 
-    &.size-sm {
+    &-sm {
       /* 450px; */
       --dialog-width: 28.125rem;
     }
 
-    &.size-xs {
+    &-xs {
       /* 320px; */
       --dialog-width: 20rem;
     }
@@ -80,6 +122,13 @@
     }
   }
 
+  .close {
+    position: sticky;
+    top: var(--spacing-lg);
+    left: calc(100% - var(--spacing-lg) - var(--height-elements-md));
+    z-index: 1;
+  }
+
   .header {
     position: sticky;
     top: 0;
@@ -87,7 +136,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     background-color: var(--color-neutral-10);
     border-top-left-radius: var(--radius-md);
     border-top-right-radius: var(--radius-md);
@@ -99,11 +148,17 @@
     &:has(> .header-subtitle) .header-title {
       margin-bottom: var(--spacing-lg);
     }
-  }
 
-  .header-title {
     &.icon {
-      margin-top: var(--spacing-xl);
+      align-items: center;
+      .header-title {
+        margin-top: var(--spacing-xl);
+      }
+    }
+
+    .close {
+      position: absolute;
+      right: var(--spacing-lg);
     }
   }
 
@@ -132,7 +187,8 @@
   }
 
   .footer-children-wrapper {
-    padding-block: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+    padding-top: var(--spacing-lg);
     padding-inline: var(--spacing-xxl);
   }
 

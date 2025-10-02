@@ -47,6 +47,25 @@ describe('upgrade-v9 migration script', () => {
       // Assert output (snapshot or inline string)
       expect(migrated).toMatchSnapshot()
     })
+
+    it('migrates fixtures/Component3.tsx as expected', async () => {
+      // Setup temp dir and copy fixture
+      const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'wui-upgrade-test-'))
+      const srcFile = path.join(__dirname, './fixtures/Component3.tsx')
+      const destFile = path.join(tmpDir, 'Component3.tsx')
+      fs.copyFileSync(srcFile, destFile)
+
+      // Find components in the temp file
+      const components = findAllComponentUsages(tmpDir)
+      // Run migration (shouldReplace = true)
+      await processComponents(components, true)
+
+      // Read migrated file
+      const migrated = fs.readFileSync(destFile, 'utf8')
+
+      // Assert output (snapshot or inline string)
+      expect(migrated).toMatchSnapshot()
+    })
   })
 
   describe('findAllComponentUsages', () => {

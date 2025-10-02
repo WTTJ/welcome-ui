@@ -10,7 +10,7 @@ const Example = () => {
         Open modal
       </Modal.Trigger>
       <Modal ariaLabel="example" store={modal}>
-        <Modal.Content store={modal} withClosingButton={false}>
+        <Modal.Content withClosingButton={false}>
           <div className="flex flex-col gap-(--spacing-xxl) p-(--spacing-3xl)">
             <span>
               Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis

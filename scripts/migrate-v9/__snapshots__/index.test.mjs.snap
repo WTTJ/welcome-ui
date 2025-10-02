@@ -170,3 +170,45 @@ export const Example = () => {
 }
 "
 `;
+
+exports[`upgrade-v9 migration script > processComponents (integration) > migrates fixtures/Component3.tsx as expected 1`] = `
+"import { Button } from '../../../lib/src/old/components/Button'
+import { Modal, useModal } from '../../../lib/src/old/components/Modal'
+
+// Usage examples
+export const Example = () => {
+  const modal = useModal()
+
+  return (
+    <>
+      <Modal.Trigger as={Button} store={modal}>
+        Open modal
+      </Modal.Trigger>
+      <Modal ariaLabel="example" store={modal}>
+        <Modal.Content
+          className="bg-neutral-90 items-center"
+          data-testid="modal-content"
+          withClosingButton
+        >
+          <Modal.Body>
+            Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
+            aliquam nec, convallis sit amet erat. Mauris auctor blandit porta. In imperdiet rutrum
+            nunc.
+          </Modal.Body>
+        </Modal.Content>
+      </Modal>
+
+      <Modal ariaLabel="example" store={modal}>
+        <Modal.Content>
+          <Modal.Body>
+            Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
+            aliquam nec, convallis sit amet erat. Mauris auctor blandit porta. In imperdiet rutrum
+            nunc.
+          </Modal.Body>
+        </Modal.Content>
+      </Modal>
+    </>
+  )
+}
+"
+`;
