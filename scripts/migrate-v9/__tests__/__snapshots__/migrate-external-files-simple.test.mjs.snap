@@ -23,7 +23,7 @@ exports[`External Migration - Simple Styled Components > migrates simple styled 
 }
 
 .header {
-  color: primary-500;
+  color: var(--color-primary-500);
   margin-bottom: var(--spacing-md);
 }
 
@@ -32,7 +32,7 @@ exports[`External Migration - Simple Styled Components > migrates simple styled 
 }
 
 .button {
-  background-color: primary-500;
+  background-color: var(--color-primary-500);
   color: white;
   padding: var(--spacing-sm) var(--spacing-md);
   border: none;

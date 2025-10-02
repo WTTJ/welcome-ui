@@ -1,24 +1,15 @@
-import { copyFileSync, mkdirSync, readFileSync } from 'fs'
-import { dirname, resolve } from 'path'
-import { fileURLToPath } from 'url'
+import { readFileSync } from 'fs'
+import { resolve } from 'path'
 
 import { describe, expect, it } from 'vitest'
 
-import { deleteDirRecursive } from '../helpers/file-utils.mjs'
+import { setupMigrationTest } from '../helpers/test-setup.mjs'
 import { migrateAll } from '../index.mjs'
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
-
 describe('Inline Migration - Alert Components', () => {
+  const tempDir = setupMigrationTest('inline-alert-test', '__fixtures__')
+
   it('migrates Alert components with styling props to Alert with classNames', async () => {
-    const fixturesDir = resolve(__dirname, './__fixtures__')
-    const tempDir = resolve(__dirname, '../temp/AlertComponent-test')
-
-    // Clean up and copy fixtures
-    deleteDirRecursive(tempDir)
-    mkdirSync(tempDir, { recursive: true })
-    copyFileSync(resolve(fixturesDir, 'AlertComponent.tsx'), resolve(tempDir, 'AlertComponent.tsx'))
-
     // Run migration
     await migrateAll(tempDir, { copyDir: false, interactive: false })
 
@@ -27,8 +18,5 @@ describe('Inline Migration - Alert Components', () => {
 
     // Verify with snapshots
     expect(migratedComponent).toMatchSnapshot('alert-component.tsx')
-
-    // Cleanup
-    deleteDirRecursive(tempDir)
   })
 })

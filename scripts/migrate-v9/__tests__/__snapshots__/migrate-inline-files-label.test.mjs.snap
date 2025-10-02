@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Inline Migration - Label Components > migrates Label components with form props to Label with classNames > label-component.tsx 1`] = `
+exports[`Inline Migration - Label Components > migrates Label components with styling props to Label with classNames > label-component.tsx 1`] = `
 "import { Label } from 'welcome-ui/Label'
 
 const FALSE = false
