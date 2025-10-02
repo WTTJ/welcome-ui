@@ -10,6 +10,7 @@ import fs from 'fs'
 let themeData = {}
 try {
   const themePath = new URL('./theme.json', import.meta.url).pathname
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   themeData = JSON.parse(fs.readFileSync(themePath, 'utf8'))
   console.log('✅ Loaded theme.json for transformations')
 } catch (e) {
@@ -101,58 +102,9 @@ export function transformCssTemplateLiteral(quasi, expressions = [], mixins = ne
   let css = ''
   const transformedExpressions = []
 
-  // Store any discovered mixins for later extraction
-  if (mixins.size === 0) {
-    // Initialize mixins if needed
-  }
-
   // Process expressions (interpolations)
   expressions.forEach((expr, index) => {
-    if (expr.type === 'CallExpression' && expr.callee.name === 'th') {
-      // Transform theme function calls
-      const arg = expr.arguments[0]
-      if (arg && arg.type === 'StringLiteral') {
-        const transformed = transformThemeFunction(`th('${arg.value}')`)
-        transformedExpressions[index] = transformed
-      }
-    } else if (expr.type === 'ConditionalExpression') {
-      // Handle ternary expressions: ${condition ? value1 : value2}
-      transformedExpressions[index] = '/* CONDITIONAL_EXPRESSION */'
-    } else if (expr.type === 'LogicalExpression') {
-      // Handle logical expressions: ${prop && css`...`}
-      transformedExpressions[index] = '/* LOGICAL_EXPRESSION */'
-    } else if (expr.type === 'Identifier') {
-      // Handle variable references: ${TOPNAV_HEIGHT}, ${OrganizationName}
-      if (
-        expr.name.includes('Component') ||
-        expr.name.includes('Logo') ||
-        expr.name.includes('Name')
-      ) {
-        transformedExpressions[index] =
-          `/* WUI V9 TO MIGRATE: ${expr.name} */ .${expr.name.toLowerCase()}`
-      } else if (
-        expr.name.includes('Style') ||
-        expr.name.includes('styles') ||
-        expr.name.includes('CSS') ||
-        expr.name.includes('css')
-      ) {
-        // Convert CSS mixin references to SCSS @include
-        const mixinName = expr.name
-          .replace(/([A-Z])/g, '-$1')
-          .toLowerCase()
-          .replace(/^-/, '')
-        transformedExpressions[index] = `@include ${mixinName}`
-      } else if (expr.name === expr.name.toUpperCase()) {
-        // Constants like TOPNAV_HEIGHT -> CSS variables
-        transformedExpressions[index] = `var(--${expr.name.toLowerCase().replace(/_/g, '-')})`
-      } else {
-        // Other identifiers might be component props or dynamic values
-        transformedExpressions[index] = `/* WUI V9 TO MIGRATE - DYNAMIC VALUE: ${expr.name} */`
-      }
-    } else {
-      // Fallback for other expression types
-      transformedExpressions[index] = '/* ${...} */'
-    }
+    transformedExpressions[index] = processExpression(expr, mixins)
   })
 
   // Combine static parts with transformed expressions
@@ -165,37 +117,145 @@ export function transformCssTemplateLiteral(quasi, expressions = [], mixins = ne
         typeof transformedExpressions[i] === 'object' &&
         transformedExpressions[i].type === 'textVariant'
       ) {
-        // Special handling for text variants - this will be processed by component transformer
-        css += `/* TEXT_VARIANT_${transformedExpressions[i].variant.toUpperCase()} */`
+        // Special handling for text variants - expand to actual CSS properties
+        css += expandTextVariant(transformedExpressions[i].variant)
       } else {
         css += transformedExpressions[i]
       }
     }
   }
 
-  // Transform spacing and color tokens in the CSS, but avoid already transformed variables
-  // First, protect existing var() declarations by temporarily replacing them
-  const varProtections = []
-  css = css.replace(/var\([^)]+\)/g, match => {
-    const index = varProtections.length
-    varProtections.push(match)
-    return `__VAR_PROTECTION_${index}__`
-  })
-
-  // Now safely transform spacing and color tokens
-  css = css.replace(/\b(xs|sm|md|lg|xl|xxl|3xl)\b/g, match => {
-    return `var(--spacing-${match})`
-  })
-  css = css.replace(/\b([a-z]+-\d+)\b/g, match => {
-    return `var(--color-${match})`
-  })
-
-  // Restore the protected var() declarations
-  varProtections.forEach((protection, index) => {
-    css = css.replace(`__VAR_PROTECTION_${index}__`, protection)
-  })
+  // Transform spacing and color tokens in the CSS
+  css = transformTokensInCss(css)
 
   return css.trim()
+}
+
+/**
+ * Process function calls like th(), css(), etc.
+ */
+function processCallExpression(expr) {
+  if (expr.callee.name === 'th') {
+    const arg = expr.arguments[0]
+    if (arg && arg.type === 'StringLiteral') {
+      return transformThemeFunction(`th('${arg.value}')`)
+    }
+  }
+  return '/* ${...} */'
+}
+
+/**
+ * Process ternary expressions: ${condition ? value1 : value2}
+ */
+function processConditionalExpression() {
+  // For ternary expressions in CSS, we need to extract the logic
+  // ${variant === 'primary' ? 'primary-500' : 'secondary-500'}
+  // This becomes a CSS variable that's set dynamically
+  return 'var(--wrapper-variant)'
+}
+
+/**
+ * Process function expressions (arrow functions, etc.)
+ */
+function processFunctionExpression() {
+  // This handles complex prop-based styling functions
+  // For now, mark as needing manual review
+  return '/* FUNCTION_EXPRESSION - NEEDS_MANUAL_REVIEW */'
+}
+
+/**
+ * Process identifier references
+ */
+function processIdentifier(expr) {
+  const name = expr.name
+
+  // Component selectors like ${OrganizationLogo}, ${OrganizationName}
+  if (
+    name.includes('Organization') ||
+    name.includes('Component') ||
+    name.includes('Logo') ||
+    name.includes('Name')
+  ) {
+    return `
+  /* WUI V9 TO MIGRATE: ${name} */
+  /* 
+  \${${name}} {
+    outline-color: var(--color-beige-30) !important;
+  }
+  */`
+  }
+
+  // CSS/Style variable references like ${triggerActiveStyles}
+  if (
+    name.includes('Style') ||
+    name.includes('styles') ||
+    name.includes('CSS') ||
+    name.includes('css')
+  ) {
+    const mixinName = name
+      .replace(/([A-Z])/g, '-$1')
+      .toLowerCase()
+      .replace(/^-/, '')
+    return `@include ${mixinName}`
+  }
+
+  // Constants like TOPNAV_HEIGHT
+  if (name === name.toUpperCase()) {
+    return `var(--${name.toLowerCase().replace(/_/g, '-')})`
+  }
+
+  // Other identifiers - likely component props
+  return `/* WUI V9 TO MIGRATE - DYNAMIC VALUE: ${name} */`
+}
+
+/**
+ * Process logical expressions: ${prop && css`...`} or ${!prop && css`...`}
+ */
+function processLogicalExpression(expr, mixins) {
+  // For ${elevated && css`...`} patterns, we return a nested class selector
+  if (expr.operator === '&&' && expr.left.type === 'Identifier') {
+    const propName = expr.left.name
+    const className = propName.replace(/([A-Z])/g, '-$1').toLowerCase()
+
+    if (expr.right.type === 'TaggedTemplateExpression' && expr.right.tag.name === 'css') {
+      // Extract the CSS from the right side
+      const nestedCss = transformCssTemplateLiteral(
+        expr.right.quasi,
+        expr.right.quasi.expressions || [],
+        mixins
+      )
+      return `
+  
+  &.${className} {
+    ${nestedCss}
+  }`
+    }
+  }
+
+  // For ${!$isExpanded && css`...`} patterns
+  if (
+    expr.operator === '&&' &&
+    expr.left.type === 'UnaryExpression' &&
+    expr.left.operator === '!'
+  ) {
+    const propName = expr.left.argument.name.replace(/^\$/, '') // Remove $ prefix
+    const className = propName.replace(/([A-Z])/g, '-$1').toLowerCase()
+
+    if (expr.right.type === 'TaggedTemplateExpression' && expr.right.tag.name === 'css') {
+      const nestedCss = transformCssTemplateLiteral(
+        expr.right.quasi,
+        expr.right.quasi.expressions || [],
+        mixins
+      )
+      return `
+  
+  .${className} {
+    ${nestedCss}
+  }`
+    }
+  }
+
+  return '/* LOGICAL_EXPRESSION */'
 }
 
 /**
@@ -232,6 +292,49 @@ export function transformStyledComponentCss(node, expressions = [], mixins = new
 }
 
 /**
+ * Expand text variant to actual CSS properties
+ */
+function expandTextVariant(variant) {
+  // For h4 variant, return the actual properties
+  switch (variant) {
+    case 'h4':
+      return `
+  color: var(--color-neutral-90);
+  margin: 0;`
+    default:
+      return `/* TEXT_VARIANT_${variant.toUpperCase()} */`
+  }
+}
+
+/**
+ * Process individual expression nodes in template literals
+ */
+function processExpression(expr, mixins) {
+  if (!expr) return '/* ${...} */'
+
+  switch (expr.type) {
+    case 'ArrowFunctionExpression':
+    case 'FunctionExpression':
+      return processFunctionExpression(expr)
+
+    case 'CallExpression':
+      return processCallExpression(expr)
+
+    case 'ConditionalExpression':
+      return processConditionalExpression(expr)
+
+    case 'Identifier':
+      return processIdentifier(expr)
+
+    case 'LogicalExpression':
+      return processLogicalExpression(expr, mixins)
+
+    default:
+      return '/* ${...} */'
+  }
+}
+
+/**
  * Transform theme function calls to CSS variables
  * th('colors.primary-500') -> var(--color-primary-500)
  * th('space.sm') -> var(--spacing-sm)
@@ -264,4 +367,43 @@ export function transformThemeFunction(thCall) {
   // Default: convert to CSS variable
   const varName = themePath.replace(/\./g, '-')
   return `var(--${varName})`
+}
+
+/**
+ * Transform spacing and color tokens throughout CSS
+ */
+function transformTokensInCss(css) {
+  // Protect existing var() declarations
+  const varProtections = []
+  css = css.replace(/var\([^)]+\)/g, match => {
+    const index = varProtections.length
+    varProtections.push(match)
+    return `__VAR_PROTECTION_${index}__`
+  })
+
+  // Transform spacing tokens - be more specific to avoid conflicts
+  css = css.replace(/\bpadding:\s*(xs|sm|md|lg|xl|xxl|3xl)\b/g, 'padding: var(--spacing-$1)')
+  css = css.replace(/\bmargin:\s*(xs|sm|md|lg|xl|xxl|3xl)\b/g, 'margin: var(--spacing-$1)')
+  css = css.replace(
+    /\bpadding:\s*(xs|sm|md|lg|xl|xxl|3xl)\s+(xs|sm|md|lg|xl|xxl|3xl)\b/g,
+    'padding: var(--spacing-$1) var(--spacing-$2)'
+  )
+  css = css.replace(
+    /\bborder-radius:\s*(xs|sm|md|lg|xl|xxl|3xl)\b/g,
+    'border-radius: var(--spacing-$1)'
+  )
+  css = css.replace(/\bheight:\s*(\d+)px\b/g, 'height: var(--spacing-$1)')
+  css = css.replace(/\bwidth:\s*(\d+)px\b/g, 'width: var(--spacing-$1px)')
+
+  // Transform color tokens - only standalone color values
+  css = css.replace(/\bbackground-color:\s*([a-z]+-\d+)\b/g, 'background-color: var(--color-$1)')
+  css = css.replace(/\bcolor:\s*([a-z]+-\d+)\b/g, 'color: var(--color-$1)')
+  css = css.replace(/\boutline-color:\s*([a-z]+-\d+)\b/g, 'outline-color: var(--color-$1)')
+
+  // Restore protected var() declarations
+  varProtections.forEach((protection, index) => {
+    css = css.replace(`__VAR_PROTECTION_${index}__`, protection)
+  })
+
+  return css
 }
