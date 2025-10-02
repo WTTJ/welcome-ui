@@ -10,7 +10,7 @@ import { userInputInterface } from '../migrate-inline-files.mjs'
 import { getModule } from './esm.mjs'
 import { formatWithPrettier } from './format-with-prettier.mjs'
 import { getStackClassnames } from './parsing.mjs'
-import { transformValue, valueMap } from './transform.mjs'
+import { transformValue } from './transform.mjs'
 
 const traverse = getModule(traverseModule)
 const generate = getModule(generateModule)
@@ -102,6 +102,7 @@ export async function processComponents(components, shouldReplace = false, verbo
       totalProcessed++
       let classnames = []
       let valuesNotTransformed = []
+      let transformedPropKeys = []
 
       if (component.componentType === 'Flex') classnames.push('flex')
       if (component.componentType === 'Grid') classnames.push('grid')
@@ -119,7 +120,10 @@ export async function processComponents(components, shouldReplace = false, verbo
           const displayValue = propData.isExpression ? `{${value}}` : `"${value}"`
           valuesNotTransformed.push(`${key}=${displayValue}`)
         }
-        if (transformedValue) classnames.push(transformedValue)
+        if (transformedValue) {
+          classnames.push(transformedValue)
+          transformedPropKeys.push(key)
+        }
       })
 
       if (component.componentType === 'Stack') {
@@ -177,31 +181,31 @@ export async function processComponents(components, shouldReplace = false, verbo
         if (closing) closing.name = { name: element, type: 'JSXIdentifier' }
 
         // Use helper to build new attributes
-        opening.attributes = buildAttributes(component, classnames)
+        opening.attributes = buildAttributes(component, classnames, transformedPropKeys)
       }
     }
 
-    // If we're in replace mode, generate and store the transformed file output (but don't write yet)
-    if (shouldReplace) {
-      let output
-      try {
-        output = generate(ast, { retainLines: true }, content).code
-        // Format with Prettier using cached .prettierrc config
+    // Generate the transformed file output (regardless of mode)
+    let output
+    try {
+      output = generate(ast, { retainLines: true }, content).code
+      // Format with Prettier using cached .prettierrc config
 
-        output = await formatWithPrettier(output, filePath)
+      output = await formatWithPrettier(output, filePath)
 
-        fileChanges[filePath] = output
+      fileChanges[filePath] = output
 
-        // Only log here, don't write yet
+      // Only log here, don't write yet
+      if (shouldReplace) {
         console.log(`✅ Ready to update: ${filePath}`)
-      } catch (err) {
-        console.error(`❌ Error formatting or preparing file ${filePath}:`, err)
       }
+    } catch (err) {
+      console.error(`❌ Error formatting or preparing file ${filePath}:`, err)
     }
   }
 
-  // Write all changes to disk if in replace mode
-  if (shouldReplace && Object.keys(fileChanges).length > 0) {
+  // Write all changes to disk (always write in non-interactive mode, or when in replace mode)
+  if (!shouldReplace || Object.keys(fileChanges).length > 0) {
     console.log('\n💾 Saving changes to files...')
     for (const [filePath, content] of Object.entries(fileChanges)) {
       try {
@@ -249,7 +253,7 @@ function askUser(question) {
 /**
  * Helper to build new attributes array for a JSX element, including className and other props.
  */
-function buildAttributes(component, classnames) {
+function buildAttributes(component, classnames, transformedPropKeys = []) {
   const newAttributes = []
   if (classnames.length > 0) {
     newAttributes.push({
@@ -267,6 +271,7 @@ function buildAttributes(component, classnames) {
 
   Object.entries(component.props).forEach(([key, propData]) => {
     if (key === 'as' && COMPONENTS_TO_REPLACE.includes(component.componentType)) return
+    // Skip props that were successfully transformed to classNames
     if (availableTransormers.has(key)) return
     if (propData.isSpread) {
       newAttributes.push({
