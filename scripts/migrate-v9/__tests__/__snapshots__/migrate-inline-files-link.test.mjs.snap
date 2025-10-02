@@ -1,0 +1,27 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Inline Migration - Link Components > migrates Link components with FormattedMessage to a with classNames > link-component.tsx 1`] = `
+"import { Button } from 'welcome-ui/Button'
+import { Link } from 'welcome-ui/Link'
+
+const FormattedMessage = ({
+  defaultMessage,
+  id,
+}: {
+  defaultMessage: string
+  id: string
+}): React.ReactNode => <span id={id}>{defaultMessage}</span>
+
+const SIGN_IN_PATH = '/signin'
+
+export const LinkComponent = () => {
+  return (
+    <div>
+      <Link as={Button} to={SIGN_IN_PATH}>
+        <FormattedMessage defaultMessage="Terms of use" id="EBDrtq" />
+      </Link>
+    </div>
+  )
+}
+"
+`;

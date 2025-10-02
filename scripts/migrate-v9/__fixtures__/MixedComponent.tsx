@@ -1,21 +1,21 @@
-import { Alert } from '../../../lib/src/old/components/Alert'
-import { AspectRatio } from '../../../lib/src/old/components/AspectRatio'
-import { Badge } from '../../../lib/src/old/components/Badge'
-import { Box } from '../../../lib/src/old/components/Box'
-import { Breadcrumb } from '../../../lib/src/old/components/Breadcrumb'
-import { Button } from '../../../lib/src/old/components/Button'
-import { ButtonGroup } from '../../../lib/src/old/components/ButtonGroup'
-import { CloseButton } from '../../../lib/src/old/components/CloseButton'
-import { Field } from '../../../lib/src/old/components/Field'
-import { Grid } from '../../../lib/src/old/components/Grid'
-import { MenuIcon } from '../../../lib/src/old/components/Icon'
-import { InputText } from '../../../lib/src/old/components/InputText'
-import { Label } from '../../../lib/src/old/components/Label'
-import { Link } from '../../../lib/src/old/components/Link'
-import { Stack } from '../../../lib/src/old/components/Stack'
-import { Text } from '../../../lib/src/old/components/Text'
-import { Textarea } from '../../../lib/src/old/components/Textarea'
-import { Toggle } from '../../../lib/src/old/components/Toggle'
+import { Alert } from '../../../../lib/src/old/components/Alert'
+import { AspectRatio } from '../../../../lib/src/old/components/AspectRatio'
+import { Badge } from '../../../../lib/src/old/components/Badge'
+import { Box } from '../../../../lib/src/old/components/Box'
+import { Breadcrumb } from '../../../../lib/src/old/components/Breadcrumb'
+import { Button } from '../../../../lib/src/old/components/Button'
+import { ButtonGroup } from '../../../../lib/src/old/components/ButtonGroup'
+import { CloseButton } from '../../../../lib/src/old/components/CloseButton'
+import { Field } from '../../../../lib/src/old/components/Field'
+import { Grid } from '../../../../lib/src/old/components/Grid'
+import { MenuIcon } from '../../../../lib/src/old/components/Icon'
+import { InputText } from '../../../../lib/src/old/components/InputText'
+import { Label } from '../../../../lib/src/old/components/Label'
+import { Link } from '../../../../lib/src/old/components/Link'
+import { Stack } from '../../../../lib/src/old/components/Stack'
+import { Text } from '../../../../lib/src/old/components/Text'
+import { Textarea } from '../../../../lib/src/old/components/Textarea'
+import { Toggle } from '../../../../lib/src/old/components/Toggle'
 
 import * as S from './styles'
 
@@ -40,7 +40,7 @@ const ON_CLICK = () => console.debug('submit')
 export const MixedComponent = ({ children, ...rest }: { children: React.ReactNode }) => {
   return (
     <div>
-      {/* External styled components */}
+      {/* External styled components - complex patterns */}
       <S.TopNav {...rest}>
         {TRUE ? (
           <S.TopNavMobileSection>
@@ -54,6 +54,13 @@ export const MixedComponent = ({ children, ...rest }: { children: React.ReactNod
         ) : null}
         {children ? <S.TopNavList>{children}</S.TopNavList> : null}
       </S.TopNav>
+
+      {/* External styled components - simple patterns */}
+      <S.Wrapper variant="primary">
+        <S.Card elevated>
+          <Text>Simple styled component content</Text>
+        </S.Card>
+      </S.Wrapper>
 
       {/* Mixed inline styled components from Component1.tsx */}
       <Box

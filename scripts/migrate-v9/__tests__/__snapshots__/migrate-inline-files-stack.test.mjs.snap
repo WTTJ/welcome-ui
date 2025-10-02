@@ -1,0 +1,20 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Inline Migration - Stack Components > migrates Stack components with layout props to div with classNames > stack-component.tsx 1`] = `
+"import { Stack } from 'welcome-ui/Stack'
+
+export const StackComponent = () => {
+  return (
+    <div>
+      <div className="flex flex-row gap-xxs items-center">
+        <div>Stack item 1</div>
+        <div>Stack item 2</div>
+      </div>
+      <div className="flex flex-1 flex-col gap-xxl">
+        <div>Flexible stack item</div>
+      </div>
+    </div>
+  )
+}
+"
+`;
