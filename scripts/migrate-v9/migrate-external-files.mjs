@@ -69,8 +69,9 @@ export async function migrate(dir, copyDir = true) {
     })
     const scss = migrateStylesTsToScss(stylesTs, extractedMixins)
     try {
-      const formatted = await formatWithPrettier(scss, stylesScss)
-      fs.writeFileSync(stylesScss, formatted, 'utf8')
+      // Temporarily disable prettier to see raw output
+      // const formatted = await formatWithPrettier(scss, stylesScss)
+      fs.writeFileSync(stylesScss, scss, 'utf8')
     } catch (e) {
       console.warn('Prettier formatting failed:', e)
       fs.writeFileSync(stylesScss, scss, 'utf8')
