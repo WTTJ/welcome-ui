@@ -1,0 +1,43 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`External Migration - Simple Styled Components > migrates simple styled components (styled.div, styled.button, etc.) > simple-component.tsx 1`] = `
+"import './styles.scss'
+export const SimpleComponent = () => {
+  return (
+    <div className="container">
+      <h1 className="header">Simple Header</h1>
+      <section className="content">
+        <button className="button">Click me</button>
+      </section>
+    </div>
+  )
+}
+"
+`;
+
+exports[`External Migration - Simple Styled Components > migrates simple styled components (styled.div, styled.button, etc.) > simple-styles.scss 1`] = `
+".container {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-lg);
+}
+
+.header {
+  color: primary-500;
+  margin-bottom: var(--spacing-md);
+}
+
+.content {
+  flex: 1;
+}
+
+.button {
+  background-color: primary-500;
+  color: white;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: none;
+  border-radius: var(--spacing-sm);
+  cursor: pointer;
+}
+"
+`;
