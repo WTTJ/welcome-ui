@@ -5,9 +5,6 @@
     "declaration": true,
     "target": "ES2018",
     "paths": {
-      "@old/utils": ["./src/old/utils"],
-      "@old/theme": ["./src/old/theme"],
-      "@old/*": ["./src/old/components/*"],
       "@/*": ["./src/*"],
       "@tests": ["./tests"]
     },

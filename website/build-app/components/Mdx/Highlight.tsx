@@ -3,8 +3,7 @@ import { Highlight as HighlightPrism, themes } from 'prism-react-renderer'
 
 import { Button } from '@/components/Button'
 import { CheckIcon, CopyIcon } from '@/components/Icon'
-import { classNames } from '@/utils'
-import { useCopyText } from '@old/utils'
+import { classNames, useCopyText } from '@/utils'
 
 export type HighlightProps = {
   children: string
