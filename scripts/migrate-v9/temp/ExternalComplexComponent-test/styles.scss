@@ -2,26 +2,12 @@
 
 @mixin trigger-active-styles {
 background-color: var(--color-beige-30);
-
-  
-  /* WUI V9 TO MIGRATE: OrganizationLogo */
-  /* 
-  ${OrganizationLogo} {
-    outline-color: var(--color-beige-30) !important;
-  }
-  */ {
-    outline-color: var(--color-beige-30) !important;
-  }
-
-  
-  /* WUI V9 TO MIGRATE: OrganizationName */
-  /* 
-  ${OrganizationName} {
-    outline-color: var(--color-beige-30) !important;
-  }
-  */ {
-    color: var(--color-neutral-90);
-  }
+  /* WUI V9 TO MIGRATE: Component selector rule
+  /* outline-color: var(--color-beige-30) !important; */
+  */
+  /* WUI V9 TO MIGRATE: Component selector rule
+  /* color: var(--color-neutral-90); */
+  */
 }
 
 
@@ -30,7 +16,11 @@ background-color: var(--color-beige-30);
 background: white;
   border-radius: var(--spacing-md);
   padding: var(--spacing-lg);
-  /* FUNCTION_EXPRESSION - NEEDS_MANUAL_REVIEW */
+  
+  
+  &.elevated {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
 }
 
 .title {
@@ -53,19 +43,12 @@ border: none;
 
   &:hover {
     @include trigger-active-styles;
-
-    
-  /* WUI V9 TO MIGRATE: OrganizationName */
-  /* 
-  ${OrganizationName} {
-    outline-color: var(--color-beige-30) !important;
-  }
-  */ {
-      color: var(--color-beige-80);
-    }
+  /* WUI V9 TO MIGRATE: Component selector rule
+  /* color: var(--color-beige-80); */
+  */
   }
 
-  /* FUNCTION_EXPRESSION - NEEDS_MANUAL_REVIEW */;
+  /* LOGICAL_EXPRESSION */;
   &:active {
     @include trigger-active-styles
   }
