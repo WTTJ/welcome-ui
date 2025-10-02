@@ -128,7 +128,125 @@ export function transformCssTemplateLiteral(quasi, expressions = [], mixins = ne
   // Transform spacing and color tokens in the CSS
   css = transformTokensInCss(css)
 
+  // Post-process to properly comment out problematic CSS rules
+  css = postProcessComments(css)
+
   return css.trim()
+}
+
+/**
+ * Transform spacing tokens to CSS variables
+ * 'md' -> 'var(--spacing-md)'
+ * 'xxl' -> 'var(--spacing-xxl)'
+ */
+export function transformSpacingToken(token) {
+  const spacingTokens = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl', '3xl']
+  if (spacingTokens.includes(token)) {
+    return `var(--spacing-${token})`
+  }
+  return token
+}
+
+/**
+ * Main CSS transformation pipeline
+ */
+export function transformStyledComponentCss(node, expressions = [], mixins = new Map()) {
+  if (!node) return null
+
+  const css = transformCssTemplateLiteral(node, expressions, mixins)
+  if (!css) return null
+
+  return {
+    css,
+    hasComponentSelectors: css.includes('WUI V9 TO MIGRATE'),
+    hasConditionalLogic:
+      css.includes('CONDITIONAL_EXPRESSION') || css.includes('LOGICAL_EXPRESSION'),
+    hasTextVariant: css.includes('TEXT_VARIANT_'),
+    mixins,
+    needsManualReview: css.includes('TO_MIGRATE') || css.includes('CONDITIONAL_'),
+  }
+}
+
+/**
+ * Transform theme function calls to CSS variables
+ * th('colors.primary-500') -> var(--color-primary-500)
+ * th('space.sm') -> var(--spacing-sm)
+ * th('texts.h4') -> CSS properties for h4 text variant
+ */
+export function transformThemeFunction(thCall) {
+  // Extract the path from th('path.to.value')
+  const match = thCall.match(/th\(['"]([\w.-]+)['"]\)/)
+  if (!match) return thCall
+
+  const themePath = match[1]
+  const pathParts = themePath.split('.')
+
+  // Special handling for different theme sections
+  if (pathParts[0] === 'colors') {
+    const colorName = pathParts.slice(1).join('-')
+    return `var(--color-${colorName})`
+  }
+
+  if (pathParts[0] === 'space' && pathParts[1]) {
+    return `var(--spacing-${pathParts[1]})`
+  }
+
+  if (pathParts[0] === 'texts' && pathParts[1]) {
+    // For text variants, we need to extract individual properties
+    // This will be handled specially in the component transformer
+    return { type: 'textVariant', variant: pathParts[1] }
+  }
+
+  // Default: convert to CSS variable
+  const varName = themePath.replace(/\./g, '-')
+  return `var(--${varName})`
+}
+
+/**
+ * Expand text variant to actual CSS properties
+ */
+function expandTextVariant(variant) {
+  // For h4 variant, return the actual properties
+  switch (variant) {
+    case 'h4':
+      return `
+  color: var(--color-neutral-90);
+  margin: 0;`
+    default:
+      return `/* TEXT_VARIANT_${variant.toUpperCase()} */`
+  }
+}
+
+/**
+ * Post-process CSS to properly comment out problematic rules
+ */
+function postProcessComments(css) {
+  // Handle function expression comments that appear standalone
+  css = css.replace(/\s*__FUNCTION_EXPRESSION_COMMENT__\s*/g, () => {
+    return `\n  /* FUNCTION_EXPRESSION - NEEDS_MANUAL_REVIEW */`
+  })
+
+  // Handle function expression comments in property context
+  css = css.replace(/([^{}]*?):\s*__FUNCTION_EXPRESSION_COMMENT__[^;]*;/g, (match, property) => {
+    return `/* FUNCTION_EXPRESSION - NEEDS_MANUAL_REVIEW: ${property.trim()}: <expression>; */`
+  })
+
+  // Handle component selector comments
+  css = css.replace(/__COMPONENT_SELECTOR_COMMENT__([^_]+)__/g, (match, componentName) => {
+    return `/* WUI V9 TO MIGRATE: ${componentName} - Rule needs manual review */`
+  })
+
+  // Clean up any remaining orphaned selectors that just have comments
+  css = css.replace(/\s*\/\* WUI V9 TO MIGRATE:[^*]*\*\/\s*\{([^}]*)\}/g, (match, content) => {
+    const lines = content
+      .split('\n')
+      .map(line => (line.trim() ? `  /* ${line.trim()} */` : ''))
+      .filter(Boolean)
+      .join('\n')
+    return `\n  /* WUI V9 TO MIGRATE: Component selector rule\n${lines}\n  */`
+  })
+
+  return css
 }
 
 /**
@@ -155,11 +273,63 @@ function processConditionalExpression() {
 }
 
 /**
+ * Process individual expression nodes in template literals
+ */
+function processExpression(expr, mixins) {
+  if (!expr) return '/* ${...} */'
+
+  switch (expr.type) {
+    case 'ArrowFunctionExpression':
+    case 'FunctionExpression':
+      return processFunctionExpression(expr, mixins)
+
+    case 'CallExpression':
+      return processCallExpression(expr)
+
+    case 'ConditionalExpression':
+      return processConditionalExpression(expr)
+
+    case 'Identifier':
+      return processIdentifier(expr)
+
+    case 'LogicalExpression':
+      return processLogicalExpression(expr, mixins)
+
+    default:
+      return '/* ${...} */'
+  }
+}
+
+/**
  * Process function expressions (arrow functions, etc.)
  */
-function processFunctionExpression() {
-  // This handles complex prop-based styling functions
-  // For now, mark as needing manual review
+function processFunctionExpression(expr, mixins = new Map()) {
+  if (!expr) return '__FUNCTION_EXPRESSION_COMMENT__'
+
+  // Try to parse common patterns like ({ propName }) => propName && css`...`
+  if (expr.type === 'ArrowFunctionExpression') {
+    // Check if it's a simple destructured prop pattern
+    const params = expr.params
+    if (params.length === 1 && params[0].type === 'ObjectPattern') {
+      const properties = params[0].properties
+      if (properties.length === 1 && properties[0].type === 'ObjectProperty') {
+        const propName = properties[0].key.name
+
+        // Check if the body is a logical expression: propName && css`...`
+        if (
+          expr.body.type === 'LogicalExpression' &&
+          expr.body.operator === '&&' &&
+          expr.body.left.type === 'Identifier' &&
+          expr.body.left.name === propName
+        ) {
+          // Delegate to the logical expression handler
+          return processLogicalExpression(expr.body, mixins)
+        }
+      }
+    }
+  }
+
+  // For complex function expressions we can't parse, comment them out with readable info
   return '/* FUNCTION_EXPRESSION - NEEDS_MANUAL_REVIEW */'
 }
 
@@ -176,13 +346,7 @@ function processIdentifier(expr) {
     name.includes('Logo') ||
     name.includes('Name')
   ) {
-    return `
-  /* WUI V9 TO MIGRATE: ${name} */
-  /* 
-  \${${name}} {
-    outline-color: var(--color-beige-30) !important;
-  }
-  */`
+    return `__COMPONENT_SELECTOR_COMMENT__${name}__`
   }
 
   // CSS/Style variable references like ${triggerActiveStyles}
@@ -256,117 +420,6 @@ function processLogicalExpression(expr, mixins) {
   }
 
   return '/* LOGICAL_EXPRESSION */'
-}
-
-/**
- * Transform spacing tokens to CSS variables
- * 'md' -> 'var(--spacing-md)'
- * 'xxl' -> 'var(--spacing-xxl)'
- */
-export function transformSpacingToken(token) {
-  const spacingTokens = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl', '3xl']
-  if (spacingTokens.includes(token)) {
-    return `var(--spacing-${token})`
-  }
-  return token
-}
-
-/**
- * Main CSS transformation pipeline
- */
-export function transformStyledComponentCss(node, expressions = [], mixins = new Map()) {
-  if (!node) return null
-
-  const css = transformCssTemplateLiteral(node, expressions, mixins)
-  if (!css) return null
-
-  return {
-    css,
-    hasComponentSelectors: css.includes('WUI V9 TO MIGRATE'),
-    hasConditionalLogic:
-      css.includes('CONDITIONAL_EXPRESSION') || css.includes('LOGICAL_EXPRESSION'),
-    hasTextVariant: css.includes('TEXT_VARIANT_'),
-    mixins,
-    needsManualReview: css.includes('TO_MIGRATE') || css.includes('CONDITIONAL_'),
-  }
-}
-
-/**
- * Expand text variant to actual CSS properties
- */
-function expandTextVariant(variant) {
-  // For h4 variant, return the actual properties
-  switch (variant) {
-    case 'h4':
-      return `
-  color: var(--color-neutral-90);
-  margin: 0;`
-    default:
-      return `/* TEXT_VARIANT_${variant.toUpperCase()} */`
-  }
-}
-
-/**
- * Process individual expression nodes in template literals
- */
-function processExpression(expr, mixins) {
-  if (!expr) return '/* ${...} */'
-
-  switch (expr.type) {
-    case 'ArrowFunctionExpression':
-    case 'FunctionExpression':
-      return processFunctionExpression(expr)
-
-    case 'CallExpression':
-      return processCallExpression(expr)
-
-    case 'ConditionalExpression':
-      return processConditionalExpression(expr)
-
-    case 'Identifier':
-      return processIdentifier(expr)
-
-    case 'LogicalExpression':
-      return processLogicalExpression(expr, mixins)
-
-    default:
-      return '/* ${...} */'
-  }
-}
-
-/**
- * Transform theme function calls to CSS variables
- * th('colors.primary-500') -> var(--color-primary-500)
- * th('space.sm') -> var(--spacing-sm)
- * th('texts.h4') -> CSS properties for h4 text variant
- */
-export function transformThemeFunction(thCall) {
-  // Extract the path from th('path.to.value')
-  const match = thCall.match(/th\(['"]([\w.-]+)['"]\)/)
-  if (!match) return thCall
-
-  const themePath = match[1]
-  const pathParts = themePath.split('.')
-
-  // Special handling for different theme sections
-  if (pathParts[0] === 'colors') {
-    const colorName = pathParts.slice(1).join('-')
-    return `var(--color-${colorName})`
-  }
-
-  if (pathParts[0] === 'space' && pathParts[1]) {
-    return `var(--spacing-${pathParts[1]})`
-  }
-
-  if (pathParts[0] === 'texts' && pathParts[1]) {
-    // For text variants, we need to extract individual properties
-    // This will be handled specially in the component transformer
-    return { type: 'textVariant', variant: pathParts[1] }
-  }
-
-  // Default: convert to CSS variable
-  const varName = themePath.replace(/\./g, '-')
-  return `var(--${varName})`
 }
 
 /**
