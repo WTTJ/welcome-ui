@@ -1,0 +1,18 @@
+{
+  "source": ["src/theme/tokens/*.json"],
+  "platforms": {
+    "css": {
+      "transformGroup": "css",
+      "buildPath": "src/theme/",
+      "files": [
+        {
+          "destination": "variables.css",
+          "format": "css/variables",
+          "options": {
+            "selector": "@theme static"
+          }
+        }
+      ]
+    }
+  }
+}
