@@ -85,6 +85,7 @@ exports[`External Migration - Complex Styled Components > migrates complex style
   width: 100%;
   border-radius: var(--spacing-md);
   transition: background-color 300ms;
+  bottom: var(--spacing-md);
 
   display: flex;
   align-items: center;
