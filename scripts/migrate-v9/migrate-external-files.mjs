@@ -13,6 +13,7 @@ import {
 import { getModule } from './helpers/esm.mjs'
 import { copyDirSync, deleteDirRecursive } from './helpers/file-utils.mjs'
 import { formatWithPrettier } from './helpers/format-with-prettier.mjs'
+import { formatScssContent } from './helpers/format-with-stylelint.mjs'
 
 const traverse = getModule(traverseModule)
 const generate = getModule(generateModule)
@@ -69,11 +70,11 @@ export async function migrate(dir, copyDir = true) {
     })
     const scss = migrateStylesTsToScss(stylesTs, extractedMixins)
     try {
-      // Temporarily disable prettier to see raw output
-      // const formatted = await formatWithPrettier(scss, stylesScss)
-      fs.writeFileSync(stylesScss, scss, 'utf8')
+      // Format SCSS with stylelint and prettier
+      const formatted = await formatScssContent(scss, stylesScss)
+      fs.writeFileSync(stylesScss, formatted, 'utf8')
     } catch (e) {
-      console.warn('Prettier formatting failed:', e)
+      console.warn('SCSS formatting failed:', e)
       fs.writeFileSync(stylesScss, scss, 'utf8')
     }
 

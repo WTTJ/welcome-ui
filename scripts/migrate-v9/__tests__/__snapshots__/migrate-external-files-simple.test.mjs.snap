@@ -38,6 +38,5 @@ exports[`External Migration - Simple Styled Components > migrates simple styled 
   border: none;
   border-radius: var(--spacing-sm);
   cursor: pointer;
-}
-"
+}"
 `;
