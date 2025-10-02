@@ -1,7 +1,7 @@
 /* eslint-disable perfectionist/sort-modules */
 import tokens from '@/theme/tokens/semantics.json' assert { type: 'json' }
 
-type ScreenSize = keyof Omit<typeof tokens.breakpoint, '$type'>
+type ScreenSize = keyof Omit<typeof tokens.breakpoints, '$type'>
 type Screens = Record<ScreenSize, number>
 
 /**

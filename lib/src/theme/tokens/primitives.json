@@ -3,695 +3,497 @@
     "yellow-10": {
       "value": "#FFF8D9FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "yellow-20": {
       "value": "#FFF1B2FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "yellow-30": {
       "value": "#FFE166FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "yellow-40": {
       "value": "#FFCD00FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "yellow-50": {
       "value": "#E5B800FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "yellow-60": {
       "value": "#B69200FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "yellow-70": {
       "value": "#846A01FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "yellow-80": {
       "value": "#604D00FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "yellow-90": {
       "value": "#423500FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "neutral-10": {
       "value": "#FFFFFFFF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "neutral-20": {
       "value": "#F3F3F3FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "neutral-30": {
       "value": "#DEDEDEFF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "neutral-40": {
       "value": "#BDBDBDFF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "neutral-50": {
       "value": "#989898FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "neutral-60": {
       "value": "#585858FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "neutral-70": {
       "value": "#444444FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "neutral-80": {
       "value": "#212121FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "neutral-90": {
       "value": "#000000FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "beige-10": {
       "value": "#FBF9F7FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "beige-20": {
       "value": "#F6F3EFFF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "beige-30": {
       "value": "#EAE4DEFF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "beige-40": {
       "value": "#D2CBC3FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "beige-50": {
       "value": "#A7A096FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "beige-60": {
       "value": "#605B55FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "beige-70": {
       "value": "#4D4944FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "beige-80": {
       "value": "#33302DFF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "beige-90": {
       "value": "#1E1C1AFF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "green-10": {
       "value": "#E7FBD3FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "green-20": {
       "value": "#CFEBB0FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "green-30": {
       "value": "#BADE94FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "green-40": {
       "value": "#9FC873FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "green-50": {
       "value": "#83AD57FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "green-60": {
       "value": "#5A8034FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "green-70": {
       "value": "#40611FFF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "green-80": {
       "value": "#2A4210FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "green-90": {
       "value": "#142603FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "teal-10": {
       "value": "#DBFAF6FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "teal-20": {
       "value": "#A5ECE4FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "teal-30": {
       "value": "#6FDBCDFF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "teal-40": {
       "value": "#00C7AEFF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "teal-50": {
       "value": "#06A894FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "teal-60": {
       "value": "#0A7B6DFF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "teal-70": {
       "value": "#00544AFF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "teal-80": {
       "value": "#053731FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "teal-90": {
       "value": "#001B18FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "blue-10": {
       "value": "#E0F5FFFF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "blue-20": {
       "value": "#BBEAFFFF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "blue-30": {
       "value": "#9BDEF7FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "blue-40": {
       "value": "#55C3E9FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "blue-50": {
       "value": "#27A5D0FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "blue-60": {
       "value": "#057AA3FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "blue-70": {
       "value": "#025A79FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "blue-80": {
       "value": "#013C50FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "blue-90": {
       "value": "#00202BFF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "violet-10": {
       "value": "#EFEFFFFF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "violet-20": {
       "value": "#E0E0FFFF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "violet-30": {
       "value": "#C9C9FFFF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "violet-40": {
       "value": "#ACACFFFF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "violet-50": {
       "value": "#9587E8FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "violet-60": {
       "value": "#8068C6FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "violet-70": {
       "value": "#5A4890FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "violet-80": {
       "value": "#3C2E63FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "violet-90": {
       "value": "#26194DFF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "pink-10": {
       "value": "#FFEAF5FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "pink-20": {
       "value": "#FFD5EBFF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "pink-30": {
       "value": "#FEB7DCFF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "pink-40": {
       "value": "#F696C8FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "pink-50": {
       "value": "#D17BA8FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "pink-60": {
       "value": "#B06089FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "pink-70": {
       "value": "#803C5FFF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "pink-80": {
       "value": "#5C2944FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "pink-90": {
       "value": "#3B142AFF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "red-orange-10": {
       "value": "#FFDED0FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "red-orange-20": {
       "value": "#FFC9B2FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "red-orange-30": {
       "value": "#FFB595FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "red-orange-40": {
       "value": "#FF9868FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "red-orange-50": {
       "value": "#E67B49FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "red-orange-60": {
       "value": "#C45927FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "red-orange-70": {
       "value": "#9F4217FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "red-orange-80": {
       "value": "#6D2605FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "red-orange-90": {
       "value": "#451701FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "orange-10": {
       "value": "#FFEBCEFF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "orange-20": {
       "value": "#FFD495FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "orange-30": {
       "value": "#FFBB59FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "orange-40": {
       "value": "#FF9F14FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "orange-50": {
       "value": "#DB860AFF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "orange-60": {
       "value": "#A6670AFF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "orange-70": {
       "value": "#824F06FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "orange-80": {
       "value": "#573607FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "orange-90": {
       "value": "#382303FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "red-10": {
       "value": "#FBDEDCFF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "red-20": {
       "value": "#FCC7C3FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "red-30": {
       "value": "#FDB3AEFF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "red-40": {
       "value": "#FF9490FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "red-50": {
       "value": "#FF6165FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "red-60": {
       "value": "#E1003AFF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "red-70": {
       "value": "#A80029FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "red-80": {
       "value": "#75001AFF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     },
     "red-90": {
       "value": "#450101FF",
       "type": "color",
-      "scope": [
-        "ALL_SCOPES"
-      ]
+      "scope": ["ALL_SCOPES"]
     }
   },
   "font": {
@@ -699,79 +501,57 @@
       "12": {
         "value": "12px",
         "type": "fontSize",
-        "scope": [
-          "FONT_SIZE"
-        ]
+        "scope": ["FONT_SIZE"]
       },
       "14": {
         "value": "14px",
         "type": "fontSize",
-        "scope": [
-          "FONT_SIZE"
-        ]
+        "scope": ["FONT_SIZE"]
       },
       "16": {
         "value": "16px",
         "type": "fontSize",
-        "scope": [
-          "FONT_SIZE"
-        ]
+        "scope": ["FONT_SIZE"]
       },
       "18": {
         "value": "18px",
         "type": "fontSize",
-        "scope": [
-          "FONT_SIZE"
-        ]
+        "scope": ["FONT_SIZE"]
       },
       "20": {
         "value": "20px",
         "type": "fontSize",
-        "scope": [
-          "FONT_SIZE"
-        ]
+        "scope": ["FONT_SIZE"]
       },
       "24": {
         "value": "24px",
         "type": "fontSize",
-        "scope": [
-          "FONT_SIZE"
-        ]
+        "scope": ["FONT_SIZE"]
       },
       "32": {
         "value": "32px",
         "type": "fontSize",
-        "scope": [
-          "FONT_SIZE"
-        ]
+        "scope": ["FONT_SIZE"]
       },
       "36": {
         "value": "36px",
         "type": "fontSize",
-        "scope": [
-          "FONT_SIZE"
-        ]
+        "scope": ["FONT_SIZE"]
       },
       "48": {
         "value": "48px",
         "type": "fontSize",
-        "scope": [
-          "FONT_SIZE"
-        ]
+        "scope": ["FONT_SIZE"]
       },
       "60": {
         "value": "60px",
         "type": "fontSize",
-        "scope": [
-          "FONT_SIZE"
-        ]
+        "scope": ["FONT_SIZE"]
       },
       "72": {
         "value": "72px",
         "type": "fontSize",
-        "scope": [
-          "FONT_SIZE"
-        ]
+        "scope": ["FONT_SIZE"]
       }
     }
   },
@@ -779,274 +559,198 @@
     "2": {
       "value": "2px",
       "type": "spacing",
-      "scope": [
-        "GAP"
-      ]
+      "scope": ["GAP"]
     },
     "4": {
       "value": "4px",
       "type": "spacing",
-      "scope": [
-        "GAP"
-      ]
+      "scope": ["GAP"]
     },
     "8": {
       "value": "8px",
       "type": "spacing",
-      "scope": [
-        "GAP"
-      ]
+      "scope": ["GAP"]
     },
     "12": {
       "value": "12px",
       "type": "spacing",
-      "scope": [
-        "GAP"
-      ]
+      "scope": ["GAP"]
     },
     "16": {
       "value": "16px",
       "type": "spacing",
-      "scope": [
-        "GAP"
-      ]
+      "scope": ["GAP"]
     },
     "24": {
       "value": "24px",
       "type": "spacing",
-      "scope": [
-        "GAP"
-      ]
+      "scope": ["GAP"]
     },
     "32": {
       "value": "32px",
       "type": "spacing",
-      "scope": [
-        "GAP"
-      ]
+      "scope": ["GAP"]
     },
     "48": {
       "value": "48px",
       "type": "spacing",
-      "scope": [
-        "GAP"
-      ]
+      "scope": ["GAP"]
     },
     "64": {
       "value": "64px",
       "type": "spacing",
-      "scope": [
-        "GAP"
-      ]
+      "scope": ["GAP"]
     },
     "96": {
       "value": "96px",
       "type": "spacing",
-      "scope": [
-        "GAP"
-      ]
+      "scope": ["GAP"]
     },
     "128": {
       "value": "128px",
       "type": "spacing",
-      "scope": [
-        "GAP"
-      ]
+      "scope": ["GAP"]
     },
     "192": {
       "value": "192px",
       "type": "spacing",
-      "scope": [
-        "GAP"
-      ]
+      "scope": ["GAP"]
     }
   },
   "size": {
     "8": {
       "value": "8px",
       "type": "dimension",
-      "scope": [
-        "WIDTH_HEIGHT"
-      ]
+      "scope": ["WIDTH_HEIGHT"]
     },
     "12": {
       "value": "12px",
       "type": "dimension",
-      "scope": [
-        "WIDTH_HEIGHT"
-      ]
+      "scope": ["WIDTH_HEIGHT"]
     },
     "16": {
       "value": "16px",
       "type": "dimension",
-      "scope": [
-        "WIDTH_HEIGHT"
-      ]
+      "scope": ["WIDTH_HEIGHT"]
     },
     "20": {
       "value": "20px",
       "type": "dimension",
-      "scope": [
-        "WIDTH_HEIGHT"
-      ]
+      "scope": ["WIDTH_HEIGHT"]
     },
     "24": {
       "value": "24px",
       "type": "dimension",
-      "scope": [
-        "WIDTH_HEIGHT"
-      ]
+      "scope": ["WIDTH_HEIGHT"]
     },
     "32": {
       "value": "32px",
       "type": "dimension",
-      "scope": [
-        "WIDTH_HEIGHT"
-      ]
+      "scope": ["WIDTH_HEIGHT"]
     },
     "48": {
       "value": "48px",
       "type": "dimension",
-      "scope": [
-        "WIDTH_HEIGHT"
-      ]
+      "scope": ["WIDTH_HEIGHT"]
     },
     "64": {
       "value": "64px",
       "type": "dimension",
-      "scope": [
-        "WIDTH_HEIGHT"
-      ]
+      "scope": ["WIDTH_HEIGHT"]
     }
   },
   "height": {
     "2": {
       "value": "2px",
       "type": "dimension",
-      "scope": [
-        "WIDTH_HEIGHT"
-      ]
+      "scope": ["WIDTH_HEIGHT"]
     },
     "8": {
       "value": "8px",
       "type": "dimension",
-      "scope": [
-        "WIDTH_HEIGHT"
-      ]
+      "scope": ["WIDTH_HEIGHT"]
     },
     "16": {
       "value": "16px",
       "type": "dimension",
-      "scope": [
-        "WIDTH_HEIGHT"
-      ]
+      "scope": ["WIDTH_HEIGHT"]
     },
     "20": {
       "value": "20px",
       "type": "dimension",
-      "scope": [
-        "WIDTH_HEIGHT"
-      ]
+      "scope": ["WIDTH_HEIGHT"]
     },
     "24": {
       "value": "24px",
       "type": "dimension",
-      "scope": [
-        "WIDTH_HEIGHT"
-      ]
+      "scope": ["WIDTH_HEIGHT"]
     },
     "25": {
       "value": "25px",
       "type": "dimension",
-      "scope": [
-        "WIDTH_HEIGHT"
-      ]
+      "scope": ["WIDTH_HEIGHT"]
     },
     "32": {
       "value": "32px",
       "type": "dimension",
-      "scope": [
-        "WIDTH_HEIGHT"
-      ]
+      "scope": ["WIDTH_HEIGHT"]
     },
     "33": {
       "value": "33px",
       "type": "dimension",
-      "scope": [
-        "WIDTH_HEIGHT"
-      ]
+      "scope": ["WIDTH_HEIGHT"]
     },
     "40": {
       "value": "40px",
       "type": "dimension",
-      "scope": [
-        "WIDTH_HEIGHT"
-      ]
+      "scope": ["WIDTH_HEIGHT"]
     },
     "43": {
       "value": "43px",
       "type": "dimension",
-      "scope": [
-        "WIDTH_HEIGHT"
-      ]
+      "scope": ["WIDTH_HEIGHT"]
     }
   },
   "width": {
     "8": {
       "value": "8px",
       "type": "dimension",
-      "scope": [
-        "WIDTH_HEIGHT"
-      ]
+      "scope": ["WIDTH_HEIGHT"]
     },
     "16": {
       "value": "16px",
       "type": "dimension",
-      "scope": [
-        "WIDTH_HEIGHT"
-      ]
+      "scope": ["WIDTH_HEIGHT"]
     },
     "20": {
       "value": "20px",
       "type": "dimension",
-      "scope": [
-        "WIDTH_HEIGHT"
-      ]
+      "scope": ["WIDTH_HEIGHT"]
     },
     "28": {
       "value": "28px",
       "type": "dimension",
-      "scope": [
-        "WIDTH_HEIGHT"
-      ]
+      "scope": ["WIDTH_HEIGHT"]
     },
     "32": {
       "value": "32px",
       "type": "dimension",
-      "scope": [
-        "WIDTH_HEIGHT"
-      ]
+      "scope": ["WIDTH_HEIGHT"]
     },
     "36": {
       "value": "36px",
       "type": "dimension",
-      "scope": [
-        "WIDTH_HEIGHT"
-      ]
+      "scope": ["WIDTH_HEIGHT"]
     },
     "40": {
       "value": "40px",
       "type": "dimension",
-      "scope": [
-        "WIDTH_HEIGHT"
-      ]
+      "scope": ["WIDTH_HEIGHT"]
     },
     "44": {
       "value": "44px",
       "type": "dimension",
-      "scope": [
-        "WIDTH_HEIGHT"
-      ]
+      "scope": ["WIDTH_HEIGHT"]
     }
   },
   "elevation": {
