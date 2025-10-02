@@ -1,6 +1,107 @@
+/* stylelint-disable no-descending-specificity */
 @use '../../theme/utils/breakpoints.scss' as breakpoints;
 
 @layer components {
+  .root {
+    background-color: var(--color-neutral-10);
+    border-color: var(--color-neutral-30);
+    border-style: solid;
+    border-width: var(--border-width-sm);
+    z-index: 999;
+    border-radius: var(--radius-md);
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    margin-top: var(--spacing-xl);
+    top: 50%;
+    transform: translate3d(0, -50%, 0);
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    height: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    overflow: auto;
+    opacity: 0;
+    transition:
+      opacity 250ms ease-in-out,
+      margin-top 250ms ease-in-out;
+
+    --dialog-width: 100%;
+
+    &[data-enter] {
+      opacity: 1;
+      margin-top: 0;
+    }
+
+    @media (min-width: breakpoints.$breakpoint-md) {
+      height: fit-content;
+      max-height: calc(2 * var(--spacing-xl) + 100vh);
+      width: var(--dialog-width);
+    }
+
+    /* Styles the Header */
+    /* if the Modal have a Body, but not a Footer || have a Footer, but not a Body */
+    &:has(.body):not(:has(.footer)),
+    &:has(.footer):not(:has(.body)) {
+      .header {
+        padding-bottom: var(--spacing-lg);
+      }
+    }
+
+    /* Styles the Body */
+    /* if the Modal have a Footer */
+    &:has(.footer) {
+      .body {
+        padding-bottom: var(--spacing-lg);
+      }
+      /* AND if the Modal have a Header */
+      &:has(.header) .body {
+        padding-right: var(--spacing-xxl);
+      }
+    }
+
+    /* Styles the Footer */
+    /* if the Modal is scrollable */
+    &.scrollable .footer {
+      border-top-width: var(--border-width-sm);
+    }
+
+    /* if the Modal has a Footer, but no Header and no Body */
+    &:not(:has(.header)):not(:has(.body)) .footer {
+      padding-top: var(--spacing-lg);
+    }
+    /* Styles the close button */
+    /* if the Modal has a Header, hide the Content's close button */
+    &:has(.header) {
+      .content.with-close-button > .close {
+        display: none;
+      }
+    }
+  }
+
+  .size {
+    &-lg {
+      /* 720px; */
+      --dialog-width: 45rem;
+    }
+
+    &-md {
+      /* 600px; */
+      --dialog-width: 37.5rem;
+    }
+
+    &-sm {
+      /* 450px; */
+      --dialog-width: 28.125rem;
+    }
+
+    &-xs {
+      /* 320px; */
+      --dialog-width: 20rem;
+    }
+  }
+
   .backdrop {
     background-color: var(--color-overlay);
     z-index: 999;
@@ -108,105 +209,5 @@
     color: var(--color-neutral-90);
     margin-bottom: (var(--spacing-0));
     margin-top: var(--spacing-md);
-  }
-
-  .root {
-    background-color: var(--color-neutral-10);
-    border-color: var(--color-neutral-30);
-    border-style: solid;
-    border-width: var(--border-width-sm);
-    z-index: 999;
-    border-radius: var(--radius-md);
-    position: fixed;
-    inset: 0;
-    margin: auto;
-    margin-top: var(--spacing-xl);
-    top: 50%;
-    transform: translate3d(0, -50%, 0);
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    height: 100%;
-    max-height: 100%;
-    max-width: 100%;
-    overflow: auto;
-    opacity: 0;
-    transition:
-      opacity 250ms ease-in-out,
-      margin-top 250ms ease-in-out;
-
-    --dialog-width: 100%;
-
-    &[data-enter] {
-      opacity: 1;
-      margin-top: 0;
-    }
-
-    @media (min-width: breakpoints.$breakpoint-md) {
-      height: fit-content;
-      max-height: calc(2 * var(--spacing-xl) + 100vh);
-      width: var(--dialog-width);
-    }
-
-    /* Styles the Header */
-    /* if the Modal have a Body, but not a Footer || have a Footer, but not a Body */
-    &:has(.body):not(:has(.footer)),
-    &:has(.footer):not(:has(.body)) {
-      .header {
-        padding-bottom: var(--spacing-lg);
-      }
-    }
-
-    /* Styles the Body */
-    /* if the Modal have a Footer */
-    &:has(.footer) {
-      .body {
-        padding-bottom: var(--spacing-lg);
-      }
-      /* AND if the Modal have a Header */
-      &:has(.header) .body {
-        padding-right: var(--spacing-xxl);
-      }
-    }
-
-    /* Styles the Footer */
-    /* if the Modal is scrollable */
-    &.scrollable .footer {
-      border-top-width: var(--border-width-sm);
-    }
-
-    /* if the Modal has a Footer, but no Header and no Body */
-    &:not(:has(.header)):not(:has(.body)) .footer {
-      padding-top: var(--spacing-lg);
-    }
-    /* Styles the close button */
-    /* if the Modal has a Header, hide the Content's close button */
-    &:has(.header) {
-      .content.with-close-button > .close {
-        display: none;
-      }
-    }
-  }
-
-  .size {
-    &-lg {
-      /* 720px; */
-      --dialog-width: 45rem;
-    }
-
-    &-md {
-      /* 600px; */
-      --dialog-width: 37.5rem;
-    }
-
-    &-sm {
-      /* 450px; */
-      --dialog-width: 28.125rem;
-    }
-
-    &-xs {
-      /* 320px; */
-      --dialog-width: 20rem;
-    }
   }
 }
