@@ -1,16 +1,6 @@
 /**
- * AST-based CSS transformer - Rule-driven approach
- *
- * This tran/**
- * Convert camelCase to kebab-case
- */
-function camelToKebab(str) {
-  return str.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()
-}
-
-/**
  * Phase 4: Integration function to extract CSS template literals from AST nodes
- * 
+ *
  * This function bridges our AST transformer with the existing migration pipeline
  * It processes individual VariableDeclarator nodes during AST traversal
  */
@@ -32,12 +22,50 @@ export function extractCssTemplateLiteralsAst(astNode, mixins = new Map()) {
         css: result.css.trim(),
         originalName: variableName,
       })
-      
+
       console.log(`🎯 AST: Extracted mixin '${mixinName}' from variable '${variableName}'`)
     }
   }
-  
+
   return mixins
+}
+
+/**
+ * Phase 4: Task 4.2 - Bridge function for backwards compatibility
+ *
+ * This provides the same interface as the old processIdentifier function
+ * but uses our new AST-based transformations
+ */
+export function processIdentifier(node, options = {}) {
+  const name = node.name || node
+  const { isStandalone } = options
+
+  // When standalone: identifier is being referenced in CSS context
+  // According to migration.md: "Add @include where the declaration is called"
+  if (isStandalone) {
+    // Convert any camelCase identifier to @include mixin-name
+    const mixinName = camelToKebab(name)
+    return `@include ${mixinName}`
+  }
+
+  // When not standalone: determine if it's a component reference or dynamic value
+  // PascalCase indicates component reference (including single uppercase letters)
+  if (/^[A-Z]/.test(name) && !/^[A-Z_]+$/.test(name)) {
+    return `/* WUI V9 TO MIGRATE - COMPONENT REF: ${name} */`
+  }
+
+  // ALL_CAPS constants with underscores are dynamic values
+  if (/^[A-Z_]+$/.test(name) && name.includes('_')) {
+    return `/* WUI V9 TO MIGRATE - DYNAMIC VALUE: ${name} */`
+  }
+
+  // Single letters or abbreviations in ALL_CAPS without underscores are component refs
+  if (/^[A-Z]+$/.test(name)) {
+    return `/* WUI V9 TO MIGRATE - COMPONENT REF: ${name} */`
+  }
+
+  // Everything else is a dynamic value
+  return `/* WUI V9 TO MIGRATE - DYNAMIC VALUE: ${name} */`
 }
 
 /**
@@ -112,9 +140,45 @@ export function transformCssAst(templateLiteralNode, expressions = [], mixins = 
 }
 
 /**
+ * AST-based CSS transformer - Rule-driven approach
+ *
+ * This tran/**
+ * Convert camelCase to kebab-case
+ */
+function camelToKebab(str) {
+  return str.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()
+}
+
+/**
  * Clean up the generated CSS
  */
+/**
+ * Transform theme tokens in CSS values to CSS variables
+ * Examples:
+ *   'padding: lg;' → 'padding: var(--spacing-lg);'
+ *   'color: primary-500;' → 'color: var(--color-primary-500);'
+ */
+function transformCssThemeTokens(css) {
+  // Transform spacing tokens (xs, sm, md, lg, xl, xxl, 3xl)
+  const spacingTokens = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl', '3xl']
+  spacingTokens.forEach(token => {
+    // Match token as CSS value (preceded by : or space, followed by ; or space)
+    const regex = new RegExp(`(:\\s*|\\s+)${token}(\\s*[;}]|\\s+)`, 'g')
+    css = css.replace(regex, `$1var(--spacing-${token})$2`)
+  })
+
+  // Transform color tokens (pattern: word-number like primary-500, secondary-100)
+  const colorTokenRegex = /(:\s*|\s+)([a-z]+-\d+)(\s*[;}]|\s+)/g
+  css = css.replace(colorTokenRegex, '$1var(--color-$2)$3')
+
+  return css
+}
+
 function cleanupCss(css) {
+  // Step 1: Transform theme tokens in CSS values
+  css = transformCssThemeTokens(css)
+
+  // Step 2: Standard cleanup
   return css
     .replace(/\\n\\s*\\n\\s*\\n+/g, '\\n\\n') // Remove excessive empty lines
     .replace(/^\\s+|\\s+$/g, '') // Trim whitespace
@@ -141,14 +205,27 @@ function convertThemePathToCssVar(themePath) {
     return `var(--${section}-${rest})`
   }
 
-  return `var(--${themePath.replace(/\\./g, '-')})`
-} /**
+  return `var(--${themePath})`
+}
+
+/**
  * Create a migration comment for CSS that cannot be automatically transformed
  * @param {string} content - The CSS content to comment out
  * @returns {string}
  */
 function createMigrationComment(content) {
-  return `/* WUI V9 TO MIGRATE */\n/* ${content} */`
+  // For CSS blocks, format according to migration.md:
+  // /* WUI V9 TO MIGRATE */
+  // /*
+  // ${content}
+  // */
+  if (content.includes('{') && content.includes('}')) {
+    // Multi-line CSS block
+    return `/* WUI V9 TO MIGRATE */\n/*\n${content}\n*/`
+  } else {
+    // Single line or simple expression
+    return `/* WUI V9 TO MIGRATE */\n/* ${content} */`
+  }
 }
 
 /**
@@ -390,6 +467,18 @@ function transformExpression(node, mixins) {
  */
 function transformIdentifier(node, mixins) {
   const { name } = node
+
+  // Rule 0: Theme tokens - check first before other identifier rules
+  // Spacing tokens: xs, sm, md, lg, xl, xxl, 3xl
+  const spacingTokens = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl', '3xl']
+  if (spacingTokens.includes(name)) {
+    return `var(--spacing-${name})`
+  }
+
+  // Color tokens: primary-500, secondary-200, etc.
+  if (/^[a-z]+-\d+$/.test(name) || /^[a-z]+-[a-z]+$/.test(name)) {
+    return `var(--color-${name})`
+  }
 
   // Rule 1: ALL_CAPS_UNDERSCORE = constants to migrate
   if (/^[A-Z][A-Z_]*$/.test(name)) {
