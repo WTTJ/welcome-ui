@@ -57,7 +57,93 @@ We want to migrate component files with their corresponding styled-components fi
   }
   */
   ```
+  - ✅ **IMPLEMENTED**: Migration comments now correctly preserve full CSS blocks
 - Ask me about negative rules e.g. e.g. `!$isExpanded && css`…``
+
+## Key Insights from External Migration Testing
+
+Based on analysis of the ExternalComplexComponent test case, we've identified the complete transformation pattern:
+
+### Input Example (styles.ts):
+
+```typescript
+const TOPNAV_HEIGHT = '60px'
+export const Wrapper = styled(Box)<{ variant: Variant }>(
+  ({ variant }) => css`
+    background-color: ${variant === 'primary' ? 'primary-500' : 'secondary-500'};
+    min-height: calc(100vh - ${TOPNAV_HEIGHT});
+  `
+)
+export const Card = styled(Link)<{ elevated?: boolean }>`
+  background: white;
+  ${({ elevated }) =>
+    elevated &&
+    css`
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    `}
+`
+export const Title = styled.h3<TitleProps>`
+  ${th('texts.h4')};
+  margin-top: ${props => (props.displayDetail ? th('space.sm') : 0)};
+`
+```
+
+### Expected Output (index.tsx):
+
+```tsx
+import { Link } from 'welcome-ui/Link'
+import './styles.scss'
+
+const TOPNAV_HEIGHT = '60px'
+
+export const ComplexComponent = ({ variant = 'primary' }: { variant?: Variant }) => {
+  const wrapperStyle = {
+    '--wrapper-variant': variant === 'primary' ? 'color-primary-500' : 'color-secondary-500',
+    '--wrapper-topnav-height': TOPNAV_HEIGHT,
+  }
+
+  return (
+    <div className="wrapper" style={wrapperStyle}>
+      <Link className="card elevated">
+        <Text as="h3" variant="h4" className={`title ${displayDetail ? 'display-detail' : ''}`}>
+          Complex component
+        </Text>
+      </Link>
+      <button className="trigger-button is-active">Toggle</button>
+    </div>
+  )
+}
+```
+
+### Expected Output (styles.scss):
+
+```scss
+.wrapper {
+  background-color: var(--wrapper-variant);
+  min-height: calc(100vh - var(--wrapper-topnav-height));
+}
+.card {
+  background: white;
+  &.elevated {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+}
+.title {
+  color: var(--color-neutral-90);
+  &.display-detail {
+    margin-top: var(--spacing-sm);
+  }
+}
+```
+
+### Transformation Patterns Identified:
+
+1. **Constants**: Extract from styles.ts → define in tsx + use as CSS variables
+2. **Conditional styling**: `variant === 'primary' ? ...` → CSS variables in style object
+3. **Component bases**: `styled(Link)` → preserve `<Link>` component
+4. **Theme functions**: `${th('texts.h4')}` → `<Text variant="h4">` component
+5. **Conditional props**: `props.displayDetail` → JSX conditional className
+6. **Boolean styling**: `elevated &&` → CSS class with `&.elevated` selector
 
 ## Questions
 
@@ -80,13 +166,34 @@ We want to migrate component files with their corresponding styled-components fi
 - [x] **Task 1.2**: Implement basic `transformCssAst()` function for TemplateLiteral nodes
 - [x] **Task 1.3**: Add rule for `Identifier` nodes (TOPNAV_HEIGHT, triggerActiveStyles, etc.) - ✅ **COMPLETED**
   - [x] Implemented regex-based pattern recognition for different identifier types
-  - [x] CONSTANTS (ALL_CAPS) → migration comment 
+  - [x] CONSTANTS (ALL_CAPS) → migration comment
   - [x] Mixins (camelCaseStyles) → @include statements
   - [x] Components (PascalCase) → migration comment
   - [x] Variables (camelCase) → migration comment
   - [x] **Fixed migration comment format** to preserve entire CSS blocks like `${OrganizationName} { bottom: 0; }`
 - [ ] **Task 1.4**: Add rule for `CallExpression` nodes (th() function calls)
 - [ ] **Task 1.5**: Test basic transformation with simple examples
+
+### Phase 1.5: External Migration - Prop Handling (NEW)
+
+- [x] **Task 1.5.1**: Fix prop-to-className conversion logic - ✅ **COMPLETED**
+  - [x] **Boolean props**: `elevated` → `elevated` class (direct addition)
+  - [x] **Dollar props**: `$isActive` → `is-active` class (with proper prefix handling)
+  - [x] Fixed double prefix bug: `$isActive` now correctly becomes `is-active` not `is-is-active`
+  - [x] **Value props foundation**: Added structure for `variant={variant}` → CSS variables + variant classes
+- [ ] **Task 1.5.2**: Component type preservation
+  - [ ] `styled(Link)` should preserve `<Link>` component, not convert to `<div>`
+  - [ ] Need to analyze component base types and import preservation
+- [ ] **Task 1.5.3**: Constants extraction and CSS variable generation
+  - [ ] Extract constants like `TOPNAV_HEIGHT` from styles.ts
+  - [ ] Generate CSS variables in style object: `--wrapper-topnav-height: TOPNAV_HEIGHT`
+  - [ ] Replace constants in CSS with CSS variables: `calc(100vh - var(--wrapper-topnav-height))`
+- [ ] **Task 1.5.4**: Theme function to component conversion
+  - [ ] `styled.h3` with `${th('texts.h4')}` → `<Text as="h3" variant="h4">`
+  - [ ] Detect theme function calls and convert to appropriate components
+- [ ] **Task 1.5.5**: Conditional logic preservation
+  - [ ] Convert hardcoded props to conditional JSX expressions
+  - [ ] `displayDetail` → `${displayDetail ? 'display-detail' : ''}`
 
 ### Phase 2: Expression Transformations
 
