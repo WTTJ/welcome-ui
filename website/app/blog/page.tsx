@@ -1,6 +1,4 @@
 'use client'
-import styled, { th } from '@xstyled/styled-components'
-
 import { Avatar } from '@/components/Avatar'
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
@@ -69,11 +67,6 @@ const posts = [
   },
 ]
 
-const Title = styled(Link)`
-  ${th('texts.h5')};
-  display: inline !important;
-`
-
 const Home = () => {
   return (
     <main className="p-xl">
@@ -97,9 +90,9 @@ const Home = () => {
                       </Tag>
                     ))}
                   </div>
-                  <Title href={link} rel="noopener nofollow" target="_blank">
+                  <Link href={link} rel="noopener nofollow" target="_blank">
                     {title}
-                  </Title>
+                  </Link>
                   <div className="md:flex md:items-end">
                     <div className="flex flex-col gap-md">
                       <Text className="mt-md">{description}</Text>

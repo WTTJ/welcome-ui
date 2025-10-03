@@ -3,9 +3,14 @@ import React from 'react'
 
 import { Button } from '@/components/Button'
 import { GithubIcon } from '@/components/Icon'
+import { Link } from '@/components/Link'
 import { Text } from '@/components/Text'
 
-import * as S from './styles'
+import styles from './styles.scss'
+
+const cx = classNames(styles)
+
+import { classNames } from '@/utils'
 
 import { navigation } from '.'
 
@@ -23,12 +28,13 @@ export const NavBar = ({ className, onClick }: NavBarProps) => {
         <ul aria-label="Main navigation" className="flex gap-xxl lg:h-full">
           {navigation.map(item => (
             <Text as="li" key={`header_navigation_${item}`} onClick={onClick} variant="subtitle-md">
-              <S.A
+              <Link
                 aria-current={currentRoute.startsWith(`/${item}`) ? 'page' : undefined}
+                className={cx('link')}
                 href={`/${item}`}
               >
                 {item}
-              </S.A>
+              </Link>
             </Text>
           ))}
         </ul>

@@ -2,7 +2,7 @@ export default {
   extends: ['stylelint-config-recommended'],
   overrides: [
     {
-      files: ['**/src/**/*.{css,scss}'],
+      files: ['**/*.{css,scss}'],
       rules: {
         'at-rule-no-deprecated': null,
         'at-rule-no-unknown': [
@@ -21,7 +21,7 @@ export default {
       },
     },
     {
-      customSyntax: 'postcss-styled-syntax',
+      extends: ['stylelint-config-standard'],
       files: ['**/*.{ts,tsx}'],
       rules: {
         'declaration-property-value-no-unknown': null,

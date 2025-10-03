@@ -1,0 +1,22 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-xl);
+  color: var(--color-neutral-90);
+  border-radius: var(--radius-xl);
+  cursor: pointer;
+
+  &,
+  & span {
+    transition: color var(--transition-medium);
+  }
+
+  &:hover {
+    border-color: var(--color-neutral-90);
+
+    span {
+      color: var(--color-neutral-90);
+    }
+  }
+}

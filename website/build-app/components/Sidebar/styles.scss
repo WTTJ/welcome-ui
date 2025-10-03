@@ -1,0 +1,31 @@
+.link {
+  color: var(--color-neutral-70);
+  position: relative;
+  transition:
+    color var(--transition-medium),
+    padding-left var(--transition-medium);
+
+  &:hover,
+  &:focus {
+    color: var(--color-neutral-90);
+  }
+
+  &::before {
+    content: ' ';
+    width: 2px;
+    height: calc(100% - 1px);
+    position: absolute;
+    left: 0;
+    background-color: transparent;
+    transition: background-color var(--transition-medium);
+  }
+
+  &[aria-current='page'] {
+    padding-left: var(--spacing-sm);
+    color: var(--color-neutral-90);
+
+    &::before {
+      background-color: var(--color-brand-40);
+    }
+  }
+}

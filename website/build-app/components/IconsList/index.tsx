@@ -2,9 +2,11 @@
 import { camelCase, startCase } from 'lodash'
 import React from 'react'
 
+import { Card } from '@/components/Card'
 import * as Icons from '@/components/Icon'
 import { Text } from '@/components/Text'
 import { Toast, toast } from '@/components/Toast'
+import { classNames } from '@/utils'
 
 import {
   actions,
@@ -20,7 +22,9 @@ import {
   welcome,
   wtf,
 } from './icons'
-import * as S from './styles'
+import styles from './styles.scss'
+
+const cx = classNames(styles)
 
 export type IconListProps = {
   isIconsFont?: boolean
@@ -83,7 +87,7 @@ export const IconsList = ({ name }: IconListProps) => {
         }
 
         return (
-          <S.StyledCard key={key} onClick={() => handleClickToCopy(componentName)}>
+          <Card className={cx('card')} key={key} onClick={() => handleClickToCopy(componentName)}>
             {Icon ? <Icon size="lg" /> : <Icons.CrossIcon size="lg" />}
             <Text
               as="span"
@@ -93,7 +97,7 @@ export const IconsList = ({ name }: IconListProps) => {
             >
               {componentName}
             </Text>
-          </S.StyledCard>
+          </Card>
         )
       })}
     </div>

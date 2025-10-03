@@ -32,7 +32,10 @@
     "lib": ["dom", "esnext"],
 
     /* Types */
-    "types": ["vitest/globals", "@testing-library/jest-dom"]
+    "types": ["vitest/globals", "@testing-library/jest-dom"],
+
+    /* Plugins */
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
   "exclude": ["node_modules"]
 }

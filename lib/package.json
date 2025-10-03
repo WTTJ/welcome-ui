@@ -1,7 +1,7 @@
 {
   "name": "welcome-ui",
   "version": "9.0.0-alpha.1",
-  "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
+  "description": "Customizable design system with react, typescript, taiwindcss and ariakit.",
   "files": [
     "dist"
   ],
@@ -40,8 +40,9 @@
     "design-system",
     "react",
     "ariakit",
-    "styled-components",
-    "styled-system",
+    "tailwindcss",
+    "scss",
+    "css",
     "ui-library",
     "ui",
     "ux",
@@ -94,9 +95,7 @@
     "vitest": "^3.1.4"
   },
   "peerDependencies": {
-    "@xstyled/styled-components": "^4.0.0",
     "react": "^18.3.1 || ^19.0.0",
-    "styled-components": "^6.1.15",
     "tailwindcss": "^4.1.11"
   },
   "homepage": "https://welcome-ui.com"
