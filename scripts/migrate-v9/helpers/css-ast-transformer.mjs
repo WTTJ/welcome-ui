@@ -1,6 +1,48 @@
 /**
  * AST-based CSS transformer - Rule-driven approach
  *
+ * This tran/**
+ * Convert camelCase to kebab-case
+ */
+function camelToKebab(str) {
+  return str.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()
+}
+
+/**
+ * Phase 4: Integration function to extract CSS template literals from AST nodes
+ * 
+ * This function bridges our AST transformer with the existing migration pipeline
+ * It processes individual VariableDeclarator nodes during AST traversal
+ */
+export function extractCssTemplateLiteralsAst(astNode, mixins = new Map()) {
+  if (
+    astNode.type === 'VariableDeclarator' &&
+    astNode.init &&
+    astNode.init.type === 'TaggedTemplateExpression' &&
+    astNode.init.tag.name === 'css'
+  ) {
+    const variableName = astNode.id.name
+    const mixinName = camelToKebab(variableName)
+
+    // Use our AST transformer to process the CSS template literal
+    const result = transformCssAst(astNode.init.quasi, astNode.init.quasi.expressions || [], mixins)
+
+    if (result && result.css) {
+      mixins.set(mixinName, {
+        css: result.css.trim(),
+        originalName: variableName,
+      })
+      
+      console.log(`🎯 AST: Extracted mixin '${mixinName}' from variable '${variableName}'`)
+    }
+  }
+  
+  return mixins
+}
+
+/**
+ * AST-based CSS transformer - Rule-driven approach
+ *
  * This transformer works purely on AST node patterns, not content patterns.
  * Each transformation rule is based on the structure of AST nodes.
  */
@@ -67,16 +109,6 @@ export function transformCssAst(templateLiteralNode, expressions = [], mixins = 
   css = cleanupCss(css)
 
   return { css, mixins }
-}
-
-/**
- * Convert camelCase to kebab-case
- */
-function camelToKebab(str) {
-  return str
-    .replace(/([A-Z])/g, '-$1')
-    .toLowerCase()
-    .replace(/^-/, '')
 }
 
 /**

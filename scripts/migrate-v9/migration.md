@@ -259,20 +259,26 @@ export const ComplexComponent = ({ variant = 'primary' }: { variant?: Variant })
   - [x] Integration: Works seamlessly with existing CSS processing pipeline
 - [ ] **Task 3.4**: Handle mixin parameters if needed
 
-### Phase 4: Advanced Patterns
+### Phase 4: Integration & Testing
 
-- [ ] **Task 4.1**: Handle negative conditions (!$isExpanded && css`...`)
-- [ ] **Task 4.2**: Handle complex conditional logic (multiple props)
-- [ ] **Task 4.3**: Handle component references (${OrganizationName})
-- [ ] **Task 4.4**: Handle theme function expansions (th('texts.h4'))
+- [x] **Task 4.1**: Integrate AST transformer with existing pipeline - ✅ **COMPLETED**
+  - [x] Imported `transformCssAst` and `extractCssTemplateLiteralsAst` into migration pipeline
+  - [x] Replaced `transformStyledComponentCss` with `transformCssAst` for template processing
+  - [x] Replaced `extractCssTemplateLiterals` with `extractCssTemplateLiteralsAst` for mixin extraction
+  - [x] Verified AST transformer working on real ExternalComplexComponent fixture
+  - [x] Confirmed mixin extraction: `triggerActiveStyles` → `trigger-active-styles` mixin
+  - [x] Validated expression processing: conditionals → CSS variables, arrow functions → classes
+- [ ] **Task 4.2**: Replace regex-based CSS transformation
+- [ ] **Task 4.3**: Test with ExternalComplexComponent fixture
+- [ ] **Task 4.4**: Ensure all snapshot tests pass
+- [ ] **Task 4.5**: Clean up old transformation code
 
-### Phase 5: Integration & Testing
+### Phase 5: Advanced Patterns
 
-- [ ] **Task 5.1**: Integrate AST transformer with existing pipeline
-- [ ] **Task 5.2**: Replace regex-based CSS transformation
-- [ ] **Task 5.3**: Test with ExternalComplexComponent fixture
-- [ ] **Task 5.4**: Ensure all snapshot tests pass
-- [ ] **Task 5.5**: Clean up old transformation code
+- [ ] **Task 5.1**: Handle negative conditions (!$isExpanded && css`...`)
+- [ ] **Task 5.2**: Handle complex conditional logic (multiple props)
+- [ ] **Task 5.3**: Handle component references (${OrganizationName})
+- [ ] **Task 5.4**: Handle theme function expansions (th('texts.h4'))
 
 ### Phase 6: Component File Transformations
 
