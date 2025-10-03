@@ -1,7 +1,7 @@
 'use client'
 
 import { Text } from '@/components/Text'
-import tokens from '@/theme/tokens.json'
+import tokens from '@/theme/tokens/primitives.json'
 import type { FlatTokens, TokensStructure } from '@/theme/utils/parseTokens'
 import { parseTokens } from '@/theme/utils/parseTokens'
 

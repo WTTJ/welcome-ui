@@ -1,5 +1,5 @@
 {
-  "source": ["src/theme/tokens.json", "src/components/**/tokens.json"],
+  "source": ["src/theme/tokens/*.json"],
   "platforms": {
     "css": {
       "transformGroup": "css",

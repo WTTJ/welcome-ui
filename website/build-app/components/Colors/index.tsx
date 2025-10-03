@@ -3,20 +3,23 @@ import type { CSSProperties } from 'react'
 
 import { Alert } from '@/components/Alert'
 import { Text } from '@/components/Text'
-import tokens from '@/theme/tokens.json' assert { type: 'json' }
+import primitives from '@/theme/tokens/primitives.json' assert { type: 'json' }
+import semantics from '@/theme/tokens/semantics.json' assert { type: 'json' }
 import type { TokensStructure } from '@/theme/utils/parseTokens'
 import { parseTokens } from '@/theme/utils/parseTokens'
 import { classNames } from '@/utils'
 
 const cx = classNames()
 
+const tokens = { ...primitives, ...semantics }
+
 const getColors = (name: string) => {
   const themeValues = parseTokens(tokens as unknown as TokensStructure)
   return Object.keys(themeValues)
-    .filter(color => color.startsWith(`color-${name}`))
+    .filter(color => color.startsWith(name))
     .reduce<{ value: string; variant: string }[]>((acc, colorName) => {
       const colorValue = themeValues[colorName as keyof typeof themeValues]
-      acc.push({ value: colorValue, variant: colorName.replace('color-', '') })
+      acc.push({ value: colorValue, variant: colorName })
 
       return acc
     }, [])
@@ -46,11 +49,11 @@ export const Colors = ({ name }: ColorsProps) => {
                 isWhite && `border border-neutral-30`,
                 'size-[3.125rem] rounded-lg'
               )}
-              style={{ '--backgroundColor': `var(--color-${variant})` } as CSSProperties}
+              style={{ '--backgroundColor': `var(--${variant})` } as CSSProperties}
             />
             <div className="px-sm">
               <Text as="span" variant="h6">
-                {variant}
+                {variant.replace('color-', '')}
               </Text>
               <Text as="span" className="mt-[0.1875rem] text-sm">
                 {value}
