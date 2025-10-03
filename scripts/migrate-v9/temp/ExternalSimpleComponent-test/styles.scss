@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-lg);
+}
+
+.header {
+  color: var(--color-primary-500);
+  margin-bottom: var(--spacing-md);
+}
+
+.content {
+  flex: 1;
+}
+
+.button {
+  background-color: var(--color-primary-500);
+  color: white;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: none;
+  border-radius: var(--spacing-sm);
+  cursor: pointer;
+}

@@ -1,30 +1,32 @@
 import { describe, expect, it } from 'vitest'
 
-import { processIdentifier } from '../helpers/css-transformer.mjs'
+import { processIdentifier } from '../helpers/css-ast-transformer.mjs'
 
 describe('processIdentifier', () => {
   describe('PascalCase components', () => {
     it('should detect React components', () => {
       expect(processIdentifier({ name: 'MyComponent' })).toBe(
-        '__COMPONENT_SELECTOR_COMMENT__MyComponent__'
+        '/* WUI V9 TO MIGRATE - COMPONENT REF: MyComponent */'
       )
       expect(processIdentifier({ name: 'UserProfile' })).toBe(
-        '__COMPONENT_SELECTOR_COMMENT__UserProfile__'
+        '/* WUI V9 TO MIGRATE - COMPONENT REF: UserProfile */'
       )
-      expect(processIdentifier({ name: 'NavBar' })).toBe('__COMPONENT_SELECTOR_COMMENT__NavBar__')
+      expect(processIdentifier({ name: 'NavBar' })).toBe(
+        '/* WUI V9 TO MIGRATE - COMPONENT REF: NavBar */'
+      )
       expect(processIdentifier({ name: 'OrganizationLogo' })).toBe(
-        '__COMPONENT_SELECTOR_COMMENT__OrganizationLogo__'
+        '/* WUI V9 TO MIGRATE - COMPONENT REF: OrganizationLogo */'
       )
     })
 
     it('should handle single letter components', () => {
-      expect(processIdentifier({ name: 'A' })).toBe('__COMPONENT_SELECTOR_COMMENT__A__')
-      expect(processIdentifier({ name: 'B' })).toBe('__COMPONENT_SELECTOR_COMMENT__B__')
+      expect(processIdentifier({ name: 'A' })).toBe('/* WUI V9 TO MIGRATE - COMPONENT REF: A */')
+      expect(processIdentifier({ name: 'B' })).toBe('/* WUI V9 TO MIGRATE - COMPONENT REF: B */')
     })
   })
 
-  describe('CSS mixins (xxx by itself on single line)', () => {
-    it('should convert style variables to @include mixins when standalone', () => {
+  describe('CSS mixins (any identifier when standalone)', () => {
+    it('should convert any identifier to @include mixin when standalone', () => {
       expect(processIdentifier({ name: 'triggerActiveStyles' }, { isStandalone: true })).toBe(
         '@include trigger-active-styles'
       )
@@ -44,10 +46,10 @@ describe('processIdentifier', () => {
         '@include active-button-style'
       )
       expect(processIdentifier({ name: 'primaryButtonCSS' }, { isStandalone: true })).toBe(
-        '@include primary-button-c-s-s'
+        '@include primary-button-css'
       )
-      expect(processIdentifier({ name: 'customStyles' }, { isStandalone: true })).toBe(
-        '@include custom-styles'
+      expect(processIdentifier({ name: 'customMixin' }, { isStandalone: true })).toBe(
+        '@include custom-mixin'
       )
     })
   })
@@ -94,17 +96,19 @@ describe('processIdentifier', () => {
     it('should handle mixed case correctly', () => {
       // Components start with uppercase (regardless of context)
       expect(processIdentifier({ name: 'MyComponentStyles' })).toBe(
-        '__COMPONENT_SELECTOR_COMMENT__MyComponentStyles__'
+        '/* WUI V9 TO MIGRATE - COMPONENT REF: MyComponentStyles */'
       )
 
-      // Variables start with lowercase - become mixins when standalone
+      // Any identifier becomes mixin when standalone
       expect(processIdentifier({ name: 'myComponentStyles' }, { isStandalone: true })).toBe(
         '@include my-component-styles'
       )
     })
 
     it('should handle abbreviations', () => {
-      expect(processIdentifier({ name: 'CSS' })).toBe('__COMPONENT_SELECTOR_COMMENT__CSS__')
+      expect(processIdentifier({ name: 'CSS' })).toBe(
+        '/* WUI V9 TO MIGRATE - COMPONENT REF: CSS */'
+      )
       expect(processIdentifier({ name: 'css' }, { isStandalone: true })).toBe('@include css')
     })
   })

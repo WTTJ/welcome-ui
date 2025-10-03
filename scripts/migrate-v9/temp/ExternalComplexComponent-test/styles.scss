@@ -7,22 +7,22 @@
 
 
 .wrapper {
-  background-color: var(--component-variant) /* primary-500 : secondary-500 */;
-  padding: xxl 0;
+  background-color: var(--component-variant) /* var(--color-primary-500) : var(--color-secondary-500) */;
+  padding: var(--spacing-xxl) 0;
   position: relative;
   isolation: isolate;
   min-height: calc(100vh - /* WUI V9 TO MIGRATE */
   /* ${TOPNAV_HEIGHT} */);
 
   @media (min-width: lg) {
-    padding: 3xl 0;
+    padding: var(--spacing-3xl) 0;
   }
 }
 
 .card {
   background: white;
-  border-radius: md;
-  padding: lg;
+  border-radius: var(--spacing-md);
+  padding: var(--spacing-lg);
   \n\n  &.elevated {\n
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   \n  }
@@ -30,7 +30,7 @@
 
 .title {
   var(--text-h4);
-  color: neutral-90;
+  color: var(--color-neutral-90);
   margin-top: /* WUI V9 TO MIGRATE */
   /* Arrow function needs manual review */;
 }
@@ -38,10 +38,10 @@
 .trigger-button {
   border: none;
   background-color: transparent;
-  padding: md lg;
+  padding: var(--spacing-md) var(--spacing-lg);
   cursor: pointer;
   width: 100%;
-  border-radius: md;
+  border-radius: var(--spacing-md);
   transition: background-color 300ms;
   bottom: var(--spacing-md);
 
@@ -59,7 +59,7 @@
 
     /* WUI V9 TO MIGRATE */
     /* ${OrganizationName} {
-      color: beige-80;
+      color: var(--color-beige-80);
     } */;
     &:active {
       \n\n  &.is-active {\n    @include trigger-active-styles;\n  };

@@ -1,16 +1,33 @@
 import { readFileSync } from 'fs'
 import { resolve } from 'path'
 
-import { describe, expect, it } from 'vitest'
+import { beforeEach, describe, expect, it } from 'vitest'
 
-import { setupExternalMigrationTest } from '../helpers/test-setup.mjs'
+// import { setupExternalMigrationTest } from '../helpers/test-setup.mjs'
 import { migrateAll } from '../index.mjs'
+import { copyDirSync, deleteDirRecursive } from '../helpers/file-utils.mjs'
 
 describe('External Migration - Simple Styled Components', () => {
-  const tempDir = setupExternalMigrationTest(
-    'ExternalSimpleComponent-test',
+  // Don't perform cleanup for now so that we can inspect the migrated files
+  // const tempDir = setupExternalMigrationTest(
+  //   'ExternalSimpleComponent-test',
+  //   'ExternalSimpleComponent'
+  // )
+
+  const fixturesDir = resolve(
+    __dirname,
+    '..',
+    '__tests__',
+    '__fixtures__',
     'ExternalSimpleComponent'
   )
+  const tempDir = resolve(__dirname, '..', 'temp', 'ExternalSimpleComponent-test')
+
+  beforeEach(() => {
+    // Clean up any existing temp directory and set up fresh copy
+    deleteDirRecursive(tempDir)
+    copyDirSync(fixturesDir, tempDir)
+  })
 
   it('migrates simple styled components (styled.div, styled.button, etc.)', async () => {
     // Run migration
