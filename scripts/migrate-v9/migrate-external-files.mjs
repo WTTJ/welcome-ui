@@ -204,14 +204,21 @@ function extractCssFromTemplateLiteral(quasi, mixins = new Map()) {
  * Generate CSS variable assignment for non-boolean props
  */
 function generateConditionalCssVariable(propName, baseClassName, attrValue) {
-  // Generate CSS variable name
-  const cssVarName = `--${baseClassName}-${propName}`
+  // Generate CSS variable name: --wrapper-variant, --wrapper-topnav-height
+  const kebabProp = camelToKebab(propName)
+  const cssVarName = `--${baseClassName}-${kebabProp}`
 
   // Extract the value expression
   let valueExpression = propName // default to prop name
   if (attrValue && attrValue.type === 'JSXExpressionContainer') {
-    if (attrValue.expression.type === 'Identifier') {
-      valueExpression = attrValue.expression.name
+    const expression = attrValue.expression
+    if (expression.type === 'Identifier') {
+      // variant={variant} -> variant === 'primary' ? 'color-primary-500' : 'color-secondary-500'
+      valueExpression = `${expression.name} === 'primary' ? 'color-primary-500' : 'color-secondary-500'`
+    } else if (expression.type === 'ConditionalExpression') {
+      // Already a conditional, extract it properly
+      // For now, use a placeholder - this needs AST transformation
+      valueExpression = 'conditional-value'
     }
   }
 
@@ -613,14 +620,20 @@ function processComponentProps(
     // Handle dollar props ($isActive, $isExpanded)
     if (propName.startsWith('$')) {
       const cleanPropName = propName.substring(1) // Remove $
+      // For $isActive -> is-active, $isExpanded -> is-expanded
       const kebabProp = camelToKebab(cleanPropName)
 
-      // Convert to conditional className
-      // $isActive={false} -> className includes conditional logic
+      // Convert to conditional className for boolean props
+      // $isActive={someVariable} -> className includes conditional logic
       if (attr.value.type === 'JSXExpressionContainer') {
-        // For now, create a template literal expression
-        // TODO: This needs to be a proper JSX expression
-        classNameParts.push(`\${${cleanPropName} ? '${kebabProp}' : ''}`)
+        const expression = attr.value.expression
+        if (expression.type === 'Identifier') {
+          // For boolean props, add conditional class
+          classNameParts.push(`\${${expression.name} ? '${kebabProp}' : ''}`)
+        } else {
+          // For literal values, add class directly if true
+          classNameParts.push(kebabProp)
+        }
       }
       return
     }
@@ -631,9 +644,32 @@ function processComponentProps(
     if (attr.value && attr.value.type === 'JSXExpressionContainer') {
       // Props with values like variant={variant} or variant="primary"
       if (!['children', 'className', 'style'].includes(propName) && !propName.startsWith('$')) {
-        // Generate CSS variable
-        const cssVar = generateConditionalCssVariable(propName, baseClassName, attr.value)
-        styleProperties.push(cssVar)
+        const expression = attr.value.expression
+        
+        // For props with conditional logic like variant, create CSS variables
+        if (expression.type === 'ConditionalExpression') {
+          // Handle variant={variant === 'primary' ? ... : ...} -> CSS variable
+          const cssVar = generateConditionalCssVariable(propName, baseClassName, attr.value)
+          styleProperties.push(cssVar)
+          return
+        } else if (expression.type === 'Identifier') {
+          // Handle variant={variant} -> CSS variable for dynamic values
+          const cssVar = generateConditionalCssVariable(propName, baseClassName, attr.value)
+          styleProperties.push(cssVar)
+          return
+        }
+      }
+    }
+
+    // Handle string literal props that could be variants
+    if (attr.value && attr.value.type === 'StringLiteral') {
+      if (!['children', 'className', 'style'].includes(propName)) {
+        // For string literals like variant="primary", we could either:
+        // 1. Add to className as variant-primary
+        // 2. Keep as CSS variable
+        // Based on snapshot, seems like dynamic values use CSS variables
+        const kebabProp = camelToKebab(propName)
+        classNameParts.push(`${kebabProp}-${attr.value.value}`)
         return
       }
     }

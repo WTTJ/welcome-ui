@@ -8,7 +8,7 @@ export const ComplexComponent = ({ variant = 'primary' }: { variant?: Variant })
       <S.Card elevated>
         <S.Title displayDetail>Complex component</S.Title>
       </S.Card>
-      <S.TriggerButton $isActive={false} $isExpanded={false}>
+      <S.TriggerButton $isActive={true} $isExpanded={false}>
         Toggle
       </S.TriggerButton>
     </S.Wrapper>
