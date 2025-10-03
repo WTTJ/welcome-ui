@@ -148,7 +148,7 @@ function extractCssFromStyledComponent(node, mixins = new Map()) {
     return extractCssFromTemplateLiteral(node.quasi, mixins)
   }
 
-    // Pattern 3: styled(Box)((props) => css`...`) (CallExpression with function)
+  // Pattern 3: styled(Box)((props) => css`...`) (CallExpression with function)
   if (
     node.type === 'CallExpression' &&
     node.callee.type === 'CallExpression' &&
@@ -645,7 +645,7 @@ function processComponentProps(
       // Props with values like variant={variant} or variant="primary"
       if (!['children', 'className', 'style'].includes(propName) && !propName.startsWith('$')) {
         const expression = attr.value.expression
-        
+
         // For props with conditional logic like variant, create CSS variables
         if (expression.type === 'ConditionalExpression') {
           // Handle variant={variant === 'primary' ? ... : ...} -> CSS variable
