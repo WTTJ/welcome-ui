@@ -43,6 +43,8 @@ export const AssetDrawerComponent = forwardRefWithAs<AssetDrawerProps, 'div'>(
       [getPersistentElements]
     )
 
+    const drawerMaxWidth = typeof maxWidth === 'number' ? `${maxWidth}px` : maxWidth
+
     return (
       <Drawer
         autoFocusOnShow={false}
@@ -52,15 +54,13 @@ export const AssetDrawerComponent = forwardRefWithAs<AssetDrawerProps, 'div'>(
         placement="bottom"
         ref={ref}
         store={store}
-        // Needed to override the default height set in drawer.module.scss
-        style={{ '--drawer-height': 'calc(100% - 3rem)' } as React.CSSProperties}
         withBackdrop
         {...rest}
       >
         <div className={cx('content-wrapper')}>
           <div
             className={cx('content-max-width')}
-            style={{ '--asset-drawer-content-max-width': maxWidth } as React.CSSProperties}
+            style={{ '--asset-drawer-content-max-width': drawerMaxWidth } as React.CSSProperties}
           >
             <div className={cx('content')}>{children}</div>
           </div>
