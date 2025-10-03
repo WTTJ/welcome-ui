@@ -1,27 +1,2 @@
 {
-  ".dev-releases/publish.mjs": {
-    "no-console": {
-      "count": 5
-    }
-  },
-  ".dev-releases/version.mjs": {
-    "no-console": {
-      "count": 5
-    }
-  },
-  "lib/src/components/FileDrop/index.tsx": {
-    "@typescript-eslint/no-unused-expressions": {
-      "count": 7
-    }
-  },
-  "lib/src/components/FileDrop/utils.ts": {
-    "@typescript-eslint/no-unused-vars": {
-      "count": 1
-    }
-  },
-  "types/styled.d.ts": {
-    "@typescript-eslint/no-empty-object-type": {
-      "count": 2
-    }
-  }
 }

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { execSync } from 'child_process'
 
 const date = new Date()
