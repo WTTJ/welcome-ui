@@ -8,7 +8,6 @@
       "@/*": ["./src/*"],
       "@tests": ["./tests"]
     },
-    "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "types": ["vitest/globals", "@testing-library/jest-dom"]
   },
   "exclude": ["**/*.json"]
