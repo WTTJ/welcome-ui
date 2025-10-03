@@ -174,7 +174,7 @@ export const ComplexComponent = ({ variant = 'primary' }: { variant?: Variant })
 - [x] **Task 1.4**: Add rule for `CallExpression` nodes (th() function calls) - ✅ **COMPLETED**
   - [x] Implemented `transformCallExpression()` function for different function types
   - [x] `th('space.md')` → `var(--spacing-md)` (theme space mapping)
-  - [x] `th('texts.h4')` → `var(--text-h4)` (theme text mapping) 
+  - [x] `th('texts.h4')` → `var(--text-h4)` (theme text mapping)
   - [x] `th('colors.primary.500')` → `var(--color-primary-500)` (theme color mapping)
   - [x] `th()` with invalid args → migration comment (error handling)
   - [x] Nested theme paths supported (dots converted to dashes)
@@ -208,17 +208,55 @@ export const ComplexComponent = ({ variant = 'primary' }: { variant?: Variant })
 
 ### Phase 2: Expression Transformations
 
-- [ ] **Task 2.1**: Handle `ConditionalExpression` nodes (ternary operators)
-- [ ] **Task 2.2**: Handle `ArrowFunctionExpression` nodes (({ prop }) => prop && css`...`)
-- [ ] **Task 2.3**: Handle `LogicalExpression` nodes (prop && css`...`)
-- [ ] **Task 2.4**: Handle `MemberExpression` nodes (props.variant, theme.colors)
-- [ ] **Task 2.5**: Handle `TaggedTemplateExpression` nodes (nested css`...`)
+- [x] **Task 2.1**: Handle `ConditionalExpression` nodes (ternary operators) - ✅ **COMPLETED**
+  - [x] Implemented `transformConditionalExpression()` for ternary operator patterns
+  - [x] Simple conditionals: `variant === 'primary' ? value1 : value2` → `var(--component-variant) /* values */`
+  - [x] CSS variable naming: automatic `--component-{propname}` generation with kebab-case
+  - [x] Value preservation: comments include original conditional values for reference
+  - [x] Complex conditionals: logical expressions fallback to migration comments
+  - [x] Perfect integration with external migration CSS variable strategy
+- [x] **Task 2.2**: Handle `ArrowFunctionExpression` nodes (({ prop }) => prop && css`...`) - ✅ **COMPLETED**
+  - [x] Implemented object pattern parameter parsing: `({ elevated })` → prop extraction
+  - [x] Class name generation: prop names → `.kebab-case` CSS classes
+  - [x] LogicalExpression body processing: `prop && css\`...\``→`&.class { ... }`
+  - [x] Mixin reference handling: `prop && mixinName` → `&.class { @include mixin-name; }`
+  - [x] Perfect integration: arrow functions → conditional CSS classes for className application
+- [x] **Task 2.3**: Handle `LogicalExpression` nodes (prop && css`...`) - ✅ **COMPLETED**
+  - [x] Standalone LogicalExpression processing: `${prop && css\`...\``} → CSS content extraction
+  - [x] Mixin reference handling: `${prop && mixinName}` → `@include mixin-name;`
+  - [x] Integration with ArrowFunctions: works both independently and within arrow function bodies
+  - [x] Operator support: `&&` logical operator for conditional CSS application
+- [x] **Task 2.4**: Handle `MemberExpression` nodes (props.variant, theme.colors) - ✅ **COMPLETED**
+  - [x] Props pattern recognition: `props.*` expressions → CSS variables
+  - [x] CSS variable generation: `props.variant` → `var(--component-variant)` with kebab-case
+  - [x] Comment preservation: original member paths preserved for reference
+  - [x] Fallback handling: non-props expressions (theme.colors) → migration comments
+  - [x] Perfect integration: works with ConditionalExpression and other AST node types
+- [x] **Task 2.5**: Handle `TaggedTemplateExpression` nodes (nested css`...`) - ✅ **COMPLETED**
+  - [x] CSS template processing: `css\`...\`` → recursive AST transformation with full expression support
+  - [x] Nested expression integration: expressions within css templates handled by appropriate transformers
+  - [x] Conditional processing: ConditionalExpressions within css templates → CSS variables
+  - [x] Fallback handling: non-css tagged templates → migration comments
+  - [x] Recursive architecture: TaggedTemplateExpression → `transformCssAst` for nested processing
+
+### 🎊 **PHASE 2 COMPLETE - Expression Transformations** ✅
+
+**ALL 5 EXPRESSION TRANSFORMATION TASKS COMPLETE!**
 
 ### Phase 3: Mixin Generation
 
-- [ ] **Task 3.1**: Extract CSS variable declarations (const triggerActiveStyles = css`...`)
-- [ ] **Task 3.2**: Convert to SCSS mixins (@mixin trigger-active-styles)
-- [ ] **Task 3.3**: Replace mixin references with @include statements
+- [x] **Task 3.1**: Extract CSS variable declarations (const triggerActiveStyles = css`...`) - ✅ **COMPLETED**
+  - [x] CSS variable detection: Successfully finds `const variableName = css\`...\``
+  - [x] Regex pattern matching: Identifies CSS template literals in JavaScript/TypeScript
+  - [x] Multiple declaration support: Processes multiple CSS variables in single file
+- [x] **Task 3.2**: Convert to SCSS mixins (@mixin trigger-active-styles) - ✅ **COMPLETED**
+  - [x] SCSS mixin generation: Converts CSS content to proper `@mixin name { ... }` format
+  - [x] Naming convention: camelCase → kebab-case conversion (triggerActiveStyles → trigger-active-styles)
+  - [x] Content formatting: Proper indentation and CSS structure preservation
+- [x] **Task 3.3**: Replace mixin references with @include statements - ✅ **COMPLETED**
+  - [x] Reference detection: Finds `\${variableName}` patterns in CSS templates
+  - [x] Include conversion: Replaces references with `@include mixin-name;`
+  - [x] Integration: Works seamlessly with existing CSS processing pipeline
 - [ ] **Task 3.4**: Handle mixin parameters if needed
 
 ### Phase 4: Advanced Patterns

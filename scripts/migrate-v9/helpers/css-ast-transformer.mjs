@@ -8,69 +8,6 @@
 // import { formatScssContent } from './css-transformer.mjs'
 
 /**
- * Helper function to determine if a CSS block should be commented out
- * @param {Object} expression - The AST expression node
- * @param {string} beforeText - Text before the expression
- * @param {string} afterText - Text after the expression
- * @returns {boolean}
- */
-function shouldCommentOutCssBlock(expression, beforeText, afterText) {
-  // Check if this is an Identifier that should be commented out
-  if (expression.type === 'Identifier') {
-    const name = expression.name
-
-    // Check if the after text contains a CSS block (starts with whitespace + {)
-    const hasNextCssBlock = /^\s*\{/.test(afterText)
-
-    // Comment out blocks for CONSTANTS and COMPONENTS that have CSS following them
-    if (hasNextCssBlock) {
-      return /^[A-Z][A-Z_]*$/.test(name) || /^[A-Z][a-z]/.test(name)
-    }
-  }
-
-  return false
-}
-
-/**
- * Extract the full CSS block that should be commented out
- * @param {Object} expression - The AST expression node
- * @param {string} beforeText - Text before the expression
- * @param {string} afterText - Text after the expression
- * @returns {string}
- */
-function extractCssBlock(expression, beforeText, afterText) {
-  const expressionName = expression.name || ''
-
-  // Find the matching closing brace
-  let braceCount = 0
-  let blockEnd = 0
-
-  for (let i = 0; i < afterText.length; i++) {
-    if (afterText[i] === '{') {
-      braceCount++
-    } else if (afterText[i] === '}') {
-      braceCount--
-      if (braceCount === 0) {
-        blockEnd = i + 1
-        break
-      }
-    }
-  }
-
-  const cssBlock = afterText.substring(0, blockEnd)
-  return `\${${expressionName}}${cssBlock}`
-}
-
-/**
- * Create a migration comment for CSS that cannot be automatically transformed
- * @param {string} content - The CSS content to comment out
- * @returns {string}
- */
-function createMigrationComment(content) {
-  return `/* WUI V9 TO MIGRATE */\n/* ${content} */`
-}
-
-/**
  * Transform a CSS template literal using AST-based rules
  *
  * AST Node Type: TemplateLiteral
@@ -130,7 +67,9 @@ export function transformCssAst(templateLiteralNode, expressions = [], mixins = 
   css = cleanupCss(css)
 
   return { css, mixins }
-} /**
+}
+
+/**
  * Convert camelCase to kebab-case
  */
 function camelToKebab(str) {
@@ -148,7 +87,9 @@ function cleanupCss(css) {
     .replace(/\\n\\s*\\n\\s*\\n+/g, '\\n\\n') // Remove excessive empty lines
     .replace(/^\\s+|\\s+$/g, '') // Trim whitespace
     .replace(/;\\s*;/g, ';') // Remove duplicate semicolons
-} /**
+}
+
+/**
  * Convert theme path to CSS variable
  * Examples: 'space.md' → 'var(--spacing-md)'
  */
@@ -169,6 +110,90 @@ function convertThemePathToCssVar(themePath) {
   }
 
   return `var(--${themePath.replace(/\\./g, '-')})`
+} /**
+ * Create a migration comment for CSS that cannot be automatically transformed
+ * @param {string} content - The CSS content to comment out
+ * @returns {string}
+ */
+function createMigrationComment(content) {
+  return `/* WUI V9 TO MIGRATE */\n/* ${content} */`
+}
+
+/**
+ * Extract test condition from conditional expression
+ */
+function extractConditionalTest(testNode) {
+  if (!testNode) return { type: 'unknown' }
+
+  switch (testNode.type) {
+    case 'BinaryExpression':
+      return {
+        left: testNode.left?.name || 'unknown',
+        operator: testNode.operator,
+        right: testNode.right?.value || testNode.right?.name || 'unknown',
+        type: 'comparison',
+      }
+    case 'Identifier':
+      return {
+        name: testNode.name,
+        type: 'identifier',
+      }
+    default:
+      return { type: 'complex' }
+  }
+} /**
+ * Extract value from conditional consequent/alternate
+ */
+function extractConditionalValue(valueNode) {
+  if (!valueNode) return 'unknown'
+
+  switch (valueNode.type) {
+    case 'Identifier':
+      return valueNode.name
+    case 'Literal':
+    case 'StringLiteral':
+      return valueNode.value
+    default:
+      return 'complex'
+  }
+}
+
+/**
+ * Extract the full CSS block that should be commented out
+ * @param {Object} expression - The AST expression node
+ * @param {string} beforeText - Text before the expression
+ * @param {string} afterText - Text after the expression
+ * @returns {string}
+ */
+function extractCssBlock(expression, beforeText, afterText) {
+  const expressionName = expression.name || ''
+
+  // Find the matching closing brace
+  let braceCount = 0
+  let blockEnd = 0
+
+  for (let i = 0; i < afterText.length; i++) {
+    if (afterText[i] === '{') {
+      braceCount++
+    } else if (afterText[i] === '}') {
+      braceCount--
+      if (braceCount === 0) {
+        blockEnd = i + 1
+        break
+      }
+    }
+  }
+
+  const cssBlock = afterText.substring(0, blockEnd)
+  return `\${${expressionName}}${cssBlock}`
+}
+
+/**
+ * Format conditional expression for migration comment
+ */
+function formatConditionalForComment(node) {
+  const test = node.test?.name || 'condition'
+  return `${test} ? consequent : alternate`
 }
 
 /**
@@ -186,6 +211,30 @@ function propToClassName(propName) {
   }
 
   return specialMappings[cleanName] || camelToKebab(cleanName)
+}
+
+/**
+ * Helper function to determine if a CSS block should be commented out
+ * @param {Object} expression - The AST expression node
+ * @param {string} beforeText - Text before the expression
+ * @param {string} afterText - Text after the expression
+ * @returns {boolean}
+ */
+function shouldCommentOutCssBlock(expression, beforeText, afterText) {
+  // Check if this is an Identifier that should be commented out
+  if (expression.type === 'Identifier') {
+    const name = expression.name
+
+    // Check if the after text contains a CSS block (starts with whitespace + {)
+    const hasNextCssBlock = /^\s*\{/.test(afterText)
+
+    // Comment out blocks for CONSTANTS and COMPONENTS that have CSS following them
+    if (hasNextCssBlock) {
+      return /^[A-Z][A-Z_]*$/.test(name) || /^[A-Z][a-z]/.test(name)
+    }
+  }
+
+  return false
 }
 
 /**
@@ -232,11 +281,33 @@ function transformCallExpression(node) {
  *
  * AST Node: ConditionalExpression { test, consequent, alternate }
  * Examples: variant === 'primary' ? 'primary-500' : 'secondary-500'
+ *
+ * Strategy: Convert to CSS variable placeholder that will be handled in component
  */
-function transformConditionalExpression(node, mixins) {
-  // For now, create a migration comment that includes the conditional
-  const nodeString = node.test?.name || 'condition'
-  return createMigrationComment(`\${${nodeString} ? consequent : alternate}`)
+function transformConditionalExpression(node) {
+  // Extract the key parts of the conditional
+  const test = extractConditionalTest(node.test)
+  const consequent = extractConditionalValue(node.consequent)
+  const alternate = extractConditionalValue(node.alternate)
+
+  // Handle common patterns
+  if (test.type === 'comparison' && test.left && test.right) {
+    // Pattern: variant === 'primary' ? value1 : value2
+    if (test.operator === '===' || test.operator === '==') {
+      const propName = test.left
+
+      // Generate CSS variable name based on the prop
+      const cssVarName = `--component-${camelToKebab(propName)}`
+
+      // Create a conditional CSS variable reference
+      // This will be handled by the component's style object
+      // Include values in comment for reference
+      return `var(${cssVarName}) /* ${consequent} : ${alternate} */`
+    }
+  }
+
+  // Fallback: Create migration comment for complex conditionals
+  return createMigrationComment(`\${${formatConditionalForComment(node)}}`)
 }
 
 /**
@@ -255,7 +326,7 @@ function transformExpression(node, mixins) {
       return transformCallExpression(node)
 
     case 'ConditionalExpression':
-      return transformConditionalExpression(node, mixins)
+      return transformConditionalExpression(node)
 
     case 'Identifier':
       return transformIdentifier(node, mixins)
@@ -358,6 +429,15 @@ function transformMemberExpression(node) {
   }
 
   const fullPath = parts.join('.')
+
+  // Rule 1: Handle props.* patterns - convert to CSS variables
+  if (parts.length >= 2 && parts[0] === 'props') {
+    const propName = parts.slice(1).join('-')
+    const cssVarName = `--component-${camelToKebab(propName)}`
+    return `var(${cssVarName}) /* ${fullPath} */`
+  }
+
+  // Rule 2: Other member expressions get migration comments
   return createMigrationComment(fullPath)
 }
 
