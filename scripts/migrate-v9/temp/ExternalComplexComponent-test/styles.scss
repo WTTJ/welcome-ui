@@ -36,6 +36,7 @@
   background: white;
   border-radius: var(--spacing-md);
   padding: var(--spacing-lg);
+
   &.elevated {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
@@ -44,6 +45,7 @@
 .title {
   margin: 0;
   color: var(--color-neutral-90);
+
   &.display-detail {
     margin-top: var(--spacing-sm);
   }
@@ -52,9 +54,7 @@
 .trigger-button {
   border: none;
   background-color: transparent;
-  padding: var(--spacing-md) var(--spacing-lg);
   cursor: pointer;
-  width: 100%;
   border-radius: var(--spacing-md);
   transition: background-color 300ms;
   bottom: var(--spacing-md);
@@ -64,6 +64,7 @@
   padding: 0;
   height: var(--height-48);
   width: var(--height-48);
+
   &.is-expanded {
     display: inherit;
     align-items: inherit;
@@ -72,6 +73,7 @@
     height: inherit;
     width: inherit;
   }
+
   &:hover {
     @include trigger-active-styles;
     /* WUI V9 TO MIGRATE */
@@ -81,9 +83,11 @@
     }
     */
   }
+
   &.is-active {
     @include trigger-active-styles;
   }
+
   &:active {
     @include trigger-active-styles;
   }
