@@ -44,11 +44,11 @@ export default tseslint.config(
           customGroups: {
             type: {
               'internal-type': ['@tests'],
-              'welcome-ui': ['@/', '@old/'],
+              'welcome-ui': ['@/'],
             },
             value: {
               'internal-type': ['@tests'],
-              'welcome-ui': ['@/', '@old/'],
+              'welcome-ui': ['@/'],
             },
           },
           groups: [

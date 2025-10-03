@@ -1,1 +1,0 @@
-export const FONT_HASH = 'f19d0de47a5f6f7446d37111f075c0901835bf12'

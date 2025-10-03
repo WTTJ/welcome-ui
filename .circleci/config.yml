@@ -96,7 +96,7 @@ jobs:
       - *restore_node_modules
       - attach_workspace:
           at: ~/welcome-ui
-      - run: cd lib && circleci tests glob "src/**/*.test.{ts,tsx}" | grep -v "/old/" | circleci tests run --command="xargs yarn test --fileParallelism=false"
+      - run: cd lib && circleci tests glob "src/**/*.test.{ts,tsx}" | circleci tests run --command="xargs yarn test --fileParallelism=false"
 
   # current version build (common to previews & prod)
   website_build:

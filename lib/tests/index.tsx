@@ -6,21 +6,12 @@ import type { ComponentProps, PropsWithChildren } from 'react'
 import React, { forwardRef } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-import { createTheme } from '@old/theme'
-import { WuiProvider } from '@old/WuiProvider'
-
 type ProviderProps = {
   children?: React.ReactNode
 }
 
 const Provider: React.FC<ProviderProps> = ({ children }) => {
-  const theme = createTheme()
-
-  return (
-    <WuiProvider hasGlobalStyle theme={theme}>
-      <BrowserRouter>{children}</BrowserRouter>
-    </WuiProvider>
-  )
+  return <BrowserRouter>{children}</BrowserRouter>
 }
 
 type RenderResult = ReturnType<typeof rtlRender> & { user: UserEvent }
