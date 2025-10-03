@@ -2,8 +2,12 @@ import { Button } from '@/components/Button'
 import { getFileIcon, getFileName, getFileSize } from '@/components/Files'
 import { ExternalLinkIcon } from '@/components/Icon'
 import { Text } from '@/components/Text'
+import { classNames } from '@/utils'
 
+import filedropStyles from '../filedrop.module.scss'
 import type { FilePreviewProps } from '../types'
+
+const cx = classNames(filedropStyles)
 
 export const FilePreview = ({
   file,
@@ -18,12 +22,12 @@ export const FilePreview = ({
 
   return (
     <>
-      <Icon className="mb-lg" size="xxl" />
-      <Text className="m-0 max-w-[600px]" lines={1} variant="h4">
+      <Icon className={cx('file-preview-icon')} size="xxl" />
+      <Text className={cx('file-preview-name')} lines={1} variant="h4">
         {name}
       </Text>
       {!isUrl && (
-        <Text className="font-medium m-0 text-beige-70" lines={1} variant="sm">
+        <Text className={cx('file-preview-size')} lines={1} variant="sm">
           {size}
         </Text>
       )}

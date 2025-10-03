@@ -1,7 +1,11 @@
 import { Button } from '@/components/Button'
 import { Text } from '@/components/Text'
+import { classNames } from '@/utils'
 
+import filedropStyles from '../filedrop.module.scss'
 import type { MessageProps } from '../types'
+
+const cx = classNames(filedropStyles)
 
 export const Message = ({
   disabled,
@@ -12,13 +16,18 @@ export const Message = ({
 }: MessageProps) => {
   return (
     <>
-      <Text className="m-0" variant="h4">
+      <Text className={cx('message-title')} variant="h4">
         {title}
       </Text>
-      <Text className="m-0 mt-xs text-beige-70" variant="sm">
+      <Text className={cx('message-hint')} variant="sm">
         {hint}
       </Text>
-      <Button className="mt-lg" disabled={disabled} onClick={openFile} type="button">
+      <Button
+        className={cx('message-file-button-text')}
+        disabled={disabled}
+        onClick={openFile}
+        type="button"
+      >
         {fileButtonText}
       </Button>
     </>
