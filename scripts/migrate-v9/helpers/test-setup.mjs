@@ -13,8 +13,14 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
  * @param {string} fixturesDirName - Name of the fixtures directory
  * @returns {string} - The temp directory path
  */
-export function setupExternalMigrationTest(testName, fixturesDirName) {
-  const fixturesDir = resolve(__dirname, '..', '__tests__', '__fixtures__', fixturesDirName)
+export function setupExternalMigrationTest(testName) {
+  const fixturesDir = resolve(
+    __dirname,
+    '..',
+    '__tests__',
+    '__fixtures__',
+    testName.replace('-test', '')
+  )
   const tempDir = resolve(__dirname, '..', 'temp', testName)
 
   beforeEach(() => {
