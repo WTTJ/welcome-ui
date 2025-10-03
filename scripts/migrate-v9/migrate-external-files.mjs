@@ -6,10 +6,9 @@ import generateModule from '@babel/generator'
 import { parse } from '@babel/parser'
 import traverseModule from '@babel/traverse'
 
-import {
-  extractCssTemplateLiterals,
-  transformStyledComponentCss,
-} from './helpers/css-transformer.mjs'
+// AST-based transformers (Phase 4: Task 4.2 - Replace regex-based transformations)
+import { transformCssAst, extractCssTemplateLiteralsAst } from './helpers/css-ast-transformer.mjs'
+import { extractCssVariableDeclarations } from './helpers/mixin-extractor.mjs'
 import { getModule } from './helpers/esm.mjs'
 import { copyDirSync, deleteDirRecursive } from './helpers/file-utils.mjs'
 import { formatWithPrettier } from './helpers/format-with-prettier.mjs'
@@ -56,8 +55,8 @@ export async function migrate(dir, copyDir = true) {
     traverse(ast, {
       VariableDeclaration(path) {
         path.node.declarations.forEach(decl => {
-          // Extract CSS template literals for mixins
-          extractCssTemplateLiterals(decl, extractedMixins)
+          // Extract CSS template literals for mixins (AST-based approach)
+          extractCssTemplateLiteralsAst(decl, extractedMixins)
 
           if (decl.init && isStyledComponent(decl.init)) {
             const compName = decl.id.name
@@ -176,8 +175,8 @@ function extractCssFromStyledComponent(node, mixins = new Map()) {
 function extractCssFromTemplateLiteral(quasi, mixins = new Map()) {
   if (!quasi.quasis) return null
 
-  // Use our enhanced CSS transformer instead of just adding placeholders
-  const result = transformStyledComponentCss(quasi, quasi.expressions || [], mixins)
+  // Use our enhanced AST-based CSS transformer (Phase 4: Integration)
+  const result = transformCssAst(quasi, quasi.expressions || [], mixins)
 
   // Extract CSS from the result object
   if (result && result.css) {
