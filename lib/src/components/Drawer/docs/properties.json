@@ -127,7 +127,7 @@
     "props": {
       "maxWidth": {
         "defaultValue": null,
-        "description": "",
+        "description": "Max width of the drawer\nNumber values are converted to pixels\n@example '300px', '50rem', 300",
         "name": "maxWidth",
         "parent": {
           "fileName": "welcome-ui/lib/src/components/Drawer/AssetDrawer/types.ts",
@@ -142,13 +142,16 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "string | number",
+          "raw": "number | `${number}px` | `${number}rem`",
           "value": [
             {
-              "value": "string"
+              "value": "number"
             },
             {
-              "value": "number"
+              "value": "`${number}px`"
+            },
+            {
+              "value": "`${number}rem`"
             }
           ]
         }
