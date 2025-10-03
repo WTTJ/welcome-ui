@@ -20,7 +20,7 @@ export const ComplexComponent = ({ variant = 'primary' }: { variant?: Variant })
       <Link className="card elevated">
         <Text as="h3" variant="h4" className={`title ${displayDetail ? 'display-detail' : ''}`}>Complex component</Text>
       </Link>
-      <button className="trigger-button ${isActive ? 'is-active' : ''}  ${isExpanded ? 'is-expanded' : ''}">Toggle</button>
+      <button className="trigger-button is-active">Toggle</button>
     </div>
   )
 }
