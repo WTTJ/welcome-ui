@@ -171,8 +171,19 @@ export const ComplexComponent = ({ variant = 'primary' }: { variant?: Variant })
   - [x] Components (PascalCase) → migration comment
   - [x] Variables (camelCase) → migration comment
   - [x] **Fixed migration comment format** to preserve entire CSS blocks like `${OrganizationName} { bottom: 0; }`
-- [ ] **Task 1.4**: Add rule for `CallExpression` nodes (th() function calls)
-- [ ] **Task 1.5**: Test basic transformation with simple examples
+- [x] **Task 1.4**: Add rule for `CallExpression` nodes (th() function calls) - ✅ **COMPLETED**
+  - [x] Implemented `transformCallExpression()` function for different function types
+  - [x] `th('space.md')` → `var(--spacing-md)` (theme space mapping)
+  - [x] `th('texts.h4')` → `var(--text-h4)` (theme text mapping) 
+  - [x] `th('colors.primary.500')` → `var(--color-primary-500)` (theme color mapping)
+  - [x] `th()` with invalid args → migration comment (error handling)
+  - [x] Nested theme paths supported (dots converted to dashes)
+- [x] **Task 1.5**: Test basic transformation with simple examples - ✅ **COMPLETED**
+  - [x] Created comprehensive test covering all Phase 1 functionality
+  - [x] All transformations working correctly: th() functions, identifiers, CSS blocks, mixins
+  - [x] Fixed template literal processing logic (separate quasi/expression tracking)
+  - [x] Validated CSS block preservation and mixin generation
+  - [x] **Phase 1 Complete**: AST Transformer Foundation is solid and ready for Phase 2
 
 ### Phase 1.5: External Migration - Prop Handling (NEW)
 

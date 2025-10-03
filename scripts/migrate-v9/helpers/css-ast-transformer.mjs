@@ -88,20 +88,23 @@ export function transformCssAst(templateLiteralNode, expressions = [], mixins = 
 
   let css = ''
   const { quasis } = templateLiteralNode
+  let expressionIndex = 0
 
-  // Core algorithm: Interleave static text (quasis) with transformed expressions
-  for (let i = 0; i < quasis.length; i++) {
-    const quasi = quasis[i]
-    const expression = expressions[i]
+  // Template literals alternate: quasi[0] + expression[0] + quasi[1] + expression[1] + ... + quasi[n]
+  // There's always one more quasi than expressions
+  for (let quasiIndex = 0; quasiIndex < quasis.length; quasiIndex++) {
+    const quasi = quasis[quasiIndex]
     const staticText = quasi?.value?.cooked || quasi?.value?.raw || ''
 
     // Step 1: Add the static CSS text from this quasi
     css += staticText
 
     // Step 2: Process the expression if it exists
-    if (expression) {
+    if (expressionIndex < expressions.length) {
+      const expression = expressions[expressionIndex]
+
       // Check if this expression needs special CSS block handling
-      const nextQuasi = quasis[i + 1]
+      const nextQuasi = quasis[quasiIndex + 1]
       const nextText = nextQuasi?.value?.cooked || nextQuasi?.value?.raw || ''
 
       // Detect patterns like: ${OrganizationName} { ... }
@@ -110,14 +113,16 @@ export function transformCssAst(templateLiteralNode, expressions = [], mixins = 
         const commentedBlock = createMigrationComment(cssBlock)
         css += commentedBlock
 
-        // Skip the next quasi since we've already processed it
-        i++
+        // Skip the next quasi since its content is included in the commented block
+        quasiIndex++
+        expressionIndex++
         continue
       }
 
       // Regular expression transformation
       const transformedExpression = transformExpression(expression, mixins)
       css += transformedExpression
+      expressionIndex++
     }
   }
 
