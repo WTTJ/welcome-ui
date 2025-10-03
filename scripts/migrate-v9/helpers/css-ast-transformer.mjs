@@ -18,16 +18,16 @@ function shouldCommentOutCssBlock(expression, beforeText, afterText) {
   // Check if this is an Identifier that should be commented out
   if (expression.type === 'Identifier') {
     const name = expression.name
-    
+
     // Check if the after text contains a CSS block (starts with whitespace + {)
     const hasNextCssBlock = /^\s*\{/.test(afterText)
-    
+
     // Comment out blocks for CONSTANTS and COMPONENTS that have CSS following them
     if (hasNextCssBlock) {
       return /^[A-Z][A-Z_]*$/.test(name) || /^[A-Z][a-z]/.test(name)
     }
   }
-  
+
   return false
 }
 
@@ -40,11 +40,11 @@ function shouldCommentOutCssBlock(expression, beforeText, afterText) {
  */
 function extractCssBlock(expression, beforeText, afterText) {
   const expressionName = expression.name || ''
-  
+
   // Find the matching closing brace
   let braceCount = 0
   let blockEnd = 0
-  
+
   for (let i = 0; i < afterText.length; i++) {
     if (afterText[i] === '{') {
       braceCount++
@@ -56,7 +56,7 @@ function extractCssBlock(expression, beforeText, afterText) {
       }
     }
   }
-  
+
   const cssBlock = afterText.substring(0, blockEnd)
   return `\${${expressionName}}${cssBlock}`
 }
@@ -103,18 +103,18 @@ export function transformCssAst(templateLiteralNode, expressions = [], mixins = 
       // Check if this expression needs special CSS block handling
       const nextQuasi = quasis[i + 1]
       const nextText = nextQuasi?.value?.cooked || nextQuasi?.value?.raw || ''
-      
+
       // Detect patterns like: ${OrganizationName} { ... }
       if (shouldCommentOutCssBlock(expression, staticText, nextText)) {
         const cssBlock = extractCssBlock(expression, staticText, nextText)
         const commentedBlock = createMigrationComment(cssBlock)
         css += commentedBlock
-        
+
         // Skip the next quasi since we've already processed it
         i++
         continue
       }
-      
+
       // Regular expression transformation
       const transformedExpression = transformExpression(expression, mixins)
       css += transformedExpression
