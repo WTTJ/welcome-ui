@@ -7,7 +7,7 @@ const Example = () => {
 
   return (
     <Card className="max-w-1/2">
-      <Card.Cover className="w-full" src={url} />
+      <Card.Cover alt="The Jungle Book" className="w-full" src={url} />
       <Card.Body>
         <Text as="h4" className="font-bold text-neutral-90 mb-lg mt-0">
           The Jungle Book

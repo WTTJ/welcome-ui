@@ -41,7 +41,6 @@
   .file-input {
     display: block;
     height: 0;
-    weight: 0;
     opacity: 0;
   }
 
@@ -52,6 +51,21 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+
+  .file-preview-icon {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .file-preview-name {
+    margin: 0;
+    max-width: 600px;
+  }
+
+  .file-preview-size {
+    font-weight: var(--font-weight-medium);
+    margin: 0;
+    color: var(--color-beige-70);
   }
 
   .image-preview {
@@ -66,5 +80,19 @@
     top: var(--spacing-md);
     right: var(--spacing-md);
     gap: var(--spacing-xs);
+  }
+
+  .message-title {
+    margin: 0;
+  }
+
+  .message-hint {
+    margin: 0;
+    margin-top: var(--spacing-xs);
+    color: var(--color-beige-70);
+  }
+
+  .message-file-button-text {
+    margin-top: var(--spacing-lg);
   }
 }

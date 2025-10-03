@@ -4,7 +4,12 @@ import type { ComponentProps, ComponentPropsWithRef } from 'react'
 import type { IconProps } from '@/components/Icon'
 
 export interface AssetDrawerOptions extends DialogOptions<'div'> {
-  maxWidth?: number | string
+  /**
+   * Max width of the drawer
+   * Number values are converted to pixels
+   * @example '300px', '50rem', 300
+   */
+  maxWidth?: `${number}px` | `${number}rem` | number
 }
 
 export type AssetDrawerProps = AssetDrawerOptions & ComponentPropsWithRef<'div'>

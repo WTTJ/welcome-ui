@@ -32,7 +32,7 @@ describe('<Card>', () => {
   it('should render with Card.Cover', () => {
     render(
       <Card data-testid="card">
-        <Card.Cover data-testid="card-cover" src={imageSrc} />
+        <Card.Cover alt="card-cover-alt" data-testid="card-cover" src={imageSrc} />
       </Card>
     )
 
@@ -49,7 +49,7 @@ describe('<Card>', () => {
   it('should render with both Card.Cover and Card.Body', () => {
     render(
       <Card data-testid="card">
-        <Card.Cover data-testid="card-cover" src={imageSrc} />
+        <Card.Cover alt="card-cover-alt" data-testid="card-cover" src={imageSrc} />
         <Card.Body data-testid="card-body">{content}</Card.Body>
       </Card>
     )

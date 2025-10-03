@@ -10,7 +10,7 @@ const Example = () => {
       <Drawer.Trigger as={Button} store={drawer}>
         Open AssetDrawer
       </Drawer.Trigger>
-      <AssetDrawer aria-label="Asset drawer" store={drawer}>
+      <AssetDrawer aria-label="Asset drawer" maxWidth="42rem" store={drawer}>
         <AssetDrawer.Header
           action={
             <div className="flex gap-md">
