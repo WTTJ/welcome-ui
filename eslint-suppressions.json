@@ -18,10 +18,5 @@
     "@typescript-eslint/no-unused-vars": {
       "count": 1
     }
-  },
-  "types/styled.d.ts": {
-    "@typescript-eslint/no-empty-object-type": {
-      "count": 2
-    }
   }
 }
