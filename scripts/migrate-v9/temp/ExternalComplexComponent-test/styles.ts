@@ -46,11 +46,15 @@ export const Title = styled.h3<TitleProps>`
 `
 
 const triggerActiveStyles = css`
-  background-color: beige-30;
+  color: neutral-50;
 
   ${OrganizationLogo} {
     outline-color: beige-30 !important;
+    border: 1px solid;
+    border-color: beige-50;
   }
+
+  background-color: beige-30;
 
   ${OrganizationName} {
     color: neutral-90;
