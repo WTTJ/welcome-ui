@@ -1,68 +1,67 @@
-// Generated SCSS mixins from CSS template literals
-
-@mixin trigger-active-styles {
-  undefined
-}
-
-
-
 .wrapper {
-  background-color: var(--component-variant) /* primary-500 : secondary-500 */;
-  padding: xxl 0;
+  background-color: var(--component-variant) /* var(--color-primary-500) : var(--color-secondary-500) */;
+  padding: var(--spacing-xxl) 0;
   position: relative;
   isolation: isolate;
   min-height: calc(100vh - /* WUI V9 TO MIGRATE */
-  /* ${TOPNAV_HEIGHT} */);
+  /*
+  ${TOPNAV_HEIGHT}
+  */);
 
   @media (min-width: lg) {
-    padding: 3xl 0;
+    padding: var(--spacing-3xl) 0;
   }
 }
 
 .card {
   background: white;
-  border-radius: md;
-  padding: lg;
-  \n\n  &.elevated {\n
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  \n  }
+  border-radius: var(--spacing-md);
+  padding: var(--spacing-lg);
+
+  &.elevated {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
 }
 
 .title {
-  var(--text-h4);
-  color: neutral-90;
-  margin-top: /* WUI V9 TO MIGRATE */
-  /* Arrow function needs manual review */;
+  /* WUI V9 TO MIGRATE */
+  /* Consider changing Text component variant to 'h4' instead of th('texts.h4') */
+  color: var(--color-neutral-90);
+  margin-top: var(--display-detail) /* props.displayDetail ? var(--spacing-sm) : 0 */;
 }
 
 .trigger-button {
   border: none;
   background-color: transparent;
-  padding: md lg;
+  padding: var(--spacing-md) var(--spacing-lg);
   cursor: pointer;
   width: 100%;
-  border-radius: md;
+  border-radius: var(--spacing-md);
   transition: background-color 300ms;
   bottom: var(--spacing-md);
 
-  \n\n  &.is-expanded {\n
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  height: 48px;
-  width: 48px;
-  \n  }
+  &.is-expanded {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    height: 48px;
+    width: 48px;
+  }
 
   &:hover {
-    @include trigger-active-styles;;
+    @include trigger-active-styles;
 
     /* WUI V9 TO MIGRATE */
-    /* ${OrganizationName} {
-      color: beige-80;
-    } */;
+    /*
+    ${OrganizationName} {
+      color: var(--color-beige-80);
+    }
+    */;
     &:active {
-      \n\n  &.is-active {\n    @include trigger-active-styles;\n  };
+      &.is-active {
+        @include trigger-active-styles;
+      };
     }
     @include trigger-active-styles;
   }

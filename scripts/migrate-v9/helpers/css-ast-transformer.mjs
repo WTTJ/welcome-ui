@@ -96,12 +96,19 @@ export function transformCssAst(templateLiteralNode, expressions = [], mixins = 
   let css = ''
   const { quasis } = templateLiteralNode
   let expressionIndex = 0
+  let skipNextSemicolon = false // Flag to track when to skip semicolon after migration comments
 
   // Template literals alternate: quasi[0] + expression[0] + quasi[1] + expression[1] + ... + quasi[n]
   // There's always one more quasi than expressions
   for (let quasiIndex = 0; quasiIndex < quasis.length; quasiIndex++) {
     const quasi = quasis[quasiIndex]
-    const staticText = quasi?.value?.cooked || quasi?.value?.raw || ''
+    let staticText = quasi?.value?.cooked || quasi?.value?.raw || ''
+
+    // Handle semicolon skipping for text theme token migration comments
+    if (skipNextSemicolon && staticText.startsWith(';')) {
+      staticText = staticText.substring(1) // Remove the leading semicolon
+      skipNextSemicolon = false
+    }
 
     // Step 1: Add the static CSS text from this quasi
     css += staticText
@@ -120,14 +127,21 @@ export function transformCssAst(templateLiteralNode, expressions = [], mixins = 
         const commentedBlock = createMigrationComment(cssBlock)
         css += commentedBlock
 
-        // Skip the next quasi since its content is included in the commented block
-        quasiIndex++
+        // Important: Don't skip the next quasi completely!
+        // Instead, let it be processed normally but mark that we've already
+        // handled the CSS block portion
         expressionIndex++
         continue
       }
 
       // Regular expression transformation
       const transformedExpression = transformExpression(expression, mixins)
+
+      // Check if this is a text theme token that generates a migration comment
+      if (transformedExpression.includes('Consider changing Text component variant')) {
+        skipNextSemicolon = true
+      }
+
       css += transformedExpression
       expressionIndex++
     }
@@ -178,11 +192,13 @@ function cleanupCss(css) {
   // Step 1: Transform theme tokens in CSS values
   css = transformCssThemeTokens(css)
 
-  // Step 2: Standard cleanup
+  // Step 2: Standard cleanup using actual newlines
   return css
-    .replace(/\\n\\s*\\n\\s*\\n+/g, '\\n\\n') // Remove excessive empty lines
-    .replace(/^\\s+|\\s+$/g, '') // Trim whitespace
-    .replace(/;\\s*;/g, ';') // Remove duplicate semicolons
+    .replace(/\n\s*\n\s*\n+/g, '\n\n') // Remove excessive empty lines
+    .replace(/^\s+|\s+$/g, '') // Trim whitespace
+    .replace(/;\s*;/g, ';') // Remove duplicate semicolons
+    .replace(/{\s*\n\s*\n/g, '{\n') // Remove extra blank lines after opening braces
+    .replace(/\n\s*\n\s*}/g, '\n}') // Remove extra blank lines before closing braces
 }
 
 /**
@@ -358,8 +374,70 @@ function transformArrowFunction(node, mixins) {
     return transformObjectPatternFunction(node, mixins)
   }
 
-  // Rule 2: Other arrow function patterns
+  // Rule 2: Conditional arrow functions (props => condition ? value : alternate)
+  if (
+    node.params.length === 1 &&
+    node.params[0].type === 'Identifier' &&
+    node.body.type === 'ConditionalExpression'
+  ) {
+    return transformConditionalArrowFunction(node)
+  }
+
+  // Rule 3: Other arrow function patterns
   return createMigrationComment('Arrow function needs manual review')
+}
+
+/**
+ * Extract a value from an AST node without generating migration comments
+ */
+function extractAstNodeValue(node) {
+  switch (node.type) {
+    case 'NumericLiteral':
+    case 'Literal':
+      return String(node.value !== undefined ? node.value : '')
+
+    case 'CallExpression':
+      if (node.callee?.name === 'th') {
+        return transformThemeFunction(node)
+      }
+      return `/* ${node.callee?.name || 'unknown'}() call */`
+
+    case 'StringLiteral':
+      return `'${node.value}'`
+
+    case 'Identifier':
+      return node.name
+
+    case 'MemberExpression': {
+      const object = extractAstNodeValue(node.object)
+      const property = node.computed
+        ? `[${extractAstNodeValue(node.property)}]`
+        : `.${node.property.name}`
+      return `${object}${property}`
+    }
+
+    default:
+      return `/* ${node.type} needs manual review */`
+  }
+}
+
+/**
+ * Transform conditional arrow functions to CSS variables
+ */
+function transformConditionalArrowFunction(node) {
+  const conditional = node.body
+  const propName = conditional.test.property.name
+
+  // Extract values using pure AST operations
+  const consequent = extractAstNodeValue(conditional.consequent)
+  const alternate = extractAstNodeValue(conditional.alternate)
+  const testExpression = extractAstNodeValue(conditional.test)
+
+  // Create CSS variable approach
+  const variableName = `--${camelToKebab(propName)}`
+  const result = `var(${variableName}) /* ${testExpression} ? ${consequent} : ${alternate} */`
+
+  return result
 }
 
 /**
@@ -578,7 +656,14 @@ function transformObjectPatternFunction(node, mixins) {
     // Rule: LogicalExpression body (prop && css`...`)
     if (node.body.type === 'LogicalExpression') {
       const bodyResult = transformLogicalExpression(node.body, mixins)
-      return `\\n\\n  &.${className} {\\n    ${bodyResult}\\n  }`
+      // Clean up the body result and ensure proper indentation
+      const cleanBodyResult = bodyResult.trim()
+      // Add proper indentation to each line
+      const indentedBodyResult = cleanBodyResult
+        .split('\n')
+        .map(line => (line.trim() ? `    ${line}` : line))
+        .join('\n')
+      return `\n  &.${className} {\n${indentedBodyResult}\n  }`
     }
   }
 
@@ -618,5 +703,15 @@ function transformThemeFunction(node) {
   }
 
   const themePath = arg.value
+
+  // Special handling for text theme tokens - suggest Text component variant change
+  if (themePath.startsWith('texts.')) {
+    const textVariant = themePath.replace('texts.', '')
+    return createMigrationComment(
+      `Consider changing Text component variant to '${textVariant}' instead of th('${themePath}')`
+    )
+  }
+
+  // Regular theme tokens get converted to CSS variables
   return convertThemePathToCssVar(themePath)
 }

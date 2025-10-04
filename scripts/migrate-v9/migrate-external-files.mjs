@@ -7,12 +7,12 @@ import { parse } from '@babel/parser'
 import traverseModule from '@babel/traverse'
 
 // AST-based transformers (Phase 4: Task 4.2 - Replace regex-based transformations)
-import { transformCssAst, extractCssTemplateLiteralsAst } from './helpers/css-ast-transformer.mjs'
-import { extractCssVariableDeclarations } from './helpers/mixin-extractor.mjs'
+import { extractCssTemplateLiteralsAst, transformCssAst } from './helpers/css-ast-transformer.mjs'
 import { getModule } from './helpers/esm.mjs'
 import { copyDirSync, deleteDirRecursive } from './helpers/file-utils.mjs'
 import { formatWithPrettier } from './helpers/format-with-prettier.mjs'
 import { formatScssContent } from './helpers/format-with-stylelint.mjs'
+import { extractCssVariableDeclarations } from './helpers/mixin-extractor.mjs'
 
 const traverse = getModule(traverseModule)
 const generate = getModule(generateModule)
@@ -55,6 +55,7 @@ export async function migrate(dir, copyDir = true) {
     traverse(ast, {
       VariableDeclaration(path) {
         path.node.declarations.forEach(decl => {
+          console.debug(decl)
           // Extract CSS template literals for mixins (AST-based approach)
           extractCssTemplateLiteralsAst(decl, extractedMixins)
 
@@ -89,28 +90,6 @@ export async function migrate(dir, copyDir = true) {
       deleteDirRecursive(tempDir)
     }
     throw error // Re-throw the error
-  }
-}
-
-/**
- * Analyze how a prop is used in a styled component
- */
-function analyzePropUsage(propName, styledDef) {
-  if (!styledDef || !styledDef.css) {
-    return { isBoolean: true, patterns: [] }
-  }
-
-  // Simple heuristic: if prop is used in conditions, it's likely boolean
-  // if used directly in CSS values, it's likely a variant/value prop
-  const conditionalPattern = new RegExp(`\\$\\{[^}]*${propName}[^}]*\\?[^}]*\\}`, 'g')
-  const directPattern = new RegExp(`\\$\\{[^}]*${propName}[^}]*\\}`, 'g')
-
-  const hasConditional = conditionalPattern.test(styledDef.css)
-  const hasDirect = directPattern.test(styledDef.css)
-
-  return {
-    isBoolean: hasConditional && !hasDirect,
-    patterns: [...(hasConditional ? ['conditional'] : []), ...(hasDirect ? ['direct'] : [])],
   }
 }
 
@@ -557,10 +536,17 @@ function migrateStylesTsToScss(stylesTsPath, extractedMixins = new Map()) {
   // Generate SCSS mixins from extracted CSS template literals
   const mixinDefs = []
   for (const [mixinName, mixinData] of extractedMixins) {
-    const mixinScss = `@mixin ${mixinName} {
-${mixinData.css}
+    if (mixinData && mixinData.css) {
+      // Properly indent the CSS content for SCSS mixin
+      const indentedCss = mixinData.css
+        .split('\n')
+        .map(line => (line.trim() ? `  ${line}` : ''))
+        .join('\n')
+
+      const mixinScss = `@mixin ${mixinName} {${indentedCss}
 }`
-    mixinDefs.push(mixinScss)
+      mixinDefs.push(mixinScss)
+    }
   }
 
   // Combine mixins and classes
