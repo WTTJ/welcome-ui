@@ -205,7 +205,7 @@ function removeExtensions(obj: any): any {
 
   const cleaned: any = {}
   for (const [key, value] of Object.entries(obj)) {
-    if (key === '$extensions') {
+    if (key === '$extensions' || key.includes('strings-')) {
       continue
     }
     cleaned[key] = removeExtensions(value)
