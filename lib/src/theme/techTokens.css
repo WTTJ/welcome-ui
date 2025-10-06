@@ -1,3 +1,6 @@
 --*: initial;
 --spacing: 0.0625rem;
 --spacing-0: 0;
+--duration-fast: 100ms;
+--duration-medium: 300ms;
+--duration-slow: 500ms;
