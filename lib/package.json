@@ -30,7 +30,7 @@
     "start": "vite build --watch",
     "build": "vite build",
     "clean:tokens": "tsx src/theme/clean-tokens.ts",
-    "build:tokens": "style-dictionary build --config=style-dictionary.json --verbose",
+    "build:tokens": "node ./src/theme/build-tokens.js",
     "theme:generate": "tsx src/theme/generate-theme.ts && yarn run -W prettier --write 'src/theme/theme.css'",
     "test": "vitest"
   },
