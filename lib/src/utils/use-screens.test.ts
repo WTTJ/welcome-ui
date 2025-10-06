@@ -2,13 +2,13 @@
 
 import { useScreens } from './use-screens'
 
-vi.mock(import('@/theme/tokens/primitives.json'), async importOriginal => {
+vi.mock(import('@/theme/tokens/semantics.json'), async importOriginal => {
   const actual = await importOriginal()
   return {
     default: {
       ...actual,
-      breakpoints: {
-        ...actual.breakpoints,
+      breakpoint: {
+        ...actual.breakpoint,
         mobile: { value: '24rem' },
         tablet: { value: '380' },
       },
