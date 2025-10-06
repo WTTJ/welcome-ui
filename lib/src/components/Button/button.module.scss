@@ -64,12 +64,6 @@
       cursor: not-allowed;
     }
 
-    /* &:has(:global(i.wui-icon-font)),
-    &:has(svg) { */
-    /* when button has icon(s) we reduce horizontal padding */
-    /* padding-inline: var(--paddingInlineHasIcon);
-    } */
-
     /* CHILDREN */
 
     :global(i.wui-icon-font),
