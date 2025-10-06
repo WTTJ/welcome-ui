@@ -9,7 +9,7 @@ const Example = () => {
       <Button size="lg" variant="tertiary">
         Third
       </Button>
-      <Button variant="ghost">Last</Button>
+      <Button variant="tertiary">Last</Button>
     </ButtonGroup>
   )
 }
