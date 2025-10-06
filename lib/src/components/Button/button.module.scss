@@ -50,7 +50,17 @@
     &[aria-disabled] {
       border-color: var(--buttonBorderColorDisabled, transparent);
       color: var(--buttonColorDisabled);
-      background: var(--buttonBackgroundDisabled);
+      background: var(
+        --buttonBackgroundDisabled,
+        repeating-linear-gradient(
+            -45deg,
+            white,
+            white 2.5px,
+            var(--components-colors-button-color-background-primary-ai-disabled) 2.5px,
+            var(--components-colors-button-color-background-primary-ai-disabled) 5.25px
+          )
+          padding-box
+      );
       cursor: not-allowed;
     }
 
@@ -111,9 +121,6 @@
         --components-colors-button-color-background-primary-main-pressed
       );
       --buttonBackgroundHover: var(--components-colors-button-color-background-primary-main-hover);
-      --buttonBackgroundDisabled: var(
-        --components-colors-button-color-background-primary-main-disabled
-      );
       --outlineColorFocus: var(--components-colors-button-color-border-focused);
       --buttonColorDisabled: var(--components-colors-button-color-text-primary-main-disabled);
     }
@@ -125,9 +132,6 @@
       );
       --buttonBackgroundHover: var(
         --components-colors-button-color-background-primary-neutral-hover
-      );
-      --buttonBackgroundDisabled: var(
-        --components-colors-button-color-background-primary-neutral-disabled
       );
       --buttonColor: var(--components-colors-button-color-text-primary-neutral-default);
       --buttonColorDisabled: var(--components-colors-button-color-text-primary-neutral-disabled);
@@ -176,7 +180,6 @@
             var(--green-30)
           )
           border-box;
-      /* --buttonBackgroundDisabled: var(--components-colors-button-color-background-primary-ai-disabled); */
       --buttonBackgroundDisabled:
         repeating-linear-gradient(
             -45deg,
@@ -212,9 +215,6 @@
       --buttonBackgroundHover: var(
         --components-colors-button-color-background-primary-danger-hover
       );
-      --buttonBackgroundDisabled: var(
-        --components-colors-button-color-background-primary-danger-disabled
-      );
       --buttonColor: var(--components-colors-button-color-text-primary-danger-default);
       --buttonColorDisabled: var(--components-colors-button-color-text-primary-danger-disabled);
       --buttonColorHover: var(--components-colors-button-color-text-primary-danger-hover);
@@ -236,9 +236,6 @@
       --buttonBackgroundHover: var(
         --components-colors-button-color-background-secondary-main-hover
       );
-      --buttonBackgroundDisabled: var(
-        --components-colors-button-color-background-secondary-main-disabled
-      );
       --buttonColor: var(--components-colors-button-color-text-secondary-main-default);
       --buttonColorDisabled: var(--components-colors-button-color-text-secondary-main-disabled);
       --buttonColorHover: var(--components-colors-button-color-text-secondary-main-hover);
@@ -259,9 +256,6 @@
       );
       --buttonBackgroundHover: var(
         --components-colors-button-color-background-secondary-danger-hover
-      );
-      --buttonBackgroundDisabled: var(
-        --components-colors-button-color-background-secondary-danger-disabled
       );
       --buttonColor: var(--components-colors-button-color-text-secondary-danger-default);
       --buttonColorDisabled: var(--components-colors-button-color-text-secondary-danger-disabled);
