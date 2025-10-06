@@ -6,7 +6,7 @@
     line-height: var(--lineHeight);
     letter-spacing: var(--letterSpacing);
     font-weight: var(--fontWeight);
-    font-family: var(--fontFamily, var(--font-family-body));
+    font-family: var(--fontFamily, var(--font-family-default));
     text-transform: var(--textTransform, none);
     line-clamp: var(--lineClamp, none);
     -webkit-line-clamp: var(--lineClamp, none);
