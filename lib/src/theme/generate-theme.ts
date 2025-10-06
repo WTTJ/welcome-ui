@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
-import primitives from './tokens/primitives.json' assert { type: 'json' }
+import semantics from './tokens/semantics.json' assert { type: 'json' }
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -39,7 +39,7 @@ const generateThemeCss = () =>
 fs.writeFileSync(themePath, generateThemeCss(), 'utf8')
 
 // Generate scss breakpoints file
-const breakpointsContent = Object.entries(primitives.breakpoints).reduce((acc, [key, value]) => {
+const breakpointsContent = Object.entries(semantics.breakpoint).reduce((acc, [key, value]) => {
   if (key !== '$type' && typeof value === 'object' && 'value' in value) {
     return acc + `$breakpoint-${key}: ${value['value']};\n`
   }

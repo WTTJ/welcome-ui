@@ -3,7 +3,7 @@
     "background": {
       "brand": {
         "primary": {
-          "value": "{yellow-40}",
+          "value": "{color.yellow-40}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -11,7 +11,7 @@
           ]
         },
         "secondary": {
-          "value": "{yellow-30}",
+          "value": "{color.yellow-30}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -19,7 +19,7 @@
           ]
         },
         "subtle": {
-          "value": "{yellow-20}",
+          "value": "{color.yellow-20}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -27,7 +27,7 @@
           ]
         },
         "minimal": {
-          "value": "{yellow-10}",
+          "value": "{color.yellow-10}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -35,7 +35,7 @@
           ]
         },
         "strong": {
-          "value": "{yellow-50}",
+          "value": "{color.yellow-50}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -43,7 +43,7 @@
           ]
         },
         "stronger": {
-          "value": "{yellow-60}",
+          "value": "{color.yellow-60}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -53,7 +53,7 @@
       },
       "neutral": {
         "primary": {
-          "value": "{neutral-90}",
+          "value": "{color.neutral-90}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -61,7 +61,7 @@
           ]
         },
         "secondary": {
-          "value": "{neutral-80}",
+          "value": "{color.neutral-80}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -69,7 +69,7 @@
           ]
         },
         "tertiary": {
-          "value": "{neutral-70}",
+          "value": "{color.neutral-70}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -77,7 +77,7 @@
           ]
         },
         "subtle": {
-          "value": "{neutral-40}",
+          "value": "{color.neutral-40}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -85,7 +85,7 @@
           ]
         },
         "subtlest": {
-          "value": "{neutral-30}",
+          "value": "{color.neutral-30}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -93,7 +93,7 @@
           ]
         },
         "minimal": {
-          "value": "{neutral-20}",
+          "value": "{color.neutral-20}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -101,7 +101,7 @@
           ]
         },
         "inverse": {
-          "value": "{neutral-10}",
+          "value": "{color.neutral-10}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -109,7 +109,7 @@
           ]
         },
         "primary-fixed": {
-          "value": "{neutral-90}",
+          "value": "{color.neutral-90}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -117,7 +117,7 @@
           ]
         },
         "inverse-fixed": {
-          "value": "{neutral-10}",
+          "value": "{color.neutral-10}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -127,7 +127,7 @@
       },
       "warm": {
         "primary": {
-          "value": "{beige-20}",
+          "value": "{color.beige-20}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -135,7 +135,7 @@
           ]
         },
         "minimal": {
-          "value": "{beige-10}",
+          "value": "{color.beige-10}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -143,7 +143,7 @@
           ]
         },
         "strong": {
-          "value": "{beige-30}",
+          "value": "{color.beige-30}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -151,7 +151,7 @@
           ]
         },
         "stronger": {
-          "value": "{beige-40}",
+          "value": "{color.beige-40}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -161,7 +161,7 @@
       },
       "information": {
         "primary": {
-          "value": "{blue-40}",
+          "value": "{color.blue-40}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -169,7 +169,7 @@
           ]
         },
         "secondary": {
-          "value": "{blue-30}",
+          "value": "{color.blue-30}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -177,7 +177,7 @@
           ]
         },
         "subtle": {
-          "value": "{blue-20}",
+          "value": "{color.blue-20}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -185,7 +185,7 @@
           ]
         },
         "minimal": {
-          "value": "{blue-10}",
+          "value": "{color.blue-10}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -193,7 +193,7 @@
           ]
         },
         "strong": {
-          "value": "{blue-50}",
+          "value": "{color.blue-50}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -201,7 +201,7 @@
           ]
         },
         "stronger": {
-          "value": "{blue-60}",
+          "value": "{color.blue-60}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -211,7 +211,7 @@
       },
       "success": {
         "primary": {
-          "value": "{green-30}",
+          "value": "{color.green-30}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -219,7 +219,7 @@
           ]
         },
         "secondary": {
-          "value": "{green-20}",
+          "value": "{color.green-20}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -227,7 +227,7 @@
           ]
         },
         "minimal": {
-          "value": "{green-10}",
+          "value": "{color.green-10}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -235,7 +235,7 @@
           ]
         },
         "strong": {
-          "value": "{green-40}",
+          "value": "{color.green-40}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -243,7 +243,7 @@
           ]
         },
         "stronger": {
-          "value": "{green-50}",
+          "value": "{color.green-50}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -251,7 +251,7 @@
           ]
         },
         "strongest": {
-          "value": "{green-60}",
+          "value": "{color.green-60}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -261,7 +261,7 @@
       },
       "warning": {
         "primary": {
-          "value": "{orange-40}",
+          "value": "{color.orange-40}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -269,7 +269,7 @@
           ]
         },
         "secondary": {
-          "value": "{orange-30}",
+          "value": "{color.orange-30}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -277,7 +277,7 @@
           ]
         },
         "subtle": {
-          "value": "{orange-20}",
+          "value": "{color.orange-20}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -285,7 +285,7 @@
           ]
         },
         "minimal": {
-          "value": "{orange-10}",
+          "value": "{color.orange-10}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -293,7 +293,7 @@
           ]
         },
         "strong": {
-          "value": "{orange-50}",
+          "value": "{color.orange-50}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -301,7 +301,7 @@
           ]
         },
         "stronger": {
-          "value": "{orange-60}",
+          "value": "{color.orange-60}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -311,7 +311,7 @@
       },
       "danger": {
         "primary": {
-          "value": "{red-40}",
+          "value": "{color.red-40}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -319,7 +319,7 @@
           ]
         },
         "secondary": {
-          "value": "{red-30}",
+          "value": "{color.red-30}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -327,7 +327,7 @@
           ]
         },
         "subtle": {
-          "value": "{red-20}",
+          "value": "{color.red-20}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -335,7 +335,7 @@
           ]
         },
         "minimal": {
-          "value": "{red-10}",
+          "value": "{color.red-10}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -343,7 +343,7 @@
           ]
         },
         "strong": {
-          "value": "{red-50}",
+          "value": "{color.red-50}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -351,7 +351,7 @@
           ]
         },
         "stronger": {
-          "value": "{red-60}",
+          "value": "{color.red-60}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -359,7 +359,7 @@
           ]
         },
         "strongest": {
-          "value": "{red-70}",
+          "value": "{color.red-70}",
           "type": "color.background",
           "scope": [
             "FRAME_FILL",
@@ -370,7 +370,7 @@
       "accent": {
         "green": {
           "primary": {
-            "value": "{green-30}",
+            "value": "{color.green-30}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -378,7 +378,7 @@
             ]
           },
           "secondary": {
-            "value": "{green-20}",
+            "value": "{color.green-20}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -386,7 +386,7 @@
             ]
           },
           "minimal": {
-            "value": "{green-10}",
+            "value": "{color.green-10}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -394,7 +394,7 @@
             ]
           },
           "strong": {
-            "value": "{green-40}",
+            "value": "{color.green-40}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -402,7 +402,7 @@
             ]
           },
           "stronger": {
-            "value": "{green-50}",
+            "value": "{color.green-50}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -410,7 +410,7 @@
             ]
           },
           "strongest": {
-            "value": "{green-60}",
+            "value": "{color.green-60}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -420,7 +420,7 @@
         },
         "teal": {
           "primary": {
-            "value": "{teal-40}",
+            "value": "{color.teal-40}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -428,7 +428,7 @@
             ]
           },
           "secondary": {
-            "value": "{teal-30}",
+            "value": "{color.teal-30}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -436,7 +436,7 @@
             ]
           },
           "subtle": {
-            "value": "{teal-20}",
+            "value": "{color.teal-20}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -444,7 +444,7 @@
             ]
           },
           "minimal": {
-            "value": "{teal-10}",
+            "value": "{color.teal-10}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -452,7 +452,7 @@
             ]
           },
           "strong": {
-            "value": "{teal-50}",
+            "value": "{color.teal-50}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -460,7 +460,7 @@
             ]
           },
           "stronger": {
-            "value": "{teal-60}",
+            "value": "{color.teal-60}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -468,7 +468,7 @@
             ]
           },
           "strongest": {
-            "value": "{teal-70}",
+            "value": "{color.teal-70}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -478,7 +478,7 @@
         },
         "blue": {
           "primary": {
-            "value": "{blue-40}",
+            "value": "{color.blue-40}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -486,7 +486,7 @@
             ]
           },
           "secondary": {
-            "value": "{blue-30}",
+            "value": "{color.blue-30}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -494,7 +494,7 @@
             ]
           },
           "subtle": {
-            "value": "{blue-20}",
+            "value": "{color.blue-20}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -502,7 +502,7 @@
             ]
           },
           "minimal": {
-            "value": "{blue-10}",
+            "value": "{color.blue-10}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -510,7 +510,7 @@
             ]
           },
           "strong": {
-            "value": "{blue-50}",
+            "value": "{color.blue-50}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -518,7 +518,7 @@
             ]
           },
           "stronger": {
-            "value": "{blue-60}",
+            "value": "{color.blue-60}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -526,7 +526,7 @@
             ]
           },
           "strongest": {
-            "value": "{blue-70}",
+            "value": "{color.blue-70}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -536,7 +536,7 @@
         },
         "violet": {
           "primary": {
-            "value": "{violet-40}",
+            "value": "{color.violet-40}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -544,7 +544,7 @@
             ]
           },
           "secondary": {
-            "value": "{violet-30}",
+            "value": "{color.violet-30}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -552,7 +552,7 @@
             ]
           },
           "subtle": {
-            "value": "{violet-20}",
+            "value": "{color.violet-20}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -560,7 +560,7 @@
             ]
           },
           "minimal": {
-            "value": "{violet-10}",
+            "value": "{color.violet-10}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -568,7 +568,7 @@
             ]
           },
           "strong": {
-            "value": "{violet-50}",
+            "value": "{color.violet-50}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -576,7 +576,7 @@
             ]
           },
           "stronger": {
-            "value": "{violet-60}",
+            "value": "{color.violet-60}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -584,7 +584,7 @@
             ]
           },
           "strongest": {
-            "value": "{violet-70}",
+            "value": "{color.violet-70}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -594,7 +594,7 @@
         },
         "pink": {
           "primary": {
-            "value": "{pink-40}",
+            "value": "{color.pink-40}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -602,7 +602,7 @@
             ]
           },
           "secondary": {
-            "value": "{pink-30}",
+            "value": "{color.pink-30}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -610,7 +610,7 @@
             ]
           },
           "subtle": {
-            "value": "{pink-20}",
+            "value": "{color.pink-20}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -618,7 +618,7 @@
             ]
           },
           "minimal": {
-            "value": "{pink-10}",
+            "value": "{color.pink-10}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -626,7 +626,7 @@
             ]
           },
           "strong": {
-            "value": "{pink-50}",
+            "value": "{color.pink-50}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -634,7 +634,7 @@
             ]
           },
           "stronger": {
-            "value": "{pink-60}",
+            "value": "{color.pink-60}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -642,7 +642,7 @@
             ]
           },
           "strongest": {
-            "value": "{pink-70}",
+            "value": "{color.pink-70}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -652,7 +652,7 @@
         },
         "orange": {
           "primary": {
-            "value": "{red-orange-40}",
+            "value": "{color.red-orange-40}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -660,7 +660,7 @@
             ]
           },
           "secondary": {
-            "value": "{red-orange-30}",
+            "value": "{color.red-orange-30}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -668,7 +668,7 @@
             ]
           },
           "subtle": {
-            "value": "{red-orange-20}",
+            "value": "{color.red-orange-20}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -676,7 +676,7 @@
             ]
           },
           "minimal": {
-            "value": "{red-orange-10}",
+            "value": "{color.red-orange-10}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -684,7 +684,7 @@
             ]
           },
           "strong": {
-            "value": "{red-orange-50}",
+            "value": "{color.red-orange-50}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -692,7 +692,7 @@
             ]
           },
           "stronger": {
-            "value": "{red-orange-60}",
+            "value": "{color.red-orange-60}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -700,7 +700,7 @@
             ]
           },
           "strongest": {
-            "value": "{red-orange-70}",
+            "value": "{color.red-orange-70}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL",
@@ -783,35 +783,35 @@
     "text": {
       "brand": {
         "primary": {
-          "value": "{yellow-90}",
+          "value": "{color.yellow-90}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
           ]
         },
         "secondary": {
-          "value": "{yellow-80}",
+          "value": "{color.yellow-80}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
           ]
         },
         "tertiary": {
-          "value": "{yellow-70}",
+          "value": "{color.yellow-70}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
           ]
         },
         "subtle": {
-          "value": "{yellow-60}",
+          "value": "{color.yellow-60}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
           ]
         },
         "minimal": {
-          "value": "{yellow-50}",
+          "value": "{color.yellow-50}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
@@ -820,63 +820,63 @@
       },
       "neutral": {
         "primary": {
-          "value": "{neutral-90}",
+          "value": "{color.neutral-90}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
           ]
         },
         "secondary": {
-          "value": "{neutral-80}",
+          "value": "{color.neutral-80}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
           ]
         },
         "tertiary": {
-          "value": "{neutral-70}",
+          "value": "{color.neutral-70}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
           ]
         },
         "subtle": {
-          "value": "{neutral-60}",
+          "value": "{color.neutral-60}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
           ]
         },
         "subtlest": {
-          "value": "{neutral-50}",
+          "value": "{color.neutral-50}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
           ]
         },
         "minimal": {
-          "value": "{neutral-40}",
+          "value": "{color.neutral-40}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
           ]
         },
         "inverse": {
-          "value": "{neutral-10}",
+          "value": "{color.neutral-10}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
           ]
         },
         "primary-fixed": {
-          "value": "{neutral-90}",
+          "value": "{color.neutral-90}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
           ]
         },
         "inverse-fixed": {
-          "value": "{neutral-10}",
+          "value": "{color.neutral-10}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
@@ -885,35 +885,35 @@
       },
       "warm": {
         "primary": {
-          "value": "{beige-90}",
+          "value": "{color.beige-90}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
           ]
         },
         "secondary": {
-          "value": "{beige-80}",
+          "value": "{color.beige-80}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
           ]
         },
         "tertiary": {
-          "value": "{beige-70}",
+          "value": "{color.beige-70}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
           ]
         },
         "subtle": {
-          "value": "{beige-60}",
+          "value": "{color.beige-60}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
           ]
         },
         "minimal": {
-          "value": "{beige-50}",
+          "value": "{color.beige-50}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
@@ -922,35 +922,35 @@
       },
       "information": {
         "primary": {
-          "value": "{blue-90}",
+          "value": "{color.blue-90}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
           ]
         },
         "secondary": {
-          "value": "{blue-80}",
+          "value": "{color.blue-80}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
           ]
         },
         "tertiary": {
-          "value": "{blue-70}",
+          "value": "{color.blue-70}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
           ]
         },
         "subtle": {
-          "value": "{blue-60}",
+          "value": "{color.blue-60}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
           ]
         },
         "minimal": {
-          "value": "{blue-50}",
+          "value": "{color.blue-50}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
@@ -959,35 +959,35 @@
       },
       "success": {
         "primary": {
-          "value": "{green-90}",
+          "value": "{color.green-90}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
           ]
         },
         "secondary": {
-          "value": "{green-80}",
+          "value": "{color.green-80}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
           ]
         },
         "tertiary": {
-          "value": "{green-70}",
+          "value": "{color.green-70}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
           ]
         },
         "subtle": {
-          "value": "{green-60}",
+          "value": "{color.green-60}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
           ]
         },
         "minimal": {
-          "value": "{green-50}",
+          "value": "{color.green-50}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
@@ -996,35 +996,35 @@
       },
       "warning": {
         "primary": {
-          "value": "{orange-90}",
+          "value": "{color.orange-90}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
           ]
         },
         "secondary": {
-          "value": "{orange-80}",
+          "value": "{color.orange-80}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
           ]
         },
         "tertiary": {
-          "value": "{orange-70}",
+          "value": "{color.orange-70}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
           ]
         },
         "subtle": {
-          "value": "{orange-60}",
+          "value": "{color.orange-60}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
           ]
         },
         "minimal": {
-          "value": "{orange-50}",
+          "value": "{color.orange-50}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
@@ -1033,35 +1033,35 @@
       },
       "danger": {
         "primary": {
-          "value": "{red-90}",
+          "value": "{color.red-90}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
           ]
         },
         "secondary": {
-          "value": "{red-80}",
+          "value": "{color.red-80}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
           ]
         },
         "tertiary": {
-          "value": "{red-70}",
+          "value": "{color.red-70}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
           ]
         },
         "subtle": {
-          "value": "{red-60}",
+          "value": "{color.red-60}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
           ]
         },
         "minimal": {
-          "value": "{red-50}",
+          "value": "{color.red-50}",
           "type": "color.text",
           "scope": [
             "TEXT_FILL"
@@ -1071,35 +1071,35 @@
       "accent": {
         "green": {
           "primary": {
-            "value": "{green-90}",
+            "value": "{color.green-90}",
             "type": "color.text",
             "scope": [
               "TEXT_FILL"
             ]
           },
           "secondary": {
-            "value": "{green-80}",
+            "value": "{color.green-80}",
             "type": "color.text",
             "scope": [
               "TEXT_FILL"
             ]
           },
           "tertiary": {
-            "value": "{green-70}",
+            "value": "{color.green-70}",
             "type": "color.text",
             "scope": [
               "TEXT_FILL"
             ]
           },
           "subtle": {
-            "value": "{green-60}",
+            "value": "{color.green-60}",
             "type": "color.text",
             "scope": [
               "TEXT_FILL"
             ]
           },
           "minimal": {
-            "value": "{green-50}",
+            "value": "{color.green-50}",
             "type": "color.text",
             "scope": [
               "TEXT_FILL"
@@ -1108,35 +1108,35 @@
         },
         "teal": {
           "primary": {
-            "value": "{teal-90}",
+            "value": "{color.teal-90}",
             "type": "color.text",
             "scope": [
               "TEXT_FILL"
             ]
           },
           "secondary": {
-            "value": "{teal-80}",
+            "value": "{color.teal-80}",
             "type": "color.text",
             "scope": [
               "TEXT_FILL"
             ]
           },
           "tertiary": {
-            "value": "{teal-70}",
+            "value": "{color.teal-70}",
             "type": "color.text",
             "scope": [
               "TEXT_FILL"
             ]
           },
           "subtle": {
-            "value": "{teal-60}",
+            "value": "{color.teal-60}",
             "type": "color.text",
             "scope": [
               "TEXT_FILL"
             ]
           },
           "minimal": {
-            "value": "{teal-50}",
+            "value": "{color.teal-50}",
             "type": "color.text",
             "scope": [
               "TEXT_FILL"
@@ -1145,35 +1145,35 @@
         },
         "blue": {
           "primary": {
-            "value": "{blue-90}",
+            "value": "{color.blue-90}",
             "type": "color.text",
             "scope": [
               "TEXT_FILL"
             ]
           },
           "secondary": {
-            "value": "{blue-80}",
+            "value": "{color.blue-80}",
             "type": "color.text",
             "scope": [
               "TEXT_FILL"
             ]
           },
           "tertiary": {
-            "value": "{blue-70}",
+            "value": "{color.blue-70}",
             "type": "color.text",
             "scope": [
               "TEXT_FILL"
             ]
           },
           "subtle": {
-            "value": "{blue-60}",
+            "value": "{color.blue-60}",
             "type": "color.text",
             "scope": [
               "TEXT_FILL"
             ]
           },
           "minimal": {
-            "value": "{blue-50}",
+            "value": "{color.blue-50}",
             "type": "color.text",
             "scope": [
               "TEXT_FILL"
@@ -1182,35 +1182,35 @@
         },
         "violet": {
           "primary": {
-            "value": "{violet-90}",
+            "value": "{color.violet-90}",
             "type": "color.text",
             "scope": [
               "TEXT_FILL"
             ]
           },
           "secondary": {
-            "value": "{violet-80}",
+            "value": "{color.violet-80}",
             "type": "color.text",
             "scope": [
               "TEXT_FILL"
             ]
           },
           "tertiary": {
-            "value": "{violet-70}",
+            "value": "{color.violet-70}",
             "type": "color.text",
             "scope": [
               "TEXT_FILL"
             ]
           },
           "subtle": {
-            "value": "{violet-60}",
+            "value": "{color.violet-60}",
             "type": "color.text",
             "scope": [
               "TEXT_FILL"
             ]
           },
           "minimal": {
-            "value": "{violet-50}",
+            "value": "{color.violet-50}",
             "type": "color.text",
             "scope": [
               "TEXT_FILL"
@@ -1219,35 +1219,35 @@
         },
         "pink": {
           "primary": {
-            "value": "{pink-90}",
+            "value": "{color.pink-90}",
             "type": "color.text",
             "scope": [
               "TEXT_FILL"
             ]
           },
           "secondary": {
-            "value": "{pink-80}",
+            "value": "{color.pink-80}",
             "type": "color.text",
             "scope": [
               "TEXT_FILL"
             ]
           },
           "tertiary": {
-            "value": "{pink-70}",
+            "value": "{color.pink-70}",
             "type": "color.text",
             "scope": [
               "TEXT_FILL"
             ]
           },
           "subtle": {
-            "value": "{pink-60}",
+            "value": "{color.pink-60}",
             "type": "color.text",
             "scope": [
               "TEXT_FILL"
             ]
           },
           "minimal": {
-            "value": "{pink-50}",
+            "value": "{color.pink-50}",
             "type": "color.text",
             "scope": [
               "TEXT_FILL"
@@ -1256,35 +1256,35 @@
         },
         "orange": {
           "primary": {
-            "value": "{red-orange-90}",
+            "value": "{color.red-orange-90}",
             "type": "color.text",
             "scope": [
               "TEXT_FILL"
             ]
           },
           "secondary": {
-            "value": "{red-orange-80}",
+            "value": "{color.red-orange-80}",
             "type": "color.text",
             "scope": [
               "TEXT_FILL"
             ]
           },
           "tertiary": {
-            "value": "{red-orange-70}",
+            "value": "{color.red-orange-70}",
             "type": "color.text",
             "scope": [
               "TEXT_FILL"
             ]
           },
           "subtle": {
-            "value": "{red-orange-60}",
+            "value": "{color.red-orange-60}",
             "type": "color.text",
             "scope": [
               "TEXT_FILL"
             ]
           },
           "minimal": {
-            "value": "{red-orange-50}",
+            "value": "{color.red-orange-50}",
             "type": "color.text",
             "scope": [
               "TEXT_FILL"
@@ -1296,42 +1296,42 @@
     "border": {
       "brand": {
         "primary": {
-          "value": "{yellow-40}",
+          "value": "{color.yellow-40}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "secondary": {
-          "value": "{yellow-30}",
+          "value": "{color.yellow-30}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "subtle": {
-          "value": "{yellow-20}",
+          "value": "{color.yellow-20}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "minimal": {
-          "value": "{yellow-10}",
+          "value": "{color.yellow-10}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "strong": {
-          "value": "{yellow-50}",
+          "value": "{color.yellow-50}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "stronger": {
-          "value": "{yellow-60}",
+          "value": "{color.yellow-60}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
@@ -1340,63 +1340,63 @@
       },
       "neutral": {
         "primary": {
-          "value": "{neutral-90}",
+          "value": "{color.neutral-90}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "secondary": {
-          "value": "{neutral-80}",
+          "value": "{color.neutral-80}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "tertiary": {
-          "value": "{neutral-70}",
+          "value": "{color.neutral-70}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "subtle": {
-          "value": "{neutral-40}",
+          "value": "{color.neutral-40}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "subtlest": {
-          "value": "{neutral-30}",
+          "value": "{color.neutral-30}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "minimal": {
-          "value": "{neutral-20}",
+          "value": "{color.neutral-20}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "inverse": {
-          "value": "{neutral-10}",
+          "value": "{color.neutral-10}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "primary-fixed": {
-          "value": "{neutral-90}",
+          "value": "{color.neutral-90}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "inverse-fixed": {
-          "value": "{neutral-10}",
+          "value": "{color.neutral-10}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
@@ -1405,49 +1405,49 @@
       },
       "warm": {
         "primary": {
-          "value": "{beige-60}",
+          "value": "{color.beige-60}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "secondary": {
-          "value": "{beige-50}",
+          "value": "{color.beige-50}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "tertiary": {
-          "value": "{beige-40}",
+          "value": "{color.beige-40}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "subtle": {
-          "value": "{beige-30}",
+          "value": "{color.beige-30}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "minimal": {
-          "value": "{beige-20}",
+          "value": "{color.beige-20}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "strong": {
-          "value": "{beige-70}",
+          "value": "{color.beige-70}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "stronger": {
-          "value": "{beige-80}",
+          "value": "{color.beige-80}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
@@ -1456,49 +1456,49 @@
       },
       "information": {
         "primary": {
-          "value": "{blue-40}",
+          "value": "{color.blue-40}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "secondary": {
-          "value": "{blue-30}",
+          "value": "{color.blue-30}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "subtle": {
-          "value": "{blue-20}",
+          "value": "{color.blue-20}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "minimal": {
-          "value": "{blue-10}",
+          "value": "{color.blue-10}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "strong": {
-          "value": "{blue-50}",
+          "value": "{color.blue-50}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "stronger": {
-          "value": "{blue-60}",
+          "value": "{color.blue-60}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "strongest": {
-          "value": "{blue-70}",
+          "value": "{color.blue-70}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
@@ -1507,42 +1507,42 @@
       },
       "success": {
         "primary": {
-          "value": "{green-30}",
+          "value": "{color.green-30}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "secondary": {
-          "value": "{green-20}",
+          "value": "{color.green-20}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "minimal": {
-          "value": "{green-10}",
+          "value": "{color.green-10}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "strong": {
-          "value": "{green-40}",
+          "value": "{color.green-40}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "stronger": {
-          "value": "{green-50}",
+          "value": "{color.green-50}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "strongest": {
-          "value": "{green-60}",
+          "value": "{color.green-60}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
@@ -1551,49 +1551,49 @@
       },
       "warning": {
         "primary": {
-          "value": "{orange-40}",
+          "value": "{color.orange-40}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "secondary": {
-          "value": "{orange-30}",
+          "value": "{color.orange-30}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "subtle": {
-          "value": "{orange-20}",
+          "value": "{color.orange-20}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "minimal": {
-          "value": "{orange-10}",
+          "value": "{color.orange-10}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "strong": {
-          "value": "{orange-50}",
+          "value": "{color.orange-50}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "stronger": {
-          "value": "{orange-60}",
+          "value": "{color.orange-60}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "strongest": {
-          "value": "{orange-70}",
+          "value": "{color.orange-70}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
@@ -1602,49 +1602,49 @@
       },
       "danger": {
         "primary": {
-          "value": "{red-40}",
+          "value": "{color.red-40}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "secondary": {
-          "value": "{red-30}",
+          "value": "{color.red-30}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "subtle": {
-          "value": "{red-20}",
+          "value": "{color.red-20}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "minimal": {
-          "value": "{red-10}",
+          "value": "{color.red-10}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "strong": {
-          "value": "{red-50}",
+          "value": "{color.red-50}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "stronger": {
-          "value": "{red-60}",
+          "value": "{color.red-60}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
           ]
         },
         "strongest": {
-          "value": "{red-70}",
+          "value": "{color.red-70}",
           "type": "color.border",
           "scope": [
             "STROKE_COLOR"
@@ -1717,42 +1717,42 @@
     "icon": {
       "brand": {
         "primary": {
-          "value": "{yellow-90}",
+          "value": "{color.yellow-90}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "secondary": {
-          "value": "{yellow-80}",
+          "value": "{color.yellow-80}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "tertiary": {
-          "value": "{yellow-70}",
+          "value": "{color.yellow-70}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "subtle": {
-          "value": "{yellow-60}",
+          "value": "{color.yellow-60}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "subtlest": {
-          "value": "{yellow-50}",
+          "value": "{color.yellow-50}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "minimal": {
-          "value": "{yellow-40}",
+          "value": "{color.yellow-40}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
@@ -1761,63 +1761,63 @@
       },
       "neutral": {
         "primary": {
-          "value": "{neutral-90}",
+          "value": "{color.neutral-90}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "secondary": {
-          "value": "{neutral-80}",
+          "value": "{color.neutral-80}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "tertiary": {
-          "value": "{neutral-70}",
+          "value": "{color.neutral-70}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "subtle": {
-          "value": "{neutral-60}",
+          "value": "{color.neutral-60}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "subtlest": {
-          "value": "{neutral-50}",
+          "value": "{color.neutral-50}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "minimal": {
-          "value": "{neutral-40}",
+          "value": "{color.neutral-40}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "inverse": {
-          "value": "{neutral-10}",
+          "value": "{color.neutral-10}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "primary-fixed": {
-          "value": "{neutral-90}",
+          "value": "{color.neutral-90}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "inverse-fixed": {
-          "value": "{neutral-10}",
+          "value": "{color.neutral-10}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
@@ -1826,35 +1826,35 @@
       },
       "warm": {
         "primary": {
-          "value": "{beige-90}",
+          "value": "{color.beige-90}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "secondary": {
-          "value": "{beige-80}",
+          "value": "{color.beige-80}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "tertiary": {
-          "value": "{beige-70}",
+          "value": "{color.beige-70}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "subtle": {
-          "value": "{beige-60}",
+          "value": "{color.beige-60}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "minimal": {
-          "value": "{beige-50}",
+          "value": "{color.beige-50}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
@@ -1863,42 +1863,42 @@
       },
       "information": {
         "primary": {
-          "value": "{blue-90}",
+          "value": "{color.blue-90}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "secondary": {
-          "value": "{blue-80}",
+          "value": "{color.blue-80}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "tertiary": {
-          "value": "{blue-70}",
+          "value": "{color.blue-70}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "subtle": {
-          "value": "{blue-60}",
+          "value": "{color.blue-60}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "subtlest": {
-          "value": "{blue-50}",
+          "value": "{color.blue-50}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "minimal": {
-          "value": "{blue-40}",
+          "value": "{color.blue-40}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
@@ -1907,42 +1907,42 @@
       },
       "success": {
         "primary": {
-          "value": "{green-90}",
+          "value": "{color.green-90}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "secondary": {
-          "value": "{green-80}",
+          "value": "{color.green-80}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "tertiary": {
-          "value": "{green-70}",
+          "value": "{color.green-70}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "subtle": {
-          "value": "{green-60}",
+          "value": "{color.green-60}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "subtlest": {
-          "value": "{green-50}",
+          "value": "{color.green-50}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "minimal": {
-          "value": "{green-30}",
+          "value": "{color.green-30}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
@@ -1951,42 +1951,42 @@
       },
       "warning": {
         "primary": {
-          "value": "{orange-90}",
+          "value": "{color.orange-90}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "secondary": {
-          "value": "{orange-80}",
+          "value": "{color.orange-80}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "tertiary": {
-          "value": "{orange-70}",
+          "value": "{color.orange-70}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "subtle": {
-          "value": "{orange-60}",
+          "value": "{color.orange-60}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "subtlest": {
-          "value": "{orange-50}",
+          "value": "{color.orange-50}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "minimal": {
-          "value": "{orange-40}",
+          "value": "{color.orange-40}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
@@ -1995,42 +1995,42 @@
       },
       "danger": {
         "primary": {
-          "value": "{red-90}",
+          "value": "{color.red-90}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "secondary": {
-          "value": "{red-80}",
+          "value": "{color.red-80}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "tertiary": {
-          "value": "{red-70}",
+          "value": "{color.red-70}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "subtle": {
-          "value": "{red-60}",
+          "value": "{color.red-60}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "subtlest": {
-          "value": "{red-50}",
+          "value": "{color.red-50}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "minimal": {
-          "value": "{red-40}",
+          "value": "{color.red-40}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
@@ -2040,42 +2040,42 @@
       "accent": {
         "green": {
           "primary": {
-            "value": "{green-90}",
+            "value": "{color.green-90}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
             ]
           },
           "secondary": {
-            "value": "{green-80}",
+            "value": "{color.green-80}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
             ]
           },
           "tertiary": {
-            "value": "{green-70}",
+            "value": "{color.green-70}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
             ]
           },
           "subtle": {
-            "value": "{green-60}",
+            "value": "{color.green-60}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
             ]
           },
           "subtlest": {
-            "value": "{green-50}",
+            "value": "{color.green-50}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
             ]
           },
           "minimal": {
-            "value": "{green-30}",
+            "value": "{color.green-30}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
@@ -2084,42 +2084,42 @@
         },
         "teal": {
           "primary": {
-            "value": "{teal-90}",
+            "value": "{color.teal-90}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
             ]
           },
           "secondary": {
-            "value": "{teal-80}",
+            "value": "{color.teal-80}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
             ]
           },
           "tertiary": {
-            "value": "{teal-70}",
+            "value": "{color.teal-70}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
             ]
           },
           "subtle": {
-            "value": "{teal-60}",
+            "value": "{color.teal-60}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
             ]
           },
           "subtlest": {
-            "value": "{teal-50}",
+            "value": "{color.teal-50}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
             ]
           },
           "minimal": {
-            "value": "{teal-40}",
+            "value": "{color.teal-40}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
@@ -2128,42 +2128,42 @@
         },
         "blue": {
           "primary": {
-            "value": "{blue-90}",
+            "value": "{color.blue-90}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
             ]
           },
           "secondary": {
-            "value": "{blue-80}",
+            "value": "{color.blue-80}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
             ]
           },
           "tertiary": {
-            "value": "{blue-70}",
+            "value": "{color.blue-70}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
             ]
           },
           "subtle": {
-            "value": "{blue-60}",
+            "value": "{color.blue-60}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
             ]
           },
           "subtlest": {
-            "value": "{blue-50}",
+            "value": "{color.blue-50}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
             ]
           },
           "minimal": {
-            "value": "{blue-40}",
+            "value": "{color.blue-40}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
@@ -2172,42 +2172,42 @@
         },
         "violet": {
           "primary": {
-            "value": "{violet-90}",
+            "value": "{color.violet-90}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
             ]
           },
           "secondary": {
-            "value": "{violet-80}",
+            "value": "{color.violet-80}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
             ]
           },
           "tertiary": {
-            "value": "{violet-70}",
+            "value": "{color.violet-70}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
             ]
           },
           "subtle": {
-            "value": "{violet-60}",
+            "value": "{color.violet-60}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
             ]
           },
           "subtlest": {
-            "value": "{violet-50}",
+            "value": "{color.violet-50}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
             ]
           },
           "minimal": {
-            "value": "{violet-40}",
+            "value": "{color.violet-40}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
@@ -2216,42 +2216,42 @@
         },
         "pink": {
           "primary": {
-            "value": "{pink-90}",
+            "value": "{color.pink-90}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
             ]
           },
           "secondary": {
-            "value": "{pink-80}",
+            "value": "{color.pink-80}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
             ]
           },
           "tertiary": {
-            "value": "{pink-70}",
+            "value": "{color.pink-70}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
             ]
           },
           "subtle": {
-            "value": "{pink-60}",
+            "value": "{color.pink-60}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
             ]
           },
           "subtlest": {
-            "value": "{pink-50}",
+            "value": "{color.pink-50}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
             ]
           },
           "minimal": {
-            "value": "{pink-40}",
+            "value": "{color.pink-40}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
@@ -2260,42 +2260,42 @@
         },
         "orange": {
           "primary": {
-            "value": "{red-orange-90}",
+            "value": "{color.red-orange-90}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
             ]
           },
           "secondary": {
-            "value": "{red-orange-80}",
+            "value": "{color.red-orange-80}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
             ]
           },
           "tertiary": {
-            "value": "{red-orange-70}",
+            "value": "{color.red-orange-70}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
             ]
           },
           "subtle": {
-            "value": "{red-orange-60}",
+            "value": "{color.red-orange-60}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
             ]
           },
           "subtlest": {
-            "value": "{red-orange-50}",
+            "value": "{color.red-orange-50}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
             ]
           },
           "minimal": {
-            "value": "{red-orange-40}",
+            "value": "{color.red-orange-40}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
@@ -2323,7 +2323,7 @@
     "logo": {
       "background": {
         "primary": {
-          "value": "{yellow-40}",
+          "value": "{color.yellow-40}",
           "type": "color",
           "scope": [
             "ALL_SCOPES"
@@ -2332,20 +2332,477 @@
       },
       "mark": {
         "primary": {
-          "value": "{neutral-90}",
+          "value": "{color.neutral-90}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         },
         "primary-fixed": {
-          "value": "{neutral-90}",
+          "value": "{color.neutral-90}",
           "type": "color.fill",
           "scope": [
             "SHAPE_FILL"
           ]
         }
       }
+    }
+  },
+  "size": {
+    "icon": {
+      "xs": {
+        "value": "{size.8}",
+        "type": "dimension",
+        "scope": [
+          "WIDTH_HEIGHT"
+        ]
+      },
+      "sm": {
+        "value": "{size.12}",
+        "type": "dimension",
+        "scope": [
+          "WIDTH_HEIGHT"
+        ]
+      },
+      "md": {
+        "value": "{size.16}",
+        "type": "dimension",
+        "scope": [
+          "WIDTH_HEIGHT"
+        ]
+      },
+      "lg": {
+        "value": "{size.24}",
+        "type": "dimension",
+        "scope": [
+          "WIDTH_HEIGHT"
+        ]
+      },
+      "2xl": {
+        "value": "{size.32}",
+        "type": "dimension",
+        "scope": [
+          "WIDTH_HEIGHT"
+        ]
+      },
+      "3xl": {
+        "value": "{size.48}",
+        "type": "dimension",
+        "scope": [
+          "WIDTH_HEIGHT"
+        ]
+      },
+      "4xl": {
+        "value": "{size.64}",
+        "type": "dimension",
+        "scope": [
+          "WIDTH_HEIGHT"
+        ]
+      }
+    }
+  },
+  "spacing": {
+    "xxs": {
+      "value": "{spacing.2}",
+      "type": "spacing",
+      "scope": [
+        "GAP"
+      ]
+    },
+    "xs": {
+      "value": "{spacing.4}",
+      "type": "spacing",
+      "scope": [
+        "GAP"
+      ]
+    },
+    "sm": {
+      "value": "{spacing.8}",
+      "type": "spacing",
+      "scope": [
+        "GAP"
+      ]
+    },
+    "md": {
+      "value": "{spacing.12}",
+      "type": "spacing",
+      "scope": [
+        "GAP"
+      ]
+    },
+    "lg": {
+      "value": "{spacing.16}",
+      "type": "spacing",
+      "scope": [
+        "GAP"
+      ]
+    },
+    "xl": {
+      "value": "{spacing.24}",
+      "type": "spacing",
+      "scope": [
+        "GAP"
+      ]
+    },
+    "2xl": {
+      "value": "{spacing.32}",
+      "type": "spacing",
+      "scope": [
+        "GAP"
+      ]
+    },
+    "3xl": {
+      "value": "{spacing.48}",
+      "type": "spacing",
+      "scope": [
+        "GAP"
+      ]
+    },
+    "4xl": {
+      "value": "{spacing.64}",
+      "type": "spacing",
+      "scope": [
+        "GAP"
+      ]
+    },
+    "5xl": {
+      "value": "{spacing.96}",
+      "type": "spacing",
+      "scope": [
+        "GAP"
+      ]
+    },
+    "6xl": {
+      "value": "{spacing.128}",
+      "type": "spacing",
+      "scope": [
+        "GAP"
+      ]
+    },
+    "7xl": {
+      "value": "{spacing.192}",
+      "type": "spacing",
+      "scope": [
+        "GAP"
+      ]
+    }
+  },
+  "font": {
+    "family": {
+      "title": {
+        "value": "Welcome Web",
+        "type": "string",
+        "scope": [
+          "ALL_SCOPES"
+        ]
+      },
+      "body": {
+        "value": "Work Sans",
+        "type": "string",
+        "scope": [
+          "ALL_SCOPES"
+        ]
+      }
+    },
+    "weight": {
+      "regular": {
+        "value": "regular",
+        "type": "string",
+        "scope": [
+          "ALL_SCOPES"
+        ]
+      },
+      "medium": {
+        "value": "medium",
+        "type": "string",
+        "scope": [
+          "ALL_SCOPES"
+        ]
+      },
+      "semi-bold": {
+        "value": "semi-bold",
+        "type": "string",
+        "scope": [
+          "ALL_SCOPES"
+        ]
+      },
+      "bold": {
+        "value": "bold",
+        "type": "string",
+        "scope": [
+          "ALL_SCOPES"
+        ]
+      },
+      "black": {
+        "value": "black",
+        "type": "string",
+        "scope": [
+          "ALL_SCOPES"
+        ]
+      }
+    },
+    "size": {
+      "xs": {
+        "value": "{font.size.12}",
+        "type": "fontSize",
+        "scope": [
+          "FONT_SIZE"
+        ]
+      },
+      "sm": {
+        "value": "{font.size.14}",
+        "type": "fontSize",
+        "scope": [
+          "FONT_SIZE"
+        ]
+      },
+      "md": {
+        "value": "{font.size.16}",
+        "type": "fontSize",
+        "scope": [
+          "FONT_SIZE"
+        ]
+      },
+      "lg": {
+        "value": "{font.size.18}",
+        "type": "fontSize",
+        "scope": [
+          "FONT_SIZE"
+        ]
+      },
+      "xl": {
+        "value": "{font.size.20}",
+        "type": "fontSize",
+        "scope": [
+          "FONT_SIZE"
+        ]
+      },
+      "2xl": {
+        "value": "{font.size.24}",
+        "type": "fontSize",
+        "scope": [
+          "FONT_SIZE"
+        ]
+      },
+      "3xl": {
+        "value": "{font.size.32}",
+        "type": "fontSize",
+        "scope": [
+          "FONT_SIZE"
+        ]
+      },
+      "4xl": {
+        "value": "{font.size.36}",
+        "type": "fontSize",
+        "scope": [
+          "FONT_SIZE"
+        ]
+      },
+      "5xl": {
+        "value": "{font.size.48}",
+        "type": "fontSize",
+        "scope": [
+          "FONT_SIZE"
+        ]
+      },
+      "6xl": {
+        "value": "{font.size.60}",
+        "type": "fontSize",
+        "scope": [
+          "FONT_SIZE"
+        ]
+      },
+      "7xl": {
+        "value": "{font.size.72}",
+        "type": "fontSize",
+        "scope": [
+          "FONT_SIZE"
+        ]
+      }
+    },
+    "line-height": {
+      "xs": {
+        "value": "120%",
+        "type": "string",
+        "scope": "global"
+      },
+      "sm": {
+        "value": "130%",
+        "type": "string",
+        "scope": "global"
+      },
+      "md": {
+        "value": "140%",
+        "type": "string",
+        "scope": "global"
+      },
+      "lg": {
+        "value": "150%",
+        "type": "string",
+        "scope": "global"
+      }
+    },
+    "letter-spacing": {
+      "none": {
+        "value": "0px",
+        "type": "lineHeight",
+        "scope": [
+          "LINE_HEIGHT"
+        ]
+      },
+      "xs": {
+        "value": "-2%",
+        "type": "string",
+        "scope": "global"
+      }
+    }
+  },
+  "border": {
+    "width": {
+      "xs": {
+        "value": "1px",
+        "type": "borderWidth",
+        "scope": [
+          "STROKE_FLOAT"
+        ]
+      },
+      "sm": {
+        "value": "2px",
+        "type": "borderWidth",
+        "scope": [
+          "STROKE_FLOAT"
+        ]
+      },
+      "md": {
+        "value": "4px",
+        "type": "borderWidth",
+        "scope": [
+          "STROKE_FLOAT"
+        ]
+      },
+      "lg": {
+        "value": "6px",
+        "type": "borderWidth",
+        "scope": [
+          "STROKE_FLOAT"
+        ]
+      }
+    },
+    "radius": {
+      "none": {
+        "value": "0px",
+        "type": "borderRadius",
+        "scope": [
+          "CORNER_RADIUS"
+        ]
+      },
+      "xs": {
+        "value": "2px",
+        "type": "borderRadius",
+        "scope": [
+          "CORNER_RADIUS"
+        ]
+      },
+      "sm": {
+        "value": "4px",
+        "type": "borderRadius",
+        "scope": [
+          "CORNER_RADIUS"
+        ]
+      },
+      "md": {
+        "value": "8px",
+        "type": "borderRadius",
+        "scope": [
+          "CORNER_RADIUS"
+        ]
+      },
+      "lg": {
+        "value": "12px",
+        "type": "borderRadius",
+        "scope": [
+          "CORNER_RADIUS"
+        ]
+      },
+      "xl": {
+        "value": "16px",
+        "type": "borderRadius",
+        "scope": [
+          "CORNER_RADIUS"
+        ]
+      },
+      "2xl": {
+        "value": "24px",
+        "type": "borderRadius",
+        "scope": [
+          "CORNER_RADIUS"
+        ]
+      },
+      "full": {
+        "value": "9999px",
+        "type": "borderRadius",
+        "scope": [
+          "CORNER_RADIUS"
+        ]
+      }
+    }
+  },
+  "breakpoint": {
+    "xs": {
+      "value": "0px",
+      "type": "dimension",
+      "scope": [
+        "WIDTH_HEIGHT"
+      ]
+    },
+    "sm": {
+      "value": "480px",
+      "type": "dimension",
+      "scope": [
+        "WIDTH_HEIGHT"
+      ]
+    },
+    "md": {
+      "value": "736px",
+      "type": "dimension",
+      "scope": [
+        "WIDTH_HEIGHT"
+      ]
+    },
+    "lg": {
+      "value": "980px",
+      "type": "dimension",
+      "scope": [
+        "WIDTH_HEIGHT"
+      ]
+    },
+    "xl": {
+      "value": "1280px",
+      "type": "dimension",
+      "scope": [
+        "WIDTH_HEIGHT"
+      ]
+    },
+    "2xl": {
+      "value": "1440px",
+      "type": "dimension",
+      "scope": [
+        "WIDTH_HEIGHT"
+      ]
+    },
+    "3xl": {
+      "value": "1620px",
+      "type": "dimension",
+      "scope": [
+        "WIDTH_HEIGHT"
+      ]
+    },
+    "4xl": {
+      "value": "1920px",
+      "type": "dimension",
+      "scope": [
+        "WIDTH_HEIGHT"
+      ]
     }
   }
 }
