@@ -1,5 +1,5 @@
 {
-  "components-colors": {
+  "components---colors-mode 1": {
     "button": {
       "color": {
         "background": {
@@ -11,7 +11,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "hover": {
                 "value": "{color.background.brand.strong}",
@@ -19,7 +24,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "pressed": {
                 "value": "{color.background.brand.secondary}",
@@ -27,7 +37,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "disabled": {
                 "value": "{color.background.neutral.minimal}",
@@ -35,7 +50,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "focused": {
                 "value": "{color.background.brand.primary}",
@@ -43,7 +63,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               }
             },
             "neutral": {
@@ -53,7 +78,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "hover": {
                 "value": "{color.background.neutral.secondary}",
@@ -61,7 +91,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "pressed": {
                 "value": "{color.background.neutral.tertiary}",
@@ -69,7 +104,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "disabled": {
                 "value": "{color.background.neutral.minimal}",
@@ -77,7 +117,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "focused": {
                 "value": "{color.background.neutral.primary}",
@@ -85,7 +130,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               }
             },
             "danger": {
@@ -95,7 +145,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "hover": {
                 "value": "{color.background.danger.stronger}",
@@ -103,7 +158,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "pressed": {
                 "value": "{color.background.danger.strong}",
@@ -111,7 +171,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "disabled": {
                 "value": "{color.background.neutral.minimal}",
@@ -119,7 +184,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "focused": {
                 "value": "{color.background.danger.strongest}",
@@ -127,7 +197,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               }
             },
             "ai": {
@@ -137,7 +212,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "hover": {
                 "value": "{color.background.neutral.inverse}",
@@ -145,7 +225,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "pressed": {
                 "value": "{color.background.neutral.minimal}",
@@ -153,7 +238,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "disabled": {
                 "value": "{color.background.neutral.minimal}",
@@ -161,7 +251,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "focused": {
                 "value": "{color.background.neutral.inverse}",
@@ -169,7 +264,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               }
             }
           },
@@ -181,7 +281,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "hover": {
                 "value": "{color.background.neutral.inverse}",
@@ -189,7 +294,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "pressed": {
                 "value": "{color.background.neutral.minimal}",
@@ -197,7 +307,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "disabled": {
                 "value": "{color.background.neutral.minimal}",
@@ -205,7 +320,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "focused": {
                 "value": "{color.background.neutral.inverse}",
@@ -213,7 +333,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               }
             },
             "danger": {
@@ -223,7 +348,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "hover": {
                 "value": "{color.background.neutral.inverse}",
@@ -231,7 +361,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "pressed": {
                 "value": "{color.border.danger.minimal}",
@@ -239,7 +374,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "disabled": {
                 "value": "{color.background.neutral.minimal}",
@@ -247,7 +387,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "focused": {
                 "value": "{color.background.neutral.inverse}",
@@ -255,7 +400,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               }
             }
           },
@@ -267,7 +417,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "hover": {
                 "value": "{color.background.transparent.black.minimal}",
@@ -275,7 +430,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "pressed": {
                 "value": "{color.background.transparent.black.subtlest}",
@@ -283,7 +443,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "disabled": {
                 "value": "{color.background.transparent.black.none}",
@@ -291,7 +456,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "focused": {
                 "value": "{color.background.transparent.black.none}",
@@ -299,7 +469,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               }
             },
             "danger": {
@@ -309,7 +484,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "hover": {
                 "value": "{color.border.danger.minimal}",
@@ -317,7 +497,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "pressed": {
                 "value": "{color.border.danger.subtle}",
@@ -325,7 +510,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "disabled": {
                 "value": "{color.background.transparent.black.none}",
@@ -333,7 +523,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "focused": {
                 "value": "{color.background.transparent.black.none}",
@@ -341,7 +536,12 @@
                 "scope": [
                   "FRAME_FILL",
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               }
             }
           }
@@ -354,35 +554,60 @@
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "hover": {
                 "value": "{color.text.neutral.primary-fixed}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "pressed": {
                 "value": "{color.text.brand.primary}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "disabled": {
                 "value": "{color.text.neutral.subtlest}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "focused": {
                 "value": "{color.text.neutral.primary-fixed}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               }
             },
             "neutral": {
@@ -391,35 +616,60 @@
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "hover": {
                 "value": "{color.text.neutral.inverse}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "pressed": {
                 "value": "{color.text.neutral.inverse}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "disabled": {
                 "value": "{color.text.neutral.subtlest}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "focused": {
                 "value": "{color.text.neutral.inverse}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               }
             },
             "danger": {
@@ -428,35 +678,60 @@
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "hover": {
                 "value": "{color.text.neutral.inverse}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "pressed": {
                 "value": "{color.text.neutral.inverse}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "disabled": {
                 "value": "{color.text.neutral.subtlest}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "focused": {
                 "value": "{color.text.neutral.inverse}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               }
             },
             "ai": {
@@ -465,35 +740,60 @@
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "hover": {
                 "value": "{color.text.neutral.secondary}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "pressed": {
                 "value": "{color.text.neutral.primary}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "disabled": {
                 "value": "{color.text.neutral.subtlest}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "focused": {
                 "value": "{color.text.neutral.primary}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               }
             }
           },
@@ -504,35 +804,60 @@
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "hover": {
                 "value": "{color.text.neutral.secondary}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "pressed": {
                 "value": "{color.text.neutral.primary}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "disabled": {
                 "value": "{color.text.neutral.subtlest}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "focused": {
                 "value": "{color.text.neutral.primary}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               }
             },
             "danger": {
@@ -541,35 +866,60 @@
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "hover": {
                 "value": "{color.text.danger.tertiary}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "pressed": {
                 "value": "{color.text.danger.secondary}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "disabled": {
                 "value": "{color.text.neutral.subtlest}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "focused": {
                 "value": "{color.text.danger.secondary}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               }
             }
           },
@@ -580,35 +930,60 @@
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "hover": {
                 "value": "{color.text.neutral.secondary}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "pressed": {
                 "value": "{color.text.neutral.primary}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "disabled": {
                 "value": "{color.text.neutral.subtlest}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "focused": {
                 "value": "{color.text.neutral.primary}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               }
             },
             "danger": {
@@ -617,35 +992,60 @@
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "hover": {
                 "value": "{color.border.danger.stronger}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "pressed": {
                 "value": "{color.text.danger.primary}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "disabled": {
                 "value": "{color.text.neutral.subtlest}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "focused": {
                 "value": "{color.border.danger.strongest}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               }
             }
           }
@@ -656,7 +1056,12 @@
             "type": "color",
             "scope": [
               "ALL_SCOPES"
-            ]
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
           },
           "secondary": {
             "main": {
@@ -665,28 +1070,48 @@
                 "type": "color.border",
                 "scope": [
                   "STROKE_COLOR"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "hover": {
                 "value": "{color.border.neutral.subtle}",
                 "type": "color.border",
                 "scope": [
                   "STROKE_COLOR"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "pressed": {
                 "value": "{color.border.neutral.subtlest}",
                 "type": "color.border",
                 "scope": [
                   "STROKE_COLOR"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "focused": {
                 "value": "{color.border.neutral.subtlest}",
                 "type": "color.border",
                 "scope": [
                   "STROKE_COLOR"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               }
             },
             "danger": {
@@ -695,28 +1120,48 @@
                 "type": "color.border",
                 "scope": [
                   "STROKE_COLOR"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "hover": {
                 "value": "{color.border.danger.stronger}",
                 "type": "color.border",
                 "scope": [
                   "STROKE_COLOR"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "pressed": {
                 "value": "{color.border.danger.secondary}",
                 "type": "color.border",
                 "scope": [
                   "STROKE_COLOR"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "focused": {
                 "value": "{color.border.danger.strongest}",
                 "type": "color.border",
                 "scope": [
                   "STROKE_COLOR"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               }
             }
           }
@@ -729,35 +1174,60 @@
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "hover": {
                 "value": "{color.icon.neutral.primary}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "pressed": {
                 "value": "{color.icon.brand.primary}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "disabled": {
                 "value": "{color.icon.neutral.subtlest}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "focused": {
                 "value": "{color.icon.neutral.primary-fixed}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               }
             },
             "neutral": {
@@ -766,35 +1236,60 @@
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "hover": {
                 "value": "{color.icon.neutral.inverse}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "pressed": {
                 "value": "{color.icon.neutral.inverse}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "disabled": {
                 "value": "{color.icon.neutral.subtlest}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "focused": {
                 "value": "{color.icon.neutral.inverse}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               }
             },
             "danger": {
@@ -803,35 +1298,60 @@
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "hover": {
                 "value": "{color.icon.neutral.inverse}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "pressed": {
                 "value": "{color.icon.neutral.inverse}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "disabled": {
                 "value": "{color.icon.neutral.subtlest}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "focused": {
                 "value": "{color.icon.neutral.inverse}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               }
             },
             "ai": {
@@ -840,35 +1360,60 @@
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "hover": {
                 "value": "{color.icon.neutral.secondary}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "pressed": {
                 "value": "{color.icon.neutral.primary}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "disabled": {
                 "value": "{color.icon.neutral.subtlest}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "focused": {
                 "value": "{color.icon.neutral.primary}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               }
             }
           },
@@ -879,35 +1424,60 @@
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "hover": {
                 "value": "{color.icon.neutral.secondary}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "pressed": {
                 "value": "{color.icon.neutral.primary}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "disabled": {
                 "value": "{color.icon.neutral.subtlest}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "focused": {
                 "value": "{color.icon.neutral.primary}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               }
             },
             "danger": {
@@ -916,35 +1486,60 @@
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "hover": {
                 "value": "{color.text.danger.tertiary}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "pressed": {
                 "value": "{color.text.danger.secondary}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "disabled": {
                 "value": "{color.icon.neutral.subtlest}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "focused": {
                 "value": "{color.text.danger.secondary}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               }
             }
           },
@@ -955,35 +1550,60 @@
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "hover": {
                 "value": "{color.icon.neutral.secondary}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "pressed": {
                 "value": "{color.icon.neutral.primary}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "disabled": {
                 "value": "{color.icon.neutral.subtlest}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "focused": {
                 "value": "{color.icon.neutral.primary}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               }
             },
             "danger": {
@@ -992,35 +1612,60 @@
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "hover": {
                 "value": "{color.border.danger.stronger}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "pressed": {
                 "value": "{color.icon.danger.primary}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "disabled": {
                 "value": "{color.icon.neutral.subtlest}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               },
               "focused": {
                 "value": "{color.icon.danger.tertiary}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
-                ]
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
               }
             }
           }
@@ -1037,7 +1682,12 @@
               "scope": [
                 "FRAME_FILL",
                 "SHAPE_FILL"
-              ]
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
             }
           },
           "secondary": {
@@ -1047,7 +1697,12 @@
               "scope": [
                 "FRAME_FILL",
                 "SHAPE_FILL"
-              ]
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
             }
           }
         },
@@ -1058,28 +1713,48 @@
               "type": "color.text",
               "scope": [
                 "TEXT_FILL"
-              ]
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
             },
             "hover": {
               "value": "{color.text.neutral.primary}",
               "type": "color.text",
               "scope": [
                 "TEXT_FILL"
-              ]
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
             },
             "visited": {
               "value": "{color.text.brand.secondary}",
               "type": "color.text",
               "scope": [
                 "TEXT_FILL"
-              ]
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
             },
             "disabled": {
               "value": "{color.text.warm.minimal}",
               "type": "color.text",
               "scope": [
                 "TEXT_FILL"
-              ]
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
             }
           },
           "secondary": {
@@ -1088,28 +1763,48 @@
               "type": "color.text",
               "scope": [
                 "TEXT_FILL"
-              ]
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
             },
             "hover": {
               "value": "{color.text.neutral.inverse}",
               "type": "color.text",
               "scope": [
                 "TEXT_FILL"
-              ]
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
             },
             "visited": {
               "value": "{color.text.neutral.tertiary}",
               "type": "color.text",
               "scope": [
                 "TEXT_FILL"
-              ]
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
             },
             "disabled": {
               "value": "{color.text.neutral.subtlest}",
               "type": "color.text",
               "scope": [
                 "TEXT_FILL"
-              ]
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
             }
           }
         },
@@ -1120,28 +1815,48 @@
               "type": "color.fill",
               "scope": [
                 "SHAPE_FILL"
-              ]
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
             },
             "hover": {
               "value": "{color.icon.neutral.primary}",
               "type": "color.fill",
               "scope": [
                 "SHAPE_FILL"
-              ]
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
             },
             "visited": {
               "value": "{color.icon.brand.secondary}",
               "type": "color.fill",
               "scope": [
                 "SHAPE_FILL"
-              ]
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
             },
             "disabled": {
               "value": "{color.icon.warm.minimal}",
               "type": "color.fill",
               "scope": [
                 "SHAPE_FILL"
-              ]
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
             }
           },
           "secondary": {
@@ -1150,28 +1865,48 @@
               "type": "color.fill",
               "scope": [
                 "SHAPE_FILL"
-              ]
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
             },
             "hover": {
               "value": "{color.icon.neutral.inverse}",
               "type": "color.fill",
               "scope": [
                 "SHAPE_FILL"
-              ]
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
             },
             "visited": {
               "value": "{color.icon.neutral.tertiary}",
               "type": "color.fill",
               "scope": [
                 "SHAPE_FILL"
-              ]
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
             },
             "disabled": {
               "value": "{color.icon.neutral.subtlest}",
               "type": "color.fill",
               "scope": [
                 "SHAPE_FILL"
-              ]
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
             }
           }
         },
@@ -1182,21 +1917,36 @@
               "type": "color.fill",
               "scope": [
                 "SHAPE_FILL"
-              ]
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
             },
             "visited": {
               "value": "{color.background.brand.subtle}",
               "type": "color.fill",
               "scope": [
                 "SHAPE_FILL"
-              ]
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
             },
             "disabled": {
               "value": "{color.background.warm.strong}",
               "type": "color.fill",
               "scope": [
                 "SHAPE_FILL"
-              ]
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
             }
           },
           "secondary": {
@@ -1205,52 +1955,82 @@
               "type": "color.fill",
               "scope": [
                 "SHAPE_FILL"
-              ]
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
             },
             "visited": {
               "value": "{color.background.neutral.subtle}",
               "type": "color.fill",
               "scope": [
                 "SHAPE_FILL"
-              ]
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
             },
             "disabled": {
               "value": "{color.background.neutral.subtlest}",
               "type": "color.fill",
               "scope": [
                 "SHAPE_FILL"
-              ]
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
             }
           }
         }
       }
     }
   },
-  "components-dimensions": {
+  "components---dimensions-mode 1": {
     "button": {
       "size": {
         "max": {
           "height": {
             "lg": {
-              "value": "43px",
+              "value": "{height.43}px",
               "type": "dimension",
               "scope": [
                 "WIDTH_HEIGHT"
-              ]
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
             },
             "md": {
-              "value": "33px",
+              "value": "{height.33}px",
               "type": "dimension",
               "scope": [
                 "WIDTH_HEIGHT"
-              ]
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
             },
             "sm": {
-              "value": "25px",
+              "value": "{height.25}px",
               "type": "dimension",
               "scope": [
                 "WIDTH_HEIGHT"
-              ]
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
             }
           }
         },
@@ -1260,94 +2040,154 @@
             "type": "dimension",
             "scope": [
               "WIDTH_HEIGHT"
-            ]
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
           },
           "md": {
             "value": "{size.icon.md}px",
             "type": "dimension",
             "scope": [
               "WIDTH_HEIGHT"
-            ]
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
           },
           "sm": {
             "value": "{size.icon.md}px",
             "type": "dimension",
             "scope": [
               "WIDTH_HEIGHT"
-            ]
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
           }
         }
       },
       "padding": {
         "inline": {
           "lg": {
-            "value": "{space.lg}px",
+            "value": "{spacing.lg}px",
             "type": "spacing",
             "scope": [
               "GAP"
-            ]
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
           },
           "md": {
-            "value": "{space.md}px",
+            "value": "{spacing.md}px",
             "type": "spacing",
             "scope": [
               "GAP"
-            ]
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
           },
           "sm": {
-            "value": "{space.sm}px",
+            "value": "{spacing.sm}px",
             "type": "spacing",
             "scope": [
               "GAP"
-            ]
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
           }
         },
         "block": {
           "lg": {
-            "value": "{space.md}px",
+            "value": "{spacing.md}px",
             "type": "spacing",
             "scope": [
               "GAP"
-            ]
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
           },
           "md": {
-            "value": "{space.sm}px",
+            "value": "{spacing.sm}px",
             "type": "spacing",
             "scope": [
               "GAP"
-            ]
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
           },
           "sm": {
-            "value": "{space.xs}px",
+            "value": "{spacing.xs}px",
             "type": "spacing",
             "scope": [
               "GAP"
-            ]
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
           }
         }
       },
       "gap": {
         "content": {
           "lg": {
-            "value": "{space.sm}px",
+            "value": "{spacing.sm}px",
             "type": "spacing",
             "scope": [
               "GAP"
-            ]
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
           },
           "md": {
-            "value": "{space.xs}px",
+            "value": "{spacing.xs}px",
             "type": "spacing",
             "scope": [
               "GAP"
-            ]
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
           },
           "sm": {
-            "value": "{space.xs}px",
+            "value": "{spacing.xs}px",
             "type": "spacing",
             "scope": [
               "GAP"
-            ]
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
           }
         }
       },
@@ -1357,7 +2197,12 @@
           "type": "float",
           "scope": [
             "ALL_SCOPES"
-          ]
+          ],
+          "$extensions": {
+            "tokens-studio": {
+              "mode": "mode 1"
+            }
+          }
         },
         "width": {
           "focused": {
@@ -1365,21 +2210,36 @@
             "type": "borderWidth",
             "scope": [
               "STROKE_FLOAT"
-            ]
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
           },
           "ai": {
             "value": "{border.width.sm}px",
             "type": "borderWidth",
             "scope": [
               "STROKE_FLOAT"
-            ]
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
           },
           "secondary": {
             "value": "{border.width.xs}px",
             "type": "borderWidth",
             "scope": [
               "STROKE_FLOAT"
-            ]
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
           }
         }
       }
@@ -1392,46 +2252,76 @@
             "type": "dimension",
             "scope": [
               "WIDTH_HEIGHT"
-            ]
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
           },
           "md": {
             "value": "{size.icon.md}px",
             "type": "dimension",
             "scope": [
               "WIDTH_HEIGHT"
-            ]
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
           },
           "sm": {
             "value": "{size.icon.md}px",
             "type": "dimension",
             "scope": [
               "WIDTH_HEIGHT"
-            ]
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
           },
           "xs": {
             "value": "{size.icon.sm}px",
             "type": "dimension",
             "scope": [
               "WIDTH_HEIGHT"
-            ]
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
           }
         }
       },
       "padding": {
         "inline": {
           "text": {
-            "value": "{space.xxs}",
+            "value": "{spacing.xxs}",
             "type": "float",
             "scope": [
               "ALL_SCOPES"
-            ]
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
           },
           "icon": {
-            "value": "{space.xxs}",
+            "value": "{spacing.xxs}",
             "type": "float",
             "scope": [
               "ALL_SCOPES"
-            ]
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
           }
         }
       },
@@ -1441,14 +2331,24 @@
           "type": "spacing",
           "scope": [
             "GAP"
-          ]
+          ],
+          "$extensions": {
+            "tokens-studio": {
+              "mode": "mode 1"
+            }
+          }
         },
         "underline": {
           "value": "-2px",
           "type": "spacing",
           "scope": [
             "GAP"
-          ]
+          ],
+          "$extensions": {
+            "tokens-studio": {
+              "mode": "mode 1"
+            }
+          }
         }
       }
     }
