@@ -137,7 +137,7 @@ export const FileDrop = forwardRef<HTMLDivElement, FileDropProps>(
         <input
           className={cx('file-input')}
           {...getInputProps({ disabled, multiple, name, onError: inputPropsOnError })}
-          // for extern validator we need to have access to this input
+          // for external validator we need to have access to this input
         />
         <div className={cx('file-preview')}>
           {children({
@@ -156,14 +156,13 @@ export const FileDrop = forwardRef<HTMLDivElement, FileDropProps>(
           {!!file && (error || isEditable || isClearable) ? (
             <div className={cx('actions')}>
               {error || isEditable ? (
-                <Button onClick={open} shape="circle" size="sm" type="button" variant="tertiary">
+                <Button onClick={open} size="sm" type="button" variant="tertiary">
                   <EditIcon />
                 </Button>
               ) : null}
               {isClearable ? (
                 <Button
                   onClick={handleRemoveClick}
-                  shape="circle"
                   size="sm"
                   type="button"
                   variant="primary-danger"
