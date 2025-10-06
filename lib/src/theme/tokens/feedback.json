@@ -1,0 +1,667 @@
+{
+  "components-colors": {
+    "duration": {
+      "color": {
+        "background": {
+          "progress": {
+            "value": "{color.background.brand.primary}",
+            "type": "color.fill",
+            "scope": [
+              "SHAPE_FILL"
+            ]
+          },
+          "bar": {
+            "value": "{color.background.transparent.black.minimal}",
+            "type": "color.fill",
+            "scope": [
+              "SHAPE_FILL"
+            ]
+          }
+        }
+      }
+    },
+    "callout": {
+      "icon": {
+        "color": {
+          "background": {
+            "brand": {
+              "value": "{color.background.brand.secondary}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL"
+              ]
+            },
+            "information": {
+              "value": "{color.background.information.secondary}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL"
+              ]
+            },
+            "warning": {
+              "value": "{color.background.warning.secondary}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL"
+              ]
+            },
+            "danger": {
+              "value": "{color.background.danger.secondary}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL"
+              ]
+            },
+            "success": {
+              "value": "{color.background.success.secondary}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL"
+              ]
+            }
+          },
+          "icon": {
+            "brand": {
+              "value": "{color.icon.brand.primary}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ]
+            },
+            "information": {
+              "value": "{color.icon.information.primary}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ]
+            },
+            "warning": {
+              "value": "{color.icon.warning.primary}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ]
+            },
+            "danger": {
+              "value": "{color.icon.danger.primary}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ]
+            },
+            "success": {
+              "value": "{color.icon.success.primary}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ]
+            },
+            "ai": {
+              "value": "{color.icon.neutral.primary-fixed}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ]
+            }
+          }
+        }
+      },
+      "color": {
+        "background": {
+          "brand": {
+            "value": "{color.background.brand.minimal}",
+            "type": "color.background",
+            "scope": [
+              "FRAME_FILL"
+            ]
+          },
+          "information": {
+            "value": "{color.background.information.minimal}",
+            "type": "color.background",
+            "scope": [
+              "FRAME_FILL"
+            ]
+          },
+          "success": {
+            "value": "{color.background.accent.green.minimal}",
+            "type": "color.background",
+            "scope": [
+              "FRAME_FILL"
+            ]
+          },
+          "warning": {
+            "value": "{color.background.warning.minimal}",
+            "type": "color.background",
+            "scope": [
+              "FRAME_FILL"
+            ]
+          },
+          "danger": {
+            "value": "{color.background.danger.minimal}",
+            "type": "color.background",
+            "scope": [
+              "FRAME_FILL"
+            ]
+          },
+          "ai": {
+            "value": "{color.background.neutral.inverse}",
+            "type": "color.background",
+            "scope": [
+              "FRAME_FILL"
+            ]
+          }
+        },
+        "text": {
+          "brand": {
+            "heading": {
+              "value": "{color.text.neutral.primary}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ]
+            },
+            "body": {
+              "value": "{color.text.brand.primary}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ]
+            }
+          },
+          "information": {
+            "heading": {
+              "value": "{color.text.neutral.primary}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ]
+            },
+            "body": {
+              "value": "{color.text.information.primary}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ]
+            }
+          },
+          "success": {
+            "heading": {
+              "value": "{color.text.neutral.primary}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ]
+            },
+            "body": {
+              "value": "{color.text.success.primary}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ]
+            }
+          },
+          "warning": {
+            "heading": {
+              "value": "{color.text.neutral.primary}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ]
+            },
+            "body": {
+              "value": "{color.text.warning.primary}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ]
+            }
+          },
+          "danger": {
+            "heading": {
+              "value": "{color.text.neutral.primary}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ]
+            },
+            "body": {
+              "value": "{color.text.danger.primary}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ]
+            }
+          },
+          "ai": {
+            "heading": {
+              "value": "{color.text.neutral.primary}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ]
+            },
+            "body": {
+              "value": "{color.text.neutral.secondary}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "growl": {
+      "icon": {
+        "color": {
+          "background": {
+            "information": {
+              "value": "{color.background.information.minimal}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL"
+              ]
+            },
+            "success": {
+              "value": "{color.background.success.minimal}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL"
+              ]
+            },
+            "warning": {
+              "value": "{color.background.warning.minimal}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL"
+              ]
+            },
+            "error": {
+              "value": "{color.background.danger.minimal}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL"
+              ]
+            }
+          },
+          "icon": {
+            "information": {
+              "value": "{color.icon.information.tertiary}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ]
+            },
+            "warning": {
+              "value": "{color.icon.warning.tertiary}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ]
+            },
+            "error": {
+              "value": "{color.icon.danger.tertiary}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ]
+            },
+            "success": {
+              "value": "{color.icon.success.tertiary}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ]
+            }
+          }
+        }
+      },
+      "color": {
+        "background": {
+          "default": {
+            "value": "{color.background.neutral.inverse}",
+            "type": "color.background",
+            "scope": [
+              "FRAME_FILL"
+            ]
+          }
+        },
+        "text": {
+          "heading": {
+            "value": "{color.text.neutral.primary}",
+            "type": "color.text",
+            "scope": [
+              "TEXT_FILL"
+            ]
+          },
+          "body": {
+            "value": "{color.text.neutral.secondary}",
+            "type": "color.text",
+            "scope": [
+              "TEXT_FILL"
+            ]
+          }
+        },
+        "border": {
+          "default": {
+            "value": "{color.border.warm.subtle}",
+            "type": "color.border",
+            "scope": [
+              "STROKE_COLOR"
+            ]
+          },
+          "hover": {
+            "value": "{color.border.warm.tertiary}",
+            "type": "color.border",
+            "scope": [
+              "STROKE_COLOR"
+            ]
+          }
+        },
+        "icon": {
+          "default": {
+            "value": "{color.icon.neutral.minimal}",
+            "type": "color.fill",
+            "scope": [
+              "SHAPE_FILL"
+            ]
+          },
+          "hover": {
+            "value": "{color.icon.neutral.primary}",
+            "type": "color.fill",
+            "scope": [
+              "SHAPE_FILL"
+            ]
+          }
+        }
+      }
+    },
+    "tooltip": {
+      "color": {
+        "background": {
+          "value": "{color.background.neutral.secondary}",
+          "type": "color.background",
+          "scope": [
+            "FRAME_FILL",
+            "SHAPE_FILL"
+          ]
+        },
+        "border": {
+          "value": "{color.border.neutral.subtle}",
+          "type": "color.border",
+          "scope": [
+            "STROKE_COLOR"
+          ]
+        },
+        "text": {
+          "value": "{color.text.neutral.inverse}",
+          "type": "color.text",
+          "scope": [
+            "TEXT_FILL"
+          ]
+        }
+      }
+    },
+    "sticky-note": {
+      "color": {
+        "border": {
+          "default": {
+            "value": "{color.border.transparent.black.minimal}",
+            "type": "color.border",
+            "scope": [
+              "STROKE_COLOR"
+            ]
+          }
+        },
+        "text": {
+          "title": {
+            "value": "{color.text.neutral.primary}",
+            "type": "color.text",
+            "scope": [
+              "TEXT_FILL"
+            ]
+          },
+          "body": {
+            "pink": {
+              "value": "{color.text.accent.pink.primary}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "components-dimensions": {
+    "callout": {
+      "icon": {
+        "padding": {
+          "inline": {
+            "value": "{spacing.xs}",
+            "type": "spacing",
+            "scope": [
+              "GAP"
+            ]
+          },
+          "block": {
+            "value": "{spacing.xs}",
+            "type": "spacing",
+            "scope": [
+              "GAP"
+            ]
+          }
+        },
+        "border": {
+          "radius": {
+            "value": "{border.radius.md}",
+            "type": "borderRadius",
+            "scope": [
+              "CORNER_RADIUS"
+            ]
+          }
+        }
+      },
+      "border": {
+        "radius": {
+          "value": "{border.radius.md}",
+          "type": "float",
+          "scope": [
+            "ALL_SCOPES"
+          ]
+        }
+      },
+      "gap": {
+        "content": {
+          "sm": {
+            "value": "{spacing.sm}",
+            "type": "spacing",
+            "scope": [
+              "GAP"
+            ]
+          },
+          "md": {
+            "value": "{spacing.md}",
+            "type": "spacing",
+            "scope": [
+              "GAP"
+            ]
+          }
+        },
+        "actions": {
+          "sm": {
+            "value": "{spacing.sm}",
+            "type": "spacing",
+            "scope": [
+              "GAP"
+            ]
+          },
+          "md": {
+            "value": "{spacing.md}",
+            "type": "spacing",
+            "scope": [
+              "GAP"
+            ]
+          }
+        }
+      },
+      "padding": {
+        "inline": {
+          "sm": {
+            "value": "{spacing.lg}",
+            "type": "spacing",
+            "scope": [
+              "GAP"
+            ]
+          },
+          "md": {
+            "value": "{spacing.2xl}",
+            "type": "spacing",
+            "scope": [
+              "GAP"
+            ]
+          }
+        },
+        "block": {
+          "sm": {
+            "value": "{spacing.lg}",
+            "type": "spacing",
+            "scope": [
+              "GAP"
+            ]
+          },
+          "md": {
+            "value": "{spacing.2xl}",
+            "type": "spacing",
+            "scope": [
+              "GAP"
+            ]
+          }
+        }
+      }
+    },
+    "growl": {
+      "icon": {
+        "size": {
+          "icon": {
+            "value": "{size.icon.lg}",
+            "type": "dimension",
+            "scope": [
+              "WIDTH_HEIGHT"
+            ]
+          }
+        },
+        "padding": {
+          "inline": {
+            "value": "{spacing.sm}",
+            "type": "spacing",
+            "scope": [
+              "GAP"
+            ]
+          },
+          "block": {
+            "value": "{spacing.sm}",
+            "type": "spacing",
+            "scope": [
+              "GAP"
+            ]
+          }
+        },
+        "border": {
+          "radius": {
+            "value": "{border.radius.xl}",
+            "type": "borderRadius",
+            "scope": [
+              "CORNER_RADIUS"
+            ]
+          }
+        }
+      },
+      "size": {
+        "icon": {
+          "value": "{size.icon.lg}",
+          "type": "dimension",
+          "scope": [
+            "WIDTH_HEIGHT"
+          ]
+        }
+      },
+      "border": {
+        "radius": {
+          "value": "{border.radius.lg}",
+          "type": "borderRadius",
+          "scope": [
+            "CORNER_RADIUS"
+          ]
+        },
+        "width": {
+          "value": "{border.width.xs}",
+          "type": "borderWidth",
+          "scope": [
+            "STROKE_FLOAT"
+          ]
+        }
+      },
+      "padding": {
+        "inline": {
+          "value": "{spacing.lg}",
+          "type": "spacing",
+          "scope": [
+            "GAP"
+          ]
+        },
+        "block": {
+          "value": "{spacing.lg}",
+          "type": "spacing",
+          "scope": [
+            "GAP"
+          ]
+        }
+      },
+      "gap": {
+        "content": {
+          "value": "{spacing.lg}",
+          "type": "spacing",
+          "scope": [
+            "GAP"
+          ]
+        }
+      }
+    },
+    "tooltip": {
+      "border": {
+        "radius": {
+          "value": "{border.radius.md}",
+          "type": "borderRadius",
+          "scope": [
+            "CORNER_RADIUS"
+          ]
+        },
+        "width": {
+          "value": "{border.width.xs}",
+          "type": "borderWidth",
+          "scope": [
+            "STROKE_FLOAT"
+          ]
+        }
+      },
+      "padding": {
+        "inline": {
+          "value": "{spacing.md}",
+          "type": "spacing",
+          "scope": [
+            "GAP"
+          ]
+        },
+        "block": {
+          "value": "{spacing.sm}",
+          "type": "spacing",
+          "scope": [
+            "GAP"
+          ]
+        }
+      }
+    }
+  }
+}
