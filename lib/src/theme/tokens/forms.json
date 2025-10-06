@@ -638,14 +638,14 @@
     "field": {
       "gap": {
         "label": {
-          "value": "{space.sm}px",
+          "value": "{spacing.sm}",
           "type": "spacing",
           "scope": [
             "GAP"
           ]
         },
         "assistive": {
-          "value": "{space.xs}px",
+          "value": "{spacing.xs}",
           "type": "spacing",
           "scope": [
             "GAP"
@@ -656,14 +656,14 @@
     "label": {
       "size": {
         "leading": {
-          "value": "{size.icon.md}px",
+          "value": "{size.icon.md}",
           "type": "dimension",
           "scope": [
             "WIDTH_HEIGHT"
           ]
         },
         "required": {
-          "value": "{size.icon.sm}px",
+          "value": "{size.icon.sm}",
           "type": "dimension",
           "scope": [
             "WIDTH_HEIGHT"
@@ -672,7 +672,7 @@
       },
       "gap": {
         "content": {
-          "value": "{space.xs}px",
+          "value": "{spacing.xs}",
           "type": "spacing",
           "scope": [
             "GAP"
@@ -709,21 +709,21 @@
       "padding": {
         "inline": {
           "lg": {
-            "value": "{space.md}px",
+            "value": "{spacing.md}",
             "type": "spacing",
             "scope": [
               "GAP"
             ]
           },
           "md": {
-            "value": "{space.md}px",
+            "value": "{spacing.md}",
             "type": "spacing",
             "scope": [
               "GAP"
             ]
           },
           "sm": {
-            "value": "{space.sm}px",
+            "value": "{spacing.sm}",
             "type": "spacing",
             "scope": [
               "GAP"
@@ -732,21 +732,21 @@
         },
         "block": {
           "lg": {
-            "value": "{space.md}px",
+            "value": "{spacing.md}",
             "type": "spacing",
             "scope": [
               "GAP"
             ]
           },
           "md": {
-            "value": "{space.sm}px",
+            "value": "{spacing.sm}",
             "type": "spacing",
             "scope": [
               "GAP"
             ]
           },
           "sm": {
-            "value": "{space.xs}px",
+            "value": "{spacing.xs}",
             "type": "spacing",
             "scope": [
               "GAP"
@@ -780,14 +780,14 @@
       "border": {
         "width": {
           "default": {
-            "value": "{border.width.xs}px",
+            "value": "{border.width.xs}",
             "type": "borderWidth",
             "scope": [
               "STROKE_FLOAT"
             ]
           },
           "focused": {
-            "value": "{border.width.sm}px",
+            "value": "{border.width.sm}",
             "type": "borderWidth",
             "scope": [
               "STROKE_FLOAT"
@@ -795,7 +795,7 @@
           }
         },
         "radius": {
-          "value": "{border.radius.md}px",
+          "value": "{border.radius.md}",
           "type": "borderRadius",
           "scope": [
             "CORNER_RADIUS"
@@ -804,7 +804,7 @@
       },
       "gap": {
         "content": {
-          "value": "{space.sm}px",
+          "value": "{spacing.sm}",
           "type": "spacing",
           "scope": [
             "GAP"
@@ -815,14 +815,14 @@
     "checkbox": {
       "size": {
         "container": {
-          "value": "16px",
+          "value": "{size.16}",
           "type": "dimension",
           "scope": [
             "WIDTH_HEIGHT"
           ]
         },
         "icon": {
-          "value": "{size.icon.md}px",
+          "value": "{size.icon.md}",
           "type": "dimension",
           "scope": [
             "WIDTH_HEIGHT"
@@ -832,7 +832,7 @@
       "border": {
         "width": {
           "focused": {
-            "value": "{border.width.sm}px",
+            "value": "{border.width.sm}",
             "type": "borderWidth",
             "scope": [
               "STROKE_FLOAT"
@@ -840,7 +840,7 @@
           }
         },
         "radius": {
-          "value": "{border.radius.sm}px",
+          "value": "{border.radius.sm}",
           "type": "borderRadius",
           "scope": [
             "CORNER_RADIUS"
@@ -850,7 +850,7 @@
     },
     "radio": {
       "size": {
-        "value": "16px",
+        "value": "{size.16}",
         "type": "dimension",
         "scope": [
           "WIDTH_HEIGHT"
@@ -858,7 +858,7 @@
       },
       "border": {
         "radius": {
-          "value": "{border.radius.full}px",
+          "value": "{border.radius.full}",
           "type": "borderRadius",
           "scope": [
             "CORNER_RADIUS"
@@ -866,21 +866,21 @@
         },
         "width": {
           "unchecked": {
-            "value": "{border.width.xs}px",
+            "value": "{border.width.xs}",
             "type": "borderWidth",
             "scope": [
               "STROKE_FLOAT"
             ]
           },
           "checked": {
-            "value": "{border.width.sm}px",
+            "value": "{border.width.sm}",
             "type": "borderWidth",
             "scope": [
               "STROKE_FLOAT"
             ]
           },
           "focused": {
-            "value": "{border.width.sm}px",
+            "value": "{border.width.sm}",
             "type": "borderWidth",
             "scope": [
               "STROKE_FLOAT"
@@ -890,7 +890,7 @@
       },
       "indicator": {
         "size": {
-          "value": "8px",
+          "value": "{size.8}",
           "type": "dimension",
           "scope": [
             "WIDTH_HEIGHT"
@@ -898,7 +898,7 @@
         },
         "border": {
           "radius": {
-            "value": "{border.radius.full}px",
+            "value": "{border.radius.full}",
             "type": "borderRadius",
             "scope": [
               "CORNER_RADIUS"
@@ -912,21 +912,21 @@
         "size": {
           "height": {
             "lg": {
-              "value": "24px",
+              "value": "{height.24}",
               "type": "dimension",
               "scope": [
                 "WIDTH_HEIGHT"
               ]
             },
             "md": {
-              "value": "20px",
+              "value": "{height.20}",
               "type": "dimension",
               "scope": [
                 "WIDTH_HEIGHT"
               ]
             },
             "sm": {
-              "value": "16px",
+              "value": "{height.16}",
               "type": "dimension",
               "scope": [
                 "WIDTH_HEIGHT"
@@ -935,21 +935,21 @@
           },
           "width": {
             "lg": {
-              "value": "44px",
+              "value": "{width.44}",
               "type": "dimension",
               "scope": [
                 "WIDTH_HEIGHT"
               ]
             },
             "md": {
-              "value": "36px",
+              "value": "{width.36}",
               "type": "dimension",
               "scope": [
                 "WIDTH_HEIGHT"
               ]
             },
             "sm": {
-              "value": "28px",
+              "value": "{width.28}",
               "type": "dimension",
               "scope": [
                 "WIDTH_HEIGHT"
@@ -958,21 +958,21 @@
           },
           "icon": {
             "lg": {
-              "value": "{size.icon.xs}px",
+              "value": "{size.icon.xs}",
               "type": "dimension",
               "scope": [
                 "WIDTH_HEIGHT"
               ]
             },
             "md": {
-              "value": "{size.icon.sm}px",
+              "value": "{size.icon.sm}",
               "type": "dimension",
               "scope": [
                 "WIDTH_HEIGHT"
               ]
             },
             "sm": {
-              "value": "{size.icon.md}px",
+              "value": "{size.icon.md}",
               "type": "dimension",
               "scope": [
                 "WIDTH_HEIGHT"
@@ -982,7 +982,7 @@
         },
         "border": {
           "radius": {
-            "value": "{border.radius.full}px",
+            "value": "{border.radius.full}",
             "type": "borderRadius",
             "scope": [
               "CORNER_RADIUS"
@@ -990,7 +990,7 @@
           },
           "width": {
             "focused": {
-              "value": "{border.width.sm}px",
+              "value": "{border.width.sm}",
               "type": "borderWidth",
               "scope": [
                 "STROKE_FLOAT"
@@ -1002,21 +1002,21 @@
       "thumb": {
         "size": {
           "lg": {
-            "value": "20px",
+            "value": "{size.20}",
             "type": "dimension",
             "scope": [
               "WIDTH_HEIGHT"
             ]
           },
           "md": {
-            "value": "16px",
+            "value": "{size.16}",
             "type": "dimension",
             "scope": [
               "WIDTH_HEIGHT"
             ]
           },
           "sm": {
-            "value": "12px",
+            "value": "{size.12}",
             "type": "dimension",
             "scope": [
               "WIDTH_HEIGHT"
@@ -1025,7 +1025,7 @@
         },
         "border": {
           "width": {
-            "value": "{border.width.xs}px",
+            "value": "{border.width.xs}",
             "type": "borderWidth",
             "scope": [
               "STROKE_FLOAT"
