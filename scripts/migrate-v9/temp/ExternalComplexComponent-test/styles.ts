@@ -1,12 +1,12 @@
 import styled, { css, th } from '@xstyled/styled-components'
+import { Box } from 'welcome-ui/Box'
 import { Link } from 'welcome-ui/Link'
+import { OrganizationLogo, OrganizationName } from 'welcome-ui/Link'
 
 const TOPNAV_HEIGHT = '60px'
 
 // Mock Box component for testing
-const Box = 'div'
-const OrganizationLogo = styled.div``
-const OrganizationName = styled.div``
+// const Box = 'div'
 
 type Variant = 'primary' | 'secondary'
 

@@ -55,26 +55,24 @@ export async function migrate(dir, copyDir = true) {
     traverse(ast, {
       VariableDeclaration(path) {
         path.node.declarations.forEach(decl => {
-          console.debug(decl)
           // Extract CSS template literals for mixins (AST-based approach)
           extractCssTemplateLiteralsAst(decl, extractedMixins)
 
           if (decl.init && isStyledComponent(decl.init)) {
             const compName = decl.id.name
-            let tag = getStyledTag(decl.init)
+            let { as, tag, variant } = getStyledTag(decl.init)
             tag = stripBox(tag)
-            stylesMap[compName] = tag
+            stylesMap[compName] = { as, tag, variant }
           }
         })
       },
     })
-    const scss = migrateStylesTsToScss(stylesTs, extractedMixins)
+
+    let scss = migrateStylesTsToScss(stylesTs, extractedMixins)
     try {
       // Format SCSS with stylelint and prettier
-      const formatted = await formatScssContent(scss, stylesScss)
-      fs.writeFileSync(stylesScss, formatted, 'utf8')
-    } catch (e) {
-      console.warn('SCSS formatting failed:', e)
+      scss = await formatScssContent(scss, stylesScss)
+    } finally {
       fs.writeFileSync(stylesScss, scss, 'utf8')
     }
 
@@ -278,13 +276,21 @@ function getHtmlTagFromComponent(componentName) {
     Aside: 'aside',
     Box: 'div',
     Footer: 'footer',
+    h1: 'Text',
+    h2: 'Text',
+    h3: 'Text',
+    h4: 'Text',
+    h5: 'Text',
+    h6: 'Text',
     Header: 'header',
     Image: 'img',
     Input: 'input',
+    Link: 'Link',
     List: 'ul',
     ListItem: 'li',
     Main: 'main',
     Nav: 'nav',
+    p: 'Text',
     Section: 'section',
   }
 
@@ -296,13 +302,17 @@ function getHtmlTagFromComponent(componentName) {
  * Handles various patterns and defaults to 'div'
  */
 function getStyledTag(node) {
+  let tagName
+  let as
+
   // Pattern 1: styled.div`` -> 'div'
   if (
     node.type === 'TaggedTemplateExpression' &&
     node.tag.type === 'MemberExpression' &&
     node.tag.object.name === 'styled'
   ) {
-    return node.tag.property.name
+    tagName = node.tag.property.name
+    as = tagName
   }
 
   // Pattern 2: styled(Box)`` -> 'div' (Box component becomes div)
@@ -314,7 +324,7 @@ function getStyledTag(node) {
     const arg = node.tag.arguments[0]
     if (arg.type === 'Identifier') {
       // For known components like Box, return appropriate HTML tag
-      return getHtmlTagFromComponent(arg.name)
+      tagName = arg.name
     }
   }
 
@@ -327,11 +337,11 @@ function getStyledTag(node) {
   ) {
     const arg = node.callee.tag.arguments[0]
     if (arg.type === 'Identifier') {
-      return getHtmlTagFromComponent(arg.name)
+      tagName = arg.name
     }
   }
 
-  return 'div' // Default fallback
+  return { as, tag: getHtmlTagFromComponent(tagName) || 'div' } // Default fallback
 }
 
 /**
@@ -439,7 +449,7 @@ async function migrateComponentFile(componentPath, stylesMap) {
         path.node.openingElement.name.object.name === 'S'
       ) {
         const compName = path.node.openingElement.name.property.name
-        const tag = stylesMap[compName] || 'div'
+        const { as, tag, variant } = stylesMap[compName] || 'div'
         const className = camelToKebab(compName)
 
         // Process props and convert them appropriately
@@ -459,11 +469,18 @@ async function migrateComponentFile(componentPath, stylesMap) {
           })
         }
 
+        // Add as if available
+        const asNode = as && {
+          name: { name: 'as', type: 'JSXIdentifier' },
+          type: 'JSXAttribute',
+          value: { type: 'StringLiteral', value: as },
+        }
+
         // Replace <S.MyElement ...> with <tag ...>
         path.node.openingElement.name = { name: tag, type: 'JSXIdentifier' }
 
         // Replace all attributes with processed ones
-        path.node.openingElement.attributes = newAttributes
+        path.node.openingElement.attributes = [...newAttributes, asNode].filter(Boolean)
 
         // Replace closing tag
         if (path.node.closingElement) {
