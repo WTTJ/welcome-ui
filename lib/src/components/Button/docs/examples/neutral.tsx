@@ -3,7 +3,7 @@ import { Button } from '@/components/Button'
 const Example = () => {
   return (
     <>
-      <Button variant="primary-ai">primary-ai</Button>
+      <Button variant="primary-neutral">primary-neutral</Button>
     </>
   )
 }

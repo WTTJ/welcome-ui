@@ -41,7 +41,7 @@ const AlertComponent = forwardRef<HTMLDivElement, AlertProps>(
         if (child.type === AlertSecondaryButton) {
           return cloneElement<ButtonProps>(child, {
             size,
-            variant: withAiButton ? 'tertiary-ai' : undefined,
+            variant: withAiButton ? 'primary-ai' : undefined,
           })
         }
 
