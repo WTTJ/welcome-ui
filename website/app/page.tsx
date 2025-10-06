@@ -23,7 +23,7 @@ const Home = () => {
         </Text>
         <Text className="max-w-[640px]" variant="lg">
           Welcome UI is a customizable design system library made with react, typescript,
-          taiwindcss, ariakit and a lot of love 💛
+          tailwindcss, ariakit and a lot of love 💛
         </Text>
         <Button as={NextLink} className="mt-3xl" href="/foundations/getting-started" size="lg">
           <span>Install amazing components</span>

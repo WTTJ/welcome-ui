@@ -16,6 +16,7 @@
     height: calc(100% - 1px);
     position: absolute;
     left: 0;
+    top: 1px;
     background-color: transparent;
     transition: background-color var(--transition-medium);
   }
@@ -23,6 +24,7 @@
   &[aria-current='page'] {
     padding-left: var(--spacing-sm);
     color: var(--color-neutral-90);
+    font-weight: var(--font-weight-bold);
 
     &::before {
       background-color: var(--color-brand-40);

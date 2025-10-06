@@ -15,8 +15,8 @@ import { Search } from '../Search'
 import { Sidebar } from '../Sidebar'
 import { VersionSelector } from '../VersionSelector'
 
+import styles from './link.module.scss'
 import { NavBar } from './NavBar'
-import styles from './styles.scss'
 
 const cx = classNames(styles)
 

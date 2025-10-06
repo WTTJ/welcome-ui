@@ -1,6 +1,6 @@
 {
   "name": "main",
-  "description": "Customizable design system with react, typescript, taiwindcss and ariakit.",
+  "description": "Customizable design system with react, typescript, tailwindcss and ariakit.",
   "scripts": {
     "build": "yarn workspace welcome-ui run build",
     "build:website": "yarn workspace website install && yarn workspace website build",
@@ -9,7 +9,7 @@
     "check:docs": "node ./scripts/check-docs.mjs",
     "check:theme": "node --import=tsx lib/src/theme/generate-theme.ts",
     "icons": "node scripts/icons-optimize.mjs && node scripts/icons-collect.mjs && yarn eslint --fix",
-    "lint:css": "stylelint 'lib/src/**/*.css' ",
+    "lint:css": "stylelint '**/*.{css,scss}'",
     "lint:js": "eslint scripts lib website --max-warnings 0",
     "lint:mdx": "prettier --parser mdx --write '**/docs/index.mdx'",
     "lint:ts": "yarn workspaces run tsc --noEmit",
@@ -34,12 +34,13 @@
     "url": "git+https://github.com/WTTJ/welcome-ui.git"
   },
   "keywords": [
-    "design-system",
     "react",
-    "ariakit",
+    "typescript",
     "tailwindcss",
     "scss",
     "css",
+    "ariakit",
+    "design-system",
     "ui-library",
     "ui",
     "ux",
@@ -90,8 +91,8 @@
     "react-router-dom": "7.5.2",
     "sass-embedded": "^1.90.0",
     "standard-version": "9.5.0",
-    "stylelint": "^16.18.0",
-    "stylelint-config-recommended": "^16.0.0",
+    "stylelint": "^16.25.0",
+    "stylelint-config-standard-scss": "^16.0.0",
     "svgo": "^3.0.1",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.44.1",
@@ -102,7 +103,6 @@
     "brace-expansion": "^2.0.2"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.13",
     "tailwindcss": "^4.1.11"
   },
   "packageManager": "yarn@1.22.22"

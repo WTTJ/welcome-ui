@@ -9,7 +9,7 @@ import { classNames } from '@/utils'
 import type { PageTree } from '~/build-app/types'
 import { getName } from '~/build-app/utils/transform-name'
 
-import styles from './styles.scss'
+import styles from './sidebar.module.scss'
 
 const cx = classNames(styles)
 

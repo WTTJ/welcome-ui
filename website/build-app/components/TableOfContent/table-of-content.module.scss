@@ -21,7 +21,7 @@
 
   &:hover,
   &:focus {
-    color: var(--color-neutral-40);
+    color: var(--color-neutral-90);
   }
 
   &::before {
@@ -35,8 +35,11 @@
   }
 
   &[aria-current='page'] {
-    color: var(--color-neutral-40);
-    border-bottom-color:var(--color-brand-40) &::before {
+    color: var(--color-neutral-90);
+    font-weight: var(--font-weight-bold);
+    border-bottom-color: var(--color-brand-40);
+
+    &::before {
       background-color: var(--color-brand-40);
     }
   }

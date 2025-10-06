@@ -7,7 +7,7 @@ import { classNames } from '@/utils'
 
 import type { Toc } from '~/build-app/utils/page-tree'
 
-import styles from './styles.scss'
+import styles from './table-of-content.module.scss'
 
 const cx = classNames(styles)
 

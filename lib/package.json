@@ -1,7 +1,7 @@
 {
   "name": "welcome-ui",
   "version": "9.0.0-alpha.1",
-  "description": "Customizable design system with react, typescript, taiwindcss and ariakit.",
+  "description": "Customizable design system with react, typescript, tailwindcss and ariakit.",
   "files": [
     "dist"
   ],
@@ -37,15 +37,17 @@
     "url": "git+https://github.com/WTTJ/welcome-ui.git"
   },
   "keywords": [
-    "design-system",
     "react",
-    "ariakit",
+    "typescript",
     "tailwindcss",
     "scss",
     "css",
+    "ariakit",
+    "design-system",
     "ui-library",
     "ui",
     "ux",
+    "jungle",
     "welcome",
     "WTTJ"
   ],
@@ -72,6 +74,7 @@
     "react-hot-toast": "^2.6.0"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.1.13",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.8.0",
     "@testing-library/react": "^16.2.0",

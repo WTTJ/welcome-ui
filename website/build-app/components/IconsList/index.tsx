@@ -8,6 +8,7 @@ import { Text } from '@/components/Text'
 import { Toast, toast } from '@/components/Toast'
 import { classNames } from '@/utils'
 
+import styles from './icon-list.styles.scss'
 import {
   actions,
   arrows,
@@ -22,7 +23,6 @@ import {
   welcome,
   wtf,
 } from './icons'
-import styles from './styles.scss'
 
 const cx = classNames(styles)
 
@@ -48,9 +48,9 @@ const handleClickToCopy = (componentName: string) => {
   navigator.clipboard.writeText(component)
 
   toast(
-    <Toast.Snackbar>
+    <Toast.Snackbar variant="success">
       <p>
-        <b>{component}</b> copied to your clipboard
+        <b>{component}</b> copied
       </p>
     </Toast.Snackbar>,
     { position: 'bottom-center' }
