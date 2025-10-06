@@ -3,10 +3,14 @@ type Variant = 'primary' | 'secondary'
 export const ComplexComponent = ({ variant = 'primary' }: { variant?: Variant }) => {
   return (
     <div className="wrapper" style={wrapperStyle}>
-      <div className="card elevated">
-        <h3 className="title display-detail">Complex component</h3>
+      <Link className="card elevated">
+        <Text className="title display-detail" as="h3">
+          Complex component
+        </Text>
+      </Link>
+      <div className="trigger-button is-active is-expanded" as="buttonBox">
+        Toggle
       </div>
-      <button className="trigger-button is-active is-expanded">Toggle</button>
     </div>
   )
 }

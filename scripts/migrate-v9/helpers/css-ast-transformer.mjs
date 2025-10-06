@@ -24,6 +24,7 @@ export function extractCssTemplateLiteralsAst(astNode, mixins = new Map()) {
       })
 
       console.log(`🎯 AST: Extracted mixin '${mixinName}' from variable '${variableName}'`)
+      console.debug('extractCssTemplateLiteralsAst', mixins)
     }
   }
 
@@ -163,31 +164,6 @@ function camelToKebab(str) {
   return str.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()
 }
 
-/**
- * Clean up the generated CSS
- */
-/**
- * Transform theme tokens in CSS values to CSS variables
- * Examples:
- *   'padding: lg;' → 'padding: var(--spacing-lg);'
- *   'color: primary-500;' → 'color: var(--color-primary-500);'
- */
-function transformCssThemeTokens(css) {
-  // Transform spacing tokens (xs, sm, md, lg, xl, xxl, 3xl)
-  const spacingTokens = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl', '3xl']
-  spacingTokens.forEach(token => {
-    // Match token as CSS value (preceded by : or space, followed by ; or space)
-    const regex = new RegExp(`(:\\s*|\\s+)${token}(\\s*[;}]|\\s+)`, 'g')
-    css = css.replace(regex, `$1var(--spacing-${token})$2`)
-  })
-
-  // Transform color tokens (pattern: word-number like primary-500, secondary-100)
-  const colorTokenRegex = /(:\s*|\s+)([a-z]+-\d+)(\s*[;}]|\s+)/g
-  css = css.replace(colorTokenRegex, '$1var(--color-$2)$3')
-
-  return css
-}
-
 function cleanupCss(css) {
   // Step 1: Transform theme tokens in CSS values
   css = transformCssThemeTokens(css)
@@ -241,6 +217,40 @@ function createMigrationComment(content) {
   } else {
     // Single line or simple expression
     return `/* WUI V9 TO MIGRATE */\n/* ${content} */`
+  }
+}
+
+/**
+ * Extract a value from an AST node without generating migration comments
+ */
+function extractAstNodeValue(node) {
+  switch (node.type) {
+    case 'CallExpression':
+      if (node.callee?.name === 'th') {
+        return transformThemeFunction(node)
+      }
+      return `/* ${node.callee?.name || 'unknown'}() call */`
+    case 'Identifier':
+      return node.name
+
+    case 'Literal':
+
+    case 'NumericLiteral':
+      return String(node.value !== undefined ? node.value : '')
+
+    case 'MemberExpression': {
+      const object = extractAstNodeValue(node.object)
+      const property = node.computed
+        ? `[${extractAstNodeValue(node.property)}]`
+        : `.${node.property.name}`
+      return `${object}${property}`
+    }
+
+    case 'StringLiteral':
+      return `'${node.value}'`
+
+    default:
+      return `/* ${node.type} needs manual review */`
   }
 }
 
@@ -388,59 +398,6 @@ function transformArrowFunction(node, mixins) {
 }
 
 /**
- * Extract a value from an AST node without generating migration comments
- */
-function extractAstNodeValue(node) {
-  switch (node.type) {
-    case 'NumericLiteral':
-    case 'Literal':
-      return String(node.value !== undefined ? node.value : '')
-
-    case 'CallExpression':
-      if (node.callee?.name === 'th') {
-        return transformThemeFunction(node)
-      }
-      return `/* ${node.callee?.name || 'unknown'}() call */`
-
-    case 'StringLiteral':
-      return `'${node.value}'`
-
-    case 'Identifier':
-      return node.name
-
-    case 'MemberExpression': {
-      const object = extractAstNodeValue(node.object)
-      const property = node.computed
-        ? `[${extractAstNodeValue(node.property)}]`
-        : `.${node.property.name}`
-      return `${object}${property}`
-    }
-
-    default:
-      return `/* ${node.type} needs manual review */`
-  }
-}
-
-/**
- * Transform conditional arrow functions to CSS variables
- */
-function transformConditionalArrowFunction(node) {
-  const conditional = node.body
-  const propName = conditional.test.property.name
-
-  // Extract values using pure AST operations
-  const consequent = extractAstNodeValue(conditional.consequent)
-  const alternate = extractAstNodeValue(conditional.alternate)
-  const testExpression = extractAstNodeValue(conditional.test)
-
-  // Create CSS variable approach
-  const variableName = `--${camelToKebab(propName)}`
-  const result = `var(${variableName}) /* ${testExpression} ? ${consequent} : ${alternate} */`
-
-  return result
-}
-
-/**
  * Rule: Transform function calls based on function name
  *
  * AST Node: CallExpression { callee: Identifier, arguments: [...] }
@@ -461,6 +418,25 @@ function transformCallExpression(node) {
 
   // Rule 3: Unknown function calls
   return createMigrationComment(`${functionName}()`)
+}
+
+/**
+ * Transform conditional arrow functions to CSS variables
+ */
+function transformConditionalArrowFunction(node) {
+  const conditional = node.body
+  const propName = conditional.test.property.name
+
+  // Extract values using pure AST operations
+  const consequent = extractAstNodeValue(conditional.consequent)
+  const alternate = extractAstNodeValue(conditional.alternate)
+  const testExpression = extractAstNodeValue(conditional.test)
+
+  // Create CSS variable approach
+  const variableName = `--${camelToKebab(propName)}`
+  const result = `var(${variableName}) /* ${testExpression} ? ${consequent} : ${alternate} */`
+
+  return result
 }
 
 /**
@@ -495,6 +471,31 @@ function transformConditionalExpression(node) {
 
   // Fallback: Create migration comment for complex conditionals
   return createMigrationComment(`\${${formatConditionalForComment(node)}}`)
+}
+
+/**
+ * Clean up the generated CSS
+ */
+/**
+ * Transform theme tokens in CSS values to CSS variables
+ * Examples:
+ *   'padding: lg;' → 'padding: var(--spacing-lg);'
+ *   'color: primary-500;' → 'color: var(--color-primary-500);'
+ */
+function transformCssThemeTokens(css) {
+  // Transform spacing tokens (xs, sm, md, lg, xl, xxl, 3xl)
+  const spacingTokens = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl', '3xl']
+  spacingTokens.forEach(token => {
+    // Match token as CSS value (preceded by : or space, followed by ; or space)
+    const regex = new RegExp(`(:\\s*|\\s+)${token}(\\s*[;}]|\\s+)`, 'g')
+    css = css.replace(regex, `$1var(--spacing-${token})$2`)
+  })
+
+  // Transform color tokens (pattern: word-number like primary-500, secondary-100)
+  const colorTokenRegex = /(:\s*|\s+)([a-z]+-\d+)(\s*[;}]|\s+)/g
+  css = css.replace(colorTokenRegex, '$1var(--color-$2)$3')
+
+  return css
 }
 
 /**

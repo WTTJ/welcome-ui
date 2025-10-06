@@ -57,11 +57,18 @@
     ${OrganizationName} {
       color: var(--color-beige-80);
     }
-    */;
-    &:active {
-      &.is-active {
-        @include trigger-active-styles;
-      };
+    */
+
+    {
+      color: var(--color-beige-80);
     }
+  }
+
+  &.is-active {
+    @include trigger-active-styles;
+  };
+
+  &:active {
     @include trigger-active-styles;
   }
+}
