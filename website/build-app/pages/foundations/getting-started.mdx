@@ -5,120 +5,17 @@
 Install the `welcome-ui` package and **peer dependencies** listed below:
 
 ```bash
-yarn add welcome-ui @xstyled/styled-components@^3.7.3 react@^18.0.0 styled-components@^5.3.9
+yarn add welcome-ui react@^18.0.0 tailwindcss@^4.1.11
 ```
 
-### 2. Set up the Provider
+### 2. TODO
 
-Use the `<WuiProvider />` at the root of your application to set the theme and styled components for your project
-
-```tsx
-import React from 'react'
-import { createTheme } from 'welcome-ui/theme'
-import { WuiProvider } from 'welcome-ui/WuiProvider'
-import { Button } from 'welcome-ui/Button'
-
-const theme = createTheme()
-
-export default function Root() {
-  return (
-    <WuiProvider theme={theme}>
-      <Button variant="secondary">Welcome!</Button>
-    </WuiProvider>
-  )
-}
-```
-
-#### WuiProvider Props
-
-```properties
-{
-  "": {
-    "props": {
-      "children": {
-        "description": "",
-        "required": true,
-        "type": { "name": "node" }
-      },
-      "hasGlobalStyle": {
-        "defaultValue": { "value": "true", "computed": false },
-        "description": "Will inject our global style with normalize and fonts",
-        "required": false,
-        "type": { "name": "bool" }
-      },
-      "reactRootId": {
-        "defaultValue": { "value": "root" },
-        "description": "Id of your react root",
-        "required": false,
-        "type": { "name": "string" }
-      },
-      "shouldHideFocusRingOnClick": {
-        "defaultValue": { "value": "true", "computed": false },
-        "description": "It hides the focus ring on mouse move, click or on keydown. (explanation below)",
-        "required": false,
-        "type": { "name": "bool" }
-      },
-      "theme": {
-        "description": "Your custom theme from createTheme()",
-        "required": true,
-        "type": { "name": "object" }
-      },
-      "useReset": {
-        "defaultValue": { "value": "false", "computed": false },
-        "description": "Will inject our global style with https://meyerweb.com/eric/tools/css/reset/ reset.",
-        "required": false,
-        "type": { "name": "bool" }
-      }
-    }
-  }
-}
-```
-
-## Hide Focus Ring
-
-WuiProvider takes a `shouldHideFocusRingOnClick` prop which defaults to `true`. It hides the focus ring on mouse move, click or on keydown.
-
-It only adds styles to remove the outline on focus. If you need to remove another css property, you have to write your own styles using the data-attribute `hideFocusRingsDataAttribute`.
-
-⚠️ Troubleshooting
-
-If it doesn't work for you, check that the id of your react root is set to `root`. If you have another id (nextjs uses `__next`), just use the `reactRootId` prop on `WuiProvider` to change it:
-
-```tsx
-<WuiProvider
-  theme={theme}
-  hasGlobalStyle
-  reactRootId="__next"
->
-  {your app}
-</WuiProvider>
-```
+TODO: how to add on project
 
 ## Typescript
 
 Install needed types:
 
 ```bash
-yarn add @types/react-dom @types/styled-components
-```
-
-In order to get your theme object typed with our theme, you have to override the default theme by adding this in a "styled.d.ts" file at the root of your project:
-
-```tsx
-// styled.d.ts
-import 'styled-components'
-import '@xstyled/styled-components'
-import { ThemeValues } from 'welcome-ui/theme'
-
-interface AppTheme extends ThemeValues {
-  // customize your theme
-}
-
-declare module '@xstyled/styled-components' {
-  export interface Theme extends AppTheme {}
-}
-
-declare module 'styled-components' {
-  export interface DefaultTheme extends AppTheme {}
-}
+yarn add @types/react-dom
 ```
