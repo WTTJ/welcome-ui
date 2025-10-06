@@ -66,8 +66,8 @@ export const FileDrop = forwardRef<HTMLDivElement, FileDropProps>(
       setError(null)
 
       const event = createEvent({ name, value: file })
-      onChange && onChange(event)
-      handleAddFile && handleAddFile(event)
+      onChange?.(event)
+      handleAddFile?.(event)
     }
 
     const handleDropRejected = (fileRejections: FileRejection[], event: DropEvent) => {
@@ -89,9 +89,9 @@ export const FileDrop = forwardRef<HTMLDivElement, FileDropProps>(
       setFile(null)
       setError(errorMessage)
 
-      onError && onError(errorMessage)
-      onChange && onChange(event)
-      onBlur && onBlur() // Trigger field touch
+      onError?.(errorMessage)
+      onChange?.(event)
+      onBlur?.() // Trigger field touch
     }
 
     const handleRemoveClick = (e: React.MouseEvent) => {
@@ -100,8 +100,8 @@ export const FileDrop = forwardRef<HTMLDivElement, FileDropProps>(
       setError(null)
 
       const event = createEvent({ name, value: null })
-      onChange && onChange(event)
-      handleRemoveFile && handleRemoveFile(event)
+      onChange?.(event)
+      handleRemoveFile?.(event)
     }
 
     const { getInputProps, getRootProps, isDragAccept, isDragActive, isDragReject, open } =

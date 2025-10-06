@@ -29,7 +29,7 @@ export const getPreviewUrl = (file: FileDropChildren['file']): FileDropChildren[
   if (typeof window !== 'undefined') {
     try {
       return new URL(url)
-    } catch (error) {
+    } catch {
       return undefined
     }
   }

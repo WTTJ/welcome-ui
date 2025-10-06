@@ -1,6 +1,25 @@
 {
   "Card.Cover": {
     "props": {
+      "alt": {
+        "defaultValue": null,
+        "description": "",
+        "name": "alt",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Card/types.ts",
+          "name": "CoverOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Card/types.ts",
+            "name": "CoverOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "string"
+        }
+      },
       "src": {
         "defaultValue": null,
         "description": "",

@@ -5,6 +5,12 @@
     overflow: hidden;
     border-top-left-radius: var(--radius-2xl);
     border-top-right-radius: var(--radius-2xl);
+
+    /* Needed to override the default height set in drawer.module.scss */
+    /* Uses 'class contains root' because root gets prefixed */
+    &[class*='root'] {
+      height: calc(100% - 3rem);
+    }
   }
 
   .content-wrapper {
