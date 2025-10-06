@@ -3,9 +3,8 @@ import { Button } from '@/components/Button'
 const Example = () => {
   return (
     <>
-      <Button size="xs">X-Small</Button>
       <Button size="sm">Small</Button>
-      <Button>Medium</Button>
+      <Button size="md">Medium</Button>
       <Button size="lg">Large</Button>
     </>
   )

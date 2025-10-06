@@ -19,8 +19,7 @@ export const Button = forwardRefWithAs<ButtonProps, 'button'>(
       className = '',
       disabled = false,
       isLoading = false,
-      shape = 'default',
-      size: propSize = 'md',
+      size: propSize = 'lg',
       variant: propVariant = 'primary',
       ...rest
     },
@@ -29,8 +28,8 @@ export const Button = forwardRefWithAs<ButtonProps, 'button'>(
     const { disabled: groupDisabled, size: groupSize, variant: groupVariant } = useButtonGroup()
 
     const isDisabled = groupDisabled || disabled || isLoading
-    // some variants like 'disabled' preprend over the others
-    const variant = (isDisabled && 'disabled') || groupVariant || propVariant
+
+    const variant = groupVariant || propVariant
 
     const size = groupSize || propSize
 
@@ -41,13 +40,7 @@ export const Button = forwardRefWithAs<ButtonProps, 'button'>(
         {...(Element === 'button' ? { type: 'button' } : {})}
         {...rest}
         accessibleWhenDisabled={accessibleWhenDisabled}
-        className={cx(
-          'root',
-          variant && `variant-${variant}`,
-          shape && `shape-${shape}`,
-          size && `size-${size}`,
-          className
-        )}
+        className={cx('root', variant && `variant-${variant}`, size && `size-${size}`, className)}
         disabled={isDisabled}
         ref={ref}
         render={as ? <Element /> : undefined}

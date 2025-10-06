@@ -28,7 +28,7 @@ const Example = () => {
           <Icon className="mr-sm" size="lg" />
           {name}
           {size ? <div className="text-beige-60">({size})</div> : null}
-          <Button className="ml-xxl" onClick={onRemove} shape="square" size="sm" variant="ghost">
+          <Button className="ml-xxl" onClick={onRemove} size="sm" variant="tertiary">
             <CrossIcon />
           </Button>
         </Tag>

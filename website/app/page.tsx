@@ -125,7 +125,7 @@ const Home = () => {
             rel="noopener nofollow"
             size="lg"
             target="_blank"
-            variant="ghost"
+            variant="tertiary"
           >
             <span>Visit our website</span>
             <RightIcon size="lg" />

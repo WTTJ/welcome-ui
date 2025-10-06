@@ -56,13 +56,7 @@ export const Header = ({ components, foundations }: HeaderProps) => {
           <VersionSelector />
           <Search />
         </div>
-        <Drawer.Trigger
-          as={Button}
-          className="lg:hidden shrink-0"
-          shape="circle"
-          size="sm"
-          store={drawer}
-        >
+        <Drawer.Trigger as={Button} className="lg:hidden shrink-0" size="sm" store={drawer}>
           <MenuIcon />
         </Drawer.Trigger>
         <NavBar className="hidden lg:flex" />

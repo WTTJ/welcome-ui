@@ -21,7 +21,7 @@ export const Header = ({
     <div className={cx('asset-drawer-header', className)}>
       <div className={cx('back-button')}>
         {!!onBackButtonClick && (
-          <Button onClick={onBackButtonClick} shape="circle" size="lg" variant="ghost">
+          <Button onClick={onBackButtonClick} size="lg" variant="tertiary">
             <ArrowLeftIcon />
           </Button>
         )}

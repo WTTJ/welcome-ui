@@ -7,7 +7,7 @@ const cx = classNames(modalStyles)
 
 export const CloseButton = ({ children, ...rest }: ButtonProps) => {
   return (
-    <Button className={cx('close-button')} shape="circle" variant="secondary" {...rest}>
+    <Button className={cx('close-button')} variant="primary-neutral" {...rest}>
       {children}
     </Button>
   )
