@@ -13,9 +13,8 @@ export const ToggleButton = ({ isHidden, onClick, ...rest }: ToggleButtonProps) 
       aria-controls="password"
       aria-expanded={!isHidden}
       onClick={onClick}
-      shape="circle"
       size="xs"
-      variant="ghost"
+      variant="tertiary"
       {...rest}
     >
       {isHidden ? <ShowIcon /> : <HideIcon />}

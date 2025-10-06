@@ -278,9 +278,8 @@ export const Swiper = ({ children, className, store, ...rest }: SwiperProps) => 
         )}
         disabled={!showLeftArrow}
         onClick={goPrev}
-        shape="circle"
         size={navigationSize}
-        variant={withDarkUI ? 'secondary' : 'ghost'}
+        variant={withDarkUI ? 'primary-neutral' : 'tertiary'}
       >
         <LeftIcon />
       </Button>
@@ -295,9 +294,8 @@ export const Swiper = ({ children, className, store, ...rest }: SwiperProps) => 
         )}
         disabled={!showRightArrow}
         onClick={goNext}
-        shape="circle"
         size={navigationSize}
-        variant={withDarkUI ? 'secondary' : 'ghost'}
+        variant={withDarkUI ? 'primary-neutral' : 'tertiary'}
       >
         <RightIcon />
       </Button>
