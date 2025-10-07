@@ -140,12 +140,12 @@
           padding-box,
         linear-gradient(
             to top right,
-            var(--red-orange-40),
-            var(--pink-40),
-            var(--violet-40),
-            var(--blue-40),
-            var(--teal-40),
-            var(--green-30)
+            var(--color-red-orange-40),
+            var(--color-pink-40),
+            var(--color-violet-40),
+            var(--color-blue-40),
+            var(--color-teal-40),
+            var(--color-green-30)
           )
           border-box;
       --buttonBackgroundActive:
@@ -153,12 +153,12 @@
           padding-box,
         linear-gradient(
             to top right,
-            var(--red-orange-40),
-            var(--pink-40),
-            var(--violet-40),
-            var(--blue-40),
-            var(--teal-40),
-            var(--green-30)
+            var(--color-red-orange-40),
+            var(--color-pink-40),
+            var(--color-violet-40),
+            var(--color-blue-40),
+            var(--color-teal-40),
+            var(--color-green-30)
           )
           border-box;
       --buttonBackgroundHover:
@@ -166,12 +166,12 @@
           padding-box,
         linear-gradient(
             to top right,
-            var(--red-orange-40),
-            var(--pink-40),
-            var(--violet-40),
-            var(--blue-40),
-            var(--teal-40),
-            var(--green-30)
+            var(--color-red-orange-40),
+            var(--color-pink-40),
+            var(--color-violet-40),
+            var(--color-blue-40),
+            var(--color-teal-40),
+            var(--color-green-30)
           )
           border-box;
       --buttonBackgroundDisabled:
@@ -185,12 +185,12 @@
           padding-box,
         linear-gradient(
             to top right,
-            var(--red-orange-40),
-            var(--pink-40),
-            var(--violet-40),
-            var(--blue-40),
-            var(--teal-40),
-            var(--green-30)
+            var(--color-red-orange-40),
+            var(--color-pink-40),
+            var(--color-violet-40),
+            var(--color-blue-40),
+            var(--color-teal-40),
+            var(--color-green-30)
           )
           border-box;
       --buttonBorderWidth: var(--components-dimensions-button-border-width-ai);
