@@ -2,8 +2,8 @@
 
 @layer components {
   .root {
-    background-color: var(--color-neutral-10);
-    border: var(--border-width-sm) solid var(--color-neutral-30);
+    background-color: var(--color-background-neutral-inverse-fixed);
+    border: var(--border-width-xs) solid var(--color-background-neutral-subtlest);
     z-index: 999;
 
     position: fixed;
@@ -106,7 +106,7 @@
 
   .content {
     flex: 1;
-    padding: var(--spacing-xl);
+    padding: var(--border-radius-2xl);
 
     @media screen and (min-width: breakpoints.$breakpoint-md) {
       overflow-y: auto;
@@ -119,7 +119,7 @@
     z-index: 1;
     width: 100%;
     background-color: var(--color-neutral-0);
-    padding: var(--spacing-xl);
+    padding: var(--border-radius-2xl);
 
     @media screen and (min-width: breakpoints.$breakpoint-md) {
       bottom: auto;
@@ -136,15 +136,15 @@
     top: 0;
     width: 100%;
 
-    background-color: var(--color-neutral-10);
+    background-color: var(--color-background-neutral-inverse-fixed);
     margin: 0;
-    padding: var(--spacing-xl) var(--spacing-5xl) var(--spacing-xl) var(--spacing-xl);
+    padding: var(--border-radius-2xl) var(--spacing-96) var(--border-radius-2xl) var(--border-radius-2xl);
   }
 
   .drawer-close {
     position: absolute;
-    right: var(--spacing-lg);
-    top: var(--spacing-lg);
+    right: var(--border-radius-xl);
+    top: var(--border-radius-xl);
     z-index: 10;
   }
 }

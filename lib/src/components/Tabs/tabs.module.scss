@@ -2,48 +2,48 @@
   .root {
     border: 0;
     background: none;
-    color: var(--tabs-color, var(--color-neutral-70));
+    color: var(--tabs-color, var(--color-background-neutral-tertiary));
     font-weight: var(--font-weight-medium);
-    line-height: var(--line-height-md);
+    line-height: var(--font-size-lg);
     text-decoration: none;
     display: flex;
     align-items: center;
     flex: none;
-    padding: var(--spacing-md) 0;
+    padding: var(--components-dimensions-tab-padding-inline-md) 0;
     transition: var(--transition-medium);
     text-transform: none;
     cursor: pointer;
-    gap: var(--spacing-sm);
+    gap: var(--components-dimensions-tab-padding-block-md);
 
     &:focus {
       outline: none !important; /* important for firefox */
 
       &:not([aria-selected='true']) {
-        --tabs-color: var(--color-neutral-90);
+        --tabs-color: var(--components-colors-tab-color-text-unchecked-pressed);
       }
     }
 
     &[aria-selected='true'] {
-      --tabs-color: var(--color-neutral-90);
+      --tabs-color: var(--components-colors-tab-color-text-unchecked-pressed);
     }
 
     &[aria-disabled='true'] {
-      --tabs-color: var(--color-neutral-60);
+      --tabs-color: var(--color-icon-neutral-subtle);
       cursor: not-allowed;
     }
 
     &:hover:not([aria-selected='true']):not([aria-disabled='true']) {
-      --tabs-color: var(--color-neutral-90);
+      --tabs-color: var(--components-colors-tab-color-text-unchecked-pressed);
     }
 
     & > svg,
     img {
-      max-height: var(--spacing-lg);
-      max-width: var(--spacing-lg);
+      max-height: var(--components-dimensions-tab-padding-inline-lg);
+      max-width: var(--components-dimensions-tab-padding-inline-lg);
     }
 
     & > span {
-      max-height: var(--spacing-lg);
+      max-height: var(--components-dimensions-tab-padding-inline-lg);
     }
   }
 }

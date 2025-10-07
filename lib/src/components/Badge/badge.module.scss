@@ -2,12 +2,12 @@
   .root {
     /* VARIABLES FROM THEME - DONT CHANGE WITH REACT PROPS */
     align-items: center;
-    border-radius: var(--radius-xl);
+    border-radius: var(--components-dimensions-badge-size-max-height-md);
     display: inline-flex;
-    font-size: var(--font-size-xs);
+    font-size: var(--border-radius-lg);
     font-weight: var(--font-weight-medium);
     justify-content: center;
-    line-height: var(--line-height-xs);
+    line-height: var(--font-size-sm);
 
     /* VARIABLES THAT CHANGE WITH REACT PROPS */
     background-color: var(--backgroundColor);
@@ -19,47 +19,47 @@
 
   .disabled {
     &-default {
-      --backgroundColor: var(--color-beige-20);
-      --color: var(--color-beige-40);
+      --backgroundColor: var(--color-background-warm-primary);
+      --color: var(--color-background-warm-stronger);
     }
 
     &-primary {
-      --backgroundColor: var(--color-brand-50);
-      --color: var(--color-brand-80);
+      --backgroundColor: var(--color-background-brand-strong);
+      --color: var(--color-icon-brand-secondary);
     }
   }
 
   .rounded {
     &-md {
-      --width: var(--height-20);
+      --width: var(--components-dimensions-badge-size-max-height-lg);
     }
 
     &-sm {
-      --width: var(--height-16);
+      --width: var(--components-dimensions-badge-size-max-height-md);
     }
   }
 
   .size {
     &-md {
-      --height: var(--height-20);
-      --padding: var(--spacing-xs);
+      --height: var(--components-dimensions-badge-size-max-height-lg);
+      --padding: var(--components-dimensions-badge-padding-inline-md);
     }
 
     &-sm {
-      --height: var(--height-16);
-      --padding: var(--spacing-xxs);
+      --height: var(--components-dimensions-badge-size-max-height-md);
+      --padding: var(--components-dimensions-badge-padding-block-md);
     }
   }
 
   .variant {
     &-default {
-      --backgroundColor: var(--color-beige-30);
-      --color: var(--color-beige-70);
+      --backgroundColor: var(--components-colors-badge-color-background-warm);
+      --color: var(--color-icon-warm-tertiary);
     }
 
     &-primary {
-      --backgroundColor: var(--color-brand-40);
-      --color: var(--color-neutral-90);
+      --backgroundColor: var(--components-colors-badge-color-background-brand);
+      --color: var(--components-colors-badge-color-background-neutral);
     }
   }
 }

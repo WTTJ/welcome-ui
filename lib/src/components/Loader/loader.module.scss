@@ -36,29 +36,29 @@
 
   .size {
     &-xs {
-      --size: var(--height-8);
+      --size: var(--border-radius-md);
     }
 
     &-sm {
-      --size: var(--height-elements-xxs);
+      --size: var(--border-radius-lg);
     }
 
     &-md {
-      --size: var(--height-elements-xs);
+      --size: var(--border-radius-xl);
     }
 
     &-lg {
-      --size: var(--height-20);
+      --size: var(--font-size-xl);
     }
   }
 
   .variant {
     &-primary {
-      --color: var(--color-brand-40);
+      --color: var(--color-background-brand-primary);
     }
 
     &-neutral {
-      --color: var(--color-neutral-90);
+      --color: var(--color-background-neutral-primary-fixed);
     }
 
     &-violet {

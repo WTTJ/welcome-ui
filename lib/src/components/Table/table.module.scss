@@ -14,7 +14,7 @@
       border: 0;
 
       td {
-        padding: var(--spacing-xl);
+        padding: var(--components-dimensions-tab-size-icon-lg);
         text-align: left;
 
         &:first-child {
@@ -27,11 +27,11 @@
       }
 
       th {
-        border-bottom: var(--border-width-sm) solid var(--color-neutral-90);
-        color: var(--color-neutral-60);
-        font-weight: var(--font-weight-500);
+        border-bottom: var(--components-dimensions-tab-border-width-unchecked) solid var(--components-colors-tab-color-text-unchecked-pressed);
+        color: var(--color-icon-neutral-subtle);
+        font-weight: var(--font-weight-medium);
         text-align: left;
-        padding: var(--spacing-xl);
+        padding: var(--components-dimensions-tab-size-icon-lg);
         vertical-align: middle;
 
         &:first-child {
@@ -44,7 +44,7 @@
       }
 
       tr {
-        border-bottom: var(--border-width-sm) solid var(--color-neutral-30);
+        border-bottom: var(--components-dimensions-tab-border-width-unchecked) solid var(--color-background-neutral-subtlest);
         background-color: var(--trBackgroundColor, 'transparent');
         color: var(--trColor, 'inherit');
         transition: background-color var(--duration-medium) ease-in-out;
@@ -57,29 +57,29 @@
           cursor: pointer;
 
           &:hover {
-            background-color: var(--color-beige-10);
+            background-color: var(--color-background-warm-minimal);
           }
         }
 
         &.variant {
           &-danger {
-            --trBackgroundColor: var(--color-red-10);
-            --trColor: var(--color-red-70);
+            --trBackgroundColor: var(--color-background-danger-minimal);
+            --trColor: var(--color-background-danger-strongest);
           }
 
           &-warning {
-            --trBackgroundColor: var(--color-orange-10);
-            --trColor: var(--color-orange-80);
+            --trBackgroundColor: var(--color-background-warning-minimal);
+            --trColor: var(--color-icon-warning-secondary);
           }
 
           &-success {
             --trBackgroundColor: var(--color-green-10);
-            --trColor: var(--color-green-70);
+            --trColor: var(--color-icon-accent-green-tertiary);
           }
 
           &-info {
-            --trBackgroundColor: var(--color-blue-10);
-            --trColor: var(--color-blue-70);
+            --trBackgroundColor: var(--color-background-accent-blue-minimal);
+            --trColor: var(--color-background-accent-blue-strongest);
           }
         }
       }
@@ -91,11 +91,11 @@
       td,
       th {
         &:first-child {
-          padding-left: var(--spacing-xl);
+          padding-left: var(--components-dimensions-tab-size-icon-lg);
         }
 
         &:last-child {
-          padding-right: var(--spacing-xl);
+          padding-right: var(--components-dimensions-tab-size-icon-lg);
         }
       }
     }

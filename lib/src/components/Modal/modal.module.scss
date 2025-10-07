@@ -3,16 +3,16 @@
 
 @layer components {
   .root {
-    background-color: var(--color-neutral-10);
-    border-color: var(--color-neutral-30);
+    background-color: var(--color-background-neutral-inverse-fixed);
+    border-color: var(--color-background-neutral-subtlest);
     border-style: solid;
-    border-width: var(--border-width-sm);
+    border-width: var(--border-width-xs);
     z-index: 999;
-    border-radius: var(--radius-md);
+    border-radius: var(--border-radius-sm);
     position: fixed;
     inset: 0;
     margin: auto;
-    margin-top: var(--spacing-xl);
+    margin-top: var(--border-radius-2xl);
     top: 50%;
     transform: translate3d(0, -50%, 0);
     display: flex;
@@ -36,7 +36,7 @@
 
     @media (min-width: breakpoints.$breakpoint-md) {
       height: fit-content;
-      max-height: calc(2 * var(--spacing-xl) + 100vh);
+      max-height: calc(2 * var(--border-radius-2xl) + 100vh);
       width: var(--dialog-width);
     }
 
@@ -45,7 +45,7 @@
     &:has(.body):not(:has(.footer)),
     &:has(.footer):not(:has(.body)) {
       .header {
-        padding-bottom: var(--spacing-lg);
+        padding-bottom: var(--border-radius-xl);
       }
     }
 
@@ -53,23 +53,23 @@
     /* if the Modal have a Footer */
     &:has(.footer) {
       .body {
-        padding-bottom: var(--spacing-lg);
+        padding-bottom: var(--border-radius-xl);
       }
       /* AND if the Modal have a Header */
       &:has(.header) .body {
-        padding-right: var(--spacing-xxl);
+        padding-right: var(--size-icon-2xl);
       }
     }
 
     /* Styles the Footer */
     /* if the Modal is scrollable */
     &.scrollable .footer {
-      border-top-width: var(--border-width-sm);
+      border-top-width: var(--border-width-xs);
     }
 
     /* if the Modal has a Footer, but no Header and no Body */
     &:not(:has(.header)):not(:has(.body)) .footer {
-      padding-top: var(--spacing-lg);
+      padding-top: var(--border-radius-xl);
     }
     /* Styles the close button */
     /* if the Modal has a Header, hide the Content's close button */
@@ -124,8 +124,8 @@
 
   .close {
     position: sticky;
-    top: var(--spacing-lg);
-    left: calc(100% - var(--spacing-lg) - var(--height-elements-md));
+    top: var(--border-radius-xl);
+    left: calc(100% - var(--border-radius-xl) - var(--size-icon-2xl));
     z-index: 1;
   }
 
@@ -137,41 +137,41 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: var(--color-neutral-10);
-    border-top-left-radius: var(--radius-md);
-    border-top-right-radius: var(--radius-md);
-    padding-bottom: var(--spacing-xxl);
-    padding-left: var(--spacing-xxl);
-    padding-right: var(--spacing-3xl);
-    padding-top: var(--spacing-xxl);
+    background-color: var(--color-background-neutral-inverse-fixed);
+    border-top-left-radius: var(--border-radius-sm);
+    border-top-right-radius: var(--border-radius-sm);
+    padding-bottom: var(--size-icon-2xl);
+    padding-left: var(--size-icon-2xl);
+    padding-right: var(--size-icon-3xl);
+    padding-top: var(--size-icon-2xl);
 
     &:has(> .header-subtitle) .header-title {
-      margin-bottom: var(--spacing-lg);
+      margin-bottom: var(--border-radius-xl);
     }
 
     &.icon {
       align-items: center;
       .header-title {
-        margin-top: var(--spacing-xl);
+        margin-top: var(--border-radius-2xl);
       }
     }
 
     .close {
       position: absolute;
-      right: var(--spacing-lg);
+      right: var(--border-radius-xl);
     }
   }
 
   .header-subtitle {
-    color: var(--color-neutral-70);
+    color: var(--color-background-neutral-tertiary);
     margin: 0;
   }
 
   .body {
-    color: var(--color-neutral-90);
-    padding-left: var(--spacing-xxl);
-    padding-right: var(--spacing-3xl);
-    padding-bottom: var(--spacing-xxl);
+    color: var(--color-background-neutral-primary-fixed);
+    padding-left: var(--size-icon-2xl);
+    padding-right: var(--size-icon-3xl);
+    padding-bottom: var(--size-icon-2xl);
   }
 
   .footer {
@@ -180,34 +180,34 @@
     width: 100%;
     flex-shrink: 0;
     z-index: 1;
-    background-color: var(--color-neutral-10);
-    border-bottom-left-radius: var(--radius-md);
-    border-bottom-right-radius: var(--radius-md);
-    border-top: 0 solid var(--color-neutral-30);
+    background-color: var(--color-background-neutral-inverse-fixed);
+    border-bottom-left-radius: var(--border-radius-sm);
+    border-bottom-right-radius: var(--border-radius-sm);
+    border-top: 0 solid var(--color-background-neutral-subtlest);
   }
 
   .footer-children-wrapper {
-    padding-bottom: var(--spacing-xl);
-    padding-top: var(--spacing-lg);
-    padding-inline: var(--spacing-xxl);
+    padding-bottom: var(--border-radius-2xl);
+    padding-top: var(--border-radius-xl);
+    padding-inline: var(--size-icon-2xl);
   }
 
   .footer-information {
-    background-color: var(--color-beige-20);
-    padding-bottom: var(--spacing-xxl);
-    padding-left: var(--spacing-xxl);
-    padding-right: var(--spacing-xxl);
-    padding-top: var(--spacing-xl);
+    background-color: var(--color-background-warm-primary);
+    padding-bottom: var(--size-icon-2xl);
+    padding-left: var(--size-icon-2xl);
+    padding-right: var(--size-icon-2xl);
+    padding-top: var(--border-radius-2xl);
   }
 
   .footer-information-title {
-    color: var(--color-neutral-90);
-    font-weight: var(--font-weight-bold);
+    color: var(--color-background-neutral-primary-fixed);
+    font-weight: var(--font-weight-semi-bold);
   }
 
   .footer-information-subtitle {
-    color: var(--color-neutral-90);
-    margin-bottom: (var(--spacing-0));
-    margin-top: var(--spacing-md);
+    color: var(--color-background-neutral-primary-fixed);
+    margin-bottom: (var(--font-letter-spacing-none));
+    margin-top: var(--border-radius-lg);
   }
 }
