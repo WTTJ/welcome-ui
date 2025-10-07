@@ -18,8 +18,14 @@
     color: var(--components-colors-checkbox-color-icon-default);
 
     /* VARIABLES THAT CHANGE WITH REACT PROPS */
-    background-color: var(--backgroundColor, var(--components-colors-checkbox-color-background-unchecked-default));
-    border-color: var(--borderColor, var(--components-colors-checkbox-color-border-unchecked-default));
+    background-color: var(
+      --backgroundColor,
+      var(--components-colors-checkbox-color-background-unchecked-default)
+    );
+    border-color: var(
+      --borderColor,
+      var(--components-colors-checkbox-color-border-unchecked-default)
+    );
 
     &::after {
       background-color: var(--afterBackgroundColor);
@@ -43,12 +49,18 @@
     }
 
     &:not([disabled]):hover {
-      --borderColor: var(--borderColorHover, var(--components-colors-checkbox-color-border-unchecked-hover));
+      --borderColor: var(
+        --borderColorHover,
+        var(--components-colors-checkbox-color-border-unchecked-hover)
+      );
     }
 
     &[data-focus-visible],
     &:focus-visible {
-      --borderColor: var(--borderColorFocused, var(--components-colors-checkbox-color-background-checked-default));
+      --borderColor: var(
+        --borderColorFocused,
+        var(--components-colors-checkbox-color-background-checked-default)
+      );
       outline-color: var(--outlineColorFocus, var(--color-background-brand-subtle));
     }
 

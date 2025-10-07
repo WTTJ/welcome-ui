@@ -15,7 +15,7 @@
     visibility: var(--visibility, hidden);
     opacity: var(--opacity, 0);
 
-    &[data-enter="true"] {
+    &[data-enter='true'] {
       --visibility: visible;
       --opacity: 1;
     }
