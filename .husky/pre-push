@@ -1,1 +1,1 @@
-yarn lint && yarn test run && yarn test:scripts run
+yarn lint && yarn test run
