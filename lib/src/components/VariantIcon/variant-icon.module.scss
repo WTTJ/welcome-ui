@@ -5,7 +5,7 @@
     align-self: center;
 
     /* VARIABLES THAT CHANGE WITH REACT PROPS */
-    color: var(--color, var(--color-neutral-60));
+    color: var(--color, var(--color-icon-neutral-subtle));
   }
 
   .variant {
@@ -14,19 +14,19 @@
     }
 
     &-danger {
-      --color: var(--color-red-70);
+      --color: var(--color-background-danger-strongest);
     }
 
     &-info {
-      --color: var(--color-blue-60);
+      --color: var(--color-background-accent-blue-stronger);
     }
 
     &-success {
-      --color: var(--color-green-60);
+      --color: var(--color-background-accent-green-strongest);
     }
 
     &-warning {
-      --color: var(--color-orange-60);
+      --color: var(--color-background-warning-stronger);
     }
   }
 }

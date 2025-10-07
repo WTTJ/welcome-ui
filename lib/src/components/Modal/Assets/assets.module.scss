@@ -22,7 +22,7 @@
   }
 
   .asset-backdrop {
-    background-color: color-mix(in oklab, var(--color-neutral-90) 90%, transparent);
+    background-color: color-mix(in oklab, var(--color-background-neutral-primary-fixed) 90%, transparent);
     z-index: 999;
     position: fixed;
     top: 0;
@@ -61,23 +61,23 @@
 
     display: flex;
     flex-direction: column;
-    border-radius: var(--spacing-xxl);
+    border-radius: var(--size-icon-2xl);
     overflow: hidden;
 
     .asset-title-wrapper {
-      background-color: var(--color-neutral-10);
+      background-color: var(--color-background-neutral-inverse-fixed);
       display: flex;
       flex-direction: column;
       justify-content: center;
       flex-shrink: 0;
-      gap: var(--spacing-xxs);
+      gap: var(--border-radius-xs);
       width: 100%;
       height: var(--titleBlockMobile);
-      padding-inline: var(--spacing-md);
+      padding-inline: var(--border-radius-lg);
 
       @media (min-width: breakpoints.$breakpoint-md) {
         height: var(--titleBlockDesktop);
-        padding-inline: var(--spacing-xl);
+        padding-inline: var(--border-radius-2xl);
       }
     }
 
@@ -93,7 +93,7 @@
     }
 
     .iframe-wrapper {
-      background-color: var(--color-neutral-90);
+      background-color: var(--color-background-neutral-primary-fixed);
       max-height: calc(100vh - 2 * 5rem - var(--titleBlockMobile));
 
       @media (min-width: breakpoints.$breakpoint-md) {
@@ -103,7 +103,7 @@
   }
 
   .asset-title {
-    margin: var(--spacing-0);
+    margin: var(--font-letter-spacing-none);
   }
 
   .asset-content {
@@ -134,7 +134,7 @@
     height: fit-content;
     width: fit-content;
     flex-direction: column;
-    border-radius: var(--radius-md);
+    border-radius: var(--border-radius-sm);
     opacity: 0;
     transition: opacity 250ms ease-in-out;
 
@@ -148,7 +148,7 @@
     }
 
     .asset-content {
-      margin-top: var(--spacing-xl);
+      margin-top: var(--border-radius-2xl);
     }
 
     &[data-enter] {
@@ -162,17 +162,17 @@
 
   .close-button {
     position: absolute;
-    right: var(--spacing-xl);
-    top: var(--spacing-xl);
+    right: var(--border-radius-2xl);
+    top: var(--border-radius-2xl);
 
     /* Hack for secondary variant on dark mode */
     /* FIXME(isaac) this hack was already there, don't know what it does */
-    color: var(--color-neutral-90);
-    border-color: var(--color-neutral-10);
-    background-color: var(--color-neutral-10);
+    color: var(--color-background-neutral-primary-fixed);
+    border-color: var(--color-background-neutral-inverse-fixed);
+    background-color: var(--color-background-neutral-inverse-fixed);
 
     &:hover {
-      background-color: var(--color-neutral-40);
+      background-color: var(--color-background-neutral-subtle);
     }
   }
 }
