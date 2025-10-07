@@ -1,8 +1,8 @@
 @layer components {
   .root {
     & > svg:only-child {
-      width: var(--spacing-md);
-      height: var(--spacing-md);
+      width: var(--components-dimensions-button-padding-inline-md);
+      height: var(--components-dimensions-button-padding-inline-md);
     }
   }
 
