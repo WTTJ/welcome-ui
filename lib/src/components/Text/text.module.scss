@@ -30,43 +30,43 @@
     &-h0 {
       --fontSize: var(--font-size-60);
       --lineHeight: var(--font-size-7xl);
-      --letterSpacing: var(--letter-spacing-h0);
+      --letterSpacing: var(--font-letter-spacing-xs);
     }
 
     &-h1 {
       --fontSize: var(--font-size-48);
       --lineHeight: var(--size-icon-3xl);
-      --letterSpacing: var(--letter-spacing-h1);
+      --letterSpacing: var(--font-letter-spacing-xs);
     }
 
     &-h2 {
       --fontSize: var(--font-size-4xl);
       --lineHeight: var(--height-40);
-      --letterSpacing: var(--letter-spacing-h2);
+      --letterSpacing: var(--font-letter-spacing-xs);
     }
 
     &-h3 {
       --fontSize: var(--font-size-24);
       --lineHeight: var(--size-icon-2xl);
-      --letterSpacing: var(--letter-spacing-h3);
+      --letterSpacing: var(--font-letter-spacing-xs);
     }
 
     &-h4 {
       --fontSize: var(--font-size-xl);
       --lineHeight: var(--border-radius-2xl);
-      --letterSpacing: var(--letter-spacing-h4);
+      --letterSpacing: var(--font-letter-spacing-xs);
     }
 
     &-h5 {
       --fontSize: var(--border-radius-xl);
       --lineHeight: var(--font-size-xl);
-      --letterSpacing: var(--letter-spacing-h5);
+      --letterSpacing: var(--font-letter-spacing-xs);
     }
 
     &-h6 {
       --fontSize: var(--font-size-sm);
       --lineHeight: var(--font-size-lg);
-      --letterSpacing: var(--letter-spacing-h6);
+      --letterSpacing: var(--font-letter-spacing-xs);
     }
 
     &-xs,
@@ -79,25 +79,25 @@
     &-xs {
       --fontSize: var(--border-radius-lg);
       --lineHeight: var(--font-size-sm);
-      --letterSpacing: var(--letter-spacing-xs);
+      --letterSpacing: var(--font-letter-spacing-xs);
     }
 
     &-sm {
       --fontSize: var(--font-size-14);
       --lineHeight: var(--font-size-lg);
-      --letterSpacing: var(--letter-spacing-sm);
+      --letterSpacing: var(--font-letter-spacing-xs);
     }
 
     &-md {
       --fontSize: var(--border-radius-xl);
       --lineHeight: var(--font-size-lg);
-      --letterSpacing: var(--letter-spacing-md);
+      --letterSpacing: var(--font-letter-spacing-xs);
     }
 
     &-lg {
       --fontSize: var(--font-size-18);
       --lineHeight: var(--border-radius-2xl);
-      --letterSpacing: var(--letter-spacing-lg);
+      --letterSpacing: var(--font-letter-spacing-xs);
     }
 
     &-subtitle-sm,
@@ -109,14 +109,14 @@
     &-subtitle-sm {
       --fontSize: var(--font-size-12);
       --lineHeight: var(--border-radius-xl);
-      --letterSpacing: var(--letter-spacing-subtitle-sm);
+      --letterSpacing: var(--font-letter-spacing-xs);
       --fontWeight: var(--font-weight-medium);
     }
 
     &-subtitle-md {
       --fontSize: var(--font-size-12);
       --lineHeight: var(--border-radius-xl);
-      --letterSpacing: var(--letter-spacing-subtitle-md);
+      --letterSpacing: var(--font-letter-spacing-xs);
       --fontWeight: var(--font-weight-black);
     }
   }
