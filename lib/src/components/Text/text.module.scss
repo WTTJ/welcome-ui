@@ -22,7 +22,7 @@
     &-h4,
     &-h5,
     &-h6 {
-      --fontWeight: var(--font-weight-semi-bold);
+      --fontWeight: var(--font-weight-black);
       --fontFamily: var(--font-family-title);
       --color: var(--color-background-neutral-primary-fixed);
     }
@@ -117,7 +117,7 @@
       --fontSize: var(--font-size-12);
       --lineHeight: var(--border-radius-xl);
       --letterSpacing: var(--letter-spacing-subtitle-md);
-      --fontWeight: var(--font-weight-semi-bold);
+      --fontWeight: var(--font-weight-black);
     }
   }
 
