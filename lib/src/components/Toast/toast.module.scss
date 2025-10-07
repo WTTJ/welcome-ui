@@ -2,9 +2,9 @@
   .title {
     display: flex;
     align-items: center;
-    padding-bottom: var(--spacing-xs);
-    color: var(--color-neutral-90);
-    font-weight: var(--font-weight-bold);
+    padding-bottom: var(--border-radius-sm);
+    color: var(--color-background-neutral-primary-fixed);
+    font-weight: var(--font-weight-semi-bold);
 
     & > *:first-child {
       flex-shrink: 0;
@@ -13,15 +13,15 @@
 
   .growl {
     position: relative;
-    padding: var(--spacing-lg);
-    border-radius: var(--radius-lg);
+    padding: var(--border-radius-xl);
+    border-radius: var(--border-radius-md);
     border-style: solid;
-    border-width: var(--border-width-sm);
+    border-width: var(--border-width-xs);
     max-width: 340px;
 
     & div:first-of-type {
       align-self: baseline;
-      font-size: var(--font-size-sm);
+      font-size: var(--font-size-14);
     }
 
     & button {
@@ -32,38 +32,38 @@
   .snackbar {
     display: flex;
     align-items: center;
-    padding: var(--spacing-sm) var(--spacing-md);
-    border-radius: var(--radius-lg);
+    padding: var(--border-radius-md) var(--border-radius-lg);
+    border-radius: var(--border-radius-md);
     width: max-content;
-    gap: var(--spacing-sm);
+    gap: var(--border-radius-md);
 
     & div:first-of-type {
       align-self: center;
-      font-size: var(--font-size-sm);
+      font-size: var(--font-size-14);
     }
 
     & div:last-of-type {
       flex-direction: row;
-      margin-left: var(--spacing-xs) !important;
+      margin-left: var(--border-radius-sm) !important;
     }
   }
 
   .snackbar-separator {
-    padding-left: var(--spacing-sm);
+    padding-left: var(--border-radius-md);
     border-left: 1px solid;
     border-left-color: var(--borderLeftColor, --color-neutral-90);
 
     &.info {
-      --borderLeftColor: var(--color-blue-30);
+      --borderLeftColor: var(--color-background-accent-blue-secondary);
     }
     &.success {
-      --borderLeftColor: var(--color-green-30);
+      --borderLeftColor: var(--color-background-accent-green-primary);
     }
     &.warning {
-      --borderLeftColor: var(--color-orange-20);
+      --borderLeftColor: var(--color-background-warning-subtle);
     }
     &.danger {
-      --borderLeftColor: var(--color-red-20);
+      --borderLeftColor: var(--color-background-danger-subtle);
     }
   }
 }
