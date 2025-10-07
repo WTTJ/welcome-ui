@@ -1621,7 +1621,7 @@
   --border-radius-lg: 0.75rem;
   --radius-lg: 0.75rem;
   --border-radius-xl: 1rem;
-  --radius-xl: 1rem;
+  --border-radius-xxl: 1.5rem;
   --border-radius-2xl: 1.5rem;
   --border-radius-xxl: 1.5rem;
   --radius-2xl: 1.5rem;
@@ -1777,7 +1777,6 @@
     min-height: 100%;
     padding-top: 1px;
     margin-top: -1px;
-    font-family: var(--font-family-body);
   }
 
   h1,
