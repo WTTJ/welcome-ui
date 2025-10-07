@@ -22,7 +22,11 @@
   }
 
   .asset-backdrop {
-    background-color: color-mix(in oklab, var(--color-background-neutral-primary-fixed) 90%, transparent);
+    background-color: color-mix(
+      in oklab,
+      var(--color-background-neutral-primary-fixed) 90%,
+      transparent
+    );
     z-index: 999;
     position: fixed;
     top: 0;

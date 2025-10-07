@@ -18,7 +18,8 @@
 
     &:focus {
       border-color: var(--components-colors-toggle-track-color-background-checked-hover);
-      box-shadow: 0 0 0 var(--components-dimensions-toggle-track-border-width-focused) var(--components-colors-toggle-track-color-background-checked-hover);
+      box-shadow: 0 0 0 var(--components-dimensions-toggle-track-border-width-focused)
+        var(--components-colors-toggle-track-color-background-checked-hover);
     }
 
     &::after {
@@ -64,7 +65,9 @@
         border-color: var(--components-colors-toggle-track-color-background-checked-default);
 
         &::after {
-          background-color: var(--components-colors-toggle-track-color-background-unchecked-default);
+          background-color: var(
+            --components-colors-toggle-track-color-background-unchecked-default
+          );
           border-color: var(--components-colors-toggle-track-color-background-unchecked-default);
         }
       }

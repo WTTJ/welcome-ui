@@ -180,12 +180,24 @@
     }
 
     &-ghost {
-      --backgroundColorActive: color-mix(in oklab, var(--components-colors-button-color-background-primary-neutral-focused) 40%, transparent);
-      --backgroundColorHover: color-mix(in oklab, var(--components-colors-button-color-background-primary-neutral-focused) 10%, transparent);
+      --backgroundColorActive: color-mix(
+        in oklab,
+        var(--components-colors-button-color-background-primary-neutral-focused) 40%,
+        transparent
+      );
+      --backgroundColorHover: color-mix(
+        in oklab,
+        var(--components-colors-button-color-background-primary-neutral-focused) 10%,
+        transparent
+      );
       --borderColor: transparent;
       --borderColorActive: transparent;
       --borderColorHover: transparent;
-      --outlineColorFocus: color-mix(in oklab, var(--components-colors-button-color-background-primary-neutral-focused) 10%, transparent);
+      --outlineColorFocus: color-mix(
+        in oklab,
+        var(--components-colors-button-color-background-primary-neutral-focused) 10%,
+        transparent
+      );
     }
 
     &-ghost-ai {
@@ -199,8 +211,12 @@
     }
 
     &-ghost-danger {
-      --backgroundColorActive: var(--components-colors-button-color-background-tertiary-danger-pressed);
-      --backgroundColorHover: var(--components-colors-button-color-background-secondary-danger-pressed);
+      --backgroundColorActive: var(
+        --components-colors-button-color-background-tertiary-danger-pressed
+      );
+      --backgroundColorHover: var(
+        --components-colors-button-color-background-secondary-danger-pressed
+      );
       --borderColor: transparent;
       --borderColorActive: var(--components-colors-button-color-background-tertiary-danger-pressed);
       --borderColorHover: var(--components-colors-button-color-background-secondary-danger-pressed);
@@ -231,7 +247,9 @@
 
     &-primary-danger {
       --backgroundColor: var(--components-colors-button-color-background-primary-danger-focused);
-      --backgroundColorActive: var(--components-colors-button-color-background-primary-danger-pressed);
+      --backgroundColorActive: var(
+        --components-colors-button-color-background-primary-danger-pressed
+      );
       --backgroundColorHover: var(--components-colors-button-color-background-primary-danger-hover);
       --borderColor: var(--components-colors-button-color-background-primary-danger-focused);
       --borderColorActive: var(--components-colors-button-color-background-primary-danger-pressed);
@@ -243,7 +261,9 @@
     &-secondary {
       --backgroundColor: var(--components-colors-button-color-background-primary-neutral-focused);
       --backgroundColorActive: var(--components-colors-button-color-icon-secondary-danger-disabled);
-      --backgroundColorHover: var(--components-colors-button-color-background-primary-neutral-pressed);
+      --backgroundColorHover: var(
+        --components-colors-button-color-background-primary-neutral-pressed
+      );
       --borderColor: var(--components-colors-button-color-background-primary-neutral-focused);
       --borderColorActive: var(--components-colors-button-color-icon-secondary-danger-disabled);
       --borderColorHover: var(--components-colors-button-color-background-primary-neutral-pressed);
@@ -253,8 +273,16 @@
 
     &-tertiary {
       --backgroundColor: var(--components-colors-button-color-background-secondary-danger-focused);
-      --backgroundColorActive: color-mix(in oklab, var(--components-colors-button-color-background-primary-neutral-focused) 40%, transparent);
-      --backgroundColorHover: color-mix(in oklab, var(--components-colors-button-color-background-primary-neutral-focused) 10%, transparent);
+      --backgroundColorActive: color-mix(
+        in oklab,
+        var(--components-colors-button-color-background-primary-neutral-focused) 40%,
+        transparent
+      );
+      --backgroundColorHover: color-mix(
+        in oklab,
+        var(--components-colors-button-color-background-primary-neutral-focused) 10%,
+        transparent
+      );
       --borderColor: var(--components-colors-button-color-background-primary-neutral-focused);
       --outlineColorFocus: var(--components-colors-button-color-border-secondary-main-hover);
     }
@@ -270,8 +298,12 @@
 
     &-tertiary-danger {
       --backgroundColor: var(--components-colors-button-color-background-secondary-danger-focused);
-      --backgroundColorActive: var(--components-colors-button-color-background-tertiary-danger-pressed);
-      --backgroundColorHover: var(--components-colors-button-color-background-secondary-danger-pressed);
+      --backgroundColorActive: var(
+        --components-colors-button-color-background-tertiary-danger-pressed
+      );
+      --backgroundColorHover: var(
+        --components-colors-button-color-background-secondary-danger-pressed
+      );
       --borderColor: var(--components-colors-button-color-icon-secondary-danger-focused);
       --color: var(--components-colors-button-color-icon-secondary-danger-focused);
       --outlineColorFocus: var(--color-background-danger-primary);

@@ -27,7 +27,8 @@
       }
 
       th {
-        border-bottom: var(--components-dimensions-tab-border-width-unchecked) solid var(--components-colors-tab-color-text-unchecked-pressed);
+        border-bottom: var(--components-dimensions-tab-border-width-unchecked) solid
+          var(--components-colors-tab-color-text-unchecked-pressed);
         color: var(--color-icon-neutral-subtle);
         font-weight: var(--font-weight-medium);
         text-align: left;
@@ -44,7 +45,8 @@
       }
 
       tr {
-        border-bottom: var(--components-dimensions-tab-border-width-unchecked) solid var(--color-background-neutral-subtlest);
+        border-bottom: var(--components-dimensions-tab-border-width-unchecked) solid
+          var(--color-background-neutral-subtlest);
         background-color: var(--trBackgroundColor, 'transparent');
         color: var(--trColor, 'inherit');
         transition: background-color var(--duration-medium) ease-in-out;

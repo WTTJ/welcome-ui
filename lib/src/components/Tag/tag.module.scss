@@ -10,11 +10,15 @@
     white-space: nowrap;
     transition: background-color var(--duration-medium) var(--timing-primary);
     font-weight: var(--font-weight-medium);
-    border: var(--components-dimensions-tag-border-width) solid var(--components-colors-tag-color-background-dash-default);
+    border: var(--components-dimensions-tag-border-width) solid
+      var(--components-colors-tag-color-background-dash-default);
     line-height: initial;
 
     /* VARIABLES THAT CHANGE WITH REACT PROPS */
-    background-color: var(--backgroundColor, var(--components-colors-tag-color-background-warm-light-disabled));
+    background-color: var(
+      --backgroundColor,
+      var(--components-colors-tag-color-background-warm-light-disabled)
+    );
     color: var(--color, var(--components-colors-tag-color-icon-warm-dark-default));
     border-color: var(--borderColor, transparent);
     height: var(--height);
@@ -46,18 +50,27 @@
 
     @media (hover: hover) and (pointer: fine) {
       &:hover {
-        --backgroundColor: var(--backgroundColorHover, var(--components-colors-tag-color-background-warm-dark-default));
+        --backgroundColor: var(
+          --backgroundColorHover,
+          var(--components-colors-tag-color-background-warm-dark-default)
+        );
       }
     }
 
     &[data-focus-visible],
     &:focus-visible {
       outline-color: var(--outlineColorFocus);
-      --backgroundColor: var(--backgroundColorFocus, var(--components-colors-tag-color-background-warm-dark-default));
+      --backgroundColor: var(
+        --backgroundColorFocus,
+        var(--components-colors-tag-color-background-warm-dark-default)
+      );
     }
 
     &:active {
-      --backgroundColor: var(--backgroundColorActive, var(--components-colors-tag-color-background-warm-dark-default));
+      --backgroundColor: var(
+        --backgroundColorActive,
+        var(--components-colors-tag-color-background-warm-dark-default)
+      );
     }
   }
 
