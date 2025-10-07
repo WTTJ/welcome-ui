@@ -1,10 +1,10 @@
 @layer components {
   .root {
-    border-radius: var(--radius-sm);
-    border-width: var(--border-width-sm);
-    font-size: var(--font-size-sm);
+    border-radius: var(--border-radius-xs);
+    border-width: var(--border-width-xs);
+    font-size: var(--font-size-14);
     font-weight: var(--font-weight-regular);
-    line-height: var(--line-height-16);
+    line-height: var(--border-radius-xl);
     outline: none;
     border-style: dashed;
     min-height: 12.5rem;
@@ -13,28 +13,28 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: var(--spacing-md);
+    padding: var(--border-radius-lg);
     transition: var(--duration-medium);
 
     /* VARIABLES THAT CHANGE WITH CSS EVENTS/REACT PROPS */
-    color: var(--color, var(--color-neutral-90));
-    background-color: var(--backgroundColor, var(--color-neutral-10));
-    border-color: var(--borderColor, var(--color-neutral-30));
+    color: var(--color, var(--color-background-neutral-primary-fixed));
+    background-color: var(--backgroundColor, var(--color-background-neutral-inverse-fixed));
+    border-color: var(--borderColor, var(--color-background-neutral-subtlest));
 
     &:focus {
-      --borderColor: var(--color-yellow-40);
-      box-shadow: var(--color-yellow-20) 0px 0px 0px 2px;
+      --borderColor: var(--color-background-brand-primary);
+      box-shadow: var(--color-background-brand-subtle) 0px 0px 0px 2px;
     }
 
     &.disabled {
-      --backgroundColor: var(--color-beige-30);
-      --borderColor: var(--color-neutral-30);
-      --color: var(--color-beige-70);
+      --backgroundColor: var(--color-background-warm-strong);
+      --borderColor: var(--color-background-neutral-subtlest);
+      --color: var(--color-icon-warm-tertiary);
       cursor: not-allowed;
     }
 
     &.drag-reject {
-      --borderColor: var(--color-red-40);
+      --borderColor: var(--color-background-danger-primary);
     }
   }
 
@@ -54,7 +54,7 @@
   }
 
   .file-preview-icon {
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--border-radius-xl);
   }
 
   .file-preview-name {
@@ -65,7 +65,7 @@
   .file-preview-size {
     font-weight: var(--font-weight-medium);
     margin: 0;
-    color: var(--color-beige-70);
+    color: var(--color-icon-warm-tertiary);
   }
 
   .image-preview {
@@ -77,9 +77,9 @@
   .actions {
     position: absolute;
     display: flex;
-    top: var(--spacing-md);
-    right: var(--spacing-md);
-    gap: var(--spacing-xs);
+    top: var(--border-radius-lg);
+    right: var(--border-radius-lg);
+    gap: var(--border-radius-sm);
   }
 
   .message-title {
@@ -88,11 +88,11 @@
 
   .message-hint {
     margin: 0;
-    margin-top: var(--spacing-xs);
-    color: var(--color-beige-70);
+    margin-top: var(--border-radius-sm);
+    color: var(--color-icon-warm-tertiary);
   }
 
   .message-file-button-text {
-    margin-top: var(--spacing-lg);
+    margin-top: var(--border-radius-xl);
   }
 }
