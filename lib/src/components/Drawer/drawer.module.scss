@@ -138,7 +138,8 @@
 
     background-color: var(--color-background-neutral-inverse-fixed);
     margin: 0;
-    padding: var(--border-radius-2xl) var(--spacing-96) var(--border-radius-2xl) var(--border-radius-2xl);
+    padding: var(--border-radius-2xl) var(--spacing-96) var(--border-radius-2xl)
+      var(--border-radius-2xl);
   }
 
   .drawer-close {
