@@ -139,7 +139,6 @@ export default {
   "/Modal/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Modal/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Modal/docs/examples/sizes.tsx": dynamic(() => import("../../lib/src/components/Modal/docs/examples/sizes.tsx").then(mod => mod), { ssr: false }),
   "/Modal/docs/examples/without-close.tsx": dynamic(() => import("../../lib/src/components/Modal/docs/examples/without-close.tsx").then(mod => mod), { ssr: false }),
-  "/Pagination/docs/examples/custom-navigation.tsx": dynamic(() => import("../../lib/src/components/Pagination/docs/examples/custom-navigation.tsx").then(mod => mod), { ssr: false }),
   "/Pagination/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Pagination/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Pagination/docs/examples/range.tsx": dynamic(() => import("../../lib/src/components/Pagination/docs/examples/range.tsx").then(mod => mod), { ssr: false }),
   "/PasswordInput/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/PasswordInput/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),

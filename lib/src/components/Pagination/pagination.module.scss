@@ -23,24 +23,21 @@
     cursor: pointer;
     text-decoration: none;
 
-    &:hover,
-    &:focus {
+    &:not([disabled]):hover,
+    &:focus-visible {
       --backgroundColor: var(--color-neutral-30);
     }
 
-    &:focus {
+    &:focus-visible {
       --color: var(--color-neutral-90);
       outline: none !important; /* important for firefox */
     }
   }
 
-  .arrow {
-    &[aria-disabled='true'] {
-      pointer-events: none;
-      cursor: not-allowed;
-      --color: var(--color-beige-70);
-      --backgroundColor: var(--color-beige-40);
-    }
+  .disabled-arrow {
+    cursor: not-allowed;
+    --color: var(--color-beige-70);
+    --backgroundColor: var(--color-beige-40);
   }
 
   .page {
@@ -49,7 +46,7 @@
       --color: var(--color-neutral-10);
 
       &:hover,
-      &:focus {
+      &:focus-visible {
         --backgroundColor: var(--color-neutral-90);
       }
     }

@@ -26,8 +26,8 @@ describe('<Pagination>', () => {
     const currentPage = screen.getByText('1')
     const nextPage = screen.getByText('2')
 
-    expect(prevButton).toHaveAttribute('aria-disabled', 'true')
-    expect(nextButton).toHaveAttribute('aria-disabled', 'false')
+    expect(prevButton).toHaveAttribute('disabled')
+    expect(nextButton).not.toHaveAttribute('disabled')
     expect(currentPage).toHaveAttribute('aria-current', 'true')
     expect(nextPage).toHaveAttribute('aria-current', 'false')
 
@@ -62,8 +62,8 @@ describe('<Pagination>', () => {
     const currentPage = screen.getByText('10')
     const prevPage = screen.getByText('9')
 
-    expect(prevButton).toHaveAttribute('aria-disabled', 'false')
-    expect(nextButton).toHaveAttribute('aria-disabled', 'true')
+    expect(prevButton).not.toHaveAttribute('disabled')
+    expect(nextButton).toHaveAttribute('disabled')
     expect(currentPage).toHaveAttribute('aria-current', 'true')
     expect(prevPage).toHaveAttribute('aria-current', 'false')
 
@@ -96,8 +96,8 @@ describe('<Pagination>', () => {
     const currentPage = screen.getByText('10')
     const prevPage = screen.getByText('9')
 
-    expect(prevButton).toHaveAttribute('aria-disabled', 'false')
-    expect(nextButton).toHaveAttribute('aria-disabled', 'true')
+    expect(prevButton).not.toHaveAttribute('disabled')
+    expect(nextButton).toHaveAttribute('disabled')
     expect(currentPage).toHaveAttribute('aria-current', 'true')
     expect(prevPage).toHaveAttribute('aria-current', 'false')
 
