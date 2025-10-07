@@ -8,11 +8,11 @@
     border-style: solid;
 
     /* VARIABLES FROM THEME - DONT CHANGE WITH REACT PROPS */
-    border-width: var(--border-width-sm);
+    border-width: var(--components-dimensions-button-border-width-secondary);
     transition-property: all;
     transition-duration: var(--duration-medium);
-    outline: transparent solid var(--border-width-md);
-    font-weight: var(--font-weight-bold);
+    outline: transparent solid var(--components-dimensions-button-border-width-ai);
+    font-weight: var(--font-weight-semi-bold);
 
     /* VARIABLES THAT CHANGE WITH REACT PROPS */
     aspect-ratio: var(--aspectRatio, auto);
@@ -20,7 +20,7 @@
     padding-inline: var(--paddingInline);
     border-radius: var(--borderRadius);
     font-size: var(--fontSize);
-    color: var(--color, var(--color-neutral-90));
+    color: var(--color, var(--components-colors-button-color-background-primary-neutral-focused));
     background-color: var(--backgroundColor);
     border-color: var(--borderColor);
     line-height: var(--lineHeight);
@@ -75,27 +75,27 @@
       }
 
       &:first-child:not(:only-child) {
-        margin-inline-end: var(--spacing-xs);
+        margin-inline-end: var(--components-dimensions-button-padding-block-sm);
       }
 
       &:last-child:not(:only-child) {
-        margin-inline-start: var(--spacing-xs);
+        margin-inline-start: var(--components-dimensions-button-padding-block-sm);
       }
     }
   }
 
   .shape {
     &-default {
-      --borderRadius: var(--radius-md);
+      --borderRadius: var(--components-dimensions-button-padding-block-sm);
     }
 
     &-circle {
       /* width: var(--height); */
-      --borderRadius: var(--radius-circle);
+      --borderRadius: var(--border-radius-full);
     }
 
     &-square {
-      --borderRadius: var(--radius-md);
+      --borderRadius: var(--components-dimensions-button-padding-block-sm);
     }
 
     /* compouned variant equivalent for size + shape */
@@ -111,157 +111,157 @@
       }
 
       &-lg {
-        --fontSize: var(--font-size-xl);
+        --fontSize: var(--components-dimensions-button-size-icon-lg);
       }
 
       &-md {
-        --fontSize: var(--font-size-md);
+        --fontSize: var(--components-dimensions-button-padding-inline-lg);
       }
 
       &-sm {
-        --fontSize: var(--font-size-md);
+        --fontSize: var(--components-dimensions-button-padding-inline-lg);
       }
 
       &-xs {
-        --fontSize: var(--font-size-md);
+        --fontSize: var(--components-dimensions-button-padding-inline-lg);
       }
     }
   }
 
   .size {
     &-xs {
-      --fontSize: var(--font-size-xs);
-      --height: var(--height-elements-sm);
-      --paddingInline: var(--spacing-sm);
-      --paddingInlineHasIcon: var(--spacing-sm);
+      --fontSize: var(--components-dimensions-button-padding-inline-md);
+      --height: var(--components-dimensions-button-size-icon-lg);
+      --paddingInline: var(--components-dimensions-button-padding-inline-sm);
+      --paddingInlineHasIcon: var(--components-dimensions-button-padding-inline-sm);
       --iconDefaultSize: 0.75rem; /* 12px */
       --iconOnlySize: 1rem; /* 16px */
-      --lineHeight: var(--line-height-xs);
+      --lineHeight: var(--font-size-sm);
     }
 
     &-sm {
-      --fontSize: var(--font-size-xs);
-      --height: var(--height-elements-md);
-      --paddingInline: var(--spacing-sm);
-      --paddingInlineHasIcon: var(--spacing-md);
+      --fontSize: var(--components-dimensions-button-padding-inline-md);
+      --height: var(--size-icon-2xl);
+      --paddingInline: var(--components-dimensions-button-padding-inline-sm);
+      --paddingInlineHasIcon: var(--components-dimensions-button-padding-inline-md);
       --iconDefaultSize: 1rem; /* 16px */
       --iconOnlySize: 1rem; /* 16px */
-      --lineHeight: var(--line-height-xs);
+      --lineHeight: var(--font-size-sm);
     }
 
     &-md {
-      --fontSize: var(--font-size-sm);
-      --height: var(--height-elements-lg);
-      --paddingInline: var(--spacing-xl);
-      --paddingInlineHasIcon: var(--spacing-md);
+      --fontSize: var(--font-size-14);
+      --height: var(--height-40);
+      --paddingInline: var(--components-dimensions-button-size-icon-lg);
+      --paddingInlineHasIcon: var(--components-dimensions-button-padding-inline-md);
       --iconDefaultSize: 1rem; /* 16px */
       --iconOnlySize: 1rem; /* 16px */
-      --lineHeight: var(--line-height-sm);
+      --lineHeight: var(--font-size-lg);
     }
 
     &-lg {
-      --fontSize: var(--font-size-sm);
-      --height: var(--height-elements-xl);
-      --paddingInline: var(--spacing-xl);
-      --paddingInlineHasIcon: var(--spacing-lg);
+      --fontSize: var(--font-size-14);
+      --height: var(--size-icon-3xl);
+      --paddingInline: var(--components-dimensions-button-size-icon-lg);
+      --paddingInlineHasIcon: var(--components-dimensions-button-padding-inline-lg);
       --iconDefaultSize: 1rem; /* 16px */
       --iconOnlySize: 1.5rem; /* 24px */
-      --lineHeight: var(--line-height-sm);
+      --lineHeight: var(--font-size-lg);
     }
   }
 
   .variant {
     &-disabled {
-      --backgroundColorDisabled: var(--color-beige-40);
-      --borderColorDisabled: var(--color-beige-40);
-      --colorDisabled: var(--color-beige-70);
+      --backgroundColorDisabled: var(--color-background-warm-stronger);
+      --borderColorDisabled: var(--color-background-warm-stronger);
+      --colorDisabled: var(--color-icon-warm-tertiary);
       --cursorDisabled: not-allowed;
-      --outlineColorFocus: var(--color-beige-10);
+      --outlineColorFocus: var(--color-background-warm-minimal);
     }
 
     &-ghost {
-      --backgroundColorActive: color-mix(in oklab, var(--color-neutral-90) 40%, transparent);
-      --backgroundColorHover: color-mix(in oklab, var(--color-neutral-90) 10%, transparent);
+      --backgroundColorActive: color-mix(in oklab, var(--components-colors-button-color-background-primary-neutral-focused) 40%, transparent);
+      --backgroundColorHover: color-mix(in oklab, var(--components-colors-button-color-background-primary-neutral-focused) 10%, transparent);
       --borderColor: transparent;
       --borderColorActive: transparent;
       --borderColorHover: transparent;
-      --outlineColorFocus: color-mix(in oklab, var(--color-neutral-90) 10%, transparent);
+      --outlineColorFocus: color-mix(in oklab, var(--components-colors-button-color-background-primary-neutral-focused) 10%, transparent);
     }
 
     &-ghost-ai {
-      --backgroundColorActive: var(--color-violet-30);
+      --backgroundColorActive: var(--color-background-accent-violet-secondary);
       --backgroundColorHover: var(--color-violet-10);
       --borderColor: transparent;
-      --borderColorActive: var(--color-violet-30);
+      --borderColorActive: var(--color-background-accent-violet-secondary);
       --borderColorHover: var(--color-violet-10);
       --color: var(--color-violet-70);
       --outlineColorFocus: var(--color-violet-50);
     }
 
     &-ghost-danger {
-      --backgroundColorActive: var(--color-red-20);
-      --backgroundColorHover: var(--color-red-10);
+      --backgroundColorActive: var(--components-colors-button-color-background-tertiary-danger-pressed);
+      --backgroundColorHover: var(--components-colors-button-color-background-secondary-danger-pressed);
       --borderColor: transparent;
-      --borderColorActive: var(--color-red-20);
-      --borderColorHover: var(--color-red-10);
-      --color: var(--color-red-80);
-      --outlineColorFocus: var(--color-red-40);
+      --borderColorActive: var(--components-colors-button-color-background-tertiary-danger-pressed);
+      --borderColorHover: var(--components-colors-button-color-background-secondary-danger-pressed);
+      --color: var(--components-colors-button-color-icon-secondary-danger-focused);
+      --outlineColorFocus: var(--color-background-danger-primary);
     }
 
     &-primary {
-      --backgroundColor: var(--color-brand-40);
-      --backgroundColorActive: var(--color-brand-10);
-      --backgroundColorHover: var(--color-brand-30);
-      --borderColor: var(--color-brand-40);
-      --borderColorActive: var(--color-brand-10);
-      --borderColorHover: var(--color-brand-30);
-      --outlineColorFocus: var(--color-brand-20);
+      --backgroundColor: var(--components-colors-button-color-background-primary-main-focused);
+      --backgroundColorActive: var(--color-background-brand-minimal);
+      --backgroundColorHover: var(--components-colors-button-color-background-primary-main-pressed);
+      --borderColor: var(--components-colors-button-color-background-primary-main-focused);
+      --borderColorActive: var(--color-background-brand-minimal);
+      --borderColorHover: var(--components-colors-button-color-background-primary-main-pressed);
+      --outlineColorFocus: var(--color-background-brand-subtle);
     }
 
     &-primary-ai {
       --backgroundColor: var(--color-violet-70);
-      --backgroundColorActive: var(--color-violet-40);
+      --backgroundColorActive: var(--color-background-accent-violet-primary);
       --backgroundColorHover: var(--color-violet-60);
       --borderColor: var(--color-violet-70);
-      --borderColorActive: var(--color-violet-40);
+      --borderColorActive: var(--color-background-accent-violet-primary);
       --borderColorHover: var(--color-violet-60);
-      --color: var(--color-neutral-10);
+      --color: var(--components-colors-button-color-background-secondary-danger-focused);
       --outlineColorFocus: var(--color-violet-50);
     }
 
     &-primary-danger {
-      --backgroundColor: var(--color-red-70);
-      --backgroundColorActive: var(--color-red-50);
-      --backgroundColorHover: var(--color-red-60);
-      --borderColor: var(--color-red-70);
-      --borderColorActive: var(--color-red-50);
-      --borderColorHover: var(--color-red-60);
-      --color: var(--color-neutral-10);
-      --outlineColorFocus: var(--color-red-40);
+      --backgroundColor: var(--components-colors-button-color-background-primary-danger-focused);
+      --backgroundColorActive: var(--components-colors-button-color-background-primary-danger-pressed);
+      --backgroundColorHover: var(--components-colors-button-color-background-primary-danger-hover);
+      --borderColor: var(--components-colors-button-color-background-primary-danger-focused);
+      --borderColorActive: var(--components-colors-button-color-background-primary-danger-pressed);
+      --borderColorHover: var(--components-colors-button-color-background-primary-danger-hover);
+      --color: var(--components-colors-button-color-background-secondary-danger-focused);
+      --outlineColorFocus: var(--color-background-danger-primary);
     }
 
     &-secondary {
-      --backgroundColor: var(--color-neutral-90);
-      --backgroundColorActive: var(--color-neutral-50);
-      --backgroundColorHover: var(--color-neutral-70);
-      --borderColor: var(--color-neutral-90);
-      --borderColorActive: var(--color-neutral-50);
-      --borderColorHover: var(--color-neutral-70);
-      --color: var(--color-neutral-10);
-      --outlineColorFocus: var(--color-neutral-40);
+      --backgroundColor: var(--components-colors-button-color-background-primary-neutral-focused);
+      --backgroundColorActive: var(--components-colors-button-color-icon-secondary-danger-disabled);
+      --backgroundColorHover: var(--components-colors-button-color-background-primary-neutral-pressed);
+      --borderColor: var(--components-colors-button-color-background-primary-neutral-focused);
+      --borderColorActive: var(--components-colors-button-color-icon-secondary-danger-disabled);
+      --borderColorHover: var(--components-colors-button-color-background-primary-neutral-pressed);
+      --color: var(--components-colors-button-color-background-secondary-danger-focused);
+      --outlineColorFocus: var(--components-colors-button-color-border-secondary-main-hover);
     }
 
     &-tertiary {
-      --backgroundColor: var(--color-neutral-10);
-      --backgroundColorActive: color-mix(in oklab, var(--color-neutral-90) 40%, transparent);
-      --backgroundColorHover: color-mix(in oklab, var(--color-neutral-90) 10%, transparent);
-      --borderColor: var(--color-neutral-90);
-      --outlineColorFocus: var(--color-neutral-40);
+      --backgroundColor: var(--components-colors-button-color-background-secondary-danger-focused);
+      --backgroundColorActive: color-mix(in oklab, var(--components-colors-button-color-background-primary-neutral-focused) 40%, transparent);
+      --backgroundColorHover: color-mix(in oklab, var(--components-colors-button-color-background-primary-neutral-focused) 10%, transparent);
+      --borderColor: var(--components-colors-button-color-background-primary-neutral-focused);
+      --outlineColorFocus: var(--components-colors-button-color-border-secondary-main-hover);
     }
 
     &-tertiary-ai {
-      --backgroundColor: var(--color-neutral-10);
-      --backgroundColorActive: var(--color-violet-30);
+      --backgroundColor: var(--components-colors-button-color-background-secondary-danger-focused);
+      --backgroundColorActive: var(--color-background-accent-violet-secondary);
       --backgroundColorHover: var(--color-violet-10);
       --borderColor: var(--color-violet-70);
       --color: var(--color-violet-70);
@@ -269,12 +269,12 @@
     }
 
     &-tertiary-danger {
-      --backgroundColor: var(--color-neutral-10);
-      --backgroundColorActive: var(--color-red-20);
-      --backgroundColorHover: var(--color-red-10);
-      --borderColor: var(--color-red-80);
-      --color: var(--color-red-80);
-      --outlineColorFocus: var(--color-red-40);
+      --backgroundColor: var(--components-colors-button-color-background-secondary-danger-focused);
+      --backgroundColorActive: var(--components-colors-button-color-background-tertiary-danger-pressed);
+      --backgroundColorHover: var(--components-colors-button-color-background-secondary-danger-pressed);
+      --borderColor: var(--components-colors-button-color-icon-secondary-danger-focused);
+      --color: var(--components-colors-button-color-icon-secondary-danger-focused);
+      --outlineColorFocus: var(--color-background-danger-primary);
     }
   }
 
