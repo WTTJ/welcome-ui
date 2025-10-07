@@ -11,11 +11,14 @@
     color: var(--color);
 
     &.isExternal {
-      --backgroundSize: calc(100% - var(--spacing-lg) - var(--spacing-sm)) 50%;
+      --backgroundSize: calc(
+          100% - var(--components-dimensions-link-size-icon-sm) - var(--border-radius-md)
+        )
+        50%;
 
       .wui-text > svg {
         display: inline;
-        margin-left: var(--spacing-sm);
+        margin-left: var(--border-radius-md);
       }
     }
 
