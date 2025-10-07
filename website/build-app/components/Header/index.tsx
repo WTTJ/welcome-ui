@@ -7,6 +7,7 @@ import { Drawer, useDrawer } from '@/components/Drawer'
 import { MenuIcon } from '@/components/Icon'
 import { WelcomeUILogo } from '@/components/Logo'
 import { Toast } from '@/components/Toast'
+import { classNames } from '@/utils'
 
 import type { PageTree } from '~/build-app/types'
 
@@ -14,8 +15,10 @@ import { Search } from '../Search'
 import { Sidebar } from '../Sidebar'
 import { VersionSelector } from '../VersionSelector'
 
+import styles from './link.module.scss'
 import { NavBar } from './NavBar'
-import * as S from './styles'
+
+const cx = classNames(styles)
 
 export const navigation = ['foundations', 'components', 'blog']
 
@@ -41,7 +44,7 @@ export const Header = ({ components, foundations }: HeaderProps) => {
   }
 
   return (
-    <S.Header>
+    <header className={cx('header')}>
       <Toast />
       <div className="flex gap-lg h-full items-center justify-between max-w-[87.5rem] mx-auto px-md text-neutral-60">
         <div className="flex gap-lg items-center">
@@ -70,6 +73,6 @@ export const Header = ({ components, foundations }: HeaderProps) => {
           </Drawer.Content>
         </Drawer>
       </div>
-    </S.Header>
+    </header>
   )
 }

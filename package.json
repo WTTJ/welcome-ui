@@ -1,6 +1,6 @@
 {
   "name": "main",
-  "description": "Customizable design system with react • styled-components • styled-system and ariakit.",
+  "description": "Customizable design system with react, typescript, tailwindcss and ariakit.",
   "scripts": {
     "build": "yarn workspace welcome-ui run build",
     "build:website": "yarn workspace website install && yarn workspace website build",
@@ -9,7 +9,7 @@
     "check:docs": "node ./scripts/check-docs.mjs",
     "check:theme": "node --import=tsx lib/src/theme/generate-theme.ts",
     "icons": "node scripts/icons-optimize.mjs && node scripts/icons-collect.mjs && yarn eslint --fix",
-    "lint:css": "stylelint 'lib/src/**/*.css' ",
+    "lint:css": "stylelint '**/*.{css,scss}'",
     "lint:js": "eslint scripts lib website --max-warnings 0",
     "lint:mdx": "prettier --parser mdx --write '**/docs/index.mdx'",
     "lint:ts": "yarn workspaces run tsc --noEmit",
@@ -34,11 +34,13 @@
     "url": "git+https://github.com/WTTJ/welcome-ui.git"
   },
   "keywords": [
-    "design-system",
     "react",
+    "typescript",
+    "tailwindcss",
+    "scss",
+    "css",
     "ariakit",
-    "styled-components",
-    "styled-system",
+    "design-system",
     "ui-library",
     "ui",
     "ux",
@@ -59,12 +61,12 @@
     "@commitlint/config-conventional": "^17.7.0",
     "@eslint/js": "^9.24.0",
     "@tailwindcss/postcss": "^4.1.12",
+    "@types/css-modules": "^1.0.5",
     "@types/node": "22.14.0",
     "@types/react": "18.3.12",
     "@types/react-dom": "18.3.1",
     "@typescript-eslint/utils": "^8.45.0",
     "@vusion/webfonts-generator": "^0.8.0",
-    "@xstyled/styled-components": "^4.0.0",
     "autoprefixer": "^10.4.21",
     "aws-sdk": "^2.1691.0",
     "colors": "^1.4.0",
@@ -82,7 +84,6 @@
     "lodash.difference": "^4.5.0",
     "minimist": "1.2.8",
     "postcss": "^8.5.3",
-    "postcss-styled-syntax": "^0.7.1",
     "prettier": "3.5.3",
     "react": "^18.3.1",
     "react-docgen-typescript": "^2.4.0",
@@ -90,9 +91,8 @@
     "react-router-dom": "7.5.2",
     "sass-embedded": "^1.90.0",
     "standard-version": "9.5.0",
-    "styled-components": "^6.1.15",
-    "stylelint": "^16.18.0",
-    "stylelint-config-recommended": "^16.0.0",
+    "stylelint": "^16.25.0",
+    "stylelint-config-standard-scss": "^16.0.0",
     "svgo": "^3.0.1",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.44.1",
@@ -103,7 +103,6 @@
     "brace-expansion": "^2.0.2"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.13",
     "tailwindcss": "^4.1.11"
   },
   "packageManager": "yarn@1.22.22"

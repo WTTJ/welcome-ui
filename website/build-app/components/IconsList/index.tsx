@@ -2,10 +2,13 @@
 import { camelCase, startCase } from 'lodash'
 import React from 'react'
 
+import { Card } from '@/components/Card'
 import * as Icons from '@/components/Icon'
 import { Text } from '@/components/Text'
 import { Toast, toast } from '@/components/Toast'
+import { classNames } from '@/utils'
 
+import styles from './icon-list.styles.scss'
 import {
   actions,
   arrows,
@@ -20,7 +23,8 @@ import {
   welcome,
   wtf,
 } from './icons'
-import * as S from './styles'
+
+const cx = classNames(styles)
 
 export type IconListProps = {
   isIconsFont?: boolean
@@ -44,9 +48,9 @@ const handleClickToCopy = (componentName: string) => {
   navigator.clipboard.writeText(component)
 
   toast(
-    <Toast.Snackbar>
+    <Toast.Snackbar variant="success">
       <p>
-        <b>{component}</b> copied to your clipboard
+        <b>{component}</b> copied
       </p>
     </Toast.Snackbar>,
     { position: 'bottom-center' }
@@ -83,7 +87,7 @@ export const IconsList = ({ name }: IconListProps) => {
         }
 
         return (
-          <S.StyledCard key={key} onClick={() => handleClickToCopy(componentName)}>
+          <Card className={cx('card')} key={key} onClick={() => handleClickToCopy(componentName)}>
             {Icon ? <Icon size="lg" /> : <Icons.CrossIcon size="lg" />}
             <Text
               as="span"
@@ -93,7 +97,7 @@ export const IconsList = ({ name }: IconListProps) => {
             >
               {componentName}
             </Text>
-          </S.StyledCard>
+          </Card>
         )
       })}
     </div>

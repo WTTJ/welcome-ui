@@ -1,5 +1,3 @@
-# Contributing
-
 ## Workflow
 
 - Create your branch from main
@@ -28,13 +26,16 @@ We have a pre-commit hook to verify if your commit is correct 🚔
 Each component will consist of:
 
 - `ComponentName`: Folder with name of component (PascalCase)
-  - `src/index.tsx`: The React component
-  - `src/styles.ts`: Any related `styled-components`
-  - `src/utils.ts` : utils for this component
-  - `src/docs` : documentation for this component [See more](#documentation)
-  - `tests/index.test.ts`: Jest / react-testing-library tests for this component
+  - `index.tsx`: The React component
+  - `component-name.module.scss`: Any related styles with sass
+  - `types.ts`: Typescript types for this component
+  - `utils.ts` : Utilities for this component
+  - `docs` : Documentation for this component [See more](#documentation)
+  - `index.test.ts`: vitest + react-testing-library tests
 
 ## Adding icons
+
+TODO: add docs when new icons are added to the library.
 
 Check the [Icon README](https://github.com/WTTJ/welcome-ui/tree/main/icons/README.md)
 

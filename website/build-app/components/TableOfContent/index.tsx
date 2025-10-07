@@ -3,10 +3,13 @@ import NextLink from 'next/link'
 import { useEffect, useState } from 'react'
 
 import { Text } from '@/components/Text'
+import { classNames } from '@/utils'
 
 import type { Toc } from '~/build-app/utils/page-tree'
 
-import * as S from './styles'
+import styles from './table-of-content.module.scss'
+
+const cx = classNames(styles)
 
 type TableOfContentProps = {
   isSubPage?: boolean
@@ -53,37 +56,31 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
 
   return (
     <div className="hidden xl:block">
-      <S.Nav isSubPage={isSubPage}>
+      <nav className={cx('nav', isSubPage && 'nav-subpage')}>
         <Text className="mb-lg ml-lg" variant="subtitle-sm">
           On this page
         </Text>
         <ul className="flex flex-col gap-lg">
           {tree.map(item => (
             <li className="flex flex-col gap-sm" key={item.href}>
-              {/* // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-expect-error FIXME */}
-              <S.Link
+              <NextLink
                 aria-current={`#${activeId}` === item.href ? 'page' : undefined}
-                as={NextLink}
+                className={cx('link', 'pl-lg')}
                 href={item.href}
-                pl="lg"
               >
                 {item.title}
-              </S.Link>
+              </NextLink>
               {item.children ? (
                 <ul className="flex flex-col gap-xs">
                   {item.children.map(child => (
                     <li key={child.href}>
-                      {/* // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                      // @ts-expect-error FIXME */}
-                      <S.Link
+                      <NextLink
                         aria-current={`#${activeId}` === child.href ? 'page' : undefined}
-                        as={NextLink}
+                        className={cx('link', 'pl-xxl')}
                         href={child.href}
-                        pl="xxl"
                       >
                         {child.title}
-                      </S.Link>
+                      </NextLink>
                     </li>
                   ))}
                 </ul>
@@ -91,7 +88,7 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
             </li>
           ))}
         </ul>
-      </S.Nav>
+      </nav>
     </div>
   )
 }

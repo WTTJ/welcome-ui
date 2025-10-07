@@ -3,7 +3,6 @@ import { ThemeProvider as NextThemeProvider } from 'next-themes'
 
 import { Footer } from '~/build-app/components/Footer'
 import { Header } from '~/build-app/components/Header'
-import StyledComponentsRegistry from '~/build-app/registry'
 import { getPages } from '~/build-app/utils/pages-components'
 import { getPages as getPagesExport } from '~/build-app/utils/pages-exports'
 
@@ -11,7 +10,7 @@ import './global.css'
 
 export const metadata: Metadata = {
   description:
-    'Here you’ll find all the core components you need to create a delightful webapp. Customizable design system from Welcome to the jungle with react, typescript, styled-components, ariakit and a lot of love 💛',
+    'Here you’ll find all the core components you need to create a delightful webapp. Customizable design system from Welcome to the jungle with react, typescript, tailwindcss, ariakit and a lot of love 💛',
   openGraph: {
     images: 'https://www.welcome-ui.com/og-image.png',
   },
@@ -28,15 +27,13 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <link href="/favicon.png" rel="icon" type="image/png" />
       </head>
       <body>
-        <StyledComponentsRegistry>
-          <NextThemeProvider>
-            <div className="bg-neutral-10">
-              <Header components={pagesComponents} foundations={pagesFoundations} />
-              {children}
-              <Footer />
-            </div>
-          </NextThemeProvider>
-        </StyledComponentsRegistry>
+        <NextThemeProvider>
+          <div className="bg-neutral-10">
+            <Header components={pagesComponents} foundations={pagesFoundations} />
+            {children}
+            <Footer />
+          </div>
+        </NextThemeProvider>
       </body>
     </html>
   )

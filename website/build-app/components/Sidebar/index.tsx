@@ -1,13 +1,17 @@
 'use client'
+import Link from 'next/link'
 import { useParams, usePathname } from 'next/navigation'
 import { useEffect, useRef } from 'react'
 
 import { Text } from '@/components/Text'
+import { classNames } from '@/utils'
 
 import type { PageTree } from '~/build-app/types'
 import { getName } from '~/build-app/utils/transform-name'
 
-import * as S from './styles'
+import styles from './sidebar.module.scss'
+
+const cx = classNames(styles)
 
 type SidebarProps = {
   className?: string
@@ -53,9 +57,13 @@ export const Sidebar = ({ className, isSubPage, menu, onClick }: SidebarProps) =
 
               return (
                 <li key={`sidebar_${category}_page_${id}`} onClick={onClick}>
-                  <S.Link aria-current={isCurrent ? 'page' : undefined} href={href}>
+                  <Link
+                    aria-current={isCurrent ? 'page' : undefined}
+                    className={cx('link')}
+                    href={href}
+                  >
                     {title || getName(id)}
-                  </S.Link>
+                  </Link>
                 </li>
               )
             })}
