@@ -13,7 +13,6 @@ export interface ActiveBarReturn {
   orientation?: Omit<UseTabState['orientation'], 'both'>
   size?: number
 }
-
 export type Size = 'md' | 'sm'
 
 export type TabListProps = {

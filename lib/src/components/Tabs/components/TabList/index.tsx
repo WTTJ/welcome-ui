@@ -2,20 +2,20 @@ import { TabList as AriakitTabList, useStoreState } from '@ariakit/react'
 import React, { forwardRef, useRef } from 'react'
 
 import { classNames } from '@/utils'
+import { useForkRef } from '@/utils/useForkRef'
 
 import type { TabListProps } from '../../types'
-import { useForkRef, useTrackActiveTabs } from '../../utils'
+import { useTrackActiveTabs } from '../../utils'
 import { ActiveBar } from '../ActiveBar'
 
 import styles from './tab-list.module.scss'
 
 const cx = classNames(styles)
 
-export const TabList = forwardRef<'div', TabListProps>(
+export const TabList = forwardRef<HTMLDivElement, TabListProps>(
   ({ children, className, size = 'md', store, ...rest }, ref) => {
     const listRef = useRef()
-    // TODO(Diane): fix this in another PR to use the good useForkRef
-    const listForkedRef = useForkRef(ref, listRef)
+    const [, listForkedRef] = useForkRef<HTMLDivElement>(ref, listRef)
 
     const { orientation, selectedId } = useStoreState(store)
     const { activeTab, tabs } = useTrackActiveTabs(selectedId, children)

@@ -1,4 +1,17 @@
-import { type Ref, useMemo, useRef } from 'react'
+import React, { type Ref, useMemo, useRef } from 'react'
+
+/**
+ * Gets the ref of a child element if it exists.
+ * @param child - A React node which may have a ref.
+ * @returns The ref of the child element or null.
+ */
+export function getChildRef<T>(child: React.ReactNode): Ref<T> {
+  if (React.isValidElement(child) && Object.prototype.hasOwnProperty.call(child, 'ref')) {
+    return (child as React.FunctionComponentElement<unknown>)?.ref
+  }
+
+  return null
+}
 
 /**
  * Merges multiple refs into a single ref callback.
