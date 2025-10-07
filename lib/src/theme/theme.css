@@ -1514,6 +1514,7 @@
   --font-size-md: 1rem;
   --font-size-lg: 1.125rem;
   --font-size-xl: 1.25rem;
+  --font-size-xxl: 1.5rem;
   --font-size-2xl: 1.5rem;
   --font-size-xxl: 1.5rem;
   --font-size-3xl: 2rem;
@@ -1553,6 +1554,7 @@
   --spacing-md: 0.75rem;
   --spacing-lg: 1rem;
   --spacing-xl: 1.5rem;
+  --spacing-xxl: 2rem;
   --spacing-2xl: 2rem;
   --spacing-xxl: 2rem;
   --spacing-3xl: 3rem;
@@ -1629,6 +1631,7 @@
   --breakpoint-md: 736px;
   --breakpoint-lg: 980px;
   --breakpoint-xl: 1280px;
+  --breakpoint-xxl: 1440px;
   --breakpoint-2xl: 1440px;
   --breakpoint-xxl: 1440px;
   --breakpoint-3xl: 1620px;
