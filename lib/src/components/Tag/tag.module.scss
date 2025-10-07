@@ -10,18 +10,18 @@
     white-space: nowrap;
     transition: background-color var(--duration-medium) var(--timing-primary);
     font-weight: var(--font-weight-medium);
-    border: var(--border-width-md) solid var(--color-neutral-10);
+    border: var(--components-dimensions-tag-border-width) solid var(--components-colors-tag-color-background-dash-default);
     line-height: initial;
 
     /* VARIABLES THAT CHANGE WITH REACT PROPS */
-    background-color: var(--backgroundColor, var(--color-beige-20));
-    color: var(--color, var(--color-beige-90));
+    background-color: var(--backgroundColor, var(--components-colors-tag-color-background-warm-light-disabled));
+    color: var(--color, var(--components-colors-tag-color-icon-warm-dark-default));
     border-color: var(--borderColor, transparent);
     height: var(--height);
     padding: var(--paddingVertical) var(--paddingHorizontal);
     gap: var(--gap);
     font-size: var(--fontSize);
-    border-radius: var(--borderRadius, var(--radius-md));
+    border-radius: var(--borderRadius, var(--components-dimensions-tag-padding-block-md));
 
     /* Text overflow for children */
     > span,
@@ -46,38 +46,38 @@
 
     @media (hover: hover) and (pointer: fine) {
       &:hover {
-        --backgroundColor: var(--backgroundColorHover, var(--color-beige-30));
+        --backgroundColor: var(--backgroundColorHover, var(--components-colors-tag-color-background-warm-dark-default));
       }
     }
 
     &[data-focus-visible],
     &:focus-visible {
       outline-color: var(--outlineColorFocus);
-      --backgroundColor: var(--backgroundColorFocus, var(--color-beige-30));
+      --backgroundColor: var(--backgroundColorFocus, var(--components-colors-tag-color-background-warm-dark-default));
     }
 
     &:active {
-      --backgroundColor: var(--backgroundColorActive, var(--color-beige-30));
+      --backgroundColor: var(--backgroundColorActive, var(--components-colors-tag-color-background-warm-dark-default));
     }
   }
 
   .variant {
     &-primary {
-      --backgroundColor: var(--color-brand-40);
-      --backgroundColorHover: var(--color-brand-50);
-      --backgroundColorActive: var(--color-brand-50);
-      --backgroundColorFocus: var(--color-brand-50);
-      --outlineColorFocus: var(--color-brand-60);
-      --color: var(--color-neutral-90);
+      --backgroundColor: var(--components-colors-tag-color-background-brand-dark-hover);
+      --backgroundColorHover: var(--color-background-brand-strong);
+      --backgroundColorActive: var(--color-background-brand-strong);
+      --backgroundColorFocus: var(--color-background-brand-strong);
+      --outlineColorFocus: var(--color-background-brand-stronger);
+      --color: var(--components-colors-tag-color-icon-dash-default);
     }
 
     &-info {
-      --backgroundColor: var(--color-blue-10);
-      --backgroundColorHover: var(--color-blue-20);
-      --backgroundColorActive: var(--color-blue-20);
-      --backgroundColorFocus: var(--color-blue-20);
-      --outlineColorFocus: var(--color-blue-30);
-      --color: var(--color-blue-90);
+      --backgroundColor: var(--components-colors-tag-color-background-blue-light-disabled);
+      --backgroundColorHover: var(--components-colors-tag-color-background-blue-light-hover);
+      --backgroundColorActive: var(--components-colors-tag-color-background-blue-light-hover);
+      --backgroundColorFocus: var(--components-colors-tag-color-background-blue-light-hover);
+      --outlineColorFocus: var(--components-colors-tag-color-background-blue-dark-default);
+      --color: var(--components-colors-tag-color-icon-blue-dark-default);
     }
 
     &-success {
@@ -85,131 +85,131 @@
       --backgroundColorHover: var(--color-green-20);
       --backgroundColorActive: var(--color-green-20);
       --backgroundColorFocus: var(--color-green-20);
-      --outlineColorFocus: var(--color-green-30);
-      --color: var(--color-green-90);
+      --outlineColorFocus: var(--components-colors-tag-color-background-green-dark-hover);
+      --color: var(--components-colors-tag-color-icon-green-dark-default);
     }
 
     &-danger {
-      --backgroundColor: var(--color-red-10);
-      --backgroundColorHover: var(--color-red-20);
-      --backgroundColorActive: var(--color-red-20);
-      --backgroundColorFocus: var(--color-red-20);
-      --outlineColorFocus: var(--color-red-30);
-      --color: var(--color-red-90);
+      --backgroundColor: var(--components-colors-tag-color-background-red-light-disabled);
+      --backgroundColorHover: var(--components-colors-tag-color-background-red-light-hover);
+      --backgroundColorActive: var(--components-colors-tag-color-background-red-light-hover);
+      --backgroundColorFocus: var(--components-colors-tag-color-background-red-light-hover);
+      --outlineColorFocus: var(--components-colors-tag-color-background-red-dark-default);
+      --color: var(--components-colors-tag-color-icon-red-dark-default);
     }
 
     &-warning {
-      --backgroundColor: var(--color-orange-10);
-      --backgroundColorHover: var(--color-orange-20);
-      --backgroundColorActive: var(--color-orange-20);
-      --backgroundColorFocus: var(--color-orange-20);
-      --outlineColorFocus: var(--color-orange-30);
-      --color: var(--color-orange-90);
+      --backgroundColor: var(--color-background-warning-minimal);
+      --backgroundColorHover: var(--color-background-warning-subtle);
+      --backgroundColorActive: var(--color-background-warning-subtle);
+      --backgroundColorFocus: var(--color-background-warning-subtle);
+      --outlineColorFocus: var(--color-background-warning-secondary);
+      --color: var(--color-icon-warning-primary);
     }
 
     &-ai {
-      --backgroundColor: var(--color-violet-20);
-      --backgroundColorHover: var(--color-violet-30);
-      --backgroundColorActive: var(--color-violet-30);
-      --backgroundColorFocus: var(--color-violet-30);
-      --outlineColorFocus: var(--color-violet-40);
+      --backgroundColor: var(--components-colors-tag-color-background-violet-light-hover);
+      --backgroundColorHover: var(--components-colors-tag-color-background-violet-dark-default);
+      --backgroundColorActive: var(--components-colors-tag-color-background-violet-dark-default);
+      --backgroundColorFocus: var(--components-colors-tag-color-background-violet-dark-default);
+      --outlineColorFocus: var(--components-colors-tag-color-background-violet-dark-hover);
       --color: var(--color-violet-90);
     }
 
     &-blue {
-      --backgroundColor: var(--color-blue-40);
-      --backgroundColorHover: var(--color-blue-50);
-      --backgroundColorActive: var(--color-blue-50);
-      --backgroundColorFocus: var(--color-blue-50);
-      --outlineColorFocus: var(--color-blue-60);
-      --color: var(--color-neutral-90);
+      --backgroundColor: var(--components-colors-tag-color-background-blue-dark-hover);
+      --backgroundColorHover: var(--color-background-accent-blue-strong);
+      --backgroundColorActive: var(--color-background-accent-blue-strong);
+      --backgroundColorFocus: var(--color-background-accent-blue-strong);
+      --outlineColorFocus: var(--components-colors-tag-color-icon-blue-light-disabled);
+      --color: var(--components-colors-tag-color-icon-dash-default);
     }
 
     &-green {
-      --backgroundColor: var(--color-green-30);
-      --backgroundColorHover: var(--color-green-40);
-      --backgroundColorActive: var(--color-green-40);
-      --backgroundColorFocus: var(--color-green-40);
-      --outlineColorFocus: var(--color-green-50);
-      --color: var(--color-neutral-90);
+      --backgroundColor: var(--components-colors-tag-color-background-green-dark-hover);
+      --backgroundColorHover: var(--color-background-accent-green-strong);
+      --backgroundColorActive: var(--color-background-accent-green-strong);
+      --backgroundColorFocus: var(--color-background-accent-green-strong);
+      --outlineColorFocus: var(--color-background-accent-green-stronger);
+      --color: var(--components-colors-tag-color-icon-dash-default);
     }
 
     &-orange {
-      --backgroundColor: var(--color-orange-40);
-      --backgroundColorHover: var(--color-orange-50);
-      --backgroundColorActive: var(--color-orange-50);
-      --backgroundColorFocus: var(--color-orange-50);
-      --outlineColorFocus: var(--color-orange-60);
-      --color: var(--color-neutral-90);
+      --backgroundColor: var(--color-background-warning-primary);
+      --backgroundColorHover: var(--color-background-warning-strong);
+      --backgroundColorActive: var(--color-background-warning-strong);
+      --backgroundColorFocus: var(--color-background-warning-strong);
+      --outlineColorFocus: var(--color-background-warning-stronger);
+      --color: var(--components-colors-tag-color-icon-dash-default);
     }
 
     &-pink {
-      --backgroundColor: var(--color-pink-40);
+      --backgroundColor: var(--components-colors-tag-color-background-pink-dark-hover);
       --backgroundColorHover: var(--color-pink-50);
       --backgroundColorActive: var(--color-pink-50);
       --backgroundColorFocus: var(--color-pink-50);
       --outlineColorFocus: var(--color-pink-60);
-      --color: var(--color-neutral-90);
+      --color: var(--components-colors-tag-color-icon-dash-default);
     }
 
     &-teal {
-      --backgroundColor: var(--color-teal-40);
+      --backgroundColor: var(--color-background-accent-teal-primary);
       --backgroundColorHover: var(--color-teal-50);
       --backgroundColorActive: var(--color-teal-50);
       --backgroundColorFocus: var(--color-teal-50);
       --outlineColorFocus: var(--color-teal-60);
-      --color: var(--color-neutral-90);
+      --color: var(--components-colors-tag-color-icon-dash-default);
     }
 
     &-violet {
-      --backgroundColor: var(--color-violet-40);
+      --backgroundColor: var(--components-colors-tag-color-background-violet-dark-hover);
       --backgroundColorHover: var(--color-violet-50);
       --backgroundColorActive: var(--color-violet-50);
       --backgroundColorFocus: var(--color-violet-50);
       --outlineColorFocus: var(--color-violet-60);
-      --color: var(--color-neutral-90);
+      --color: var(--components-colors-tag-color-icon-dash-default);
     }
   }
 
   .size {
     &-xs {
-      --height: var(--height-20);
-      --paddingVertical: var(--spacing-xxs);
-      --paddingHorizontal: var(--spacing-xs);
-      --gap: var(--spacing-xs);
-      --fontSize: var(--font-size-xs);
-      --borderRadius: var(--radius-sm);
+      --height: var(--font-size-xl);
+      --paddingVertical: var(--border-radius-xs);
+      --paddingHorizontal: var(--components-dimensions-tag-padding-block-md);
+      --gap: var(--components-dimensions-tag-padding-block-md);
+      --fontSize: var(--components-dimensions-tag-padding-inline-lg);
+      --borderRadius: var(--border-radius-xs);
       --iconWidth: 0.75rem;
-      --iconHeight: var(--height-12);
+      --iconHeight: var(--components-dimensions-tag-padding-inline-lg);
       --removeWidth: 0.5rem;
     }
     &-sm {
-      --height: var(--height-24);
-      --paddingVertical: var(--spacing-xs);
-      --paddingHorizontal: var(--spacing-sm);
-      --gap: var(--spacing-xs);
-      --fontSize: var(--font-size-xs);
+      --height: var(--border-radius-2xl);
+      --paddingVertical: var(--components-dimensions-tag-padding-block-md);
+      --paddingHorizontal: var(--components-dimensions-tag-padding-inline-md);
+      --gap: var(--components-dimensions-tag-padding-block-md);
+      --fontSize: var(--components-dimensions-tag-padding-inline-lg);
       --iconWidth: 0.75rem;
-      --iconHeight: var(--height-12);
-      --borderRadius: var(--radius-md);
+      --iconHeight: var(--components-dimensions-tag-padding-inline-lg);
+      --borderRadius: var(--components-dimensions-tag-padding-block-md);
       --removeWidth: 0.75rem;
     }
     &-md {
-      --height: var(--height-32);
-      --paddingVertical: var(--spacing-xs);
-      --paddingHorizontal: var(--spacing-sm);
-      --gap: var(--spacing-sm);
-      --fontSize: var(--font-size-sm);
+      --height: var(--size-icon-2xl);
+      --paddingVertical: var(--components-dimensions-tag-padding-block-md);
+      --paddingHorizontal: var(--components-dimensions-tag-padding-inline-md);
+      --gap: var(--components-dimensions-tag-padding-inline-md);
+      --fontSize: var(--font-size-14);
       --iconWidth: 1rem;
-      --iconHeight: var(--height-16);
-      --borderRadius: var(--radius-md);
+      --iconHeight: var(--components-dimensions-tag-size-icon);
+      --borderRadius: var(--components-dimensions-tag-padding-block-md);
       --removeWidth: 1rem;
     }
   }
 
   .hasRemoveAction {
     display: inline-flex;
-    gap: var(--spacing-xs);
+    gap: var(--components-dimensions-tag-padding-block-md);
     align-items: center;
     flex-direction: row;
   }
