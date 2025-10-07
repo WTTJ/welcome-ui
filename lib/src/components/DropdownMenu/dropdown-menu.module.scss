@@ -1,11 +1,11 @@
 @layer components {
   .inner {
-    background-color: var(--color-neutral-10);
-    border-color: var(--color-neutral-30);
+    background-color: var(--color-background-neutral-inverse-fixed);
+    border-color: var(--color-background-neutral-subtlest);
     border-style: solid;
-    border-width: var(--border-width-sm);
-    border-radius: var(--radius-md);
-    font-size: var(--font-size-sm);
+    border-width: var(--border-width-xs);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-14);
     min-width: 8.125rem;
     z-index: 1;
     opacity: 0;
@@ -19,17 +19,17 @@
   .arrow {
     display: flex;
     z-index: 2;
-    color: var(--color-neutral-70);
+    color: var(--color-background-neutral-tertiary);
     stroke-width: 0 !important;
 
     #stroke {
-      color: var(--color-neutral-70);
+      color: var(--color-background-neutral-tertiary);
     }
   }
 
   .arrow-item {
-    height: var(--height-30);
-    width: var(--height-30);
+    height: var(--height-32);
+    width: var(--height-32);
     transform: var(--dropdown-menu-transform);
   }
 
@@ -60,31 +60,31 @@
     cursor: pointer;
     text-decoration: none;
     transition: var(--duration-medium);
-    padding: var(--spacing-md);
+    padding: var(--border-radius-lg);
 
     background-color: var(--backgroundColor, transparent);
     color: var(--color, --color-beige-70);
 
     &:focus {
       outline: none !important; /* important for firefox */
-      --backgroundColor: var(--color-beige-30);
-      --color: var(--color-neutral-90);
+      --backgroundColor: var(--color-background-warm-strong);
+      --color: var(--color-background-neutral-primary-fixed);
     }
     &:hover {
-      --backgroundColor: var(--color-beige-30);
-      --color: var(--color-neutral-90);
+      --backgroundColor: var(--color-background-warm-strong);
+      --color: var(--color-background-neutral-primary-fixed);
     }
     &[disabled] {
       --backgroundColor: transparent;
-      --color: var(--color-beige-40);
+      --color: var(--color-background-warm-stronger);
       cursor: not-allowed;
     }
   }
 
   .separator {
-    background-color: var(--color-beige-30);
+    background-color: var(--color-background-warm-strong);
     border: 0;
-    height: var(--border-width-sm);
+    height: var(--border-width-xs);
     margin: 0;
   }
 }

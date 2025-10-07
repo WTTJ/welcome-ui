@@ -5,21 +5,21 @@
     cursor: pointer;
     transition: var(--duration-medium);
     overflow: hidden;
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-14);
     font-weight: var(--font-weight-regular);
     line-height: 1rem;
-    outline: transparent solid var(--border-width-md);
-    border-radius: var(--radius-sm);
+    outline: transparent solid var(--components-dimensions-checkbox-border-width-focused);
+    border-radius: var(--border-radius-xs);
     border-style: solid;
-    border-width: var(--border-width-sm);
+    border-width: var(--border-width-xs);
     flex-shrink: 0;
     height: 1rem;
     width: 1rem;
-    color: var(--color-neutral-90);
+    color: var(--components-colors-checkbox-color-icon-default);
 
     /* VARIABLES THAT CHANGE WITH REACT PROPS */
-    background-color: var(--backgroundColor, var(--color-neutral-10));
-    border-color: var(--borderColor, var(--color-neutral-30));
+    background-color: var(--backgroundColor, var(--components-colors-checkbox-color-background-unchecked-default));
+    border-color: var(--borderColor, var(--components-colors-checkbox-color-border-unchecked-default));
 
     &::after {
       background-color: var(--afterBackgroundColor);
@@ -36,44 +36,44 @@
 
     &:disabled,
     &[aria-disabled] {
-      --backgroundColor: var(--color-beige-40);
-      --borderColor: var(--color-beige-50);
+      --backgroundColor: var(--components-colors-checkbox-color-border-disabled);
+      --borderColor: var(--components-colors-checkbox-color-icon-disabled);
 
       cursor: not-allowed;
     }
 
     &:not([disabled]):hover {
-      --borderColor: var(--borderColorHover, var(--color-neutral-40));
+      --borderColor: var(--borderColorHover, var(--components-colors-checkbox-color-border-unchecked-hover));
     }
 
     &[data-focus-visible],
     &:focus-visible {
-      --borderColor: var(--borderColorFocused, var(--color-brand-40));
-      outline-color: var(--outlineColorFocus, var(--color-brand-20));
+      --borderColor: var(--borderColorFocused, var(--components-colors-checkbox-color-background-checked-default));
+      outline-color: var(--outlineColorFocus, var(--color-background-brand-subtle));
     }
 
     &::placeholder {
-      --color: var(--color-neutral-60);
+      --color: var(--color-icon-neutral-subtle);
     }
 
     &[aria-checked='true'] {
       &:not(:disabled) {
-        --backgroundColor: var(--color-brand-40);
-        --borderColor: var(--color-brand-40);
-        --color: var(--color-neutral-90);
+        --backgroundColor: var(--components-colors-checkbox-color-background-checked-default);
+        --borderColor: var(--components-colors-checkbox-color-background-checked-default);
+        --color: var(--components-colors-checkbox-color-icon-default);
 
         &::after {
-          --afterBackgroundColor: var(--color-beige-90);
+          --afterBackgroundColor: var(--color-icon-warm-primary);
         }
 
         &:hover {
-          --backgroundColor: var(--color-brand-30);
+          --backgroundColor: var(--components-colors-checkbox-color-background-checked-hover);
           --borderColor: var(--backgroundColor);
         }
       }
 
       &::after {
-        --afterBackgroundColor: var(--color-beige-50);
+        --afterBackgroundColor: var(--components-colors-checkbox-color-icon-disabled);
         height: 8px;
         mask: url('data:image/svg+xml; utf8, <svg viewBox="0 0 10 8" xmlns="http://www.w3.org/2000/svg"><path fill="000000" d="M7.96171 0.596898C8.24912 0.27893 8.74024 0.25262 9.06024 0.537743C9.37208 0.815607 9.40671 1.28712 9.14514 1.60662L9.11975 1.63611L3.90331 7.40311C3.75365 7.5687 3.54304 7.66003 3.32401 7.66003C3.15017 7.66003 2.98077 7.60235 2.84241 7.49383L2.80848 7.46564L0.943652 5.82577C0.620151 5.54147 0.590221 5.04928 0.877091 4.72749C1.15398 4.41772 1.62383 4.38076 1.94536 4.6368L1.97506 4.66166L3.26156 5.79276L7.96171 0.596898Z" /></svg>');
       }
@@ -82,45 +82,45 @@
 
   .variant {
     &-danger {
-      --borderColor: var(--color-red-70);
-      --borderColorHover: var(--color-red-70);
-      --borderColorFocused: var(--color-red-70);
-      --outlineColorFocus: var(--color-red-30);
+      --borderColor: var(--color-background-danger-strongest);
+      --borderColorHover: var(--color-background-danger-strongest);
+      --borderColorFocused: var(--color-background-danger-strongest);
+      --outlineColorFocus: var(--color-background-danger-secondary);
     }
 
     &-warning {
-      --borderColor: var(--color-orange-60);
-      --borderColorHover: var(--color-orange-60);
-      --borderColorFocused: var(--color-orange-60);
-      --outlineColorFocus: var(--color-orange-30);
+      --borderColor: var(--color-background-warning-stronger);
+      --borderColorHover: var(--color-background-warning-stronger);
+      --borderColorFocused: var(--color-background-warning-stronger);
+      --outlineColorFocus: var(--color-background-warning-secondary);
     }
 
     &-success {
-      --borderColor: var(--color-green-60);
-      --borderColorHover: var(--color-green-60);
-      --borderColorFocused: var(--color-green-60);
-      --outlineColorFocus: var(--color-green-30);
+      --borderColor: var(--color-background-accent-green-strongest);
+      --borderColorHover: var(--color-background-accent-green-strongest);
+      --borderColorFocused: var(--color-background-accent-green-strongest);
+      --outlineColorFocus: var(--color-background-accent-green-primary);
     }
   }
 
   .indeterminate {
     &:not(:disabled) {
-      --backgroundColor: var(--color-brand-40);
-      --borderColor: var(--color-brand-40);
-      --color: var(--color-neutral-90);
+      --backgroundColor: var(--components-colors-checkbox-color-background-checked-default);
+      --borderColor: var(--components-colors-checkbox-color-background-checked-default);
+      --color: var(--components-colors-checkbox-color-icon-default);
 
       &::after {
-        --afterBackgroundColor: var(--color-beige-90);
+        --afterBackgroundColor: var(--color-icon-warm-primary);
       }
 
       &:hover {
-        --backgroundColor: var(--color-brand-30);
+        --backgroundColor: var(--components-colors-checkbox-color-background-checked-hover);
         --borderColor: var(--backgroundColor);
       }
     }
 
     &::after {
-      --afterBackgroundColor: var(--color-beige-50);
+      --afterBackgroundColor: var(--components-colors-checkbox-color-icon-disabled);
       height: 4px;
       mask: url("data:image/svg+xml,%3Csvg width='10' height='4' viewBox='0 0 10 4' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1.3973 1.76919C0.953776 1.81988 0.634816 2.04775 0.685235 2.49156C0.732149 2.90436 1.08212 3.03624 1.48789 3.03624L8.6029 2.23086C9.04669 2.18017 9.36538 1.9523 9.31469 1.50849C9.26427 1.06468 8.86389 0.917163 8.41956 0.969201C4.90971 1.38026 4.90828 1.36792 1.3973 1.76919Z' fill='000000'/%3E%3C/svg%3E");
     }
