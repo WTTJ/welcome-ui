@@ -1,7 +1,5 @@
 import type { TabStore, TabStoreProps } from '@ariakit/react'
 
-import type { PolymorphicProps } from '@/theme/types'
-
 import type { UseTab, UseTabState } from '.'
 
 export interface ActiveBarProps {
@@ -15,7 +13,6 @@ export interface ActiveBarReturn {
   orientation?: Omit<UseTabState['orientation'], 'both'>
   size?: number
 }
-
 export type Size = 'md' | 'sm'
 
 export type TabListProps = {
@@ -39,6 +36,4 @@ export type TabPanelProps = {
   tabId?: string
 }
 
-export type TabProps<T extends React.ElementType = 'button'> = PolymorphicProps<T> &
-  TabOptions &
-  TabStoreProps
+export type TabProps = TabOptions & TabStoreProps

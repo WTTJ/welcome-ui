@@ -6,14 +6,10 @@
         "description": "",
         "name": "className",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-          "name": "HTMLAttributes"
+          "fileName": "welcome-ui/lib/src/components/Tabs/types.ts",
+          "name": "TabOptions"
         },
         "declarations": [
-          {
-            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-            "name": "HTMLAttributes"
-          },
           {
             "fileName": "welcome-ui/lib/src/components/Tabs/types.ts",
             "name": "TabOptions"
@@ -21,7 +17,7 @@
         ],
         "required": false,
         "type": {
-          "name": "any"
+          "name": "string"
         }
       },
       "id": {
@@ -29,14 +25,10 @@
         "description": "The ID of the composite store is used to reference elements within the\ncomposite widget before hydration. If not provided, a random ID will be\ngenerated.",
         "name": "id",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-          "name": "HTMLAttributes"
+          "fileName": "welcome-ui/lib/src/components/Tabs/types.ts",
+          "name": "TabOptions"
         },
         "declarations": [
-          {
-            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-            "name": "HTMLAttributes"
-          },
           {
             "fileName": "welcome-ui/lib/src/components/Tabs/types.ts",
             "name": "TabOptions"
@@ -48,7 +40,7 @@
         ],
         "required": false,
         "type": {
-          "name": "any"
+          "name": "string"
         }
       },
       "size": {
@@ -111,14 +103,10 @@
         "description": "",
         "name": "className",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-          "name": "HTMLAttributes"
+          "fileName": "welcome-ui/lib/src/components/Tabs/types.ts",
+          "name": "TabOptions"
         },
         "declarations": [
-          {
-            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-            "name": "HTMLAttributes"
-          },
           {
             "fileName": "welcome-ui/lib/src/components/Tabs/types.ts",
             "name": "TabOptions"
@@ -126,7 +114,7 @@
         ],
         "required": false,
         "type": {
-          "name": "any"
+          "name": "string"
         }
       },
       "id": {
@@ -134,14 +122,10 @@
         "description": "The ID of the composite store is used to reference elements within the\ncomposite widget before hydration. If not provided, a random ID will be\ngenerated.",
         "name": "id",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-          "name": "HTMLAttributes"
+          "fileName": "welcome-ui/lib/src/components/Tabs/types.ts",
+          "name": "TabOptions"
         },
         "declarations": [
-          {
-            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-            "name": "HTMLAttributes"
-          },
           {
             "fileName": "welcome-ui/lib/src/components/Tabs/types.ts",
             "name": "TabOptions"
@@ -153,7 +137,7 @@
         ],
         "required": false,
         "type": {
-          "name": "any"
+          "name": "string"
         }
       },
       "size": {
