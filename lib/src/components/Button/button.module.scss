@@ -16,20 +16,21 @@
     font-family: var(--font-family-body);
 
     /* VARIABLES THAT CHANGE WITH REACT PROPS */
-    height: var(--height);
-    padding-inline: var(--paddingInline);
-    font-size: var(--fontSize);
+    height: var(--buttonHeight);
+    padding-inline: var(--buttonPaddingInline);
+    font-size: var(--buttonFontSize);
     color: var(--buttonColor, var(--neutral-90));
     background: var(--buttonBackground);
     border-width: var(--buttonBorderWidth, 0);
     border-color: var(--buttonBorderColor, transparent);
-    line-height: var(--lineHeight);
+    line-height: var(--buttonLineHeight);
     box-shadow: var(--buttonBoxShadow, none);
+    gap: var(--buttonGap);
 
     &[data-focus-visible],
     &:focus-visible {
       outline-width: var(--components-dimensions-button-border-width-focused);
-      outline-color: var(--outlineColorFocus);
+      outline-color: var(--buttonOutlineColorFocus);
     }
 
     @media (hover: hover) and (pointer: fine) {
@@ -70,41 +71,38 @@
     svg {
       font-weight: initial;
 
-      width: var(--iconDefaultSize);
-      height: var(--iconDefaultSize);
-      font-size: var(--iconDefaultSize);
+      width: var(--buttonIconSize);
+      height: var(--buttonIconSize);
+      font-size: var(--buttonIconSize);
     }
   }
 
   .size {
     &-sm {
-      --fontSize: var(--font-size-14);
-      --height: var(--components-dimensions-button-size-max-height-sm);
-      --paddingInline: var(--spacing-sm);
-      --iconDefaultSize: var(--size-icon-md);
-      --lineHeight: var(--line-height-16);
-      /* --iconOnlySize: var(--size-icon-md); */
-      /* --paddingInlineHasIcon: var(--spacing-md); */
+      --buttonFontSize: var(--font-size-14);
+      --buttonHeight: var(--components-dimensions-button-size-max-height-sm);
+      --buttonPaddingInline: var(--spacing-sm);
+      --buttonIconSize: var(--size-icon-md);
+      --buttonLineHeight: var(--line-height-16);
+      --buttonGap: var(--components-dimensions-button-gap-content-sm);
     }
 
     &-md {
-      --fontSize: var(--font-size-14);
-      --height: var(--components-dimensions-button-size-max-height-md);
-      --paddingInline: var(--spacing-md);
-      --iconDefaultSize: var(--size-icon-md);
-      --lineHeight: var(--line-height-16);
-      /* --iconOnlySize: var(--size-icon-md); */
-      /* --paddingInlineHasIcon: var(--spacing-md); */
+      --buttonFontSize: var(--font-size-14);
+      --buttonHeight: var(--components-dimensions-button-size-max-height-md);
+      --buttonPaddingInline: var(--spacing-md);
+      --buttonIconSize: var(--size-icon-md);
+      --buttonLineHeight: var(--line-height-16);
+      --buttonGap: var(--components-dimensions-button-gap-content-md);
     }
 
     &-lg {
-      --fontSize: var(--font-size-16);
-      --height: var(--components-dimensions-button-size-max-height-lg);
-      --paddingInline: var(--spacing-lg);
-      --iconDefaultSize: var(--size-icon-lg);
-      --lineHeight: var(--line-height-20);
-      /* --iconOnlySize: var(--size-icon-lg); */
-      /* --paddingInlineHasIcon: var(--spacing-lg); */
+      --buttonFontSize: var(--font-size-16);
+      --buttonHeight: var(--components-dimensions-button-size-max-height-lg);
+      --buttonPaddingInline: var(--spacing-lg);
+      --buttonIconSize: var(--size-icon-lg);
+      --buttonLineHeight: var(--line-height-20);
+      --buttonGap: var(--components-dimensions-button-gap-content-lg);
     }
   }
 
@@ -115,7 +113,7 @@
         --components-colors-button-color-background-primary-main-pressed
       );
       --buttonBackgroundHover: var(--components-colors-button-color-background-primary-main-hover);
-      --outlineColorFocus: var(--components-colors-button-color-border-focused);
+      --buttonOutlineColorFocus: var(--components-colors-button-color-border-focused);
       --buttonColorDisabled: var(--components-colors-button-color-text-primary-main-disabled);
     }
 
@@ -131,7 +129,7 @@
       --buttonColorDisabled: var(--components-colors-button-color-text-primary-neutral-disabled);
       --buttonColorHover: var(--components-colors-button-color-text-primary-neutral-hover);
       --buttonColorPressed: var(--components-colors-button-color-text-primary-neutral-pressed);
-      --outlineColorFocus: var(--components-colors-button-color-border-focused);
+      --buttonOutlineColorFocus: var(--components-colors-button-color-border-focused);
     }
 
     &-primary-ai {
@@ -184,13 +182,13 @@
           )
           padding-box,
         linear-gradient(
-            to top right,
-            var(--color-red-orange-40),
-            var(--color-pink-40),
-            var(--color-violet-40),
-            var(--color-blue-40),
-            var(--color-teal-40),
-            var(--color-green-30)
+            to bottom right,
+            var(--color-neutral-30),
+            var(--color-neutral-50),
+            var(--color-neutral-40),
+            var(--color-neutral-50),
+            var(--color-neutral-60),
+            var(--color-neutral-50)
           )
           border-box;
       --buttonBorderWidth: var(--components-dimensions-button-border-width-ai);
@@ -198,7 +196,7 @@
       --buttonColorDisabled: var(--components-colors-button-color-text-primary-ai-disabled);
       --buttonColorHover: var(--components-colors-button-color-text-primary-ai-hover);
       --buttonColorPressed: var(--components-colors-button-color-text-primary-ai-pressed);
-      --outlineColorFocus: var(--components-colors-button-color-border-focused);
+      --buttonOutlineColorFocus: var(--components-colors-button-color-border-focused);
     }
 
     &-primary-danger {
@@ -219,7 +217,7 @@
       --buttonBorderColorActive: var(
         --components-colors-button-color-border-primary-danger-pressed
       );
-      --outlineColorFocus: var(--components-colors-button-color-border-focused);
+      --buttonOutlineColorFocus: var(--components-colors-button-color-border-focused);
     }
 
     &-secondary {
@@ -240,7 +238,7 @@
       --buttonBorderColorActive: var(
         --components-colors-button-color-border-secondary-main-pressed
       );
-      --outlineColorFocus: var(--components-colors-button-color-border-focused);
+      --buttonOutlineColorFocus: var(--components-colors-button-color-border-focused);
     }
 
     &-secondary-danger {
@@ -261,7 +259,7 @@
       --buttonBorderColorActive: var(
         --components-colors-button-color-border-secondary-danger-pressed
       );
-      --outlineColorFocus: var(--components-colors-button-color-border-focused);
+      --buttonOutlineColorFocus: var(--components-colors-button-color-border-focused);
     }
 
     &-tertiary {
@@ -281,7 +279,7 @@
       --buttonBorderColor: var(--components-colors-button-color-border-tertiary-main-default);
       --buttonBorderColorHover: var(--components-colors-button-color-border-tertiary-main-hover);
       --buttonBorderColorActive: var(--components-colors-button-color-border-tertiary-main-pressed);
-      --outlineColorFocus: var(--components-colors-button-color-border-focused);
+      --buttonOutlineColorFocus: var(--components-colors-button-color-border-focused);
     }
 
     &-tertiary-danger {
@@ -305,7 +303,7 @@
       --buttonBorderColorActive: var(
         --components-colors-button-color-border-tertiary-danger-pressed
       );
-      --outlineColorFocus: var(--components-colors-button-color-border-focused);
+      --buttonOutlineColorFocus: var(--components-colors-button-color-border-focused);
     }
   }
 
