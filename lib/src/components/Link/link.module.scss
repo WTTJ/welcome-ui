@@ -11,7 +11,10 @@
     color: var(--color, var(--components-colors-link-color-underline-secondary-default));
 
     &.isExternal {
-      --backgroundSize: calc(100% - var(--components-dimensions-link-size-icon-sm) - var(--border-radius-md)) 50%;
+      --backgroundSize: calc(
+          100% - var(--components-dimensions-link-size-icon-sm) - var(--border-radius-md)
+        )
+        50%;
 
       .wui-text > svg {
         display: inline;
@@ -68,7 +71,10 @@
     var(--backgroundImageColor),
     var(--backgroundImageColor) 100%
   );
-  background-position-y: var(--backgroundPositionY, calc(200% - var(--components-dimensions-link-padding-inline-icon)));
+  background-position-y: var(
+    --backgroundPositionY,
+    calc(200% - var(--components-dimensions-link-padding-inline-icon))
+  );
 }
 
 .isMultiline {

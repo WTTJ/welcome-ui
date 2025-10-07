@@ -19,7 +19,10 @@
     appearance: none;
 
     /* VARIABLES THAT CHANGE WITH REACT PROPS */
-    background-color: var(--backgroundColor, var(--components-colors-input-color-background-default));
+    background-color: var(
+      --backgroundColor,
+      var(--components-colors-input-color-background-default)
+    );
     color: var(--color, var(--components-colors-input-color-icon-placeholder));
     border-color: var(--borderColor, var(--components-colors-input-color-border-hover));
     height: var(--height);
@@ -51,8 +54,12 @@
   .variant {
     &-danger {
       --borderColor: var(--components-colors-input-password-strenght-color-background-too-weak);
-      --borderColorHover: var(--components-colors-input-password-strenght-color-background-too-weak);
-      --borderColorFocused: var(--components-colors-input-password-strenght-color-background-too-weak);
+      --borderColorHover: var(
+        --components-colors-input-password-strenght-color-background-too-weak
+      );
+      --borderColorFocused: var(
+        --components-colors-input-password-strenght-color-background-too-weak
+      );
       --outlineColorFocus: var(--color-background-danger-secondary);
     }
 
