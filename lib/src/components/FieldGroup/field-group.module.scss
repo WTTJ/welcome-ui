@@ -8,11 +8,11 @@
     padding: 0;
 
     > * {
-    margin-bottom: var(--border-radius-lg);
+      margin-bottom: var(--border-radius-lg);
     }
   }
 
- .visually-hidden {
+  .visually-hidden {
     border: 0 !important;
     clip: rect(0 0 0 0) !important;
     height: 1px !important;
