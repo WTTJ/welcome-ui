@@ -98,18 +98,18 @@ const getPackageJson = () => `{
     "serve": "vite preview"
   },
   "dependencies": {
-    "welcome-ui": "0.0.0-dev.1759821506923",
-    "tailwindcss": "^4.1.11",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "welcome-ui": "9.0.0-alpha.4",
+    "tailwindcss": "4.1.14",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.1.14",
-    "@types/react": "18.0.25",
-    "@types/react-dom": "18.0.11",
-    "@vitejs/plugin-react": "^4.3.0",
-    "typescript": "5.0.2",
-    "vite": "^5.2.12"
+    "@tailwindcss/vite": "4.1.14",
+    "@types/react": "19.0.0",
+    "@types/react-dom": "19.0.0",
+    "@vitejs/plugin-react": "5.0.0",
+    "typescript": "5.9.3",
+    "vite": "7.1.0"
   }
 }`
 
