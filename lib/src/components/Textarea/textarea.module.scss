@@ -1,64 +1,64 @@
 @layer components {
   .root {
-    border-radius: var(--radius-md);
+    border-radius: var(--border-radius-sm);
     border-style: solid;
-    border-width: var(--border-width-sm);
-    font-size: var(--font-size-sm);
+    border-width: var(--border-width-xs);
+    font-size: var(--font-size-14);
     font-weight: var(--font-weight-regular);
-    line-height: var(--line-height-16);
-    outline: transparent solid var(--border-width-md);
+    line-height: var(--border-radius-xl);
+    outline: transparent solid var(--border-width-sm);
     width: 100%;
     transition: var(--duration-medium);
-    padding: var(--spacing-md);
+    padding: var(--border-radius-lg);
     min-height: 8.125rem;
 
     /* VARIABLES THAT CHANGE WITH REACT PROPS */
-    background-color: var(--backgroundColor, var(--color-neutral-10));
-    color: var(--color, var(--color-neutral-90));
-    border-color: var(--borderColor, var(--color-neutral-30));
+    background-color: var(--backgroundColor, var(--color-background-neutral-inverse-fixed));
+    color: var(--color, var(--color-background-neutral-primary-fixed));
+    border-color: var(--borderColor, var(--color-background-neutral-subtlest));
 
     &:disabled,
     &[aria-disabled] {
-      --backgroundColor: var(--color-beige-40);
-      --color: var(--color-beige-70);
+      --backgroundColor: var(--color-background-warm-stronger);
+      --color: var(--color-icon-warm-tertiary);
       cursor: not-allowed;
     }
 
     &:hover {
-      --borderColor: var(--borderColorHover, var(--color-neutral-40));
+      --borderColor: var(--borderColorHover, var(--color-background-neutral-subtle));
     }
 
     &[data-focus-visible],
     &:focus-visible {
-      --borderColor: var(--borderColorFocused, var(--color-brand-40));
-      outline-color: var(--outlineColorFocus, var(--color-brand-20));
+      --borderColor: var(--borderColorFocused, var(--color-background-brand-primary));
+      outline-color: var(--outlineColorFocus, var(--color-background-brand-subtle));
     }
 
     &::placeholder {
-      color: var(--color-neutral-60);
+      --color: var(--color-icon-neutral-subtle);
     }
   }
 
   .variant {
     &-danger {
-      --borderColor: var(--color-red-70);
-      --borderColorHover: var(--color-red-70);
-      --borderColorFocused: var(--color-red-70);
-      --outlineColorFocus: var(--color-red-30);
+      --borderColor: var(--color-background-danger-strongest);
+      --borderColorHover: var(--color-background-danger-strongest);
+      --borderColorFocused: var(--color-background-danger-strongest);
+      --outlineColorFocus: var(--color-background-danger-secondary);
     }
 
     &-warning {
-      --borderColor: var(--color-orange-60);
-      --borderColorHover: var(--color-orange-60);
-      --borderColorFocused: var(--color-orange-60);
-      --outlineColorFocus: var(--color-orange-30);
+      --borderColor: var(--color-background-warning-stronger);
+      --borderColorHover: var(--color-background-warning-stronger);
+      --borderColorFocused: var(--color-background-warning-stronger);
+      --outlineColorFocus: var(--color-background-warning-secondary);
     }
 
     &-success {
-      --borderColor: var(--color-green-60);
-      --borderColorHover: var(--color-green-60);
-      --borderColorFocused: var(--color-green-60);
-      --outlineColorFocus: var(--color-green-30);
+      --borderColor: var(--color-background-accent-green-strongest);
+      --borderColorHover: var(--color-background-accent-green-strongest);
+      --borderColorFocused: var(--color-background-accent-green-strongest);
+      --outlineColorFocus: var(--color-background-accent-green-primary);
     }
   }
 }
