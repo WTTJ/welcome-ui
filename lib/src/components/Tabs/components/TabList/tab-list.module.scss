@@ -8,14 +8,16 @@
     gap: var(--components-dimensions-tab-size-icon-lg);
 
     --tab-font-size: var(--components-dimensions-tab-padding-inline-lg);
-    --tab-box-shadow: inset 0 calc(-1 * var(--components-dimensions-tab-border-width-unchecked)) 0 var(--color-background-neutral-subtlest);
+    --tab-box-shadow: inset 0 calc(-1 * var(--components-dimensions-tab-border-width-unchecked)) 0
+      var(--color-background-neutral-subtlest);
 
     font-size: var(--tab-font-size);
     box-shadow: var(--tab-box-shadow);
 
     &[aria-orientation='vertical'] {
       flex-direction: column;
-      --tab-box-shadow: inset calc(-1 * var(--components-dimensions-tab-border-width-unchecked)) 0 0 var(--color-background-neutral-subtlest);
+      --tab-box-shadow: inset calc(-1 * var(--components-dimensions-tab-border-width-unchecked)) 0 0
+        var(--color-background-neutral-subtlest);
     }
   }
 
