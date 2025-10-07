@@ -7,67 +7,74 @@
   }
 
   .root {
-    border-radius: var(--radius-md);
+    border-radius: var(--components-dimensions-input-padding-block-sm);
     border-style: solid;
-    border-width: var(--border-width-sm);
-    font-size: var(--font-size-sm);
+    border-width: var(--components-dimensions-input-border-width-default);
+    font-size: var(--font-size-14);
     font-weight: var(--font-weight-regular);
-    line-height: var(--line-height-16);
-    outline: transparent solid var(--border-width-md);
+    line-height: var(--components-dimensions-input-size-image);
+    outline: transparent solid var(--components-dimensions-input-border-width-focused);
     width: 100%;
     transition: var(--duration-medium);
     appearance: none;
 
     /* VARIABLES THAT CHANGE WITH REACT PROPS */
-    background-color: var(--backgroundColor, var(--color-neutral-10));
-    color: var(--color, var(--color-neutral-90));
-    border-color: var(--borderColor, var(--color-neutral-30));
+    background-color: var(
+      --backgroundColor,
+      var(--components-colors-input-color-background-default)
+    );
+    color: var(--color, var(--components-colors-input-color-icon-placeholder));
+    border-color: var(--borderColor, var(--components-colors-input-color-border-hover));
     height: var(--height);
     padding-inline: var(--paddingInline);
     padding-block: var(--paddingBlock);
 
     &:disabled,
     &[aria-disabled] {
-      --backgroundColor: var(--color-beige-40);
-      --color: var(--color-beige-70);
+      --backgroundColor: var(--components-colors-input-color-border-disabled);
+      --color: var(--color-icon-warm-tertiary);
       cursor: not-allowed;
     }
 
     &:hover {
-      --borderColor: var(--borderColorHover, var(--color-neutral-40));
+      --borderColor: var(--borderColorHover, var(--color-background-neutral-subtle));
     }
 
     &[data-focus-visible],
     &:focus-visible {
-      --borderColor: var(--borderColorFocused, var(--color-brand-40));
-      outline-color: var(--outlineColorFocus, var(--color-brand-20));
+      --borderColor: var(--borderColorFocused, var(--components-colors-input-color-border-active));
+      outline-color: var(--outlineColorFocus, var(--color-background-brand-subtle));
     }
 
     &::placeholder {
-      color: var(--color-neutral-60);
+      --color: var(--color-icon-neutral-subtle);
     }
   }
 
   .variant {
     &-danger {
-      --borderColor: var(--color-red-70);
-      --borderColorHover: var(--color-red-70);
-      --borderColorFocused: var(--color-red-70);
-      --outlineColorFocus: var(--color-red-30);
+      --borderColor: var(--components-colors-input-password-strenght-color-background-too-weak);
+      --borderColorHover: var(
+        --components-colors-input-password-strenght-color-background-too-weak
+      );
+      --borderColorFocused: var(
+        --components-colors-input-password-strenght-color-background-too-weak
+      );
+      --outlineColorFocus: var(--color-background-danger-secondary);
     }
 
     &-warning {
-      --borderColor: var(--color-orange-60);
-      --borderColorHover: var(--color-orange-60);
-      --borderColorFocused: var(--color-orange-60);
-      --outlineColorFocus: var(--color-orange-30);
+      --borderColor: var(--components-colors-input-password-strenght-color-background-weak);
+      --borderColorHover: var(--components-colors-input-password-strenght-color-background-weak);
+      --borderColorFocused: var(--components-colors-input-password-strenght-color-background-weak);
+      --outlineColorFocus: var(--color-background-warning-secondary);
     }
 
     &-success {
-      --borderColor: var(--color-green-60);
-      --borderColorHover: var(--color-green-60);
-      --borderColorFocused: var(--color-green-60);
-      --outlineColorFocus: var(--color-green-30);
+      --borderColor: var(--components-colors-input-color-border-success);
+      --borderColorHover: var(--components-colors-input-color-border-success);
+      --borderColorFocused: var(--components-colors-input-color-border-success);
+      --outlineColorFocus: var(--color-background-accent-green-primary);
     }
   }
 
@@ -98,37 +105,37 @@
   .transparent {
     --borderColor: transparent;
     --backgroundColor: transparent;
-    --borderColorHover: var(--color-neutral-20);
+    --borderColorHover: var(--components-colors-input-password-strenght-color-background-default);
   }
 
   .size {
     &-xs {
-      --height: var(--height-elements-sm);
-      --paddingBlock: var(--spacing-xs);
-      --paddingInline: var(--spacing-sm);
+      --height: var(--border-radius-2xl);
+      --paddingBlock: var(--components-dimensions-input-padding-block-sm);
+      --paddingInline: var(--components-dimensions-input-padding-inline-sm);
     }
 
     &-sm {
-      --height: var(--height-elements-md);
-      --paddingBlock: var(--spacing-sm);
-      --paddingInline: var(--spacing-md);
+      --height: var(--size-icon-2xl);
+      --paddingBlock: var(--components-dimensions-input-padding-inline-sm);
+      --paddingInline: var(--components-dimensions-input-padding-inline-md);
     }
 
     &-md {
-      --height: var(--height-elements-lg);
-      --paddingBlock: var(--spacing-md);
-      --paddingInline: var(--spacing-md);
+      --height: var(--height-40);
+      --paddingBlock: var(--components-dimensions-input-padding-inline-md);
+      --paddingInline: var(--components-dimensions-input-padding-inline-md);
     }
 
     &-lg {
-      --height: var(--height-elements-xl);
-      --paddingBlock: var(--spacing-lg);
-      --paddingInline: var(--spacing-md);
+      --height: var(--size-icon-3xl);
+      --paddingBlock: var(--components-dimensions-input-size-image);
+      --paddingInline: var(--components-dimensions-input-padding-inline-md);
     }
   }
 
   .clearable {
-    padding-right: var(--spacing-xl);
+    padding-right: var(--border-radius-2xl);
   }
 
   .icon-wrapper {
@@ -143,8 +150,8 @@
     pointer-events: none;
     transition: var(--duration-medium);
     transition-timing-function: var(--timing-primary);
-    color: var(--color-neutral-90);
-    gap: var(--spacing-xs);
+    color: var(--components-colors-input-color-icon-placeholder);
+    gap: var(--components-dimensions-input-padding-block-sm);
 
     --left: auto;
     --right: auto;
@@ -158,21 +165,21 @@
   .icon-placement {
     &-left {
       &-xs {
-        --left: var(--spacing-sm);
+        --left: var(--components-dimensions-input-padding-inline-sm);
       }
 
       &-sm {
-        --left: var(--spacing-md);
+        --left: var(--components-dimensions-input-padding-inline-md);
       }
     }
 
     &-right {
       &-xs {
-        --right: var(--spacing-sm);
+        --right: var(--components-dimensions-input-padding-inline-sm);
       }
 
       &-sm {
-        --right: var(--spacing-md);
+        --right: var(--components-dimensions-input-padding-inline-md);
       }
     }
   }

@@ -6,7 +6,7 @@
     line-height: var(--lineHeight);
     letter-spacing: var(--letterSpacing);
     font-weight: var(--fontWeight);
-    font-family: var(--fontFamily, var(--font-family-default));
+    font-family: var(--fontFamily, var(--font-family-body));
     text-transform: var(--textTransform, none);
     line-clamp: var(--lineClamp, none);
     -webkit-line-clamp: var(--lineClamp, none);
@@ -22,50 +22,50 @@
     &-h4,
     &-h5,
     &-h6 {
-      --fontWeight: var(--font-weight-bold);
-      --fontFamily: var(--font-family-headings);
-      --color: var(--color-neutral-90);
+      --fontWeight: var(--font-weight-semi-bold);
+      --fontFamily: var(--font-family-title);
+      --color: var(--color-background-neutral-primary-fixed);
     }
 
     &-h0 {
-      --fontSize: var(--font-size-h0);
-      --lineHeight: var(--line-height-h0);
+      --fontSize: var(--font-size-60);
+      --lineHeight: var(--font-size-7xl);
       --letterSpacing: var(--letter-spacing-h0);
     }
 
     &-h1 {
-      --fontSize: var(--font-size-h1);
-      --lineHeight: var(--line-height-h1);
+      --fontSize: var(--font-size-48);
+      --lineHeight: var(--size-icon-3xl);
       --letterSpacing: var(--letter-spacing-h1);
     }
 
     &-h2 {
-      --fontSize: var(--font-size-h2);
-      --lineHeight: var(--line-height-h2);
+      --fontSize: var(--font-size-4xl);
+      --lineHeight: var(--height-40);
       --letterSpacing: var(--letter-spacing-h2);
     }
 
     &-h3 {
-      --fontSize: var(--font-size-h3);
-      --lineHeight: var(--line-height-h3);
+      --fontSize: var(--font-size-24);
+      --lineHeight: var(--size-icon-2xl);
       --letterSpacing: var(--letter-spacing-h3);
     }
 
     &-h4 {
-      --fontSize: var(--font-size-h4);
-      --lineHeight: var(--line-height-h4);
+      --fontSize: var(--font-size-xl);
+      --lineHeight: var(--border-radius-2xl);
       --letterSpacing: var(--letter-spacing-h4);
     }
 
     &-h5 {
-      --fontSize: var(--font-size-h5);
-      --lineHeight: var(--line-height-h5);
+      --fontSize: var(--border-radius-xl);
+      --lineHeight: var(--font-size-xl);
       --letterSpacing: var(--letter-spacing-h5);
     }
 
     &-h6 {
-      --fontSize: var(--font-size-h6);
-      --lineHeight: var(--line-height-h6);
+      --fontSize: var(--font-size-sm);
+      --lineHeight: var(--font-size-lg);
       --letterSpacing: var(--letter-spacing-h6);
     }
 
@@ -77,47 +77,47 @@
     }
 
     &-xs {
-      --fontSize: var(--font-size-xs);
-      --lineHeight: var(--line-height-xs);
+      --fontSize: var(--border-radius-lg);
+      --lineHeight: var(--font-size-sm);
       --letterSpacing: var(--letter-spacing-xs);
     }
 
     &-sm {
-      --fontSize: var(--font-size-sm);
-      --lineHeight: var(--line-height-sm);
+      --fontSize: var(--font-size-14);
+      --lineHeight: var(--font-size-lg);
       --letterSpacing: var(--letter-spacing-sm);
     }
 
     &-md {
-      --fontSize: var(--font-size-md);
-      --lineHeight: var(--line-height-md);
+      --fontSize: var(--border-radius-xl);
+      --lineHeight: var(--font-size-lg);
       --letterSpacing: var(--letter-spacing-md);
     }
 
     &-lg {
-      --fontSize: var(--font-size-lg);
-      --lineHeight: var(--line-height-lg);
+      --fontSize: var(--font-size-18);
+      --lineHeight: var(--border-radius-2xl);
       --letterSpacing: var(--letter-spacing-lg);
     }
 
     &-subtitle-sm,
     &-subtitle-md {
-      --fontFamily: var(--font-family-headings);
+      --fontFamily: var(--font-family-title);
       --textTransform: uppercase;
     }
 
     &-subtitle-sm {
-      --fontSize: var(--font-size-subtitle-sm);
-      --lineHeight: var(--line-height-subtitle-sm);
+      --fontSize: var(--font-size-12);
+      --lineHeight: var(--border-radius-xl);
       --letterSpacing: var(--letter-spacing-subtitle-sm);
       --fontWeight: var(--font-weight-medium);
     }
 
     &-subtitle-md {
-      --fontSize: var(--font-size-subtitle-md);
-      --lineHeight: var(--line-height-subtitle-md);
+      --fontSize: var(--font-size-12);
+      --lineHeight: var(--border-radius-xl);
       --letterSpacing: var(--letter-spacing-subtitle-md);
-      --fontWeight: var(--font-weight-bold);
+      --fontWeight: var(--font-weight-semi-bold);
     }
   }
 
@@ -145,10 +145,10 @@
   .with-dash::before {
     --display: inline-block;
     content: '';
-    width: var(--spacing-lg);
-    height: var(--height-4);
-    background-color: var(--color-brand-40);
-    margin-right: var(--spacing-lg);
+    width: var(--border-radius-xl);
+    height: var(--border-radius-sm);
+    background-color: var(--color-background-brand-primary);
+    margin-right: var(--border-radius-xl);
     flex-shrink: 0;
   }
 }
