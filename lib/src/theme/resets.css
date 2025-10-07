@@ -136,4 +136,5 @@ body {
   min-height: 100%;
   padding-top: 1px;
   margin-top: -1px;
+  font-family: var(--font-family-default);
 }
