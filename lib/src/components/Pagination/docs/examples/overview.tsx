@@ -8,7 +8,7 @@ const Example = () => {
 
   return (
     <Pagination
-      aria-label="Pagination"
+      aria-label="Example Pagination"
       dataTestId="pagination"
       getHref={page => `?page=${page}`}
       onChange={page => setPage(Number(page))}

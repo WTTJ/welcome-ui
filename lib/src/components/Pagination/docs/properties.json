@@ -1,6 +1,44 @@
 {
   "Pagination": {
     "props": {
+      "buttonNextProps": {
+        "defaultValue": null,
+        "description": "",
+        "name": "buttonNextProps",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
+          "name": "PaginationOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
+            "name": "PaginationOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ButtonHTMLAttributes<HTMLButtonElement>"
+        }
+      },
+      "buttonPrevProps": {
+        "defaultValue": null,
+        "description": "",
+        "name": "buttonPrevProps",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
+          "name": "PaginationOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
+            "name": "PaginationOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ButtonHTMLAttributes<HTMLButtonElement>"
+        }
+      },
       "dataTestId": {
         "defaultValue": null,
         "description": "",
@@ -39,19 +77,15 @@
           "name": "(page: string | number) => string"
         }
       },
-      "onChange": {
+      "listProps": {
         "defaultValue": null,
         "description": "",
-        "name": "onChange",
+        "name": "listProps",
         "parent": {
-          "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-          "name": "DOMAttributes"
+          "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
+          "name": "PaginationOptions"
         },
         "declarations": [
-          {
-            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
-            "name": "DOMAttributes"
-          },
           {
             "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
             "name": "PaginationOptions"
@@ -59,7 +93,26 @@
         ],
         "required": false,
         "type": {
-          "name": "FormEventHandler<HTMLElement> & ((page: string | number) => void)"
+          "name": "OlHTMLAttributes<HTMLOListElement>"
+        }
+      },
+      "onChange": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onChange",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
+          "name": "PaginationOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
+            "name": "PaginationOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "(page: string | number) => void"
         }
       },
       "page": {

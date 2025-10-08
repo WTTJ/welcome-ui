@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useRef } from 'react'
+import { forwardRef, useCallback, useRef } from 'react'
 
 import { LeftIcon, RightIcon } from '@/components/Icon'
 import { classNames } from '@/utils'
@@ -11,53 +11,57 @@ const cx = classNames(styles)
 
 export const Pagination = forwardRef<HTMLElement, PaginationProps>(
   (
-    { className, dataTestId, getHref, onChange, page, pageCount, rangeDisplay = 5, ...rest },
+    {
+      'aria-label': ariaLabel,
+      buttonNextProps,
+      buttonPrevProps,
+      dataTestId,
+      getHref,
+      listProps,
+      onChange,
+      page,
+      pageCount,
+      rangeDisplay = 5,
+      ...rest
+    },
     ref
   ) => {
     const pages = usePages({ page, pageCount, rangeDisplay })
-    const firstPageRef = useRef<HTMLAnchorElement>(null)
-    const lastPageRef = useRef<HTMLAnchorElement>(null)
+    const firstPageRef = useRef<HTMLButtonElement>(null)
+    const lastPageRef = useRef<HTMLButtonElement>(null)
     const isPrevButtonDisabled = page === 1
     const isNextButtonDisabled = page === pageCount
 
-    const handlePrevious = useCallback(
-      (event: React.MouseEvent) => {
-        event.preventDefault()
-        const previousPage = page - 1
-        if (previousPage === 1) {
-          firstPageRef.current?.focus()
-        }
-        onChange(previousPage)
-      },
-      [page, onChange]
-    )
+    const handlePrevious = useCallback(() => {
+      if (isPrevButtonDisabled) return
 
-    const handleNext = useCallback(
-      (event: React.MouseEvent) => {
-        event.preventDefault()
-        const nextPage = page + 1
-        if (nextPage === pageCount) {
-          lastPageRef.current?.focus()
-        }
-        onChange(nextPage)
-      },
-      [page, pageCount, onChange]
-    )
+      const previousPage = Math.max(page - 1, 1)
+      onChange(previousPage)
+    }, [isPrevButtonDisabled, page, onChange])
+
+    const handleNext = useCallback(() => {
+      if (isNextButtonDisabled) return
+
+      const nextPage = Math.min(page + 1, pageCount)
+      onChange(nextPage)
+    }, [isNextButtonDisabled, page, pageCount, onChange])
 
     return (
-      <nav className={className} data-testid={dataTestId} ref={ref} role="navigation" {...rest}>
-        <ol className={cx('list')}>
+      <nav aria-label={ariaLabel ?? 'Pagination'} data-testid={dataTestId} ref={ref} {...rest}>
+        <ol className={cx('list')} {...listProps}>
           <li>
-            <a
-              aria-disabled={isPrevButtonDisabled}
-              className={cx('item', 'arrow')}
+            <button
+              aria-label="Previous Page"
+              className={cx('item', isPrevButtonDisabled && 'disabled-arrow')}
               data-testid={dataTestId ? `${dataTestId}-arrow-prev` : undefined}
-              href={getHref ? getHref(isPrevButtonDisabled ? page : page - 1) : ''}
-              onClick={!isPrevButtonDisabled ? handlePrevious : undefined}
+              disabled={isPrevButtonDisabled}
+              onClick={handlePrevious}
               ref={firstPageRef}
+              type="button"
+              {...buttonPrevProps}
             >
               <LeftIcon size="sm" />
-            </a>
+            </button>
           </li>
           {pages.map((iPage: number | string, i: number) =>
             iPage === '-' ? (
@@ -72,8 +76,10 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
                   data-testid={dataTestId ? `${dataTestId}-${iPage}` : undefined}
                   href={getHref?.(iPage)}
                   onClick={event => {
-                    event.preventDefault()
-                    onChange(iPage)
+                    if (onChange) {
+                      event.preventDefault()
+                      onChange(iPage)
+                    }
                   }}
                 >
                   {iPage}
@@ -82,16 +88,18 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
             )
           )}
           <li>
-            <a
-              aria-disabled={isNextButtonDisabled}
-              className={cx('item', 'arrow')}
+            <button
+              aria-label="Next Page"
+              className={cx('item', isNextButtonDisabled && 'disabled-arrow')}
               data-testid={dataTestId ? `${dataTestId}-arrow-next` : undefined}
-              href={getHref ? getHref(isNextButtonDisabled ? page : page + 1) : ''}
-              onClick={!isNextButtonDisabled ? handleNext : undefined}
+              disabled={isNextButtonDisabled}
+              onClick={handleNext}
               ref={lastPageRef}
+              type="button"
+              {...buttonNextProps}
             >
               <RightIcon size="sm" />
-            </a>
+            </button>
           </li>
         </ol>
       </nav>
