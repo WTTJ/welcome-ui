@@ -6,7 +6,7 @@ import { ToggleButton } from './ToggleButton'
 import type { PasswordInputProps } from './types'
 
 export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
-  ({ title, ...rest }, ref) => {
+  ({ toggleAriaLabel, ...rest }, ref) => {
     const [type, setType] = useState<'password' | 'text'>('password')
     const isHidden = type === 'password'
 
@@ -23,10 +23,10 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
         {...rest}
         icon={
           <ToggleButton
+            aria-label={toggleAriaLabel ?? (isHidden ? 'Show password' : 'Hide password')}
             data-testid={dataTestId}
             isHidden={isHidden}
             onClick={handleToggle}
-            title={title}
           />
         }
         iconPlacement="right"
