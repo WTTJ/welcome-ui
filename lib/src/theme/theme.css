@@ -1609,6 +1609,7 @@
   --border-width-sm: 2px;
   --border-width-md: 4px;
   --border-width-lg: 6px;
+  --radius-none: 0;
   --border-radius-none: 0;
   --radius-none: 0;
   --border-radius-xs: 0.125rem;
