@@ -87,7 +87,7 @@ export const Example = () => {
       </Alert>
       <AspectRatio className="flex-1 max-w-full md:max-w-[8rem]">
         <img
-          className="rounded-md"
+          className="rounded-sm"
           alt="video_thumbnail"
           loading="lazy"
           src="https://via.placeholder.com/160"
