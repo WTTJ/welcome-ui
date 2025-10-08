@@ -6,14 +6,7 @@ export interface IconOptions {
 
 export type IconProps = ForwardRefProps<
   IconOptions & {
-    content?: {
-      block: string
-      height?: number
-      isFlag?: boolean
-      stroked?: boolean
-      viewBox?: string
-      width?: number
-    }
+    name: string
   },
   'svg'
 >
