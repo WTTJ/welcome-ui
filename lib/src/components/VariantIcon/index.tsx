@@ -1,14 +1,6 @@
 import { forwardRef } from 'react'
 
-import type { IconProps } from '@/components/Icon'
-import {
-  AlertIcon,
-  CheckIcon,
-  InformationIcon,
-  PromoteIcon,
-  SparklesIcon,
-  SquareAlertIcon,
-} from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { classNames } from '@/utils'
 
 import type { VariantIconProps } from './types'
@@ -18,19 +10,17 @@ const cx = classNames(variantIconStyles)
 
 export const VariantIcon = forwardRef<HTMLDivElement, VariantIconProps>(
   ({ className, size = 'md', variant, ...rest }, ref) => {
-    const iconMap: { [key in VariantIconProps['variant']]: React.FC<IconProps> } = {
-      ai: SparklesIcon,
-      danger: SquareAlertIcon,
-      info: InformationIcon,
-      success: CheckIcon,
-      warning: AlertIcon,
+    const iconMap: { [key in VariantIconProps['variant']]: string } = {
+      ai: 'sparkles',
+      danger: 'exclamation-circle',
+      info: 'information-circle',
+      success: 'check-circle',
+      warning: 'exclamation-octogon',
     }
-
-    const IconComponent = iconMap[variant] || PromoteIcon
 
     return (
       <div {...rest} className={cx('root', variant && `variant-${variant}`, className)} ref={ref}>
-        <IconComponent size={size} />
+        <Icon name={iconMap[variant]} size={size} />
       </div>
     )
   }

@@ -6,6 +6,23 @@ title: Icon
 usage: PositiveStraightIcon
 ---
 
+### Usage
+
+Add `<Sprite />` to the root of your application (e.g. in App.tsx) before using `<Icon name="...">`.
+
+```tsx
+import { Sprite } from 'welcome-ui/Icon'
+
+function App() {
+  return (
+    <>
+      <Sprite />
+      {/* Other components */}
+    </>
+  )
+}
+```
+
 ### Size
 
 Use size property with `xs`, `sm`, `md`, `lg` `xl` or `xxl` or a tailwindcss class for custom size.

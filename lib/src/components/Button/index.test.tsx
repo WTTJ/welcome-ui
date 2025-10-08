@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react'
 
-import { SunIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { Link } from '@/components/Link'
 
 import { expectAsSupport, render } from '@tests'
@@ -141,7 +141,7 @@ describe('Button', () => {
   it('should have correct Icon size with Icon and text', () => {
     render(
       <Button data-testid="button" size="sm">
-        <SunIcon data-testid="sun" />
+        <Icon data-testid="sun" name="sun" />
         <span>{content}</span>
       </Button>
     )
@@ -154,7 +154,7 @@ describe('Button', () => {
   it('should have correct Icon size with Icon only', () => {
     render(
       <Button data-testid="button" size="md">
-        <SunIcon data-testid="sun" />
+        <Icon data-testid="sun" name="sun" />
       </Button>
     )
 

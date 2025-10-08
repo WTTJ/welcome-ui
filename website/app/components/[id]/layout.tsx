@@ -1,5 +1,5 @@
 import { Button } from '@/components/Button'
-import { GithubIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { Text } from '@/components/Text'
 
 import { PrevNextPage } from '~/build-app/components/PrevNextPage'
@@ -63,7 +63,7 @@ const Layout = async ({ children, params }: LayoutProps) => {
               target="_blank"
               variant="tertiary"
             >
-              <GithubIcon />
+              <Icon name="github" />
               <span>Source</span>
             </Button>
             {ariakitLink ? (
