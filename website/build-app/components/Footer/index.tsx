@@ -1,5 +1,5 @@
 'use client'
-import { ExternalLinkIcon, HeartIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { Logo } from '@/components/Logo'
 import { Text } from '@/components/Text'
 
@@ -74,7 +74,7 @@ export const Footer = () => {
       <div className="gap-xl grid grid-cols-2 md:grid-cols-4">
         <div className="flex flex-col gap-xs">
           <div className="flex gap-sm items-center">
-            Made with <HeartIcon className="text-brand-50" /> by
+            Made with <Icon className="text-brand-50" name="heart" /> by
           </div>
           <a
             className="w-fit-content"
@@ -98,7 +98,7 @@ export const Footer = () => {
                     target={isExternal ? '_blank' : undefined}
                   >
                     {name}
-                    <ExternalLinkIcon className="text-neutral-60" size="xs" />
+                    <Icon className="text-neutral-60" name="external-link" size="xs" />
                   </a>
                 </li>
               ))}
