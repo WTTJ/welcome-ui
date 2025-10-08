@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 
 import { Footer } from '~/build-app/components/Footer'
 import { Header } from '~/build-app/components/Header'
+import { Sprite } from '~/build-app/components/Sprite'
 import { getPages } from '~/build-app/utils/pages-components'
 import { getPages as getPagesExport } from '~/build-app/utils/pages-exports'
 
