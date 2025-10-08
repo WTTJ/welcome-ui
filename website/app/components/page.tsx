@@ -34,8 +34,8 @@ const Page = () => {
 
               return (
                 <Link href={`/components/${page.id}`} key={page.id}>
-                  <Card className="flex gap-lg hover:border-neutral-30 items-center p-md rounded-md">
-                    <div className="bg-neutral-30 size-[5rem] rounded-md shrink-0"></div>
+                  <Card className="flex gap-lg hover:border-neutral-30 items-center p-md rounded-sm">
+                    <div className="bg-neutral-30 size-[5rem] rounded-sm shrink-0"></div>
                     <div>
                       <Text as="h3" variant="h4">
                         {page.title}

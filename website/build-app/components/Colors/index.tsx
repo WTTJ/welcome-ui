@@ -47,7 +47,7 @@ export const Colors = ({ name }: ColorsProps) => {
               className={cx(
                 'bg-(--backgroundColor)',
                 isWhite && `border border-neutral-30`,
-                'size-[3.125rem] rounded-lg'
+                'size-[3.125rem] rounded-md'
               )}
               style={{ '--backgroundColor': `var(--color-${variant})` } as CSSProperties}
             />
