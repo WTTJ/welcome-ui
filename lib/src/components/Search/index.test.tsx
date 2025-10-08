@@ -1,6 +1,6 @@
 import { screen, waitFor } from '@testing-library/react'
 
-import { AvatarIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 
 import { render } from '@tests'
 
@@ -129,7 +129,7 @@ describe('<Search>', () => {
     render(
       <Search
         dataTestId="search"
-        icon={<AvatarIcon color="neutral-80" data-testid="icon-avatar" />}
+        icon={<Icon color="neutral-80" data-testid="icon-avatar" name="user-circle" />}
         name="search"
         value="february"
         {...defaultProps}
