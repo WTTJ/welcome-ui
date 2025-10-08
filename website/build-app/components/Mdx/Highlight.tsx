@@ -29,7 +29,7 @@ export const Highlight = ({ children, language = 'tsx' }: HighlightProps) => {
             {copied ? <CheckIcon /> : <CopyIcon className="text-neutral-10" />}
           </Button>
           <pre
-            className="border border-neutral-30 pt-lg pr-3xl pb-lg pl-xl rounded-lg"
+            className="border border-neutral-30 pt-lg pr-3xl pb-lg pl-xl rounded-md"
             style={style}
           >
             {tokens.map((line, i) => (
