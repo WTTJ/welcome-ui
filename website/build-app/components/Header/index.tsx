@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation'
 
 import { Button } from '@/components/Button'
 import { Drawer, useDrawer } from '@/components/Drawer'
-import { MenuIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { WelcomeUILogo } from '@/components/Logo'
 import { Toast } from '@/components/Toast'
 import { classNames } from '@/utils'
@@ -63,7 +63,7 @@ export const Header = ({ components, foundations }: HeaderProps) => {
           size="sm"
           store={drawer}
         >
-          <MenuIcon />
+          <Icon name="menu" />
         </Drawer.Trigger>
         <NavBar className="hidden lg:flex" />
         <Drawer className="lg:hidden z-[999]" size="100%" store={drawer} withBackdrop>

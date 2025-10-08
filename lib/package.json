@@ -59,6 +59,7 @@
   "dependencies": {
     "@ariakit/react": "0.4.19",
     "@emotion/is-prop-valid": "^1.4.0",
+    "@iconscout/unicons": "^4.2.0",
     "@juggle/resize-observer": "^3.4.0",
     "copy-to-clipboard": "^3.3.3",
     "date-fns": "^4.1.0",
