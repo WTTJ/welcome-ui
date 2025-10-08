@@ -19,28 +19,7 @@
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "\"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\" | \"xxl\"",
-          "value": [
-            {
-              "value": "\"lg\""
-            },
-            {
-              "value": "\"md\""
-            },
-            {
-              "value": "\"sm\""
-            },
-            {
-              "value": "\"xl\""
-            },
-            {
-              "value": "\"xs\""
-            },
-            {
-              "value": "\"xxl\""
-            }
-          ]
+          "name": "IconProps"
         }
       },
       "variant": {

@@ -1,9 +1,8 @@
 'use client'
-import { camelCase, startCase } from 'lodash'
 import React from 'react'
 
 import { Card } from '@/components/Card'
-import * as Icons from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { Text } from '@/components/Text'
 import { Toast, toast } from '@/components/Toast'
 import { classNames } from '@/utils'
@@ -75,27 +74,17 @@ export const IconsList = ({ name }: IconListProps) => {
 
   return (
     <div className="gap-lg grid lg:grid-cols-4 grid-cols-2">
-      {iconsByName[name]?.map(key => {
-        const name = startCase(camelCase(key)).replace(/ /g, '')
-        const componentName = `${name}Icon`
-
-        const Icon = Icons[componentName as keyof typeof Icons]
-
-        if (!Icon) {
-          // eslint-disable-next-line no-console
-          console.error(`The "${key}" icon is missing`)
-        }
-
+      {iconsByName[name]?.map(name => {
         return (
-          <Card className={cx('card')} key={key} onClick={() => handleClickToCopy(componentName)}>
-            {Icon ? <Icon size="lg" /> : <Icons.CrossIcon size="lg" />}
+          <Card className={cx('card')} key={name} onClick={() => handleClickToCopy(name)}>
+            <Icon name={name} size="lg" />
             <Text
               as="span"
               className="pt-md px-sm text-beige-70 text-center break-words"
               lines={2}
               variant="sm"
             >
-              {componentName}
+              {name}
             </Text>
           </Card>
         )

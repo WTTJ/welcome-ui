@@ -5,7 +5,7 @@ import React, { forwardRef, Fragment, useCallback, useEffect, useMemo, useState 
 
 import { CloseButton as ClearButton } from '@/components/CloseButton'
 import { useField } from '@/components/Field'
-import { DownIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { FIELD_ICON_SIZE } from '@/constants/field-icon-size'
 import { classNames } from '@/utils'
 import { createEvent } from '@/utils/create-event'
@@ -367,7 +367,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
                 onClick: () => setIsOpen(!isOpen),
               })}
             >
-              <DownIcon className={cx('styled-icon')} size="sm" />
+              <Icon className={cx('styled-icon')} name="angle-down" size="sm" />
             </div>
           )
 

@@ -2,7 +2,7 @@
 import Link from 'next/link'
 
 import { Button } from '@/components/Button'
-import { LeftIcon, RightIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 
 import type { PageTree } from '~/build-app/types'
 import { getName } from '~/build-app/utils/transform-name'
@@ -25,7 +25,7 @@ export const PrevNextPage = ({ basePage, currentId, pages }: PrevNextPageProps) 
     <div className="flex justify-between mt-3xl">
       {currentPageIndex > 0 ? (
         <Button as={Link} href={`/${basePage}/${items[currentPageIndex - 1]}`} variant="tertiary">
-          <LeftIcon />
+          <Icon name="chevron-left" />
           <span>{getName(items[currentPageIndex - 1])}</span>
         </Button>
       ) : (
@@ -34,7 +34,7 @@ export const PrevNextPage = ({ basePage, currentId, pages }: PrevNextPageProps) 
       {currentPageIndex !== lastItemIndex && (
         <Button as={Link} href={`/${basePage}/${items[currentPageIndex + 1]}`} variant="tertiary">
           <span>{getName(items[currentPageIndex + 1])}</span>
-          <RightIcon />
+          <Icon name="chevron-right" />
         </Button>
       )}
     </div>
