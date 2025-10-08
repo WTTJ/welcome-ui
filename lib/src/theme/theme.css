@@ -180,10 +180,6 @@
   src: url('https://cdn.welcome-ui.com/fonts/welcome-font-bold-italic.woff2') format('woff2');
 }
 
-/**
- * Do not edit directly, this file was auto-generated.
- */
-
 @theme static {
   --*: initial;
   --spacing: 0.0625rem;
@@ -1413,8 +1409,8 @@
   --font-size-md: 1rem;
   --font-size-lg: 1.125rem;
   --font-size-xl: 1.25rem;
-  --font-size-xxl: 1.5rem;
   --font-size-2xl: 1.5rem;
+  --font-size-xxl: 1.5rem;
   --font-size-3xl: 2rem;
   --font-size-4xl: 2.25rem;
   --font-size-5xl: 3rem;
@@ -1451,8 +1447,8 @@
   --spacing-md: 0.75rem;
   --spacing-lg: 1rem;
   --spacing-xl: 1.5rem;
-  --spacing-xxl: 2rem;
   --spacing-2xl: 2rem;
+  --spacing-xxl: 2rem;
   --spacing-3xl: 3rem;
   --spacing-4xl: 4rem;
   --spacing-5xl: 6rem;
@@ -1470,8 +1466,8 @@
   --size-icon-sm: 0.75rem;
   --size-icon-md: 1rem;
   --size-icon-lg: 1.5rem;
-  --size-icon-xxl: 2rem;
   --size-icon-2xl: 2rem;
+  --size-icon-xxl: 2rem;
   --size-icon-3xl: 3rem;
   --size-icon-4xl: 4rem;
   --height-8: 0.5rem;
@@ -1504,34 +1500,33 @@
   --border-width-sm: 2px;
   --border-width-md: 4px;
   --border-width-lg: 6px;
-  --radius-none: 0;
   --border-radius-none: 0;
-  --radius-xs: 0.125rem;
+  --radius-none: 0;
   --border-radius-xs: 0.125rem;
-  --radius-sm: 0.25rem;
+  --radius-xs: 0.125rem;
   --border-radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
+  --radius-sm: 0.25rem;
   --border-radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
+  --radius-md: 0.5rem;
   --border-radius-lg: 0.75rem;
-  --radius-xl: 1rem;
+  --radius-lg: 0.75rem;
   --border-radius-xl: 1rem;
-  --radius-xxl: 1.5rem;
-  --border-radius-xxl: 1.5rem;
+  --radius-xl: 1rem;
   --border-radius-2xl: 1.5rem;
-  --radius-full: calc(infinity * 1px);
+  --border-radius-xxl: 1.5rem;
+  --radius-2xl: 1.5rem;
   --border-radius-full: calc(infinity * 1px);
+  --radius-full: calc(infinity * 1px);
   --breakpoint-xs: 0;
   --breakpoint-sm: 480px;
   --breakpoint-md: 736px;
   --breakpoint-lg: 980px;
   --breakpoint-xl: 1280px;
-  --breakpoint-xxl: 1440px;
   --breakpoint-2xl: 1440px;
+  --breakpoint-xxl: 1440px;
   --breakpoint-3xl: 1620px;
   --breakpoint-4xl: 1920px;
 }
-
 @layer base {
   html,
   body,
