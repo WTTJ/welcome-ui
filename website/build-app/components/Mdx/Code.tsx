@@ -22,7 +22,7 @@ export const Code = ({ children, className }: CodeProps) => {
   }
 
   return (
-    <code className="bg-neutral-30 inline-flex items-center px-sm py-xxs rounded-md text-neutral-90 whitespace-break-spaces text-sm">
+    <code className="bg-neutral-30 inline-flex items-center px-sm py-xxs rounded-sm text-neutral-90 whitespace-break-spaces text-sm">
       {children}
     </code>
   )
