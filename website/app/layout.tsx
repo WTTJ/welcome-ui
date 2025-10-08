@@ -3,6 +3,7 @@ import { ThemeProvider as NextThemeProvider } from 'next-themes'
 
 import { Footer } from '~/build-app/components/Footer'
 import { Header } from '~/build-app/components/Header'
+import { Sprite } from '~/build-app/components/Sprite'
 import { getPages } from '~/build-app/utils/pages-components'
 import { getPages as getPagesExport } from '~/build-app/utils/pages-exports'
 
@@ -32,6 +33,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
             <Header components={pagesComponents} foundations={pagesFoundations} />
             {children}
             <Footer />
+            <Sprite />
           </div>
         </NextThemeProvider>
       </body>
