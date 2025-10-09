@@ -11,7 +11,7 @@ export const arrows = [
   'arrow-to-right',
   'top-arrow-to-top',
   'arrow-to-bottom',
-]
+] as const
 
 export const actions = [
   'chart-line',
@@ -34,7 +34,6 @@ export const actions = [
   'compress-arrows',
   'expand-arrows-alt',
   'text-size',
-  'arrows-resize',
   'external-link-alt',
   'heart',
   'filter',
@@ -55,7 +54,7 @@ export const actions = [
   'setting',
   'share-alt',
   'share',
-]
+] as const
 
 export const miscellaneous = [
   'rocket',
@@ -130,7 +129,12 @@ export const miscellaneous = [
   'award',
   'plug',
   'clock',
-]
+  'smile-beam-solid',
+  'sad-solid',
+  'music',
+  'package',
+  '10-plus-solid',
+] as const
 
 export const player = [
   'play',
@@ -152,7 +156,7 @@ export const player = [
   'volume-up',
   'volume-mute',
   'closed-captioning',
-]
+] as const
 
 export const wtf = [
   'basketball',
@@ -214,9 +218,9 @@ export const wtf = [
   'redo',
   'play',
   'ban',
-]
+] as const
 
-export const files = ['file', 'image']
+export const files = ['file', 'image'] as const
 
 export const markdown = [
   'bold',
@@ -230,9 +234,9 @@ export const markdown = [
   'text-size',
   'font',
   'underline',
-]
+] as const
 
-export const table = ['table', 'columns', 'trash']
+export const table = ['table', 'columns', 'trash'] as const
 
 export const brands = [
   'behance',
@@ -244,8 +248,22 @@ export const brands = [
   'linkedin',
   'slack',
   'youtube',
-]
+] as const
 
-export const welcome = ['symbol', 'wttj']
+export const welcome = ['symbol', 'wttj'] as const
 
-export const flags = ['flag-fr', 'flag-en', 'flag-us']
+export const flags = ['flag-fr', 'flag-en', 'flag-us'] as const
+
+export const icons = [
+  ...actions,
+  ...arrows,
+  ...brands,
+  ...files,
+  ...flags,
+  ...markdown,
+  ...miscellaneous,
+  ...player,
+  ...table,
+  ...welcome,
+  ...wtf,
+] as const
