@@ -1,6 +1,6 @@
 import { Button } from '@/components/Button'
-import { getFileIcon, getFileName, getFileSize } from '@/components/Files'
-import { ExternalLinkIcon } from '@/components/Icon'
+import { getFileIconName, getFileName, getFileSize } from '@/components/Files'
+import { Icon } from '@/components/Icon'
 import { Text } from '@/components/Text'
 import { classNames } from '@/utils'
 
@@ -16,13 +16,13 @@ export const FilePreview = ({
   previewButtonText = 'Preview',
 }: FilePreviewProps) => {
   const isUrl = typeof file === 'string'
-  const Icon = getFileIcon(file, forceFileType)
+  const iconName = getFileIconName(file, forceFileType)
   const size = file instanceof File ? getFileSize(file) : null
   const name = isUrl && fileName ? fileName : getFileName(file)
 
   return (
     <>
-      <Icon className={cx('file-preview-icon')} size="xxl" />
+      <Icon className={cx('file-preview-icon')} name={iconName} size="xxl" />
       <Text className={cx('file-preview-name')} lines={1} variant="h4">
         {name}
       </Text>
@@ -41,7 +41,7 @@ export const FilePreview = ({
           target="_blank"
         >
           <span>{previewButtonText}</span>
-          <ExternalLinkIcon />
+          <Icon name="external-link-alt" />
         </Button>
       ) : null}
     </>

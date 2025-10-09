@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ExternalLinkIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { classNames } from '@/utils'
 import { forwardRefWithAs } from '@/utils/forwardRefWithAs'
 
@@ -18,7 +18,7 @@ const Wrapper = ({ children, isExternal }: WrapperProps) => {
   return (
     <span className={cx('wui-text')}>
       {children}
-      {isExternal ? <ExternalLinkIcon size="sm" /> : null}
+      {isExternal ? <Icon name="external-link-alt" size="sm" /> : null}
     </span>
   )
 }

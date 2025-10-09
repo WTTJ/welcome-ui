@@ -1,6 +1,6 @@
 import { Button } from '@/components/Button'
 import { AssetDrawer, Drawer, useDrawer } from '@/components/Drawer'
-import { UserIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 
 const Example = () => {
   const drawer = useDrawer()
@@ -18,7 +18,7 @@ const Example = () => {
               <Button variant="secondary">Secondary</Button>
             </div>
           }
-          icon={UserIcon}
+          icon={<Icon name="user-circle" />}
           subtitle="Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis aliquam nec, convallis sit amet erat."
           title="Praesent sit amet quam faucibus dapibus"
         />

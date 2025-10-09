@@ -1,7 +1,7 @@
 import { DialogDismiss } from '@ariakit/react'
 import { forwardRef } from 'react'
 
-import { CrossIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { classNames } from '@/utils'
 
 import type { BackdropProps } from '../types'
@@ -22,7 +22,7 @@ export const AssetBackdrop = forwardRef<HTMLDivElement, BackdropProps>(
         <DialogDismiss
           render={
             <CloseButton>
-              <CrossIcon />
+              <Icon name="times" />
             </CloseButton>
           }
         />
