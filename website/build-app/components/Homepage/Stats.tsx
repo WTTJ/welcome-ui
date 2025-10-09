@@ -1,9 +1,9 @@
-import { CodeBlockIcon, DownloadIcon, StarIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { Text } from '@/components/Text'
 
 const stats = [
   {
-    icon: <CodeBlockIcon size="lg" />,
+    icon: <Icon name="brackets-curly" size="lg" />,
     name: (
       <>
         Amazing
@@ -14,7 +14,7 @@ const stats = [
     number: '50+',
   },
   {
-    icon: <StarIcon size="lg" />,
+    icon: <Icon name="star-solid" size="lg" />,
     name: (
       <>
         Github
@@ -25,7 +25,7 @@ const stats = [
     number: '600+',
   },
   {
-    icon: <DownloadIcon size="lg" />,
+    icon: <Icon name="import" size="lg" />,
     name: (
       <>
         Weekly
