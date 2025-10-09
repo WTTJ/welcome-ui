@@ -45,10 +45,9 @@ export const NavBar = ({ className, onClick }: NavBarProps) => {
         as="a"
         href="https://github.com/WTTJ/welcome-ui"
         rel="noreferrer noopener"
-        shape="circle"
         size="sm"
         target="_blank"
-        variant="ghost"
+        variant="tertiary"
       >
         <GithubIcon />
       </Button>

@@ -67,37 +67,6 @@
           "name": "ReactElement<any, string | JSXElementConstructor<any>>"
         }
       },
-      "shape": {
-        "defaultValue": null,
-        "description": "",
-        "name": "shape",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Button/types.ts",
-          "name": "ButtonOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Button/types.ts",
-            "name": "ButtonOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "enum",
-          "raw": "ButtonShape",
-          "value": [
-            {
-              "value": "\"circle\""
-            },
-            {
-              "value": "\"default\""
-            },
-            {
-              "value": "\"square\""
-            }
-          ]
-        }
-      },
       "size": {
         "defaultValue": null,
         "description": "",
@@ -141,15 +110,6 @@
           "raw": "ButtonVariant",
           "value": [
             {
-              "value": "\"ghost\""
-            },
-            {
-              "value": "\"ghost-ai\""
-            },
-            {
-              "value": "\"ghost-danger\""
-            },
-            {
               "value": "\"primary\""
             },
             {
@@ -159,13 +119,16 @@
               "value": "\"primary-danger\""
             },
             {
+              "value": "\"primary-neutral\""
+            },
+            {
               "value": "\"secondary\""
             },
             {
-              "value": "\"tertiary\""
+              "value": "\"secondary-danger\""
             },
             {
-              "value": "\"tertiary-ai\""
+              "value": "\"tertiary\""
             },
             {
               "value": "\"tertiary-danger\""

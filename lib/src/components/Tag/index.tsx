@@ -65,7 +65,7 @@ export const Tag = forwardRefWithAs<TagOptions, 'div'>((props, ref) => {
           className={cx('removeButton', removeButtonProps?.className)}
           onClick={handleRemove}
           size="xs"
-          variant="ghost"
+          variant="tertiary"
         >
           <CrossIcon size="xs" />
         </Button>

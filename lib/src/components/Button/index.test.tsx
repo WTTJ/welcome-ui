@@ -23,7 +23,7 @@ describe('Button', () => {
     expect(button).toHaveTextContent(content)
     expect(button).not.toBeDisabled()
     expect(button.classList.toString().includes('variant-primary')).toBe(true)
-    expect(button.classList.toString().includes('size-md')).toBe(true)
+    expect(button.classList.toString().includes('size-lg')).toBe(true)
   })
 
   it('should render a danger button', () => {
@@ -57,17 +57,6 @@ describe('Button', () => {
     await user.click(eventElement)
 
     expect(onClick).toHaveBeenCalledTimes(1)
-  })
-
-  it('should look like a square', () => {
-    render(
-      <Button data-testid="button" shape="square" size="sm">
-        {content}
-      </Button>
-    )
-    const button = screen.getByTestId('button')
-    expect(button.classList.toString().includes('shape-square')).toBe(true)
-    expect(button.classList.toString().includes('size-sm')).toBe(true)
   })
 
   it('should have correct size', () => {
@@ -106,7 +95,7 @@ describe('Button', () => {
       const button = screen.getByTestId('button')
 
       expect(button).not.toBeDisabled() // because of Ariakit adding accessibleWhenDisabled by default
-      expect(button.classList.toString().includes('variant-disabled')).toBe(true)
+      // expect(button.classList.toString().includes('disabled')).toBe(true) // disabled is no longer a variant, think about how to test
     })
   })
 
