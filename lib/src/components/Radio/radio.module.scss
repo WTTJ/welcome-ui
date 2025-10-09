@@ -55,8 +55,10 @@
       width: var(--components-dimensions-radio-indicator-size);
       height: var(--components-dimensions-radio-indicator-size);
       border-radius: var(--components-dimensions-radio-indicator-border-radius);
-      top: var(--spacing-2);
-      left: var(--spacing-2);
+      /* prettier-ignore */
+      top: calc((var(--components-dimensions-radio-size) - var( --components-dimensions-radio-indicator-size)) / 2 - var(--components-dimensions-radio-border-width-unchecked));
+      /* prettier-ignore */
+      left: calc((var(--components-dimensions-radio-size) - var( --components-dimensions-radio-indicator-size)) / 2 - var(--components-dimensions-radio-border-width-unchecked));
       transition: medium;
       background-color: var(--backgroundColor, var(--color-transparent));
     }
