@@ -3,7 +3,7 @@ import type { DropEvent, FileError, FileRejection } from 'react-dropzone'
 import { useDropzone } from 'react-dropzone'
 
 import { Button } from '@/components/Button'
-import { EditIcon, TrashIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { classNames } from '@/utils'
 import { createEvent } from '@/utils/create-event'
 
@@ -157,7 +157,7 @@ export const FileDrop = forwardRef<HTMLDivElement, FileDropProps>(
             <div className={cx('actions')}>
               {error || isEditable ? (
                 <Button onClick={open} size="sm" type="button" variant="tertiary">
-                  <EditIcon />
+                  <Icon name="pen" />
                 </Button>
               ) : null}
               {isClearable ? (
@@ -167,7 +167,7 @@ export const FileDrop = forwardRef<HTMLDivElement, FileDropProps>(
                   type="button"
                   variant="primary-danger"
                 >
-                  <TrashIcon />
+                  <Icon name="trash" />
                 </Button>
               ) : null}
             </div>
