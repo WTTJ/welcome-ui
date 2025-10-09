@@ -78,23 +78,24 @@
 
     @media (hover: hover) and (pointer: fine) {
       &:hover {
-        background: var(--buttonBackgroundHover);
-        border-color: var(--buttonBorderColorHover, transparent);
-        color: var(--buttonColorHover);
+        box-shadow: var(--elevation-elevation-20);
+        --buttonBackground: var(--buttonBackgroundHover);
+        --buttonBorderColor: var(--buttonBorderColorHover, transparent);
+        --buttonColor: var(--buttonColorHover);
       }
     }
 
     &:active {
-      background: var(--buttonBackgroundActive);
-      border-color: var(--buttonBorderColorActive, transparent);
-      color: var(--buttonColorPressed);
+      --buttonBackground: var(--buttonBackgroundActive);
+      --buttonBorderColor: var(--buttonBorderColorActive, transparent);
+      --buttonColor: var(--buttonColorPressed);
     }
 
     &:disabled,
     &[aria-disabled] {
-      border-color: var(--buttonBorderColorDisabled, transparent);
-      color: var(--buttonColorDisabled);
-      background: var(--buttonBackgroundDisabled);
+      --buttonBorderColor: var(--buttonBorderColorDisabled, transparent);
+      --buttonColor: var(--buttonColorDisabled);
+      --buttonBackground: var(--buttonBackgroundDisabled);
       cursor: not-allowed;
     }
 
