@@ -3,8 +3,6 @@
     display: flex;
     align-items: center;
     color: var(--color, var(--components-colors-hint-color-text-default));
-    font-size: var(--border-radius-lg);
-    line-height: var(--font-size-sm);
   }
 
   .variant {
