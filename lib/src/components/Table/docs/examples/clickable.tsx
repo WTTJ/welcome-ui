@@ -1,5 +1,5 @@
 import { Button } from '@/components/Button'
-import { SettingsIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { Table } from '@/components/Table'
 
 const Example = () => {
@@ -20,7 +20,7 @@ const Example = () => {
           <Table.Td>23</Table.Td>
           <Table.Td className="text-right">
             <Button size="sm" variant="primary-neutral">
-              <SettingsIcon size="sm" />
+              <Icon name="setting" size="sm" />
             </Button>
           </Table.Td>
         </Table.Tr>
@@ -30,7 +30,7 @@ const Example = () => {
           <Table.Td>41</Table.Td>
           <Table.Td className="text-right">
             <Button size="sm" variant="primary-neutral">
-              <SettingsIcon size="sm" />
+              <Icon name="setting" size="sm" />
             </Button>
           </Table.Td>
         </Table.Tr>
