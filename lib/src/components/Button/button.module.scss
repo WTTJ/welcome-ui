@@ -77,7 +77,7 @@
     }
 
     @media (hover: hover) and (pointer: fine) {
-      &:hover {
+      &:hover:not(:disabled):not([aria-disabled]) {
         box-shadow: var(--elevation-elevation-20);
         --buttonBackground: var(--buttonBackgroundHover);
         --buttonBorderColor: var(--buttonBorderColorHover, transparent);
@@ -205,7 +205,7 @@
       animation: rotate-gradient 3s linear infinite paused;
 
       @media (hover: hover) and (pointer: fine) {
-        &:hover {
+        &:hover:not(:disabled):not([aria-disabled]) {
           animation-play-state: running;
         }
       }
