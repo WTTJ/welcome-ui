@@ -2,7 +2,7 @@
 import { Avatar } from '@/components/Avatar'
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
-import { RightIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { Link } from '@/components/Link'
 import { Tag } from '@/components/Tag'
 import { Text } from '@/components/Text'
@@ -136,7 +136,7 @@ const Home = () => {
                         size="sm"
                         target="_blank"
                       >
-                        <span>Read more</span> <RightIcon />
+                        <span>Read more</span> <Icon name="angle-right-b" />
                       </Button>
                     </div>
                   </div>

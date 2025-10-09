@@ -1,11 +1,11 @@
 import { DatePicker } from '@/components/DatePicker'
-import { DateIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 
 const Example = () => {
   return (
     <>
-      <DatePicker icon={<DateIcon />} name="welcome" value={new Date()} />
-      <DatePicker icon={<DateIcon />} iconPlacement="right" name="welcome" value={new Date()} />
+      <DatePicker icon={<Icon name="calendar" />} name="welcome" value={new Date()} />
+      <DatePicker icon={<Icon name="calendar" />} iconPlacement="right" name="welcome" value={new Date()} />
     </>
   )
 }
