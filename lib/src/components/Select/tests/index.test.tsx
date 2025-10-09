@@ -346,7 +346,7 @@ describe('<Select>', () => {
     render(
       <Select
         dataTestId="select"
-        icon={<Icon name="user-circle" data-testid="avatar-icon" />}
+        icon={<Icon data-testid="avatar-icon" name="user-circle" />}
         name="select"
         options={MONTHS}
         value="february"

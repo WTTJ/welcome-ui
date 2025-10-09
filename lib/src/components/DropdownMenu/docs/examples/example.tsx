@@ -26,11 +26,11 @@ const Example = () => {
       </ButtonGroup>
       <DropdownMenu aria-label="Complexity" store={dropdownMenu}>
         <DropdownMenu.Item onClick={handleClick} store={dropdownMenu}>
-          <Icon name="trash" className="mr-sm" size="sm" />
+          <Icon className="mr-sm" name="trash" size="sm" />
           <span>Second Action</span>
         </DropdownMenu.Item>
         <DropdownMenu.Item onClick={handleClick} store={dropdownMenu}>
-          <Icon name="paperclip" className="mr-sm" size="sm" />
+          <Icon className="mr-sm" name="paperclip" size="sm" />
           <span>Third Action</span>
         </DropdownMenu.Item>
       </DropdownMenu>

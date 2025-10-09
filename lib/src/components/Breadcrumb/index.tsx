@@ -23,7 +23,12 @@ const cx = classNames(breadcrumbStyles)
 
 export const BreadcrumbComponent = forwardRef<HTMLDivElement, BreadcrumbProps>(
   (
-    { children, lastChildNotClickable = true, separator = <Icon name="angle-right-b" size="xs" />, ...rest },
+    {
+      children,
+      lastChildNotClickable = true,
+      separator = <Icon name="angle-right-b" size="xs" />,
+      ...rest
+    },
     ref
   ) => {
     // Remove null child

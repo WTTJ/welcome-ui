@@ -1,32 +1,32 @@
 import { Button } from '@/components/Button'
-import { WttjIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 
 const Example = () => {
   return (
     <>
       <Button shape="square" size="xs">
-        <WttjIcon />
+        <Icon name="wttj" />
       </Button>
       <Button shape="circle" size="xs">
-        <WttjIcon />
+        <Icon name="wttj" />
       </Button>
       <Button shape="square" size="sm">
-        <WttjIcon />
+        <Icon name="wttj" />
       </Button>
       <Button shape="circle" size="sm">
-        <WttjIcon />
+        <Icon name="wttj" />
       </Button>
       <Button shape="square">
-        <WttjIcon />
+        <Icon name="wttj" />
       </Button>
       <Button shape="circle">
-        <WttjIcon />
+        <Icon name="wttj" />
       </Button>
       <Button shape="square" size="lg">
-        <WttjIcon />
+        <Icon name="wttj" />
       </Button>
       <Button shape="circle" size="lg">
-        <WttjIcon />
+        <Icon name="wttj" />
       </Button>
     </>
   )
