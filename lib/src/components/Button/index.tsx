@@ -40,7 +40,7 @@ export const Button = forwardRefWithAs<ButtonProps, 'button'>(
         {...(Element === 'button' ? { type: 'button' } : {})}
         {...rest}
         accessibleWhenDisabled={accessibleWhenDisabled}
-        className={cx('root', variant && `variant-${variant}`, size && `size-${size}`, className)}
+        className={cx('root', `variant-${variant}`, `size-${size}`, className)}
         disabled={isDisabled}
         ref={ref}
         render={as ? <Element /> : undefined}
