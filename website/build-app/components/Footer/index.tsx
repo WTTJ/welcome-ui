@@ -98,7 +98,7 @@ export const Footer = () => {
                     target={isExternal ? '_blank' : undefined}
                   >
                     {name}
-                    <Icon className="text-neutral-60" name="external-link" size="xs" />
+                    <Icon className="text-neutral-60" name="external-link-alt" size="xs" />
                   </a>
                 </li>
               ))}
