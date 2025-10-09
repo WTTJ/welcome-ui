@@ -11,7 +11,7 @@ export const arrows = [
   'arrow-to-right',
   'top-arrow-to-top',
   'arrow-to-bottom',
-]
+] as const
 
 export const actions = [
   'activity',
@@ -30,12 +30,11 @@ export const actions = [
   'upload',
   'drag_and_drop',
   'copy',
-  'edit',
-  'collapse',
-  'expand',
-  'expand_text',
-  'extend',
-  'external_link',
+  'pen',
+  'compress-arrows',
+  'expand-arrows-alt',
+  'text-size',
+  'external-link-alt',
   'heart',
   'heart_outline',
   'filters',
@@ -53,10 +52,10 @@ export const actions = [
   'reset',
   'save',
   'search',
-  'settings',
-  'share1',
-  'share2',
-]
+  'setting',
+  'share-alt',
+  'share',
+] as const
 
 export const miscellaneous = [
   'actions',
@@ -137,15 +136,19 @@ export const miscellaneous = [
   'tag',
   'tablet',
   'mobile',
-  'video_camera',
-  'video_camera_2',
-  'create',
-  'update',
-  'success',
-  'certified',
-  'connection',
-  'thunderclock',
-]
+  'video',
+  'plus-circle',
+  'edit',
+  'check-circle',
+  'award',
+  'plug',
+  'clock',
+  'smile-beam-solid',
+  'sad-solid',
+  'music',
+  'package',
+  '10-plus-solid',
+] as const
 
 export const player = [
   'play',
@@ -166,21 +169,12 @@ export const player = [
   'camera_on',
   'camera_off',
   'airplay',
-  'watch_later',
-  'playlist',
-  'sound_on',
-  'sound_off',
-  'subtitle',
-]
-
-export const avatar = [
-  'avatar_accessory',
-  'avatar_body',
-  'avatar_bottom',
-  'avatar_costume',
-  'avatar_head',
-  'avatar_top',
-]
+  'clock',
+  'list-ul',
+  'volume-up',
+  'volume-mute',
+  'closed-captioning',
+] as const
 
 export const wtf = [
   'basketball',
@@ -237,38 +231,19 @@ export const wtf = [
   'sparkles',
   'stackserver',
   'sun',
-  'target',
-  'thumb_up',
-  'thumb_down',
-  'teepee',
-  'tree',
-  'common_area',
-  'meeting_room',
-  'refresh',
-  'video',
-  'unavailable',
-]
+  'hunting',
+  'thumbs-up',
+  'thumbs-down',
+  'triangle',
+  'trees',
+  'users',
+  'presentation',
+  'redo',
+  'play',
+  'ban',
+] as const
 
-export const files = [
-  'csv',
-  'doc',
-  'docx',
-  'eot',
-  'gif',
-  'jpeg',
-  'jpg',
-  'pdf',
-  'png',
-  'ppt',
-  'svg',
-  'ttf',
-  'txt',
-  'woff',
-  'woff2',
-  'xls',
-  'xlsx',
-  'zip',
-]
+export const files = ['file', 'image'] as const
 
 export const markdown = [
   'bold',
@@ -288,20 +263,9 @@ export const markdown = [
   'heading_6',
   'type',
   'underline',
-]
+] as const
 
-export const table = [
-  'table',
-  'table_column_add_after',
-  'table_column_add_before',
-  'table_column_remove',
-  'table_delete',
-  'table_divide',
-  'table_merge_cells',
-  'table_row_add_above',
-  'table_row_add_below',
-  'table_row_remove',
-]
+export const table = ['table', 'columns', 'trash'] as const
 
 export const brands = [
   'behance',
@@ -320,9 +284,22 @@ export const brands = [
   'x',
   'xing',
   'youtube',
-  'zapier',
-]
+] as const
 
-export const welcome = ['symbol', 'wttj']
+export const welcome = ['symbol', 'wttj'] as const
 
-export const flags = ['flag_fr', 'flag_en', 'flag_cs', 'flag_sk', 'flag_es', 'flag_us']
+export const flags = ['flag-fr', 'flag-en', 'flag-us'] as const
+
+export const icons = [
+  ...actions,
+  ...arrows,
+  ...brands,
+  ...files,
+  ...flags,
+  ...markdown,
+  ...miscellaneous,
+  ...player,
+  ...table,
+  ...welcome,
+  ...wtf,
+] as const

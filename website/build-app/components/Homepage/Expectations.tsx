@@ -1,10 +1,11 @@
 import { Card } from '@/components/Card'
 import { Icon } from '@/components/Icon'
+import type { IconName } from '@/components/Icon/types'
 import { Text } from '@/components/Text'
 
 type ExpectationProps = {
   description: string
-  icon: string
+  icon: IconName
   title: string
 }
 

@@ -20,7 +20,7 @@ const Example = () => {
         </Tab>
         <Tab id="tab3" store={tab}>
           Tab 3
-          <Icon name="heart-solid" />
+          <Icon name="heart" />
         </Tab>
         <Tab id="tab4" store={tab}>
           <img src="https://cdn.welcometothejungle.com/wttj-front/production/assets/images/logos/wttj.svg?v=3a3dbd7122a01600fb67e66b889bb47c" />{' '}
