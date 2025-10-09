@@ -57,16 +57,16 @@
     outline: transparent solid var(--border-width-md);
     font-weight: var(--font-weight-semi-bold);
     font-family: var(--font-family-body);
+    line-height: var(--font-line-height-xs);
 
     /* VARIABLES THAT CHANGE WITH REACT PROPS */
     height: var(--buttonHeight);
     padding-inline: var(--buttonPaddingInline);
     font-size: var(--buttonFontSize);
-    color: var(--buttonColor, var(--neutral-90));
+    color: var(--buttonColor, var(--color-neutral-90));
     background: var(--buttonBackground);
     border-width: var(--buttonBorderWidth, 0);
     border-color: var(--buttonBorderColor, transparent);
-    line-height: var(--buttonLineHeight);
     box-shadow: var(--buttonBoxShadow, none);
     gap: var(--buttonGap);
 
@@ -117,7 +117,6 @@
       --buttonHeight: var(--components-dimensions-button-size-max-height-sm);
       --buttonPaddingInline: var(--spacing-sm);
       --buttonIconSize: var(--size-icon-md);
-      --buttonLineHeight: var(--line-height-16);
       --buttonGap: var(--components-dimensions-button-gap-content-sm);
     }
 
@@ -126,7 +125,6 @@
       --buttonHeight: var(--components-dimensions-button-size-max-height-md);
       --buttonPaddingInline: var(--spacing-md);
       --buttonIconSize: var(--size-icon-md);
-      --buttonLineHeight: var(--line-height-16);
       --buttonGap: var(--components-dimensions-button-gap-content-md);
     }
 
@@ -135,7 +133,6 @@
       --buttonHeight: var(--components-dimensions-button-size-max-height-lg);
       --buttonPaddingInline: var(--spacing-lg);
       --buttonIconSize: var(--size-icon-lg);
-      --buttonLineHeight: var(--line-height-20);
       --buttonGap: var(--components-dimensions-button-gap-content-lg);
     }
   }
@@ -231,11 +228,6 @@
       --buttonColorHover: var(--components-colors-button-color-text-primary-danger-hover);
       --buttonColorPressed: var(--components-colors-button-color-text-primary-danger-pressed);
       --buttonBorderWidth: var(--components-dimensions-button-border-width-secondary);
-      --buttonBorderColor: var(--components-colors-button-color-border-primary-danger-default);
-      --buttonBorderColorHover: var(--components-colors-button-color-border-primary-danger-hover);
-      --buttonBorderColorActive: var(
-        --components-colors-button-color-border-primary-danger-pressed
-      );
       --buttonOutlineColorFocus: var(--components-colors-button-color-border-focused);
     }
 
@@ -300,10 +292,6 @@
       --buttonColorDisabled: var(--components-colors-button-color-text-tertiary-main-disabled);
       --buttonColorHover: var(--components-colors-button-color-text-tertiary-main-hover);
       --buttonColorPressed: var(--components-colors-button-color-text-tertiary-main-pressed);
-      --buttonBorderWidth: var(--components-dimensions-button-border-width-tertiary);
-      --buttonBorderColor: var(--components-colors-button-color-border-tertiary-main-default);
-      --buttonBorderColorHover: var(--components-colors-button-color-border-tertiary-main-hover);
-      --buttonBorderColorActive: var(--components-colors-button-color-border-tertiary-main-pressed);
       --buttonOutlineColorFocus: var(--components-colors-button-color-border-focused);
     }
 
@@ -322,12 +310,6 @@
       --buttonColorDisabled: var(--components-colors-button-color-text-tertiary-danger-disabled);
       --buttonColorHover: var(--components-colors-button-color-text-tertiary-danger-hover);
       --buttonColorPressed: var(--components-colors-button-color-text-tertiary-danger-pressed);
-      --buttonBorderWidth: var(--components-dimensions-button-border-width-tertiary);
-      --buttonBorderColor: var(--components-colors-button-color-border-tertiary-danger-default);
-      --buttonBorderColorHover: var(--components-colors-button-color-border-tertiary-danger-hover);
-      --buttonBorderColorActive: var(
-        --components-colors-button-color-border-tertiary-danger-pressed
-      );
       --buttonOutlineColorFocus: var(--components-colors-button-color-border-focused);
     }
   }
