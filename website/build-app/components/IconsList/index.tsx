@@ -11,7 +11,6 @@ import styles from './icon-list.styles.scss'
 import {
   actions,
   arrows,
-  avatar,
   brands,
   files,
   flags,
@@ -30,7 +29,6 @@ export type IconListProps = {
   name:
     | 'actions'
     | 'arrows'
-    | 'avatar'
     | 'brands'
     | 'files'
     | 'flags'
@@ -60,7 +58,6 @@ export const IconsList = ({ name }: IconListProps) => {
   const iconsByName = {
     actions: actions,
     arrows: arrows,
-    avatar: avatar,
     brands: brands,
     files: files,
     flags: flags,
