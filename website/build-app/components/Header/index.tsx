@@ -63,7 +63,7 @@ export const Header = ({ components, foundations }: HeaderProps) => {
           size="sm"
           store={drawer}
         >
-          <Icon name="menu" />
+          <Icon name="bars" />
         </Drawer.Trigger>
         <NavBar className="hidden lg:flex" />
         <Drawer className="lg:hidden z-[999]" size="100%" store={drawer} withBackdrop>

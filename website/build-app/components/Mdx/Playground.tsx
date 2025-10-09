@@ -85,12 +85,12 @@ export const Playground = ({
                   size="xs"
                   variant="ghost"
                 >
-                  <Icon name="code-block" />
+                  <Icon name="arrow" />
                 </Button>
               </Tooltip>
               <Tooltip content="Edit on StackBlitz">
                 <Button onClick={handleClickStackBlitz} shape="circle" size="xs" variant="ghost">
-                  <Icon name="promote" />
+                  <Icon name="external-link-alt" />
                 </Button>
               </Tooltip>
               <Tooltip content="View on Github">
