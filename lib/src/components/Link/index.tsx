@@ -58,6 +58,7 @@ export const Link = forwardRefWithAs<LinkOptions, 'a'>((props, ref) => {
     disabled,
     isExternal,
     multiline,
+    size = 'md',
     target,
     variant = 'primary',
     ...rest
@@ -76,6 +77,7 @@ export const Link = forwardRefWithAs<LinkOptions, 'a'>((props, ref) => {
       className={cx(
         'root',
         `variant-${variant}`,
+        `size-${size}`,
         isExternal && 'isExternal',
         multiline && 'isMultiline',
         className
@@ -83,6 +85,7 @@ export const Link = forwardRefWithAs<LinkOptions, 'a'>((props, ref) => {
       ref={ref}
       // for security
       rel={target === '_blank' ? 'noopener noreferrer' : undefined}
+      tabIndex={disabled ? -1 : 0}
       {...rest}
     >
       {_children}
