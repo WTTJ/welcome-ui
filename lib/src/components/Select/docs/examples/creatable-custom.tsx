@@ -28,7 +28,7 @@ const Example = () => {
       renderCreateItem={value => {
         return (
           <div className="flex items-center">
-            <Icon name="plus" className="mr-(--spacing-sm)" size="sm" />
+            <Icon className="mr-(--spacing-sm)" name="plus" size="sm" />
             <Text as="span" variant="sm">
               Add <b>{value.toString()}</b> as a new option
             </Text>

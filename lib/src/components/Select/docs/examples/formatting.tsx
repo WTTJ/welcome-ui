@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { WttjIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { Select } from '@/components/Select'
 import type { SelectOption, SelectProps } from '@/components/Select/types'
 
@@ -25,7 +25,7 @@ const Example = () => {
       options={ITEMS}
       renderItem={(item: SelectOption) => (
         <div style={{ alignItems: 'center', display: 'flex' }}>
-          <WttjIcon className="mr-(--spacing-sm)" size="xs" />
+          <Icon className="mr-(--spacing-sm)" name="wttj" size="xs" />
           <span>{item.label}</span>
         </div>
       )}

@@ -12,7 +12,7 @@ const cx = classNames(styles)
 export const Header = ({
   action,
   className,
-  icon,
+  iconName,
   onBackButtonClick,
   subtitle,
   title,
@@ -25,7 +25,7 @@ export const Header = ({
             <Icon name="arrow-left" />
           </Button>
         )}
-        {!!icon && <IconBlock icon={icon} />}
+        {!!iconName && <IconBlock iconName={iconName} />}
         <div className={cx('title')}>
           <Text className="pr-xl" variant="h3">
             {title}

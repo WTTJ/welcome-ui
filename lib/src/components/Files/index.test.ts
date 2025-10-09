@@ -126,7 +126,7 @@ describe('File utils', () => {
       const file = generateFile(fileName, 'image/jpeg')
       const result = getFileIconName(file)
 
-      expect(result).toEqual('play')
+      expect(result).toEqual('camera')
     })
 
     it('should return correct pdf icon', () => {
@@ -150,7 +150,7 @@ describe('File utils', () => {
       const file = generateFile(fileName, 'application/pdf')
       const result = getFileIconName(file, 'image')
 
-      expect(result).toEqual('play')
+      expect(result).toEqual('camera')
     })
   })
 })
