@@ -41,7 +41,7 @@ export type IconListProps = {
 }
 
 const handleClickToCopy = (componentName: string) => {
-  const component = `<${componentName} />`
+  const component = `<Icon name="${componentName}" />`
   navigator.clipboard.writeText(component)
 
   toast(
