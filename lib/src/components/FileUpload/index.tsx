@@ -1,7 +1,8 @@
 import { forwardRef, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react'
 
 import { Button } from '@/components/Button'
-import { getFileIcon, getFileName, getFileSize } from '@/components/Files'
+import { getFileIconName, getFileName, getFileSize } from '@/components/Files'
+import { Icon } from '@/components/Icon'
 import { Tag } from '@/components/Tag'
 import { classNames } from '@/utils'
 import { createEvent } from '@/utils/create-event'
@@ -23,13 +24,13 @@ const ensureArray: (value: unknown | unknown[]) => FileWithPreview[] = value => 
 }
 
 const DefaultPreview = ({ file, onRemove }: FileUploadPreviewProps) => {
-  const Icon = getFileIcon(file)
+  const iconName = getFileIconName(file)
   const name = getFileName(file)
   const size = getFileSize(file)
 
   return (
     <Tag className={cx('preview-tag')} data-testid={name} key={name} onRemove={onRemove}>
-      <Icon size="md" />
+      <Icon name={iconName} size="md" />
       {name}
       {size ? <span className={cx('preview-tag-size')}>({size})</span> : null}
     </Tag>

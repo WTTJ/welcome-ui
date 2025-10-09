@@ -1,5 +1,5 @@
 import { Button } from '@/components/Button'
-import { AddIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 
 const Example = () => {
   return (
@@ -9,7 +9,7 @@ const Example = () => {
       rel="noopener nofollow"
       target="_blank"
     >
-      <AddIcon />
+      <Icon name="plus" />
       <span>Welcome</span>
     </Button>
   )
