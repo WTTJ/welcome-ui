@@ -3,7 +3,7 @@ import { forwardRef } from 'react'
 import { classNames } from '@/utils'
 
 import iconStyles from './icon.module.scss'
-import type { IconProps } from './Icon.types'
+import type { IconProps } from './types'
 
 const cx = classNames(iconStyles)
 
