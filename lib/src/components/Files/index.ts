@@ -23,7 +23,7 @@ export function getFileIconName(file: FileType, forceFileType?: ForceFileType): 
   }
 
   if (forceFileType === 'image' || (mimeType && mimeType.startsWith('image/'))) {
-    return 'images'
+    return 'camera'
   }
   if (forceFileType === 'audio' || (mimeType && mimeType.startsWith('audio/'))) {
     return 'music'
