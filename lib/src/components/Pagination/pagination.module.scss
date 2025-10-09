@@ -28,15 +28,14 @@
 
     &:not([disabled]):hover,
     &:focus-visible {
-      --backgroundColor: var(--color-neutral-30);
+      --backgroundColor: var(--color-background-neutral-subtlest);
     }
 
     &:focus-visible {
-      --color: var(--color-neutral-90);
+      --color: var(--components-colors-pagination-color-icon-unchecked-pressed);
       outline: none !important; /* important for firefox */
     }
   }
-
   .disabled-arrow {
     cursor: not-allowed;
     --color: var(--color-icon-warm-tertiary);
