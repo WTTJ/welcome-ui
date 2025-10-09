@@ -1,12 +1,12 @@
 @property --gradient-angle {
   syntax: '<angle>';
-  initial-value: 0deg;
+  initial-value: -60deg;
   inherits: true;
 }
 
 @keyframes rotate-gradient {
   to {
-    --gradient-angle: 360deg;
+    --gradient-angle: 300deg;
   }
 }
 
@@ -23,6 +23,7 @@
     border-radius: var(--border-radius-md);
     transition-property: all;
     transition-duration: var(--duration-medium);
+    transition-timing-function: ease-in-out;
     outline: transparent solid var(--border-width-md);
     font-weight: var(--font-weight-semi-bold);
     font-family: var(--font-family-body);
@@ -156,13 +157,10 @@
             var(--color-violet-40),
             var(--color-pink-40),
             var(--color-red-orange-40),
-            var(--color-green-30),
-            var(--color-green-30),
-            var(--color-teal-40),
-            var(--color-blue-40),
-            var(--color-violet-40),
             var(--color-pink-40),
-            var(--color-red-orange-40),
+            var(--color-violet-40),
+            var(--color-blue-40),
+            var(--color-teal-40),
             var(--color-green-30)
           )
           border-box;
@@ -177,13 +175,10 @@
             var(--color-violet-40),
             var(--color-pink-40),
             var(--color-red-orange-40),
-            var(--color-green-30),
-            var(--color-green-30),
-            var(--color-teal-40),
-            var(--color-blue-40),
-            var(--color-violet-40),
             var(--color-pink-40),
-            var(--color-red-orange-40),
+            var(--color-violet-40),
+            var(--color-blue-40),
+            var(--color-teal-40),
             var(--color-green-30)
           )
           border-box;
@@ -198,13 +193,10 @@
             var(--color-violet-40),
             var(--color-pink-40),
             var(--color-red-orange-40),
-            var(--color-green-30),
-            var(--color-green-30),
-            var(--color-teal-40),
-            var(--color-blue-40),
-            var(--color-violet-40),
             var(--color-pink-40),
-            var(--color-red-orange-40),
+            var(--color-violet-40),
+            var(--color-blue-40),
+            var(--color-teal-40),
             var(--color-green-30)
           )
           border-box;
