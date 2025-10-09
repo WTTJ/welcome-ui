@@ -1,5 +1,5 @@
 import { Button } from '@/components/Button'
-import { ArrowLeftIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { Text } from '@/components/Text'
 import { classNames } from '@/utils'
 
@@ -22,7 +22,7 @@ export const Header = ({
       <div className={cx('back-button')}>
         {!!onBackButtonClick && (
           <Button onClick={onBackButtonClick} shape="circle" size="lg" variant="ghost">
-            <ArrowLeftIcon />
+            <Icon name="arrow-left" />
           </Button>
         )}
         {!!icon && <IconBlock icon={icon} />}

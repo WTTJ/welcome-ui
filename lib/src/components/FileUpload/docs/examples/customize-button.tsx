@@ -1,6 +1,6 @@
 import { Button } from '@/components/Button'
 import { FileUpload } from '@/components/FileUpload'
-import { UploadIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 
 const Example = () => {
   const handleChange = () => {
@@ -11,7 +11,7 @@ const Example = () => {
     <FileUpload handleAddFile={handleChange} handleRemoveFile={handleChange} name="custom" value="">
       {({ disabled, openFile }) => (
         <Button disabled={disabled} onClick={openFile} shape="circle" size="lg">
-          <UploadIcon />
+          <Icon name="upload" />
         </Button>
       )}
     </FileUpload>

@@ -1,4 +1,4 @@
-import { LockIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { VariantIcon } from '@/components/VariantIcon'
 import { classNames, forwardRefWithAs } from '@/utils'
 
@@ -12,7 +12,7 @@ export const Label = forwardRefWithAs<LabelProps, 'label'>(
     return (
       <label className={cx('root', className)} ref={ref} {...rest}>
         {variant ? <VariantIcon size="sm" variant={variant} /> : null}
-        {disabled ? <LockIcon size="sm" /> : null}
+        {disabled ? <Icon name="lock-alt" size="sm" /> : null}
         {children}
         {required ? <span className={cx('required')}>*</span> : null}
       </label>
