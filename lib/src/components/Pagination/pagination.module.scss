@@ -26,24 +26,20 @@
     cursor: pointer;
     text-decoration: none;
 
-    &:hover,
-    &:focus {
+    &:not([disabled]):hover,
+    &:focus-visible {
       --backgroundColor: var(--color-background-neutral-subtlest);
     }
 
-    &:focus {
+    &:focus-visible {
       --color: var(--components-colors-pagination-color-icon-unchecked-pressed);
       outline: none !important; /* important for firefox */
     }
   }
-
-  .arrow {
-    &[aria-disabled='true'] {
-      pointer-events: none;
-      cursor: not-allowed;
-      --color: var(--color-icon-warm-tertiary);
-      --backgroundColor: var(--color-background-warm-stronger);
-    }
+  .disabled-arrow {
+    cursor: not-allowed;
+    --color: var(--color-icon-warm-tertiary);
+    --backgroundColor: var(--color-background-warm-stronger);
   }
 
   .page {
@@ -52,7 +48,7 @@
       --color: var(--components-colors-pagination-color-background-unchecked-default);
 
       &:hover,
-      &:focus {
+      &:focus-visible {
         --backgroundColor: var(--components-colors-pagination-color-icon-unchecked-pressed);
       }
     }
