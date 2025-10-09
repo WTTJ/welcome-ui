@@ -10,6 +10,36 @@
   }
 }
 
+@function ai-gradient-border-background($background-color) {
+  @return linear-gradient($background-color 0 0) padding-box,
+    conic-gradient(
+        from var(--gradient-angle) at 50% 50%,
+        var(--color-green-30),
+        var(--color-teal-40),
+        var(--color-blue-40),
+        var(--color-violet-40),
+        var(--color-pink-40),
+        var(--color-red-orange-40),
+        var(--color-pink-40),
+        var(--color-violet-40),
+        var(--color-blue-40),
+        var(--color-teal-40),
+        var(--color-green-30)
+      )
+      border-box;
+}
+
+@function ai-striped-background($background-color) {
+  @return repeating-linear-gradient(
+      -45deg,
+      var(--color-neutral-10),
+      var(--color-neutral-10) 2.5px,
+      $background-color 2.5px,
+      $background-color 5.25px
+    )
+    padding-box;
+}
+
 @layer components {
   .root {
     position: relative;
@@ -64,17 +94,7 @@
     &[aria-disabled] {
       border-color: var(--buttonBorderColorDisabled, transparent);
       color: var(--buttonColorDisabled);
-      background: var(
-        --buttonBackgroundDisabled,
-        repeating-linear-gradient(
-            -45deg,
-            white,
-            white 2.5px,
-            var(--components-colors-button-color-background-primary-ai-disabled) 2.5px,
-            var(--components-colors-button-color-background-primary-ai-disabled) 5.25px
-          )
-          padding-box
-      );
+      background: var(--buttonBackgroundDisabled);
       cursor: not-allowed;
     }
 
@@ -128,6 +148,9 @@
       --buttonBackgroundHover: var(--components-colors-button-color-background-primary-main-hover);
       --buttonOutlineColorFocus: var(--components-colors-button-color-border-focused);
       --buttonColorDisabled: var(--components-colors-button-color-text-primary-main-disabled);
+      --buttonBackgroundDisabled: #{ai-striped-background(
+          var(--components-colors-button-color-background-primary-main-disabled)
+        )};
     }
 
     &-primary-neutral {
@@ -138,6 +161,9 @@
       --buttonBackgroundHover: var(
         --components-colors-button-color-background-primary-neutral-hover
       );
+      --buttonBackgroundDisabled: #{ai-striped-background(
+          var(--components-colors-button-color-background-primary-neutral-disabled)
+        )};
       --buttonColor: var(--components-colors-button-color-text-primary-neutral-default);
       --buttonColorDisabled: var(--components-colors-button-color-text-primary-neutral-disabled);
       --buttonColorHover: var(--components-colors-button-color-text-primary-neutral-hover);
@@ -146,77 +172,27 @@
     }
 
     &-primary-ai {
-      --buttonBackground:
-        linear-gradient(var(--components-colors-button-color-background-primary-ai-default) 0 0)
-          padding-box,
-        conic-gradient(
-            from var(--gradient-angle) at 50% 50%,
-            var(--color-green-30),
-            var(--color-teal-40),
-            var(--color-blue-40),
-            var(--color-violet-40),
-            var(--color-pink-40),
-            var(--color-red-orange-40),
-            var(--color-pink-40),
-            var(--color-violet-40),
-            var(--color-blue-40),
-            var(--color-teal-40),
-            var(--color-green-30)
-          )
-          border-box;
-      --buttonBackgroundActive:
-        linear-gradient(var(--components-colors-button-color-background-primary-ai-pressed) 0 0)
-          padding-box,
-        conic-gradient(
-            from var(--gradient-angle) at 50% 50%,
-            var(--color-green-30),
-            var(--color-teal-40),
-            var(--color-blue-40),
-            var(--color-violet-40),
-            var(--color-pink-40),
-            var(--color-red-orange-40),
-            var(--color-pink-40),
-            var(--color-violet-40),
-            var(--color-blue-40),
-            var(--color-teal-40),
-            var(--color-green-30)
-          )
-          border-box;
-      --buttonBackgroundHover:
-        linear-gradient(var(--components-colors-button-color-background-primary-ai-hover) 0 0)
-          padding-box,
-        conic-gradient(
-            from var(--gradient-angle) at 50% 50%,
-            var(--color-green-30),
-            var(--color-teal-40),
-            var(--color-blue-40),
-            var(--color-violet-40),
-            var(--color-pink-40),
-            var(--color-red-orange-40),
-            var(--color-pink-40),
-            var(--color-violet-40),
-            var(--color-blue-40),
-            var(--color-teal-40),
-            var(--color-green-30)
-          )
-          border-box;
+      --buttonBackground: #{ai-gradient-border-background(
+          var(--components-colors-button-color-background-primary-ai-default)
+        )};
+      --buttonBackgroundActive: #{ai-gradient-border-background(
+          var(--components-colors-button-color-background-primary-ai-pressed)
+        )};
+      --buttonBackgroundHover: #{ai-gradient-border-background(
+          var(--components-colors-button-color-background-primary-ai-hover)
+        )};
       --buttonBackgroundDisabled:
-        repeating-linear-gradient(
-            -45deg,
-            white,
-            white 2.5px,
-            var(--components-colors-button-color-background-primary-ai-disabled) 2.5px,
-            var(--components-colors-button-color-background-primary-ai-disabled) 5.25px
-          )
-          padding-box,
+        #{ai-striped-background(
+            var(--components-colors-button-color-background-primary-ai-disabled)
+          )},
         linear-gradient(
-            to bottom right,
-            var(--color-neutral-30),
-            var(--color-neutral-50),
-            var(--color-neutral-40),
-            var(--color-neutral-50),
-            var(--color-neutral-60),
-            var(--color-neutral-50)
+            107.75deg,
+            var(--color-neutral-30) 0%,
+            var(--color-neutral-50) 20%,
+            var(--color-neutral-40) 40%,
+            var(--color-neutral-50) 60%,
+            var(--color-neutral-60) 80%,
+            var(--color-neutral-50) 100%
           )
           border-box;
       --buttonBorderWidth: var(--components-dimensions-button-border-width-ai);
@@ -225,8 +201,7 @@
       --buttonColorHover: var(--components-colors-button-color-text-primary-ai-hover);
       --buttonColorPressed: var(--components-colors-button-color-text-primary-ai-pressed);
       --buttonOutlineColorFocus: var(--components-colors-button-color-border-focused);
-      animation: rotate-gradient 3s linear infinite;
-      animation-play-state: paused;
+      animation: rotate-gradient 3s linear infinite paused;
 
       @media (hover: hover) and (pointer: fine) {
         &:hover {
@@ -247,6 +222,9 @@
       --buttonBackgroundHover: var(
         --components-colors-button-color-background-primary-danger-hover
       );
+      --buttonBackgroundDisabled: #{ai-striped-background(
+          var(--components-colors-button-color-background-primary-danger-disabled)
+        )};
       --buttonColor: var(--components-colors-button-color-text-primary-danger-default);
       --buttonColorDisabled: var(--components-colors-button-color-text-primary-danger-disabled);
       --buttonColorHover: var(--components-colors-button-color-text-primary-danger-hover);
@@ -268,6 +246,9 @@
       --buttonBackgroundHover: var(
         --components-colors-button-color-background-secondary-main-hover
       );
+      --buttonBackgroundDisabled: #{ai-striped-background(
+          var(--components-colors-button-color-background-secondary-main-disabled)
+        )};
       --buttonColor: var(--components-colors-button-color-text-secondary-main-default);
       --buttonColorDisabled: var(--components-colors-button-color-text-secondary-main-disabled);
       --buttonColorHover: var(--components-colors-button-color-text-secondary-main-hover);
@@ -289,6 +270,9 @@
       --buttonBackgroundHover: var(
         --components-colors-button-color-background-secondary-danger-hover
       );
+      --buttonBackgroundDisabled: #{ai-striped-background(
+          var(--components-colors-button-color-background-secondary-danger-disabled)
+        )};
       --buttonColor: var(--components-colors-button-color-text-secondary-danger-default);
       --buttonColorDisabled: var(--components-colors-button-color-text-secondary-danger-disabled);
       --buttonColorHover: var(--components-colors-button-color-text-secondary-danger-hover);
@@ -308,9 +292,9 @@
         --components-colors-button-color-background-tertiary-main-pressed
       );
       --buttonBackgroundHover: var(--components-colors-button-color-background-tertiary-main-hover);
-      --buttonBackgroundDisabled: var(
-        --components-colors-button-color-background-tertiary-main-disabled
-      );
+      --buttonBackgroundDisabled: #{ai-striped-background(
+          var(--components-colors-button-color-background-tertiary-main-disabled)
+        )};
       --buttonColor: var(--components-colors-button-color-text-tertiary-main-default);
       --buttonColorDisabled: var(--components-colors-button-color-text-tertiary-main-disabled);
       --buttonColorHover: var(--components-colors-button-color-text-tertiary-main-hover);
