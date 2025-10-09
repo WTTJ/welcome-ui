@@ -27,7 +27,7 @@ const Home = () => {
         </Text>
         <Button as={NextLink} className="mt-3xl" href="/foundations/getting-started" size="lg">
           <span>Install amazing components</span>
-          <RightIcon size="lg" />
+          <Icon name="angle-right-b" size="lg" />
         </Button>
       </Section>
       <Section>
