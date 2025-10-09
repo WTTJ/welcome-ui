@@ -1,3 +1,5 @@
+import type { IconName } from '@/components/Icon/types'
+
 import type { FileType, ForceFileType } from './types'
 import { types } from './types'
 
@@ -15,7 +17,7 @@ const formatBytes = (bytes: number, decimals = 2): string => {
   return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i]
 }
 
-export function getFileIconName(file: FileType, forceFileType?: ForceFileType): string {
+export function getFileIconName(file: FileType, forceFileType?: ForceFileType): IconName {
   const mimeType = getMimeType(file)
 
   if (!forceFileType && !mimeType) {

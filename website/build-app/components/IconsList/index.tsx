@@ -3,11 +3,6 @@ import React from 'react'
 
 import { Card } from '@/components/Card'
 import { Icon } from '@/components/Icon'
-import { Text } from '@/components/Text'
-import { Toast, toast } from '@/components/Toast'
-import { classNames } from '@/utils'
-
-import styles from './icon-list.styles.scss'
 import {
   actions,
   arrows,
@@ -20,13 +15,19 @@ import {
   table,
   welcome,
   wtf,
-} from './icons'
+} from '@/components/Icon/icons'
+import type { IconName } from '@/components/Icon/types'
+import { Text } from '@/components/Text'
+import { Toast, toast } from '@/components/Toast'
+import { Tooltip } from '@/components/Tooltip'
+import { classNames } from '@/utils'
+
+import styles from './icon-list.styles.scss'
 
 const cx = classNames(styles)
 
 export type IconListProps = {
-  isIconsFont?: boolean
-  name:
+  collectionName:
     | 'actions'
     | 'arrows'
     | 'brands'
@@ -38,6 +39,7 @@ export type IconListProps = {
     | 'table'
     | 'welcome'
     | 'wtf'
+  isIconsFont?: boolean
 }
 
 const handleClickToCopy = (componentName: string) => {
@@ -54,7 +56,7 @@ const handleClickToCopy = (componentName: string) => {
   )
 }
 
-export const IconsList = ({ name }: IconListProps) => {
+export const IconsList = ({ collectionName }: IconListProps) => {
   const iconsByName = {
     actions: actions,
     arrows: arrows,
@@ -71,16 +73,26 @@ export const IconsList = ({ name }: IconListProps) => {
 
   return (
     <div className="gap-lg grid lg:grid-cols-4 grid-cols-2">
-      {iconsByName[name]?.map(name => {
+      {iconsByName[collectionName]?.map((name: IconName) => {
+        const isSolid = name.endsWith('-solid')
         return (
-          <Card className={cx('card')} key={name} onClick={() => handleClickToCopy(name)}>
+          <Card
+            className={cx('card')}
+            key={`${collectionName}-${name}`}
+            onClick={() => handleClickToCopy(name)}
+          >
             <Icon name={name} size="lg" />
             <Text
               as="span"
-              className="pt-md px-sm text-beige-70 text-center break-words"
+              className="pt-md px-sm text-beige-70 text-center break-words flex items-center gap-1"
               lines={2}
               variant="sm"
             >
+              {isSolid ? (
+                <Tooltip content="You are seeing the line version of this icon - only available on paid plan">
+                  <Icon className="text-secondary-orange" name="exclamation-triangle" size="sm" />
+                </Tooltip>
+              ) : null}
               {name}
             </Text>
           </Card>

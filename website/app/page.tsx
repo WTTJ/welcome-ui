@@ -128,7 +128,7 @@ const Home = () => {
             variant="ghost"
           >
             <span>Visit our website</span>
-            <Icon name="right" size="lg" />
+            <Icon name="angle-right-b" size="lg" />
           </Button>
         </div>
         <div className="-bottom-[9.375rem] -right-[7.5rem] absolute hidden lg:block opacity-[10]">

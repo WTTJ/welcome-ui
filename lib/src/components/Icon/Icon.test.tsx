@@ -6,7 +6,7 @@ import { Icon } from './Icon'
 
 describe('Icon', () => {
   it('renders even when name does not exist in svg sprite', () => {
-    const { container } = render(<Icon name="test-of-inexisting-icon-name" />)
+    const { container } = render(<Icon name="pen" />)
     expect(container.firstChild).toBeInTheDocument()
   })
 
