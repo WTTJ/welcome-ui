@@ -3,7 +3,7 @@ import type { CSSProperties } from 'react'
 import { Children, cloneElement, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import { Button } from '@/components/Button'
-import { LeftIcon, RightIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { classNames } from '@/utils'
 import { useScreens } from '@/utils/use-screens'
 import { useViewportSize } from '@/utils/use-viewport'
@@ -281,7 +281,7 @@ export const Swiper = ({ children, className, store, ...rest }: SwiperProps) => 
         size={navigationSize}
         variant={withDarkUI ? 'primary-neutral' : 'tertiary'}
       >
-        <LeftIcon />
+        <Icon name="angle-left-b" />
       </Button>
       <Button
         aria-label="Next slide"
@@ -297,7 +297,7 @@ export const Swiper = ({ children, className, store, ...rest }: SwiperProps) => 
         size={navigationSize}
         variant={withDarkUI ? 'primary-neutral' : 'tertiary'}
       >
-        <RightIcon />
+        <Icon name="angle-right-b" />
       </Button>
       <div
         className={cx(

@@ -1,10 +1,10 @@
 import * as React from 'react'
 
 import { Button } from '@/components/Button'
-import { getFileIcon, getFileName, getFileSize } from '@/components/Files'
+import { getFileIconName, getFileName, getFileSize } from '@/components/Files'
 import { FileUpload } from '@/components/FileUpload'
 import type { FileUploadPreviewProps } from '@/components/FileUpload/types'
-import { CrossIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { Tag } from '@/components/Tag'
 
 const Example = () => {
@@ -14,7 +14,7 @@ const Example = () => {
 
   const Preview = ({ file, onRemove }: FileUploadPreviewProps) =>
     React.useMemo(() => {
-      const Icon = getFileIcon(file)
+      const iconName = getFileIconName(file)
       const name = getFileName(file)
       const size = getFileSize(file)
 
@@ -25,11 +25,11 @@ const Example = () => {
           key={name}
           size="md"
         >
-          <Icon className="mr-sm" size="lg" />
+          <Icon className="mr-sm" name={iconName} size="lg" />
           {name}
           {size ? <div className="text-beige-60">({size})</div> : null}
           <Button className="ml-xxl" onClick={onRemove} size="sm" variant="tertiary">
-            <CrossIcon />
+            <Icon name="times" />
           </Button>
         </Tag>
       )
