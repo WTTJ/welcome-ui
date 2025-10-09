@@ -37,6 +37,11 @@
       }
     }
 
+    &:visited {
+      /* Can't use --color because of visited specificity (see docs about Privacy restrictions: https://developer.mozilla.org/en-US/docs/Web/CSS/:visited) */
+      color: var(--colorVisited);
+    }
+
     @media (hover: hover) and (pointer: fine) {
       &:hover {
         --color: var(--colorHover);
