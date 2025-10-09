@@ -14,7 +14,7 @@ const stats = [
     number: '50+',
   },
   {
-    icon: <Icon name="star-solid" size="lg" />,
+    icon: <Icon name="star" size="lg" />,
     name: (
       <>
         Github
