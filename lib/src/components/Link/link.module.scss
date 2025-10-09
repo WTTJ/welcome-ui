@@ -4,22 +4,24 @@
     flex-direction: row;
     align-items: center;
     opacity: 1;
-    line-height: var(--border-radius-2xl);
+    line-height: var(--lineHeight);
     text-decoration: none;
     cursor: pointer;
     font-weight: var(--font-weight-medium);
-    color: var(--color, var(--components-colors-link-color-underline-secondary-default));
+    color: var(--color);
 
     &.isExternal {
-      --backgroundSize: calc(
-          100% - var(--components-dimensions-link-size-icon-sm) - var(--border-radius-md)
-        )
-        50%;
+      --backgroundSize: calc(100% - var(--spacing-lg) - var(--spacing-sm)) 50%;
 
       .wui-text > svg {
         display: inline;
-        margin-left: var(--border-radius-md);
+        margin-left: var(--spacing-sm);
       }
+    }
+
+    &:visited {
+      /* Can't use --color because of visited specificity (see docs about Privacy restrictions: https://developer.mozilla.org/en-US/docs/Web/CSS/:visited) */
+      color: var(--colorVisited);
     }
 
     @media (hover: hover) and (pointer: fine) {
@@ -38,8 +40,8 @@
     }
 
     &[aria-disabled] {
-      --backgroundImageColor: var(--components-colors-link-color-underline-secondary-disabled);
-      --color: var(--color-icon-neutral-subtle);
+      --backgroundImageColor: var(--backgroundImageColorDisabled);
+      --color: var(--colorDisabled);
       pointer-events: none;
     }
   }
@@ -47,36 +49,65 @@
   .variant {
     &-primary {
       --backgroundImageColor: var(--components-colors-link-color-underline-primary-default);
-      --colorHover: var(--components-colors-link-color-underline-secondary-default);
+      --backgroundImageColorDisabled: var(
+        --components-colors-link-color-underline-primary-disabled
+      );
+      --color: var(--components-colors-link-color-text-primary-default);
+      --colorHover: var(--components-colors-link-color-text-primary-hover);
+      --colorDisabled: var(--components-colors-link-color-text-primary-disabled);
+      --colorVisited: var(--components-colors-link-color-text-primary-visited);
     }
     &-secondary {
       --backgroundImageColor: var(--components-colors-link-color-underline-secondary-default);
-      --colorHover: var(--components-colors-link-color-icon-secondary-hover);
+      --backgroundImageColorDisabled: var(
+        --components-colors-link-color-underline-secondary-disabled
+      );
+      --color: var(--components-colors-link-color-text-secondary-default);
+      --colorHover: var(--components-colors-link-color-text-secondary-hover);
+      --colorDisabled: var(--components-colors-link-color-text-secondary-disabled);
+      --colorVisited: var(--components-colors-link-color-text-secondary-visited);
     }
   }
-}
 
-.wui-text {
-  margin-right: calc(var(--components-dimensions-link-padding-inline-icon) * -1);
-  margin-left: calc(var(--components-dimensions-link-padding-inline-icon) * -1);
-  padding-left: var(--components-dimensions-link-padding-inline-icon);
-  padding-right: var(--components-dimensions-link-padding-inline-icon);
-  transition:
-    background var(--duration-medium),
-    color var(--duration-medium);
-  background-repeat: no-repeat;
-  background-size: var(--backgroundSize, 100% 50%);
-  background-image: linear-gradient(
-    0deg,
-    var(--backgroundImageColor),
-    var(--backgroundImageColor) 100%
-  );
-  background-position-y: var(
-    --backgroundPositionY,
-    calc(200% - var(--components-dimensions-link-padding-inline-icon))
-  );
-}
+  .size {
+    &-xs {
+      font-size: var(--font-size-xs);
+      --lineHeight: var(--font-line-height-sm);
+    }
+    &-sm {
+      font-size: var(--font-size-sm);
+      --lineHeight: var(--font-line-height-md);
+      --backgroundPositionY: calc(200% - 0.2em);
+    }
+    &-md {
+      font-size: var(--font-size-md);
+      --lineHeight: var(--font-line-height-lg);
+    }
+    &-lg {
+      font-size: var(--font-size-lg);
+      --lineHeight: var(--font-line-height-lg);
+    }
+  }
 
-.isMultiline {
-  display: inline;
+  .wui-text {
+    margin-right: calc(var(--components-dimensions-link-padding-inline-icon) * -1);
+    margin-left: calc(var(--components-dimensions-link-padding-inline-icon) * -1);
+    padding-left: var(--components-dimensions-link-padding-inline-icon);
+    padding-right: var(--components-dimensions-link-padding-inline-icon);
+    transition:
+      background var(--duration-medium),
+      color var(--duration-medium);
+    background-repeat: no-repeat;
+    background-size: var(--backgroundSize, 100% 50%);
+    background-image: linear-gradient(
+      0deg,
+      var(--backgroundImageColor),
+      var(--backgroundImageColor) 100%
+    );
+    background-position-y: var(--backgroundPositionY, calc(200% - 0.125em));
+  }
+
+  .isMultiline {
+    display: inline;
+  }
 }
