@@ -1288,34 +1288,20 @@
       }
     },
     "checkbox": {
-      "size": {
-        "container": {
-          "value": "{size.16}px",
-          "type": "dimension",
-          "scope": [
-            "WIDTH_HEIGHT"
-          ],
-          "$extensions": {
-            "tokens-studio": {
-              "mode": "mode 1"
-            }
-          }
-        },
-        "icon": {
-          "value": "{size.icon.md}px",
-          "type": "dimension",
-          "scope": [
-            "WIDTH_HEIGHT"
-          ],
-          "$extensions": {
-            "tokens-studio": {
-              "mode": "mode 1"
-            }
-          }
-        }
-      },
       "border": {
         "width": {
+          "default": {
+            "value": "{border.width.xs}px",
+            "type": "borderWidth",
+            "scope": [
+              "STROKE_FLOAT"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
+          },
           "focused": {
             "value": "{border.width.sm}px",
             "type": "borderWidth",
@@ -1341,6 +1327,32 @@
             }
           }
         }
+      },
+      "size": {
+        "container": {
+          "value": "{size.16}px",
+          "type": "dimension",
+          "scope": [
+            "WIDTH_HEIGHT"
+          ],
+          "$extensions": {
+            "tokens-studio": {
+              "mode": "mode 1"
+            }
+          }
+        },
+        "icon": {
+          "value": "{size.icon.md}px",
+          "type": "dimension",
+          "scope": [
+            "WIDTH_HEIGHT"
+          ],
+          "$extensions": {
+            "tokens-studio": {
+              "mode": "mode 1"
+            }
+          }
+        }
       }
     },
     "radio": {
@@ -1357,18 +1369,6 @@
         }
       },
       "border": {
-        "radius": {
-          "value": "{border.radius.full}px",
-          "type": "borderRadius",
-          "scope": [
-            "CORNER_RADIUS"
-          ],
-          "$extensions": {
-            "tokens-studio": {
-              "mode": "mode 1"
-            }
-          }
-        },
         "width": {
           "unchecked": {
             "value": "{border.width.xs}px",
@@ -1404,6 +1404,18 @@
               "tokens-studio": {
                 "mode": "mode 1"
               }
+            }
+          }
+        },
+        "radius": {
+          "value": "{border.radius.full}px",
+          "type": "borderRadius",
+          "scope": [
+            "CORNER_RADIUS"
+          ],
+          "$extensions": {
+            "tokens-studio": {
+              "mode": "mode 1"
             }
           }
         }

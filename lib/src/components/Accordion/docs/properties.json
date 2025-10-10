@@ -71,8 +71,5 @@
         }
       }
     }
-  },
-  "useDisclosureStore": {
-    "props": {}
   }
 }

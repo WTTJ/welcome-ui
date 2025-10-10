@@ -12,12 +12,22 @@
     border-radius: var(--border-radius-xs);
     border-style: solid;
     border-width: var(--border-width-xs);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--components-dimensions-checkbox-size-container);
+    width: var(--components-dimensions-checkbox-size-container);
     flex-shrink: 0;
-    height: 1rem;
-    width: 1rem;
-    color: var(--components-colors-checkbox-color-icon-default);
+    cursor: pointer;
+    border-style: solid;
+    border-width: var(--components-dimensions-checkbox-border-width-default);
+    border-radius: var(--components-dimensions-checkbox-border-radius);
+    outline: transparent solid var(--components-dimensions-checkbox-border-width-focused);
+    transition-property: border-color, background-color, color, outline-color;
+    transition-duration: var(--duration-medium);
 
     /* VARIABLES THAT CHANGE WITH REACT PROPS */
+    color: var(--color, var(--components-colors-checkbox-color-icon-default));
     background-color: var(
       --backgroundColor,
       var(--components-colors-checkbox-color-background-unchecked-default)
@@ -27,28 +37,16 @@
       var(--components-colors-checkbox-color-border-unchecked-default)
     );
 
-    &::after {
-      background-color: var(--afterBackgroundColor);
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      margin: auto;
-      mask-size: contain;
-      width: 10px;
-    }
-
     &:disabled,
     &[aria-disabled] {
+      --color: var(--components-colors-checkbox-color-icon-disabled);
       --backgroundColor: var(--components-colors-checkbox-color-border-disabled);
-      --borderColor: var(--components-colors-checkbox-color-icon-disabled);
+      --borderColor: var(--components-colors-checkbox-color-border-disabled);
 
       cursor: not-allowed;
     }
 
-    &:not([disabled]):hover {
+    &:not([aria-disabled]):hover {
       --borderColor: var(
         --borderColorHover,
         var(--components-colors-checkbox-color-border-unchecked-hover)
@@ -59,35 +57,23 @@
     &:focus-visible {
       --borderColor: var(
         --borderColorFocused,
-        var(--components-colors-checkbox-color-background-checked-default)
+        var(--components-colors-checkbox-color-border-focused)
       );
-      outline-color: var(--outlineColorFocus, var(--color-background-brand-subtle));
-    }
-
-    &::placeholder {
-      --color: var(--color-icon-neutral-subtle);
+      outline-color: var(
+        --outlineColorFocus,
+        var(--components-colors-checkbox-color-border-focused)
+      );
     }
 
     &[aria-checked='true'] {
-      &:not(:disabled) {
+      &:not([aria-disabled]) {
         --backgroundColor: var(--components-colors-checkbox-color-background-checked-default);
         --borderColor: var(--components-colors-checkbox-color-background-checked-default);
-        --color: var(--components-colors-checkbox-color-icon-default);
-
-        &::after {
-          --afterBackgroundColor: var(--color-icon-warm-primary);
-        }
 
         &:hover {
           --backgroundColor: var(--components-colors-checkbox-color-background-checked-hover);
           --borderColor: var(--backgroundColor);
         }
-      }
-
-      &::after {
-        --afterBackgroundColor: var(--components-colors-checkbox-color-icon-disabled);
-        height: 8px;
-        mask: url('data:image/svg+xml; utf8, <svg viewBox="0 0 10 8" xmlns="http://www.w3.org/2000/svg"><path fill="000000" d="M7.96171 0.596898C8.24912 0.27893 8.74024 0.25262 9.06024 0.537743C9.37208 0.815607 9.40671 1.28712 9.14514 1.60662L9.11975 1.63611L3.90331 7.40311C3.75365 7.5687 3.54304 7.66003 3.32401 7.66003C3.15017 7.66003 2.98077 7.60235 2.84241 7.49383L2.80848 7.46564L0.943652 5.82577C0.620151 5.54147 0.590221 5.04928 0.877091 4.72749C1.15398 4.41772 1.62383 4.38076 1.94536 4.6368L1.97506 4.66166L3.26156 5.79276L7.96171 0.596898Z" /></svg>');
       }
     }
   }
@@ -116,25 +102,14 @@
   }
 
   .indeterminate {
-    &:not(:disabled) {
+    &:not([aria-disabled]) {
       --backgroundColor: var(--components-colors-checkbox-color-background-checked-default);
       --borderColor: var(--components-colors-checkbox-color-background-checked-default);
-      --color: var(--components-colors-checkbox-color-icon-default);
-
-      &::after {
-        --afterBackgroundColor: var(--color-icon-warm-primary);
-      }
 
       &:hover {
         --backgroundColor: var(--components-colors-checkbox-color-background-checked-hover);
         --borderColor: var(--backgroundColor);
       }
-    }
-
-    &::after {
-      --afterBackgroundColor: var(--components-colors-checkbox-color-icon-disabled);
-      height: 4px;
-      mask: url("data:image/svg+xml,%3Csvg width='10' height='4' viewBox='0 0 10 4' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1.3973 1.76919C0.953776 1.81988 0.634816 2.04775 0.685235 2.49156C0.732149 2.90436 1.08212 3.03624 1.48789 3.03624L8.6029 2.23086C9.04669 2.18017 9.36538 1.9523 9.31469 1.50849C9.26427 1.06468 8.86389 0.917163 8.41956 0.969201C4.90971 1.38026 4.90828 1.36792 1.3973 1.76919Z' fill='000000'/%3E%3C/svg%3E");
     }
   }
 }

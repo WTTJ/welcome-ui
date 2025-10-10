@@ -231,6 +231,7 @@ export default {
   "/Tooltip/docs/examples/withArrow.tsx": dynamic(() => import("../../lib/src/components/Tooltip/docs/examples/withArrow.tsx").then(mod => mod), { ssr: false }),
   "/VariantIcon/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/VariantIcon/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/VariantIcon/docs/examples/sizes.tsx": dynamic(() => import("../../lib/src/components/VariantIcon/docs/examples/sizes.tsx").then(mod => mod), { ssr: false }),
+  "/VisuallyHidden/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/VisuallyHidden/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/WelcomeLoader/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/WelcomeLoader/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/WelcomeLoader/docs/examples/resize.tsx": dynamic(() => import("../../lib/src/components/WelcomeLoader/docs/examples/resize.tsx").then(mod => mod), { ssr: false })
 };
