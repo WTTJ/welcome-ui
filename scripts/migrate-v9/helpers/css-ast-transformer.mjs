@@ -15,16 +15,21 @@ export function extractCssTemplateLiteralsAst(astNode, mixins = new Map()) {
     const mixinName = camelToKebab(variableName)
 
     // Use our AST transformer to process the CSS template literal
-    const result = transformCssAst(astNode.init.quasi, astNode.init.quasi.expressions || [], mixins)
+    const result = transformCssAst2(
+      astNode.init.quasi,
+      astNode.init.quasi.expressions || [],
+      mixins
+    )
 
     if (result && result.css) {
       mixins.set(mixinName, {
-        css: result.css.trim(),
+        css: `
+  ${result.css.trim()}
+`,
         originalName: variableName,
       })
 
       console.log(`🎯 AST: Extracted mixin '${mixinName}' from variable '${variableName}'`)
-      console.debug('extractCssTemplateLiteralsAst', mixins)
     }
   }
 
@@ -155,6 +160,83 @@ export function transformCssAst(templateLiteralNode, expressions = [], mixins = 
 }
 
 /**
+ * Transform a CSS template literal using AST-based rules
+ *
+ * AST Node Type: TemplateLiteral
+ * Structure: { type: 'TemplateLiteral', quasis: [...], expressions: [...] }
+ *
+ * @param {Object} templateLiteralNode - The TemplateLiteral AST node from css`...`
+ * @param {Array} expressions - Array of expression AST nodes from ${...} interpolations
+ * @param {Map} mixins - Map to collect generated mixins
+ * @returns {Object} { css: string, mixins: Map }
+ */
+export function transformCssAst2(templateLiteralNode, mixins = new Map()) {
+  if (!templateLiteralNode || templateLiteralNode.type !== 'TemplateLiteral') {
+    return { css: '', mixins }
+  }
+
+  let css = ''
+  const { expressions, quasis } = templateLiteralNode
+  const items = [...quasis, ...expressions].sort((a, b) => a.start - b.start) || []
+  let prev
+
+  css = items
+    .map(item => {
+      // If `${OrganizationLogo}{ ... }` add comment before and start commenting css block
+      if (item.type === 'Identifier') {
+        prev = item
+        return `
+  /* WUI V9 TO MIGRATE */
+  /* 
+  \$\{${item.name}\} `
+      }
+
+      // If css block…
+      if (item.type === 'TemplateElement') {
+        const value = (item.value.cooked || item.value.raw).trim()
+
+        if (prev?.type === 'Identifier') {
+          prev = item
+          /* If previous was Identifier, we are in a css block after a component reference
+            It can be the css block for the identifier but can also add a new css block e.g.
+            { outline-color: var(--color-beige-30) !important; } <-- css block
+            background-color: var(--color-beige-30); <-- new css block
+          */
+          // Get content inside the first { ... }
+          const matches = value.match(/{([^}]*)}/)
+          const match = matches ? matches[0] : null
+
+          if (match)
+            if (value !== match) {
+              // If there's more content after the css block, keep it outside the comment
+              const rest = value.replace(match, '')
+              return `${match}
+*/
+  ${rest}`
+            } else {
+              // Only the css block, close the comment
+              return `${match}
+*/`
+            }
+          else {
+            return value
+          }
+        }
+
+        // Regular quasi so output as-is
+        prev = item
+        return value
+      }
+    })
+    .join('')
+
+  // Apply final CSS cleanup
+  css = cleanupCss(css)
+
+  return { css, mixins }
+}
+
+/**
  * AST-based CSS transformer - Rule-driven approach
  *
  * This tran/**
@@ -234,7 +316,6 @@ function extractAstNodeValue(node) {
       return node.name
 
     case 'Literal':
-
     case 'NumericLiteral':
       return String(node.value !== undefined ? node.value : '')
 
@@ -567,9 +648,9 @@ function transformIdentifier(node, mixins) {
   // Rule 2: camelCase ending in 'Styles' = mixin reference
   if (/[a-z]Styles$/.test(name)) {
     const mixinName = camelToKebab(name)
-    if (mixins) {
-      mixins.set(mixinName, `// Mixin ${mixinName} from ${name}`)
-    }
+    // if (mixins) {
+    //   mixins.set(mixinName, `// Mixin ${mixinName} from ${name}`)
+    // }
     return `@include ${mixinName};`
   }
 
