@@ -46,6 +46,10 @@ export const Title = styled.h3<TitleProps>`
 `
 
 const triggerActiveStyles = css`
+  ${Box} {
+    background-color: beige-10;
+  }
+
   color: neutral-50;
 
   ${OrganizationLogo} {

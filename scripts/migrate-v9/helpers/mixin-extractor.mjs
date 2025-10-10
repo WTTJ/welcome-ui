@@ -5,8 +5,6 @@
  * Patterns: const variableName = css`...`
  */
 
-import { transformCssAst } from './css-ast-transformer.mjs'
-
 /**
  * Extract CSS variable declarations and convert to SCSS mixins
  *
@@ -54,30 +52,15 @@ export function extractCssVariableDeclarations(fileContent) {
 }
 
 /**
- * Task 3.2: Generate SCSS mixin from CSS content
+ * Task 3.4: Handle mixin parameters (for future enhancement)
  *
- * @param {string} mixinName - The kebab-case mixin name
- * @param {string} cssContent - The CSS content from the template literal
- * @returns {string} SCSS mixin definition
+ * Some mixins might need parameters like: shapeStyles(size, shape)
+ * This is a placeholder for more advanced mixin parameter handling
  */
-function generateScssMinxin(mixinName, cssContent) {
-  // Clean up the CSS content (remove extra whitespace, etc.)
-  const cleanCss = cssContent
-    .trim()
-    .split('\n')
-    .map(line => line.trim())
-    .filter(line => line.length > 0)
-    .map(line => `  ${line}`)
-    .join('\n')
-
-  return `@mixin ${mixinName} {\n${cleanCss}\n}`
-}
-
-/**
- * Convert camelCase to kebab-case
- */
-function camelToKebab(str) {
-  return str.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()
+export function extractMixinWithParameters(declaration) {
+  // TODO: Implement parameter extraction for function-style CSS declarations
+  // Pattern: const shapeStyles = (size, shape) => css`...`
+  return null // Not implemented yet
 }
 
 /**
@@ -107,13 +90,28 @@ export function replaceMixinReferences(cssContent, mixins) {
 }
 
 /**
- * Task 3.4: Handle mixin parameters (for future enhancement)
- *
- * Some mixins might need parameters like: shapeStyles(size, shape)
- * This is a placeholder for more advanced mixin parameter handling
+ * Convert camelCase to kebab-case
  */
-export function extractMixinWithParameters(declaration) {
-  // TODO: Implement parameter extraction for function-style CSS declarations
-  // Pattern: const shapeStyles = (size, shape) => css`...`
-  return null // Not implemented yet
+function camelToKebab(str) {
+  return str.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()
+}
+
+/**
+ * Task 3.2: Generate SCSS mixin from CSS content
+ *
+ * @param {string} mixinName - The kebab-case mixin name
+ * @param {string} cssContent - The CSS content from the template literal
+ * @returns {string} SCSS mixin definition
+ */
+function generateScssMinxin(mixinName, cssContent) {
+  // Clean up the CSS content (remove extra whitespace, etc.)
+  const cleanCss = cssContent
+    .trim()
+    .split('\n')
+    .map(line => line.trim())
+    .filter(line => line.length > 0)
+    .map(line => `  ${line}`)
+    .join('\n')
+
+  return `@mixin ${mixinName} {\n${cleanCss}\n}`
 }

@@ -47,16 +47,13 @@ export async function migrate(dir, copyDir = true) {
       sourceType: 'module',
     })
     const stylesMap = {}
-    const extractedMixins = new Map()
-    function stripBox(tag) {
-      return tag.endsWith('Box') ? tag.slice(0, -3) : tag
-    }
+    let extractedMixins = new Map()
 
     traverse(ast, {
       VariableDeclaration(path) {
         path.node.declarations.forEach(decl => {
           // Extract CSS template literals for mixins (AST-based approach)
-          extractCssTemplateLiteralsAst(decl, extractedMixins)
+          extractedMixins = extractCssTemplateLiteralsAst(decl, extractedMixins)
 
           if (decl.init && isStyledComponent(decl.init)) {
             const compName = decl.id.name
@@ -69,6 +66,7 @@ export async function migrate(dir, copyDir = true) {
     })
 
     let scss = migrateStylesTsToScss(stylesTs, extractedMixins)
+
     try {
       // Format SCSS with stylelint and prettier
       scss = await formatScssContent(scss, stylesScss)
@@ -561,7 +559,7 @@ function migrateStylesTsToScss(stylesTsPath, extractedMixins = new Map()) {
         .join('\n')
 
       const mixinScss = `@mixin ${mixinName} {${indentedCss}
-}`
+      }`
       mixinDefs.push(mixinScss)
     }
   }
@@ -569,14 +567,16 @@ function migrateStylesTsToScss(stylesTsPath, extractedMixins = new Map()) {
   // Combine mixins and classes
   const scssContent = []
   if (mixinDefs.length > 0) {
-    scssContent.push('// Generated SCSS mixins from CSS template literals')
+    scssContent.push('/* Generated SCSS mixins from CSS template literals */')
     scssContent.push(...mixinDefs)
     scssContent.push('') // Empty line separator
   }
   scssContent.push(...classDefs)
 
   return scssContent.join('\n\n')
-} /**
+}
+
+/**
  * Process component attributes and transform them for v9
  */
 function processComponentProps(
@@ -738,6 +738,9 @@ function processComponentProps(
     newAttributes,
     styleObject: styleProperties.length > 0 ? styleProperties : null,
   }
+}
+function stripBox(tag) {
+  return tag.endsWith('Box') ? tag.slice(0, -3) : tag
 }
 
 // Usage: node migrate-wui-v9.mjs path/to/component/dir
