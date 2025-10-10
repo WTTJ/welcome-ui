@@ -20,8 +20,21 @@
     }
 
     &:visited {
-      /* Can't use --color because of visited specificity (see docs about Privacy restrictions: https://developer.mozilla.org/en-US/docs/Web/CSS/:visited) */
-      color: var(--colorVisited);
+      &.variant {
+        &-primary {
+          /* Can't use --color: var(...); because of visited specificity (see docs about Privacy restrictions: https://developer.mozilla.org/en-US/docs/Web/CSS/:visited) */
+          color: var(--colorVisited);
+          .wui-text {
+            background-color: var(--components-colors-link-color-underline-primary-visited);
+          }
+        }
+        &-secondary {
+          color: var(--colorVisited);
+          .wui-text {
+            background-color: var(--components-colors-link-color-underline-secondary-visited);
+          }
+        }
+      }
     }
 
     @media (hover: hover) and (pointer: fine) {
@@ -29,6 +42,21 @@
         --color: var(--colorHover);
         --backgroundPositionY: 100%;
         --backgroundSize: 100% 100%;
+
+        &:visited {
+          &.variant {
+            &-primary {
+              /* Can't use --color: var(...); because of visited specificity (see docs about Privacy restrictions: https://developer.mozilla.org/en-US/docs/Web/CSS/:visited) */
+              color: var(--colorHover);
+            }
+            &-secondary {
+              color: var(--colorHover);
+              .wui-text {
+                background-color: var(--components-colors-link-color-underline-secondary-visited);
+              }
+            }
+          }
+        }
       }
     }
 
@@ -105,6 +133,7 @@
       var(--backgroundImageColor) 100%
     );
     background-position-y: var(--backgroundPositionY, calc(200% - 0.125em));
+    background-color: var(--color-neutral-10);
   }
 
   .isMultiline {
