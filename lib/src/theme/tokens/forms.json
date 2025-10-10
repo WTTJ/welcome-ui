@@ -878,13 +878,6 @@
         ]
       },
       "border": {
-        "radius": {
-          "value": "{border.radius.full}",
-          "type": "borderRadius",
-          "scope": [
-            "CORNER_RADIUS"
-          ]
-        },
         "width": {
           "unchecked": {
             "value": "{border.width.xs}",
@@ -907,6 +900,13 @@
               "STROKE_FLOAT"
             ]
           }
+        },
+        "radius": {
+          "value": "{border.radius.full}",
+          "type": "borderRadius",
+          "scope": [
+            "CORNER_RADIUS"
+          ]
         }
       },
       "indicator": {
