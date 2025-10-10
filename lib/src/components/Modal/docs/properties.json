@@ -1,7 +1,4 @@
 {
-  "useModal": {
-    "props": {}
-  },
   "Modal": {
     "props": {
       "ariaLabel": {
@@ -61,8 +58,5 @@
         }
       }
     }
-  },
-  "AssetModal": {
-    "props": {}
   }
 }
