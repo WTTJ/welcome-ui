@@ -1,9 +1,9 @@
 @layer components {
   .root {
     /* text.sm */
-    font-size: var(--font-size-sm);
-    background-color: var(--color-neutral-90);
-    color: var(--color-neutral-10);
+    font-size: var(--font-size-14);
+    background-color: var(--color-background-neutral-primary-fixed);
+    color: var(--color-background-neutral-inverse-fixed);
     max-width: 43.75rem;
     z-index: 1;
     outline: none;
@@ -16,15 +16,15 @@
 
   .title {
     /* text.md */
-    font-size: var(--font-size-md);
+    font-size: var(--border-radius-xl);
     margin: 0;
-    border-bottom: var(--border-width-sm) solid var(--color-neutral-70);
-    color: var(--color-neutral-10);
-    padding: var(--spacing-md) var(--spacing-md) var(--spacing-xs);
+    border-bottom: var(--border-width-xs) solid var(--color-background-neutral-tertiary);
+    color: var(--color-background-neutral-inverse-fixed);
+    padding: var(--border-radius-lg) var(--border-radius-lg) var(--border-radius-sm);
 
     /* this class is added to the Popover when the close button is present */
     .with-close-button & {
-      padding-right: var(--spacing-3xl);
+      padding-right: var(--size-icon-3xl);
     }
   }
 
@@ -34,24 +34,24 @@
 
   .content {
     display: block;
-    padding: var(--spacing-md);
+    padding: var(--border-radius-lg);
   }
 
   .close-button {
     flex: 0 0 auto;
     position: absolute;
-    top: var(--border-width-sm);
-    right: var(--border-width-sm);
-    margin-left: var(--spacing-md);
+    top: var(--border-width-xs);
+    right: var(--border-width-xs);
+    margin-left: var(--border-radius-lg);
   }
 
   .arrow {
-    color: var(--color-neutral-90);
+    color: var(--color-background-neutral-primary-fixed);
   }
   .arrow-item {
     transform: var(--transform);
-    width: var(--height-30);
-    height: var(--height-30);
+    width: var(--height-32);
+    height: var(--height-32);
 
     &.placement {
       &-top {

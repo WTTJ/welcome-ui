@@ -5,14 +5,14 @@
     align-items: center;
     flex-shrink: 0;
     max-width: 100%;
-    gap: var(--spacing-xs);
-    color: var(--color-neutral-60);
-    font-size: var(--font-size-sm);
+    gap: var(--components-dimensions-label-gap-content);
+    color: var(--components-colors-label-color-text-default);
+    font-size: var(--font-size-14);
     font-weight: var(--font-weight-medium);
-    line-height: var(--line-height-lg);
+    line-height: var(--border-radius-2xl);
   }
 
   .required {
-    color: var(--color-brand-50);
+    color: var(--components-colors-label-color-icon-required);
   }
 }

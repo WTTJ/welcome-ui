@@ -3,8 +3,8 @@
 @layer components {
   .asset-drawer {
     overflow: hidden;
-    border-top-left-radius: var(--radius-2xl);
-    border-top-right-radius: var(--radius-2xl);
+    border-top-left-radius: var(--border-radius-2xl);
+    border-top-right-radius: var(--border-radius-2xl);
 
     /* Needed to override the default height set in drawer.module.scss */
     /* Uses 'class contains root' because root gets prefixed */
@@ -15,12 +15,12 @@
 
   .content-wrapper {
     height: 100%;
-    margin-top: var(--spacing-xl);
+    margin-top: var(--border-radius-2xl);
     overflow-y: auto;
     width: 100%;
 
     @media screen and (min-width: breakpoints.$breakpoint-md) {
-      margin-top: var(--spacing-3xl);
+      margin-top: var(--size-icon-3xl);
     }
   }
 
@@ -32,24 +32,24 @@
   }
 
   .content {
-    --asset-drawer-content-padding: 0 var(--spacing-md) var(--spacing-xl);
+    --asset-drawer-content-padding: 0 var(--border-radius-lg) var(--border-radius-2xl);
 
     padding: var(--asset-drawer-content-padding);
 
     @media screen and (min-width: breakpoints.$breakpoint-md) {
-      --asset-drawer-content-padding: 0 var(--spacing-xl) var(--spacing-3xl);
+      --asset-drawer-content-padding: 0 var(--border-radius-2xl) var(--size-icon-3xl);
     }
   }
 
   .asset-drawer-header {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xl);
+    gap: var(--border-radius-2xl);
     justify-content: space-between;
 
-    background-color: var(--color-neutral-10);
-    margin-bottom: var(--spacing-xl);
-    padding-bottom: var(--spacing-md);
+    background-color: var(--color-background-neutral-inverse-fixed);
+    margin-bottom: var(--border-radius-2xl);
+    padding-bottom: var(--border-radius-lg);
 
     position: sticky;
     top: 0;
@@ -64,17 +64,17 @@
   .back-button {
     align-items: center;
     display: flex;
-    gap: var(--spacing-md);
+    gap: var(--border-radius-lg);
 
     @media screen and (min-width: breakpoints.$breakpoint-md) {
-      gap: var(--spacing-xl);
+      gap: var(--border-radius-2xl);
     }
   }
 
   .title {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xxs);
+    gap: var(--border-radius-xs);
   }
 
   .icon-block {
@@ -82,21 +82,21 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    border-radius: var(--radius-md);
-    background-color: var(--color-beige-20);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--color-background-warm-primary);
     transition: background-color var(--timing-primary);
 
-    --icon-block-size: var(--spacing-3xl); /* 48px */
+    --icon-block-size: var(--size-icon-3xl); /* 48px */
 
     width: var(--icon-block-size);
     height: var(--icon-block-size);
 
     &.size-md {
-      --icon-block-size: var(--spacing-3xl); /* 48px */
+      --icon-block-size: var(--size-icon-3xl); /* 48px */
     }
 
     &.size-sm {
-      --icon-block-size: var(--spacing-xxl); /* 32px */
+      --icon-block-size: var(--size-icon-2xl); /* 32px */
     }
   }
 }

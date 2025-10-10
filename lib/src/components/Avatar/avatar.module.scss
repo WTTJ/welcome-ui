@@ -8,8 +8,8 @@
     overflow: hidden;
     aspect-ratio: 1 / 1;
 
-    border-radius: var(--radius-circle);
-    color: var(--color-neutral-90);
+    border-radius: var(--components-dimensions-avatar-border-radius);
+    color: var(--color-background-neutral-primary-fixed);
     font-weight: var(--font-weight-medium);
 
     /* VARIABLES THAT CHANGE WITH REACT PROPS */
@@ -27,49 +27,49 @@
 
   .size {
     &-sm {
-      --size: var(--height-20);
+      --size: var(--font-size-xl);
     }
 
     &-md {
-      --size: var(--height-30);
+      --size: var(--height-32);
     }
 
     &-lg {
-      --size: var(--height-40);
+      --size: var(--width-40);
     }
 
     &-xl {
-      --size: var(--height-50);
+      --size: var(--height-43);
     }
 
     &-xxl {
-      --size: var(--height-60);
+      --size: var(--font-size-6xl);
     }
   }
 
   .background {
     &-secondary-blue {
-      --backgroundColor: var(--color-secondary-blue);
+      --backgroundColor: var(--components-colors-avatar-color-background-initials-blue);
     }
 
     &-secondary-green {
-      --backgroundColor: var(--color-secondary-green);
+      --backgroundColor: var(--components-colors-avatar-color-background-initials-green);
     }
 
     &-secondary-orange {
-      --backgroundColor: var(--color-secondary-orange);
+      --backgroundColor: var(--components-colors-avatar-color-background-initials-orange);
     }
 
     &-secondary-pink {
-      --backgroundColor: var(--color-secondary-pink);
+      --backgroundColor: var(--components-colors-avatar-color-background-initials-pink);
     }
 
     &-secondary-teal {
-      --backgroundColor: var(--color-secondary-teal);
+      --backgroundColor: var(--components-colors-avatar-color-background-initials-teal);
     }
 
     &-secondary-violet {
-      --backgroundColor: var(--color-secondary-violet);
+      --backgroundColor: var(--components-colors-avatar-color-background-initials-violet);
     }
   }
 }

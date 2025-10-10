@@ -65,7 +65,7 @@ export const Playground = ({
       <div className="block">
         <div
           className={cx(
-            'bg-neutral-10 border border-beige-40 flex-wrap gap-lg mt-xl p-sm lg:p-3xl relative rounded-lg',
+            'bg-neutral-10 border border-beige-40 flex-wrap gap-lg mt-xl p-sm lg:p-3xl relative rounded-md',
             columnDirection ? 'flex-col items-left' : 'items-center',
             removeFlex ? 'block' : 'flex',
             className
@@ -76,7 +76,7 @@ export const Playground = ({
       </div>
       {withCodeEditor ? (
         <>
-          <div className="bg-beige-30 border border-beige-40 -mt-md overflow-hidden pt-lg rounded-lg pb-xs">
+          <div className="bg-beige-30 border border-beige-40 -mt-md overflow-hidden pt-lg rounded-md pb-xs">
             <div className="flex gap-xs pl-sm">
               <Tooltip content="View code">
                 <Button

@@ -3,12 +3,15 @@ import type { CSSProperties } from 'react'
 
 import { Alert } from '@/components/Alert'
 import { Text } from '@/components/Text'
-import tokens from '@/theme/tokens.json' assert { type: 'json' }
+import primitives from '@/theme/tokens/primitives.json' assert { type: 'json' }
+import semantics from '@/theme/tokens/semantics.json' assert { type: 'json' }
 import type { TokensStructure } from '@/theme/utils/parseTokens'
 import { parseTokens } from '@/theme/utils/parseTokens'
 import { classNames } from '@/utils'
 
 const cx = classNames()
+
+const tokens = { color: { ...primitives.color, ...semantics.color } }
 
 const getColors = (name: string) => {
   const themeValues = parseTokens(tokens as unknown as TokensStructure)
@@ -44,7 +47,7 @@ export const Colors = ({ name }: ColorsProps) => {
               className={cx(
                 'bg-(--backgroundColor)',
                 isWhite && `border border-neutral-30`,
-                'size-[3.125rem] rounded-lg'
+                'size-[3.125rem] rounded-md'
               )}
               style={{ '--backgroundColor': `var(--color-${variant})` } as CSSProperties}
             />

@@ -4,24 +4,24 @@
     display: flex;
     align-items: flex-start;
     width: 100%;
-    border-radius: var(--radius-lg);
-    border: var(--border-width-sm) solid;
+    border-radius: var(--border-radius-md);
+    border: var(--border-width-xs) solid;
 
     /* VARIABLES THAT CHANGE WITH REACT PROPS */
     padding: var(--padding);
     max-width: var(--maxWidth, max-content);
-    background-color: var(--backgroundColor, var(--color-neutral-10));
-    border-color: var(--borderColor, var(--color-neutral-30));
-    color: var(--color, var(--color-neutral-80));
+    background-color: var(--backgroundColor, var(--color-background-neutral-inverse-fixed));
+    border-color: var(--borderColor, var(--color-background-neutral-subtlest));
+    color: var(--color, var(--color-background-neutral-secondary));
   }
 
   .size {
     &-sm {
-      --padding: var(--spacing-lg);
+      --padding: var(--border-radius-xl);
     }
 
     &-md {
-      --padding: var(--spacing-xl);
+      --padding: var(--border-radius-2xl);
     }
   }
 
@@ -33,33 +33,33 @@
     }
 
     &-beige {
-      --backgroundColor: var(--color-beige-20);
-      --borderColor: var(--color-beige-20);
-      --color: var(--color-beige-80);
+      --backgroundColor: var(--color-background-warm-primary);
+      --borderColor: var(--color-background-warm-primary);
+      --color: var(--color-border-warm-stronger);
     }
 
     &-danger {
-      --backgroundColor: var(--color-red-10);
-      --borderColor: var(--color-red-10);
-      --color: var(--color-red-90);
+      --backgroundColor: var(--color-background-danger-minimal);
+      --borderColor: var(--color-background-danger-minimal);
+      --color: var(--color-icon-danger-primary);
     }
 
     &-info {
-      --backgroundColor: var(--color-blue-10);
-      --borderColor: var(--color-blue-10);
-      --color: var(--color-blue-90);
+      --backgroundColor: var(--color-background-accent-blue-minimal);
+      --borderColor: var(--color-background-accent-blue-minimal);
+      --color: var(--color-icon-accent-blue-primary);
     }
 
     &-success {
       --backgroundColor: var(--color-green-10);
       --borderColor: var(--color-green-10);
-      --color: var(--color-green-90);
+      --color: var(--color-icon-accent-green-primary);
     }
 
     &-warning {
-      --backgroundColor: var(--color-orange-10);
-      --borderColor: var(--color-orange-10);
-      --color: var(--color-orange-90);
+      --backgroundColor: var(--color-background-warning-minimal);
+      --borderColor: var(--color-background-warning-minimal);
+      --color: var(--color-icon-warning-primary);
     }
   }
 
@@ -73,7 +73,7 @@
     }
 
     .content {
-      margin-left: var(--spacing-md);
+      margin-left: var(--border-radius-lg);
     }
   }
 
@@ -83,7 +83,7 @@
     }
 
     .content {
-      margin-left: var(--spacing-lg);
+      margin-left: var(--border-radius-xl);
     }
   }
 
@@ -91,7 +91,7 @@
 
   .content {
     display: flex;
-    gap: var(--spacing-md);
+    gap: var(--border-radius-lg);
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
@@ -105,7 +105,7 @@
   .content-actions {
     display: flex;
     align-items: center;
-    gap: var(--spacing-sm);
+    gap: var(--border-radius-md);
   }
 
   .variant-icon {
@@ -115,7 +115,7 @@
   /** Title */
 
   .title {
-    font-weight: var(--font-weight-500);
+    font-weight: var(--font-weight-medium);
 
     /* VARIABLES THAT CHANGE WITH REACT PROPS */
     margin-bottom: var(--titleMarginBottom);
@@ -123,22 +123,22 @@
 
   .title-size {
     &-sm {
-      --titleMarginBottom: var(--spacing-xs);
+      --titleMarginBottom: var(--border-radius-sm);
     }
 
     &-md {
-      --titleMarginBottom: var(--spacing-sm);
+      --titleMarginBottom: var(--border-radius-md);
     }
   }
 
   .title-close-button {
-    margin-right: var(--spacing-xl);
+    margin-right: var(--border-radius-2xl);
   }
 
   /* Close button */
   .close-button {
     position: absolute;
-    right: var(--spacing-sm);
-    top: var(--spacing-sm);
+    right: var(--border-radius-md);
+    top: var(--border-radius-md);
   }
 }
