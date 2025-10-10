@@ -1,7 +1,4 @@
 {
-  "useMenuStore": {
-    "props": {}
-  },
   "DropdownMenu": {
     "props": {
       "dataTestId": {
