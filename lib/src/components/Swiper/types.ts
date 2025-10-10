@@ -40,6 +40,5 @@ export interface UseSwiperOptions {
 
 interface SwiperOptions {
   children: JSX.Element | JSX.Element[]
-
   store: ReturnType<typeof useSwiper>
 }
