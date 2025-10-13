@@ -1,7 +1,7 @@
 import { forwardRef } from 'react'
 
 import { Button } from '@/components/Button'
-import { Icon } from '@/components/Icon'
+import { CrossIcon } from '@/components/Icon'
 import { classNames } from '@/utils'
 
 import closeButtonStyles from './close-button.module.scss'
@@ -21,7 +21,7 @@ export const CloseButton = forwardRef<HTMLButtonElement, CloseButtonProps>(
         variant="ghost"
         {...props}
       >
-        <Icon name="times" size="lg" />
+        <CrossIcon size="lg" />
       </Button>
     )
   }

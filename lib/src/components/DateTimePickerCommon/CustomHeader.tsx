@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 
 import { Button } from '@/components/Button'
-import { Icon } from '@/components/Icon'
+import { LeftIcon, RightIcon } from '@/components/Icon'
 import { Select } from '@/components/Select'
 import { classNames } from '@/utils'
 
@@ -56,7 +56,7 @@ export const CustomHeader = ({
         title={`Previous ${isMonthYearPicker ? 'year' : 'month'}`}
         variant="tertiary"
       >
-        <Icon name="angle-left-b" size="xs" />
+        <LeftIcon size="xs" />
       </Button>
       {!isMonthYearPicker && (
         <Select
@@ -77,7 +77,7 @@ export const CustomHeader = ({
         title={`Next ${isMonthYearPicker ? 'year' : 'month'}`}
         variant="tertiary"
       >
-        <Icon name="angle-right-b" size="xs" />
+        <RightIcon size="xs" />
       </Button>
     </div>
   )

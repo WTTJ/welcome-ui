@@ -1,4 +1,20 @@
-import type { IconName } from '@/components/Icon/types'
+import type React from 'react'
+
+import type { IconProps } from '@/components/Icon'
+import {
+  AttachmentIcon,
+  CameraIcon,
+  CsvIcon,
+  DocIcon,
+  DocxIcon,
+  MusicIcon,
+  PdfIcon,
+  PptIcon,
+  VideoIcon,
+  XlsIcon,
+  XlsxIcon,
+  ZipIcon,
+} from '@/components/Icon'
 
 import type { FileType, ForceFileType } from './types'
 import { types } from './types'
@@ -17,21 +33,21 @@ const formatBytes = (bytes: number, decimals = 2): string => {
   return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i]
 }
 
-export function getFileIconName(file: FileType, forceFileType?: ForceFileType): IconName {
+export function getFileIcon(file: FileType, forceFileType?: ForceFileType): React.FC<IconProps> {
   const mimeType = getMimeType(file)
 
   if (!forceFileType && !mimeType) {
-    return 'paperclip'
+    return AttachmentIcon
   }
 
   if (forceFileType === 'image' || (mimeType && mimeType.startsWith('image/'))) {
-    return 'camera'
+    return CameraIcon
   }
   if (forceFileType === 'audio' || (mimeType && mimeType.startsWith('audio/'))) {
-    return 'music'
+    return MusicIcon
   }
   if (forceFileType === 'video' || (mimeType && mimeType.startsWith('video/'))) {
-    return 'play'
+    return VideoIcon
   }
 
   switch (mimeType) {
@@ -41,24 +57,24 @@ export function getFileIconName(file: FileType, forceFileType?: ForceFileType): 
     case 'application/x-bzip':
     case 'application/x-bzip2':
     case 'application/zip':
-      return 'file'
+      return ZipIcon
     case 'application/msword':
-      return 'file'
+      return DocIcon
     case 'application/pdf':
-      return 'file'
+      return PdfIcon
     case 'application/vnd.ms-excel':
-      return 'file'
+      return XlsIcon
     case 'application/vnd.ms-powerpoint':
     case 'application/vnd.openxmlformats-officedocument.presentationml.presentation':
-      return 'file'
+      return PptIcon
     case 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
-      return 'file'
+      return XlsxIcon
     case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
-      return 'file'
+      return DocxIcon
     case 'text/csv':
-      return 'file'
+      return CsvIcon
     default:
-      return 'paperclip'
+      return AttachmentIcon
   }
 }
 

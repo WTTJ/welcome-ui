@@ -1,4 +1,4 @@
-import { Icon } from '@/components/Icon'
+import { AlertIcon } from '@/components/Icon'
 import { Link } from '@/components/Link'
 
 import { expectAsSupport, render } from '@tests'
@@ -78,7 +78,7 @@ describe('<Link>', () => {
       <Link data-testid="link">
         <span>{content}</span>
         <div>
-          <Icon name="exclamation-triangle" />
+          <AlertIcon />
         </div>
       </Link>
     )

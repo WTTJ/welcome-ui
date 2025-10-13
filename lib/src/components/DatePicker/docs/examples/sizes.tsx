@@ -1,5 +1,5 @@
 import { DatePicker } from '@/components/DatePicker'
-import { Icon } from '@/components/Icon'
+import { DateIcon } from '@/components/Icon'
 
 const Example = () => {
   return (
@@ -9,10 +9,10 @@ const Example = () => {
       <DatePicker name="welcome" value={new Date()} />
       <DatePicker name="welcome" size="lg" value={new Date()} />
       Example with icon
-      <DatePicker icon={<Icon name="calendar" />} name="welcome" size="xs" value={new Date()} />
-      <DatePicker icon={<Icon name="calendar" />} name="welcome" size="sm" value={new Date()} />
-      <DatePicker icon={<Icon name="calendar" />} name="welcome" value={new Date()} />
-      <DatePicker icon={<Icon name="calendar" />} name="welcome" size="lg" value={new Date()} />
+      <DatePicker icon={<DateIcon />} name="welcome" size="xs" value={new Date()} />
+      <DatePicker icon={<DateIcon />} name="welcome" size="sm" value={new Date()} />
+      <DatePicker icon={<DateIcon />} name="welcome" value={new Date()} />
+      <DatePicker icon={<DateIcon />} name="welcome" size="lg" value={new Date()} />
     </div>
   )
 }

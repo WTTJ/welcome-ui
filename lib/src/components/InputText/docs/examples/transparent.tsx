@@ -1,8 +1,8 @@
-import { Icon } from '@/components/Icon'
+import { AvatarIcon } from '@/components/Icon'
 import { InputText } from '@/components/InputText'
 
 const Example = () => {
-  return <InputText icon={<Icon name="user-circle" />} placeholder="Welcome" transparent />
+  return <InputText icon={<AvatarIcon />} placeholder="Welcome" transparent />
 }
 
 export default Example

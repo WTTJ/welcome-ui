@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { Checkbox } from '@/components/Checkbox'
-import { Icon } from '@/components/Icon'
+import { LinkIcon } from '@/components/Icon'
 import { Select } from '@/components/Select'
 import type { SelectOption, SelectProps } from '@/components/Select/types'
 
@@ -23,7 +23,7 @@ const Example = () => {
     <Select
       allowUnselectFromList
       disableCloseOnSelect
-      icon={<Icon name="link" />}
+      icon={<LinkIcon />}
       isMultiple
       isSearchable
       name="welcome"

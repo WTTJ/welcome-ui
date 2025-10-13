@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Icon } from '@/components/Icon'
+import { HideIcon, ShowIcon } from '@/components/Icon'
 import { Toggle } from '@/components/Toggle'
 
 const Example = () => {
@@ -10,10 +10,10 @@ const Example = () => {
     <Toggle
       aria-label="Toggle component"
       checked={toggle}
-      checkedIcon={<Icon name="eye-slash" />}
+      checkedIcon={<HideIcon />}
       onClick={() => setToggle(!toggle)}
       size="md"
-      uncheckedIcon={<Icon name="eye" />}
+      uncheckedIcon={<ShowIcon />}
     />
   )
 }

@@ -1,6 +1,6 @@
 import { forwardRef, useCallback, useRef } from 'react'
 
-import { Icon } from '@/components/Icon'
+import { LeftIcon, RightIcon } from '@/components/Icon'
 import { classNames } from '@/utils'
 
 import styles from './pagination.module.scss'
@@ -60,7 +60,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
               type="button"
               {...buttonPrevProps}
             >
-              <Icon name="angle-left-b" size="sm" />
+              <LeftIcon size="sm" />
             </button>
           </li>
           {pages.map((iPage: number | string, i: number) =>
@@ -98,7 +98,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
               type="button"
               {...buttonNextProps}
             >
-              <Icon name="angle-right-b" size="sm" />
+              <RightIcon size="sm" />
             </button>
           </li>
         </ol>

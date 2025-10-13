@@ -2,7 +2,7 @@ import type { MouseEvent } from 'react'
 import React from 'react'
 
 import { Button } from '@/components/Button'
-import { Icon } from '@/components/Icon'
+import { CrossIcon } from '@/components/Icon'
 import { classNames, forwardRefWithAs } from '@/utils'
 
 import tagStyles from './tag.module.scss'
@@ -67,7 +67,7 @@ export const Tag = forwardRefWithAs<TagOptions, 'div'>((props, ref) => {
           size="xs"
           variant="ghost"
         >
-          <Icon name="times" size="xs" />
+          <CrossIcon size="xs" />
         </Button>
       ) : null}
     </Element>

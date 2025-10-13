@@ -18,7 +18,7 @@ type DivProps = {
     properties: {
       dataColors?: string
       dataComponent?: string
-      dataIcons?: IconListProps['collectionName']
+      dataIcons?: IconListProps['name']
       dataIconsFont?: string
       dataOverview?: string
       dataPlayground?: string
@@ -44,7 +44,7 @@ export const Div = ({ children, node }: DivProps) => {
   if (iconsEntry) {
     const isIconsFont = node?.properties?.dataIconsFont === 'true' ? true : false
 
-    return <IconsList collectionName={iconsEntry} isIconsFont={isIconsFont} />
+    return <IconsList isIconsFont={isIconsFont} name={iconsEntry} />
   }
 
   // Theme objects
