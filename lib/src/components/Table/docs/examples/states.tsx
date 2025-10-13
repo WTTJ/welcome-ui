@@ -1,5 +1,5 @@
 import { Button } from '@/components/Button'
-import { Icon } from '@/components/Icon'
+import { SettingsIcon } from '@/components/Icon'
 import { Table } from '@/components/Table'
 
 const Example = () => {
@@ -20,7 +20,7 @@ const Example = () => {
           <Table.Td>23</Table.Td>
           <Table.Td className="text-right">
             <Button shape="circle" size="sm" variant="secondary">
-              <Icon name="setting" size="sm" />
+              <SettingsIcon size="sm" />
             </Button>
           </Table.Td>
         </Table.Tr>
@@ -30,7 +30,7 @@ const Example = () => {
           <Table.Td>41</Table.Td>
           <Table.Td className="text-right">
             <Button shape="circle" size="sm" variant="secondary">
-              <Icon name="setting" size="sm" />
+              <SettingsIcon size="sm" />
             </Button>
           </Table.Td>
         </Table.Tr>
@@ -40,7 +40,7 @@ const Example = () => {
           <Table.Td>8</Table.Td>
           <Table.Td className="text-right">
             <Button shape="circle" size="sm" variant="secondary">
-              <Icon name="setting" size="sm" />
+              <SettingsIcon size="sm" />
             </Button>
           </Table.Td>
         </Table.Tr>
@@ -50,7 +50,7 @@ const Example = () => {
           <Table.Td>102</Table.Td>
           <Table.Td className="text-right">
             <Button shape="circle" size="sm" variant="secondary">
-              <Icon name="setting" size="sm" />
+              <SettingsIcon size="sm" />
             </Button>
           </Table.Td>
         </Table.Tr>

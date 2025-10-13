@@ -2,7 +2,7 @@ import NextLink from 'next/link'
 import React from 'react'
 
 import { Button } from '@/components/Button'
-import { Icon } from '@/components/Icon'
+import { GithubIcon, HeartIcon, RightIcon } from '@/components/Icon'
 import { Logo, Symbol } from '@/components/Logo'
 import { Text } from '@/components/Text'
 
@@ -27,7 +27,7 @@ const Home = () => {
         </Text>
         <Button as={NextLink} className="mt-3xl" href="/foundations/getting-started" size="lg">
           <span>Install amazing components</span>
-          <Icon name="angle-right-b" size="lg" />
+          <RightIcon size="lg" />
         </Button>
       </Section>
       <Section>
@@ -61,7 +61,7 @@ const Home = () => {
               target="_blank"
               variant="secondary"
             >
-              <Icon name="github" size="lg" />
+              <GithubIcon size="lg" />
               <span>Contribute on Github</span>
             </Button>
           </div>
@@ -116,7 +116,7 @@ const Home = () => {
             target="_blank"
           >
             <span>We are recruiting</span>
-            <Icon name="heart" size="lg" />
+            <HeartIcon size="lg" />
           </Button>
           <Button
             as="a"
@@ -128,7 +128,7 @@ const Home = () => {
             variant="ghost"
           >
             <span>Visit our website</span>
-            <Icon name="angle-right-b" size="lg" />
+            <RightIcon size="lg" />
           </Button>
         </div>
         <div className="-bottom-[9.375rem] -right-[7.5rem] absolute hidden lg:block opacity-[10]">

@@ -2,7 +2,7 @@
 import { DocSearchModal } from '@docsearch/react'
 import { useEffect, useState } from 'react'
 
-import { Icon } from '@/components/Icon'
+import { SearchIcon } from '@/components/Icon'
 import { InputText } from '@/components/InputText'
 
 import '@docsearch/css'
@@ -32,7 +32,7 @@ export const Search = () => {
     <>
       <InputText
         className="max-w-full w-[18.75rem]"
-        icon={<Icon name="search" />}
+        icon={<SearchIcon />}
         onClick={() => setIsOpen(true)}
         onFocus={() => setIsOpen(true)}
         placeholder="Search all pages"

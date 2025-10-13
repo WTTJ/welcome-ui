@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Icon } from '@/components/Icon'
+import { WttjIcon } from '@/components/Icon'
 import { Select } from '@/components/Select'
 import type { SelectProps } from '@/components/Select/types'
 
@@ -20,7 +20,7 @@ const Example = () => {
 
   return (
     <Select
-      icon={<Icon name="wttj" />}
+      icon={<WttjIcon />}
       name="welcome"
       onChange={handleChange}
       options={ITEMS}

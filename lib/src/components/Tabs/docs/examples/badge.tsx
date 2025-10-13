@@ -1,5 +1,5 @@
 import { Badge } from '@/components/Badge'
-import { Icon } from '@/components/Icon'
+import { HeartIcon } from '@/components/Icon'
 import { Tab, useTab } from '@/components/Tabs'
 
 const Example = () => {
@@ -20,7 +20,7 @@ const Example = () => {
         </Tab>
         <Tab id="tab3" store={tab}>
           Tab 3
-          <Icon name="heart" />
+          <HeartIcon />
         </Tab>
         <Tab id="tab4" store={tab}>
           <img src="https://cdn.welcometothejungle.com/wttj-front/production/assets/images/logos/wttj.svg?v=3a3dbd7122a01600fb67e66b889bb47c" />{' '}

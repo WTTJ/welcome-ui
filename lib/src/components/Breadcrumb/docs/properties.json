@@ -33,7 +33,7 @@
       },
       "separator": {
         "defaultValue": {
-          "value": "<Icon name=\"angle-right-b\" size=\"xs\" />"
+          "value": "<RightIcon size=\"xs\" />"
         },
         "description": "",
         "name": "separator",
@@ -124,7 +124,7 @@
       },
       "separator": {
         "defaultValue": {
-          "value": "<Icon name=\"angle-right-b\" size=\"xs\" />"
+          "value": "<RightIcon size=\"xs\" />"
         },
         "description": "",
         "name": "separator",

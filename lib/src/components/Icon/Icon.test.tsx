@@ -5,31 +5,42 @@ import { render } from '@tests'
 import { Icon } from './Icon'
 
 describe('Icon', () => {
-  it('renders even when name does not exist in svg sprite', () => {
-    const { container } = render(<Icon name="pen" />)
-    expect(container.firstChild).toBeInTheDocument()
+  const mockContent = {
+    block:
+      '<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />',
+    viewBox: '0 0 24 24',
+  }
+
+  it('renders nothing when content is not provided', () => {
+    const { container } = render(<Icon />)
+    expect(container.firstChild).toBeNull()
   })
 
   it('renders with correct attributes', () => {
-    render(<Icon aria-label="add icon" data-testid="icon" name="plus" />)
+    render(<Icon aria-label="star icon" content={mockContent} data-testid="icon" />)
 
     const svg = screen.getByTestId('icon')
-    const use = svg.querySelector('use')
     expect(svg).toBeInTheDocument()
-    expect(svg).toHaveAttribute('aria-label', 'add icon')
+    expect(svg).toHaveAttribute('aria-label', 'star icon')
+    expect(svg).toHaveAttribute('viewBox', '0 0 24 24')
     expect(svg).toHaveClass(/size-md/)
-    expect(use).toHaveAttribute('href', '#plus')
+
+    const gElement = svg.querySelector('g')
+    expect(gElement).toHaveProperty(
+      'innerHTML',
+      '<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>'
+    )
   })
 
   it('applies custom size class', () => {
-    render(<Icon data-testid="icon" name="plus" size="lg" />)
+    render(<Icon content={mockContent} data-testid="icon" size="lg" />)
 
     const svg = screen.getByTestId('icon')
     expect(svg).toHaveClass(/size-lg/)
   })
 
   it('applies custom className', () => {
-    render(<Icon className="custom-class" data-testid="icon" name="plus" />)
+    render(<Icon className="custom-class" content={mockContent} data-testid="icon" />)
 
     const svg = screen.getByTestId('icon')
     expect(svg).toHaveClass(/custom-class/)

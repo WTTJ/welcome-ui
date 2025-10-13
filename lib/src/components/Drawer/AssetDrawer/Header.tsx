@@ -1,5 +1,5 @@
 import { Button } from '@/components/Button'
-import { Icon } from '@/components/Icon'
+import { ArrowLeftIcon } from '@/components/Icon'
 import { Text } from '@/components/Text'
 import { classNames } from '@/utils'
 
@@ -12,7 +12,7 @@ const cx = classNames(styles)
 export const Header = ({
   action,
   className,
-  iconName,
+  icon,
   onBackButtonClick,
   subtitle,
   title,
@@ -22,10 +22,10 @@ export const Header = ({
       <div className={cx('back-button')}>
         {!!onBackButtonClick && (
           <Button onClick={onBackButtonClick} shape="circle" size="lg" variant="ghost">
-            <Icon name="arrow-left" />
+            <ArrowLeftIcon />
           </Button>
         )}
-        {!!iconName && <IconBlock iconName={iconName} />}
+        {!!icon && <IconBlock icon={icon} />}
         <div className={cx('title')}>
           <Text className="pr-xl" variant="h3">
             {title}

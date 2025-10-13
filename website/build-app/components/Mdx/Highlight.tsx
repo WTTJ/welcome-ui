@@ -2,7 +2,7 @@
 import { Highlight as HighlightPrism, themes } from 'prism-react-renderer'
 
 import { Button } from '@/components/Button'
-import { Icon } from '@/components/Icon'
+import { CheckIcon, CopyIcon } from '@/components/Icon'
 import { classNames, useCopyText } from '@/utils'
 
 export type HighlightProps = {
@@ -26,7 +26,7 @@ export const Highlight = ({ children, language = 'tsx' }: HighlightProps) => {
             size="xs"
             variant={copied ? 'primary' : 'ghost'}
           >
-            {copied ? <Icon name="check" /> : <Icon className="text-neutral-10" name="copy" />}
+            {copied ? <CheckIcon /> : <CopyIcon className="text-neutral-10" />}
           </Button>
           <pre
             className="border border-neutral-30 pt-lg pr-3xl pb-lg pl-xl rounded-lg"

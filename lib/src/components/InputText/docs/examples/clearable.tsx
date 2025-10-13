@@ -1,13 +1,13 @@
 import { useState } from 'react'
 
-import { Icon } from '@/components/Icon'
+import { AvatarIcon } from '@/components/Icon'
 import { InputText } from '@/components/InputText'
 
 const Example = () => {
   const [value, setValue] = useState('Welcome')
   return (
     <InputText
-      icon={<Icon name="user-circle" />}
+      icon={<AvatarIcon />}
       iconPlacement="right"
       isClearable
       onChange={e => setValue(e.target.value)}

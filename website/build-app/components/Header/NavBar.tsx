@@ -2,7 +2,7 @@ import { usePathname } from 'next/navigation'
 import React from 'react'
 
 import { Button } from '@/components/Button'
-import { Icon } from '@/components/Icon'
+import { GithubIcon } from '@/components/Icon'
 import { Text } from '@/components/Text'
 import { classNames } from '@/utils'
 
@@ -50,7 +50,7 @@ export const NavBar = ({ className, onClick }: NavBarProps) => {
         target="_blank"
         variant="ghost"
       >
-        <Icon name="github" />
+        <GithubIcon />
       </Button>
     </div>
   )

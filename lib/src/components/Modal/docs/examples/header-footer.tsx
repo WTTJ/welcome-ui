@@ -1,5 +1,5 @@
 import { Button } from '@/components/Button'
-import { Icon } from '@/components/Icon'
+import { ActionsIcon } from '@/components/Icon'
 import { Modal, useModal } from '@/components/Modal'
 
 const Example = () => {
@@ -8,7 +8,7 @@ const Example = () => {
   const modal3 = useModal()
   const title = 'Nullam non lacinia'
   const subtitle = 'Praesent sit amet quam ac velit faucibus dapibus, quisque sapien ligula.'
-  const icon = <Icon className="h-40 w-[2.5rem] text-(--color-neutral-90)" name="rocket" />
+  const icon = <ActionsIcon className="h-40 w-[2.5rem] text-(--color-neutral-90)" />
   const informations = {
     subtitle:
       'Sed lorem lacus, hendrerit non sodales id, consectetur quis magna. Mauris auctor blandit porta. In imperdiet rutrum nunc.',

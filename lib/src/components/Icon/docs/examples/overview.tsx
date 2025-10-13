@@ -1,7 +1,7 @@
-import { Icon } from '@/components/Icon'
+import { PositiveStraightIcon } from '@/components/Icon'
 
 const Example = () => {
-  return <Icon name="wttj" />
+  return <PositiveStraightIcon />
 }
 
 export default Example

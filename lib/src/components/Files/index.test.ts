@@ -1,6 +1,8 @@
+import { CameraIcon, PdfIcon, PptIcon } from '@/components/Icon'
+
 import type { Type } from './types'
 
-import { getFileIconName, getFileName, getFileSize, getMimeType } from '.'
+import { getFileIcon, getFileName, getFileSize, getMimeType } from '.'
 
 function generateFile(name: string, type: Type) {
   const file = new File(['we-hire-at-welcome-to-the-jungle'], name, { type })
@@ -120,37 +122,37 @@ describe('File utils', () => {
     })
   })
 
-  describe('getFileIconName', () => {
+  describe('getFileIcon', () => {
     it('should return correct camera icon', () => {
       const fileName = 'jungle.test-name.jpg'
       const file = generateFile(fileName, 'image/jpeg')
-      const result = getFileIconName(file)
+      const result = getFileIcon(file)
 
-      expect(result).toEqual('camera')
+      expect(result).toEqual(CameraIcon)
     })
 
     it('should return correct pdf icon', () => {
       const fileName = 'jungle.test-name.pdf'
       const file = generateFile(fileName, 'application/pdf')
-      const result = getFileIconName(file)
+      const result = getFileIcon(file)
 
-      expect(result).toEqual('file')
+      expect(result).toEqual(PdfIcon)
     })
 
     it('should return correct ppt icon', () => {
       const fileName = 'jungle.test-name.ppt'
       const file = generateFile(fileName, 'application/vnd.ms-powerpoint')
-      const result = getFileIconName(file)
+      const result = getFileIcon(file)
 
-      expect(result).toEqual('file')
+      expect(result).toEqual(PptIcon)
     })
 
     it('should return correct icon with forceFileType', () => {
       const fileName = 'jungle.test-name.pdf'
       const file = generateFile(fileName, 'application/pdf')
-      const result = getFileIconName(file, 'image')
+      const result = getFileIcon(file, 'image')
 
-      expect(result).toEqual('camera')
+      expect(result).toEqual(CameraIcon)
     })
   })
 })

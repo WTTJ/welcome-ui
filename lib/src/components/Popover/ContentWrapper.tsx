@@ -1,5 +1,5 @@
 import { Button } from '@/components/Button'
-import { Icon } from '@/components/Icon'
+import { CrossIcon } from '@/components/Icon'
 import { classNames } from '@/utils'
 
 import popoverStyles from './popover.module.scss'
@@ -38,7 +38,7 @@ export const ContentWrapper = ({ children, className, onClose, store }: ContentW
           size="xs"
           variant="secondary"
         >
-          <Icon name="times" />
+          <CrossIcon />
         </Button>
       ) : null}
     </div>

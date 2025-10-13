@@ -1,7 +1,7 @@
 import { Disclosure, DisclosureContent } from '@ariakit/react'
 import { forwardRef } from 'react'
 
-import { Icon } from '@/components/Icon'
+import { RightIcon } from '@/components/Icon'
 import { Text } from '@/components/Text'
 import { classNames } from '@/utils'
 
@@ -21,7 +21,7 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
         >
           <Text variant="h5">{title}</Text>
           <div className={cx('icon')}>
-            <Icon name="arrow-right" size="sm" />
+            <RightIcon size="sm" />
           </div>
         </Disclosure>
         <DisclosureContent
