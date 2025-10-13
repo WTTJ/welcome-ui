@@ -1,7 +1,5 @@
 import type { Metadata } from 'next'
 
-import { Sprite } from '@/components/Icon'
-
 import { Footer } from '~/build-app/components/Footer'
 import { Header } from '~/build-app/components/Header'
 import { getPages } from '~/build-app/utils/pages-components'
@@ -31,7 +29,6 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <div className="bg-neutral-10">
           <Header components={pagesComponents} foundations={pagesFoundations} />
           {children}
-          <Sprite />
           <Footer />
         </div>
       </body>
