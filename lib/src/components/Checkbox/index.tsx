@@ -4,9 +4,10 @@ import { Checkbox as AriaKitCheckbox } from '@ariakit/react'
 import React, { forwardRef, useState } from 'react'
 
 import { useField } from '@/components/Field'
-import { CheckIcon, RemoveIcon } from '@/components/Icon'
 import { VisuallyHidden } from '@/components/VisuallyHidden'
 import { classNames } from '@/utils'
+
+import { Icon } from '../Icon'
 
 import checkboxStyles from './checkbox.module.scss'
 import type { CheckboxProps } from './types'
@@ -53,8 +54,8 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             ref={ref}
           />
         </VisuallyHidden>
-        {isChecked ? <CheckIcon size="sm" /> : null}
-        {!isChecked && indeterminate ? <RemoveIcon size="sm" /> : null}
+        {isChecked ? <Icon name="check" size="sm" /> : null}
+        {!isChecked && indeterminate ? <Icon name="minus" size="sm" /> : null}
       </div>
     )
   }

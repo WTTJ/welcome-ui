@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
 
+import { Sprite } from '@/components/Icon'
+
 import { Footer } from '~/build-app/components/Footer'
 import { Header } from '~/build-app/components/Header'
 import { getPages } from '~/build-app/utils/pages-components'
 import { getPages as getPagesExport } from '~/build-app/utils/pages-exports'
-
-import { Sprite } from '../../lib/dist/Icon'
 
 import './global.css'
 
