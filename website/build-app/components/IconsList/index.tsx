@@ -1,18 +1,11 @@
 'use client'
-import { camelCase, startCase } from 'lodash'
 import React from 'react'
 
 import { Card } from '@/components/Card'
-import * as Icons from '@/components/Icon'
-import { Text } from '@/components/Text'
-import { Toast, toast } from '@/components/Toast'
-import { classNames } from '@/utils'
-
-import styles from './icon-list.styles.scss'
+import { Icon } from '@/components/Icon'
 import {
   actions,
   arrows,
-  avatar,
   brands,
   files,
   flags,
@@ -22,16 +15,21 @@ import {
   table,
   welcome,
   wtf,
-} from './icons'
+} from '@/components/Icon/icons'
+import type { IconName } from '@/components/Icon/types'
+import { Text } from '@/components/Text'
+import { Toast, toast } from '@/components/Toast'
+import { Tooltip } from '@/components/Tooltip'
+import { classNames } from '@/utils'
+
+import styles from './icon-list.styles.scss'
 
 const cx = classNames(styles)
 
 export type IconListProps = {
-  isIconsFont?: boolean
-  name:
+  collectionName:
     | 'actions'
     | 'arrows'
-    | 'avatar'
     | 'brands'
     | 'files'
     | 'flags'
@@ -41,10 +39,11 @@ export type IconListProps = {
     | 'table'
     | 'welcome'
     | 'wtf'
+  isIconsFont?: boolean
 }
 
 const handleClickToCopy = (componentName: string) => {
-  const component = `<${componentName} />`
+  const component = `<Icon name="${componentName}" />`
   navigator.clipboard.writeText(component)
 
   toast(
@@ -57,11 +56,10 @@ const handleClickToCopy = (componentName: string) => {
   )
 }
 
-export const IconsList = ({ name }: IconListProps) => {
+export const IconsList = ({ collectionName }: IconListProps) => {
   const iconsByName = {
     actions: actions,
     arrows: arrows,
-    avatar: avatar,
     brands: brands,
     files: files,
     flags: flags,
@@ -75,27 +73,27 @@ export const IconsList = ({ name }: IconListProps) => {
 
   return (
     <div className="gap-lg grid lg:grid-cols-4 grid-cols-2">
-      {iconsByName[name]?.map(key => {
-        const name = startCase(camelCase(key)).replace(/ /g, '')
-        const componentName = `${name}Icon`
-
-        const Icon = Icons[componentName as keyof typeof Icons]
-
-        if (!Icon) {
-          // eslint-disable-next-line no-console
-          console.error(`The "${key}" icon is missing`)
-        }
-
+      {iconsByName[collectionName]?.map((name: IconName) => {
+        const isSolid = name.endsWith('-solid')
         return (
-          <Card className={cx('card')} key={key} onClick={() => handleClickToCopy(componentName)}>
-            {Icon ? <Icon size="lg" /> : <Icons.CrossIcon size="lg" />}
+          <Card
+            className={cx('card')}
+            key={`${collectionName}-${name}`}
+            onClick={() => handleClickToCopy(name)}
+          >
+            <Icon name={name} size="lg" />
             <Text
               as="span"
-              className="pt-md px-sm text-beige-70 text-center break-words"
+              className="pt-md px-sm text-beige-70 text-center break-words flex items-center gap-1"
               lines={2}
               variant="sm"
             >
-              {componentName}
+              {isSolid ? (
+                <Tooltip content="You are seeing the line version of this icon - only available on paid plan">
+                  <Icon className="text-secondary-orange" name="exclamation-triangle" size="sm" />
+                </Tooltip>
+              ) : null}
+              {name}
             </Text>
           </Card>
         )

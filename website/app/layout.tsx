@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { ThemeProvider as NextThemeProvider } from 'next-themes'
 
+import { Sprite } from '@/components/Icon'
+
 import { Footer } from '~/build-app/components/Footer'
 import { Header } from '~/build-app/components/Header'
 import { getPages } from '~/build-app/utils/pages-components'
@@ -32,6 +34,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
             <Header components={pagesComponents} foundations={pagesFoundations} />
             {children}
             <Footer />
+            <Sprite />
           </div>
         </NextThemeProvider>
       </body>
