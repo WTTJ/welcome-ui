@@ -1,7 +1,5 @@
 import type { Metadata } from 'next'
 
-import { Sprite } from '@/components/Icon'
-
 import { Footer } from '~/build-app/components/Footer'
 import { Header } from '~/build-app/components/Header'
 import { getPages } from '~/build-app/utils/pages-components'
