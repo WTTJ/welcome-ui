@@ -1,7 +1,11 @@
+// Checkbox component using Ariakit for accessibility and custom styles
+// https://ariakit.org/examples/checkbox-custom
 import { Checkbox as AriaKitCheckbox } from '@ariakit/react'
-import React, { forwardRef } from 'react'
+import React, { forwardRef, useState } from 'react'
 
 import { useField } from '@/components/Field'
+import { CheckIcon, RemoveIcon } from '@/components/Icon'
+import { VisuallyHidden } from '@/components/VisuallyHidden'
 import { classNames } from '@/utils'
 
 import checkboxStyles from './checkbox.module.scss'
@@ -11,28 +15,47 @@ const cx = classNames(checkboxStyles)
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   ({ checked = false, className, indeterminate = false, onChange, variant, ...rest }, ref) => {
+    const [isChecked, setIsChecked] = useState(checked)
+    const [focusVisible, setFocusVisible] = useState(false)
     const { getInputProps, variant: fieldVariant } = useField()
 
     const _variant = fieldVariant || variant
+    const { disabled } = getInputProps(rest)
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      e.target.checked = !e.target.checked
-      if (onChange) onChange(e)
+      setIsChecked(e.target.checked)
+
+      if (onChange) {
+        onChange(e)
+      }
     }
 
     return (
-      <AriaKitCheckbox
-        {...getInputProps(rest)}
-        checked={checked}
+      <div
+        aria-checked={isChecked}
+        aria-disabled={disabled}
         className={cx(
           'root',
           _variant && `variant-${_variant}`,
           indeterminate && 'indeterminate',
           className
         )}
-        onChange={handleChange}
-        ref={ref}
-      />
+        data-focus-visible={focusVisible || undefined}
+        onClick={disabled ? undefined : () => setIsChecked(!isChecked)}
+      >
+        <VisuallyHidden>
+          <AriaKitCheckbox
+            {...getInputProps(rest)}
+            checked={isChecked}
+            onBlur={() => setFocusVisible(false)}
+            onChange={handleChange}
+            onFocusVisible={() => setFocusVisible(true)}
+            ref={ref}
+          />
+        </VisuallyHidden>
+        {isChecked ? <CheckIcon size="sm" /> : null}
+        {!isChecked && indeterminate ? <RemoveIcon size="sm" /> : null}
+      </div>
     )
   }
 )
