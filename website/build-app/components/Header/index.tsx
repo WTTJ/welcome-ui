@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation'
 
 import { Button } from '@/components/Button'
 import { Drawer, useDrawer } from '@/components/Drawer'
-import { Icon } from '@/components/Icon'
+import { Icon, Sprite } from '@/components/Icon'
 import { WelcomeUILogo } from '@/components/Logo'
 import { Toast } from '@/components/Toast'
 import { classNames } from '@/utils'
@@ -46,6 +46,7 @@ export const Header = ({ components, foundations }: HeaderProps) => {
   return (
     <header className={cx('header')}>
       <Toast />
+      <Sprite />
       <div className="flex gap-lg h-full items-center justify-between max-w-[87.5rem] mx-auto px-md text-neutral-60">
         <div className="flex gap-lg items-center">
           <div className="shrink-0">
