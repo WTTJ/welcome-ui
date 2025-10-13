@@ -1,26 +1,38 @@
 import { Button } from '@/components/Button'
-import { WttjIcon } from '@/components/Icon'
+import { AddIcon } from '@/components/Icon'
 
 const Example = () => {
   return (
-    <>
-      <Button>
-        <WttjIcon />
-        <span>Button</span>
-      </Button>
-      <Button variant="secondary">
-        <WttjIcon />
-        <span>Button</span>
-      </Button>
-      <Button variant="tertiary">
-        <WttjIcon />
-        <span>Button</span>
-      </Button>
-      <Button disabled>
-        <WttjIcon />
-        <span>Button</span>
-      </Button>
-    </>
+    <div className="flex flex-col gap-md">
+      <div className="flex gap-md">
+        <Button>
+          <AddIcon />
+          <span>Button</span>
+        </Button>
+        <Button variant="secondary">
+          <AddIcon />
+          <span>Button</span>
+        </Button>
+        <Button variant="tertiary">
+          <AddIcon />
+          <span>Button</span>
+        </Button>
+        <Button disabled>
+          <AddIcon />
+          <span>Button</span>
+        </Button>
+      </div>
+      <div className="flex gap-md">
+        <Button size="sm">
+          <AddIcon />
+          <span>Small</span>
+        </Button>
+        <Button size="md">
+          <AddIcon />
+          <span>Medium</span>
+        </Button>
+      </div>
+    </div>
   )
 }
 
