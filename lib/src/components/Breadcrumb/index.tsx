@@ -10,7 +10,7 @@ import React, {
   useState,
 } from 'react'
 
-import { RightIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { classNames } from '@/utils'
 import { clamp } from '@/utils/clamp'
 import { throttle } from '@/utils/throttle'
@@ -23,7 +23,12 @@ const cx = classNames(breadcrumbStyles)
 
 export const BreadcrumbComponent = forwardRef<HTMLDivElement, BreadcrumbProps>(
   (
-    { children, lastChildNotClickable = true, separator = <RightIcon size="xs" />, ...rest },
+    {
+      children,
+      lastChildNotClickable = true,
+      separator = <Icon name="angle-right-b" size="xs" />,
+      ...rest
+    },
     ref
   ) => {
     // Remove null child

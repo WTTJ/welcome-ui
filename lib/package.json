@@ -58,7 +58,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@ariakit/react": "0.4.15",
+    "@ariakit/react": "0.4.19",
     "@emotion/is-prop-valid": "^1.4.0",
     "@juggle/resize-observer": "^3.4.0",
     "copy-to-clipboard": "^3.3.3",
@@ -83,7 +83,7 @@
     "@types/lodash.debounce": "^4.0.6",
     "@types/lodash.merge": "^4.6.9",
     "@types/lodash.range": "^3.2.9",
-    "@types/ramda": "^0.30.2",
+    "@types/ramda": "^0.31.1",
     "@types/react-datepicker": "^7.0.0",
     "jsdom": "^26.0.0",
     "lodash.merge": "^4.6.2",

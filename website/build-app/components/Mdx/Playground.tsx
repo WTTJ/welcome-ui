@@ -2,7 +2,7 @@
 import { useState } from 'react'
 
 import { Button } from '@/components/Button'
-import { CodeBlockIcon, GithubIcon, PromoteIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { Tooltip } from '@/components/Tooltip'
 import { classNames } from '@/utils'
 
@@ -84,12 +84,12 @@ export const Playground = ({
                   size="xs"
                   variant="tertiary"
                 >
-                  <CodeBlockIcon />
+                  <Icon name="arrow" />
                 </Button>
               </Tooltip>
               <Tooltip content="Edit on StackBlitz">
                 <Button onClick={handleClickStackBlitz} size="xs" variant="tertiary">
-                  <PromoteIcon />
+                  <Icon name="external-link-alt" />
                 </Button>
               </Tooltip>
               <Tooltip content="View on Github">
@@ -101,7 +101,7 @@ export const Playground = ({
                   target="_blank"
                   variant="tertiary"
                 >
-                  <GithubIcon />
+                  <Icon name="github" />
                 </Button>
               </Tooltip>
             </div>

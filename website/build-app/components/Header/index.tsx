@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation'
 
 import { Button } from '@/components/Button'
 import { Drawer, useDrawer } from '@/components/Drawer'
-import { MenuIcon } from '@/components/Icon'
+import { Icon, Sprite } from '@/components/Icon'
 import { WelcomeUILogo } from '@/components/Logo'
 import { Toast } from '@/components/Toast'
 import { classNames } from '@/utils'
@@ -46,6 +46,7 @@ export const Header = ({ components, foundations }: HeaderProps) => {
   return (
     <header className={cx('header')}>
       <Toast />
+      <Sprite />
       <div className="flex gap-lg h-full items-center justify-between max-w-[87.5rem] mx-auto px-md text-neutral-60">
         <div className="flex gap-lg items-center">
           <div className="shrink-0">
@@ -57,7 +58,7 @@ export const Header = ({ components, foundations }: HeaderProps) => {
           <Search />
         </div>
         <Drawer.Trigger as={Button} className="lg:hidden shrink-0" size="sm" store={drawer}>
-          <MenuIcon />
+          <Icon name="bars" />
         </Drawer.Trigger>
         <NavBar className="hidden lg:flex" />
         <Drawer className="lg:hidden z-[999]" size="100%" store={drawer} withBackdrop>
