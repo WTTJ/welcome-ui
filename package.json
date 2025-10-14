@@ -58,7 +58,7 @@
     "@babel/parser": "^7.28.4",
     "@babel/traverse": "^7.28.4",
     "@commitlint/cli": "^17.7.1",
-    "@commitlint/config-conventional": "^17.7.0",
+    "@commitlint/config-conventional": "^20.0.0",
     "@eslint/js": "^9.37.0",
     "@tailwindcss/postcss": "^4.1.14",
     "@types/css-modules": "^1.0.5",
