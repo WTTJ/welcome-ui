@@ -3,11 +3,11 @@ import { Text } from '@/components/Text'
 const Example = () => {
   return (
     <>
-      <Text as="p" className="mb-3xl" variant="h3">
-        p tag styled as an H3
+      <Text as="h3" className="mb-3xl" variant="display-sm">
+        h3 styled as a display-sm
       </Text>
-      <Text as="h1" variant="sm">
-        H1 tag styled as a sm
+      <Text as="h1" variant="body-md">
+        H1 tag styled as a body-md
       </Text>
     </>
   )
