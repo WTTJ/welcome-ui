@@ -124,7 +124,7 @@ export const SliderComponent = forwardRef<HTMLDivElement, SliderProps>(
     return (
       <div className={cx('slider-root', className)} ref={ref}>
         {label ? (
-          <Text as="label" htmlFor={sliderId} variant="sm">
+          <Text as="label" htmlFor={sliderId} variant="body-md">
             {label}
           </Text>
         ) : null}

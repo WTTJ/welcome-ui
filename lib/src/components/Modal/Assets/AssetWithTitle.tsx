@@ -16,7 +16,11 @@ export const AssetWithTitle = forwardRef<HTMLDivElement, AssetWithTitleProps>(
         {children}
         <div className={cx('root', 'asset-title-wrapper')}>
           {customContent}
-          {!customContent && subtitle ? <Text variant="subtitle-sm">{subtitle}</Text> : null}
+          {!customContent && subtitle ? (
+            <Text className="uppercase" variant="label-sm">
+              {subtitle}
+            </Text>
+          ) : null}
           {!customContent && title ? <AssetTitle>{title}</AssetTitle> : null}
         </div>
       </div>
