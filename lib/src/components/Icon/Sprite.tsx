@@ -1,5 +1,5 @@
 /* eslint-disable perfectionist/sort-jsx-props */
-/* eslint-disable prettier/prettier */
+
 export const Sprite = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" className="hidden">
