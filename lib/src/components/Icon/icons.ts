@@ -14,6 +14,8 @@ export const arrows = [
 ] as const
 
 export const actions = [
+  'asterisk',
+  'info-circle',
   'chart-line',
   'plus',
   'archive-alt',
@@ -57,6 +59,7 @@ export const actions = [
 ] as const
 
 export const miscellaneous = [
+  'sparkles',
   'rocket',
   'file-alt',
   'user-square',
@@ -65,6 +68,7 @@ export const miscellaneous = [
   'sad',
   'sign-right',
   'exclamation-triangle',
+  'exclamation-circle',
   'exclamation-octagon',
   'chart-pie',
   'paperclip',
