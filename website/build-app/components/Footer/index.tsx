@@ -87,7 +87,9 @@ export const Footer = () => {
         </div>
         {links.map(({ links, name }) => (
           <nav className="flex flex-col gap-lg" key={name}>
-            <Text variant="subtitle-md">{name}</Text>
+            <Text className="uppercase" variant="label-md">
+              {name}
+            </Text>
             <ul className="flex flex-col gap-sm">
               {links.map(({ isExternal, link, name }) => (
                 <li key={link}>

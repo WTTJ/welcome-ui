@@ -64,10 +64,10 @@ const Expectation = ({ description, icon, title }: ExpectationProps) => {
   return (
     <Card className="p-md w-full">
       <Icon color="neutral-90" name={icon} size="xl" />
-      <Text as="span" className="mb-md mt-lg uppercase" variant="h6">
+      <Text as="span" className="mb-md mt-lg uppercase" variant="heading-md">
         {title}
       </Text>
-      <Text className="m-0" variant="sm">
+      <Text className="m-0" variant="body-md">
         {description}
       </Text>
     </Card>

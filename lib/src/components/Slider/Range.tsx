@@ -222,7 +222,7 @@ export const Range = forwardRef<HTMLDivElement, RangeProps>(
     return (
       <div className={cx('range-root', className)} ref={ref}>
         {label ? (
-          <Text as="label" htmlFor={`${rangeId}-min`} variant="sm">
+          <Text as="label" htmlFor={`${rangeId}-min`} variant="body-md">
             {label}
           </Text>
         ) : null}

@@ -23,7 +23,7 @@ describe('<Text>', () => {
     expect(text).toHaveTextContent(content)
     // check if is a h1 element
     expect(container.querySelector('h1')).toBeInTheDocument()
-    expect(text.classList.toString().includes('variant-h1')).toBe(true)
+    expect(text.classList.toString().includes('variant-display-lg')).toBe(true)
   })
   it('should render correctly with a as property', () => {
     const { container, getByTestId } = render(
