@@ -6,13 +6,17 @@ import generateModule from '@babel/generator'
 import { parse } from '@babel/parser'
 import traverseModule from '@babel/traverse'
 
-// AST-based transformers (Phase 4: Task 4.2 - Replace regex-based transformations)
-import { extractCssTemplateLiteralsAst, transformCssAst } from './helpers/css-ast-transformer.mjs'
+import { transformCssAst } from './helpers/css-ast-transformer.mjs'
 import { getModule } from './helpers/esm.mjs'
+import { extractMixins } from './helpers/extract-mixins.mjs'
 import { copyDirSync, deleteDirRecursive } from './helpers/file-utils.mjs'
 import { formatWithPrettier } from './helpers/format-with-prettier.mjs'
 import { formatScssContent } from './helpers/format-with-stylelint.mjs'
-import { extractCssVariableDeclarations } from './helpers/mixin-extractor.mjs'
+import { camelCase, camelToKebab } from './helpers/string-utils.mjs'
+import {
+  extractTemplateLiteralFromStyled,
+  isStyledComponent,
+} from './helpers/styled-component-patterns.mjs'
 
 const traverse = getModule(traverseModule)
 const generate = getModule(generateModule)
@@ -47,17 +51,22 @@ export async function migrate(dir, copyDir = true) {
       sourceType: 'module',
     })
     const stylesMap = {}
-    let extractedMixins = new Map()
+    let mixins = new Map()
+    let cssVariables = new Map()
 
     traverse(ast, {
       VariableDeclaration(path) {
-        path.node.declarations.forEach(decl => {
+        path.node.declarations.forEach(node => {
           // Extract CSS template literals for mixins (AST-based approach)
-          extractedMixins = extractCssTemplateLiteralsAst(decl, extractedMixins)
+          mixins = extractMixins({
+            cssVariables,
+            mixins,
+            node,
+          })
 
-          if (decl.init && isStyledComponent(decl.init)) {
-            const compName = decl.id.name
-            let { as, tag, variant } = getStyledTag(decl.init)
+          if (node.init && isStyledComponent(node.init)) {
+            const compName = node.id.name
+            let { as, tag, variant } = getStyledTag(node.init)
             tag = stripBox(tag)
             stylesMap[compName] = { as, tag, variant }
           }
@@ -65,7 +74,7 @@ export async function migrate(dir, copyDir = true) {
       },
     })
 
-    let scss = migrateStylesTsToScss(stylesTs, extractedMixins)
+    let scss = migrateStylesTsToScss({ cssVariables, mixins, path: stylesTs })
 
     try {
       // Format SCSS with stylelint and prettier
@@ -89,56 +98,210 @@ export async function migrate(dir, copyDir = true) {
   }
 }
 
+// Recursively copy a directory
 /**
- * Convert camelCase to camelCase (utility function)
+ * Updates component file: replaces <S.MyElement /> with <li className="my-element" />
  */
-function camelCase(str) {
-  return str.charAt(0).toLowerCase() + str.slice(1)
+export async function migrateComponentFile(componentPath, stylesMap) {
+  let code = fs.readFileSync(componentPath, 'utf8')
+  const ast = parse(code, {
+    plugins: ['typescript', 'jsx'],
+    sourceType: 'module',
+  })
+
+  // Track style objects that need to be generated
+  const styleObjectsToGenerate = new Map()
+
+  // Collect styled component definitions for prop analysis
+  const styledComponentDefinitions = new Map()
+
+  // Replace import * as S from './styles' with import './styles.scss'
+  traverse(ast, {
+    ArrowFunctionExpression(path) {
+      // Handle const Component = () => {} pattern
+      if (path.parent.type === 'VariableDeclarator' && path.parent.id.name.includes('Component')) {
+        insertStyleObjectDeclarations(path, styleObjectsToGenerate)
+      }
+    },
+    // Insert style object declarations into component functions
+    FunctionDeclaration(path) {
+      if (path.node.id && path.node.id.name.includes('Component')) {
+        insertStyleObjectDeclarations(path, styleObjectsToGenerate)
+      }
+    },
+    ImportDeclaration(path) {
+      if (
+        path.node.specifiers.length === 1 &&
+        path.node.specifiers[0].type === 'ImportNamespaceSpecifier' &&
+        path.node.specifiers[0].local.name === 'S' &&
+        path.node.source.value === './styles'
+      ) {
+        path.replaceWith(
+          parse("import './styles.scss'", {
+            sourceType: 'module',
+          }).program.body[0]
+        )
+      }
+    },
+    JSXElement(path) {
+      if (
+        path.node.openingElement.name.type === 'JSXMemberExpression' &&
+        path.node.openingElement.name.object.name === 'S'
+      ) {
+        const compName = path.node.openingElement.name.property.name
+        const { as, tag, variant } = stylesMap[compName] || 'div'
+        const className = camelToKebab(compName)
+
+        // Process props and convert them appropriately
+        const { newAttributes, styleObject } = processComponentProps(
+          path.node.openingElement.attributes,
+          compName,
+          className,
+          styledComponentDefinitions
+        )
+
+        // If a style object is needed, track it for generation
+        if (styleObject) {
+          const styleObjectName = `${camelCase(compName)}Style`
+          styleObjectsToGenerate.set(styleObjectName, {
+            compName,
+            properties: styleObject,
+          })
+        }
+
+        // Add as if available
+        const asNode = as && {
+          name: { name: 'as', type: 'JSXIdentifier' },
+          type: 'JSXAttribute',
+          value: { type: 'StringLiteral', value: as },
+        }
+
+        // Replace <S.MyElement ...> with <tag ...>
+        path.node.openingElement.name = { name: tag, type: 'JSXIdentifier' }
+
+        // Replace all attributes with processed ones
+        path.node.openingElement.attributes = [...newAttributes, asNode].filter(Boolean)
+
+        // Replace closing tag
+        if (path.node.closingElement) {
+          path.node.closingElement.name = { name: tag, type: 'JSXIdentifier' }
+        }
+      }
+    },
+    // Collect styled component definitions for dynamic analysis
+    VariableDeclarator(path) {
+      const node = path.node
+      if (node.id.name && isStyledComponent(node.init)) {
+        const componentName = node.id.name
+        let css = ''
+
+        // Extract CSS from different styled component patterns
+        if (node.init && node.init.quasi) {
+          // Pattern: styled.div`css`
+          css = node.init.quasi.quasis.map(q => q.value.raw).join('PLACEHOLDER')
+        } else if (node.init && node.init.tag && node.init.tag.quasi) {
+          // Pattern: styled(Component)`css`
+          css = node.init.tag.quasi.quasis.map(q => q.value.raw).join('PLACEHOLDER')
+        }
+
+        styledComponentDefinitions.set(componentName, {
+          css,
+          name: componentName,
+          node: node.init,
+        })
+      }
+    },
+  })
+  const output = generate(ast, {}, code).code
+  try {
+    const formatted = await formatWithPrettier(output, componentPath)
+    fs.writeFileSync(componentPath, formatted, 'utf8')
+  } catch (e) {
+    console.warn('Prettier formatting failed:', e)
+    fs.writeFileSync(componentPath, output, 'utf8')
+  }
 }
 
-function camelToKebab(str) {
-  return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
+/**
+ * Converts styled-components in styles.ts to CSS classes in styles.scss
+ */
+export function migrateStylesTsToScss({ cssVariables = new Map(), mixins = new Map(), path }) {
+  const content = fs.readFileSync(path, 'utf8')
+  const ast = parse(content, {
+    plugins: ['typescript'],
+    sourceType: 'module',
+  })
+  const classDefs = []
+  traverse(ast, {
+    VariableDeclaration(path) {
+      path.node.declarations.forEach(decl => {
+        if (decl.init && isStyledComponent(decl.init)) {
+          const cssSelector = decl.id.name
+          const className = camelToKebab(cssSelector)
+
+          // Extract CSS from different styled component patterns
+          const css = extractCssFromStyledComponent({
+            cssSelector: className,
+            cssVariables,
+            mixins,
+            node: decl.init,
+          })
+          if (css) {
+            // CSS transformation is now handled by extractCssFromStyledComponent
+            classDefs.push(`.${className} {\n${css}\n}`)
+          }
+        }
+      })
+    },
+  })
+
+  // Generate SCSS mixins from extracted CSS template literals
+  const mixinDefs = []
+  for (const [mixinName, mixinData] of mixins) {
+    if (mixinData && mixinData.css) {
+      // Properly indent the CSS content for SCSS mixin
+      const indentedCss = mixinData.css
+        .split('\n')
+        .map(line => (line.trim() ? `  ${line}` : ''))
+        .join('\n')
+
+      const mixinScss = `@mixin ${mixinName} {${indentedCss}
+      }`
+      mixinDefs.push(mixinScss)
+    }
+  }
+
+  // Combine mixins and classes
+  const scssContent = []
+  if (mixinDefs.length > 0) {
+    scssContent.push('/* Generated SCSS mixins from CSS template literals */')
+    scssContent.push(...mixinDefs)
+    scssContent.push('') // Empty line separator
+  }
+  scssContent.push(...classDefs)
+
+  return scssContent.join('\n\n')
 }
 
 /**
  * Extract CSS content from various styled component patterns
  */
-function extractCssFromStyledComponent(node, mixins = new Map()) {
-  // Pattern 1: styled.div`css` (simple TaggedTemplateExpression)
-  if (
-    node.type === 'TaggedTemplateExpression' &&
-    node.tag.type === 'MemberExpression' &&
-    node.tag.object.name === 'styled'
-  ) {
-    return extractCssFromTemplateLiteral(node.quasi, mixins)
-  }
+function extractCssFromStyledComponent({
+  cssSelector,
+  cssVariables = new Map(),
+  mixins = new Map(),
+  node,
+}) {
+  // Use the shared helper to extract the template literal
+  const templateLiteral = extractTemplateLiteralFromStyled(node)
 
-  // Pattern 2: styled(Box)`css` (TaggedTemplateExpression with CallExpression)
-  if (
-    node.type === 'TaggedTemplateExpression' &&
-    node.tag.type === 'CallExpression' &&
-    node.tag.callee.name === 'styled'
-  ) {
-    return extractCssFromTemplateLiteral(node.quasi, mixins)
-  }
-
-  // Pattern 3: styled(Box)((props) => css`...`) (CallExpression with function)
-  if (
-    node.type === 'CallExpression' &&
-    node.callee.type === 'CallExpression' &&
-    node.callee.callee.name === 'styled'
-  ) {
-    // The function argument contains the CSS
-    const funcArg = node.arguments[0]
-    if (
-      funcArg &&
-      (funcArg.type === 'ArrowFunctionExpression' || funcArg.type === 'FunctionExpression')
-    ) {
-      // Look for css`` template literal in the function body
-      if (funcArg.body.type === 'TaggedTemplateExpression' && funcArg.body.tag.name === 'css') {
-        return extractCssFromTemplateLiteral(funcArg.body.quasi, mixins)
-      }
-    }
+  if (templateLiteral) {
+    return extractCssFromTemplateLiteral({
+      cssSelector,
+      cssVariables,
+      mixins,
+      node: templateLiteral,
+    })
   }
 
   return null
@@ -147,11 +310,13 @@ function extractCssFromStyledComponent(node, mixins = new Map()) {
 /**
  * Extract CSS string from template literal, handling interpolations
  */
-function extractCssFromTemplateLiteral(quasi, mixins = new Map()) {
-  if (!quasi.quasis) return null
+function extractCssFromTemplateLiteral({ cssSelector, cssVariables, mixins = new Map(), node }) {
+  if (!node.quasis) return null
 
   // Use our enhanced AST-based CSS transformer (Phase 4: Integration)
-  const result = transformCssAst(quasi, quasi.expressions || [], mixins)
+  const result = transformCssAst({ cssSelector, cssVariables, mixins, node })
+
+  console.debug('extractCssFromTemplateLiteral', result.cssVariables)
 
   // Extract CSS from the result object
   if (result && result.css) {
@@ -159,13 +324,13 @@ function extractCssFromTemplateLiteral(quasi, mixins = new Map()) {
   }
 
   // Fallback to simple extraction if transformer returns null
-  const staticParts = quasi.quasis.map(q => q.value.cooked || q.value.raw).filter(Boolean)
+  const staticParts = node.quasis.map(q => q.value.cooked || q.value.raw).filter(Boolean)
 
   // Join with placeholder comments for interpolations
   let fallbackCss = ''
   for (let i = 0; i < staticParts.length; i++) {
     fallbackCss += staticParts[i]
-    if (i < quasi.expressions.length) {
+    if (i < node.expressions.length) {
       // Add a comment for the interpolation
       fallbackCss += '/* ${...} */'
     }
@@ -362,221 +527,6 @@ function insertStyleObjectDeclarations(functionPath, styleObjectsToGenerate) {
 }
 
 /**
- * Check if a node represents a styled component
- * Handles both: styled.div`` and styled(Box)`` patterns
- */
-function isStyledComponent(node) {
-  // Pattern 1: styled.div`...` (TaggedTemplateExpression with MemberExpression)
-  if (
-    node.type === 'TaggedTemplateExpression' &&
-    node.tag.type === 'MemberExpression' &&
-    node.tag.object.name === 'styled'
-  ) {
-    return true
-  }
-
-  // Pattern 2: styled(Box)`...` (TaggedTemplateExpression with CallExpression)
-  if (
-    node.type === 'TaggedTemplateExpression' &&
-    node.tag.type === 'CallExpression' &&
-    node.tag.callee.name === 'styled'
-  ) {
-    return true
-  }
-
-  // Pattern 3: styled(Box)((props) => css`...`) (CallExpression with function)
-  if (
-    node.type === 'CallExpression' &&
-    node.callee.type === 'CallExpression' &&
-    node.callee.callee.name === 'styled'
-  ) {
-    return true
-  }
-
-  return false
-}
-
-// Recursively copy a directory
-/**
- * Updates component file: replaces <S.MyElement /> with <li className="my-element" />
- */
-async function migrateComponentFile(componentPath, stylesMap) {
-  let code = fs.readFileSync(componentPath, 'utf8')
-  const ast = parse(code, {
-    plugins: ['typescript', 'jsx'],
-    sourceType: 'module',
-  })
-
-  // Track style objects that need to be generated
-  const styleObjectsToGenerate = new Map()
-
-  // Collect styled component definitions for prop analysis
-  const styledComponentDefinitions = new Map()
-
-  // Replace import * as S from './styles' with import './styles.scss'
-  traverse(ast, {
-    ArrowFunctionExpression(path) {
-      // Handle const Component = () => {} pattern
-      if (path.parent.type === 'VariableDeclarator' && path.parent.id.name.includes('Component')) {
-        insertStyleObjectDeclarations(path, styleObjectsToGenerate)
-      }
-    },
-    // Insert style object declarations into component functions
-    FunctionDeclaration(path) {
-      if (path.node.id && path.node.id.name.includes('Component')) {
-        insertStyleObjectDeclarations(path, styleObjectsToGenerate)
-      }
-    },
-    ImportDeclaration(path) {
-      if (
-        path.node.specifiers.length === 1 &&
-        path.node.specifiers[0].type === 'ImportNamespaceSpecifier' &&
-        path.node.specifiers[0].local.name === 'S' &&
-        path.node.source.value === './styles'
-      ) {
-        path.replaceWith(
-          parse("import './styles.scss'", {
-            sourceType: 'module',
-          }).program.body[0]
-        )
-      }
-    },
-    JSXElement(path) {
-      if (
-        path.node.openingElement.name.type === 'JSXMemberExpression' &&
-        path.node.openingElement.name.object.name === 'S'
-      ) {
-        const compName = path.node.openingElement.name.property.name
-        const { as, tag, variant } = stylesMap[compName] || 'div'
-        const className = camelToKebab(compName)
-
-        // Process props and convert them appropriately
-        const { newAttributes, styleObject } = processComponentProps(
-          path.node.openingElement.attributes,
-          compName,
-          className,
-          styledComponentDefinitions
-        )
-
-        // If a style object is needed, track it for generation
-        if (styleObject) {
-          const styleObjectName = `${camelCase(compName)}Style`
-          styleObjectsToGenerate.set(styleObjectName, {
-            compName,
-            properties: styleObject,
-          })
-        }
-
-        // Add as if available
-        const asNode = as && {
-          name: { name: 'as', type: 'JSXIdentifier' },
-          type: 'JSXAttribute',
-          value: { type: 'StringLiteral', value: as },
-        }
-
-        // Replace <S.MyElement ...> with <tag ...>
-        path.node.openingElement.name = { name: tag, type: 'JSXIdentifier' }
-
-        // Replace all attributes with processed ones
-        path.node.openingElement.attributes = [...newAttributes, asNode].filter(Boolean)
-
-        // Replace closing tag
-        if (path.node.closingElement) {
-          path.node.closingElement.name = { name: tag, type: 'JSXIdentifier' }
-        }
-      }
-    },
-    // Collect styled component definitions for dynamic analysis
-    VariableDeclarator(path) {
-      const node = path.node
-      if (node.id.name && isStyledComponent(node.init)) {
-        const componentName = node.id.name
-        let css = ''
-
-        // Extract CSS from different styled component patterns
-        if (node.init && node.init.quasi) {
-          // Pattern: styled.div`css`
-          css = node.init.quasi.quasis.map(q => q.value.raw).join('PLACEHOLDER')
-        } else if (node.init && node.init.tag && node.init.tag.quasi) {
-          // Pattern: styled(Component)`css`
-          css = node.init.tag.quasi.quasis.map(q => q.value.raw).join('PLACEHOLDER')
-        }
-
-        styledComponentDefinitions.set(componentName, {
-          css,
-          name: componentName,
-          node: node.init,
-        })
-      }
-    },
-  })
-  const output = generate(ast, {}, code).code
-  try {
-    const formatted = await formatWithPrettier(output, componentPath)
-    fs.writeFileSync(componentPath, formatted, 'utf8')
-  } catch (e) {
-    console.warn('Prettier formatting failed:', e)
-    fs.writeFileSync(componentPath, output, 'utf8')
-  }
-}
-
-/**
- * Converts styled-components in styles.ts to CSS classes in styles.scss
- */
-function migrateStylesTsToScss(stylesTsPath, extractedMixins = new Map()) {
-  const content = fs.readFileSync(stylesTsPath, 'utf8')
-  const ast = parse(content, {
-    plugins: ['typescript'],
-    sourceType: 'module',
-  })
-  const classDefs = []
-  traverse(ast, {
-    VariableDeclaration(path) {
-      path.node.declarations.forEach(decl => {
-        if (decl.init && isStyledComponent(decl.init)) {
-          const compName = decl.id.name
-          const className = camelToKebab(compName)
-
-          // Extract CSS from different styled component patterns
-          const css = extractCssFromStyledComponent(decl.init, extractedMixins)
-          if (css) {
-            // CSS transformation is now handled by extractCssFromStyledComponent
-            classDefs.push(`.${className} {\n${css}\n}`)
-          }
-        }
-      })
-    },
-  })
-
-  // Generate SCSS mixins from extracted CSS template literals
-  const mixinDefs = []
-  for (const [mixinName, mixinData] of extractedMixins) {
-    if (mixinData && mixinData.css) {
-      // Properly indent the CSS content for SCSS mixin
-      const indentedCss = mixinData.css
-        .split('\n')
-        .map(line => (line.trim() ? `  ${line}` : ''))
-        .join('\n')
-
-      const mixinScss = `@mixin ${mixinName} {${indentedCss}
-      }`
-      mixinDefs.push(mixinScss)
-    }
-  }
-
-  // Combine mixins and classes
-  const scssContent = []
-  if (mixinDefs.length > 0) {
-    scssContent.push('/* Generated SCSS mixins from CSS template literals */')
-    scssContent.push(...mixinDefs)
-    scssContent.push('') // Empty line separator
-  }
-  scssContent.push(...classDefs)
-
-  return scssContent.join('\n\n')
-}
-
-/**
  * Process component attributes and transform them for v9
  */
 function processComponentProps(
@@ -755,5 +705,3 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     process.exit(1)
   })
 }
-
-export { migrateComponentFile, migrateStylesTsToScss }

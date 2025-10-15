@@ -56,14 +56,13 @@ const triggerActiveStyles = css`
   }
 
   color: neutral-50;
+  background-color: beige-30;
 
   ${OrganizationLogo} {
     outline-color: beige-30 !important;
     border: 1px solid;
     border-color: beige-50;
   }
-
-  background-color: beige-30;
 
   ${OrganizationName} {
     color: neutral-90;

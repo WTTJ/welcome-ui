@@ -1,3 +1,5 @@
+import { FormattedMessage } from 'react-intl'
+import { Text } from 'welcome-ui/Text'
 import './styles.scss'
 type Variant = 'primary' | 'secondary'
 export const ComplexComponent = ({ variant = 'primary' }: { variant?: Variant }) => {
@@ -8,7 +10,10 @@ export const ComplexComponent = ({ variant = 'primary' }: { variant?: Variant })
           Complex component
         </Text>
       </Link>
-      <div className="trigger-button is-active is-expanded" as="buttonBox">
+      <Text className="mt-auto text-center text-dark-50 text-sm" as="span">
+        <FormattedMessage defaultMessage="© 2024 Acme Corp. All rights reserved." id="8XKXo+" />
+      </Text>
+      <div isActive={true} className="trigger-button" as="buttonBox">
         Toggle
       </div>
     </div>
