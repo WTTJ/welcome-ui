@@ -10,7 +10,7 @@
     line-clamp: var(--lineClamp, none);
     -webkit-line-clamp: var(--lineClamp, none);
     word-break: var(--wordBreak, wrap-break-word);
-    /* color: var(--color, inherit); // Should i keep it? */
+    color: var(--color, inherit);
   }
 
   .variant {
@@ -21,6 +21,7 @@
       --fontFamily: var(--font-family-title);
       --lineHeight: var(--font-line-height-xs);
       --letterSpacing: var(--font-letter-spacing-xs);
+      --color: var(--color-text-neutral-primary);
     }
 
     &-display-xl {
@@ -52,6 +53,7 @@
       --fontFamily: var(--font-family-title);
       --lineHeight: var(--font-line-height-xs);
       --letterSpacing: var(--font-letter-spacing-xs);
+      --color: var(--color-text-neutral-primary);
     }
 
     &-heading-xl {
