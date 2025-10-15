@@ -14,19 +14,19 @@
     }
 
     &-danger {
-      --color: var(--color-background-danger-strongest);
+      --color: var(--color-icon-danger-subtle);
     }
 
     &-info {
-      --color: var(--color-background-accent-blue-stronger);
+      --color: var(--color-icon-information-subtle);
     }
 
     &-success {
-      --color: var(--color-background-accent-green-strongest);
+      --color: var(--color-icon-success-subtle);
     }
 
     &-warning {
-      --color: var(--color-background-warning-stronger);
+      --color: var(--color-icon-warning-subtle);
     }
   }
 }

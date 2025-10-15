@@ -13,10 +13,10 @@ export const VariantIcon = forwardRef<HTMLDivElement, VariantIconProps>(
   ({ className, size = 'md', variant, ...rest }, ref) => {
     const iconMap: { [key in VariantIconProps['variant']]: string } = {
       ai: 'sparkles',
-      danger: 'exclamation-circle',
-      info: 'information-circle',
+      danger: 'exclamation-octagon',
+      info: 'info-circle',
       success: 'check-circle',
-      warning: 'exclamation-octogon',
+      warning: 'exclamation-circle',
     }
     const iconName = iconMap[variant] as IconName
 

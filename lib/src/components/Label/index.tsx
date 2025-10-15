@@ -12,9 +12,9 @@ export const Label = forwardRefWithAs<LabelProps, 'label'>(
     return (
       <label className={cx('root', className)} ref={ref} {...rest}>
         {variant ? <VariantIcon size="sm" variant={variant} /> : null}
-        {disabled ? <Icon name="lock-alt" size="sm" /> : null}
+        {disabled ? <Icon className={cx('locked')} name="lock-alt" size="sm" /> : null}
         {children}
-        {required ? <span className={cx('required')}>*</span> : null}
+        {required ? <Icon className={cx('required')} name="asterisk" size="sm" /> : null}
       </label>
     )
   }
