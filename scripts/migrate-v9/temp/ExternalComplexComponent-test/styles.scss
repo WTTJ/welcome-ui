@@ -9,6 +9,8 @@
   */
 
   color: var(--color-neutral-50);
+  background-color: var(--color-beige-30);
+
   /* WUI V9 TO MIGRATE */
   /*
   ${OrganizationLogo} {
@@ -18,7 +20,6 @@
   }
   */
 
-  background-color: var(--color-beige-30);
   /* WUI V9 TO MIGRATE */
   /*
   ${OrganizationName} {
@@ -31,14 +32,11 @@
 
 
 .wrapper {
-  background-color: var(--component-variant) /* var(--color-primary-500) : var(--color-secondary-500) */;
   padding: var(--spacing-xxl) 0;
-  position: relative;
+  background-color: var(--wrapper-background-color);
   isolation: isolate;
-  min-height: calc(100vh - /* WUI V9 TO MIGRATE */
-  /*
-  ${TOPNAV_HEIGHT}
-  */);
+  position: var(--wrapper-position);
+  min-height: calc(100vh - TOPNAV_HEIGHT /* WUI V9 TO MIGRATE: constant TOPNAV_HEIGHT */);
 
   @media (min-width: lg) {
     padding: var(--spacing-3xl) 0;
@@ -57,9 +55,16 @@
 
 .title {
   /* WUI V9 TO MIGRATE */
-  /* Consider changing Text component variant to 'h4' instead of th('texts.h4') */
+  @include texts.h4;
   color: var(--color-neutral-90);
-  margin-top: var(--display-detail) /* props.displayDetail ? var(--spacing-sm) : 0 */;
+  margin-top: var(--title-margin-top);
+}
+
+.organization-name {
+  color: var(--color-neutral-60);
+  font-weight: var(--font-weight-medium);
+  margin: 0;
+  transition: color 300ms;
 }
 
 .trigger-button {
@@ -72,7 +77,7 @@
   transition: background-color 300ms;
   bottom: var(--spacing-md);
 
-  &.is-expanded {
+  &.is-active {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -90,10 +95,6 @@
       color: var(--color-beige-80);
     }
     */
-
-    {
-      color: var(--color-beige-80);
-    }
   }
 
   &.is-active {
