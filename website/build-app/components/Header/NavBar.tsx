@@ -29,10 +29,10 @@ export const NavBar = ({ className, onClick }: NavBarProps) => {
               <Text
                 aria-current={currentRoute.startsWith(`/${item}`) ? 'page' : undefined}
                 as="a"
-                className={cx('link')}
+                className={cx('link', 'uppercase')}
                 href={`/${item}`}
                 onClick={onClick}
-                variant="subtitle-md"
+                variant="label-md"
               >
                 {item}
               </Text>
