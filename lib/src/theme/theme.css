@@ -138,46 +138,40 @@
 @font-face {
   font-family: welcome-font;
   font-weight: 500;
-  src: url('https://cdn.welcome-ui.com/fonts/welcome-font-regular.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: welcome-font;
-  font-weight: 500;
-  src: url('https://cdn.welcome-ui.com/fonts/welcome-font-regular.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: welcome-font;
-  font-weight: 700;
   src: url('https://cdn.welcome-ui.com/fonts/welcome-font-medium.woff2') format('woff2');
 }
 
 @font-face {
   font-family: welcome-font;
-  font-weight: 900;
+  font-weight: 700;
   src: url('https://cdn.welcome-ui.com/fonts/welcome-font-bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: welcome-font;
+  font-weight: 900;
+  src: url('https://cdn.welcome-ui.com/fonts/welcome-font-black.woff2') format('woff2');
 }
 
 @font-face {
   font-family: welcome-font;
   font-style: italic;
   font-weight: 500;
-  src: url('https://cdn.welcome-ui.com/fonts/welcome-font-regular-italic.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: welcome-font;
-  font-style: italic;
-  font-weight: 700;
   src: url('https://cdn.welcome-ui.com/fonts/welcome-font-medium-italic.woff2') format('woff2');
 }
 
 @font-face {
   font-family: welcome-font;
   font-style: italic;
-  font-weight: 900;
+  font-weight: 700;
   src: url('https://cdn.welcome-ui.com/fonts/welcome-font-bold-italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: welcome-font;
+  font-style: italic;
+  font-weight: 900;
+  src: url('https://cdn.welcome-ui.com/fonts/welcome-font-black-italic.woff2') format('woff2');
 }
 
 @theme static {

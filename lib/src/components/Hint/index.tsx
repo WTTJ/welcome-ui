@@ -16,7 +16,7 @@ export const Hint = forwardRef<HTMLSpanElement, HintProps>(
         className={cx('root', variant && `variant-${variant}`, className)}
         ref={ref}
         role={variant === 'danger' ? 'alert' : undefined}
-        variant="xs"
+        variant="body-sm"
         {...rest}
       >
         {children}
