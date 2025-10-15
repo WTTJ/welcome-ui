@@ -13,6 +13,11 @@
   }
 
   .required {
+    align-self: flex-start;
     color: var(--components-colors-label-color-icon-required);
+  }
+
+  .locked {
+    color: var(--components-colors-label-color-icon-default);
   }
 }
