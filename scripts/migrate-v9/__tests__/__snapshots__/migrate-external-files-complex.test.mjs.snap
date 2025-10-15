@@ -2,6 +2,7 @@
 
 exports[`External Migration - Complex Styled Components > migrates complex styled components (styled(Component), template literals, interpolations) > complex-component.tsx 1`] = `
 "import { Link } from 'welcome-ui/Link'
+"import { Text } from 'welcome-ui/Text'
 
 import './styles.scss'
 
@@ -20,6 +21,9 @@ export const ComplexComponent = ({ variant = 'primary' }: { variant?: Variant })
       <Link className="card elevated">
         <Text as="h3" variant="h4" className={`title ${displayDetail ? 'display-detail' : ''}`}>Complex component</Text>
       </Link>
+      <Text className="mt-auto text-center text-dark-50 text-sm" as="span">
+        <FormattedMessage defaultMessage="© 2024 Acme Corp. All rights reserved." id="8XKXo+" />
+      </Text>
       <button className="trigger-button is-active">Toggle</button>
     </div>
   )

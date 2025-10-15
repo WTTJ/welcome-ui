@@ -1,3 +1,6 @@
+import { FormattedMessage } from 'react-intl'
+import { Text } from 'welcome-ui/Text'
+
 import * as S from './styles'
 
 type Variant = 'primary' | 'secondary'
@@ -8,9 +11,10 @@ export const ComplexComponent = ({ variant = 'primary' }: { variant?: Variant })
       <S.Card elevated>
         <S.Title displayDetail>Complex component</S.Title>
       </S.Card>
-      <S.TriggerButton $isActive={true} $isExpanded={false}>
-        Toggle
-      </S.TriggerButton>
+      <Text as="span" color="dark-50" fontSize="sm" mt="auto" textAlign="center">
+        <FormattedMessage defaultMessage="© 2024 Acme Corp. All rights reserved." id="8XKXo+" />
+      </Text>
+      <S.TriggerButton isActive={true}>Toggle</S.TriggerButton>
     </S.Wrapper>
   )
 }

@@ -1,21 +1,19 @@
 import styled, { css, th } from '@xstyled/styled-components'
 import { Box } from 'welcome-ui/Box'
 import { Link } from 'welcome-ui/Link'
-import { OrganizationLogo, OrganizationName } from 'welcome-ui/Link'
+import { OrganizationLogo } from 'welcome-ui/Link'
+import { Text } from 'welcome-ui/Text'
 
 const TOPNAV_HEIGHT = '60px'
-
-// Mock Box component for testing
-// const Box = 'div'
 
 type Variant = 'primary' | 'secondary'
 
 export const Wrapper = styled(Box)<{ variant: Variant }>(
   ({ variant }) => css`
-    background-color: ${variant === 'primary' ? 'primary-500' : 'secondary-500'};
     padding: xxl 0;
-    position: relative;
+    background-color: ${variant === 'primary' ? 'primary-500' : 'secondary-500'};
     isolation: isolate;
+    position: ${variant === 'primary' ? th('space.sm') : 0};
     min-height: calc(100vh - ${TOPNAV_HEIGHT});
 
     @media (min-width: lg) {
@@ -24,7 +22,7 @@ export const Wrapper = styled(Box)<{ variant: Variant }>(
   `
 )
 
-export const Card = styled(Link)<{ elevated?: boolean }>`
+export const Card = styled(Link)<{ elevated: boolean }>`
   background: white;
   border-radius: md;
   padding: lg;
@@ -43,6 +41,13 @@ export const Title = styled.h3<TitleProps>`
   ${th('texts.h4')};
   color: neutral-90;
   margin-top: ${props => (props.displayDetail ? th('space.sm') : 0)};
+`
+
+export const OrganizationName = styled(Text).attrs({ lines: 1, variant: 'sm' })`
+  color: neutral-60;
+  font-weight: medium;
+  margin: 0;
+  transition: color 300ms;
 `
 
 const triggerActiveStyles = css`
@@ -66,8 +71,7 @@ const triggerActiveStyles = css`
 `
 
 export const TriggerButton = styled.buttonBox<{
-  $isActive: boolean
-  $isExpanded: boolean
+  isActive: boolean
 }>`
   border: none;
   background-color: transparent;
@@ -78,8 +82,8 @@ export const TriggerButton = styled.buttonBox<{
   transition: background-color 300ms;
   bottom: ${th('space.md')};
 
-  ${({ $isExpanded }) =>
-    !$isExpanded &&
+  ${({ isActive }) =>
+    !isActive &&
     css`
       display: flex;
       align-items: center;
@@ -97,7 +101,7 @@ export const TriggerButton = styled.buttonBox<{
     }
   }
 
-  ${({ $isActive }) => $isActive && triggerActiveStyles};
+  ${({ isActive }) => isActive && triggerActiveStyles};
   &:active {
     ${triggerActiveStyles};
   }
