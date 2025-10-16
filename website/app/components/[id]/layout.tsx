@@ -46,11 +46,11 @@ const Layout = async ({ children, params }: LayoutProps) => {
       <Sidebar className="hidden lg:flex" isSubPage menu={pages} />
       <div>
         <div className="flex flex-col gap-xl mb-lg">
-          <Text className="mt-3xl" variant="h1">
+          <Text as="h1" className="mt-3xl" variant="display-sm">
             {title}
           </Text>
           {description ? (
-            <Text className="text-neutral-60 pt-lg" variant="lg">
+            <Text className="text-neutral-60 pt-lg" variant="body-xl">
               {description}
             </Text>
           ) : null}
