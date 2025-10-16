@@ -1,7 +1,7 @@
 import { Icon } from '@/components/Icon'
 
 const Example = () => {
-  return <Icon name="wttj" />
+  return <Icon name="fire" />
 }
 
 export default Example
