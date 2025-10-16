@@ -7,7 +7,6 @@
     letter-spacing: var(--letterSpacing);
     font-weight: var(--fontWeight);
     font-family: var(--fontFamily, var(--font-family-body));
-    text-transform: var(--textTransform, none);
     line-clamp: var(--lineClamp, none);
     -webkit-line-clamp: var(--lineClamp, none);
     word-break: var(--wordBreak, wrap-break-word);
@@ -15,109 +14,169 @@
   }
 
   .variant {
-    &-h0,
-    &-h1,
-    &-h2,
-    &-h3,
-    &-h4,
-    &-h5,
-    &-h6 {
+    &-display-xl,
+    &-display-lg,
+    &-display-md,
+    &-display-sm {
+      --fontFamily: var(--font-family-title);
+      --lineHeight: var(--font-line-height-xs);
+      --letterSpacing: var(--font-letter-spacing-xs);
+      --color: var(--color-text-neutral-primary);
+    }
+
+    &-display-xl {
+      --fontSize: var(--font-size-7xl);
       --fontWeight: var(--font-weight-black);
-      --fontFamily: var(--font-family-title);
-      --color: var(--color-background-neutral-primary-fixed);
     }
 
-    &-h0 {
-      --fontSize: var(--font-size-60);
-      --lineHeight: var(--font-size-7xl);
-      --letterSpacing: var(--font-letter-spacing-xs);
+    &-display-lg {
+      --fontSize: var(--font-size-6xl);
+      --fontWeight: var(--font-weight-black);
     }
 
-    &-h1 {
-      --fontSize: var(--font-size-48);
-      --lineHeight: var(--size-icon-3xl);
-      --letterSpacing: var(--font-letter-spacing-xs);
+    &-display-md {
+      --fontSize: var(--font-size-5xl);
+      --fontWeight: var(--font-weight-black);
     }
 
-    &-h2 {
+    &-display-sm {
       --fontSize: var(--font-size-4xl);
-      --lineHeight: var(--height-40);
-      --letterSpacing: var(--font-letter-spacing-xs);
+      --fontWeight: var(--font-weight-black);
     }
 
-    &-h3 {
-      --fontSize: var(--font-size-24);
-      --lineHeight: var(--size-icon-2xl);
-      --letterSpacing: var(--font-letter-spacing-xs);
-    }
-
-    &-h4 {
-      --fontSize: var(--font-size-xl);
-      --lineHeight: var(--border-radius-2xl);
-      --letterSpacing: var(--font-letter-spacing-xs);
-    }
-
-    &-h5 {
-      --fontSize: var(--border-radius-xl);
-      --lineHeight: var(--font-size-xl);
-      --letterSpacing: var(--font-letter-spacing-xs);
-    }
-
-    &-h6 {
-      --fontSize: var(--font-size-sm);
-      --lineHeight: var(--font-size-lg);
-      --letterSpacing: var(--font-letter-spacing-xs);
-    }
-
-    &-xs,
-    &-sm,
-    &-md,
-    &-lg {
-      --fontWeight: var(--font-weight-regular);
-    }
-
-    &-xs {
-      --fontSize: var(--border-radius-lg);
-      --lineHeight: var(--font-size-sm);
-      --letterSpacing: var(--font-letter-spacing-xs);
-    }
-
-    &-sm {
-      --fontSize: var(--font-size-14);
-      --lineHeight: var(--font-size-lg);
-      --letterSpacing: var(--font-letter-spacing-xs);
-    }
-
-    &-md {
-      --fontSize: var(--border-radius-xl);
-      --lineHeight: var(--font-size-lg);
-      --letterSpacing: var(--font-letter-spacing-xs);
-    }
-
-    &-lg {
-      --fontSize: var(--font-size-18);
-      --lineHeight: var(--border-radius-2xl);
-      --letterSpacing: var(--font-letter-spacing-xs);
-    }
-
-    &-subtitle-sm,
-    &-subtitle-md {
+    &-heading-xl,
+    &-heading-lg,
+    &-heading-md,
+    &-heading-sm,
+    &-heading-md-strong,
+    &-heading-sm-strong {
       --fontFamily: var(--font-family-title);
-      --textTransform: uppercase;
+      --lineHeight: var(--font-line-height-xs);
+      --letterSpacing: var(--font-letter-spacing-xs);
+      --color: var(--color-text-neutral-primary);
     }
 
-    &-subtitle-sm {
-      --fontSize: var(--font-size-12);
-      --lineHeight: var(--border-radius-xl);
-      --letterSpacing: var(--font-letter-spacing-xs);
+    &-heading-xl {
+      --fontSize: var(--font-size-3xl);
+      --fontWeight: var(--font-weight-bold);
+    }
+
+    &-heading-lg {
+      --fontSize: var(--font-size-2xl);
+      --fontWeight: var(--font-weight-bold);
+    }
+
+    &-heading-md,
+    &-heading-md-strong {
+      --fontSize: var(--font-size-xl);
       --fontWeight: var(--font-weight-medium);
     }
 
-    &-subtitle-md {
-      --fontSize: var(--font-size-12);
-      --lineHeight: var(--border-radius-xl);
-      --letterSpacing: var(--font-letter-spacing-xs);
-      --fontWeight: var(--font-weight-black);
+    &-heading-md-strong {
+      --fontWeight: var(--font-weight-bold);
+    }
+
+    &-heading-sm,
+    &-heading-sm-strong {
+      --fontSize: var(--font-size-lg);
+      --fontWeight: var(--font-weight-medium);
+    }
+
+    &-heading-sm-strong {
+      --fontWeight: var(--font-weight-bold);
+    }
+
+    &-heading-xs,
+    &-heading-xs-strong {
+      --fontSize: var(--font-size-md);
+      --fontWeight: var(--font-weight-medium);
+    }
+
+    &-heading-xs-strong {
+      --fontWeight: var(--font-weight-bold);
+    }
+
+    &-body-xl,
+    &-body-lg,
+    &-body-md,
+    &-body-sm,
+    &-body-xl-strong,
+    &-body-lg-strong,
+    &-body-md-strong,
+    &-body-sm-strong {
+      --fontFamily: var(--font-family-body);
+      --letterSpacing: var(--font-letter-spacing-none);
+      --fontWeight: var(--font-weight-regular);
+    }
+
+    &-body-xl-strong,
+    &-body-lg-strong,
+    &-body-md-strong,
+    &-body-sm-strong {
+      --fontWeight: var(--font-weight-medium);
+    }
+
+    &-body-xl,
+    &-body-xl-strong {
+      --fontSize: var(--font-size-lg);
+      --lineHeight: var(--font-line-height-lg);
+    }
+
+    &-body-lg,
+    &-body-lg-strong {
+      --fontSize: var(--font-size-md);
+      --lineHeight: var(--font-line-height-lg);
+    }
+
+    &-body-md,
+    &-body-md-strong {
+      --fontSize: var(--font-size-sm);
+      --lineHeight: var(--font-line-height-md);
+    }
+
+    &-body-sm,
+    &-body-sm-strong {
+      --fontSize: var(--font-size-xs);
+      --lineHeight: var(--font-line-height-sm);
+    }
+
+    &-label-xl,
+    &-label-lg,
+    &-label-md,
+    &-label-sm {
+      --fontFamily: var(--font-family-body);
+      --letterSpacing: var(--font-letter-spacing-none);
+      --lineHeight: var(--font-line-height-xs);
+    }
+
+    &-label-xl {
+      --fontSize: var(--font-size-lg);
+      --fontWeight: var(--font-weight-bold);
+    }
+
+    &-label-lg {
+      --fontSize: var(--font-size-md);
+      --fontWeight: var(--font-weight-semi-bold);
+    }
+
+    &-label-md,
+    &-label-md-strong {
+      --fontSize: var(--font-size-sm);
+      --fontWeight: var(--font-weight-medium);
+    }
+
+    &-label-md-strong {
+      --fontWeight: var(--font-weight-semi-bold);
+    }
+
+    &-label-sm,
+    &-label-sm-strong {
+      --fontSize: var(--font-size-xs);
+      --fontWeight: var(--font-weight-medium);
+    }
+
+    &-label-sm-strong {
+      --fontWeight: var(--font-weight-bold);
     }
   }
 

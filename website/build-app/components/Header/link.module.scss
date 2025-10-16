@@ -16,8 +16,8 @@
   border-bottom: 2px solid;
   border-bottom-color: transparent;
   transition:
-    border-bottom-color var(--transition-medium),
-    color var(--transition-medium);
+    border-bottom-color var(--duration-medium) ease-in-out,
+    color var(--duration-medium) ease-in-out;
 
   &:hover,
   &:focus {
