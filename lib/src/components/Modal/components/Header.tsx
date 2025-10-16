@@ -19,7 +19,7 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
       <header className={cx('header', icon && 'icon', className)} ref={ref} {...rest}>
         <Close />
         {icon}
-        <Text as="h4" className={cx('header-title')} variant="heading-xl">
+        <Text className={cx('header-title')} variant="h4">
           {title}
         </Text>
         {subtitle ? <Text className={cx('header-subtitle')}>{subtitle}</Text> : null}
