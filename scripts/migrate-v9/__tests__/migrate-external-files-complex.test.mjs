@@ -3,9 +3,9 @@ import { resolve } from 'path'
 
 import { beforeEach, describe, expect, it } from 'vitest'
 
+import { copyDirSync, deleteDirRecursive } from '../helpers/file-utils.mjs'
 // import { setupExternalMigrationTest } from '../helpers/test-setup.mjs'
 import { migrateAll } from '../index.mjs'
-import { copyDirSync, deleteDirRecursive } from '../helpers/file-utils.mjs'
 
 describe('External Migration - Complex Styled Components', () => {
   // Don't perform cleanup for now so that we can inspect the migrated files

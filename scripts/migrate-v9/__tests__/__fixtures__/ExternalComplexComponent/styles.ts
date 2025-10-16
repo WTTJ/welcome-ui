@@ -43,6 +43,12 @@ export const Title = styled.h3<TitleProps>`
   margin-top: ${props => (props.displayDetail ? th('space.sm') : 0)};
 `
 
+export const TitleWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
 export const OrganizationName = styled(Text).attrs({ lines: 1, variant: 'sm' })`
   color: neutral-60;
   font-weight: medium;

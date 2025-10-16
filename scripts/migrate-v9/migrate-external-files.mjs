@@ -123,7 +123,7 @@ function getHtmlTagFromComponent(componentName) {
     Section: 'section',
   }
 
-  return componentMap[componentName] || 'div'
+  return componentMap[componentName] ?? componentName ?? 'div'
 }
 
 /**
@@ -170,7 +170,16 @@ function getStyledTag(node) {
     }
   }
 
-  return { as, tag: getHtmlTagFromComponent(tagName) || 'div' } // Default fallback
+  // Remove Box suffix if present e.g. buttonBox -> button
+  tagName = tagName?.replace(/(.+)Box$/, '$1') // Default to removing 'Box' suffix
+  as = as?.replace(/(.+)Box$/, '$1') // Default to removing 'Box' suffix
+  const tag = getHtmlTagFromComponent(tagName) || 'div'
+
+  if (as === tag) {
+    as = undefined
+  }
+
+  return { as, tag }
 }
 
 function stripBox(tag) {

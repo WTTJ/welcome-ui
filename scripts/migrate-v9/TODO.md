@@ -7,3 +7,5 @@ TODO:
 - [x] Fix strings in style block e.g. style={{ '--asset-drawer-content-max-width': maxWidth }}
 - [x] @layer components { … }
 - [ ] Fix displayDetail
+- [x] Change `tag` for `as`
+- [ ] Update variant for `th(texts.h4)`

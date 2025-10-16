@@ -9,7 +9,9 @@ export const Complex = ({ variant = 'primary' }: { variant?: Variant }) => {
   return (
     <S.Wrapper variant={variant}>
       <S.Card elevated>
-        <S.Title displayDetail>Complex component</S.Title>
+        <S.TitleWrapper>
+          <S.Title displayDetail>Complex component</S.Title>
+        </S.TitleWrapper>
       </S.Card>
       <Text as="span" color="dark-50" fontSize="sm" mt="auto" textAlign="center">
         <FormattedMessage defaultMessage="© 2024 Acme Corp. All rights reserved." id="8XKXo+" />
