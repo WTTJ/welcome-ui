@@ -3,36 +3,6 @@ import { transformCssAst } from './css-ast-transformer.mjs'
 import { camelToKebab, convertThemePathToCssVar, propToClassName } from './string-utils.mjs'
 
 /**
- * Extract the full CSS block that should be commented out
- * @param {Object} expression - The AST expression node
- * @param {string} beforeText - Text before the expression
- * @param {string} afterText - Text after the expression
- * @returns {string}
- */
-export function extractCssBlock(expression, beforeText, afterText) {
-  const expressionName = expression.name || ''
-
-  // Find the matching closing brace
-  let braceCount = 0
-  let blockEnd = 0
-
-  for (let i = 0; i < afterText.length; i++) {
-    if (afterText[i] === '{') {
-      braceCount++
-    } else if (afterText[i] === '}') {
-      braceCount--
-      if (braceCount === 0) {
-        blockEnd = i + 1
-        break
-      }
-    }
-  }
-
-  const cssBlock = afterText.substring(0, blockEnd)
-  return `\${${expressionName}}${cssBlock}`
-}
-
-/**
  * Rule: Transform arrow functions based on parameter and body patterns
  *
  * AST Node: ArrowFunctionExpression { params, body }
@@ -325,30 +295,6 @@ function extractAstNodeValue({ next, node, prev }) {
   }
 }
 
-// /**
-//  * Helper function to determine if a CSS block should be commented out
-//  * @param {Object} expression - The AST expression node
-//  * @param {string} beforeText - Text before the expression
-//  * @param {string} afterText - Text after the expression
-//  * @returns {boolean}
-//  */
-// function shouldCommentOutCssBlock(expression, beforeText, afterText) {
-//   // Check if this is an Identifier that should be commented out
-//   if (expression.type === 'Identifier') {
-//     const name = expression.name
-
-//     // Check if the after text contains a CSS block (starts with whitespace + {)
-//     const hasNextCssBlock = /^\s*\{/.test(afterText)
-
-//     // Comment out blocks for CONSTANTS and COMPONENTS that have CSS following them
-//     if (hasNextCssBlock) {
-//       return /^[A-Z][A-Z_]*$/.test(name) || /^[A-Z][a-z]/.test(name)
-//     }
-//   }
-
-//   return false
-// }
-
 /**
  * Format conditional expression for migration comment
  */
@@ -363,15 +309,15 @@ function getAllCssPropertiesFromString(cssString) {
   return matches ? matches.map(match => match.replace(/\s*:$/, '')) : []
 }
 
+/**
+ * Extract value from conditional expression (consequent or alternate)
+ * Handles: NumericLiteral (0), CallExpression (th('space.sm')), StringLiteral ('primary-500')
+ */
 function getValueFromConditionalExpression(alternateOrConsequent) {
-  // isXXX ? th('space.sm') : 0
-  //                          ^
   if (alternateOrConsequent.type === 'NumericLiteral') {
     return alternateOrConsequent.value
   }
 
-  // isXXX ? th('space.sm') : 0
-  //         ^^^^^^^^^^^^^^
   if (
     alternateOrConsequent.type === 'CallExpression' &&
     alternateOrConsequent.callee?.name === 'th'
@@ -379,8 +325,6 @@ function getValueFromConditionalExpression(alternateOrConsequent) {
     return convertThemePathToCssVar(alternateOrConsequent.arguments[0].value)
   }
 
-  // isXXX ? 'primary-500' : 'secondary-500'
-  //         ^^^^^^^^^^^^^
   return convertThemePathToCssVar(alternateOrConsequent.value)
 }
 
