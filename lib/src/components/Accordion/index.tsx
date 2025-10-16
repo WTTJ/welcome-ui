@@ -19,7 +19,7 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
           data-testid={dataTestId ? `${dataTestId}-title` : undefined}
           store={store}
         >
-          <Text as="h5" variant="heading-sm">
+          <Text as="h5" variant="heading-sm-strong">
             {title}
           </Text>
           <div className={cx('icon')}>

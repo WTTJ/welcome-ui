@@ -16,7 +16,7 @@ export const Message = ({
 }: MessageProps) => {
   return (
     <>
-      <Text as="h4" className={cx('message-title')} variant="heading-md">
+      <Text as="h4" className={cx('message-title')} variant="heading-md-strong">
         {title}
       </Text>
       <Text className={cx('message-hint')} variant="body-md">

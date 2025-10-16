@@ -52,7 +52,7 @@ export const Colors = ({ name }: ColorsProps) => {
               style={{ '--backgroundColor': `var(--color-${variant})` } as CSSProperties}
             />
             <div className="px-sm">
-              <Text as="span" variant="heading-xs">
+              <Text as="span" variant="heading-xs-strong">
                 {variant}
               </Text>
               <Text as="span" className="mt-[0.1875rem] text-sm">
