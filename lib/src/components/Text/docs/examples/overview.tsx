@@ -9,9 +9,9 @@ const Example = () => {
       <Text variant="display-sm">Display (sm)</Text>
       <Text variant="heading-xl">Heading (xl)</Text>
       <Text variant="heading-lg">Heading (lg)</Text>
-      <Text variant="heading-md">Heading (md)</Text>
-      <Text variant="heading-sm">Heading (sm)</Text>
-      <Text variant="heading-xs">Heading (xs)</Text>
+      <Text variant="heading-md-strong">Heading (md)</Text>
+      <Text variant="heading-sm-strong">Heading (sm)</Text>
+      <Text variant="heading-xs-strong">Heading (xs)</Text>
       <Text variant="heading-md-strong">Heading (md-strong)</Text>
       <Text variant="heading-sm-strong">Heading (sm-strong)</Text>
       <Text variant="heading-xs-strong">Heading (xs-strong)</Text>
