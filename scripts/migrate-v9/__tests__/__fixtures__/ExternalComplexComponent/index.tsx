@@ -5,7 +5,7 @@ import * as S from './styles'
 
 type Variant = 'primary' | 'secondary'
 
-export const ComplexComponent = ({ variant = 'primary' }: { variant?: Variant }) => {
+export const Complex = ({ variant = 'primary' }: { variant?: Variant }) => {
   return (
     <S.Wrapper variant={variant}>
       <S.Card elevated>

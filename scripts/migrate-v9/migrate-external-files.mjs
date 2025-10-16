@@ -35,7 +35,7 @@ export async function migrate(dir, copyDir = true) {
     }
 
     const stylesTs = path.join(workingDir, 'styles.ts')
-    const stylesScss = path.join(workingDir, 'styles.scss')
+    const stylesScss = path.join(workingDir, 'styles.module.scss')
     if (!fs.existsSync(stylesTs)) return
 
     // Use babel to extract stylesMap

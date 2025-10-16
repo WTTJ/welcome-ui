@@ -117,9 +117,9 @@ export function transformConditionalArrowFunctionExpression({
   let cssValue
 
   if (test.type === 'BinaryExpression') {
-    cssValue = `${test.left?.name} ${test.operator} ${test.right?.value} ? ${consequentValue} : ${alternateValue}`
+    cssValue = `${test.left?.name} ${test.operator} '${test.right?.value}' ? '${consequentValue}' : '${alternateValue}'`
   } else if (test.type === 'MemberExpression') {
-    cssValue = `${testProp} ? ${consequentValue} : ${alternateValue}`
+    cssValue = `${testProp} ? '${consequentValue}' : '${alternateValue}'`
   }
 
   cssVariables.set(cssVariableName, cssValue)
@@ -155,9 +155,9 @@ export function transformConditionalExpression({
   let cssValue
 
   if (test.type === 'BinaryExpression') {
-    cssValue = `${test.left?.name} ${test.operator} ${test.right?.value} ? ${consequentValue} : ${alternateValue}`
+    cssValue = `${test.left?.name} ${test.operator} '${test.right?.value}' ? '${consequentValue}' : '${alternateValue}'`
   } else if (test.type === 'MemberExpression') {
-    cssValue = `${test.property?.name} ? ${consequentValue} : ${alternateValue}`
+    cssValue = `${test.property?.name} ? '${consequentValue}' : '${alternateValue}'`
   }
 
   if (cssValue) {

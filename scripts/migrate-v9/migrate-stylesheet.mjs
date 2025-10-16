@@ -14,7 +14,7 @@ import {
 const traverse = getModule(traverseModule)
 
 /**
- * Converts styled-components in styles.ts to CSS classes in styles.scss
+ * Converts styled-components in styles.ts to CSS classes in styles.module.scss
  */
 export function migrateStylesTsToScss({ cssVariables = new Map(), mixins = new Map(), path }) {
   const content = fs.readFileSync(path, 'utf8')

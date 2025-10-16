@@ -1,16 +1,17 @@
 import { FormattedMessage } from 'react-intl'
 import { Text } from 'welcome-ui/Text'
-import './styles.scss'
+import styles from './styles.module.scss'
 type Variant = 'primary' | 'secondary'
-export const ComplexComponent = ({ variant = 'primary' }: { variant?: Variant }) => {
+export const Complex = ({ variant = 'primary' }: { variant?: Variant }) => {
   return (
     <div
       className="wrapper"
+      style={wrapperStyle}
       style={
         {
           '--wrapper-background-color':
             variant === 'primary' ? 'var(--primary-500)' : 'var(--secondary-500)',
-          '--wrapper-position': variant === 'primary' ? 'var(--spacing-sm)' : 0,
+          '--wrapper-position': variant === 'primary' ? 'var(--spacing-sm)' : '0',
         } as React.CSSProperties
       }
     >
@@ -20,7 +21,7 @@ export const ComplexComponent = ({ variant = 'primary' }: { variant?: Variant })
           as="h3"
           style={
             {
-              '--title-margin-top': displayDetail ? 'var(--spacing-sm)' : 0,
+              '--title-margin-top': displayDetail ? 'var(--spacing-sm)' : '0',
             } as React.CSSProperties
           }
         >
