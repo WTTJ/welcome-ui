@@ -102,7 +102,7 @@ const Component = ({ children, description, link, title }: ComponentProps) => {
       <Link as={NextLink} className="font-bold mt-md uppercase" href={link}>
         {title}
       </Link>
-      <Text className="mb-0 mt-sm" variant="body-md">
+      <Text className="mb-0 mt-sm" variant="sm">
         {description}
       </Text>
     </div>

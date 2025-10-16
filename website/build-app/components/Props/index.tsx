@@ -114,7 +114,7 @@ export const Property = ({ id, name, options }: PropertyProps) => {
         </span>
       </Text>
       {description ? (
-        <Text className="mt-sm" variant="body-md">
+        <Text className="mt-sm" variant="sm">
           {description}
         </Text>
       ) : null}

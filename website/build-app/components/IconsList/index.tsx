@@ -143,7 +143,7 @@ export const IconsList = ({ collectionName }: IconListProps) => {
               as="span"
               className="pt-md px-sm text-beige-70 text-center break-words flex items-center gap-1"
               lines={2}
-              variant="body-md"
+              variant="sm"
             >
               {isPaidOrCustom ? (
                 <Tooltip content={tooltipContent}>
