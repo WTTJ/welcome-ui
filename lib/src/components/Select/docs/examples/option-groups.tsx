@@ -39,12 +39,12 @@ const Example = () => {
       renderGroupHeader={({ label, options }) => (
         <div className="p-(--spacing-xxs))">
           <div className="flex items-center justify-between">
-            <Text className="ml-(--spacing-sm) font-medium" variant="sm">
+            <Text className="ml-(--spacing-sm) font-medium" variant="body-md">
               {label}
             </Text>
             <Tag>{options.length}</Tag>
           </div>
-          {options.length === 0 && <Text variant="xs">No results found</Text>}
+          {options.length === 0 && <Text variant="body-sm">No results found</Text>}
         </div>
       )}
       value={value}
