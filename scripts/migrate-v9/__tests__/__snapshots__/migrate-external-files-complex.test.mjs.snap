@@ -11,15 +11,24 @@ const TOPNAV_HEIGHT = '60px'
 type Variant = 'primary' | 'secondary'
 
 export const ComplexComponent = ({ variant = 'primary' }: { variant?: Variant }) => {
-  const wrapperStyle = {
-    '--wrapper-variant': variant === 'primary' ? 'color-primary-500' : 'color-secondary-500',
-    '--wrapper-topnav-height': TOPNAV_HEIGHT,
-  }
+
 
   return (
-    <div className="wrapper" style={wrapperStyle}>
+    <div className="wrapper" style={
+        {
+          '--wrapper-background-color':
+            variant === 'primary' ? 'var(--primary-500)' : 'var(--secondary-500)',
+          '--wrapper-position': variant === 'primary' ? 'var(--spacing-sm)' : 0,
+        } as React.CSSProperties
+      }>
       <Link className="card elevated">
-        <Text as="h3" variant="h4" className={`title ${displayDetail ? 'display-detail' : ''}`}>Complex component</Text>
+        <Text as="h3" variant="h4" className={`title ${displayDetail ? 'display-detail' : ''}`} style={
+          {
+            '--title-margin-top': displayDetail ? 'var(--spacing-sm)' : 0,
+          } as React.CSSProperties
+        }>
+          Complex component
+        </Text>
       </Link>
       <Text className="mt-auto text-center text-dark-50 text-sm" as="span">
         <FormattedMessage defaultMessage="© 2024 Acme Corp. All rights reserved." id="8XKXo+" />
