@@ -105,7 +105,7 @@ export const Property = ({ id, name, options }: PropertyProps) => {
     <div className="mt-lg scroll-mt-[170px]" id={id}>
       <div className="border-b border-b-neutral-30 flex gap-md items-center mb-md pb-md">
         <Code>{name}</Code>
-        {required ? <Badge variant="primary">Required</Badge> : null}
+        {required ? <Badge variant="brand">Required</Badge> : null}
       </div>
       <Text className="text-neutral-90">
         {getType(type)}
