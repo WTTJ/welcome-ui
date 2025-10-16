@@ -38,14 +38,6 @@ export function processFile(filePath, results, whitelist) {
         if (nameNode.type === 'JSXIdentifier') {
           componentName = nameNode.name
         } else if (nameNode.type === 'JSXMemberExpression') {
-          // Recursively build the full name (e.g., Breadcrumb.Item)
-          function getFullJSXName(node) {
-            if (node.type === 'JSXIdentifier') return node.name
-            if (node.type === 'JSXMemberExpression') {
-              return getFullJSXName(node.object) + '.' + getFullJSXName(node.property)
-            }
-            return ''
-          }
           componentName = getFullJSXName(nameNode)
         }
 
@@ -80,4 +72,13 @@ export function processFile(filePath, results, whitelist) {
       },
     })
   }
+}
+
+// Recursively build the full name (e.g., Breadcrumb.Item)
+function getFullJSXName(node) {
+  if (node.type === 'JSXIdentifier') return node.name
+  if (node.type === 'JSXMemberExpression') {
+    return getFullJSXName(node.object) + '.' + getFullJSXName(node.property)
+  }
+  return ''
 }

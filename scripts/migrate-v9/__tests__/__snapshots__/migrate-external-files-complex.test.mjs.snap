@@ -1,139 +1,163 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`External Migration - Complex Styled Components > migrates complex styled components (styled(Component), template literals, interpolations) > complex-component.tsx 1`] = `
-"import { Link } from 'welcome-ui/Link'
-"import { Text } from 'welcome-ui/Text'
-
-import './styles.scss'
-
-const TOPNAV_HEIGHT = '60px'
-
+"import { FormattedMessage } from 'react-intl'
+import { Text } from 'welcome-ui/Text'
+import styles from './styles.module.scss'
+import { classNames } from 'welcome-ui/utils'
+const cx = classNames(styles)
 type Variant = 'primary' | 'secondary'
-
-export const ComplexComponent = ({ variant = 'primary' }: { variant?: Variant }) => {
-
-
+export const Complex = ({ variant = 'primary' }: { variant?: Variant }) => {
   return (
-    <div className="wrapper" style={
+    <div
+      variant={variant}
+      className={cx('wrapper')}
+      style={
         {
           '--wrapper-background-color':
             variant === 'primary' ? 'var(--primary-500)' : 'var(--secondary-500)',
-          '--wrapper-position': variant === 'primary' ? 'var(--spacing-sm)' : 0,
+          '--wrapper-position': variant === 'primary' ? 'var(--spacing-sm)' : '0',
         } as React.CSSProperties
-      }>
-      <Link className="card elevated">
-        <Text as="h3" variant="h4" className={`title ${displayDetail ? 'display-detail' : ''}`} style={
-          {
-            '--title-margin-top': displayDetail ? 'var(--spacing-sm)' : 0,
-          } as React.CSSProperties
-        }>
-          Complex component
-        </Text>
+      }
+    >
+      <Link elevated to="/fishcakes" className={cx('card')}>
+        <div className={cx('title-wrapper')}>
+          <Text
+            className="text-neutral-10"
+            displayDetail
+            className={cx('title')}
+            as="h3"
+            style={
+              {
+                '--title-margin-top': displayDetail ? 'var(--spacing-sm)' : '0',
+              } as React.CSSProperties
+            }
+          >
+            Complex component
+          </Text>
+        </div>
       </Link>
-      <Text className="mt-auto text-center text-dark-50 text-sm" as="span">
+      <Text className="mt-auto text-center text-dark-50 text-sm" as="span" variant="h5">
         <FormattedMessage defaultMessage="© 2024 Acme Corp. All rights reserved." id="8XKXo+" />
       </Text>
-      <button className="trigger-button is-active">Toggle</button>
+      <button className={cx('trigger-button', 'is-active')}>Toggle</button>
     </div>
   )
 }
 "
 `;
 
-exports[`External Migration - Complex Styled Components > migrates complex styled components (styled(Component), template literals, interpolations) > complex-styles.scss 1`] = `
-"@mixin trigger-active-styles {
+exports[`External Migration - Complex Styled Components > migrates complex styled components (styled(Component), template literals, interpolations) > complex-styles.module.scss 1`] = `
+"/* Generated SCSS mixins from CSS template literals */
+@mixin trigger-active-styles {
+  /* WUI V9 TO MIGRATE */
+  /*
+  \${Box} {
+    background-color: var(--color-beige-10);
+  }
+  */
+
+  color: var(--color-neutral-50);
   background-color: var(--color-beige-30);
 
   /* WUI V9 TO MIGRATE */
-  /* 
-  ${OrganizationLogo} {
+  /*
+  \${OrganizationLogo} {
     outline-color: var(--color-beige-30) !important;
+    border: 1px solid;
+    border-color: var(--color-beige-50);
   }
   */
 
   /* WUI V9 TO MIGRATE */
-  /* 
-  ${OrganizationName} {
+  /*
+  \${OrganizationName} {
     color: var(--color-neutral-90);
   }
   */
+
 }
 
-.wrapper {
-  background-color: var(--wrapper-variant);
-  padding: var(--spacing-xxl) 0;
-  position: relative;
-  isolation: isolate;
-  min-height: calc(100vh - var(--wrapper-topnav-height));
+@layer components {
+  .wrapper {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--wrapper-background-color);
+    isolation: isolate;
+    position: var(--wrapper-position);
+    min-height: calc(100vh - TOPNAV_HEIGHT /* WUI V9 TO MIGRATE: constant TOPNAV_HEIGHT */);
 
-  @media (min-width: lg) {
-    padding: var(--spacing-3xl) 0;
-  }
-}
-
-.card {
-  background: white;
-  border-radius: var(--spacing-md);
-  padding: var(--spacing-lg);
-  
-  &.elevated {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-}
-
-.title {
-  color: var(--color-neutral-90);
-  margin: 0;
-
-  &.display-detail {
-    margin-top: var(--spacing.sm);
-  }
-}
-
-.trigger-button {
-  border: none;
-  background-color: transparent;
-  padding: var(--spacing-md) var(--spacing-lg);
-  cursor: pointer;
-  width: 100%;
-  border-radius: var(--spacing-md);
-  transition: background-color 300ms;
-  bottom: var(--spacing-md);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  height: var(--spacing-48);
-  width: var(--spacing-48px);
-
-  .is-expanded {
-    display: inherit;
-    align-items: inherit;
-    justify-content: inherit;
-    padding: inherit;
-    height: inherit;
-    width: inherit;
-  }
-
-  &:hover {
-    @include trigger-active-styles;
-
-    /* WUI V9 TO MIGRATE */
-    /*
-    ${OrganizationName} {
-      color: var(--color-beige-80);
+    @media (width >= lg) {
+      padding: var(--spacing-3xl) 0;
     }
-    */
   }
 
-  .is-active {
-    @include trigger-active-styles;
+  .card {
+    background: white;
+    border-radius: var(--spacing-md);
+    padding: var(--spacing-lg);
+
+    &.elevated {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
   }
 
-  :active {
-    @include trigger-active-styles;
+  .title {
+    /* WUI V9 TO MIGRATE */
+    @include texts.h4;
+    color: var(--color-neutral-90);
+    margin-top: var(--title-margin-top);
   }
-}
-"
+
+  .title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .organization-name {
+    color: var(--color-neutral-60);
+    font-weight: var(--font-weight-medium);
+    margin: 0;
+    transition: color 300ms;
+  }
+
+  .trigger-button {
+    border: none;
+    background-color: transparent;
+    padding: var(--spacing-md) var(--spacing-lg);
+    cursor: pointer;
+    width: 100%;
+    border-radius: var(--spacing-md);
+    transition: background-color 300ms;
+    bottom: var(--spacing-md);
+
+    &.is-active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      height: 48px;
+      width: 48px;
+    }
+
+    &:hover {
+      @include trigger-active-styles;
+
+      /* WUI V9 TO MIGRATE */
+      /*
+      \${OrganizationName} {
+        color: var(--color-beige-80);
+      }
+      */
+    }
+
+    &.is-active {
+      @include trigger-active-styles;
+    };
+
+    &:active {
+      @include trigger-active-styles;
+    }
+  }
+}"
 `;

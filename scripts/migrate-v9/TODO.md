@@ -9,3 +9,4 @@ TODO:
 - [ ] Fix displayDetail
 - [x] Change `tag` for `as`
 - [ ] Update variant for `th(texts.h4)`
+- [ ] Handle `attrs`

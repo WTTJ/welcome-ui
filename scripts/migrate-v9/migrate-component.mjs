@@ -6,8 +6,9 @@ import traverseModule from '@babel/traverse'
 
 import { getModule } from './helpers/esm.mjs'
 import { formatWithPrettier } from './helpers/format-with-prettier.mjs'
-import { camelCase, camelToKebab } from './helpers/string-utils.mjs'
+import { camelToKebab } from './helpers/string-utils.mjs'
 import { isStyledComponent } from './helpers/styled-component-patterns.mjs'
+import { WUI_COMPONENTS } from './helpers/wui-components.mjs'
 
 const traverse = getModule(traverseModule)
 const generate = getModule(generateModule)
@@ -23,24 +24,12 @@ export async function migrateComponentFile({ componentPath, cssVariables, styles
     sourceType: 'module',
   })
 
-  // Track style objects that need to be generated
-  const styleObjectsToGenerate = new Map()
-
-  // Collect styled component definitions for prop analysis
-  const styledComponentDefinitions = new Map()
-
   traverse(ast, {
     ArrowFunctionExpression(path) {
       // Handle const Component = () => {} pattern
-      if (path.parent.type === 'VariableDeclarator' && path.parent.id.name.includes('Component')) {
-        insertStyleObjectDeclarations(path, styleObjectsToGenerate)
-      }
     },
-    // Insert style object declarations into component functions
     FunctionDeclaration(path) {
-      if (path.node.id && path.node.id.name.includes('Component')) {
-        insertStyleObjectDeclarations(path, styleObjectsToGenerate)
-      }
+      // Insert style object declarations into component functions
     },
     // Replace import * as S from './styles' with import './styles.module.scss'
     ImportDeclaration(path) {
@@ -56,15 +45,15 @@ export async function migrateComponentFile({ componentPath, cssVariables, styles
             sourceType: 'module',
           }).program.body[0]
         )
-        // Insert classNames import after the styles import
-        path.insertAfter(
-          parse("import { classNames } from 'welcome-ui/utils'", {
-            sourceType: 'module',
-          }).program.body[0]
-        )
         // Insert const cx = classNames(styles) declaration after imports
         path.insertAfter(
           parse('const cx = classNames(styles)', {
+            sourceType: 'module',
+          }).program.body[0]
+        )
+        // Insert classNames import after the styles import (order needs to be preserved)
+        path.insertAfter(
+          parse("import { classNames } from 'welcome-ui/utils'", {
             sourceType: 'module',
           }).program.body[0]
         )
@@ -84,12 +73,11 @@ export async function migrateComponentFile({ componentPath, cssVariables, styles
         }
 
         // Process props and convert them appropriately
-        const { newAttributes } = processComponentProps(
-          path.node.openingElement.attributes,
-          compName,
-          className,
-          styledComponentDefinitions
-        )
+        const newAttributes = processComponentProps({
+          attributes: path.node.openingElement.attributes,
+          baseClassName: className,
+          tag,
+        })
 
         // Add as if available
         const asNode = as && {
@@ -159,23 +147,6 @@ export async function migrateComponentFile({ componentPath, cssVariables, styles
     VariableDeclarator(path) {
       const node = path.node
       if (node.id.name && isStyledComponent(node.init)) {
-        const componentName = node.id.name
-        let css = ''
-
-        // Extract CSS from different styled component patterns
-        if (node.init && node.init.quasi) {
-          // Pattern: styled.div`css`
-          css = node.init.quasi.quasis.map(q => q.value.raw).join('PLACEHOLDER')
-        } else if (node.init && node.init.tag && node.init.tag.quasi) {
-          // Pattern: styled(Component)`css`
-          css = node.init.tag.quasi.quasis.map(q => q.value.raw).join('PLACEHOLDER')
-        }
-
-        styledComponentDefinitions.set(componentName, {
-          css,
-          name: componentName,
-          node: node.init,
-        })
       }
     },
   })
@@ -192,99 +163,9 @@ export async function migrateComponentFile({ componentPath, cssVariables, styles
 }
 
 /**
- * Generate CSS variable assignment for non-boolean props
- */
-function generateConditionalCssVariable(propName, baseClassName, attrValue) {
-  // Generate CSS variable name: --wrapper-variant, --wrapper-topnav-height
-  const kebabProp = camelToKebab(propName)
-  const cssVarName = `--${baseClassName}-${kebabProp}`
-
-  // Extract the value expression
-  let valueExpression = propName // default to prop name
-  if (attrValue && attrValue.type === 'JSXExpressionContainer') {
-    const expression = attrValue.expression
-    if (expression.type === 'Identifier') {
-      // variant={variant} -> variant === 'primary' ? 'color-primary-500' : 'color-secondary-500'
-      valueExpression = 'FIX: Identifier'
-    } else if (expression.type === 'ConditionalExpression') {
-      // Already a conditional, extract it properly
-      // For now, use a placeholder - this needs AST transformation
-      valueExpression = 'FIX: ConditionalExpression'
-    }
-  }
-
-  return `'${cssVarName}': ${valueExpression}`
-}
-
-/**
- * Generate a style object variable declaration
- */
-function generateStyleObjectDeclaration(styleObjectName, styleInfo) {
-  const { properties } = styleInfo
-
-  // Convert string properties to AST property nodes
-  const astProperties = []
-
-  if (properties && Array.isArray(properties)) {
-    properties.forEach(prop => {
-      if (typeof prop === 'string') {
-        // Parse strings like "'--wrapper-variant': variant"
-        const match = prop.match(/^'([^']+)':\s*(.+)$/)
-        if (match) {
-          const [, key, value] = match
-          astProperties.push({
-            computed: false,
-            key: { type: 'StringLiteral', value: key },
-            kind: 'init',
-            method: false,
-            shorthand: false,
-            type: 'Property',
-            value: { name: value, type: 'Identifier' },
-          })
-        }
-      }
-    })
-  }
-
-  return {
-    declarations: [
-      {
-        id: { name: styleObjectName, type: 'Identifier' },
-        init: {
-          properties: astProperties,
-          type: 'ObjectExpression',
-        },
-        type: 'VariableDeclarator',
-      },
-    ],
-    kind: 'const',
-    type: 'VariableDeclaration',
-  }
-}
-
-/**
- * Insert style object declarations into component functions
- */
-function insertStyleObjectDeclarations(functionPath, styleObjectsToGenerate) {
-  if (styleObjectsToGenerate.size === 0) return
-
-  // Find the function body
-  const functionBody = functionPath.node.body
-  if (!functionBody || functionBody.type !== 'BlockStatement') return
-
-  // Generate variable declarations for each style object
-  for (const [styleObjectName, styleInfo] of styleObjectsToGenerate) {
-    const variableDeclaration = generateStyleObjectDeclaration(styleObjectName, styleInfo)
-
-    // Insert at the beginning of the function body
-    functionBody.body.unshift(variableDeclaration)
-  }
-}
-
-/**
  * Process component attributes and transform them for v9
  */
-function processComponentProps(attributes, compName, baseClassName) {
+function processComponentProps({ attributes, baseClassName, tag }) {
   const newAttributes = []
   const classNameParts = [baseClassName]
   // const styleProperties = []
@@ -295,7 +176,7 @@ function processComponentProps(attributes, compName, baseClassName) {
       return
     }
 
-    const propName = attr.name.name
+    const propName = attr.name.name.replace(/^\$/, '') // Remove $ prefix if present
 
     // Handle special props
     if (propName === 'className') {
@@ -311,6 +192,13 @@ function processComponentProps(attributes, compName, baseClassName) {
       return
     }
 
+    // If it's a WUI component, don't add classes as we don't know if the prop is a WUI prop or not
+    // e.g. <Link to="xxx" /> vs <Link fishcakes />
+    if (WUI_COMPONENTS.includes(tag)) {
+      newAttributes.push(attr)
+      return
+    }
+
     // Handle boolean props (elevated, displayDetail, etc.)
     if (attr.value === null) {
       // Boolean prop like <Card elevated> -> add to className
@@ -319,25 +207,18 @@ function processComponentProps(attributes, compName, baseClassName) {
       return
     }
 
-    // Handle dollar props ($isActive, $isExpanded)
-    if (propName.startsWith('$')) {
-      const cleanPropName = propName.substring(1) // Remove $
-      // For $isActive -> is-active, $isExpanded -> is-expanded
-      const kebabProp = camelToKebab(cleanPropName)
-
-      // Convert to conditional className for boolean props
-      // $isActive={someVariable} -> className includes conditional logic
-      if (attr.value.type === 'JSXExpressionContainer') {
-        const expression = attr.value.expression
-        if (expression.type === 'Identifier') {
-          // For boolean props, add conditional class
-          classNameParts.push(`\${${expression.name} ? '${kebabProp}' : ''}`)
-        } else {
-          // For literal values, add class directly if true
-          classNameParts.push(kebabProp)
-        }
+    if (
+      attr.value?.type === 'JSXExpressionContainer' &&
+      attr.value.expression.type === 'BooleanLiteral'
+    ) {
+      if (attr.value.expression.value === true) {
+        // Boolean prop like <Card elevated> -> add to className
+        const kebabProp = camelToKebab(propName)
+        classNameParts.push(kebabProp)
+        return
+      } else {
+        return
       }
-      return
     }
 
     // Handle string literal props that could be variants
@@ -358,7 +239,6 @@ function processComponentProps(attributes, compName, baseClassName) {
   })
 
   // Generate className attribute with cx() wrapper
-  let classNameValue
 
   // Wrap className parts in cx() call
   // cx('card', 'elevated') or cx('card') for single class
@@ -371,7 +251,7 @@ function processComponentProps(attributes, compName, baseClassName) {
     type: 'CallExpression',
   }
 
-  classNameValue = {
+  const classNameValue = {
     expression: cxCallExpression,
     type: 'JSXExpressionContainer',
   }
@@ -382,7 +262,5 @@ function processComponentProps(attributes, compName, baseClassName) {
     value: classNameValue,
   })
 
-  return {
-    newAttributes,
-  }
+  return newAttributes
 }
