@@ -71,10 +71,10 @@ const Home = () => {
   return (
     <main className="p-xl">
       <div className="max-w-[37.5rem] mt-xl mx-auto">
-        <Text className="text-center uppercase" variant="label-md">
+        <Text className="text-center" variant="subtitle-md">
           Blog
         </Text>
-        <Text as="h1" className="text-center" variant="display-lg">
+        <Text className="text-center" variant="h1">
           The latest about us
         </Text>
         <ul className="list-none m-0 mt-xxl md:mt-5xl p-0">
@@ -101,7 +101,7 @@ const Home = () => {
                           <Avatar key={`${link}_authors_${url}`} name={name} src={url} />
                         ))}
                       </div>
-                      <Text as="span" className="font-bold" variant="body-md">
+                      <Text as="span" className="font-bold" variant="sm">
                         {authors?.map(({ name }, idx) => (
                           <>
                             {idx !== 0 && ', '}
@@ -109,7 +109,7 @@ const Home = () => {
                           </>
                         ))}
                       </Text>
-                      <Text variant="body-sm">{date.toDateString()}</Text>
+                      <Text variant="xs">{date.toDateString()}</Text>
                       <Button
                         as="a"
                         className="w-fit shrink-0"

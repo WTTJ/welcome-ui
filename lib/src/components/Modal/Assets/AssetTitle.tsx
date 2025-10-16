@@ -8,7 +8,7 @@ const cx = classNames(modalStyles)
 
 export const AssetTitle = ({ children, ...rest }: TextProps) => {
   return (
-    <Text as="p" className={cx('asset-title')} lines={2} variant="heading-xl" {...rest}>
+    <Text as="p" className={cx('asset-title')} lines={2} variant="h4" {...rest}>
       {children}
     </Text>
   )
