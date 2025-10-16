@@ -5,24 +5,19 @@
  * Mapping from old variant names to new variant names based on styling equivalence
  */
 export const VARIANT_MAPPING = {
-  // Old headings to new variants
-  h0: 'display-xl', // h0: 60px/7xl black → display-xl: 7xl black
-  h1: 'display-lg', // h1: 48px/3xl black → display-lg: 6xl black
-  h2: 'display-md', // h2: 4xl/40 black → display-md: 5xl black
-  h3: 'display-sm', // h3: 24px/2xl black → display-sm: 4xl black
-  h4: 'heading-xl', // h4: xl/2xl black → heading-xl: 3xl bold
-  h5: 'heading-lg', // h5: 16px/xl black → heading-lg: 2xl bold
-  h6: 'heading-md', // h6: sm/lg black → heading-md: xl medium
-
-  // Old body text sizes to new body variants
-  xs: 'body-sm', // xs: 12px/sm regular → body-sm: xs regular
-  sm: 'body-md', // sm: 14px/lg regular → body-md: sm regular
-  md: 'body-lg', // md: 16px/lg regular → body-lg: md regular
-  lg: 'body-xl', // lg: 18px/2xl regular → body-xl: lg regular
-
-  // Old subtitles to new label variants
-  'subtitle-sm': 'label-sm', // subtitle-sm: 12px/xl medium uppercase → label-sm: xs medium
-  'subtitle-md': 'label-md', // subtitle-md: 12px/xl black uppercase → label-md: sm medium
+  h0: 'display-md',
+  h1: 'display-sm',
+  h2: 'heading-xl',
+  h3: 'heading-lg',
+  h4: 'heading-md',
+  h5: 'heading-sm',
+  h6: 'heading-xs',
+  lg: 'body-xl',
+  md: 'body-lg',
+  sm: 'body-md',
+  xs: 'body-sm',
+  'subtitle-md': 'label-lg',
+  'subtitle-sm': 'label-md',
 }
 
 /**
@@ -117,31 +112,6 @@ export function transform(content) {
 
     // Prepend as and variant at the beginning of attributes
     newAttributes = `${asAttr}${variantAttr}${newAttributes ? ' ' + newAttributes : ''}`
-
-    // For subtitle variants, ensure uppercase className is applied
-    if (oldVariant === 'subtitle-sm' || oldVariant === 'subtitle-md') {
-      // Regex to find existing className attribute
-      const classPattern = /className\s*=\s*(\{[^}]*\}|"[^"]*"|'[^']*')/
-      const classMatch = newAttributes.match(classPattern)
-      if (classMatch) {
-        const value = classMatch[1]
-        if (value.startsWith('{')) {
-          // Handle expression, e.g., {cx(...)}
-          newAttributes = newAttributes.replace(
-            value,
-            value.replace(/cx\(([^)]*)\)/, (m, args) => `cx(${args.trim()}, 'uppercase')`)
-          )
-        } else {
-          // Handle string literal
-          const quote = value[0]
-          const content = value.slice(1, -1)
-          newAttributes = newAttributes.replace(value, `${quote}${content} uppercase${quote}`)
-        }
-      } else {
-        // No className present, insert after variant
-        newAttributes = newAttributes.replace(variantAttr, `${variantAttr} className="uppercase"`)
-      }
-    }
 
     return `<Text ${newAttributes.trim()}>`
   })
