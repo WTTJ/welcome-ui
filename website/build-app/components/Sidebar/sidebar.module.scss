@@ -2,8 +2,8 @@
   color: var(--color-neutral-70);
   position: relative;
   transition:
-    color var(--transition-medium),
-    padding-left var(--transition-medium);
+    color var(--duration-medium) ease-in-out,
+    padding-left var(--duration-medium) ease-in-out;
 
   &:hover,
   &:focus {
@@ -18,13 +18,13 @@
     left: 0;
     top: 1px;
     background-color: transparent;
-    transition: background-color var(--transition-medium);
+    transition: background-color var(--duration-medium) ease-in-out;
   }
 
   &[aria-current='page'] {
     padding-left: var(--spacing-sm);
     color: var(--color-neutral-90);
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-medium);
 
     &::before {
       background-color: var(--color-background-brand-primary);
