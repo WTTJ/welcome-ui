@@ -265,7 +265,7 @@ export const Range = forwardRef<HTMLDivElement, RangeProps>(
                     onChange({ max: maxValue, min: value })
                   }
                 }}
-                size="sm"
+                size="md"
                 type="number"
                 value={inputMinValue.toString()}
               />
@@ -410,7 +410,7 @@ export const Range = forwardRef<HTMLDivElement, RangeProps>(
                     onChange({ max: value, min: minValue })
                   }
                 }}
-                size="sm"
+                size="md"
                 type="number"
                 value={inputMaxValue.toString()}
               />

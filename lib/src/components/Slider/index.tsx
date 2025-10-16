@@ -138,7 +138,7 @@ export const SliderComponent = forwardRef<HTMLDivElement, SliderProps>(
                 onBlur={handleInput}
                 onChange={handleInputChange}
                 onKeyDown={handleInputKeyDown}
-                size="sm"
+                size="md"
                 type="number"
                 value={inputValue.toString()}
               />
@@ -216,7 +216,7 @@ export const SliderComponent = forwardRef<HTMLDivElement, SliderProps>(
                 onBlur={handleInput}
                 onChange={handleInputChange}
                 onKeyDown={handleInputKeyDown}
-                size="sm"
+                size="md"
                 type="number"
                 value={inputValue.toString()}
               />

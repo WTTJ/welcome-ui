@@ -11,7 +11,7 @@ const Example = () => {
         iconPlacement="right"
         isClearable
         placeholder="Welcome"
-        size="sm"
+        size="md"
       />
     </>
   )
