@@ -27,7 +27,7 @@ export const Header = ({
         )}
         {!!iconName && <IconBlock iconName={iconName} />}
         <div className={cx('title')}>
-          <Text as="h3" className="pr-xl" variant="display-sm">
+          <Text className="pr-xl" variant="h3">
             {title}
           </Text>
           {subtitle}

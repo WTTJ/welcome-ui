@@ -45,10 +45,10 @@ export const Stats = () => {
           <div className="bg-neutral-90 flex h-[3.4375rem] items-center justify-center rounded-full text-neutral-10 w-[3.4375rem]">
             {stat.icon}
           </div>
-          <Text as="span" className="mt-lg" variant="display-sm">
+          <Text as="span" className="mt-lg" variant="h3">
             {stat.number}
           </Text>
-          <Text as="span" className="mt-sm" variant="body-md">
+          <Text as="span" className="mt-sm" variant="sm">
             {stat.name}
           </Text>
         </div>

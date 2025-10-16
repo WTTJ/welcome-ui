@@ -35,7 +35,7 @@ const Example = () => {
                 onRemove={() => handleRemove(option.value as string)}
                 size="sm"
               >
-                <Text variant="body-md">{option.label}</Text>
+                <Text variant="sm">{option.label}</Text>
               </Tag>
             )
           })}

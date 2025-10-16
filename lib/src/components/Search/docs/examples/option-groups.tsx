@@ -37,7 +37,7 @@ const Example = () => {
       renderGroupHeader={({ label, options }) => (
         <div className="p-var(--space-xxs)">
           <div className="flex justify-between items-center">
-            <Text className="m-0" variant="body-xl">
+            <Text className="m-0" variant="lg">
               {label}
             </Text>
             <Tag>{options.length}</Tag>
