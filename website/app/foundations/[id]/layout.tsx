@@ -16,7 +16,7 @@ const Layout = async ({ children, params }: React.PropsWithChildren<Params>) => 
     <Documentation.Layout>
       <Sidebar className="hidden lg:flex" menu={pages} />
       <div>
-        <Text className="py-3xl" variant="h1">
+        <Text as="h1" className="py-3xl" variant="display-sm">
           {getName(id)}
         </Text>
         <Tabs pages={pages} />
