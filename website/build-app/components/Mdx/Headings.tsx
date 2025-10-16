@@ -34,7 +34,7 @@ export const H3 = ({ children, className }: HeadingsProps) => {
       as="h3"
       className={`mb-lg mt-xxl scroll-mt-[170px] ${className}`}
       id={id}
-      variant="heading-md"
+      variant="heading-md-strong"
     >
       <a className="text-inherit hover:underline" href={`#${id}`}>
         {children}
@@ -49,7 +49,7 @@ export const H4 = ({ children, className }: HeadingsProps) => {
       as="h4"
       className={`mb-md mt-xl ${className}`}
       id={`${kebabCase(children?.toString())}`}
-      variant="heading-sm"
+      variant="heading-sm-strong"
     >
       {children}
     </Text>
@@ -62,7 +62,7 @@ export const H5 = ({ children, className }: HeadingsProps) => {
       as="h5"
       className={`mb-sm mt-lg ${className}`}
       id={`${kebabCase(children?.toString())}`}
-      variant="heading-xs"
+      variant="heading-xs-strong"
     >
       {children}
     </Text>
@@ -75,7 +75,7 @@ export const H6 = ({ children, className }: HeadingsProps) => {
       as="h6"
       className={`mb-sm mt-lg ${className}`}
       id={`${kebabCase(children?.toString())}`}
-      variant="heading-xs"
+      variant="heading-xs-strong"
     >
       {children}
     </Text>
