@@ -10,7 +10,7 @@ import { userInputInterface } from '../migrate-inline-files.mjs'
 import { getModule } from './esm.mjs'
 import { formatWithPrettier } from './format-with-prettier.mjs'
 import { getStackClassnames } from './parsing.mjs'
-import { transformValue } from './transform.mjs'
+import { transformValue, valueMap } from './transform.mjs'
 
 const traverse = getModule(traverseModule)
 const generate = getModule(generateModule)
@@ -253,7 +253,7 @@ function askUser(question) {
 /**
  * Helper to build new attributes array for a JSX element, including className and other props.
  */
-function buildAttributes(component, classnames, transformedPropKeys = []) {
+function buildAttributes(component, classnames) {
   const newAttributes = []
   if (classnames.length > 0) {
     newAttributes.push({
