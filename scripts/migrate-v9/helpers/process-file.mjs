@@ -4,6 +4,7 @@ import { parse } from '@babel/parser'
 import traverseModule from '@babel/traverse'
 
 import { getModule } from './esm.mjs'
+import { shouldExcludeFile } from './file-filters.mjs'
 import { parsePropsString } from './parsing.mjs'
 
 const traverse = getModule(traverseModule)
@@ -17,6 +18,11 @@ const traverse = getModule(traverseModule)
  * @param {Set<string>} whitelist - Set of allowed component root names
  */
 export function processFile(filePath, results, whitelist) {
+  // Skip test and story files
+  if (shouldExcludeFile(filePath)) {
+    return
+  }
+
   if (filePath.endsWith('.ts') || filePath.endsWith('.tsx')) {
     const content = fs.readFileSync(filePath, 'utf8')
     let ast
