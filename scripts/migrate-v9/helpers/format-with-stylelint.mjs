@@ -45,51 +45,12 @@ export async function formatScssContent(scssContent, filePath) {
       fix: true,
     })
 
-    // Get the stylelint result or original content
-    const styleLintedContent = result.code || scssContent
-
-    // Apply manual indentation fix as a post-processing step
-    return fixIndentation(styleLintedContent)
+    // Return the formatted content from stylelint, or original if formatting failed
+    return result.code || scssContent
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error(`Stylelint formatting failed for ${filePath}:`, error.message)
-    // Still apply manual indentation fix even if stylelint fails
-    return fixIndentation(scssContent)
+    // Return original content if stylelint fails - final formatDirectory will catch it
+    return scssContent
   }
-}
-
-/**
- * Simple post-processing to fix indentation issues that stylelint might miss
- * @param {string} scssContent - The SCSS content to fix
- * @returns {string} - The SCSS content with proper indentation
- */
-function fixIndentation(scssContent) {
-  const lines = scssContent.split('\n')
-  const result = []
-  let indentLevel = 0
-
-  for (const line of lines) {
-    const trimmedLine = line.trim()
-
-    // Skip empty lines
-    if (!trimmedLine) {
-      result.push('')
-      continue
-    }
-
-    // Decrease indent for closing braces
-    if (trimmedLine.startsWith('}')) {
-      indentLevel = Math.max(0, indentLevel - 1)
-    }
-
-    // Add the line with proper indentation
-    result.push('  '.repeat(indentLevel) + trimmedLine)
-
-    // Increase indent for opening braces
-    if (trimmedLine.endsWith('{')) {
-      indentLevel++
-    }
-  }
-
-  return result.join('\n')
 }

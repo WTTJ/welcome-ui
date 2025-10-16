@@ -27,7 +27,7 @@ export function findAllComponentUsages(directory) {
     return results
   }
 
-  let whitelist = WUI_COMPONENTS
+  let whitelist = new Set(WUI_COMPONENTS)
 
   // Cache the whitelist for this directory
   cachedWhitelist = whitelist
