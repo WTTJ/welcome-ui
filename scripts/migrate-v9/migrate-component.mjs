@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import fs from 'fs'
 
 import generateModule from '@babel/generator'
@@ -7,14 +8,17 @@ import traverseModule from '@babel/traverse'
 import { getModule } from './helpers/esm.mjs'
 import { formatWithPrettier } from './helpers/format-with-prettier.mjs'
 import { camelToKebab } from './helpers/string-utils.mjs'
-import { isStyledComponent } from './helpers/styled-component-patterns.mjs'
 import { WUI_COMPONENTS } from './helpers/wui-components.mjs'
 
 const traverse = getModule(traverseModule)
 const generate = getModule(generateModule)
 
 /**
- * Updates component file: replaces <S.MyElement /> with <li className="my-element" />
+ * Migrates component file from styled-components to CSS Modules
+ * - Replaces `import * as S from './styles'` with CSS Module imports
+ * - Transforms `<S.MyElement />` to `<div className={cx('my-element')} />`
+ * - Injects CSS variables for dynamic styles
+ * - Preserves WUI component props without transformation
  */
 export async function migrateComponentFile({ componentPath, cssVariables, stylesMap }) {
   let code = fs.readFileSync(componentPath, 'utf8')
@@ -25,12 +29,6 @@ export async function migrateComponentFile({ componentPath, cssVariables, styles
   })
 
   traverse(ast, {
-    ArrowFunctionExpression(path) {
-      // Handle const Component = () => {} pattern
-    },
-    FunctionDeclaration(path) {
-      // Insert style object declarations into component functions
-    },
     // Replace import * as S from './styles' with import './styles.module.scss'
     ImportDeclaration(path) {
       if (
@@ -65,7 +63,7 @@ export async function migrateComponentFile({ componentPath, cssVariables, styles
         path.node.openingElement.name.object.name === 'S'
       ) {
         const compName = path.node.openingElement.name.property.name
-        const { as, tag, variant } = stylesMap[compName] || 'div'
+        const { as, tag } = stylesMap[compName] || 'div'
         const className = camelToKebab(compName)
         let style = new Map([...cssVariables.entries()].filter(([key]) => key.includes(className)))
         if (!style.size) {
@@ -86,7 +84,7 @@ export async function migrateComponentFile({ componentPath, cssVariables, styles
           value: { type: 'StringLiteral', value: as },
         }
 
-        // Add as if available
+        // Add style if available
         const styleNode = style && {
           name: { name: 'style', type: 'JSXIdentifier' },
           type: 'JSXAttribute',
@@ -143,12 +141,6 @@ export async function migrateComponentFile({ componentPath, cssVariables, styles
         }
       }
     },
-    // Collect styled component definitions for dynamic analysis
-    VariableDeclarator(path) {
-      const node = path.node
-      if (node.id.name && isStyledComponent(node.init)) {
-      }
-    },
   })
 
   const output = generate(ast, {}, code).code
@@ -168,7 +160,6 @@ export async function migrateComponentFile({ componentPath, cssVariables, styles
 function processComponentProps({ attributes, baseClassName, tag }) {
   const newAttributes = []
   const classNameParts = [baseClassName]
-  // const styleProperties = []
 
   attributes.forEach(attr => {
     if (attr.type !== 'JSXAttribute') {

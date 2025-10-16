@@ -3,16 +3,16 @@ import { resolve } from 'path'
 
 import { beforeEach, describe, expect, it } from 'vitest'
 
-// import { setupExternalMigrationTest } from '../helpers/test-setup.mjs'
-import { migrateAll } from '../index.mjs'
 import { copyDirSync, deleteDirRecursive } from '../helpers/file-utils.mjs'
+import { setupExternalMigrationTest } from '../helpers/test-setup.mjs'
+import { migrateAll } from '../index.mjs'
 
 describe('External Migration - Simple Styled Components', () => {
   // Don't perform cleanup for now so that we can inspect the migrated files
-  // const tempDir = setupExternalMigrationTest(
-  //   'ExternalSimpleComponent-test',
-  //   'ExternalSimpleComponent'
-  // )
+  const tempDir = setupExternalMigrationTest(
+    'ExternalSimpleComponent-test',
+    'ExternalSimpleComponent'
+  )
 
   const fixturesDir = resolve(
     __dirname,
@@ -21,7 +21,6 @@ describe('External Migration - Simple Styled Components', () => {
     '__fixtures__',
     'ExternalSimpleComponent'
   )
-  const tempDir = resolve(__dirname, '..', 'temp', 'ExternalSimpleComponent-test')
 
   beforeEach(() => {
     // Clean up any existing temp directory and set up fresh copy
