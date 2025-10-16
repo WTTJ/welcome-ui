@@ -9,7 +9,7 @@ const cx = classNames(styles)
 export const Title = ({ children, className, ...rest }: TitleProps) => {
   return (
     <div className={cx('title', className)} {...rest}>
-      <Text className="w-full" variant="h3">
+      <Text as="h3" className="w-full" variant="heading-lg">
         {children}
       </Text>
     </div>
