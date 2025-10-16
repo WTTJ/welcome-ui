@@ -2,64 +2,70 @@
   .root {
     /* VARIABLES FROM THEME - DONT CHANGE WITH REACT PROPS */
     align-items: center;
-    border-radius: var(--components-dimensions-badge-size-max-height-md);
     display: inline-flex;
-    font-size: var(--border-radius-lg);
-    font-weight: var(--font-weight-medium);
     justify-content: center;
-    line-height: var(--font-size-sm);
 
     /* VARIABLES THAT CHANGE WITH REACT PROPS */
     background-color: var(--backgroundColor);
+    border-radius: var(--borderRadius);
     color: var(--color);
+    font-size: var(--fontSize);
+    font-weight: var(--fontWeight);
     height: var(--height);
-    padding: var(--padding);
+    max-height: var(--maxHeight);
+    min-width: var(--minWidth);
+    padding-block: var(--paddingBlock);
+    padding-inline: var(--paddingInline);
     width: var(--width);
   }
 
-  .disabled {
-    &-default {
-      --backgroundColor: var(--color-background-warm-primary);
-      --color: var(--color-background-warm-stronger);
-    }
-
-    &-primary {
-      --backgroundColor: var(--color-background-brand-strong);
-      --color: var(--color-icon-brand-secondary);
-    }
-  }
-
-  .rounded {
-    &-md {
-      --width: var(--components-dimensions-badge-size-max-height-lg);
-    }
-
-    &-sm {
-      --width: var(--components-dimensions-badge-size-max-height-md);
-    }
-  }
-
   .size {
+    &-lg {
+      --borderRadius: var(--components-dimensions-badge-border-radius-lg);
+      --fontSize: var(--font-size-sm);
+      --fontWeight: var(--font-weight-semi-bold);
+      --maxHeight: var(--components-dimensions-badge-size-max-height-lg);
+      --minWidth: var(--components-dimensions-badge-size-min-width-lg);
+      --paddingBlock: var(--components-dimensions-badge-padding-block-lg);
+      --paddingInline: var(--components-dimensions-badge-padding-inline-lg);
+    }
+
     &-md {
-      --height: var(--components-dimensions-badge-size-max-height-lg);
-      --padding: var(--components-dimensions-badge-padding-inline-md);
+      --borderRadius: var(--components-dimensions-badge-border-radius-md);
+      --fontSize: var(--font-size-xs);
+      --fontWeight: var(--font-weight-bold);
+      --maxHeight: var(--components-dimensions-badge-size-max-height-md);
+      --minWidth: var(--components-dimensions-badge-size-min-width-md);
+      --paddingBlock: var(--components-dimensions-badge-padding-block-md);
+      --paddingInline: var(--components-dimensions-badge-padding-inline-md);
     }
 
     &-sm {
-      --height: var(--components-dimensions-badge-size-max-height-md);
-      --padding: var(--components-dimensions-badge-padding-block-md);
+      --borderRadius: var(--components-dimensions-badge-border-radius-sm);
+      --height: var(--components-dimensions-badge-size-max-height-sm);
+      --width: var(--components-dimensions-badge-size-min-width-sm);
     }
   }
 
   .variant {
-    &-default {
-      --backgroundColor: var(--components-colors-badge-color-background-warm);
-      --color: var(--color-icon-warm-tertiary);
+    &-brand {
+      --backgroundColor: var(--components-colors-badge-color-background-brand);
+      --color: var(--components-colors-badge-color-text-brand);
     }
 
-    &-primary {
-      --backgroundColor: var(--components-colors-badge-color-background-brand);
-      --color: var(--components-colors-badge-color-background-neutral);
+    &-neutral {
+      --backgroundColor: var(--components-colors-badge-color-background-neutral);
+      --color: var(--components-colors-badge-color-text-neutral);
+    }
+
+    &-warm {
+      --backgroundColor: var(--components-colors-badge-color-background-warm);
+      --color: var(--components-colors-badge-color-text-warm);
+    }
+
+    &-blue {
+      --backgroundColor: var(--components-colors-badge-color-background-blue);
+      --color: var(--components-colors-badge-color-text-blue);
     }
   }
 }

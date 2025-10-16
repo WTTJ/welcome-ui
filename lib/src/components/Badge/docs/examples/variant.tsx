@@ -3,8 +3,10 @@ import { Badge } from '@/components/Badge'
 const Example = () => {
   return (
     <>
-      <Badge>default</Badge>
-      <Badge variant="primary">primary</Badge>
+      <Badge>brand</Badge>
+      <Badge variant="blue">blue</Badge>
+      <Badge variant="neutral">neutral</Badge>
+      <Badge variant="warm">warm</Badge>
     </>
   )
 }

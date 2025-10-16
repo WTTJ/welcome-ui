@@ -1,34 +1,6 @@
 {
   "Badge": {
     "props": {
-      "disabled": {
-        "defaultValue": null,
-        "description": "",
-        "name": "disabled",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Badge/types.ts",
-          "name": "BadgeOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Badge/types.ts",
-            "name": "BadgeOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "enum",
-          "raw": "boolean",
-          "value": [
-            {
-              "value": "false"
-            },
-            {
-              "value": "true"
-            }
-          ]
-        }
-      },
       "size": {
         "defaultValue": {
           "value": "md"
@@ -48,8 +20,11 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "\"md\" | \"sm\"",
+          "raw": "\"lg\" | \"md\" | \"sm\"",
           "value": [
+            {
+              "value": "\"lg\""
+            },
             {
               "value": "\"md\""
             },
@@ -61,7 +36,7 @@
       },
       "variant": {
         "defaultValue": {
-          "value": "default"
+          "value": "brand"
         },
         "description": "",
         "name": "variant",
@@ -78,13 +53,19 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "\"default\" | \"primary\"",
+          "raw": "\"blue\" | \"brand\" | \"neutral\" | \"warm\"",
           "value": [
             {
-              "value": "\"default\""
+              "value": "\"blue\""
             },
             {
-              "value": "\"primary\""
+              "value": "\"brand\""
+            },
+            {
+              "value": "\"neutral\""
+            },
+            {
+              "value": "\"warm\""
             }
           ]
         }
