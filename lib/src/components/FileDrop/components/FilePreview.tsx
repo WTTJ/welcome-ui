@@ -23,7 +23,7 @@ export const FilePreview = ({
   return (
     <>
       <Icon className={cx('file-preview-icon')} name={iconName} size="xxl" />
-      <Text as="h4" className={cx('file-preview-name')} lines={1} variant="heading-md">
+      <Text as="h4" className={cx('file-preview-name')} lines={1} variant="heading-md-strong">
         {name}
       </Text>
       {!isUrl && (
