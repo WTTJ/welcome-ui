@@ -69,9 +69,12 @@ export function migrateStylesTsToScss({ cssVariables = new Map(), mixins = new M
     scssContent.push(...mixinDefs)
     scssContent.push('') // Empty line separator
   }
-  scssContent.push(...classDefs)
 
-  return scssContent.join('\n\n')
+  scssContent.push('@layer components {')
+  scssContent.push(...classDefs)
+  scssContent.push('}')
+
+  return scssContent.join('\n')
 }
 
 /**

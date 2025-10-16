@@ -50,8 +50,21 @@ export async function migrateComponentFile({ componentPath, cssVariables, styles
         path.node.specifiers[0].local.name === 'S' &&
         path.node.source.value === './styles'
       ) {
+        // Replace with styles.module.scss import
         path.replaceWith(
           parse("import styles from './styles.module.scss'", {
+            sourceType: 'module',
+          }).program.body[0]
+        )
+        // Insert classNames import after the styles import
+        path.insertAfter(
+          parse("import { classNames } from 'welcome-ui/utils'", {
+            sourceType: 'module',
+          }).program.body[0]
+        )
+        // Insert const cx = classNames(styles) declaration after imports
+        path.insertAfter(
+          parse('const cx = classNames(styles)', {
             sourceType: 'module',
           }).program.body[0]
         )
