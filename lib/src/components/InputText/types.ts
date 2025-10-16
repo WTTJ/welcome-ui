@@ -11,6 +11,6 @@ export interface InputTextOptions {
 
 export type InputTextProps = InputTextOptions & Omit<ComponentProps<'input'>, 'size'>
 
-export type Size = 'lg' | 'md' | 'sm' | 'xs'
+export type Size = 'lg' | 'md' | 'sm'
 
 export type Variant = 'danger' | 'success' | 'warning'
