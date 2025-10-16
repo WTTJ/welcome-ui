@@ -8,12 +8,14 @@ type Variant = 'primary' | 'secondary'
 export const Complex = ({ variant = 'primary' }: { variant?: Variant }) => {
   return (
     <S.Wrapper variant={variant}>
-      <S.Card elevated>
-        <S.TitleWrapper>
-          <S.Title displayDetail>Complex component</S.Title>
+      <S.Card elevated to="/fishcakes">
+        <S.TitleWrapper isActive={false}>
+          <S.Title color="neutral-10" displayDetail>
+            Complex component
+          </S.Title>
         </S.TitleWrapper>
       </S.Card>
-      <Text as="span" color="dark-50" fontSize="sm" mt="auto" textAlign="center">
+      <Text as="span" color="dark-50" fontSize="sm" mt="auto" textAlign="center" variant="h5">
         <FormattedMessage defaultMessage="© 2024 Acme Corp. All rights reserved." id="8XKXo+" />
       </Text>
       <S.TriggerButton isActive={true}>Toggle</S.TriggerButton>
