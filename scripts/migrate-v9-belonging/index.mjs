@@ -24,6 +24,12 @@ const MIGRATION_CONFIG = [
   //   component: 'Tag',
   //   script: './transform-tag.mjs',
   // },
+  // You can list multiple component names under one transform script
+  // {
+  //   components: ['InputText', 'DatePicker', 'DateTimePicker'],
+  //   script: './transform-inputText.mjs',
+  // },
+  // Add more entries here: each entry's `components` can be a string or array of strings
 ]
 
 /**
@@ -137,22 +143,27 @@ async function migrate(searchDirectory, dryRun = true) {
   console.log(`Mode: ${dryRun ? 'DRY RUN (no changes will be made)' : 'APPLY CHANGES'}`)
   console.log()
 
-  // Load all transformation modules
+  // Load all transformation modules (supporting single or multiple components per entry)
   const transformers = {}
   for (const config of MIGRATION_CONFIG) {
-    try {
-      transformers[config.component] = await import(config.script)
-      console.log(`✅ Loaded transformation script for ${config.component}`)
-    } catch (error) {
-      console.error(
-        `❌ Failed to load transformation script for ${config.component}:`,
-        error.message
-      )
+    const names = Array.isArray(config.components)
+      ? config.components
+      : [config.components || config.component]
+    for (const name of names) {
+      try {
+        transformers[name] = await import(config.script)
+        console.log(`✅ Loaded transformation script for ${name}`)
+      } catch (error) {
+        console.error(`❌ Failed to load transformation script for ${name}:`, error.message)
+      }
     }
   }
   console.log()
 
-  const componentNames = MIGRATION_CONFIG.map(c => c.component)
+  // Flatten component names for matching usages
+  const componentNames = MIGRATION_CONFIG.flatMap(c =>
+    Array.isArray(c.components) ? c.components : [c.components || c.component]
+  )
   const filesWithComponents = []
 
   // Walk directory and find all files with target components
@@ -200,15 +211,19 @@ async function migrate(searchDirectory, dryRun = true) {
 
     for (const file of filesWithComponents) {
       let fileModified = false
-
-      for (const [componentName] of Object.entries(file.components)) {
-        const transformer = transformers[componentName]
-
+      // Apply each configured script once if any of its components appear
+      for (const config of MIGRATION_CONFIG) {
+        // Normalize to array of names
+        const names = Array.isArray(config.components)
+          ? config.components
+          : [config.components || config.component]
+        // Check if file uses any of these component names
+        const foundName = names.find(name => file.components[name])
+        if (!foundName) continue
+        const transformer = transformers[foundName]
         if (transformer) {
-          const wasModified = await applyTransformation(file.path, componentName, transformer)
-          if (wasModified) {
-            fileModified = true
-          }
+          const wasModified = await applyTransformation(file.path, foundName, transformer)
+          if (wasModified) fileModified = true
         }
       }
 
