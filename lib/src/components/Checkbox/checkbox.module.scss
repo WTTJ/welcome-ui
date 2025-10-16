@@ -69,9 +69,9 @@
 
   .variant {
     &-danger {
-      --borderColor: var(--color-background-danger-strongest);
-      --borderColorHover: var(--color-background-danger-strongest);
-      --borderColorFocused: var(--color-background-danger-strongest);
+      --borderColor: var(--components-colors-checkbox-color-border-error);
+      --borderColorHover: var(--components-colors-checkbox-color-border-error);
+      --borderColorFocused: var(--components-colors-checkbox-color-border-error);
       --outlineColorFocus: var(--color-background-danger-secondary);
     }
 
