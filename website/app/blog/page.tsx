@@ -71,17 +71,17 @@ const Home = () => {
   return (
     <main className="p-xl">
       <div className="max-w-[37.5rem] mt-xl mx-auto">
-        <Text className="text-center" variant="subtitle-md">
+        <Text className="text-center" variant="label-lg">
           Blog
         </Text>
-        <Text className="text-center" variant="h1">
+        <Text as="h1" className="text-center" variant="display-sm">
           The latest about us
         </Text>
         <ul className="list-none m-0 mt-xxl md:mt-5xl p-0">
           {posts.map(({ authors, cover, date, description, link, tags, title }) => (
             <li className="mb-3xl" key={link}>
               <Card>
-                {cover ? <Card /> : null}
+                {cover ? <Card.Cover alt={`${title} image`} src={cover} /> : null}
                 <Card.Body>
                   <div className="flex gap-xxs mb-xl">
                     {tags?.map(tag => (
@@ -101,7 +101,7 @@ const Home = () => {
                           <Avatar key={`${link}_authors_${url}`} name={name} src={url} />
                         ))}
                       </div>
-                      <Text as="span" className="font-bold" variant="sm">
+                      <Text as="span" variant="body-md-strong">
                         {authors?.map(({ name }, idx) => (
                           <>
                             {idx !== 0 && ', '}
@@ -109,7 +109,7 @@ const Home = () => {
                           </>
                         ))}
                       </Text>
-                      <Text variant="xs">{date.toDateString()}</Text>
+                      <Text variant="body-sm">{date.toDateString()}</Text>
                       <Button
                         as="a"
                         className="w-fit shrink-0"
