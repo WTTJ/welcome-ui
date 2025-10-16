@@ -29,7 +29,7 @@ const Example = () => {
         return (
           <div className="flex items-center">
             <Icon className="mr-(--spacing-sm)" name="plus" size="sm" />
-            <Text as="span" variant="body-md">
+            <Text as="span" variant="sm">
               Add <b>{value.toString()}</b> as a new option
             </Text>
           </div>
