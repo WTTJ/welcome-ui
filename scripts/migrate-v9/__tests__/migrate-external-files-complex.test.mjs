@@ -35,10 +35,10 @@ describe('External Migration - Complex Styled Components', () => {
 
     // Read results
     const migratedComponent = readFileSync(resolve(tempDir, 'index.tsx'), 'utf8')
-    const generatedScss = readFileSync(resolve(tempDir, 'styles.scss'), 'utf8')
+    const generatedScss = readFileSync(resolve(tempDir, 'styles.module.scss'), 'utf8')
 
     // Verify with snapshots
     expect(migratedComponent).toMatchSnapshot('complex-component.tsx')
-    expect(generatedScss).toMatchSnapshot('complex-styles.scss')
+    expect(generatedScss).toMatchSnapshot('complex-styles.module.scss')
   })
 })

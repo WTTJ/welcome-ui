@@ -8,7 +8,6 @@ import { getModule } from './helpers/esm.mjs'
 import { formatWithPrettier } from './helpers/format-with-prettier.mjs'
 import { camelCase, camelToKebab } from './helpers/string-utils.mjs'
 import { isStyledComponent } from './helpers/styled-component-patterns.mjs'
-import { syncBuiltinESMExports } from 'module'
 
 const traverse = getModule(traverseModule)
 const generate = getModule(generateModule)
@@ -30,7 +29,6 @@ export async function migrateComponentFile({ componentPath, cssVariables, styles
   // Collect styled component definitions for prop analysis
   const styledComponentDefinitions = new Map()
 
-  // Replace import * as S from './styles' with import './styles.scss'
   traverse(ast, {
     ArrowFunctionExpression(path) {
       // Handle const Component = () => {} pattern
@@ -44,6 +42,7 @@ export async function migrateComponentFile({ componentPath, cssVariables, styles
         insertStyleObjectDeclarations(path, styleObjectsToGenerate)
       }
     },
+    // Replace import * as S from './styles' with import './styles.module.scss'
     ImportDeclaration(path) {
       if (
         path.node.specifiers.length === 1 &&
@@ -52,7 +51,7 @@ export async function migrateComponentFile({ componentPath, cssVariables, styles
         path.node.source.value === './styles'
       ) {
         path.replaceWith(
-          parse("import './styles.scss'", {
+          parse("import styles from './styles.module.scss'", {
             sourceType: 'module',
           }).program.body[0]
         )
@@ -66,9 +65,7 @@ export async function migrateComponentFile({ componentPath, cssVariables, styles
         const compName = path.node.openingElement.name.property.name
         const { as, tag, variant } = stylesMap[compName] || 'div'
         const className = camelToKebab(compName)
-        let style = new Map(
-          [...cssVariables.entries()].filter(([key, value]) => key.includes(className))
-        )
+        let style = new Map([...cssVariables.entries()].filter(([key]) => key.includes(className)))
         if (!style.size) {
           style = undefined
         }
@@ -95,11 +92,28 @@ export async function migrateComponentFile({ componentPath, cssVariables, styles
           value: {
             expression: {
               expression: {
-                properties: Array.from(style.entries()).map(([key, value]) => ({
-                  key: { type: 'StringLiteral', value: key },
-                  type: 'ObjectProperty',
-                  value: { type: 'StringLiteral', value },
-                })),
+                properties: Array.from(style.entries()).map(([key, value]) => {
+                  // Parse the value as a JavaScript expression instead of a string literal
+                  let valueNode
+                  try {
+                    // Parse the value as an expression
+                    const parsedExpression = parse(value, {
+                      plugins: ['typescript'],
+                      sourceType: 'module',
+                    })
+                    // Extract the expression from the parsed program
+                    valueNode = parsedExpression.program.body[0].expression
+                  } catch {
+                    // Fallback to string literal if parsing fails
+                    valueNode = { type: 'StringLiteral', value }
+                  }
+
+                  return {
+                    key: { type: 'StringLiteral', value: key },
+                    type: 'ObjectProperty',
+                    value: valueNode,
+                  }
+                }),
                 type: 'ObjectExpression',
               },
               type: 'TSAsExpression',
@@ -180,11 +194,11 @@ function generateConditionalCssVariable(propName, baseClassName, attrValue) {
     const expression = attrValue.expression
     if (expression.type === 'Identifier') {
       // variant={variant} -> variant === 'primary' ? 'color-primary-500' : 'color-secondary-500'
-      valueExpression = `${expression.name} === 'primary' ? 'color-primary-500' : 'color-secondary-500'`
+      valueExpression = 'FIX: Identifier'
     } else if (expression.type === 'ConditionalExpression') {
       // Already a conditional, extract it properly
       // For now, use a placeholder - this needs AST transformation
-      valueExpression = 'conditional-value'
+      valueExpression = 'FIX: ConditionalExpression'
     }
   }
 
