@@ -18,10 +18,10 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(
         {children ? <div className={cx('footer-children-wrapper')}>{children}</div> : null}
         {information ? (
           <div className={cx('footer-information')}>
-            <Text className={cx('footer-information-title', 'uppercase')} variant="label-sm">
+            <Text className={cx('footer-information-title')} variant="subtitle-sm">
               {information.title}
             </Text>
-            <Text className={cx('footer-information-subtitle')} variant="body-md">
+            <Text className={cx('footer-information-subtitle')} variant="sm">
               {information.subtitle}
             </Text>
           </div>
