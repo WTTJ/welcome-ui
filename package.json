@@ -17,6 +17,7 @@
     "tokens:build": "yarn workspace welcome-ui run tokens:build",
     "theme:generate": "yarn workspace welcome-ui run theme:generate",
     "migrate": "node ./scripts/migrate-v9/index.mjs",
+    "migrate:belonging": "node ./scripts/migrate-v9-belonging/index.mjs",
     "postinstall": "husky install",
     "release:dev": "node .dev-releases/version.mjs",
     "release:alpha": "yarn workspace welcome-ui run release-it --preRelease=alpha",
