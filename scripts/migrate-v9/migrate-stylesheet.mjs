@@ -110,8 +110,6 @@ function extractCssFromTemplateLiteral({ cssSelector, cssVariables, mixins = new
   // Use our enhanced AST-based CSS transformer (Phase 4: Integration)
   const result = transformCssAst({ cssSelector, cssVariables, mixins, node })
 
-  console.debug('extractCssFromTemplateLiteral', result.cssVariables)
-
   // Extract CSS from the result object
   if (result && result.css) {
     return result.css.trim()
