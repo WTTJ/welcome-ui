@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import fs from 'fs'
+import path from 'path'
 
 import generateModule from '@babel/generator'
 import { parse } from '@babel/parser'
@@ -29,17 +30,23 @@ export async function migrateComponentFile({ componentPath, cssVariables, styles
   })
 
   traverse(ast, {
-    // Replace import * as S from './styles' with import './styles.module.scss'
+    // Replace import * as S from './styles' or '../styles' with import './styles.module.scss'
     ImportDeclaration(path) {
       if (
         path.node.specifiers.length === 1 &&
         path.node.specifiers[0].type === 'ImportNamespaceSpecifier' &&
         path.node.specifiers[0].local.name === 'S' &&
-        path.node.source.value === './styles'
+        (path.node.source.value === './styles' ||
+          path.node.source.value === '../styles' ||
+          path.node.source.value.endsWith('/styles'))
       ) {
+        // Preserve the relative path structure
+        const stylesImportPath = path.node.source.value
+        const scssImportPath = stylesImportPath + '.module.scss'
+
         // Replace with styles.module.scss import
         path.replaceWith(
-          parse("import styles from './styles.module.scss'", {
+          parse(`import styles from '${scssImportPath}'`, {
             sourceType: 'module',
           }).program.body[0]
         )
@@ -63,7 +70,7 @@ export async function migrateComponentFile({ componentPath, cssVariables, styles
         path.node.openingElement.name.object.name === 'S'
       ) {
         const compName = path.node.openingElement.name.property.name
-        const { as, tag } = stylesMap[compName] || 'div'
+        const { as, tag } = stylesMap[compName] || { as: undefined, tag: 'div' }
         const className = camelToKebab(compName)
         let style = new Map([...cssVariables.entries()].filter(([key]) => key.includes(className)))
         if (!style.size) {

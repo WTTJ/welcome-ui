@@ -35,3 +35,30 @@ export function deleteDirRecursive(dirPath) {
     fs.rmdirSync(dirPath)
   }
 }
+
+/**
+ * Recursively find all files matching a pattern in a directory
+ * @param {string} dir - Directory to search
+ * @param {(file: string) => boolean} filterFn - Function to filter files
+ * @returns {string[]} - Array of absolute file paths
+ */
+export function findFilesRecursive(dir, filterFn) {
+  const results = []
+
+  function scan(currentDir) {
+    const items = fs.readdirSync(currentDir)
+    for (const item of items) {
+      const fullPath = path.join(currentDir, item)
+      const stat = fs.lstatSync(fullPath)
+
+      if (stat.isDirectory()) {
+        scan(fullPath)
+      } else if (filterFn(fullPath)) {
+        results.push(fullPath)
+      }
+    }
+  }
+
+  scan(dir)
+  return results
+}

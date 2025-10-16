@@ -48,10 +48,9 @@ export async function formatDirectory(directory) {
     try {
       console.log(`  ⏳ Running Prettier on ${tsFiles.length} TS/JS file(s)...`)
       const tsFilePaths = tsFiles.map(f => `"${f}"`).join(' ')
-      const { stderr, stdout } = await execAsync(`prettier --write ${tsFilePaths}`, {
+      const { stderr } = await execAsync(`prettier --write ${tsFilePaths}`, {
         cwd: process.cwd(),
       })
-      if (stdout) console.log(stdout)
       if (stderr) console.log(stderr)
       console.log(`  ✅ Prettier (TS/JS) completed - ${tsFiles.length} file(s) formatted`)
     } catch (error) {
@@ -64,10 +63,9 @@ export async function formatDirectory(directory) {
     try {
       console.log(`  ⏳ Running Prettier on ${scssFiles.length} SCSS file(s)...`)
       const scssFilePaths = scssFiles.map(f => `"${f}"`).join(' ')
-      const { stderr, stdout } = await execAsync(`prettier --write ${scssFilePaths}`, {
+      const { stderr } = await execAsync(`prettier --write ${scssFilePaths}`, {
         cwd: process.cwd(),
       })
-      if (stdout) console.log(stdout)
       if (stderr) console.log(stderr)
       console.log(`  ✅ Prettier (SCSS) completed - ${scssFiles.length} file(s) formatted`)
     } catch (error) {
@@ -78,15 +76,13 @@ export async function formatDirectory(directory) {
       // Run Stylelint --fix on SCSS files
       console.log(`  ⏳ Running Stylelint --fix on ${scssFiles.length} SCSS file(s)...`)
       const scssFilePaths = scssFiles.map(f => `"${f}"`).join(' ')
-      // For external repos, use --no-ignore to bypass ignore patterns
-      const stylelintFlags = isExternalRepo ? '--no-ignore' : ''
-      const { stderr, stdout } = await execAsync(
-        `stylelint --fix ${stylelintFlags} ${scssFilePaths}`,
+      // For external repos, use --disable-default-ignores to bypass ignore patterns
+      const { stderr } = await execAsync(
+        `stylelint --fix --disable-default-ignores ${scssFilePaths}`,
         {
           cwd: process.cwd(),
         }
       )
-      if (stdout) console.log(stdout)
       if (stderr) console.log(stderr)
       console.log(`  ✅ Stylelint --fix completed - ${scssFiles.length} file(s) linted`)
     } catch (error) {
@@ -99,27 +95,15 @@ export async function formatDirectory(directory) {
     try {
       console.log(`  ⏳ Running ESLint --fix on ${tsFiles.length} TS/JS file(s)...`)
 
-      if (isExternalRepo) {
-        // For external repos, run ESLint from the target repo root with relative paths
-        // This allows ESLint to find and use the target repo's config
-        const relativeFiles = tsFiles.map(f => path.relative(targetRepoRoot, f))
-        const { stderr, stdout } = await execAsync(
-          `${process.cwd()}/node_modules/.bin/eslint --fix ${relativeFiles.map(f => `"${f}"`).join(' ')}`,
-          {
-            cwd: targetRepoRoot,
-          }
-        )
-        if (stdout) console.log(stdout)
-        if (stderr) console.log(stderr)
-      } else {
-        // For welcome-ui repo, run normally
-        const tsFilePaths = tsFiles.map(f => `"${f}"`).join(' ')
-        const { stderr, stdout } = await execAsync(`eslint --fix ${tsFilePaths}`, {
-          cwd: process.cwd(),
-        })
-        if (stdout) console.log(stdout)
-        if (stderr) console.log(stderr)
-      }
+      // This allows ESLint to find and use the target repo's config
+      const relativeFiles = tsFiles.map(f => path.relative(targetRepoRoot, f))
+      const { stderr } = await execAsync(
+        `${process.cwd()}/node_modules/.bin/eslint --fix ${relativeFiles.map(f => `"${f}"`).join(' ')}`,
+        {
+          cwd: targetRepoRoot,
+        }
+      )
+      if (stderr) console.log(stderr)
 
       console.log(`  ✅ ESLint --fix completed - ${tsFiles.length} file(s) linted`)
     } catch (error) {
