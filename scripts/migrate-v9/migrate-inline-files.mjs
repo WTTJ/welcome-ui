@@ -1,10 +1,9 @@
-import fs from 'fs'
-import path from 'path'
 import readline from 'readline'
 
 import { walkDirectory } from './helpers/file-ops.mjs'
 import { processComponents } from './helpers/process-components.mjs'
 import { processFile } from './helpers/process-file.mjs'
+import { WUI_COMPONENTS } from './helpers/wui-components.mjs'
 
 // Create readline interface for user input for interactive CLI
 export const userInputInterface = readline.createInterface({
@@ -28,31 +27,7 @@ export function findAllComponentUsages(directory) {
     return results
   }
 
-  // Build whitelist from the actual welcome-ui project components directory
-  // This ensures we always have the complete list of available components
-  const scriptDir = path.dirname(new URL(import.meta.url).pathname)
-  const welcomeUiComponentsDir = path.resolve(scriptDir, '../../lib/src/components')
-
-  let whitelist = new Set()
-  try {
-    if (
-      fs.existsSync(welcomeUiComponentsDir) &&
-      fs.statSync(welcomeUiComponentsDir).isDirectory()
-    ) {
-      whitelist = new Set(
-        fs
-          .readdirSync(welcomeUiComponentsDir, { withFileTypes: true })
-          .filter(dirent => dirent.isDirectory())
-          .map(dirent => dirent.name)
-      )
-    }
-  } catch {
-    // If we can't read the welcome-ui components directory, continue with empty whitelist
-  }
-
-  // Always include COMPONENTS_TO_REPLACE in the whitelist
-  const COMPONENTS_TO_REPLACE = ['Box', 'Flex', 'Grid', 'Stack']
-  COMPONENTS_TO_REPLACE.forEach(name => whitelist.add(name))
+  let whitelist = WUI_COMPONENTS
 
   // Cache the whitelist for this directory
   cachedWhitelist = whitelist
