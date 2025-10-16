@@ -32,9 +32,9 @@ export const NavBar = ({ className, onClick }: NavBarProps) => {
                 className={cx('link')}
                 href={`/${item}`}
                 onClick={onClick}
-                variant="subtitle-md"
+                variant="label-lg"
               >
-                {item}
+                {item.toUpperCase()}
               </Text>
             </li>
           ))}
