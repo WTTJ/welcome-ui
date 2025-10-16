@@ -18,9 +18,10 @@ export const actions = [
   'info-circle',
   'chart-line',
   'plus',
+  'chart-line',
   'archive-alt',
-  'arrows-shrink-h',
-  'arrows-maximize',
+  'arrows-merge-v', // (not unicons, personal mashup)
+  'arrows-shrink-v',
   'apps',
   'user-check',
   'user-plus',
@@ -33,10 +34,12 @@ export const actions = [
   'draggable-dots',
   'copy',
   'pen',
-  'compress-arrows',
-  'expand-arrows-alt',
-  'text-size',
+  'left-arrow-from-left',
+  'arrow-from-right',
+  'resize-handle', // (not unicons)
+  'arrow-resize-diagonal',
   'external-link-alt',
+  'heart-solid',
   'heart',
   'filter',
   'eye',
@@ -46,7 +49,7 @@ export const actions = [
   'bars',
   'ellipsis-v',
   'ellipsis-h',
-  'arrows-resize',
+  'move-arrow', // (not unicons)
   'bell',
   'print',
   'bolt-alt',
@@ -59,13 +62,17 @@ export const actions = [
 ] as const
 
 export const miscellaneous = [
+  'music',
   'sparkles',
   'rocket',
   'file-alt',
   'user-square',
   'book-reader',
   'file-question-alt',
+  'sad-solid',
+  'smile-beam-solid',
   'sad',
+  'smile-beam',
   'sign-right',
   'exclamation-triangle',
   'exclamation-circle',
@@ -77,6 +84,7 @@ export const miscellaneous = [
   'user-check',
   'apps',
   'trophy',
+  'bookmark-solid',
   'bookmark',
   'clock',
   'comment-alt-lines',
@@ -94,75 +102,70 @@ export const miscellaneous = [
   'mars',
   'estate',
   'info-circle',
-  'info-circle',
   'columns',
   'english-to-chinese',
   'bag-alt',
   'chart-line',
   'map-marker-alt',
   'lock-alt',
-  'flag',
+  'flag', // (not unicons)
   'at',
   'user-circle',
-  'clipboard-check',
+  'clipboard-check', // (not unicons, personal mashup)
   'building',
   'compass',
   'phone',
-  'phone',
-  'map-pin',
+  'pin', // (not unicons)
   'microphone',
-  'users-search',
+  'user-search', // (not unicons, personal mashup)
   'house-user',
-  'start',
-  'start',
-  'dollar-sign',
-  'euro-circle',
-  'link',
-  'question-circle',
-  'calendar-alt',
-  'gift',
-  'party',
+  'star-solid',
   'star',
+  'coins',
+  'euro-circle',
+  'file-search-alt',
+  'question-circle',
+  'gift',
+  'birthday-cake', // (not unicons)
+  'bunting-flags', // (not unicons)
   'tag-alt',
   'tablet',
   'mobile',
   'video',
   'plus-circle',
-  'edit',
+  'pen',
   'check-circle',
-  'award',
+  'certified', // (not unicons, personal mashup)
   'plug',
-  'clock',
-  'smile-beam-solid',
-  'sad-solid',
-  'music',
-  'package',
-  '10-plus-solid',
 ] as const
 
 export const player = [
   'play',
+  'stop-circle-solid',
+  'pause-circle-solid',
+  'previous',
   'step-forward',
-  'step-backward',
   'expand-arrows-alt',
   'compress-arrows',
-  'desktop-slash',
-  'desktop',
+  'screen-share', // (not unicons)
+  'stop-screen-share', // (not unicons)
   'microphone',
   'microphone-slash',
-  'tv-retro',
-  'tv-retro-slash',
+  'cast', // (not unicons)
+  'cast-connected', // (not unicons, personal mashup)
+  'cast-unavailable', // (not unicons, personal mashup)
   'video',
   'video-slash',
   'airplay',
-  'clock',
-  'list-ul',
+  'history',
+  'playlist', // (not unicons)
   'volume-up',
   'volume-mute',
   'closed-captioning',
 ] as const
 
 export const wtf = [
+  'package',
   'basketball',
   'book-alt',
   'lightbulb-alt',
@@ -172,53 +175,54 @@ export const wtf = [
   'shopping-cart',
   'clipboard-notes',
   'coffee',
-  'compass',
+  'ruler',
   'desktop',
   'hard-hat',
   'credit-card',
+  'moon-solid',
   'moon',
-  'crosshairs',
-  'crown',
+  'crosshair',
+  'crown', // (not unicons)
   'restaurant',
   'diamond',
-  'industry',
-  'fingerprint',
+  'industry', // (not unicons)
+  'fingerprint', // (not unicons)
   'flag',
+  'flag-solid', // (not unicons, personal mashup)
   'setting',
   'handshake',
-  'hashtag',
+  'hashtag', // (not unicons)
   'headphones',
-  'heart-sign',
+  'heart',
   'estate',
   'balance-scale',
   'key-skeleton',
-  'leaf',
+  'leaf', // (not unicons)
   'map',
-  'th',
-  'th-large',
+  'masonry', // (not unicons, personal mashup)
+  'masonry-plus', // (not unicons, personal mashup)
   'megaphone',
   'microphone',
   'processor',
-  'dollar-sign',
+  'euro-circle',
   'mountains',
-  'message',
   'pen',
-  'pictures',
-  'piechart',
+  'images',
+  'chart-pie-alt',
   'pizza-slice',
+  'puzzle-piece-solid',
   'puzzle-piece',
   'shield',
   'wrench',
-  'star',
+  'sparkles', // (not unicons)
   'server',
   'sun',
   'hunting',
   'thumbs-up',
   'thumbs-down',
-  'triangle',
   'trees',
-  'users',
-  'presentation',
+  'sofa', // (not unicons)
+  'exit', // (not unicons, personal mashup)
   'redo',
   'play',
   'ban',
@@ -233,14 +237,20 @@ export const markdown = [
   'italic',
   'list-ol-alt',
   'list-ul',
-  'quote-left',
+  'quote', // (not unicons)
   'text-strike-through',
-  'text-size',
+  'heading', // (not unicons, original creation)
+  'heading-1', // (not unicons, original creation)
+  'heading-2', // (not unicons, original creation)
+  'heading-3', // (not unicons, original creation)
+  'heading-4', // (not unicons, original creation)
+  'heading-5', // (not unicons, original creation)
+  'heading-6', // (not unicons, original creation)
   'font',
   'underline',
 ] as const
 
-export const table = ['table', 'columns', 'trash'] as const
+export const table = ['table', 'columns'] as const
 
 export const brands = [
   'behance',
@@ -250,8 +260,16 @@ export const brands = [
   'google',
   'instagram',
   'linkedin',
+  'npm', // (not unicons)
+  'pinterest', // (not unicons)
   'slack',
+  'stackoverflow', // (not unicons)
+  'tiktok',
+  'twitch', // (not unicons)
+  'x', // (not unicons)
+  'xing', // (not unicons)
   'youtube',
+  'zapier', // (not unicons)
 ] as const
 
 export const welcome = ['symbol', 'wttj'] as const
