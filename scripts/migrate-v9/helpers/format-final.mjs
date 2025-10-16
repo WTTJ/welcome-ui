@@ -6,6 +6,8 @@ import { promisify } from 'util'
 
 import { glob } from 'glob'
 
+import { filterMigrationFiles } from './file-filters.mjs'
+
 const execAsync = promisify(exec)
 
 /**
@@ -15,8 +17,9 @@ const execAsync = promisify(exec)
 export async function formatDirectory(directory) {
   console.log('\n🎨 Running final formatting...')
 
-  // Check for TypeScript/JavaScript files
-  const tsFiles = await glob(`${directory}/**/*.{ts,tsx,js,jsx}`, { nodir: true })
+  // Check for TypeScript/JavaScript files (excluding test and story files)
+  const allTsFiles = await glob(`${directory}/**/*.{ts,tsx,js,jsx}`, { nodir: true })
+  const tsFiles = filterMigrationFiles(allTsFiles)
   const hasTypeScriptFiles = tsFiles.length > 0
 
   // Check for SCSS/CSS files

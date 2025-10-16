@@ -7,6 +7,7 @@ import traverseModule from '@babel/traverse'
 
 import { getModule } from './helpers/esm.mjs'
 import { extractMixins } from './helpers/extract-mixins.mjs'
+import { shouldExcludeFile } from './helpers/file-filters.mjs'
 import { copyDirSync, deleteDirRecursive } from './helpers/file-utils.mjs'
 import { formatScssContent } from './helpers/format-with-stylelint.mjs'
 import { isStyledComponent } from './helpers/styled-component-patterns.mjs'
@@ -77,8 +78,10 @@ export async function migrate(dir, copyDir = true) {
       fs.writeFileSync(stylesScss, scss, 'utf8')
     }
 
-    // Update component files in the same dir
-    const files = fs.readdirSync(workingDir).filter(f => f.endsWith('.tsx') && f !== 'styles.tsx')
+    // Update component files in the same dir (excluding test and story files)
+    const files = fs
+      .readdirSync(workingDir)
+      .filter(f => f.endsWith('.tsx') && f !== 'styles.tsx' && !shouldExcludeFile(f))
     for (const f of files) {
       await migrateComponentFile({
         componentPath: path.join(workingDir, f),
