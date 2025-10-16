@@ -13,3 +13,6 @@ dist/
 
 # vite
 vite.config.mjs.*
+
+# scripts
+temp/
