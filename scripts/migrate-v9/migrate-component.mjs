@@ -84,7 +84,7 @@ export async function migrateComponentFile({ componentPath, cssVariables, styles
         }
 
         // Process props and convert them appropriately
-        const { newAttributes, styleObject } = processComponentProps(
+        const { newAttributes } = processComponentProps(
           path.node.openingElement.attributes,
           compName,
           className,
@@ -142,8 +142,6 @@ export async function migrateComponentFile({ componentPath, cssVariables, styles
             type: 'JSXExpressionContainer',
           },
         }
-
-        console.debug({ asNode, styleNode })
 
         // Replace <S.MyElement ...> with <tag ...>
         path.node.openingElement.name = { name: tag, type: 'JSXIdentifier' }
@@ -265,26 +263,6 @@ function generateStyleObjectDeclaration(styleObjectName, styleInfo) {
 }
 
 /**
- * Generate template literal expressions for dynamic className
- */
-function generateTemplateExpressions() {
-  // This is a simplified implementation
-  // In a real implementation, this would extract ${...} expressions
-  return []
-}
-
-/**
- * Generate template literal quasis for dynamic className
- */
-function generateTemplateQuasis(templateString) {
-  // This is a simplified implementation
-  // In a real implementation, this would parse the template string properly
-  return [
-    { tail: true, type: 'TemplateElement', value: { cooked: templateString, raw: templateString } },
-  ]
-}
-
-/**
  * Insert style object declarations into component functions
  */
 function insertStyleObjectDeclarations(functionPath, styleObjectsToGenerate) {
@@ -309,7 +287,7 @@ function insertStyleObjectDeclarations(functionPath, styleObjectsToGenerate) {
 function processComponentProps(attributes, compName, baseClassName) {
   const newAttributes = []
   const classNameParts = [baseClassName]
-  const styleProperties = []
+  // const styleProperties = []
 
   attributes.forEach(attr => {
     if (attr.type !== 'JSXAttribute') {
@@ -362,29 +340,6 @@ function processComponentProps(attributes, compName, baseClassName) {
       return
     }
 
-    // Handle dynamic props that should become CSS variables
-    // Check if this prop is used in the styled component
-    // For now, use heuristics: non-boolean values become CSS variables
-    if (attr.value && attr.value.type === 'JSXExpressionContainer') {
-      // Props with values like variant={variant} or variant="primary"
-      if (!['children', 'className', 'style'].includes(propName) && !propName.startsWith('$')) {
-        const expression = attr.value.expression
-
-        // For props with conditional logic like variant, create CSS variables
-        if (expression.type === 'ConditionalExpression') {
-          // Handle variant={variant === 'primary' ? ... : ...} -> CSS variable
-          const cssVar = generateConditionalCssVariable(propName, baseClassName, attr.value)
-          styleProperties.push(cssVar)
-          return
-        } else if (expression.type === 'Identifier') {
-          // Handle variant={variant} -> CSS variable for dynamic values
-          const cssVar = generateConditionalCssVariable(propName, baseClassName, attr.value)
-          styleProperties.push(cssVar)
-          return
-        }
-      }
-    }
-
     // Handle string literal props that could be variants
     if (attr.value && attr.value.type === 'StringLiteral') {
       if (!['children', 'className', 'style'].includes(propName)) {
@@ -402,34 +357,23 @@ function processComponentProps(attributes, compName, baseClassName) {
     newAttributes.push(attr)
   })
 
-  // Generate className attribute
+  // Generate className attribute with cx() wrapper
   let classNameValue
-  if (classNameParts.length === 1) {
-    // Simple string
-    classNameValue = {
+
+  // Wrap className parts in cx() call
+  // cx('card', 'elevated') or cx('card') for single class
+  const cxCallExpression = {
+    arguments: classNameParts.map(part => ({
       type: 'StringLiteral',
-      value: classNameParts[0],
-    }
-  } else {
-    // Template literal with dynamic parts
-    const templateParts = classNameParts.join(' ')
-    if (templateParts.includes('${')) {
-      // Has dynamic parts - create JSX expression
-      classNameValue = {
-        expression: {
-          expressions: generateTemplateExpressions(),
-          quasis: generateTemplateQuasis(templateParts),
-          type: 'TemplateLiteral',
-        },
-        type: 'JSXExpressionContainer',
-      }
-    } else {
-      // All static
-      classNameValue = {
-        type: 'StringLiteral',
-        value: templateParts,
-      }
-    }
+      value: part,
+    })),
+    callee: { name: 'cx', type: 'Identifier' },
+    type: 'CallExpression',
+  }
+
+  classNameValue = {
+    expression: cxCallExpression,
+    type: 'JSXExpressionContainer',
   }
 
   newAttributes.push({
@@ -438,26 +382,7 @@ function processComponentProps(attributes, compName, baseClassName) {
     value: classNameValue,
   })
 
-  // Generate style attribute if needed
-  if (styleProperties.length > 0) {
-    const styleObjectName = `${camelCase(compName)}Style`
-
-    newAttributes.push({
-      name: { name: 'style', type: 'JSXIdentifier' },
-      type: 'JSXAttribute',
-      value: {
-        expression: {
-          name: styleObjectName,
-          type: 'Identifier',
-        },
-        type: 'JSXExpressionContainer',
-      },
-    })
-  }
-
   return {
-    dynamicClassName: classNameParts.join(' '),
     newAttributes,
-    styleObject: styleProperties.length > 0 ? styleProperties : null,
   }
 }
