@@ -670,11 +670,16 @@
   --components-colors-checkbox-color-background-checked-default: #ffcd00;
   --components-colors-checkbox-color-background-checked-hover: #ffe166;
   --components-colors-checkbox-color-border-focused: #ffe166;
+  --components-colors-checkbox-color-border-error: #e1003a;
   --components-colors-checkbox-color-border-disabled: #d2cbc3;
   --components-colors-checkbox-color-border-unchecked-default: #dedede;
   --components-colors-checkbox-color-border-unchecked-hover: #bdbdbd;
   --components-colors-checkbox-color-icon-default: #000000;
   --components-colors-checkbox-color-icon-disabled: #a7a096;
+  --components-colors-radio-color-background-unchecked-default: #ffffff;
+  --components-colors-radio-color-background-unchecked-disabled: #eae4de;
+  --components-colors-radio-color-background-checked-default: #ffffff;
+  --components-colors-radio-color-background-checked-disabled: #eae4de;
   --components-colors-radio-color-border-focused: #ffe166;
   --components-colors-radio-color-border-unchecked-default: #dedede;
   --components-colors-radio-color-border-unchecked-hover: #bdbdbd;
@@ -682,10 +687,6 @@
   --components-colors-radio-color-border-checked-default: #ffcd00;
   --components-colors-radio-color-border-checked-hover: #ffe166;
   --components-colors-radio-color-border-checked-disabled: #d2cbc3;
-  --components-colors-radio-color-background-unchecked-default: #ffffff;
-  --components-colors-radio-color-background-unchecked-disabled: #eae4de;
-  --components-colors-radio-color-background-checked-default: #ffffff;
-  --components-colors-radio-color-background-checked-disabled: #eae4de;
   --components-colors-radio-indicator-color-background-default: #ffcd00;
   --components-colors-radio-indicator-color-background-hover: #ffe166;
   --components-colors-radio-indicator-color-background-disabled: #d2cbc3;
@@ -705,6 +706,7 @@
   --components-colors-toggle-track-color-border-checked-default: #e5b800;
   --components-colors-toggle-track-color-border-checked-hover: #ffcd00;
   --components-colors-toggle-track-color-icon-default: #000000;
+  --components-colors-toggle-track-color-icon-hover: #000000;
   --components-colors-toggle-track-color-icon-disabled: #605b55;
   --components-colors-breadcrumb-color-text-default: #605b55;
   --components-colors-breadcrumb-color-text-hover: #33302d;
@@ -931,9 +933,9 @@
   --components-dimensions-toggle-track-size-width-lg: 2.75rem;
   --components-dimensions-toggle-track-size-width-md: 2.25rem;
   --components-dimensions-toggle-track-size-width-sm: 1.75rem;
-  --components-dimensions-toggle-track-size-icon-lg: 0.5rem;
+  --components-dimensions-toggle-track-size-icon-lg: 1rem;
   --components-dimensions-toggle-track-size-icon-md: 0.75rem;
-  --components-dimensions-toggle-track-size-icon-sm: 1rem;
+  --components-dimensions-toggle-track-size-icon-sm: 0.5rem;
   --components-dimensions-toggle-track-border-radius: calc(infinity * 1px);
   --components-dimensions-toggle-track-border-width-focused: 2px;
   --components-dimensions-toggle-thumb-size-lg: 1.25rem;
