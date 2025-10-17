@@ -110,6 +110,7 @@ export const miscellaneous = [
   'lock-alt',
   'flag', // (not unicons)
   'at',
+  'user',
   'user-circle',
   'clipboard-check', // (not unicons, personal mashup)
   'building',
