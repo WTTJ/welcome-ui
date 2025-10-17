@@ -67,7 +67,7 @@ describe('Button', () => {
     )
     const button = screen.getByTestId('button')
 
-    expect(button.classList.toString().includes('size-sm')).toBe(true)
+    expect(button.classList.toString().includes('size-md')).toBe(true)
   })
 
   describe('disabled', () => {
@@ -148,7 +148,7 @@ describe('Button', () => {
 
     const button = screen.getByTestId('button')
 
-    expect(button.classList.toString().includes('size-sm')).toBe(true)
+    expect(button.classList.toString().includes('size-md')).toBe(true)
   })
 
   it('should have correct Icon size with Icon only', () => {
@@ -160,7 +160,7 @@ describe('Button', () => {
 
     const button = screen.getByTestId('button')
     const icon = screen.getByTestId('sun')
-    expect(button.classList.toString().includes('size-md')).toBe(true)
+    expect(button.classList.toString().includes('size-lg')).toBe(true)
     expect(icon.classList.toString().includes('size-md')).toBe(true)
   })
 
