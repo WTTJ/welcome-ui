@@ -6,8 +6,6 @@ import { Header } from '~/build-app/components/Header'
 import { getPages } from '~/build-app/utils/pages-components'
 import { getPages as getPagesExport } from '~/build-app/utils/pages-exports'
 
-import { Sprite } from '../../lib/dist/Icon'
-
 import './global.css'
 
 export const metadata: Metadata = {
