@@ -61,7 +61,7 @@ describe('Button', () => {
 
   it('should have correct size', () => {
     render(
-      <Button data-testid="button" size="sm">
+      <Button data-testid="button" size="md">
         {content}
       </Button>
     )
@@ -140,7 +140,7 @@ describe('Button', () => {
 
   it('should have correct Icon size with Icon and text', () => {
     render(
-      <Button data-testid="button" size="sm">
+      <Button data-testid="button" size="md">
         <Icon data-testid="sun" name="sun" />
         <span>{content}</span>
       </Button>
@@ -153,7 +153,7 @@ describe('Button', () => {
 
   it('should have correct Icon size with Icon only', () => {
     render(
-      <Button data-testid="button" size="md">
+      <Button data-testid="button">
         <Icon data-testid="sun" name="sun" />
       </Button>
     )
@@ -167,7 +167,7 @@ describe('Button', () => {
   // FIXME: enable when loading style fixed
   it.skip('should have data-loading attribute', () => {
     render(
-      <Button data-testid="button" isLoading size="md">
+      <Button data-testid="button" isLoading>
         {content}
       </Button>
     )

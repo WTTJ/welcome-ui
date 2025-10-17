@@ -156,14 +156,14 @@ export const FileDrop = forwardRef<HTMLDivElement, FileDropProps>(
           {!!file && (error || isEditable || isClearable) ? (
             <div className={cx('actions')}>
               {error || isEditable ? (
-                <Button onClick={open} size="sm" type="button" variant="tertiary">
+                <Button onClick={open} size="md" type="button" variant="tertiary">
                   <Icon name="pen" />
                 </Button>
               ) : null}
               {isClearable ? (
                 <Button
                   onClick={handleRemoveClick}
-                  size="sm"
+                  size="md"
                   type="button"
                   variant="primary-danger"
                 >

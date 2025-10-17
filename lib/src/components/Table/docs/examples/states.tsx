@@ -19,7 +19,7 @@ const Example = () => {
           <Table.Td>Lorem ipsum dolor sit amet</Table.Td>
           <Table.Td>23</Table.Td>
           <Table.Td className="text-right">
-            <Button size="sm" variant="primary-neutral">
+            <Button size="md" variant="primary-neutral">
               <Icon name="setting" size="sm" />
             </Button>
           </Table.Td>
@@ -29,7 +29,7 @@ const Example = () => {
           <Table.Td>Pellentesque a maximus magna</Table.Td>
           <Table.Td>41</Table.Td>
           <Table.Td className="text-right">
-            <Button size="sm" variant="primary-neutral">
+            <Button size="md" variant="primary-neutral">
               <Icon name="setting" size="sm" />
             </Button>
           </Table.Td>
@@ -39,7 +39,7 @@ const Example = () => {
           <Table.Td>Cras viverra ac erat ullamcorper maximus</Table.Td>
           <Table.Td>8</Table.Td>
           <Table.Td className="text-right">
-            <Button size="sm" variant="primary-neutral">
+            <Button size="md" variant="primary-neutral">
               <Icon name="setting" size="sm" />
             </Button>
           </Table.Td>
@@ -49,7 +49,7 @@ const Example = () => {
           <Table.Td>Aliquam erat volutpat</Table.Td>
           <Table.Td>102</Table.Td>
           <Table.Td className="text-right">
-            <Button size="sm" variant="primary-neutral">
+            <Button size="md" variant="primary-neutral">
               <Icon name="setting" size="sm" />
             </Button>
           </Table.Td>

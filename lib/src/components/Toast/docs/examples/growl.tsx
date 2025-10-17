@@ -12,7 +12,7 @@ const Example = () => {
               Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
               himenaeos
               <div className="mt-[1rem]">
-                <Button onClick={() => alert('action')} size="sm" variant="secondary">
+                <Button onClick={() => alert('action')} size="md" variant="secondary">
                   Action
                 </Button>
               </div>
@@ -30,7 +30,7 @@ const Example = () => {
               Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
               himenaeos
               <div className="mt-[1rem]">
-                <Button onClick={() => alert('action')} size="sm" variant="secondary">
+                <Button onClick={() => alert('action')} size="md" variant="secondary">
                   Action
                 </Button>
               </div>
@@ -87,7 +87,7 @@ const Example = () => {
               Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
               himenaeos
               <div className="mt-[1rem]">
-                <Button onClick={() => alert('action')} size="sm" variant="primary-ai">
+                <Button onClick={() => alert('action')} size="md" variant="primary-ai">
                   Action
                 </Button>
               </div>

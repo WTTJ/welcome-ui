@@ -59,7 +59,7 @@ const Layout = async ({ children, params }: LayoutProps) => {
               as="a"
               href={`https://github.com/WTTJ/welcome-ui/tree/main/lib/src/components/${title}`}
               rel="noreferrer noopener"
-              size="sm"
+              size="md"
               target="_blank"
               variant="tertiary"
             >
@@ -71,7 +71,7 @@ const Layout = async ({ children, params }: LayoutProps) => {
                 as="a"
                 href={ariakitLink}
                 rel="noreferrer noopener"
-                size="sm"
+                size="md"
                 target="_blank"
                 variant="tertiary"
               >

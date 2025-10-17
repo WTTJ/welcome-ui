@@ -51,7 +51,7 @@ export const CustomHeader = ({
       <Button
         disabled={isPreviousDisabled}
         onClick={isMonthYearPicker ? decreaseYear : decreaseMonth}
-        size="xs"
+        size="sm"
         title={`Previous ${isMonthYearPicker ? 'year' : 'month'}`}
         variant="tertiary"
       >
@@ -71,7 +71,7 @@ export const CustomHeader = ({
       <Button
         disabled={isNextDisabled}
         onClick={isMonthYearPicker ? increaseYear : increaseMonth}
-        size="xs"
+        size="sm"
         title={`Next ${isMonthYearPicker ? 'year' : 'month'}`}
         variant="tertiary"
       >

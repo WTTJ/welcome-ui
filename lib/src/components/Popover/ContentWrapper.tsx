@@ -31,7 +31,7 @@ export const ContentWrapper = ({ children, className, onClose, store }: ContentW
       <Arrow store={store} />
       {children as React.ReactElement}
       {withCloseButton ? (
-        <Button className={cx('close-button')} onClick={handleClose} size="xs" variant="secondary">
+        <Button className={cx('close-button')} onClick={handleClose} size="sm" variant="secondary">
           <Icon name="times" />
         </Button>
       ) : null}
