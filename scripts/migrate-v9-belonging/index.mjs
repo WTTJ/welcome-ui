@@ -11,25 +11,24 @@ import { execSync } from 'child_process'
 /**
  * Configuration: Array of components to migrate with their transformation scripts
  * Each entry specifies:
- * - component: The component name to look for (e.g., 'Text', 'Tag')
+ * - components: The component name to look for (e.g., 'Text', 'Tag') or array of names
  * - script: The transformation script module to use (e.g., './transform-text.mjs')
  */
 const MIGRATION_CONFIG = [
-  {
-    component: 'Text',
-    script: './transform-text.mjs',
-  },
-  // Add more components here as needed:
-  // {
-  //   component: 'Tag',
-  //   script: './transform-tag.mjs',
-  // },
-  // You can list multiple component names under one transform script
+  // { components: 'Avatar', script: './transform-avatar.mjs' },
+  // { components: 'Button', script: './transform-button.mjs' },
   // {
   //   components: ['InputText', 'DatePicker', 'DateTimePicker'],
   //   script: './transform-inputText.mjs',
   // },
-  // Add more entries here: each entry's `components` can be a string or array of strings
+  // {
+  //   components: 'Swiper',
+  //   script: './transform-swiper.mjs',
+  // },
+  // {
+  //   component: 'Text',
+  //   script: './transform-text.mjs',
+  // },
 ]
 
 /**
