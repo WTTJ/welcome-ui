@@ -1,5 +1,7 @@
 import type { ComponentProps } from 'react'
 
+import type { ButtonProps } from '@/components/Button/types'
+
 import type { useSwiper } from '.'
 
 export type SwiperProps = ComponentProps<'div'> & SwiperOptions
@@ -15,7 +17,7 @@ export interface UseSwiperOptions {
   id?: string
   loop?: boolean
   /** Size of left and right navigation arrows */
-  navigationSize?: 'lg' | 'md' | 'sm' | 'xs'
+  navigationSize?: ButtonProps['size']
   /** Number of slides to show per view */
   slidesPerView?: {
     desktop: number
