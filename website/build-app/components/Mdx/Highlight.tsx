@@ -22,7 +22,7 @@ export const Highlight = ({ children, language = 'tsx' }: HighlightProps) => {
           <Button
             className="absolute right-md top-md"
             onClick={copy}
-            size="xs"
+            size="sm"
             variant={copied ? 'primary' : 'tertiary'}
           >
             {copied ? <Icon name="check" /> : <Icon className="text-neutral-10" name="copy" />}
