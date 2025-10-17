@@ -1,56 +1,83 @@
 @layer components {
   .root {
+    /* VARIABLES FROM THEME - DONT CHANGE WITH REACT PROPS */
+    position: relative;
+    display: block;
     transition-property: all;
     transition-duration: var(--duration-medium);
     transition-timing-function: var(--timing-primary);
-    background-color: var(--components-colors-toggle-track-color-background-unchecked-default);
-    border-color: var(--components-colors-toggle-track-color-border-unchecked-default);
     border-radius: var(--components-dimensions-toggle-track-size-height-sm);
     border-style: solid;
     border-width: var(--components-dimensions-toggle-thumb-border-width);
-    position: relative;
-    display: block;
-    margin-top: var(--toggle-margin-top);
     outline: none !important; /* important for firefox */
     cursor: pointer;
+
+    /* VARIABLES THAT CHANGE WITH REACT PROPS */
+    background-color: var(
+      --toggle-background-color,
+      (--components-colors-toggle-track-color-background-unchecked-default)
+    );
+    border-color: var(
+      --toggle-border-color,
+      var(--components-colors-toggle-track-color-border-unchecked-default)
+    );
     height: var(--toggle-height);
     width: var(--toggle-width);
-
-    &:focus {
-      border-color: var(--components-colors-toggle-track-color-background-checked-hover);
-      box-shadow: 0 0 0 var(--components-dimensions-toggle-track-border-width-focused)
-        var(--components-colors-toggle-track-color-background-checked-hover);
-    }
+    box-shadow:
+      var(--box-shadow-color, transparent) 0px 0px 0px var(--box-shadow-size, 0px),
+      var(--box-shadow-inset, var(--inset-5)) inset;
 
     &::after {
-      background-color: var(--components-colors-toggle-track-color-background-unchecked-default);
-      border-color: var(--color-icon-neutral-subtlest);
       border-radius: var(--components-dimensions-toggle-track-border-radius);
       border-style: solid;
       border-width: var(--components-dimensions-toggle-thumb-border-width);
       content: '';
       top: 0;
       bottom: 0;
-      left: var(--border-radius-xs);
+      left: var(--spacing-xxs);
       position: absolute;
       margin: auto;
       z-index: 1;
       transition-property: all;
       transition-duration: var(--duration-medium);
       transition-timing-function: var(--timing-primary);
+
+      /* VARIABLES THAT CHANGE WITH REACT PROPS */
+      background-color: var(
+        --toggle-after-background-color,
+        var(--components-colors-toggle-thumb-color-background-default)
+      );
+      border-color: var(
+        --toggle-after-border-color,
+        var(--components-colors-toggle-thumb-color-border-default)
+      );
       height: var(--toggle-after-height);
       width: var(--toggle-after-height);
     }
 
+    &[data-focus-visible],
+    &:focus-visible {
+      --box-shadow-color: var(--components-colors-toggle-track-color-background-checked-hover);
+      --box-shadow-size: var(--components-dimensions-toggle-track-border-width-focused);
+      --box-shadow-inset: var(--inset-10);
+    }
+
+    &:hover {
+      &:not(:disabled) {
+        --toggle-border-color: var(--components-colors-toggle-track-color-border-unchecked-hover);
+        --box-shadow-inset: var(--inset-10);
+      }
+    }
+
     &:disabled {
-      background-color: var(--components-colors-toggle-track-color-border-disabled);
-      border-color: var(--components-colors-toggle-track-color-icon-disabled);
       cursor: not-allowed;
 
-      &::after {
-        background-color: var(--components-colors-toggle-track-color-icon-disabled);
-        border-color: transparent;
-      }
+      --toggle-background-color: var(--components-colors-toggle-track-color-background-disabled);
+      --toggle-border-color: var(--components-colors-toggle-track-color-border-disabled);
+      --toggle-after-background-color: var(
+        --components-colors-toggle-thumb-color-background-disabled
+      );
+      --toggle-after-border-color: var(--components-colors-toggle-thumb-color-background-disabled);
     }
 
     &[aria-checked='true'] {
@@ -61,47 +88,55 @@
       }
 
       &:not(:disabled) {
-        background-color: var(--components-colors-toggle-track-color-background-checked-default);
-        border-color: var(--components-colors-toggle-track-color-background-checked-default);
+        --toggle-background-color: var(
+          --components-colors-toggle-track-color-background-checked-default
+        );
+        --toggle-border-color: var(
+          --components-colors-toggle-track-color-background-checked-default
+        );
+        --toggle-after-border-color: var(
+          --components-colors-toggle-track-color-border-checked-default
+        );
 
-        &::after {
-          background-color: var(
-            --components-colors-toggle-track-color-background-unchecked-default
+        &:hover {
+          --toggle-background-color: var(
+            --components-colors-toggle-track-color-background-checked-hover
           );
-          border-color: var(--components-colors-toggle-track-color-background-unchecked-default);
+          --toggle-border-color: var(
+            --components-colors-toggle-track-color-background-checked-hover
+          );
+
+          &::after {
+            --toggle-after-border-color: var(
+              --components-colors-toggle-track-color-border-checked-hover
+            );
+          }
         }
       }
     }
   }
 
-  .size-md {
-    --toggle-margin-top: 0;
-    --toggle-width: 2.75rem;
-    --toggle-height: var(--components-dimensions-toggle-track-size-height-lg);
-    --toggle-after-height: var(--components-dimensions-toggle-track-size-height-md);
-    --toggle-icon-height: var(--components-dimensions-toggle-track-size-height-sm);
-    --toggle-icon-position-offset: var(--border-radius-sm);
-    --toggle-icon-font-size: var(--components-dimensions-toggle-track-size-height-sm);
-  }
+  .size {
+    &-sm {
+      --toggle-width: var(--components-dimensions-toggle-track-size-width-sm);
+      --toggle-height: var(--components-dimensions-toggle-track-size-height-sm);
+      --toggle-after-height: var(--components-dimensions-toggle-thumb-size-sm);
+      --toggle-icon-size: var(--components-dimensions-toggle-track-size-icon-sm);
+    }
 
-  .size-sm {
-    --toggle-margin-top: 0.12rem;
-    --toggle-width: 2.25rem;
-    --toggle-height: var(--components-dimensions-toggle-track-size-height-md);
-    --toggle-after-height: var(--components-dimensions-toggle-track-size-height-sm);
-    --toggle-icon-height: var(--components-dimensions-toggle-track-size-icon-md);
-    --toggle-icon-position-offset: var(--border-radius-sm);
-    --toggle-icon-font-size: var(--components-dimensions-toggle-track-size-icon-md);
-  }
+    &-md {
+      --toggle-width: var(--components-dimensions-toggle-track-size-width-md);
+      --toggle-height: var(--components-dimensions-toggle-track-size-height-md);
+      --toggle-after-height: var(--components-dimensions-toggle-thumb-size-md);
+      --toggle-icon-size: var(--components-dimensions-toggle-track-size-icon-md);
+    }
 
-  .size-xs {
-    --toggle-margin-top: 0.32rem;
-    --toggle-width: 1.75rem;
-    --toggle-height: var(--components-dimensions-toggle-track-size-height-sm);
-    --toggle-after-height: var(--components-dimensions-toggle-track-size-icon-md);
-    --toggle-icon-height: var(--height-8);
-    --toggle-icon-position-offset: var(--border-radius-xs);
-    --toggle-icon-font-size: var(--font-size-10);
+    &-lg {
+      --toggle-width: var(--components-dimensions-toggle-track-size-width-lg);
+      --toggle-height: var(--components-dimensions-toggle-track-size-height-lg);
+      --toggle-after-height: var(--components-dimensions-toggle-thumb-size-lg);
+      --toggle-icon-size: var(--components-dimensions-toggle-track-size-icon-lg);
+    }
   }
 
   .wrapper {
@@ -116,21 +151,23 @@
     z-index: 1;
     display: flex;
     align-items: center;
-    height: var(--toggle-height);
-    bottom: 0;
-    right: var(--toggle-icon-position-offset);
+    bottom: var(--spacing-xs);
+    right: var(--spacing-xs);
 
-    & > svg,
-    i {
-      font-size: var(--toggle-icon-font-size);
-      height: var(--toggle-icon-height);
-      width: var(--toggle-icon-height);
+    svg {
+      /* VARIABLES THAT CHANGE WITH REACT PROPS */
+      width: var(--toggle-icon-size);
+      height: var(--toggle-icon-size);
+      color: var(--toggle-icon-color, var(--components-colors-toggle-track-color-icon-default));
     }
 
     &.checked {
       right: 0;
-      left: var(--toggle-icon-position-offset);
-      color: var(--components-colors-toggle-track-color-icon-default);
+      left: var(--spacing-xs);
+    }
+
+    &.disabled {
+      --toggle-icon-color: var(--components-colors-toggle-track-color-icon-disabled);
     }
   }
 }

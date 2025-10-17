@@ -8,17 +8,7 @@ import { Toggle } from './'
 const StateControlledExample = () => {
   const [toggle, setToggle] = React.useState(false)
 
-  const checkedIcon = <span data-testid="checked-icon" />
-  const uncheckedIcon = <span data-testid="unchecked-icon" />
-
-  return (
-    <Toggle
-      checked={toggle}
-      checkedIcon={checkedIcon}
-      onClick={() => setToggle(!toggle)}
-      uncheckedIcon={uncheckedIcon}
-    />
-  )
+  return <Toggle checked={toggle} onClick={() => setToggle(!toggle)} withVisibilityIcon />
 }
 
 describe('<Toggle>', () => {
@@ -26,14 +16,17 @@ describe('<Toggle>', () => {
     const { user } = render(<StateControlledExample />)
 
     const checkbox = screen.getByRole('checkbox')
+    const eyeSlashIcon = document.querySelector('use[href="#eye-slash"]')
 
     expect(checkbox).toHaveAttribute('aria-checked', 'false')
-    expect(screen.getByTestId('unchecked-icon')).toBeInTheDocument()
+    expect(eyeSlashIcon).toBeInTheDocument()
 
     await user.click(checkbox)
 
+    const eyeIcon = document.querySelector('use[href="#eye"]')
+
     expect(checkbox).toHaveAttribute('aria-checked', 'true')
-    expect(screen.getByTestId('checked-icon')).toBeInTheDocument()
+    expect(eyeIcon).toBeInTheDocument()
   })
 
   it('should be disabled when the disabled prop is present', () => {
@@ -52,12 +45,12 @@ describe('<Toggle>', () => {
   })
 
   it('should have the correct class names based on props', () => {
-    render(<Toggle className="custom-class" size="xs" />)
+    render(<Toggle className="custom-class" size="lg" />)
 
     const checkbox = screen.getByRole('checkbox')
 
     expect(checkbox.className).toContain('root')
-    expect(checkbox.className).toContain('size-xs')
+    expect(checkbox.className).toContain('size-lg')
     expect(checkbox.className).toContain('custom-class')
   })
 })

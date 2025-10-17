@@ -2,6 +2,7 @@ import { Checkbox } from '@ariakit/react'
 import { forwardRef } from 'react'
 
 import { useField } from '@/components/Field'
+import { Icon } from '@/components/Icon'
 import { classNames } from '@/utils'
 
 import toggleStyles from './toggle.module.scss'
@@ -10,31 +11,32 @@ import type { ToggleProps } from './types'
 const cx = classNames(toggleStyles)
 
 export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(
-  (
-    { checked, checkedIcon, className, disabled, onClick, size = 'xs', uncheckedIcon, ...rest },
-    ref
-  ) => {
+  ({ checked, className, disabled, onClick, size = 'md', withVisibilityIcon, ...rest }, ref) => {
     const { getInputProps } = useField()
 
-    const hasIcon = checkedIcon && uncheckedIcon
+    const checkboxProps = getInputProps(rest)
+    const handleClick = disabled ? null : onClick
 
     return (
-      <div className={cx('wrapper')} onClick={onClick}>
-        {hasIcon ? (
+      <div className={cx('wrapper')} onClick={handleClick}>
+        {withVisibilityIcon ? (
           <div
-            className={cx('icon-wrapper', `size-${size}`, checked && `checked`)}
-            onClick={onClick}
+            className={cx(
+              'icon-wrapper',
+              `size-${size}`,
+              checked && `checked`,
+              disabled && `disabled`
+            )}
           >
-            {checked ? checkedIcon : uncheckedIcon}
+            {checked ? <Icon name="eye" /> : <Icon name="eye-slash" />}
           </div>
         ) : null}
-
         <Checkbox
           checked={checked}
           className={cx('root', `size-${size}`, className)}
           disabled={disabled}
           ref={ref}
-          {...getInputProps(rest)}
+          {...checkboxProps}
         />
       </div>
     )

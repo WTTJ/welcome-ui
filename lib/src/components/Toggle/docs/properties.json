@@ -1,28 +1,9 @@
 {
   "Toggle": {
     "props": {
-      "checkedIcon": {
-        "defaultValue": null,
-        "description": "",
-        "name": "checkedIcon",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Toggle/types.ts",
-          "name": "ToggleOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Toggle/types.ts",
-            "name": "ToggleOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "Element"
-        }
-      },
       "size": {
         "defaultValue": {
-          "value": "xs"
+          "value": "md"
         },
         "description": "",
         "name": "size",
@@ -39,24 +20,24 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "\"md\" | \"sm\" | \"xs\"",
+          "raw": "\"lg\" | \"md\" | \"sm\"",
           "value": [
+            {
+              "value": "\"lg\""
+            },
             {
               "value": "\"md\""
             },
             {
               "value": "\"sm\""
-            },
-            {
-              "value": "\"xs\""
             }
           ]
         }
       },
-      "uncheckedIcon": {
+      "withVisibilityIcon": {
         "defaultValue": null,
-        "description": "",
-        "name": "uncheckedIcon",
+        "description": "If true, display an eye / eye-slash icon to toggle visibility.",
+        "name": "withVisibilityIcon",
         "parent": {
           "fileName": "welcome-ui/lib/src/components/Toggle/types.ts",
           "name": "ToggleOptions"
@@ -69,7 +50,16 @@
         ],
         "required": false,
         "type": {
-          "name": "Element"
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
         }
       }
     }

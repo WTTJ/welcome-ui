@@ -187,11 +187,8 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "\"xs\" | \"sm\" | \"md\" | \"lg\"",
+          "raw": "ButtonSize",
           "value": [
-            {
-              "value": "\"xs\""
-            },
             {
               "value": "\"sm\""
             },
@@ -328,7 +325,7 @@
         ],
         "required": true,
         "type": {
-          "name": "{ autoplay: boolean; centeredSlides: boolean; currentPage: number; currentSlidesPerView: number; duration: number; firstSlideToShow: number; fullWidth: boolean; id: string; navigationSize: \"xs\" | ... 2 more ... | \"lg\"; ... 11 more ...; withPagination: { ...; }; }"
+          "name": "{ autoplay: boolean; centeredSlides: boolean; currentPage: number; currentSlidesPerView: number; duration: number; firstSlideToShow: number; fullWidth: boolean; id: string; navigationSize: ButtonSize; ... 11 more ...; withPagination: { ...; }; }"
         }
       }
     }
