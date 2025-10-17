@@ -25,7 +25,7 @@ const Home = () => {
           Welcome UI is a customizable design system library made with react, typescript,
           tailwindcss, ariakit and a lot of love 💛
         </Text>
-        <Button as={NextLink} className="mt-3xl" href="/foundations/getting-started" size="lg">
+        <Button as={NextLink} className="mt-3xl" href="/foundations/getting-started">
           <span>Install amazing components</span>
           <Icon name="angle-right-b" size="lg" />
         </Button>
@@ -57,7 +57,6 @@ const Home = () => {
               className="mt-3xl"
               href="https://github.com/WTTJ/welcome-ui"
               rel="noopener nofollow"
-              size="lg"
               target="_blank"
               variant="secondary"
             >
@@ -112,7 +111,6 @@ const Home = () => {
             className="!mr-md"
             href="https://www.welcometothejungle.com/en/companies/wttj/jobs"
             rel="noopener nofollow"
-            size="lg"
             target="_blank"
           >
             <span>We are recruiting</span>
@@ -123,7 +121,6 @@ const Home = () => {
             className="mt-0 xs:md-md"
             href="https://www.welcometothejungle.com/en"
             rel="noopener nofollow"
-            size="lg"
             target="_blank"
             variant="tertiary"
           >

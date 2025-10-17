@@ -37,7 +37,7 @@ export const FilePreview = ({
           className="mt-md"
           href={file}
           rel="noopener noreferrer"
-          size="sm"
+          size="md"
           target="_blank"
         >
           <span>{previewButtonText}</span>
