@@ -69,11 +69,10 @@ const components: ComponentProps[] = [
   {
     children: (
       <div className="flex gap-md">
-        <Avatar name="Welcome jungle" size="lg" />
-        <Avatar name="Other name" size="lg" />
+        <Avatar name="Welcome jungle" />
+        <Avatar name="Other name" />
         <Avatar
           name="Welcome logo"
-          size="lg"
           src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4"
         />
       </div>
