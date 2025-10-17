@@ -48,7 +48,6 @@
 
     &[data-focus-visible],
     &:focus-visible {
-      /* --borderColor: var(--borderColorFocused, var(--components-colors-input-color-border-active)); */
       outline-color: var(--components-colors-input-color-border-focused);
     }
 
