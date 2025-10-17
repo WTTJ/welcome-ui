@@ -7,27 +7,39 @@
 
   .size {
     &-xs {
-      --size: var(--border-radius-lg);
+      --size: var(--size-icon-xs);
     }
 
     &-sm {
-      --size: var(--border-radius-xl);
+      --size: var(--size-icon-sm);
     }
 
     &-md {
-      --size: var(--border-radius-2xl);
+      --size: var(--size-icon-md);
     }
 
     &-lg {
-      --size: var(--size-icon-2xl);
+      --size: var(--size-icon-lg);
     }
 
     &-xl {
-      --size: var(--height-40);
+      --size: var(--size-icon-xl);
     }
 
     &-xxl {
+      --size: var(--size-icon-xxl);
+    }
+
+    &-2xl {
+      --size: var(--size-icon-2xl);
+    }
+
+    &-3xl {
       --size: var(--size-icon-3xl);
+    }
+
+    &-4xl {
+      --size: var(--size-icon-4xl);
     }
   }
 }
