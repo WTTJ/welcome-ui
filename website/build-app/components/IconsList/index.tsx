@@ -7,7 +7,6 @@ import { Icon } from '@/components/Icon'
 import {
   actions,
   arrows,
-  avatar,
   brands,
   files,
   flags,
@@ -32,7 +31,6 @@ export type IconListProps = {
   collectionName:
     | 'actions'
     | 'arrows'
-    | 'avatar'
     | 'brands'
     | 'files'
     | 'flags'
@@ -46,7 +44,7 @@ export type IconListProps = {
 }
 
 const handleClickToCopy = (componentName: string) => {
-  const component = `<${componentName} />`
+  const component = `<Icon name="${componentName}" />`
   navigator.clipboard.writeText(component)
 
   toast(
@@ -114,7 +112,6 @@ export const IconsList = ({ collectionName }: IconListProps) => {
   const iconsByName = {
     actions: actions,
     arrows: arrows,
-    avatar: avatar,
     brands: brands,
     files: files,
     flags: flags,
