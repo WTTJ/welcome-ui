@@ -5,7 +5,7 @@ import type { MergeProps } from '@/utils/forwardRefWithAs'
 
 export type ButtonProps = MergeProps<ButtonOptions, AriakitButtonProps>
 
-export type ButtonSize = 'lg' | 'md' | 'sm' | 'xs'
+export type ButtonSize = 'lg' | 'md' | 'sm'
 export type ButtonVariant =
   | 'primary'
   | 'primary-ai'
