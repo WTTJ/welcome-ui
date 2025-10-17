@@ -1,18 +1,37 @@
 {
-  "Popover": {
+  "ContentWrapper": {
     "props": {
-      "onClose": {
+      "className": {
         "defaultValue": null,
-        "description": "call a function when popover closed",
-        "name": "onClose",
+        "description": "",
+        "name": "className",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Popover/index.tsx",
-          "name": "PopoverOptions"
+          "fileName": "welcome-ui/lib/src/components/Popover/ContentWrapper.tsx",
+          "name": "ContentWrapperOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Popover/index.tsx",
-            "name": "PopoverOptions"
+            "fileName": "welcome-ui/lib/src/components/Popover/ContentWrapper.tsx",
+            "name": "ContentWrapperOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "onClose": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onClose",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Popover/ContentWrapper.tsx",
+          "name": "ContentWrapperOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Popover/ContentWrapper.tsx",
+            "name": "ContentWrapperOptions"
           }
         ],
         "required": false,
@@ -22,21 +41,30 @@
       },
       "store": {
         "defaultValue": null,
-        "description": "Object returned by the\n[`usePopoverStore`](https://ariakit.org/reference/use-popover-store) hook.\nIf not provided, the closest\n[`PopoverProvider`](https://ariakit.org/reference/popover-provider)\ncomponent's context will be used.",
+        "description": "",
         "name": "store",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Popover/index.tsx",
-          "name": "PopoverOptions"
+          "fileName": "welcome-ui/lib/src/components/Popover/ContentWrapper.tsx",
+          "name": "ContentWrapperOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/Popover/index.tsx",
-            "name": "PopoverOptions"
+            "fileName": "welcome-ui/lib/src/components/Popover/ContentWrapper.tsx",
+            "name": "ContentWrapperOptions"
           }
         ],
         "required": true,
         "type": {
-          "name": "UsePopover"
+          "name": "enum",
+          "raw": "UsePopover | UsePopoverHover",
+          "value": [
+            {
+              "value": "UsePopover"
+            },
+            {
+              "value": "UsePopoverHover"
+            }
+          ]
         }
       }
     }
@@ -83,10 +111,46 @@
       }
     }
   },
-  "usePopover": {
-    "props": {}
-  },
-  "usePopoverHover": {
-    "props": {}
+  "Popover": {
+    "props": {
+      "onClose": {
+        "defaultValue": null,
+        "description": "call a function when popover closed",
+        "name": "onClose",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Popover/index.tsx",
+          "name": "PopoverOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Popover/index.tsx",
+            "name": "PopoverOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "() => void"
+        }
+      },
+      "store": {
+        "defaultValue": null,
+        "description": "Object returned by the\n[`usePopoverStore`](https://ariakit.org/reference/use-popover-store) hook.\nIf not provided, the closest\n[`PopoverProvider`](https://ariakit.org/reference/popover-provider)\ncomponent's context will be used.",
+        "name": "store",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Popover/index.tsx",
+          "name": "PopoverOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Popover/index.tsx",
+            "name": "PopoverOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "UsePopover"
+        }
+      }
+    }
   }
 }

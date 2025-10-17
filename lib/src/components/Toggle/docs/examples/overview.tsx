@@ -4,19 +4,9 @@ import { Toggle } from '@/components/Toggle'
 
 const Example = () => {
   const [toggle, setToggle] = React.useState(false)
-  const [toggleChecked, setToggleChecked] = React.useState(true)
 
   return (
-    <>
-      <Toggle aria-label="Toggle component" checked={toggle} onClick={() => setToggle(!toggle)} />
-      <Toggle
-        aria-label="Toggle checked"
-        checked={toggleChecked}
-        onClick={() => setToggleChecked(!toggleChecked)}
-      />
-      <Toggle aria-label="Toggle disabled" disabled />
-      <Toggle aria-label="Toggle checked and disabled" checked disabled />
-    </>
+    <Toggle aria-label="Toggle component" checked={toggle} onClick={() => setToggle(!toggle)} />
   )
 }
 
