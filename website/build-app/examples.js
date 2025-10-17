@@ -23,6 +23,7 @@ export default {
   "/AspectRatio/docs/examples/video.tsx": dynamic(() => import("../../lib/src/components/AspectRatio/docs/examples/video.tsx").then(mod => mod), { ssr: false }),
   "/Avatar/docs/examples/images.tsx": dynamic(() => import("../../lib/src/components/Avatar/docs/examples/images.tsx").then(mod => mod), { ssr: false }),
   "/Avatar/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Avatar/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
+  "/Avatar/docs/examples/placeholder.tsx": dynamic(() => import("../../lib/src/components/Avatar/docs/examples/placeholder.tsx").then(mod => mod), { ssr: false }),
   "/Avatar/docs/examples/sizes.tsx": dynamic(() => import("../../lib/src/components/Avatar/docs/examples/sizes.tsx").then(mod => mod), { ssr: false }),
   "/Avatar/docs/examples/texts.tsx": dynamic(() => import("../../lib/src/components/Avatar/docs/examples/texts.tsx").then(mod => mod), { ssr: false }),
   "/Badge/docs/examples/disabled.tsx": dynamic(() => import("../../lib/src/components/Badge/docs/examples/disabled.tsx").then(mod => mod), { ssr: false }),

@@ -20,8 +20,17 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "\"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\" | \"xxl\"",
+          "raw": "\"2xl\" | \"3xl\" | \"4xl\" | \"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\" | \"xxl\"",
           "value": [
+            {
+              "value": "\"2xl\""
+            },
+            {
+              "value": "\"3xl\""
+            },
+            {
+              "value": "\"4xl\""
+            },
             {
               "value": "\"lg\""
             },

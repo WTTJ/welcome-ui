@@ -1,18 +1,18 @@
 @layer components {
   .root {
-    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
     aspect-ratio: 1 / 1;
+    flex-shrink: 0;
 
+    /* VARIABLES THAT DO NOT CHANGE WITH REACT PROPS */
     border-radius: var(--components-dimensions-avatar-border-radius);
-    color: var(--color-background-neutral-primary-fixed);
-    font-weight: var(--font-weight-medium);
 
     /* VARIABLES THAT CHANGE WITH REACT PROPS */
+    color: var(--color);
     width: var(--size);
     height: var(--size);
     background-color: var(--backgroundColor);
@@ -26,50 +26,64 @@
   }
 
   .size {
+    &-xs {
+      --size: var(--components-dimensions-avatar-size-xs);
+    }
+
     &-sm {
-      --size: var(--font-size-xl);
+      --size: var(--components-dimensions-avatar-size-sm);
     }
 
     &-md {
-      --size: var(--height-32);
+      --size: var(--components-dimensions-avatar-size-md);
     }
 
     &-lg {
-      --size: var(--width-40);
+      --size: var(--components-dimensions-avatar-size-lg);
     }
+  }
 
-    &-xl {
-      --size: var(--height-43);
-    }
+  .placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    &-xxl {
-      --size: var(--font-size-6xl);
+    --backgroundColor: var(--components-colors-avatar-color-background-placeholder);
+
+    &-icon {
+      color: var(--components-colors-avatar-color-icon-placeholder);
     }
   }
 
   .background {
     &-secondary-blue {
       --backgroundColor: var(--components-colors-avatar-color-background-initials-blue);
+      --color: var(--components-colors-avatar-color-text-initials-blue);
     }
 
     &-secondary-green {
       --backgroundColor: var(--components-colors-avatar-color-background-initials-green);
+      --color: var(--components-colors-avatar-color-text-initials-green);
     }
 
     &-secondary-orange {
       --backgroundColor: var(--components-colors-avatar-color-background-initials-orange);
+      --color: var(--components-colors-avatar-color-text-initials-orange);
     }
 
     &-secondary-pink {
       --backgroundColor: var(--components-colors-avatar-color-background-initials-pink);
+      --color: var(--components-colors-avatar-color-text-initials-pink);
     }
 
     &-secondary-teal {
       --backgroundColor: var(--components-colors-avatar-color-background-initials-teal);
+      --color: var(--components-colors-avatar-color-text-initials-teal);
     }
 
     &-secondary-violet {
       --backgroundColor: var(--components-colors-avatar-color-background-initials-violet);
+      --color: var(--components-colors-avatar-color-text-initials-violet);
     }
   }
 }

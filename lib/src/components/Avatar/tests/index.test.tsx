@@ -11,12 +11,6 @@ describe('<Avatar>', () => {
     expect(screen.getByText('WJ')).toBeInTheDocument()
   })
 
-  it('should render without image and 1 word', () => {
-    render(<Avatar name="welcomejungle" />)
-
-    expect(screen.getByText('WE')).toBeInTheDocument()
-  })
-
   it('should render with an image', () => {
     render(
       <Avatar
@@ -27,5 +21,15 @@ describe('<Avatar>', () => {
 
     expect(screen.getByAltText('welcome jungle')).toBeInTheDocument()
     expect(screen.queryByText('WJ')).toBeNull()
+  })
+
+  it('should render without name and image', () => {
+    render(<Avatar />)
+
+    const svg = screen.getByRole('img', { hidden: true })
+    const use = screen.getByRole('img', { hidden: true }).querySelector('use')
+
+    expect(svg).toBeInTheDocument()
+    expect(use).toHaveAttribute('href', '#user')
   })
 })
