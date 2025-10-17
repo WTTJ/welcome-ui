@@ -133,7 +133,7 @@ const Home = () => {
                         className="w-fit shrink-0"
                         href={link}
                         rel="noopener nofollow"
-                        size="sm"
+                        size="md"
                         target="_blank"
                       >
                         <span>Read more</span> <Icon name="angle-right-b" />
