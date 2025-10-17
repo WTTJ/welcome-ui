@@ -81,14 +81,14 @@ export const Playground = ({
               <Tooltip content="View code">
                 <Button
                   onClick={() => setIsHighlightOpen(!isHighlightOpen)}
-                  size="sm"
+                  size="md"
                   variant="tertiary"
                 >
                   <Icon name="arrow" />
                 </Button>
               </Tooltip>
               <Tooltip content="Edit on StackBlitz">
-                <Button onClick={handleClickStackBlitz} size="sm" variant="tertiary">
+                <Button onClick={handleClickStackBlitz} size="md" variant="tertiary">
                   <Icon name="external-link-alt" />
                 </Button>
               </Tooltip>
@@ -97,7 +97,7 @@ export const Playground = ({
                   as="a"
                   href={`https://github.com/WTTJ/welcome-ui/tree/main/lib/src/components${pathToFile}`}
                   rel="noreferrer noopener"
-                  size="sm"
+                  size="md"
                   target="_blank"
                   variant="tertiary"
                 >
