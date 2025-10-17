@@ -6,27 +6,23 @@ const Example = () => {
   return (
     <div className="flex flex-col gap-xl">
       <Link className="flex flex-row gap-xs" href="#">
-        <Avatar
-          name="jungle"
-          size="lg"
-          src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4"
-        />
+        <Avatar name="jungle" src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4" />
         This is a text node
       </Link>
       <Link className="flex flex-row gap-xs" href="#">
-        <Avatar name="jungle" size="lg" />
+        <Avatar name="jungle" />
         <span>This is a text in a span tag</span>
       </Link>
       <Link className="flex flex-row gap-xs" href="#">
-        <Avatar name="jungle" size="lg" />
+        <Avatar name="jungle" />
         <Text>This is a text in a Text component</Text>
       </Link>
       <Link className="flex flex-row gap-xs" href="#">
-        <Avatar name="jungle" size="lg" />
+        <Avatar name="jungle" />
         <div>This is a text in a div tag</div>
       </Link>
       <Link className="flex flex-row gap-xs" href="#">
-        <Avatar name="jungle" size="lg" />
+        <Avatar name="jungle" />
         <Text as="span">This is a Text component as span</Text>
       </Link>
     </div>
