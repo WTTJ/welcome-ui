@@ -131,12 +131,7 @@ Run the migration test suite:
 
 ```bash
 # Run all migration tests
-yarn test:scripts
-
-# Run specific test suites
-npx vitest run scripts/migrate-v9/index.test.mjs          # Unified migration
-npx vitest run scripts/migrate-v9/inline/                 # Inline migration
-npx vitest run scripts/migrate-v9/external/               # External migration
+yarn migrate:v9
 ```
 
 ## 💡 Best Practices

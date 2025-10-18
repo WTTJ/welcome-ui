@@ -18,9 +18,16 @@ import { findAllComponentUsages } from './migrate-inline-files.mjs'
  * @param {boolean} options.interactive - Whether to run in interactive mode (default: true)
  * @param {boolean} options.verbose - Whether to show verbose output (default: false)
  * @param {boolean} options.format - Whether to run final Prettier/ESLint formatting (default: true)
+ * @param {boolean} options.recursive - Whether to scan subdirectories for component files (default: true)
  */
 export async function migrateAll(directory, options = {}) {
-  const { copyDir = false, format = true, interactive = false, verbose = false } = options
+  const {
+    copyDir = false,
+    format = true,
+    interactive = false,
+    recursive = true,
+    verbose = false,
+  } = options
 
   console.log('🚀 Starting unified migration...')
   console.log(`📁 Directory: ${directory}`)
@@ -34,7 +41,7 @@ export async function migrateAll(directory, options = {}) {
     console.log('🔄 Running external migration (S.Menu -> div.menu)...')
 
     // This will handle directory copying and external component migration
-    await migrateExternal(directory, copyDir)
+    await migrateExternal(directory, copyDir, recursive)
 
     // Update working directory if we copied
     if (copyDir) {
@@ -96,10 +103,11 @@ async function main() {
   const interactive = process.argv.includes('--interactive')
   const verbose = process.argv.includes('--verbose')
   const noFormat = process.argv.includes('--no-format')
+  const noRecursive = process.argv.includes('--no-recursive')
 
   if (!directory) {
     console.error(
-      'Usage: node index.mjs <directory> [--copy] [--interactive] [--verbose] [--no-format]'
+      'Usage: node index.mjs <directory> [--copy] [--interactive] [--verbose] [--no-format] [--no-recursive]'
     )
     console.error('')
     console.error('Options:')
@@ -107,11 +115,15 @@ async function main() {
     console.error('  --interactive   Enable interactive prompts')
     console.error('  --verbose       Show detailed output')
     console.error('  --no-format     Skip final Prettier and ESLint formatting')
+    console.error(
+      '  --no-recursive  Only migrate files in the target directory (not subdirectories)'
+    )
     console.error('')
     console.error('Examples:')
     console.error('  node index.mjs ./src/components/MyComponent')
     console.error('  node index.mjs ./src/pages/Login --interactive')
     console.error('  node index.mjs ./src --copy --verbose')
+    console.error('  node index.mjs ./src/components --no-recursive')
     process.exit(1)
   }
 
@@ -125,6 +137,7 @@ async function main() {
       copyDir: copy,
       format: !noFormat,
       interactive,
+      recursive: !noRecursive,
       verbose,
     })
   } catch (error) {
