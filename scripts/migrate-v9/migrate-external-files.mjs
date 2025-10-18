@@ -16,7 +16,7 @@ import { migrateStylesTsToScss } from './migrate-stylesheet.mjs'
 
 const traverse = getModule(traverseModule)
 
-export async function migrate(dir, copyDir = true) {
+export async function migrate(dir, copyDir = true, recursive = true) {
   let workingDir = dir
   let tempDir = null
 
@@ -78,22 +78,48 @@ export async function migrate(dir, copyDir = true) {
       fs.writeFileSync(stylesScss, scss, 'utf8')
     }
 
-    // Update component files in the same directory and subdirectories
-    // Find all .tsx files that import from styles (excluding test and story files)
-    const componentFiles = findFilesRecursive(workingDir, filePath => {
-      const fileName = path.basename(filePath)
-      // Include .tsx files but exclude styles.tsx and test/story files
-      if (!fileName.endsWith('.tsx') || fileName === 'styles.tsx' || shouldExcludeFile(fileName)) {
-        return false
-      }
-      // Check if file imports from styles (./styles or ../styles)
-      try {
-        const content = fs.readFileSync(filePath, 'utf8')
-        return /import\s+\*\s+as\s+S\s+from\s+['"][./]*styles['"]/.test(content)
-      } catch {
-        return false
-      }
-    })
+    // Update component files in the same directory and optionally subdirectories
+    let componentFiles
+
+    if (recursive) {
+      // Find all .tsx files that import from styles (excluding test and story files)
+      componentFiles = findFilesRecursive(workingDir, filePath => {
+        const fileName = path.basename(filePath)
+        // Include .tsx files but exclude styles.tsx and test/story files
+        if (
+          !fileName.endsWith('.tsx') ||
+          fileName === 'styles.tsx' ||
+          shouldExcludeFile(fileName)
+        ) {
+          return false
+        }
+        // Check if file imports from styles (./styles or ../styles)
+        try {
+          const content = fs.readFileSync(filePath, 'utf8')
+          return /import\s+\*\s+as\s+S\s+from\s+['"][./]*styles['"]/.test(content)
+        } catch {
+          return false
+        }
+      })
+    } else {
+      // Only scan the current directory (non-recursive)
+      componentFiles = fs
+        .readdirSync(workingDir)
+        .filter(f => {
+          if (!f.endsWith('.tsx') || f === 'styles.tsx' || shouldExcludeFile(f)) {
+            return false
+          }
+          // Check if file imports from ./styles
+          try {
+            const filePath = path.join(workingDir, f)
+            const content = fs.readFileSync(filePath, 'utf8')
+            return /import\s+\*\s+as\s+S\s+from\s+['"]\.\/styles['"]/.test(content)
+          } catch {
+            return false
+          }
+        })
+        .map(f => path.join(workingDir, f))
+    }
 
     console.log(`Found ${componentFiles.length} component file(s) that import from styles`)
 

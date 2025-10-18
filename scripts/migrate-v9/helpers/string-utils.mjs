@@ -17,6 +17,10 @@ export function camelToKebab(str) {
  * Examples: 'space.md' → 'var(--spacing-md)'
  */
 export function convertThemePathToCssVar(themePath) {
+  if (!themePath) {
+    return '/* WUI V9 TO MIGRATE */'
+  }
+
   const parts = themePath.split('.')
 
   // Special mappings for theme sections
