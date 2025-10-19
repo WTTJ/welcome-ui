@@ -2,6 +2,7 @@ import React, { forwardRef } from 'react'
 
 import { CloseButton } from '@/components/CloseButton'
 import { useField } from '@/components/Field'
+import { Icon } from '@/components/Icon'
 import { classNames } from '@/utils'
 
 import inputTextStyles from './input-text.module.scss'
@@ -14,6 +15,7 @@ const FIELD_ICON_SIZE: { [key in Size]: string } = { lg: 'md', md: 'md', sm: 'sm
 export const InputText = forwardRef<HTMLInputElement, InputTextProps>(
   (
     {
+      children,
       className,
       icon,
       iconPlacement = 'left',
@@ -38,6 +40,8 @@ export const InputText = forwardRef<HTMLInputElement, InputTextProps>(
     const hasLeftIcon = hasIcon && iconPlacement === 'left'
     const iconSize = FIELD_ICON_SIZE[size]
     const inputProps = getInputProps(rest)
+    const hasChildren = Boolean(children)
+    const shouldShowRightElement = isClearable || hasRightIcon || hasChildren
 
     const handleReset = () => {
       const event = {
@@ -74,11 +78,11 @@ export const InputText = forwardRef<HTMLInputElement, InputTextProps>(
               inputProps.disabled && 'disabled'
             )}
           >
-            {React.cloneElement(icon, { ...icon.props, size: iconSize })}
+            <Icon {...icon.props} name={icon.props.name} size={iconSize} />
           </div>
         ) : null}
 
-        {isClearable || hasRightIcon ? (
+        {shouldShowRightElement ? (
           <div
             className={cx(
               'icon-wrapper',
@@ -87,7 +91,10 @@ export const InputText = forwardRef<HTMLInputElement, InputTextProps>(
             )}
           >
             {isClearable && value ? <CloseButton onClick={handleReset} size="sm" /> : null}
-            {hasRightIcon ? React.cloneElement(icon, { ...icon.props, size: iconSize }) : null}
+            {hasRightIcon && !hasChildren ? (
+              <Icon {...icon.props} name={icon.props.name} size={iconSize} />
+            ) : null}
+            {hasChildren ? children : null}
           </div>
         ) : null}
       </div>
