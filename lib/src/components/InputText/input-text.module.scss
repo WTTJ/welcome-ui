@@ -13,8 +13,7 @@
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-regular);
     line-height: var(--font-line-height-md);
-    outline: transparent solid
-      var(--inputTextOutlineColor, var(--components-dimensions-input-border-width-focused));
+    outline: none;
     width: 100%;
     transition: var(--duration-medium);
     appearance: none;
@@ -46,9 +45,9 @@
       --inputTextBoxShadow: var(--inset-20);
     }
 
-    &[data-focus-visible],
-    &:focus-visible {
-      outline-color: var(--components-colors-input-color-border-focused);
+    &:active,
+    &:focus {
+      --borderColor: var(--components-colors-input-color-border-focused);
     }
 
     &::placeholder {
