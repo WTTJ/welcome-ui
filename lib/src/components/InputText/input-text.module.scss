@@ -7,13 +7,14 @@
   }
 
   .root {
-    border-radius: var(--components-dimensions-input-padding-block-sm);
+    border-radius: var(--components-dimensions-input-border-radius);
     border-style: solid;
     border-width: var(--components-dimensions-input-border-width-default);
-    font-size: var(--font-size-14);
+    font-size: var(--font-size-sm);
     font-weight: var(--font-weight-regular);
-    line-height: var(--components-dimensions-input-size-image);
-    outline: transparent solid var(--components-dimensions-input-border-width-focused);
+    line-height: var(--font-line-height-md);
+    outline: transparent solid
+      var(--inputTextOutlineColor, var(--components-dimensions-input-border-width-focused));
     width: 100%;
     transition: var(--duration-medium);
     appearance: none;
@@ -23,27 +24,31 @@
       --backgroundColor,
       var(--components-colors-input-color-background-default)
     );
-    color: var(--color, var(--components-colors-input-color-icon-placeholder));
-    border-color: var(--borderColor, var(--components-colors-input-color-border-hover));
+    color: var(--color, var(--components-colors-input-color-text-default));
+    border-color: var(--borderColor, var(--components-colors-input-color-border-default));
+    box-shadow: var(--inputTextBoxShadow, var(--inset-10)) inset;
     height: var(--height);
     padding-inline: var(--paddingInline);
     padding-block: var(--paddingBlock);
 
     &:disabled,
     &[aria-disabled] {
-      --backgroundColor: var(--components-colors-input-color-border-disabled);
-      --color: var(--color-icon-warm-tertiary);
+      --backgroundColor: var(
+        --inputTextBackgroundColorDisabled,
+        var(--components-colors-input-color-background-disabled)
+      );
+      --color: var(--components-colors-input-color-text-disabled);
       cursor: not-allowed;
     }
 
     &:hover {
-      --borderColor: var(--borderColorHover, var(--color-background-neutral-subtle));
+      --borderColor: var(--borderColorHover, var(--color-border-neutral-subtlest));
+      --inputTextBoxShadow: var(--inset-20);
     }
 
     &[data-focus-visible],
     &:focus-visible {
-      --borderColor: var(--borderColorFocused, var(--components-colors-input-color-border-active));
-      outline-color: var(--outlineColorFocus, var(--color-background-brand-subtle));
+      outline-color: var(--components-colors-input-color-border-focused);
     }
 
     &::placeholder {
@@ -53,84 +58,64 @@
 
   .variant {
     &-danger {
-      --borderColor: var(--components-colors-input-password-strenght-color-background-too-weak);
-      --borderColorHover: var(
-        --components-colors-input-password-strenght-color-background-too-weak
-      );
-      --borderColorFocused: var(
-        --components-colors-input-password-strenght-color-background-too-weak
-      );
-      --outlineColorFocus: var(--color-background-danger-secondary);
+      --borderColor: var(--components-colors-input-color-border-error);
     }
 
     &-warning {
-      --borderColor: var(--components-colors-input-password-strenght-color-background-weak);
-      --borderColorHover: var(--components-colors-input-password-strenght-color-background-weak);
-      --borderColorFocused: var(--components-colors-input-password-strenght-color-background-weak);
-      --outlineColorFocus: var(--color-background-warning-secondary);
+      --borderColor: var(--components-colors-input-color-border-warning);
     }
 
     &-success {
       --borderColor: var(--components-colors-input-color-border-success);
-      --borderColorHover: var(--components-colors-input-color-border-success);
-      --borderColorFocused: var(--components-colors-input-color-border-success);
-      --outlineColorFocus: var(--color-background-accent-green-primary);
     }
   }
 
+  /* TODO */
   .placement {
     &-left.size {
-      &-xs {
+      &-sm {
         padding-left: 1.75rem;
       }
-      &-sm,
       &-md,
       &-lg {
-        padding-left: 2.25rem;
+        padding-left: 2.75rem;
       }
     }
 
     &-right.size {
-      &-xs {
+      &-sm {
         padding-right: 1.75rem;
       }
-      &-sm,
       &-md,
       &-lg {
-        padding-right: 2.25rem;
+        padding-right: 2.75rem;
       }
     }
   }
 
   .transparent {
     --borderColor: transparent;
-    --backgroundColor: transparent;
-    --borderColorHover: var(--components-colors-input-password-strenght-color-background-default);
+    --backgroundColor: var(--components-colors-input-color-background-transparent);
+    --borderColorHover: var(--components-colors-input-color-border-hover-transparent);
   }
 
   .size {
-    &-xs {
-      --height: var(--border-radius-2xl);
+    &-sm {
+      --height: var(--components-dimensions-input-max-height-sm);
       --paddingBlock: var(--components-dimensions-input-padding-block-sm);
       --paddingInline: var(--components-dimensions-input-padding-inline-sm);
     }
 
-    &-sm {
-      --height: var(--size-icon-2xl);
-      --paddingBlock: var(--components-dimensions-input-padding-inline-sm);
-      --paddingInline: var(--components-dimensions-input-padding-inline-md);
-    }
-
     &-md {
-      --height: var(--height-40);
-      --paddingBlock: var(--components-dimensions-input-padding-inline-md);
+      --height: var(--components-dimensions-input-max-height-md);
+      --paddingBlock: var(--components-dimensions-input-padding-block-md);
       --paddingInline: var(--components-dimensions-input-padding-inline-md);
     }
 
     &-lg {
-      --height: var(--size-icon-3xl);
-      --paddingBlock: var(--components-dimensions-input-size-image);
-      --paddingInline: var(--components-dimensions-input-padding-inline-md);
+      --height: var(--components-dimensions-input-max-height-lg);
+      --paddingBlock: var(--components-dimensions-input-padding-block-lg);
+      --paddingInline: var(--components-dimensions-input-padding-inline-lg);
     }
   }
 
@@ -150,7 +135,7 @@
     pointer-events: none;
     transition: var(--duration-medium);
     transition-timing-function: var(--timing-primary);
-    color: var(--components-colors-input-color-icon-placeholder);
+    color: var(--inputTextIconColor, var(--components-colors-input-color-icon-placeholder));
     gap: var(--components-dimensions-input-padding-block-sm);
 
     --left: auto;
@@ -160,25 +145,29 @@
     & > button {
       pointer-events: auto;
     }
+
+    &.disabled {
+      --inputTextIconColor: var(--components-colors-input-color-icon-disabled);
+    }
   }
 
   .icon-placement {
     &-left {
-      &-xs {
+      &-sm {
         --left: var(--components-dimensions-input-padding-inline-sm);
       }
 
-      &-sm {
+      &-md {
         --left: var(--components-dimensions-input-padding-inline-md);
       }
     }
 
     &-right {
-      &-xs {
+      &-sm {
         --right: var(--components-dimensions-input-padding-inline-sm);
       }
 
-      &-sm {
+      &-md {
         --right: var(--components-dimensions-input-padding-inline-md);
       }
     }
