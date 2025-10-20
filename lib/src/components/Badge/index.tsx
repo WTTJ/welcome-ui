@@ -1,5 +1,6 @@
 import { forwardRef } from 'react'
 
+import { Text } from '@/components/Text'
 import { classNames } from '@/utils'
 
 import badgeStyles from './badge.module.scss'
@@ -15,6 +16,8 @@ export const Badge = forwardRef<HTMLDivElement, BadgeProps>(
     const isNumber = Number.isInteger(children)
     const shouldUseAbbreviation = isNumber && withNumberAbbreviation && (children as number) > 99
     const text = shouldUseAbbreviation ? '99+' : children
+    const textVariant = size === 'lg' ? 'label-md-strong' : 'label-sm-strong'
+    const isBadgeSmall = size === 'sm'
 
     return (
       <div
@@ -22,7 +25,7 @@ export const Badge = forwardRef<HTMLDivElement, BadgeProps>(
         className={cx('root', `variant-${variant}`, `size-${size}`, className)}
         ref={ref}
       >
-        {text}
+        {!isBadgeSmall && <Text variant={textVariant}>{text}</Text>}
       </div>
     )
   }

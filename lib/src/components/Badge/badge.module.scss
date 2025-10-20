@@ -9,8 +9,6 @@
     background-color: var(--backgroundColor);
     border-radius: var(--borderRadius);
     color: var(--color);
-    font-size: var(--fontSize);
-    font-weight: var(--fontWeight);
     height: var(--height);
     max-height: var(--maxHeight);
     min-width: var(--minWidth);
@@ -22,8 +20,6 @@
   .size {
     &-lg {
       --borderRadius: var(--components-dimensions-badge-border-radius-lg);
-      --fontSize: var(--font-size-sm);
-      --fontWeight: var(--font-weight-semi-bold);
       --maxHeight: var(--components-dimensions-badge-size-max-height-lg);
       --minWidth: var(--components-dimensions-badge-size-min-width-lg);
       --paddingBlock: var(--components-dimensions-badge-padding-block-lg);
@@ -32,8 +28,6 @@
 
     &-md {
       --borderRadius: var(--components-dimensions-badge-border-radius-md);
-      --fontSize: var(--font-size-xs);
-      --fontWeight: var(--font-weight-bold);
       --maxHeight: var(--components-dimensions-badge-size-max-height-md);
       --minWidth: var(--components-dimensions-badge-size-min-width-md);
       --paddingBlock: var(--components-dimensions-badge-padding-block-md);

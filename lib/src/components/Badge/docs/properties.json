@@ -36,7 +36,7 @@
       },
       "variant": {
         "defaultValue": {
-          "value": "brand"
+          "value": "warm"
         },
         "description": "",
         "name": "variant",
