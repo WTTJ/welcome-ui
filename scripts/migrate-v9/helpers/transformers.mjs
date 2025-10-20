@@ -56,12 +56,12 @@ export function transformArrowFunctionExpression({
  * AST Node: CallExpression { callee: Identifier, arguments: [...] }
  * Examples: th('space.md'), css`...`
  */
-export function transformCallExpression({ mixins, next, node, prev }) {
+export function transformCallExpression({ imports, mixins, next, node, prev }) {
   const functionName = node.callee?.name
 
   // Rule 1: th() calls = theme function calls
   if (functionName === 'th') {
-    return transformThemeFunction({ mixins, next, node, prev })
+    return transformThemeFunction({ imports, mixins, next, node, prev })
   }
 
   // Rule 2: css() calls = nested CSS (should be handled by TaggedTemplateExpression)
@@ -328,7 +328,7 @@ function transformObjectPatternFunction({ imports = new Map(), mixins, node }) {
  * Examples: th('space.md') → var(--spacing-md)
  * Examples: ${th('texts.h4')} → WUI V9 TO MIGRATE
  */
-function transformThemeFunction({ node }) {
+function transformThemeFunction({ imports, node }) {
   if (!node.arguments || node.arguments.length === 0) {
     return createMigrationComment('th()')
   }
@@ -342,6 +342,7 @@ function transformThemeFunction({ node }) {
 
   // Special handling for text theme tokens - suggest Text component variant change
   if (themePath.startsWith('texts.')) {
+    imports.set('texts')
     return `/* WUI V9 TO MIGRATE */\n@include ${themePath}`
   }
 

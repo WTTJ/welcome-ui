@@ -75,8 +75,11 @@ export function migrateStylesTsToScss({
   if (imports?.size > 0) {
     scssContent.push('/* Imported utilities */')
     imports.forEach((_, importName) => {
-      if (importName === 'mediaQueries') {
+      if (importName === 'breakpoints') {
         scssContent.push(`@import 'welcome-ui/utils/theme/breakpoints';`)
+      }
+      if (importName === 'texts') {
+        scssContent.push(`@import 'welcome-ui/utils/theme/texts';`)
       }
     })
     scssContent.push('') // Empty line separator

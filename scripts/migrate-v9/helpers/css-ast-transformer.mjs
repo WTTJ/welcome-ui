@@ -206,7 +206,15 @@ function transformExpression({
       })
 
     case 'CallExpression':
-      return transformCallExpression({ cssSelector, cssVariables, mixins, next, node, prev })
+      return transformCallExpression({
+        cssSelector,
+        cssVariables,
+        imports,
+        mixins,
+        next,
+        node,
+        prev,
+      })
 
     case 'ConditionalArrowFunctionExpression':
       return transformConditionalArrowFunctionExpression({
@@ -260,7 +268,7 @@ function transformMediaQueries({ imports, value }) {
   const matches = value.match(/@media \((min-width): (.+)\)/)
 
   if (matches?.[0]) {
-    imports.set('mediaQueries')
+    imports.set('breakpoints')
 
     return value.replace(
       `@media (${matches[1]}: ${matches[2]})`,
