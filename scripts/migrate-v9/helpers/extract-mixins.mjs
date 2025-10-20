@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { transformCssAst } from './css-ast-transformer.mjs'
 import { camelToKebab } from './string-utils.mjs'
 

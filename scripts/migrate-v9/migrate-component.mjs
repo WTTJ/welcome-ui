@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 import fs from 'fs'
-import path from 'path'
 
 import generateModule from '@babel/generator'
 import { parse } from '@babel/parser'

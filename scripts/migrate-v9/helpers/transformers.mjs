@@ -70,8 +70,6 @@ export function transformCallExpression({ mixins, next, node, prev }) {
 export function transformConditionalArrowFunctionExpression({
   cssSelector,
   cssVariables,
-  mixins,
-  next,
   node,
   prev,
 }) {
@@ -108,14 +106,7 @@ export function transformConditionalArrowFunctionExpression({
  *
  * Strategy: Convert to CSS variable placeholder that will be handled in component
  */
-export function transformConditionalExpression({
-  cssSelector,
-  cssVariables,
-  mixins,
-  next,
-  node,
-  prev,
-}) {
+export function transformConditionalExpression({ cssSelector, cssVariables, node, prev }) {
   const { alternate, consequent, test } = node
 
   const cssProperty = getAllCssPropertiesFromString(prev.value.cooked).at(-1)
@@ -149,7 +140,7 @@ export function transformConditionalExpression({
  * Structure: { type: 'Identifier', name: string }
  * Examples: TOPNAV_HEIGHT, triggerActiveStyles, variant, OrganizationName
  */
-export function transformIdentifier({ mixins, next, node, prev }) {
+export function transformIdentifier({ node }) {
   const { name } = node
 
   // Rule 0: Theme tokens - check first before other identifier rules
@@ -261,41 +252,6 @@ export function transformTaggedTemplateExpression({ mixins, node }) {
 }
 
 /**
- * Extract a value from an AST node without generating migration comments
- */
-function extractAstNodeValue({ next, node, prev }) {
-  if (!node) return '**UNKNOWN**'
-
-  switch (node.type) {
-    case 'CallExpression':
-      if (node.callee?.name === 'th') {
-        return transformThemeFunction({ node })
-      }
-      return `/* ${node.callee?.name || 'unknown'}() call */`
-    case 'Identifier':
-      return node.name
-
-    case 'Literal':
-    case 'NumericLiteral':
-      return String(node.value !== undefined ? node.value : '')
-
-    case 'MemberExpression': {
-      const object = extractAstNodeValue({ next, node: node.object, prev })
-      const property = node.computed
-        ? `[${extractAstNodeValue({ next, node: node.property, prev })}]`
-        : `.${node.property.name}`
-      return `${object}${property}`
-    }
-
-    case 'StringLiteral':
-      return `'${node.value}'`
-
-    default:
-      return `/* ${node.type} needs manual review */`
-  }
-}
-
-/**
  * Format conditional expression for migration comment
  */
 function formatConditionalForComment(node) {
@@ -333,7 +289,7 @@ function getValueFromConditionalExpression(alternateOrConsequent) {
  *
  * Examples: ({ elevated }) => elevated && css`...`
  */
-function transformObjectPatternFunction({ mixins, next, node, prev }) {
+function transformObjectPatternFunction({ mixins, node }) {
   const param = node.params[0]
   const properties = param.properties
 
@@ -359,7 +315,7 @@ function transformObjectPatternFunction({ mixins, next, node, prev }) {
  * Examples: th('space.md') → var(--spacing-md)
  * Examples: ${th('texts.h4')} → WUI V9 TO MIGRATE
  */
-function transformThemeFunction({ next, node, prev }) {
+function transformThemeFunction({ node }) {
   if (!node.arguments || node.arguments.length === 0) {
     return createMigrationComment('th()')
   }
