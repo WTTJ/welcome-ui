@@ -34,7 +34,6 @@ export function extractMixins({
     const result = transformCssAst({
       cssVariables,
       imports,
-
       mixins,
       node: node.init.quasi,
     })

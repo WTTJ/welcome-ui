@@ -62,9 +62,7 @@ export async function migrate(dir, copyDir = true, recursive = true) {
 
           if (node.init && isStyledComponent(node.init)) {
             const compName = node.id.name
-            let { as, tag, variant } = getStyledTag(node.init)
-            tag = stripBox(tag)
-            stylesMap[compName] = { as, tag, variant }
+            stylesMap[compName] = getStyledTag(node.init)
           }
         })
       },

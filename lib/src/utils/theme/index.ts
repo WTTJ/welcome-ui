@@ -1,3 +1,3 @@
-export * from './breakpoints.scss'
-export * from './text-ellipsis.scss'
-export * from './texts.scss'
+import './breakpoints.scss'
+import './text-ellipsis.scss'
+import './texts.scss'
