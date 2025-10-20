@@ -48,6 +48,7 @@ export async function migrate(dir, copyDir = true, recursive = true) {
     const stylesMap = {}
     let mixins = new Map()
     let cssVariables = new Map()
+    let imports = new Map()
 
     traverse(ast, {
       VariableDeclaration(path) {
@@ -69,7 +70,7 @@ export async function migrate(dir, copyDir = true, recursive = true) {
       },
     })
 
-    let scss = migrateStylesTsToScss({ cssVariables, mixins, path: stylesTs })
+    let scss = migrateStylesTsToScss({ cssVariables, imports, mixins, path: stylesTs })
 
     try {
       // Format SCSS with stylelint and prettier
@@ -140,34 +141,37 @@ export async function migrate(dir, copyDir = true, recursive = true) {
   }
 }
 
+const COMPONENT_MAP = {
+  Article: 'article',
+  Aside: 'aside',
+  Box: 'div',
+  box: 'div',
+  Footer: 'footer',
+  h1: 'Text',
+  h2: 'Text',
+  h3: 'Text',
+  h4: 'Text',
+  h5: 'Text',
+  h6: 'Text',
+  Header: 'header',
+  Image: 'img',
+  Input: 'input',
+  liBox: 'li',
+  Link: 'Link',
+  List: 'ul',
+  ListItem: 'li',
+  Main: 'main',
+  Nav: 'nav',
+  p: 'Text',
+  Section: 'section',
+  ulBox: 'ul',
+}
+
 /**
  * Map component names to appropriate HTML tags
  */
 function getHtmlTagFromComponent(componentName) {
-  const componentMap = {
-    Article: 'article',
-    Aside: 'aside',
-    Box: 'div',
-    Footer: 'footer',
-    h1: 'Text',
-    h2: 'Text',
-    h3: 'Text',
-    h4: 'Text',
-    h5: 'Text',
-    h6: 'Text',
-    Header: 'header',
-    Image: 'img',
-    Input: 'input',
-    Link: 'Link',
-    List: 'ul',
-    ListItem: 'li',
-    Main: 'main',
-    Nav: 'nav',
-    p: 'Text',
-    Section: 'section',
-  }
-
-  return componentMap[componentName] ?? componentName ?? 'div'
+  return COMPONENT_MAP[componentName] ?? componentName ?? 'div'
 }
 
 /**
@@ -215,8 +219,9 @@ function getStyledTag(node) {
   }
 
   // Remove Box suffix if present e.g. buttonBox -> button
-  tagName = tagName?.replace(/(.+)Box$/, '$1') // Default to removing 'Box' suffix
-  as = as?.replace(/(.+)Box$/, '$1') // Default to removing 'Box' suffix
+  tagName = stripBox(tagName)
+  as = stripBox(as)
+
   const tag = getHtmlTagFromComponent(tagName) || 'div'
 
   if (as === tag) {
@@ -227,7 +232,7 @@ function getStyledTag(node) {
 }
 
 function stripBox(tag) {
-  return tag.endsWith('Box') ? tag.slice(0, -3) : tag
+  return tag?.endsWith('Box') ? tag.replace(/Box$/, '') : tag
 }
 
 // Usage: node migrate-wui-v9.mjs path/to/component/dir

@@ -18,6 +18,8 @@ export const Wrapper = styled(Box)<{ variant: Variant }>(
 
     @media (min-width: lg) {
       padding: 3xl 0;
+      position: ${variant === 'primary' ? 'absolute' : 'relative'};
+      margin: sm;
     }
   `
 )

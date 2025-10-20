@@ -16,7 +16,12 @@ const traverse = getModule(traverseModule)
 /**
  * Converts styled-components in styles.ts to CSS classes in styles.module.scss
  */
-export function migrateStylesTsToScss({ cssVariables = new Map(), mixins = new Map(), path }) {
+export function migrateStylesTsToScss({
+  cssVariables = new Map(),
+  imports = new Map(),
+  mixins = new Map(),
+  path,
+}) {
   const content = fs.readFileSync(path, 'utf8')
   const ast = parse(content, {
     plugins: ['typescript'],
@@ -34,6 +39,7 @@ export function migrateStylesTsToScss({ cssVariables = new Map(), mixins = new M
           const css = extractCssFromStyledComponent({
             cssSelector: className,
             cssVariables,
+            imports,
             mixins,
             node: decl.init,
           })
@@ -62,18 +68,33 @@ export function migrateStylesTsToScss({ cssVariables = new Map(), mixins = new M
     }
   }
 
-  // Combine mixins and classes
+  // Create SCSS content
   const scssContent = []
+
+  // Add any missing imports
+  if (imports?.size > 0) {
+    scssContent.push('/* Imported utilities */')
+    imports.forEach((_, importName) => {
+      if (importName === 'mediaQueries') {
+        scssContent.push(`@import 'welcome-ui/utils/theme/breakpoints';`)
+      }
+    })
+    scssContent.push('') // Empty line separator
+  }
+
+  // Add mixins
   if (mixinDefs.length > 0) {
     scssContent.push('/* Generated SCSS mixins from CSS template literals */')
     scssContent.push(...mixinDefs)
     scssContent.push('') // Empty line separator
   }
 
+  // Add styles (inside @layer)
   scssContent.push('@layer components {')
   scssContent.push(...classDefs)
   scssContent.push('}')
 
+  // Join it all up
   return scssContent.join('\n')
 }
 
@@ -83,6 +104,7 @@ export function migrateStylesTsToScss({ cssVariables = new Map(), mixins = new M
 function extractCssFromStyledComponent({
   cssSelector,
   cssVariables = new Map(),
+  imports = new Map(),
   mixins = new Map(),
   node,
 }) {
@@ -93,6 +115,7 @@ function extractCssFromStyledComponent({
     return extractCssFromTemplateLiteral({
       cssSelector,
       cssVariables,
+      imports,
       mixins,
       node: templateLiteral,
     })
@@ -104,11 +127,17 @@ function extractCssFromStyledComponent({
 /**
  * Extract CSS string from template literal, handling interpolations
  */
-function extractCssFromTemplateLiteral({ cssSelector, cssVariables, mixins = new Map(), node }) {
+function extractCssFromTemplateLiteral({
+  cssSelector,
+  cssVariables,
+  imports = new Map(),
+  mixins = new Map(),
+  node,
+}) {
   if (!node.quasis) return null
 
   // Use our enhanced AST-based CSS transformer (Phase 4: Integration)
-  const result = transformCssAst({ cssSelector, cssVariables, mixins, node })
+  const result = transformCssAst({ cssSelector, cssVariables, imports, mixins, node })
 
   // Extract CSS from the result object
   if (result && result.css) {

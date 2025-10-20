@@ -60,7 +60,13 @@ export function processIdentifier(node, options = {}) {
  * @param {Map} mixins - Map to collect generated mixins
  * @returns {Object} { css: string, mixins: Map }
  */
-export function transformCssAst({ cssSelector, cssVariables, mixins = new Map(), node }) {
+export function transformCssAst({
+  cssSelector,
+  cssVariables = new Map(),
+  imports = new Map(),
+  mixins = new Map(),
+  node,
+}) {
   if (!node || node.type !== 'TemplateLiteral') {
     return { css: '', mixins }
   }
@@ -74,6 +80,8 @@ export function transformCssAst({ cssSelector, cssVariables, mixins = new Map(),
     let value = node?.value?.cooked || node?.value?.raw || ''
     const prev = children[index - 1]
     const next = children[index + 1]
+
+    // console.debug('transformCssAst', { node, value })
 
     if (prev?.type === 'Identifier') {
       // If previous was Identifier, we could be in a css block after a component reference
@@ -103,13 +111,13 @@ export function transformCssAst({ cssSelector, cssVariables, mixins = new Map(),
     }
 
     // Step 1: Add the static CSS text from this quasi
-    css += value
+    css += transformMediaQueries({ imports, value })
 
     // Regular expression transformation
     const transformedExpression = transformExpression({
       cssSelector,
       cssVariables,
-      mixins,
+      imports,
       next,
       node,
       prev,
@@ -121,7 +129,7 @@ export function transformCssAst({ cssSelector, cssVariables, mixins = new Map(),
   // Step 3: Apply final CSS cleanup
   css = cleanupCss(css)
 
-  return { css, cssVariables, mixins }
+  return { css, cssVariables, imports, mixins }
 }
 
 function cleanupCss(css) {
@@ -173,7 +181,15 @@ function transformCssThemeTokens(css) {
  * Transform an expression AST node based on its type
  * This is where our transformation rules are applied
  */
-function transformExpression({ cssSelector, cssVariables, mixins, next, node, prev }) {
+function transformExpression({
+  cssSelector,
+  cssVariables,
+  imports = new Map(),
+  mixins,
+  next,
+  node,
+  prev,
+}) {
   if (!node) return ''
 
   // Rule-based transformation by AST node type
@@ -182,6 +198,7 @@ function transformExpression({ cssSelector, cssVariables, mixins, next, node, pr
       return transformArrowFunctionExpression({
         cssSelector,
         cssVariables,
+        imports,
         mixins,
         next,
         node,
@@ -222,6 +239,7 @@ function transformExpression({ cssSelector, cssVariables, mixins, next, node, pr
       return transformTaggedTemplateExpression({
         cssSelector,
         cssVariables,
+        imports,
         mixins,
         next,
         node,
@@ -229,10 +247,26 @@ function transformExpression({ cssSelector, cssVariables, mixins, next, node, pr
       })
 
     case 'TemplateElement':
-      return transformCssAst({ cssSelector, cssVariables, mixins, node }).css
+      return transformCssAst({ cssSelector, cssVariables, imports, mixins, node }).css
 
     default:
       // Unknown expression - add migration comment
       return createMigrationComment(`Unknown expression type: ${node.type}`)
   }
+}
+
+// Replace media queries with mixin
+function transformMediaQueries({ imports, value }) {
+  const matches = value.match(/@media \((min-width): (.+)\)/)
+
+  if (matches?.[0]) {
+    imports.set('mediaQueries')
+
+    return value.replace(
+      `@media (${matches[1]}: ${matches[2]})`,
+      `@media screen and (${matches[1]}: breakpoints.$breakpoint-${matches[2]})`
+    )
+  }
+
+  return value
 }

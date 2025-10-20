@@ -15,7 +15,12 @@ import { camelToKebab } from './string-utils.mjs'
  *   background-color: var(--color-beige-30);
  * }
  */
-export function extractMixins({ cssVariables = new Map(), mixins = new Map(), node }) {
+export function extractMixins({
+  cssVariables = new Map(),
+  imports = new Map(),
+  mixins = new Map(),
+  node,
+}) {
   if (
     node.type === 'VariableDeclarator' &&
     node.init &&
@@ -28,6 +33,8 @@ export function extractMixins({ cssVariables = new Map(), mixins = new Map(), no
     // Use our AST transformer to process the CSS template literal
     const result = transformCssAst({
       cssVariables,
+      imports,
+
       mixins,
       node: node.init.quasi,
     })

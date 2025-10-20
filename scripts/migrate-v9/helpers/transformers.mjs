@@ -11,6 +11,7 @@ import { camelToKebab, convertThemePathToCssVar, propToClassName } from './strin
 export function transformArrowFunctionExpression({
   cssSelector,
   cssVariables,
+  imports = new Map(),
   mixins,
   next,
   node,
@@ -18,7 +19,15 @@ export function transformArrowFunctionExpression({
 }) {
   // Rule 1: Single object pattern parameter
   if (node.params.length === 1 && node.params[0].type === 'ObjectPattern') {
-    return transformObjectPatternFunction({ cssSelector, cssVariables, mixins, next, node, prev })
+    return transformObjectPatternFunction({
+      cssSelector,
+      cssVariables,
+      imports,
+      mixins,
+      next,
+      node,
+      prev,
+    })
   }
 
   // Rule 2: Conditional arrow functions (props => condition ? value : alternate)
@@ -184,10 +193,10 @@ export function transformIdentifier({ node }) {
  * AST Node: LogicalExpression { operator, left, right }
  * Examples: elevated && css`...`
  */
-export function transformLogicalExpression({ mixins, node }) {
+export function transformLogicalExpression({ imports = new Map(), mixins, node }) {
   // Rule 1: && operator with TaggedTemplateExpression right side
   if (node.operator === '&&' && node.right.type === 'TaggedTemplateExpression') {
-    const cssContent = transformTaggedTemplateExpression({ mixins, node: node.right })
+    const cssContent = transformTaggedTemplateExpression({ imports, mixins, node: node.right })
     return cssContent
   }
 
@@ -241,10 +250,14 @@ export function transformMemberExpression({ node }) {
  * AST Node: TaggedTemplateExpression { tag, quasi }
  * Examples: css`display: flex;`
  */
-export function transformTaggedTemplateExpression({ mixins, node }) {
+export function transformTaggedTemplateExpression({
+  imports = new Map(),
+  mixins = new Map(),
+  node,
+}) {
   if (node.tag?.name === 'css') {
     // Recursively transform the nested template literal
-    const result = transformCssAst({ mixins, node: node.quasi })
+    const result = transformCssAst({ imports, mixins, node: node.quasi })
     return result.css
   }
 
@@ -289,7 +302,7 @@ function getValueFromConditionalExpression(alternateOrConsequent) {
  *
  * Examples: ({ elevated }) => elevated && css`...`
  */
-function transformObjectPatternFunction({ mixins, node }) {
+function transformObjectPatternFunction({ imports = new Map(), mixins, node }) {
   const param = node.params[0]
   const properties = param.properties
 
@@ -299,7 +312,7 @@ function transformObjectPatternFunction({ mixins, node }) {
 
     // Rule: LogicalExpression body (prop && css`...`)
     if (node.body.type === 'LogicalExpression') {
-      const bodyResult = transformLogicalExpression({ mixins, node: node.body })
+      const bodyResult = transformLogicalExpression({ imports, mixins, node: node.body })
 
       return `\n  &.${className} {\n${bodyResult}\n  }`
     }

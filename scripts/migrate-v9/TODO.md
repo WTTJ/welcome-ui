@@ -8,5 +8,6 @@ TODO:
 - [x] @layer components { … }
 - [ ] Fix displayDetail
 - [x] Change `tag` for `as`
-- [ ] Update variant for `th(texts.h4)`
+- [ ] Update variant for `th(texts.h4)` (use mixin)
 - [ ] Handle `attrs`
+- [x] Handle `@media` queries (use mixin)
