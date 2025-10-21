@@ -41,7 +41,7 @@
       cursor: not-allowed;
     }
 
-    &:hover {
+    &:hover:not(:disabled):not([aria-disabled]) {
       --borderColor: var(--borderColorHover, var(--color-border-neutral-subtlest));
       --inputTextBoxShadow: var(--inset-20);
     }
