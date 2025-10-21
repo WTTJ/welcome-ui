@@ -1,17 +1,6 @@
 @layer components {
   .root {
     position: relative;
-    padding: 0;
-    cursor: pointer;
-    transition: var(--duration-medium);
-    overflow: hidden;
-    font-size: var(--font-size-14);
-    font-weight: var(--font-weight-regular);
-    line-height: 1rem;
-    outline: transparent solid var(--components-dimensions-checkbox-border-width-focused);
-    border-radius: var(--border-radius-xs);
-    border-style: solid;
-    border-width: var(--border-width-xs);
     display: flex;
     align-items: center;
     justify-content: center;
