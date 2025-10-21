@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useParams, usePathname } from 'next/navigation'
 import { useEffect, useRef } from 'react'
 
+import { Badge } from '@/components/Badge'
 import { Text } from '@/components/Text'
 import { classNames } from '@/utils'
 
@@ -50,13 +51,17 @@ export const Sidebar = ({ className, isSubPage, menu, onClick }: SidebarProps) =
             </Text>
           ) : null}
           <ul className="flex flex-col gap-lg">
-            {pages.map(({ id, parent: pageParent, title }) => {
+            {pages.map(({ id, isNew, parent: pageParent, title }) => {
               const href = `/${parent}/${pageParent ? `${pageParent}/` : ''}${id}`
               const isCurrent =
                 isSubPage && subPage ? currentRoute === `${href}/${subPage}` : currentRoute === href
 
               return (
-                <li key={`sidebar_${category}_page_${id}`} onClick={onClick}>
+                <li
+                  className="flex items-center gap-sm"
+                  key={`sidebar_${category}_page_${id}`}
+                  onClick={onClick}
+                >
                   <Link
                     aria-current={isCurrent ? 'page' : undefined}
                     className={cx('link')}
@@ -64,6 +69,11 @@ export const Sidebar = ({ className, isSubPage, menu, onClick }: SidebarProps) =
                   >
                     {title || getName(id)}
                   </Link>
+                  {isNew ? (
+                    <Badge size="sm" variant="primary">
+                      New
+                    </Badge>
+                  ) : null}
                 </li>
               )
             })}
