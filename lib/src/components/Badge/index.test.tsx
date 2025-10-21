@@ -14,39 +14,35 @@ describe('<Badge>', () => {
   })
 
   it('should have correct size', () => {
-    render(
-      <Badge data-testid="badge" size="sm">
-        {content}
-      </Badge>
-    )
+    render(<Badge data-testid="badge" size="sm" />)
 
     const component = screen.getByTestId('badge')
 
-    expect(component.className).toMatch(/variant-default/)
+    expect(component.className).toMatch(/variant-warm/)
     expect(component.className).toMatch(/size-sm/)
   })
 
-  it('should have correct primary variant color', () => {
+  it('should have correct brand variant color', () => {
     render(
-      <Badge data-testid="badge" variant="primary">
+      <Badge data-testid="badge" variant="brand">
         {content}
       </Badge>
     )
 
     const component = screen.getByTestId('badge')
 
-    expect(component.className).toMatch(/variant-primary/)
+    expect(component.className).toMatch(/variant-brand/)
   })
 
-  it('should have correct primary variant color if disabled', () => {
+  it('should have correct blue variant color', () => {
     render(
-      <Badge data-testid="badge" disabled variant="primary">
+      <Badge data-testid="badge" variant="blue">
         {content}
       </Badge>
     )
 
     const component = screen.getByTestId('badge')
 
-    expect(component.className).toMatch(/disabled-primary/)
+    expect(component.className).toMatch(/variant-blue/)
   })
 })
