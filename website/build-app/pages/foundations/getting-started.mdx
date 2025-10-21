@@ -1,21 +1,59 @@
 ## Installation
 
-### 1. Install Welcome UI
+## Installation
 
-Install the `welcome-ui` package and **peer dependencies** listed below:
+1 - Install the `welcome-ui` package and **peer dependencies** listed below:
 
 ```bash
-yarn add welcome-ui react@^18.0.0 tailwindcss@^4.1.11
+yarn add welcome-ui tailwindcss react@^19.0.0
 ```
 
-### 2. TODO
+```bash
+yarn add postcss --dev
+```
 
-TODO: how to add on project
-
-## Typescript
-
-Install needed types:
+2 - Add dependencies for vite project
 
 ```bash
-yarn add @types/react-dom
+yarn add @tailwindcss/vite --dev
+```
+
+3 - Add on your vite config tailwindcss plugin
+
+```bash
+import { defineConfig } from 'vite'
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [
+    tailwindcss(),
+  ],
+})
+```
+
+## Import library & Theme
+
+On your theme or global css import:
+
+- TailwindCSS
+- Welcome UI Theme
+- Welcome UI components style
+
+```css
+@import 'tailwindcss';
+
+@import 'welcome-ui/theme.css';
+
+@import 'welcome-ui/Accordion.css';
+@import 'welcome-ui/Alert.css';
+@import 'welcome-ui-new/***other-components-you-need***.css';
+...
+```
+
+## Enjoy! 🌞
+
+```jsx
+import { Button } from 'welcome-ui/Button'
+
+return <Button>Ok let's go</Button>
 ```
