@@ -97,6 +97,7 @@ export const miscellaneous = [
   'envelope',
   'equal-circle',
   'minus',
+  'folder',
   'folder-open',
   'venus',
   'mars',
