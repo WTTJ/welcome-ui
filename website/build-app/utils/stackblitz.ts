@@ -98,7 +98,7 @@ const getPackageJson = () => `{
     "serve": "vite preview"
   },
   "dependencies": {
-    "welcome-ui": "9.0.0-alpha.4",
+    "welcome-ui": "latest",
     "tailwindcss": "4.1.14",
     "react": "19.0.0",
     "react-dom": "19.0.0"
