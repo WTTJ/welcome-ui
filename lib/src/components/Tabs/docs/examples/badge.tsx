@@ -6,7 +6,7 @@ const Example = () => {
   const tab = useTab({ defaultSelectedId: 'tab2' })
   const selectedId = tab.useState('selectedId')
 
-  const getVariant = (item: string) => (selectedId === item ? 'primary' : 'default')
+  const getVariant = (item: string) => (selectedId === item ? 'brand' : 'warm')
 
   return (
     <>
