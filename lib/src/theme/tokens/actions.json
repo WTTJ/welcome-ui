@@ -1420,14 +1420,14 @@
       "padding": {
         "inline": {
           "text": {
-            "value": "{spacing.xxs}",
+            "value": "{spacing.2xs}",
             "type": "float",
             "scope": [
               "ALL_SCOPES"
             ]
           },
           "icon": {
-            "value": "{spacing.xxs}",
+            "value": "{spacing.2xs}",
             "type": "float",
             "scope": [
               "ALL_SCOPES"

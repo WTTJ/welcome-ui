@@ -1266,42 +1266,85 @@
             }
           },
           "ai": {
-            "default": {
-              "value": "{color.background.neutral.inverse}",
-              "type": "color.background",
-              "scope": [
-                "FRAME_FILL",
-                "SHAPE_FILL"
-              ],
-              "$extensions": {
-                "tokens-studio": {
-                  "mode": "mode 1"
+            "dark": {
+              "default": {
+                "value": "{color.background.neutral.inverse}",
+                "type": "color.background",
+                "scope": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
+              },
+              "hover": {
+                "value": "{color.background.neutral.inverse}",
+                "type": "color.background",
+                "scope": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
+              },
+              "disabled": {
+                "value": "{color.background.neutral.minimal}",
+                "type": "color.background",
+                "scope": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
                 }
               }
             },
-            "hover": {
-              "value": "{color.background.neutral.inverse}",
-              "type": "color.background",
-              "scope": [
-                "FRAME_FILL",
-                "SHAPE_FILL"
-              ],
-              "$extensions": {
-                "tokens-studio": {
-                  "mode": "mode 1"
+            "light": {
+              "default": {
+                "value": "{color.background.transparent.black.none}",
+                "type": "color.background",
+                "scope": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
                 }
-              }
-            },
-            "disabled": {
-              "value": "{color.border.neutral.minimal}",
-              "type": "color.background",
-              "scope": [
-                "FRAME_FILL",
-                "SHAPE_FILL"
-              ],
-              "$extensions": {
-                "tokens-studio": {
-                  "mode": "mode 1"
+              },
+              "hover": {
+                "value": "{color.background.transparent.black.minimal}",
+                "type": "color.background",
+                "scope": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
+              },
+              "disabled": {
+                "value": "{color.background.transparent.black.minimal}",
+                "type": "color.background",
+                "scope": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
                 }
               }
             }
@@ -2025,39 +2068,79 @@
             }
           },
           "ai": {
-            "default": {
-              "value": "{color.text.neutral.primary}",
-              "type": "color.text",
-              "scope": [
-                "TEXT_FILL"
-              ],
-              "$extensions": {
-                "tokens-studio": {
-                  "mode": "mode 1"
+            "dark": {
+              "default": {
+                "value": "{color.text.neutral.primary}",
+                "type": "color.text",
+                "scope": [
+                  "TEXT_FILL"
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
+              },
+              "hover": {
+                "value": "{color.text.neutral.primary}",
+                "type": "color.text",
+                "scope": [
+                  "TEXT_FILL"
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
+              },
+              "disabled": {
+                "value": "{color.text.neutral.subtle}",
+                "type": "color.text",
+                "scope": [
+                  "TEXT_FILL"
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
                 }
               }
             },
-            "hover": {
-              "value": "{color.text.neutral.primary}",
-              "type": "color.text",
-              "scope": [
-                "TEXT_FILL"
-              ],
-              "$extensions": {
-                "tokens-studio": {
-                  "mode": "mode 1"
+            "light": {
+              "default": {
+                "value": "{color.text.neutral.secondary}",
+                "type": "color.text",
+                "scope": [
+                  "TEXT_FILL"
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
                 }
-              }
-            },
-            "disabled": {
-              "value": "{color.text.neutral.subtle}",
-              "type": "color.text",
-              "scope": [
-                "TEXT_FILL"
-              ],
-              "$extensions": {
-                "tokens-studio": {
-                  "mode": "mode 1"
+              },
+              "hover": {
+                "value": "{color.text.neutral.secondary}",
+                "type": "color.text",
+                "scope": [
+                  "TEXT_FILL"
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
+              },
+              "disabled": {
+                "value": "{color.text.neutral.subtle}",
+                "type": "color.text",
+                "scope": [
+                  "TEXT_FILL"
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
                 }
               }
             }
@@ -2880,7 +2963,7 @@
             "background": {
               "common": {
                 "default": {
-                  "value": "{color.background.warm.minimal}",
+                  "value": "{color.background.neutral.inverse}",
                   "type": "color.background",
                   "scope": [
                     "FRAME_FILL"
@@ -2892,7 +2975,7 @@
                   }
                 },
                 "hover": {
-                  "value": "{color.background.warm.strong}",
+                  "value": "{color.background.brand.subtle}",
                   "type": "color.background",
                   "scope": [
                     "FRAME_FILL"
@@ -2904,7 +2987,7 @@
                   }
                 },
                 "pressed": {
-                  "value": "{color.background.warm.stronger}",
+                  "value": "{color.background.brand.secondary}",
                   "type": "color.background",
                   "scope": [
                     "FRAME_FILL"
@@ -2918,7 +3001,7 @@
               },
               "close": {
                 "default": {
-                  "value": "{color.background.warm.minimal}",
+                  "value": "{color.background.neutral.inverse}",
                   "type": "color.background",
                   "scope": [
                     "FRAME_FILL"
@@ -2958,7 +3041,7 @@
             "border": {
               "close": {
                 "default": {
-                  "value": "{color.border.warm.subtle}",
+                  "value": "{color.border.warm.minimal}",
                   "type": "color.border",
                   "scope": [
                     "STROKE_COLOR"
@@ -2974,7 +3057,7 @@
             "icon": {
               "common": {
                 "default": {
-                  "value": "{color.icon.warm.subtle}",
+                  "value": "{color.icon.neutral.subtle}",
                   "type": "color.fill",
                   "scope": [
                     "SHAPE_FILL"
@@ -3053,17 +3136,15 @@
         },
         "color": {
           "background": {
-            "default": {
-              "value": "{color.background.warm.minimal}",
-              "type": "color.background",
-              "scope": [
-                "FRAME_FILL",
-                "SHAPE_FILL"
-              ],
-              "$extensions": {
-                "tokens-studio": {
-                  "mode": "mode 1"
-                }
+            "value": "{color.background.neutral.inverse}",
+            "type": "color.background",
+            "scope": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
               }
             }
           },
@@ -3086,7 +3167,7 @@
           "color": {
             "background": {
               "default": {
-                "value": "{color.background.warm.minimal}",
+                "value": "{color.background.neutral.inverse}",
                 "type": "color.background",
                 "scope": [
                   "FRAME_FILL"
@@ -3098,7 +3179,7 @@
                 }
               },
               "hover": {
-                "value": "{color.background.warm.strong}",
+                "value": "{color.background.brand.subtle}",
                 "type": "color.background",
                 "scope": [
                   "FRAME_FILL"
@@ -3124,7 +3205,7 @@
             },
             "text": {
               "default": {
-                "value": "{color.text.warm.tertiary}",
+                "value": "{color.text.neutral.tertiary}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
@@ -3136,7 +3217,7 @@
                 }
               },
               "hover": {
-                "value": "{color.text.warm.primary}",
+                "value": "{color.text.brand.primary}",
                 "type": "color.text",
                 "scope": [
                   "TEXT_FILL"
@@ -3162,7 +3243,7 @@
             },
             "icon": {
               "default": {
-                "value": "{color.icon.warm.tertiary}",
+                "value": "{color.icon.neutral.tertiary}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
@@ -3174,7 +3255,7 @@
                 }
               },
               "hover": {
-                "value": "{color.icon.warm.primary}",
+                "value": "{color.icon.brand.primary}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
@@ -3187,6 +3268,20 @@
               },
               "active": {
                 "value": "{color.icon.brand.primary}",
+                "type": "color.fill",
+                "scope": [
+                  "SHAPE_FILL"
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
+              }
+            },
+            "border": {
+              "default": {
+                "value": "{color.border.warm.minimal}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
@@ -3236,6 +3331,200 @@
           },
           "hover": {
             "value": "{color.border.warm.subtle}",
+            "type": "color.border",
+            "scope": [
+              "STROKE_COLOR"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
+          }
+        }
+      }
+    },
+    "dropdown-menu": {
+      "item": {
+        "color": {
+          "background": {
+            "default": {
+              "value": "{color.background.neutral.inverse}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "hover": {
+              "value": "{color.background.brand.minimal}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "disabled": {
+              "value": "{color.background.warm.minimal}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            }
+          },
+          "text": {
+            "value": {
+              "default": {
+                "value": "{color.text.neutral.primary}",
+                "type": "color.text",
+                "scope": [
+                  "TEXT_FILL"
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
+              },
+              "hover": {
+                "value": "{color.text.brand.primary}",
+                "type": "color.text",
+                "scope": [
+                  "TEXT_FILL"
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
+              },
+              "disabled": {
+                "value": "{color.text.warm.subtle}",
+                "type": "color.text",
+                "scope": [
+                  "TEXT_FILL"
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
+              }
+            },
+            "description": {
+              "default": {
+                "value": "{color.text.neutral.tertiary}",
+                "type": "color.text",
+                "scope": [
+                  "TEXT_FILL"
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
+              },
+              "hover": {
+                "value": "{color.text.brand.secondary}",
+                "type": "color.text",
+                "scope": [
+                  "TEXT_FILL"
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
+              },
+              "disabled": {
+                "value": "{color.text.warm.subtle}",
+                "type": "color.text",
+                "scope": [
+                  "TEXT_FILL"
+                ],
+                "$extensions": {
+                  "tokens-studio": {
+                    "mode": "mode 1"
+                  }
+                }
+              }
+            }
+          },
+          "icon": {
+            "default": {
+              "value": "{color.icon.neutral.primary}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "hover": {
+              "value": "{color.icon.brand.primary}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "disabled": {
+              "value": "{color.icon.warm.subtle}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            }
+          }
+        }
+      },
+      "color": {
+        "background": {
+          "default": {
+            "value": "{color.background.neutral.inverse}",
+            "type": "color.background",
+            "scope": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
+          }
+        },
+        "border": {
+          "default": {
+            "value": "{color.background.warm.primary}",
             "type": "color.border",
             "scope": [
               "STROKE_COLOR"
@@ -3319,6 +3608,18 @@
     },
     "badge": {
       "size": {
+        "height": {
+          "value": "{height.8}px",
+          "type": "dimension",
+          "scope": [
+            "WIDTH_HEIGHT"
+          ],
+          "$extensions": {
+            "tokens-studio": {
+              "mode": "mode 1"
+            }
+          }
+        },
         "max": {
           "height": {
             "lg": {
@@ -3335,18 +3636,6 @@
             },
             "md": {
               "value": "{height.16}px",
-              "type": "dimension",
-              "scope": [
-                "WIDTH_HEIGHT"
-              ],
-              "$extensions": {
-                "tokens-studio": {
-                  "mode": "mode 1"
-                }
-              }
-            },
-            "sm": {
-              "value": "{height.8}px",
               "type": "dimension",
               "scope": [
                 "WIDTH_HEIGHT"
@@ -3384,18 +3673,18 @@
                   "mode": "mode 1"
                 }
               }
-            },
-            "sm": {
-              "value": "{width.8}px",
-              "type": "dimension",
-              "scope": [
-                "WIDTH_HEIGHT"
-              ],
-              "$extensions": {
-                "tokens-studio": {
-                  "mode": "mode 1"
-                }
-              }
+            }
+          }
+        },
+        "width": {
+          "value": "{width.8}px",
+          "type": "dimension",
+          "scope": [
+            "WIDTH_HEIGHT"
+          ],
+          "$extensions": {
+            "tokens-studio": {
+              "mode": "mode 1"
             }
           }
         }
@@ -3441,7 +3730,7 @@
             }
           },
           "md": {
-            "value": "{spacing.xxs}px",
+            "value": "{spacing.2xs}px",
             "type": "spacing",
             "scope": [
               "GAP"
@@ -3638,58 +3927,6 @@
           }
         }
       },
-      "gap": {
-        "title": {
-          "value": "{spacing.sm}px",
-          "type": "spacing",
-          "scope": [
-            "GAP"
-          ],
-          "$extensions": {
-            "tokens-studio": {
-              "mode": "mode 1"
-            }
-          }
-        },
-        "content": {
-          "lg": {
-            "value": "{spacing.xl}px",
-            "type": "spacing",
-            "scope": [
-              "GAP"
-            ],
-            "$extensions": {
-              "tokens-studio": {
-                "mode": "mode 1"
-              }
-            }
-          },
-          "md": {
-            "value": "{spacing.lg}px",
-            "type": "spacing",
-            "scope": [
-              "GAP"
-            ],
-            "$extensions": {
-              "tokens-studio": {
-                "mode": "mode 1"
-              }
-            }
-          },
-          "sm": {
-            "value": "{spacing.md}px",
-            "type": "spacing",
-            "scope": [
-              "GAP"
-            ],
-            "$extensions": {
-              "tokens-studio": {
-                "mode": "mode 1"
-              }
-            }
-          }
-        }
-      },
       "padding": {
         "inline": {
           "lg": {
@@ -3756,6 +3993,58 @@
           },
           "sm": {
             "value": "{spacing.lg}px",
+            "type": "spacing",
+            "scope": [
+              "GAP"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
+          }
+        }
+      },
+      "gap": {
+        "title": {
+          "value": "{spacing.sm}px",
+          "type": "spacing",
+          "scope": [
+            "GAP"
+          ],
+          "$extensions": {
+            "tokens-studio": {
+              "mode": "mode 1"
+            }
+          }
+        },
+        "content": {
+          "lg": {
+            "value": "{spacing.xl}px",
+            "type": "spacing",
+            "scope": [
+              "GAP"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
+          },
+          "md": {
+            "value": "{spacing.lg}px",
+            "type": "spacing",
+            "scope": [
+              "GAP"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
+          },
+          "sm": {
+            "value": "{spacing.md}px",
             "type": "spacing",
             "scope": [
               "GAP"
@@ -3936,32 +4225,6 @@
       }
     },
     "window": {
-      "border": {
-        "radius": {
-          "value": "{border.radius.md}px",
-          "type": "borderRadius",
-          "scope": [
-            "CORNER_RADIUS"
-          ],
-          "$extensions": {
-            "tokens-studio": {
-              "mode": "mode 1"
-            }
-          }
-        },
-        "width": {
-          "value": "{border.width.xs}px",
-          "type": "borderWidth",
-          "scope": [
-            "STROKE_FLOAT"
-          ],
-          "$extensions": {
-            "tokens-studio": {
-              "mode": "mode 1"
-            }
-          }
-        }
-      },
       "header": {
         "action": {
           "size": {
@@ -4220,6 +4483,170 @@
                   "mode": "mode 1"
                 }
               }
+            }
+          }
+        }
+      },
+      "border": {
+        "radius": {
+          "value": "{border.radius.md}px",
+          "type": "borderRadius",
+          "scope": [
+            "CORNER_RADIUS"
+          ],
+          "$extensions": {
+            "tokens-studio": {
+              "mode": "mode 1"
+            }
+          }
+        },
+        "width": {
+          "value": "{border.width.xs}px",
+          "type": "borderWidth",
+          "scope": [
+            "STROKE_FLOAT"
+          ],
+          "$extensions": {
+            "tokens-studio": {
+              "mode": "mode 1"
+            }
+          }
+        }
+      }
+    },
+    "dropdown-menu": {
+      "item": {
+        "padding": {
+          "inline": {
+            "value": "{spacing.lg}px",
+            "type": "spacing",
+            "scope": [
+              "GAP"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
+          },
+          "block": {
+            "value": "{spacing.md}px",
+            "type": "spacing",
+            "scope": [
+              "GAP"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
+          }
+        },
+        "gap": {
+          "content": {
+            "value": "{spacing.sm}px",
+            "type": "spacing",
+            "scope": [
+              "GAP"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
+          }
+        },
+        "border": {
+          "radius": {
+            "value": "{border.radius.md}px",
+            "type": "borderRadius",
+            "scope": [
+              "CORNER_RADIUS"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
+          }
+        }
+      },
+      "size": {
+        "icon": {
+          "value": "{size.icon.md}px",
+          "type": "dimension",
+          "scope": [
+            "WIDTH_HEIGHT"
+          ],
+          "$extensions": {
+            "tokens-studio": {
+              "mode": "mode 1"
+            }
+          }
+        }
+      },
+      "padding": {
+        "inline": {
+          "value": "{spacing.sm}px",
+          "type": "spacing",
+          "scope": [
+            "GAP"
+          ],
+          "$extensions": {
+            "tokens-studio": {
+              "mode": "mode 1"
+            }
+          }
+        },
+        "block": {
+          "value": "{spacing.sm}px",
+          "type": "spacing",
+          "scope": [
+            "GAP"
+          ],
+          "$extensions": {
+            "tokens-studio": {
+              "mode": "mode 1"
+            }
+          }
+        }
+      },
+      "gap": {
+        "content": {
+          "value": "{spacing.sm}px",
+          "type": "spacing",
+          "scope": [
+            "GAP"
+          ],
+          "$extensions": {
+            "tokens-studio": {
+              "mode": "mode 1"
+            }
+          }
+        }
+      },
+      "border": {
+        "radius": {
+          "value": "{border.radius.md}px",
+          "type": "borderRadius",
+          "scope": [
+            "CORNER_RADIUS"
+          ],
+          "$extensions": {
+            "tokens-studio": {
+              "mode": "mode 1"
+            }
+          }
+        },
+        "width": {
+          "value": "{border.width.xs}px",
+          "type": "borderWidth",
+          "scope": [
+            "STROKE_FLOAT"
+          ],
+          "$extensions": {
+            "tokens-studio": {
+              "mode": "mode 1"
             }
           }
         }
