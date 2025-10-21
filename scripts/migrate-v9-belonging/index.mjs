@@ -16,6 +16,7 @@ import { execSync } from 'child_process'
  */
 const MIGRATION_CONFIG = [
   // { components: 'Avatar', script: './transform-avatar.mjs' },
+  // { components: 'Badge', script: './transform-badge.mjs' },
   // { components: 'Button', script: './transform-button.mjs' },
   // {
   //   components: ['InputText', 'DatePicker', 'DateTimePicker'],

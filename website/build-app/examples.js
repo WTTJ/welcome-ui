@@ -26,7 +26,6 @@ export default {
   "/Avatar/docs/examples/placeholder.tsx": dynamic(() => import("../../lib/src/components/Avatar/docs/examples/placeholder.tsx").then(mod => mod), { ssr: false }),
   "/Avatar/docs/examples/sizes.tsx": dynamic(() => import("../../lib/src/components/Avatar/docs/examples/sizes.tsx").then(mod => mod), { ssr: false }),
   "/Avatar/docs/examples/texts.tsx": dynamic(() => import("../../lib/src/components/Avatar/docs/examples/texts.tsx").then(mod => mod), { ssr: false }),
-  "/Badge/docs/examples/disabled.tsx": dynamic(() => import("../../lib/src/components/Badge/docs/examples/disabled.tsx").then(mod => mod), { ssr: false }),
   "/Badge/docs/examples/number-abbreviation.tsx": dynamic(() => import("../../lib/src/components/Badge/docs/examples/number-abbreviation.tsx").then(mod => mod), { ssr: false }),
   "/Badge/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Badge/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Badge/docs/examples/size.tsx": dynamic(() => import("../../lib/src/components/Badge/docs/examples/size.tsx").then(mod => mod), { ssr: false }),
