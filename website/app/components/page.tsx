@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
+import { Badge } from '@/components/Badge'
 import { Card } from '@/components/Card'
 import { Text } from '@/components/Text'
 
@@ -34,16 +35,16 @@ const Page = () => {
 
               return (
                 <Link href={`/components/${page.id}`} key={page.id}>
-                  <Card className="flex gap-lg hover:border-neutral-30 items-center p-md rounded-sm">
-                    <div className="bg-neutral-30 size-[5rem] rounded-sm shrink-0"></div>
-                    <div>
+                  <Card className="h-full flex flex-col gap-lg hover:border-neutral-50 p-xl rounded-sm transition-border duration-200">
+                    <div className="flex items-center gap-sm">
                       <Text as="h3" variant="heading-md-strong">
                         {page.title}
                       </Text>
-                      <Text className="text-neutral-70 mt-sm" lines={3} variant="body-md">
-                        {data?.description}
-                      </Text>
+                      {data.isNew ? <Badge variant="primary">New</Badge> : null}
                     </div>
+                    <Text className="text-neutral-70 mt-sm" lines={3} variant="body-md">
+                      {data?.description}
+                    </Text>
                   </Card>
                 </Link>
               )

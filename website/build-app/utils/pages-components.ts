@@ -23,14 +23,14 @@ export function getFilesFromPackages(selectedParent: Parent) {
     if (fileExist) {
       const content = readFileSync(path, 'utf8')
       const {
-        data: { category, title, type = 'components' },
+        data: { category, isNew = false, title, type = 'components' },
       } = matter(content)
 
       if (selectedParent !== type) continue
 
       const categoryParent = files.filter(resultItem => resultItem.category === category)[0]
 
-      const newChild = { id: fileKebabCase, subPages: ['props'], title }
+      const newChild = { id: fileKebabCase, isNew, subPages: ['props'], title }
 
       if (categoryParent) {
         categoryParent.pages.push(newChild)
