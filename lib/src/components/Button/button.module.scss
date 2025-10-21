@@ -78,7 +78,7 @@
 
     @media (hover: hover) and (pointer: fine) {
       &:hover:not(:disabled):not([aria-disabled]) {
-        box-shadow: var(--elevation-elevation-20);
+        box-shadow: var(--elevation-20);
         --buttonBackground: var(--buttonBackgroundHover);
         --buttonBorderColor: var(--buttonBorderColorHover, transparent);
         --buttonColor: var(--buttonColorHover);
