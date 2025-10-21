@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import fs from 'fs'
 
 import generateModule from '@babel/generator'
@@ -6,7 +5,6 @@ import { parse } from '@babel/parser'
 import traverseModule from '@babel/traverse'
 
 import { getModule } from './helpers/esm.mjs'
-import { formatWithPrettier } from './helpers/format-with-prettier.mjs'
 import { camelToKebab } from './helpers/string-utils.mjs'
 import { WUI_COMPONENTS } from './helpers/wui-components.mjs'
 
@@ -151,13 +149,7 @@ export async function migrateComponentFile({ componentPath, cssVariables, styles
 
   const output = generate(ast, {}, code).code
 
-  try {
-    const formatted = await formatWithPrettier(output, componentPath)
-    fs.writeFileSync(componentPath, formatted, 'utf8')
-  } catch (e) {
-    console.warn('Prettier formatting failed:', e)
-    fs.writeFileSync(componentPath, output, 'utf8')
-  }
+  fs.writeFileSync(componentPath, output, 'utf8')
 }
 
 /**

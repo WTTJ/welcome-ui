@@ -4,6 +4,7 @@ export const WUI_COMPONENTS = [
   'AspectRatio',
   'Avatar',
   'Badge',
+  'Box',
   'Breadcrumb',
   'Button',
   'ButtonGroup',

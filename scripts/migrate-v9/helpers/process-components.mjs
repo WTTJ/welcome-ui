@@ -8,7 +8,6 @@ import traverseModule from '@babel/traverse'
 import { userInputInterface } from '../migrate-inline-files.mjs'
 
 import { getModule } from './esm.mjs'
-import { formatWithPrettier } from './format-with-prettier.mjs'
 import { getStackClassnames } from './parsing.mjs'
 import { transformValue, valueMap } from './transform.mjs'
 
@@ -189,10 +188,6 @@ export async function processComponents(components, shouldReplace = false, verbo
     let output
     try {
       output = generate(ast, { retainLines: true }, content).code
-      // Format with Prettier using cached .prettierrc config
-
-      output = await formatWithPrettier(output, filePath)
-
       fileChanges[filePath] = output
 
       // Only log here, don't write yet
