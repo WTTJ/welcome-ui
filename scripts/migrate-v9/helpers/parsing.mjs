@@ -38,8 +38,11 @@ export function parsePropsString(propsString) {
     ast = parse(code, { plugins: ['jsx', 'typescript'], sourceType: 'module' })
   } catch (e) {
     // fallback: return empty object if parsing fails
-    // eslint-disable-next-line no-console
-    console.error('Failed to create ast', e)
+    // Only log error if not in test environment
+    if (process.env.NODE_ENV !== 'test') {
+      // eslint-disable-next-line no-console
+      console.error('Failed to create ast', e)
+    }
     return {}
   }
   const attrs = ast.program.body[0].expression.openingElement.attributes

@@ -13,7 +13,7 @@ const basePath = path.join(__dirname, 'base.css')
 const resetPath = path.join(__dirname, 'resets.css')
 const themePath = path.join(__dirname, 'theme.css')
 const variablesPath = path.join(__dirname, 'variables.css')
-const breakpointsPath = path.join(__dirname, 'utils', 'breakpoints.scss')
+const breakpointsPath = path.join(__dirname, '../utils/theme/breakpoints.scss')
 
 const fontFaces = fs.readFileSync(fontFacesPath, 'utf8')
 const baseStyles = fs.readFileSync(basePath, 'utf8')

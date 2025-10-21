@@ -1,0 +1,29 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Inline Migration - Toggle Components > migrates Toggle components with form props to Toggle with classNames > toggle-component.tsx 1`] = `
+"import { Toggle } from 'welcome-ui/Toggle'
+
+const FALSE = false
+
+const register = (name: string, options?: object) => {
+  return { name, ...options }
+}
+
+export const ToggleComponent = () => {
+  return (
+    <form>
+      <Toggle
+        className="inline-flex"
+        checked={FALSE}
+        onClick={() => console.debug()}
+        {...register('email', {
+          pattern: 'This field has invalid format',
+          required: 'This field is required',
+          value: /fish/,
+        })}
+      />
+    </form>
+  )
+}
+"
+`;

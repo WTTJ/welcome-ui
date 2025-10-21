@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Inline Migration - CloseButton Components > migrates CloseButton components with styling props to CloseButton with classNames > closebutton-component.tsx 1`] = `
+"import { CloseButton } from 'welcome-ui/CloseButton'
+
+export const CloseButtonComponent = () => {
+  return (
+    <div>
+      <CloseButton className="bg-neutral-90 border-none" />
+      <CloseButton className="ml-sm" size="sm" />
+    </div>
+  )
+}
+"
+`;

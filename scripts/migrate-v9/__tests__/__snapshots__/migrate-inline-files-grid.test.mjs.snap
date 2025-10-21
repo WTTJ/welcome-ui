@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Inline Migration - Grid Components > migrates Grid components with layout props to div with classNames > grid-component.tsx 1`] = `
+"import { Grid } from 'welcome-ui/Grid'
+
+export const GridComponent = () => {
+  return (
+    <div>
+      <div className="grid" columns={2} gutter="sm">
+        <div>Grid item 1</div>
+        <div>Grid item 2</div>
+      </div>
+    </div>
+  )
+}
+"
+`;

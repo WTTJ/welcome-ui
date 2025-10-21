@@ -4,6 +4,7 @@ import { parse } from '@babel/parser'
 import traverseModule from '@babel/traverse'
 
 import { getModule } from './esm.mjs'
+import { shouldExcludeFile } from './file-filters.mjs'
 import { parsePropsString } from './parsing.mjs'
 
 const traverse = getModule(traverseModule)
@@ -17,6 +18,11 @@ const traverse = getModule(traverseModule)
  * @param {Set<string>} whitelist - Set of allowed component root names
  */
 export function processFile(filePath, results, whitelist) {
+  // Skip test and story files
+  if (shouldExcludeFile(filePath)) {
+    return
+  }
+
   if (filePath.endsWith('.ts') || filePath.endsWith('.tsx')) {
     const content = fs.readFileSync(filePath, 'utf8')
     let ast
@@ -38,14 +44,6 @@ export function processFile(filePath, results, whitelist) {
         if (nameNode.type === 'JSXIdentifier') {
           componentName = nameNode.name
         } else if (nameNode.type === 'JSXMemberExpression') {
-          // Recursively build the full name (e.g., Breadcrumb.Item)
-          function getFullJSXName(node) {
-            if (node.type === 'JSXIdentifier') return node.name
-            if (node.type === 'JSXMemberExpression') {
-              return getFullJSXName(node.object) + '.' + getFullJSXName(node.property)
-            }
-            return ''
-          }
           componentName = getFullJSXName(nameNode)
         }
 
@@ -80,4 +78,13 @@ export function processFile(filePath, results, whitelist) {
       },
     })
   }
+}
+
+// Recursively build the full name (e.g., Breadcrumb.Item)
+function getFullJSXName(node) {
+  if (node.type === 'JSXIdentifier') return node.name
+  if (node.type === 'JSXMemberExpression') {
+    return getFullJSXName(node.object) + '.' + getFullJSXName(node.property)
+  }
+  return ''
 }
