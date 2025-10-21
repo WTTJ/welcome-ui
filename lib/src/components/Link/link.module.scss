@@ -58,9 +58,7 @@
   margin-left: calc(var(--spacing-xxs) * -1);
   padding-left: var(--spacing-xxs);
   padding-right: var(--spacing-xxs);
-  transition:
-    background var(--timing-primary),
-    color var(--timing-primary);
+  transition: var(--duration-medium) ease-in-out;
   background-repeat: no-repeat;
   background-size: var(--backgroundSize, 100% 50%);
   background-image: linear-gradient(

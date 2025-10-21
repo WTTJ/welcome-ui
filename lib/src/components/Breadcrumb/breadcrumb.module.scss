@@ -51,12 +51,12 @@
     color: var(--breadcrumbItemColor, var(--color-neutral-50));
     text-decoration: none;
     align-items: center;
-    transition: medium;
+    transition: var(--duration-medium);
     direction: initial;
 
     &:hover,
     &[aria-current='page'] {
-     --breadcrumbItemColor: var(--color-neutral-70);
+      --breadcrumbItemColor: var(--color-neutral-70);
     }
 
     &[aria-disabled='true'] {
