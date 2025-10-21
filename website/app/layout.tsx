@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { ThemeProvider as NextThemeProvider } from 'next-themes'
 
 import { Footer } from '~/build-app/components/Footer'
 import { Header } from '~/build-app/components/Header'
@@ -27,13 +26,11 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <link href="/favicon.png" rel="icon" type="image/png" />
       </head>
       <body>
-        <NextThemeProvider>
-          <div className="bg-neutral-10">
-            <Header components={pagesComponents} foundations={pagesFoundations} />
-            {children}
-            <Footer />
-          </div>
-        </NextThemeProvider>
+        <div className="bg-neutral-10">
+          <Header components={pagesComponents} foundations={pagesFoundations} />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   )
