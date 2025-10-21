@@ -79,6 +79,7 @@ const triggerActiveStyles = css`
 
 export const TriggerButton = styled.buttonBox<{
   isActive: boolean
+  isFixed: boolean
 }>`
   border: none;
   background-color: transparent;
@@ -89,8 +90,8 @@ export const TriggerButton = styled.buttonBox<{
   transition: background-color 300ms;
   bottom: ${th('space.md')};
 
-  ${({ isActive }) =>
-    !isActive &&
+  ${({ isFixed }) =>
+    !isFixed &&
     css`
       display: flex;
       align-items: center;

@@ -18,7 +18,9 @@ export const Complex = ({ variant = 'primary' }: { variant?: Variant }) => {
       <Text as="span" color="dark-50" fontSize="sm" mt="auto" textAlign="center" variant="h5">
         <FormattedMessage defaultMessage="© 2024 Acme Corp. All rights reserved." id="8XKXo+" />
       </Text>
-      <S.TriggerButton isActive={true}>Toggle</S.TriggerButton>
+      <S.TriggerButton isActive={true} isFixed>
+        Toggle
+      </S.TriggerButton>
     </S.Wrapper>
   )
 }

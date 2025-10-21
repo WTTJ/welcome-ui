@@ -41,7 +41,7 @@ export const Complex = ({ variant = 'primary' }: { variant?: Variant }) => {
       <Text as="span" className="mt-auto text-center text-dark-50 text-sm" variant="h5">
         <FormattedMessage defaultMessage="© 2024 Acme Corp. All rights reserved." id="8XKXo+" />
       </Text>
-      <button className={cx('trigger-button', 'is-active')}>Toggle</button>
+      <button className={cx('trigger-button', 'is-active', 'is-fixed')}>Toggle</button>
     </div>
   )
 }
@@ -138,7 +138,7 @@ border: none;
   transition: background-color 300ms;
   bottom: var(--spacing-md);
 
-  &.is-active {
+  &.is-fixed {
 display: flex;
       align-items: center;
       justify-content: center;
