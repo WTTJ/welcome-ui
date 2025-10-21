@@ -40,7 +40,7 @@ const Page = () => {
                       <Text as="h3" variant="heading-md-strong">
                         {page.title}
                       </Text>
-                      {data.isNew ? <Badge variant="primary">New</Badge> : null}
+                      {data.isNew ? <Badge variant="brand">NEW</Badge> : null}
                     </div>
                     <Text className="text-neutral-70 mt-sm" lines={3} variant="body-md">
                       {data?.description}
