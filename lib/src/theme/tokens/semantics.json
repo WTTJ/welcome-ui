@@ -2402,7 +2402,7 @@
     }
   },
   "spacing": {
-    "xxs": {
+    "2xs": {
       "value": "{spacing.2}",
       "type": "spacing",
       "scope": [

@@ -53,50 +53,135 @@
     "stepper": {
       "step": {
         "color": {
+          "background": {
+            "unchecked": {
+              "default": {
+                "value": "{color.background.neutral.inverse}",
+                "type": "color.background",
+                "scope": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ]
+              },
+              "hover": {
+                "value": "{color.background.brand.minimal}",
+                "type": "color.background",
+                "scope": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ]
+              }
+            },
+            "checked": {
+              "default": {
+                "value": "{color.background.brand.secondary}",
+                "type": "color.background",
+                "scope": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ]
+              },
+              "hover": {
+                "value": "{color.background.brand.subtle}",
+                "type": "color.background",
+                "scope": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ]
+              }
+            }
+          },
           "text": {
-            "default": {
-              "value": "{color.text.neutral.subtle}",
-              "type": "color.text",
-              "scope": [
-                "TEXT_FILL"
-              ]
+            "unchecked": {
+              "default": {
+                "value": "{color.text.neutral.subtle}",
+                "type": "color.text",
+                "scope": [
+                  "TEXT_FILL"
+                ]
+              },
+              "hover": {
+                "value": "{color.text.neutral.primary}",
+                "type": "color.text",
+                "scope": [
+                  "TEXT_FILL"
+                ]
+              }
             },
-            "hover": {
-              "value": "{color.text.neutral.primary}",
-              "type": "color.text",
-              "scope": [
-                "TEXT_FILL"
-              ]
-            },
-            "active": {
-              "value": "{color.text.brand.primary}",
-              "type": "color.text",
-              "scope": [
-                "TEXT_FILL"
-              ]
+            "checked": {
+              "default": {
+                "value": "{color.text.brand.primary}",
+                "type": "color.text",
+                "scope": [
+                  "TEXT_FILL"
+                ]
+              },
+              "hover": {
+                "value": "{color.text.brand.secondary}",
+                "type": "color.text",
+                "scope": [
+                  "TEXT_FILL"
+                ]
+              }
             }
           },
           "icon": {
-            "default": {
-              "value": "{color.icon.neutral.tertiary}",
-              "type": "color.fill",
-              "scope": [
-                "SHAPE_FILL"
-              ]
+            "unchecked": {
+              "default": {
+                "value": "{color.icon.neutral.tertiary}",
+                "type": "color.fill",
+                "scope": [
+                  "SHAPE_FILL"
+                ]
+              },
+              "hover": {
+                "value": "{color.icon.neutral.primary}",
+                "type": "color.fill",
+                "scope": [
+                  "SHAPE_FILL"
+                ]
+              }
             },
-            "hover": {
-              "value": "{color.icon.neutral.primary}",
-              "type": "color.fill",
-              "scope": [
-                "SHAPE_FILL"
-              ]
+            "checked": {
+              "default": {
+                "value": "{color.icon.brand.primary}",
+                "type": "color.fill",
+                "scope": [
+                  "SHAPE_FILL"
+                ]
+              },
+              "hover": {
+                "value": "{color.icon.brand.secondary}",
+                "type": "color.fill",
+                "scope": [
+                  "SHAPE_FILL"
+                ]
+              }
             },
-            "active": {
-              "value": "{color.icon.brand.primary}",
+            "success": {
+              "value": "{color.icon.success.tertiary}",
               "type": "color.fill",
               "scope": [
                 "SHAPE_FILL"
               ]
+            }
+          },
+          "border": {
+            "checked": {
+              "default": {
+                "value": "{color.border.brand.primary}",
+                "type": "color.border",
+                "scope": [
+                  "STROKE_COLOR"
+                ]
+              },
+              "hover": {
+                "value": "{color.border.brand.secondary}",
+                "type": "color.border",
+                "scope": [
+                  "STROKE_COLOR"
+                ]
+              }
             }
           }
         }
@@ -600,6 +685,15 @@
         }
       },
       "step": {
+        "size": {
+          "icon": {
+            "value": "{size.icon.md}",
+            "type": "dimension",
+            "scope": [
+              "WIDTH_HEIGHT"
+            ]
+          }
+        },
         "border": {
           "radius": {
             "value": "{border.radius.md}",
@@ -702,6 +796,22 @@
       },
       "gap": {
         "content": {
+          "lg": {
+            "value": "{spacing.sm}",
+            "type": "spacing",
+            "scope": [
+              "GAP"
+            ]
+          },
+          "md": {
+            "value": "{spacing.xs}",
+            "type": "spacing",
+            "scope": [
+              "GAP"
+            ]
+          }
+        },
+        "tabs": {
           "lg": {
             "value": "{spacing.sm}",
             "type": "spacing",
@@ -849,9 +959,9 @@
           }
         }
       },
-      "padding": {
-        "inline": {
-          "start": {
+      "start": {
+        "padding": {
+          "inline": {
             "leading": {
               "lg": {
                 "value": "{spacing.sm}",
@@ -884,7 +994,49 @@
                 ]
               }
             }
-          },
+          }
+        }
+      },
+      "end": {
+        "padding": {
+          "inline": {
+            "leading": {
+              "lg": {
+                "value": "{spacing.lg}",
+                "type": "spacing",
+                "scope": [
+                  "GAP"
+                ]
+              },
+              "md": {
+                "value": "{spacing.md}",
+                "type": "spacing",
+                "scope": [
+                  "GAP"
+                ]
+              }
+            },
+            "trailing": {
+              "lg": {
+                "value": "{spacing.sm}",
+                "type": "spacing",
+                "scope": [
+                  "GAP"
+                ]
+              },
+              "md": {
+                "value": "{spacing.xs}",
+                "type": "spacing",
+                "scope": [
+                  "GAP"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "padding": {
+        "inline": {
           "lg": {
             "value": "{spacing.md}",
             "type": "spacing",
@@ -898,40 +1050,6 @@
             "scope": [
               "GAP"
             ]
-          },
-          "end": {
-            "leading": {
-              "lg": {
-                "value": "{spacing.lg}",
-                "type": "spacing",
-                "scope": [
-                  "GAP"
-                ]
-              },
-              "md": {
-                "value": "{spacing.md}",
-                "type": "spacing",
-                "scope": [
-                  "GAP"
-                ]
-              }
-            },
-            "trailing": {
-              "lg": {
-                "value": "{spacing.sm}",
-                "type": "spacing",
-                "scope": [
-                  "GAP"
-                ]
-              },
-              "md": {
-                "value": "{spacing.xs}",
-                "type": "spacing",
-                "scope": [
-                  "GAP"
-                ]
-              }
-            }
           }
         },
         "block": {
