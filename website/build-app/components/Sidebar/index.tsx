@@ -70,8 +70,8 @@ export const Sidebar = ({ className, isSubPage, menu, onClick }: SidebarProps) =
                     {title || getName(id)}
                   </Link>
                   {isNew ? (
-                    <Badge size="sm" variant="primary">
-                      New
+                    <Badge size="sm" variant="brand">
+                      NEW
                     </Badge>
                   ) : null}
                 </li>
