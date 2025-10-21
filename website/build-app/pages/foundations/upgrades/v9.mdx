@@ -6,24 +6,81 @@ Hi, today we are releasing version 9 of Welcome UI. This new version includes th
 
 ## Upgrade steps
 
-### 1. Upgrade your dependencies
+### 1. Remove styled
 
-TODO
+1. Remove dependencies
+
+```bash
+yarn remove @xstyled/styled-components styled-components
+```
+
+2. Remove provider
+
+```diff
+- <WuiProvider>
+```
+
+3. Remove styled types
+
+Remove file `styled.d.ts`
+
+### 1. Upgrade your dependencies and add style files
+
+[See documentation](lib/README.md)
 
 ### 2. Script to migrate
 
 In welcome-ui repository, run this script to change styled props to tailwind classes in your project, and apply other breaking changes from components listed below.
 
 ```bash
-yarn migrate '../your_project_path' --replace
+yarn migrate:v9 '../your_project_path'
 ```
 
-You will have to confirm each change, you can press `y` to apply the change, `n` to skip it, `a` to apply all remaining changes and `q` to quit.
-
-If you want to see the changes before applying them, you can run the script without `--replace` flag:
+Options for this CLI:
 
 ```bash
-yarn migrate '../your_project_path/subfolder'
+Usage: yarn migrate:v9 <directory> [options]
+
+Arguments:
+  <directory>     Path to the component directory to migrate
+
+Options:
+  --copy          Create a backup copy before migration (adds -Migrated suffix)
+                  Default: Migrate files in place
+
+  --interactive   Enable interactive prompts to review each change
+                  Default: Non-interactive mode
+
+  --verbose       Show detailed output during migration
+                  Default: Show minimal output
+
+  --no-format     Skip final Prettier, ESLint, and Stylelint formatting
+                  Default: Formatting enabled
+
+  --no-recursive  Only migrate files in target directory, not subdirectories
+                  Default: Recursively scan all subdirectories
+
+What gets migrated:
+  • External styled components: <S.Menu /> → <div className={cx("menu")} />
+  • Inline styled components:   <Box mt="sm" /> → <div className="mt-sm" />
+  • CSS files:                   styles.ts → styles.module.scss
+
+Examples:
+  # Basic migration (in place, with formatting)
+  node index.mjs ./src/components/MyComponent
+
+  # Create backup copy before migrating
+  node index.mjs ./src/components/MyComponent --copy
+
+  # Review each change interactively
+  node index.mjs ./src/components/MyComponent --interactive
+
+  # Only migrate root directory files
+  node index.mjs ./src/components/MyComponent --no-recursive
+
+  # Combine multiple options
+  node index.mjs ./src/components/MyComponent --copy --verbose --interactive
+
 ```
 
 #### Example of changes
@@ -90,8 +147,7 @@ The DropdownMenu component no longer accepts the `gutter` prop. This value is se
 
 The `Field` component has been updated to improve accessibility.
 
-The `label` and `hint` elements now have unique IDs that are linked to the input element using `aria-labelledby` and `aria-describedby` attributes.
-The automatic passing of props to the child input element has been removed. You can now use the `useField` hook to get the necessary props for your input element.
+The `label` and `hint` elements now have unique IDs that are linked to the input element using `aria-labelledby` and `aria-describedby` attributes. The automatic passing of props to the child input element has been removed. You can now use the `useField` hook to get the necessary props for your input element.
 
 ### FileUpload
 
@@ -134,8 +190,7 @@ Size props are only for intern values (xs, sm, ...), you can now use tailwind si
 
 ### Modal
 
-The `Modal.Content` component has been updated to improve its internal styling logic. The props `store` is no longer necessary and has been removed.
-The `CloseButton` no longer needs the props `isOnHeader` to adjust its styling, it's all done in CSS.
+The `Modal.Content` component has been updated to improve its internal styling logic. The props `store` is no longer necessary and has been removed. The `CloseButton` no longer needs the props `isOnHeader` to adjust its styling, it's all done in CSS.
 
 ### Popover
 
@@ -165,6 +220,7 @@ We also removed `onPauseOver` options.
 ```
 
 #### New props
+
 To display a label, use the `label` prop.
 
 To hide it visually but keep it accessible for screen readers, use the `hideLabel` prop.
@@ -172,6 +228,7 @@ To hide it visually but keep it accessible for screen readers, use the `hideLabe
 To display the label next to the input, use the `inline` prop.
 
 #### FieldGroup
+
 The `label` prop is now mandatory.
 
 To hide it visually but keep it accessible for screen readers, use the `hideLabel` prop.
