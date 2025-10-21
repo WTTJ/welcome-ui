@@ -9705,7 +9705,7 @@
       }
     },
     "spacing": {
-      "xxs": {
+      "2xs": {
         "value": "{spacing.2}px",
         "type": "spacing",
         "scope": [
