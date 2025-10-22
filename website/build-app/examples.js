@@ -232,7 +232,7 @@ export default {
   "/Tooltip/docs/examples/long-text.tsx": dynamic(() => import("../../lib/src/components/Tooltip/docs/examples/long-text.tsx").then(mod => mod), { ssr: false }),
   "/Tooltip/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Tooltip/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Tooltip/docs/examples/placement.tsx": dynamic(() => import("../../lib/src/components/Tooltip/docs/examples/placement.tsx").then(mod => mod), { ssr: false }),
-  "/Tooltip/docs/examples/withArrow.tsx": dynamic(() => import("../../lib/src/components/Tooltip/docs/examples/withArrow.tsx").then(mod => mod), { ssr: false }),
+  "/Tooltip/docs/examples/title.tsx": dynamic(() => import("../../lib/src/components/Tooltip/docs/examples/title.tsx").then(mod => mod), { ssr: false }),
   "/VariantIcon/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/VariantIcon/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/VariantIcon/docs/examples/sizes.tsx": dynamic(() => import("../../lib/src/components/VariantIcon/docs/examples/sizes.tsx").then(mod => mod), { ssr: false }),
   "/VisuallyHidden/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/VisuallyHidden/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
