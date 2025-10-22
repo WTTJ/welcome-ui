@@ -31,15 +31,11 @@
     }
 
     &-2xl {
-      --size: var(--size-icon-2xl);
+      --size: var(--size-icon-xl);
     }
 
     &-3xl {
-      --size: var(--size-icon-3xl);
-    }
-
-    &-4xl {
-      --size: var(--size-icon-4xl);
+      --size: var(--size-icon-2xl);
     }
   }
 }

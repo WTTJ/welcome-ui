@@ -6,12 +6,12 @@
     padding: 0;
     top: 0;
     bottom: 0;
-    right: var(--indicators-right, var(--border-radius-lg));
+    right: var(--indicatorsRight, var(--border-radius-lg));
     display: flex;
     gap: var(--border-radius-sm);
 
     &.size-xs {
-      --indicators-right: var(--border-radius-md);
+      --indicatorsRight: var(--border-radius-md);
     }
   }
 
@@ -56,40 +56,40 @@
     &:has(> .icon-placement-right) {
       .indicators {
         /* icon size + spacing */
-        --indicators-right: calc(var(--border-radius-xl) + var(--border-radius-lg) * 2);
+        --indicatorsRight: calc(var(--border-radius-xl) + var(--border-radius-lg) * 2);
       }
     }
   }
 
   .root {
-    --select-placeholder-color: var(--color-icon-neutral-subtle);
-    background-color: var(--select-background-color, var(--color-background-neutral-inverse-fixed));
-    border-color: var(--select-border-color, var(--color-background-neutral-subtlest));
+    --selectPlaceholderColor: var(--color-icon-neutral-subtle);
+    background-color: var(--selectBackgroundColor, var(--color-background-neutral-inverse-fixed));
+    border-color: var(--selectBorderColor, var(--color-background-neutral-subtlest));
     border-radius: var(--border-radius-sm);
     border-style: solid;
     border-width: var(--border-width-xs);
-    color: var(--select-text-color, var(--color-background-neutral-primary-fixed));
+    color: var(--selectTextColor, var(--color-background-neutral-primary-fixed));
     font-size: var(--font-size-14);
     font-weight: var(--font-weight-regular);
     line-height: var(--border-radius-xl);
-    outline: 2px solid var(--select-outline-color, transparent);
+    outline: 2px solid var(--selectOutlineColor, transparent);
     cursor: default;
     width: 100%;
     transition-property: all;
     transition-timing-function: var(--timing-primary);
     transition-duration: var(--duration-medium);
-    height: var(--select-height);
-    padding-bottom: var(--select-padding-bottom);
-    padding-left: var(--select-padding-left);
-    padding-right: var(--select-padding-right);
-    padding-top: var(--select-padding-top);
+    height: var(--selectHeight);
+    padding-bottom: var(--selectPaddingBottom);
+    padding-left: var(--selectPaddingLeft);
+    padding-right: var(--selectPaddingRight);
+    padding-top: var(--selectPaddingTop);
     @include ellipsis.text-ellipsis;
 
     /* left icon or both */
     &.icon-placement-left,
     &.icon-placement-both {
       padding-left: calc(
-        var(--select-padding-left) + var(--select-icon-size, 1rem) + var(--border-radius-md)
+        var(--selectPaddingLeft) + var(--selectIconSize, 1rem) + var(--border-radius-md)
       );
     }
 
@@ -98,7 +98,7 @@
     &.icon-placement-right,
     &.icon-placement-both {
       padding-right: calc(
-        var(--select-padding-right) + var(--select-icon-size, 1rem) + var(--border-radius-md)
+        var(--selectPaddingRight) + var(--selectIconSize, 1rem) + var(--border-radius-md)
       );
     }
 
@@ -106,38 +106,38 @@
     &.clearable.icon-placement-right,
     &.clearable.icon-placement-both {
       padding-right: calc(
-        var(--select-padding-right) + (var(--select-icon-size, 1rem) + var(--border-radius-md)) * 2
+        var(--selectPaddingRight) + (var(--selectIconSize, 1rem) + var(--border-radius-md)) * 2
       );
     }
 
     &:disabled {
-      --select-background-color: var(--select-color-beige-40);
-      --select-text-color: var(--select-color-beige-70);
+      --selectBackgroundColor: var(--color-background-warm-stronger);
+      --selectTextColor: var(--color-text-warm-tertiary);
       cursor: not-allowed;
     }
 
     /* hover when no variant is defined */
     &:hover:not([class*='variant']) {
-      --select-border-color: var(--color-background-brand-primary);
+      --selectBorderColor: var(--color-background-brand-primary);
     }
 
     /* focus when no variant is defined */
     &:focus:not([class*='variant']) {
-      --select-outline-color: var(--color-background-brand-subtle);
-      --select-border-color: var(--color-background-brand-primary);
+      --selectOutlineColor: var(--color-background-brand-subtle);
+      --selectBorderColor: var(--color-background-brand-primary);
     }
 
     &.transparent {
-      --select-border-color: transparent;
-      --select-background-color: transparent;
+      --selectBorderColor: transparent;
+      --selectBackgroundColor: transparent;
 
       &:hover {
-        --select-border-color: var(--color-background-neutral-minimal);
+        --selectBorderColor: var(--color-background-neutral-minimal);
       }
     }
 
     &::placeholder {
-      color: var(--select-placeholder-color);
+      color: var(--selectPlaceholderColor);
     }
 
     br {
@@ -160,7 +160,7 @@
         bottom: 0;
         left: 0;
         padding: inherit;
-        color: var(--select-placeholder-color);
+        color: var(--selectPlaceholderColor);
         @include ellipsis.text-ellipsis;
       }
 
@@ -172,61 +172,61 @@
 
   .variant {
     &-danger {
-      --select-border-color: var(--color-background-danger-strongest);
-      --select-outline-color: var(--color-background-danger-secondary);
+      --selectBorderColor: var(--color-background-danger-strongest);
+      --selectOutlineColor: var(--color-background-danger-secondary);
     }
 
     &-success {
-      --select-border-color: var(--color-background-accent-green-strongest);
-      --select-outline-color: var(--color-background-accent-green-primary);
+      --selectBorderColor: var(--color-background-accent-green-strongest);
+      --selectOutlineColor: var(--color-background-accent-green-primary);
     }
 
     &-warning {
-      --select-border-color: var(--color-background-warning-stronger);
-      --select-outline-color: var(--color-background-warning-subtle);
+      --selectBorderColor: var(--color-background-warning-stronger);
+      --selectOutlineColor: var(--color-background-warning-subtle);
     }
   }
 
   .size {
     &-lg {
-      --select-height: var(--size-icon-3xl);
-      --select-padding-bottom: var(--border-radius-xl);
-      --select-padding-left: var(--border-radius-lg);
-      --select-padding-right: var(--border-radius-lg);
-      --select-padding-top: var(--border-radius-xl);
+      --selectHeight: var(--size-icon-2xl);
+      --selectPaddingBottom: var(--border-radius-xl);
+      --selectPaddingLeft: var(--border-radius-lg);
+      --selectPaddingRight: var(--border-radius-lg);
+      --selectPaddingTop: var(--border-radius-xl);
     }
 
     &-md {
-      --select-height: var(--width-40);
-      --select-padding-bottom: var(--border-radius-lg);
-      --select-padding-left: var(--border-radius-lg);
-      --select-padding-right: var(--border-radius-lg);
-      --select-padding-top: var(--border-radius-lg);
+      --selectHeight: var(--width-40);
+      --selectPaddingBottom: var(--border-radius-lg);
+      --selectPaddingLeft: var(--border-radius-lg);
+      --selectPaddingRight: var(--border-radius-lg);
+      --selectPaddingTop: var(--border-radius-lg);
     }
 
     &-sm {
-      --select-height: var(--size-icon-2xl);
-      --select-padding-bottom: var(--border-radius-md);
-      --select-padding-left: var(--border-radius-lg);
-      --select-padding-right: var(--border-radius-lg);
-      --select-padding-top: var(--border-radius-md);
+      --selectHeight: var(--size-icon-xl);
+      --selectPaddingBottom: var(--border-radius-md);
+      --selectPaddingLeft: var(--border-radius-lg);
+      --selectPaddingRight: var(--border-radius-lg);
+      --selectPaddingTop: var(--border-radius-md);
     }
 
     &-xs {
-      --select-height: var(--border-radius-2xl);
-      --select-padding-bottom: var(--border-radius-sm);
-      --select-padding-left: var(--border-radius-md);
-      --select-padding-right: var(--border-radius-md);
-      --select-padding-top: var(--border-radius-sm);
-      --select-icon-size: 0.75rem;
+      --selectHeight: var(--border-radius-2xl);
+      --selectPaddingBottom: var(--border-radius-sm);
+      --selectPaddingLeft: var(--border-radius-md);
+      --selectPaddingRight: var(--border-radius-md);
+      --selectPaddingTop: var(--border-radius-sm);
+      --selectIconSize: 0.75rem;
     }
   }
 
   .icon-wrapper {
     position: absolute;
     top: 0;
-    left: var(--icon-placement-left, auto);
-    right: var(--icon-placement-right, auto);
+    left: var(--iconPlacementLeft, auto);
+    right: var(--iconPlacementRight, auto);
     bottom: 0;
     display: flex;
     justify-content: center;
@@ -238,16 +238,16 @@
     color: var(--color-background-neutral-primary-fixed);
 
     &.icon-placement-left {
-      --icon-placement-left: var(--border-radius-lg);
+      --iconPlacementLeft: var(--border-radius-lg);
       &.size-xs {
-        --icon-placement-left: var(--border-radius-md);
+        --iconPlacementLeft: var(--border-radius-md);
       }
     }
 
     &.icon-placement-right {
-      --icon-placement-right: var(--border-radius-lg);
+      --iconPlacementRight: var(--border-radius-lg);
       &.size-xs {
-        --icon-placement-right: var(--border-radius-md);
+        --iconPlacementRight: var(--border-radius-md);
       }
     }
 
@@ -297,8 +297,8 @@
   }
 
   .item {
-    color: var(--item-text-color, var(--color-icon-warm-tertiary));
-    cursor: var(--item-cursor, default);
+    color: var(--itemTextColor, var(--color-icon-warm-tertiary));
+    cursor: var(--itemCursor, default);
     padding: var(--border-radius-lg);
     list-style: none;
     text-decoration: none;
@@ -314,18 +314,18 @@
 
     &.selected {
       &:not(.multiple) {
-        --item-text-color: var(--color-background-neutral-primary-fixed);
+        --itemTextColor: var(--color-background-neutral-primary-fixed);
         font-weight: var(--font-weight-semi-bold);
       }
       &.multiple:not(.allowUnselectFromList) {
-        --item-text-color: var(--color-background-warm-stronger);
-        --item-cursor: not-allowed;
+        --itemTextColor: var(--color-background-warm-stronger);
+        --itemCursor: not-allowed;
       }
     }
 
     &.disabled {
-      --item-text-color: var(--color-border-warm-primary);
-      --item-cursor: not-allowed;
+      --itemTextColor: var(--color-border-warm-primary);
+      --itemCursor: not-allowed;
     }
   }
 
