@@ -13,7 +13,7 @@
     "@types/lodash": "4.17.20",
     "gray-matter": "4.0.3",
     "lodash": "4.17.21",
-    "marked": "16.4.0",
+    "marked": "16.4.1",
     "next": "15.5.4",
     "prism-react-renderer": "2.4.1",
     "prop-types": "^15.8.1",
