@@ -138,12 +138,6 @@
 @font-face {
   font-family: welcome-font;
   font-weight: 500;
-  src: url('https://cdn.welcome-ui.com/fonts/welcome-font-regular.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: welcome-font;
-  font-weight: 700;
   src: url('https://cdn.welcome-ui.com/fonts/welcome-font-medium.woff2') format('woff2');
 }
 
@@ -162,7 +156,7 @@
 @font-face {
   font-family: welcome-font;
   font-style: italic;
-  font-weight: 700;
+  font-weight: 500;
   src: url('https://cdn.welcome-ui.com/fonts/welcome-font-medium-italic.woff2') format('woff2');
 }
 
@@ -1015,10 +1009,10 @@
   --components-dimensions-checkbox-size-container: 1rem;
   --components-dimensions-checkbox-size-icon: 1rem;
   --components-dimensions-radio-size: 1rem;
+  --components-dimensions-radio-border-radius: calc(infinity * 1px);
   --components-dimensions-radio-border-width-unchecked: 1px;
   --components-dimensions-radio-border-width-checked: 2px;
   --components-dimensions-radio-border-width-focused: 2px;
-  --components-dimensions-radio-border-radius: calc(infinity * 1px);
   --components-dimensions-radio-indicator-size: 0.5rem;
   --components-dimensions-radio-indicator-border-radius: calc(infinity * 1px);
   --components-dimensions-toggle-track-size-height-lg: 1.5rem;
@@ -1607,7 +1601,6 @@
   --border-width-sm: 2px;
   --border-width-md: 4px;
   --border-width-lg: 6px;
-  --radius-none: 0;
   --border-radius-none: 0;
   --radius-none: 0;
   --border-radius-xs: 0.125rem;
@@ -1619,7 +1612,7 @@
   --border-radius-lg: 0.75rem;
   --radius-lg: 0.75rem;
   --border-radius-xl: 1rem;
-  --border-radius-xxl: 1.5rem;
+  --radius-xl: 1rem;
   --border-radius-2xl: 1.5rem;
   --border-radius-xxl: 1.5rem;
   --radius-2xl: 1.5rem;
@@ -1774,6 +1767,7 @@
     min-height: 100%;
     padding-top: 1px;
     margin-top: -1px;
+    font-family: var(--font-family-body);
   }
 
   h1,
