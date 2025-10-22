@@ -72,6 +72,13 @@
       --color: var(--colorDisabled);
       pointer-events: none;
     }
+
+    /* This case should not happen but if it does, we want to style it appropriately */
+    &[aria-disabled]:visited {
+      .wui-text {
+        background-color: var(--backgroundImageColorDisabled);
+      }
+    }
   }
 
   .variant {
@@ -138,5 +145,17 @@
 
   .isMultiline {
     display: inline;
+  }
+
+  .icon-disabled {
+    margin-right: var(--spacing-xxs);
+    &.variant {
+      &-primary {
+        color: var(--components-colors-link-color-icon-primary-disabled);
+      }
+      &-secondary {
+        color: var(--components-colors-link-color-icon-secondary-disabled);
+      }
+    }
   }
 }
