@@ -99,7 +99,7 @@ const Home = () => {
           {posts.map(({ authors, cover, date, description, link, tags, title }) => (
             <li className="mb-3xl" key={link}>
               <Card>
-                {cover ? <Card /> : null}
+                {cover ? <Card.Cover alt="Cover" src={cover} /> : null}
                 <Card.Body>
                   <div className="flex gap-xxs mb-xl">
                     {tags?.map(tag => (
