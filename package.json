@@ -8,7 +8,7 @@
     "check:audit:fix": "npm_config_yes=true npx yarn-audit-fix",
     "check:docs": "node ./scripts/check-docs.mjs",
     "check:theme": "node --import=tsx lib/src/theme/generate-theme.ts",
-    "lint:css": "stylelint '**/*.{css,scss}'",
+    "lint:css": "stylelint **/*.scss --config ./stylelint.config.mjs",
     "lint:js": "eslint scripts lib website --max-warnings 0",
     "lint:mdx": "prettier --parser mdx --write '**/docs/index.mdx'",
     "lint:ts": "yarn workspaces run tsc --noEmit",
