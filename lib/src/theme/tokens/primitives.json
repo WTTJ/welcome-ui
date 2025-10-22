@@ -920,6 +920,13 @@
     }
   },
   "height": {
+    "2": {
+      "value": "2px",
+      "type": "dimension",
+      "scope": [
+        "WIDTH_HEIGHT"
+      ]
+    },
     "8": {
       "value": "8px",
       "type": "dimension",
