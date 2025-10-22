@@ -14,50 +14,50 @@
     transition: var(--duration-medium);
     max-width: 100%;
 
-    --drawer-left: 0;
-    --drawer-right: 0;
-    --drawer-top: 0;
-    --drawer-bottom: 0;
-    --drawer-height: 100%;
-    --drawer-width: 100%;
-    --drawer-transform: translateY(0, 0);
+    --drawerLeft: 0;
+    --drawerRight: 0;
+    --drawerTop: 0;
+    --drawerBottom: 0;
+    --drawerHeight: 100%;
+    --drawerWidth: 100%;
+    --drawerTransform: translateY(0, 0);
 
-    left: var(--drawer-left);
-    right: var(--drawer-right);
-    top: var(--drawer-top);
-    bottom: var(--drawer-bottom);
-    width: var(--drawer-width);
-    height: var(--drawer-height);
-    transform: var(--drawer-transform);
+    left: var(--drawerLeft);
+    right: var(--drawerRight);
+    top: var(--drawerTop);
+    bottom: var(--drawerBottom);
+    width: var(--drawerWidth);
+    height: var(--drawerHeight);
+    transform: var(--drawerTransform);
 
     &.placement {
       &-bottom {
-        --drawer-top: auto;
-        --drawer-transform: translateY(100%);
+        --drawerTop: auto;
+        --drawerTransform: translateY(100%);
       }
       &-left {
-        --drawer-right: auto;
-        --drawer-transform: translateX(-100%);
+        --drawerRight: auto;
+        --drawerTransform: translateX(-100%);
       }
       &-right {
-        --drawer-left: auto;
-        --drawer-transform: translateX(100%);
+        --drawerLeft: auto;
+        --drawerTransform: translateX(100%);
       }
       &-top {
-        --drawer-bottom: auto;
-        --drawer-transform: translateY(-100%);
+        --drawerBottom: auto;
+        --drawerTransform: translateY(-100%);
       }
       &-top,
       &-bottom {
         &.size {
           &-sm {
-            --drawer-height: 25rem; /* 400px */
+            --drawerHeight: 25rem; /* 400px */
           }
           &-md {
-            --drawer-height: 34.375rem; /* 550px */
+            --drawerHeight: 34.375rem; /* 550px */
           }
           &-lg {
-            --drawer-height: 42.5rem; /* 680px */
+            --drawerHeight: 42.5rem; /* 680px */
           }
         }
       }
@@ -65,13 +65,13 @@
       &-right {
         &.size {
           &-sm {
-            --drawer-width: 25rem; /* 400px */
+            --drawerWidth: 25rem; /* 400px */
           }
           &-md {
-            --drawer-width: 34.375rem; /* 550px */
+            --drawerWidth: 34.375rem; /* 550px */
           }
           &-lg {
-            --drawer-width: 42.5rem; /* 680px */
+            --drawerWidth: 42.5rem; /* 680px */
           }
         }
       }
@@ -80,12 +80,12 @@
     /* Note: this must come _after_ the placement rules to transition from offscreen to onscreen */
     &[data-enter] {
       opacity: 1;
-      --drawer-transform: translateX(0, 0);
+      --drawerTransform: translateX(0, 0);
     }
   }
 
   .backdrop {
-    background-color: var(--color-overlay);
+    background-color: var(--color-overlay-strong);
     z-index: 999;
     position: fixed;
     top: 0;
@@ -118,7 +118,7 @@
     position: sticky;
     z-index: 1;
     width: 100%;
-    background-color: var(--color-neutral-0);
+    background-color: var(--color-background-warm-strong);
     padding: var(--border-radius-2xl);
 
     @media screen and (min-width: breakpoints.$breakpoint-md) {

@@ -36,8 +36,8 @@
 
     &-sm {
       --borderRadius: var(--components-dimensions-badge-border-radius-sm);
-      --height: var(--components-dimensions-badge-size-max-height-sm);
-      --width: var(--components-dimensions-badge-size-min-width-sm);
+      --height: var(--components-dimensions-badge-size-height);
+      --width: var(--components-dimensions-badge-size-width);
     }
   }
 

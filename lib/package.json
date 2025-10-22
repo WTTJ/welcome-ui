@@ -30,7 +30,8 @@
     "build": "vite build",
     "tokens:clean": "tsx src/theme/clean-tokens.ts",
     "tokens:build": "yarn tokens:clean && node ./src/theme/build-tokens.js",
-    "theme:generate": "yarn tokens:build && tsx src/theme/generate-theme.ts && yarn run -W prettier --write 'src/theme/theme.css'",
+    "tokens:generate-types": "tsx src/theme/extract-css-vars.ts",
+    "theme:generate": "yarn tokens:build && tsx src/theme/generate-theme.ts && yarn run -W prettier --write 'src/theme/theme.css' && yarn tokens:generate-types",
     "test": "vitest"
   },
   "repository": {
