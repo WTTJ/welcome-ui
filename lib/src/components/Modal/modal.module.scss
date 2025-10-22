@@ -27,7 +27,7 @@
       opacity 250ms ease-in-out,
       margin-top 250ms ease-in-out;
 
-    --dialog-width: 100%;
+    --dialogWidth: 100%;
 
     &[data-enter] {
       opacity: 1;
@@ -37,7 +37,7 @@
     @media (min-width: breakpoints.$breakpoint-md) {
       height: fit-content;
       max-height: calc(2 * var(--border-radius-2xl) + 100vh);
-      width: var(--dialog-width);
+      width: var(--dialogWidth);
     }
 
     /* Styles the Header */
@@ -57,7 +57,7 @@
       }
       /* AND if the Modal have a Header */
       &:has(.header) .body {
-        padding-right: var(--size-icon-2xl);
+        padding-right: var(--size-icon-xl);
       }
     }
 
@@ -83,27 +83,27 @@
   .size {
     &-lg {
       /* 720px; */
-      --dialog-width: 45rem;
+      --dialogWidth: 45rem;
     }
 
     &-md {
       /* 600px; */
-      --dialog-width: 37.5rem;
+      --dialogWidth: 37.5rem;
     }
 
     &-sm {
       /* 450px; */
-      --dialog-width: 28.125rem;
+      --dialogWidth: 28.125rem;
     }
 
     &-xs {
       /* 320px; */
-      --dialog-width: 20rem;
+      --dialogWidth: 20rem;
     }
   }
 
   .backdrop {
-    background-color: var(--color-overlay);
+    background-color: var(--color-overlay-strong);
     z-index: 999;
     position: fixed;
     top: 0;
@@ -125,7 +125,7 @@
   .close {
     position: sticky;
     top: var(--border-radius-xl);
-    left: calc(100% - var(--border-radius-xl) - var(--size-icon-2xl));
+    left: calc(100% - var(--border-radius-xl) - var(--size-icon-xl));
     z-index: 1;
   }
 
@@ -140,10 +140,10 @@
     background-color: var(--color-background-neutral-inverse-fixed);
     border-top-left-radius: var(--border-radius-sm);
     border-top-right-radius: var(--border-radius-sm);
-    padding-bottom: var(--size-icon-2xl);
-    padding-left: var(--size-icon-2xl);
-    padding-right: var(--size-icon-3xl);
-    padding-top: var(--size-icon-2xl);
+    padding-bottom: var(--size-icon-xl);
+    padding-left: var(--size-icon-xl);
+    padding-right: var(--size-icon-2xl);
+    padding-top: var(--size-icon-xl);
 
     &:has(> .header-subtitle) .header-title {
       margin-bottom: var(--border-radius-xl);
@@ -169,9 +169,9 @@
 
   .body {
     color: var(--color-background-neutral-primary-fixed);
-    padding-left: var(--size-icon-2xl);
-    padding-right: var(--size-icon-3xl);
-    padding-bottom: var(--size-icon-2xl);
+    padding-left: var(--size-icon-xl);
+    padding-right: var(--size-icon-2xl);
+    padding-bottom: var(--size-icon-xl);
   }
 
   .footer {
@@ -189,14 +189,14 @@
   .footer-children-wrapper {
     padding-bottom: var(--border-radius-2xl);
     padding-top: var(--border-radius-xl);
-    padding-inline: var(--size-icon-2xl);
+    padding-inline: var(--size-icon-xl);
   }
 
   .footer-information {
     background-color: var(--color-background-warm-primary);
-    padding-bottom: var(--size-icon-2xl);
-    padding-left: var(--size-icon-2xl);
-    padding-right: var(--size-icon-2xl);
+    padding-bottom: var(--size-icon-xl);
+    padding-left: var(--size-icon-xl);
+    padding-right: var(--size-icon-xl);
     padding-top: var(--border-radius-2xl);
   }
 

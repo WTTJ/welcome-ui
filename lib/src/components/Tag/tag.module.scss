@@ -197,7 +197,7 @@
       --removeWidth: 0.5rem;
     }
     &-sm {
-      --height: var(--border-radius-2xl);
+      --height: var(--size-icon-lg);
       --paddingVertical: var(--components-dimensions-tag-padding-block-md);
       --paddingHorizontal: var(--components-dimensions-tag-padding-inline-md);
       --gap: var(--components-dimensions-tag-padding-block-md);
@@ -208,7 +208,7 @@
       --removeWidth: 0.75rem;
     }
     &-md {
-      --height: var(--size-icon-2xl);
+      --height: var(--size-icon-xl);
       --paddingVertical: var(--components-dimensions-tag-padding-block-md);
       --paddingHorizontal: var(--components-dimensions-tag-padding-inline-md);
       --gap: var(--components-dimensions-tag-padding-inline-md);

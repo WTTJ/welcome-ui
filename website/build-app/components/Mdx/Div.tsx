@@ -2,6 +2,7 @@ import { existsSync, readFileSync } from 'fs'
 import { join } from 'path'
 
 import { Alert } from '@/components/Alert'
+import type { ColorVariants } from '@/theme/types'
 
 import type examples from '~/build-app/examples'
 
@@ -16,7 +17,7 @@ type DivProps = {
   children: string
   node?: {
     properties: {
-      dataColors?: string
+      dataColors?: ColorVariants
       dataComponent?: string
       dataIcons?: IconListProps['collectionName']
       dataIconsFont?: string

@@ -17,7 +17,16 @@ const Example = () => {
     setValue(newValue)
   }
 
-  return <Select isClearable name="welcome" onChange={handleChange} options={ITEMS} value={value} />
+  return (
+    <Select
+      disabled
+      isClearable
+      name="welcome"
+      onChange={handleChange}
+      options={ITEMS}
+      value={value}
+    />
+  )
 }
 
 export default Example

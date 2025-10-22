@@ -60,7 +60,7 @@
       /* prettier-ignore */
       left: calc((var(--components-dimensions-radio-size) - var( --components-dimensions-radio-indicator-size)) / 2 - var(--components-dimensions-radio-border-width-unchecked));
       transition: var(--duration-medium);
-      background-color: var(--backgroundColor, var(--color-transparent));
+      background-color: var(--backgroundColor, transparent);
     }
 
     &[aria-checked='true'] {

@@ -2378,21 +2378,21 @@
           "WIDTH_HEIGHT"
         ]
       },
-      "2xl": {
+      "xl": {
         "value": "{size.32}",
         "type": "dimension",
         "scope": [
           "WIDTH_HEIGHT"
         ]
       },
-      "3xl": {
+      "2xl": {
         "value": "{size.48}",
         "type": "dimension",
         "scope": [
           "WIDTH_HEIGHT"
         ]
       },
-      "4xl": {
+      "3xl": {
         "value": "{size.64}",
         "type": "dimension",
         "scope": [

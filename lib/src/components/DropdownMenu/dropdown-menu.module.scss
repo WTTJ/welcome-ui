@@ -30,24 +30,24 @@
   .arrow-item {
     height: var(--height-32);
     width: var(--height-32);
-    transform: var(--dropdown-menu-transform);
+    transform: var(--dropdownMenuTransform);
   }
 
   .arrow-placement {
     &-bottom {
-      --dropdown-menu-transform: rotateZ(360deg);
+      --dropdownMenuTransform: rotateZ(360deg);
     }
 
     &-left {
-      --dropdown-menu-transform: rotateZ(90deg);
+      --dropdownMenuTransform: rotateZ(90deg);
     }
 
     &-right {
-      --dropdown-menu-transform: rotateZ(-90deg);
+      --dropdownMenuTransform: rotateZ(-90deg);
     }
 
     &-top {
-      --dropdown-menu-transform: rotateZ(180deg);
+      --dropdownMenuTransform: rotateZ(180deg);
     }
   }
 

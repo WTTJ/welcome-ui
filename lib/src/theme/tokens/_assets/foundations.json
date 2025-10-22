@@ -1571,6 +1571,18 @@
       }
     },
     "height": {
+      "2": {
+        "value": "2px",
+        "type": "dimension",
+        "scope": [
+          "WIDTH_HEIGHT"
+        ],
+        "$extensions": {
+          "tokens-studio": {
+            "mode": "default"
+          }
+        }
+      },
       "8": {
         "value": "8px",
         "type": "dimension",
@@ -9666,7 +9678,7 @@
             }
           }
         },
-        "2xl": {
+        "xl": {
           "value": "{size.32}px",
           "type": "dimension",
           "scope": [
@@ -9678,7 +9690,7 @@
             }
           }
         },
-        "3xl": {
+        "2xl": {
           "value": "{size.48}px",
           "type": "dimension",
           "scope": [
@@ -9690,7 +9702,7 @@
             }
           }
         },
-        "4xl": {
+        "3xl": {
           "value": "{size.64}px",
           "type": "dimension",
           "scope": [
