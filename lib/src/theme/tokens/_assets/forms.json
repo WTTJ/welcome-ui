@@ -1393,6 +1393,18 @@
         }
       },
       "border": {
+        "radius": {
+          "value": "{border.radius.full}px",
+          "type": "borderRadius",
+          "scope": [
+            "CORNER_RADIUS"
+          ],
+          "$extensions": {
+            "tokens-studio": {
+              "mode": "mode 1"
+            }
+          }
+        },
         "width": {
           "unchecked": {
             "value": "{border.width.xs}px",
@@ -1428,18 +1440,6 @@
               "tokens-studio": {
                 "mode": "mode 1"
               }
-            }
-          }
-        },
-        "radius": {
-          "value": "{border.radius.full}px",
-          "type": "borderRadius",
-          "scope": [
-            "CORNER_RADIUS"
-          ],
-          "$extensions": {
-            "tokens-studio": {
-              "mode": "mode 1"
             }
           }
         }

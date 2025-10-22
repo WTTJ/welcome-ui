@@ -824,10 +824,10 @@
   --components-dimensions-checkbox-size-container: 1rem;
   --components-dimensions-checkbox-size-icon: 1rem;
   --components-dimensions-radio-size: 1rem;
+  --components-dimensions-radio-border-radius: calc(infinity * 1px);
   --components-dimensions-radio-border-width-unchecked: 1px;
   --components-dimensions-radio-border-width-checked: 2px;
   --components-dimensions-radio-border-width-focused: 2px;
-  --components-dimensions-radio-border-radius: calc(infinity * 1px);
   --components-dimensions-radio-indicator-size: 0.5rem;
   --components-dimensions-radio-indicator-border-radius: calc(infinity * 1px);
   --components-dimensions-toggle-track-size-height-lg: 1.5rem;
@@ -1416,7 +1416,6 @@
   --border-width-sm: 2px;
   --border-width-md: 4px;
   --border-width-lg: 6px;
-  --radius-none: 0;
   --border-radius-none: 0;
   --radius-none: 0;
   --border-radius-xs: 0.125rem;
