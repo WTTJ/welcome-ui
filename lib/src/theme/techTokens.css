@@ -4,3 +4,6 @@
 --duration-fast: 100ms;
 --duration-medium: 300ms;
 --duration-slow: 500ms;
+--timing-primary: ease;
+--timing-secondary: linear;
+--timing-tertiary: cubic-bezier(0.41, 0.094, 0.54, 0.07);

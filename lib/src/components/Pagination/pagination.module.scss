@@ -4,7 +4,7 @@
     padding: 0;
     margin: 0;
     display: flex;
-    gap: var(--components-dimensions-pagination-padding-inline-start-leading-lg);
+    gap: var(--components-dimensions-pagination-start-padding-inline-leading-lg);
     align-items: center;
     flex-wrap: wrap;
   }
@@ -15,7 +15,7 @@
       --backgroundColor,
       var(--components-colors-pagination-color-background-unchecked-default)
     );
-    font-size: var(--components-dimensions-pagination-padding-inline-start-trailing-md);
+    font-size: var(--components-dimensions-pagination-start-padding-inline-trailing-md);
     font-weight: var(--font-weight-semi-bold);
     height: var(--components-dimensions-pagination-size-max-height-md);
     width: var(--components-dimensions-pagination-size-max-height-md);

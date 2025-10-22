@@ -2,7 +2,7 @@
   .root {
     border: 0;
     background: none;
-    color: var(--tabs-color, var(--color-background-neutral-tertiary));
+    color: var(--tabsColor, var(--color-background-neutral-tertiary));
     font-weight: var(--font-weight-medium);
     line-height: var(--font-size-lg);
     text-decoration: none;
@@ -19,21 +19,21 @@
       outline: none !important; /* important for firefox */
 
       &:not([aria-selected='true']) {
-        --tabs-color: var(--components-colors-tab-color-text-unchecked-pressed);
+        --tabsColor: var(--components-colors-tab-color-text-unchecked-pressed);
       }
     }
 
     &[aria-selected='true'] {
-      --tabs-color: var(--components-colors-tab-color-text-unchecked-pressed);
+      --tabsColor: var(--components-colors-tab-color-text-unchecked-pressed);
     }
 
     &[aria-disabled='true'] {
-      --tabs-color: var(--color-icon-neutral-subtle);
+      --tabsColor: var(--color-icon-neutral-subtle);
       cursor: not-allowed;
     }
 
     &:hover:not([aria-selected='true']):not([aria-disabled='true']) {
-      --tabs-color: var(--components-colors-tab-color-text-unchecked-pressed);
+      --tabsColor: var(--components-colors-tab-color-text-unchecked-pressed);
     }
 
     & > svg,
