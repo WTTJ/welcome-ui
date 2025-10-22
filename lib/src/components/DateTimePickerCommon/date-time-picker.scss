@@ -130,15 +130,15 @@
   .react-datepicker__month-text--in-selecting-range,
   .react-datepicker__month-text--in-range,
   .react-datepicker__month-text:hover {
-    width: var(--size-icon-4xl);
-    height: var(--size-icon-2xl);
+    width: var(--size-icon-2xl);
+    height: var(--size-icon-xl);
     margin: 2px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: var(--size-icon-2xl);
+    border-radius: var(--size-icon-xl);
     &:hover {
-      border-radius: var(--size-icon-2xl);
+      border-radius: var(--size-icon-xl);
     }
   }
 }

@@ -50,8 +50,8 @@ export const ActiveBar = ({ activeTab, listRef, orientation }: ActiveBarProps) =
   const activeBar = useActiveBar({ activeTab, listRef, orientation })
 
   const style = {
-    '--active-bar-offset': `${activeBar.offset}px`,
-    '--active-bar-size': `${activeBar.size}px`,
+    '--activeBarOffset': `${activeBar.offset}px`,
+    '--activeBarSize': `${activeBar.size}px`,
   } as React.CSSProperties
 
   return <span className={cx('root', `orientation-${orientation}`)} style={style} />
