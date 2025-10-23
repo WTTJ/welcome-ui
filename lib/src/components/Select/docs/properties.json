@@ -477,7 +477,7 @@
       },
       "size": {
         "defaultValue": {
-          "value": "md"
+          "value": "lg"
         },
         "description": "",
         "name": "size",
@@ -496,9 +496,6 @@
           "name": "enum",
           "raw": "Size",
           "value": [
-            {
-              "value": "\"xs\""
-            },
             {
               "value": "\"sm\""
             },
