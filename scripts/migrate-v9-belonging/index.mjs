@@ -30,10 +30,10 @@ const MIGRATION_CONFIG = [
   //   component: 'Text',
   //   script: './transform-text.mjs',
   // },
-  {
-    components: 'Tooltip',
-    script: './transform-tooltip.mjs',
-  },
+  // {
+  //   components: 'Tooltip',
+  //   script: './transform-tooltip.mjs',
+  // },
 ]
 
 /**

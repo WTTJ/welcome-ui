@@ -1,5 +1,8 @@
 @layer components {
   .root {
+    display: flex;
+    flex-direction: column;
+    gap: var(--components-dimensions-tooltip-gap-content);
     background-color: var(--components-colors-tooltip-color-background);
     border: var(--components-dimensions-tooltip-border-width) solid var(--components-colors-tooltip-color-border);
     border-radius: var(--components-dimensions-tooltip-border-radius);
@@ -22,10 +25,5 @@
 
   .childItem {
     display: inline-block;
-  }
-
-  /* Gap between tooltip elements should be: --components-dimensions-tooltip-gap-content */
-  .title {
-    margin-bottom: var(--components-dimensions-tooltip-gap-content);
   }
 }
