@@ -405,7 +405,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
               )}
               {icon ? (
                 <div className={cx('icon-wrapper', `icon-placement-left`, `size-${size}`)}>
-                  <Icon {...icon.props} size="lg" />
+                  <Icon {...icon.props} size="md" />
                 </div>
               ) : null}
               <div className={cx('indicators', `size-${size}`)}>
