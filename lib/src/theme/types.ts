@@ -157,28 +157,38 @@ export type ThemeVariables = {
   '--components-colors-button-color-icon-tertiary-danger-disabled': string
   '--components-colors-button-color-icon-tertiary-danger-focused': string
   '--components-colors-link-color-background-primary-hover': string
+  '--components-colors-link-color-background-primary-visited-default': string
+  '--components-colors-link-color-background-primary-visited-hover': string
   '--components-colors-link-color-background-secondary-hover': string
+  '--components-colors-link-color-background-secondary-visited-default': string
+  '--components-colors-link-color-background-secondary-visited-hover': string
   '--components-colors-link-color-text-primary-default': string
   '--components-colors-link-color-text-primary-hover': string
-  '--components-colors-link-color-text-primary-visited': string
+  '--components-colors-link-color-text-primary-visited-default': string
+  '--components-colors-link-color-text-primary-visited-hover': string
   '--components-colors-link-color-text-primary-disabled': string
   '--components-colors-link-color-text-secondary-default': string
   '--components-colors-link-color-text-secondary-hover': string
-  '--components-colors-link-color-text-secondary-visited': string
+  '--components-colors-link-color-text-secondary-visited-default': string
+  '--components-colors-link-color-text-secondary-visited-hover': string
   '--components-colors-link-color-text-secondary-disabled': string
   '--components-colors-link-color-icon-primary-default': string
   '--components-colors-link-color-icon-primary-hover': string
-  '--components-colors-link-color-icon-primary-visited': string
+  '--components-colors-link-color-icon-primary-visited-default': string
+  '--components-colors-link-color-icon-primary-visited-hover': string
   '--components-colors-link-color-icon-primary-disabled': string
   '--components-colors-link-color-icon-secondary-default': string
   '--components-colors-link-color-icon-secondary-hover': string
-  '--components-colors-link-color-icon-secondary-visited': string
+  '--components-colors-link-color-icon-secondary-visited-default': string
+  '--components-colors-link-color-icon-secondary-visited-hover': string
   '--components-colors-link-color-icon-secondary-disabled': string
   '--components-colors-link-color-underline-primary-default': string
-  '--components-colors-link-color-underline-primary-visited': string
+  '--components-colors-link-color-underline-primary-visited-default': string
+  '--components-colors-link-color-underline-primary-visited-hover': string
   '--components-colors-link-color-underline-primary-disabled': string
   '--components-colors-link-color-underline-secondary-default': string
-  '--components-colors-link-color-underline-secondary-visited': string
+  '--components-colors-link-color-underline-secondary-visited-default': string
+  '--components-colors-link-color-underline-secondary-visited-hover': string
   '--components-colors-link-color-underline-secondary-disabled': string
   '--components-colors-avatar-color-background-placeholder': string
   '--components-colors-avatar-color-background-initials-green': string
@@ -689,6 +699,7 @@ export type ThemeVariables = {
   '--components-dimensions-button-border-width-focused': string
   '--components-dimensions-button-border-width-ai': string
   '--components-dimensions-button-border-width-secondary': string
+  '--components-dimensions-link-underline-size-height': string
   '--components-dimensions-link-size-icon-lg': string
   '--components-dimensions-link-size-icon-md': string
   '--components-dimensions-link-size-icon-sm': string

@@ -89,6 +89,7 @@ export const Link = forwardRefWithAs<LinkOptions, 'a'>((props, ref) => {
       target={target}
       {...rest}
     >
+      {disabled ? <Icon className={cx('icon-disabled')} name="ban" size="md" /> : null}
       {_children}
     </Element>
   )
