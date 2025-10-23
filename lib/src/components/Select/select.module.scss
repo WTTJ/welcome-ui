@@ -219,8 +219,6 @@
   .icon-wrapper {
     position: absolute;
     top: 0;
-    left: var(--iconPlacementLeft, auto);
-    right: var(--iconPlacementRight, auto);
     bottom: 0;
     display: flex;
     justify-content: center;
@@ -229,7 +227,10 @@
     transition-property: all;
     transition-timing-function: var(--timing-primary);
     transition-duration: var(--duration-medium);
-    color: var(--components-colors-input-color-icon-default);
+
+    left: var(--iconPlacementLeft, auto);
+    right: var(--iconPlacementRight, auto);
+    color: var(--selectIconWrapperColor, var(--components-colors-input-color-icon-default));
 
     &.icon-placement-left {
       --iconPlacementLeft: var(--spacing-md);
@@ -256,7 +257,7 @@
     width: 100%;
 
     &.disabled .icon-wrapper {
-      color: var(--components-colors-input-color-icon-disabled);
+      --selectIconWrapperColor: var(--components-colors-input-color-icon-disabled);
     }
   }
 
