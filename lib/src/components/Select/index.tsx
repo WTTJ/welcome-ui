@@ -6,7 +6,6 @@ import React, { forwardRef, Fragment, useCallback, useEffect, useMemo, useState 
 import { CloseButton as ClearButton } from '@/components/CloseButton'
 import { useField } from '@/components/Field'
 import { Icon } from '@/components/Icon'
-import { FIELD_ICON_SIZE } from '@/constants/field-icon-size'
 import { classNames } from '@/utils'
 import { createEvent } from '@/utils/create-event'
 import { useForkRef } from '@/utils/useForkRef'
@@ -70,7 +69,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
       renderGroupHeader,
       renderItem = itemToString,
       renderMultiple = multipleSelections,
-      size = 'md',
+      size = 'lg',
       transparent,
       value: defaultSelected,
       variant,
@@ -308,8 +307,6 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
       [isMultiple, allowUnselectFromList, selected, groupsEnabled, renderGroupHeader, renderItem]
     )
 
-    const iconSize = FIELD_ICON_SIZE[size]
-
     const inputClassnames = cx(
       'root',
       `size-${size}`,
@@ -367,7 +364,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
                 onClick: () => setIsOpen(!isOpen),
               })}
             >
-              <Icon className={cx('styled-icon')} name="angle-down" size="sm" />
+              <Icon className={cx('styled-icon')} name="angle-down" size="lg" />
             </div>
           )
 
@@ -408,7 +405,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
               )}
               {icon ? (
                 <div className={cx('icon-wrapper', `icon-placement-left`, `size-${size}`)}>
-                  {React.cloneElement(icon, { ...icon.props, size: iconSize })}
+                  <Icon {...icon.props} size="lg" />
                 </div>
               ) : null}
               <div className={cx('indicators', `size-${size}`)}>
