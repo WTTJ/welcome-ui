@@ -314,7 +314,8 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
       isClearable && 'clearable',
       transparent && 'transparent',
       icon && `icon-placement-${iconPlacement}`,
-      className
+      className,
+      disabled && 'disabled'
     )
 
     return (
@@ -356,12 +357,12 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
           )
           const ArrowIcon = (
             <div
-              className={cx('dropdown-indicator', isOpen && 'open')}
+              className={cx('dropdown-indicator', isOpen && 'open', disabled && 'disabled')}
               data-testid={dataTestId ? `${dataTestId}-arrow-icon` : null}
               disabled={disabled}
               tabIndex={-1}
               {...getToggleButtonProps({
-                onClick: () => setIsOpen(!isOpen),
+                onClick: () => !disabled && setIsOpen(!isOpen),
               })}
             >
               <Icon className={cx('styled-icon')} name="angle-down" size="lg" />

@@ -162,6 +162,7 @@ export default {
   "/Select/docs/examples/clearable.tsx": dynamic(() => import("../../lib/src/components/Select/docs/examples/clearable.tsx").then(mod => mod), { ssr: false }),
   "/Select/docs/examples/creatable-custom.tsx": dynamic(() => import("../../lib/src/components/Select/docs/examples/creatable-custom.tsx").then(mod => mod), { ssr: false }),
   "/Select/docs/examples/creatable.tsx": dynamic(() => import("../../lib/src/components/Select/docs/examples/creatable.tsx").then(mod => mod), { ssr: false }),
+  "/Select/docs/examples/disabled.tsx": dynamic(() => import("../../lib/src/components/Select/docs/examples/disabled.tsx").then(mod => mod), { ssr: false }),
   "/Select/docs/examples/formatting.tsx": dynamic(() => import("../../lib/src/components/Select/docs/examples/formatting.tsx").then(mod => mod), { ssr: false }),
   "/Select/docs/examples/icon.tsx": dynamic(() => import("../../lib/src/components/Select/docs/examples/icon.tsx").then(mod => mod), { ssr: false }),
   "/Select/docs/examples/multiple-render.tsx": dynamic(() => import("../../lib/src/components/Select/docs/examples/multiple-render.tsx").then(mod => mod), { ssr: false }),
