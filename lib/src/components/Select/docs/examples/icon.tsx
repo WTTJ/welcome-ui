@@ -20,7 +20,7 @@ const Example = () => {
 
   return (
     <Select
-      icon={<Icon name="wttj" />}
+      icon={<Icon name="plus" />}
       name="welcome"
       onChange={handleChange}
       options={ITEMS}
