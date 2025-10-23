@@ -6,12 +6,12 @@
     padding: 0;
     top: 0;
     bottom: 0;
-    right: var(--indicatorsRight, var(--border-radius-lg));
+    right: var(--indicatorsRight, var(--spacing-md));
     display: flex;
-    gap: var(--border-radius-sm);
+    gap: var(--spacing-xs);
 
     &.size-xs {
-      --indicatorsRight: var(--border-radius-md);
+      --indicatorsRight: var(--spacing-sm);
     }
   }
 
@@ -27,6 +27,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    max-height: var(--selectHeight);
 
     .styled-icon {
       transform: none;
@@ -45,8 +46,9 @@
       width: auto;
     }
 
-    &:disabled {
-      color: var(--color-border-warm-primary);
+    &.disabled {
+      cursor: not-allowed;
+      color: var(--components-colors-input-color-text-disabled);
     }
   }
 
@@ -56,23 +58,26 @@
     &:has(> .icon-placement-right) {
       .indicators {
         /* icon size + spacing */
-        --indicatorsRight: calc(var(--border-radius-xl) + var(--border-radius-lg) * 2);
+        --indicatorsRight: calc(var(--spacing-lg) + var(--spacing-md) * 2);
       }
     }
   }
 
   .root {
-    --selectPlaceholderColor: var(--color-icon-neutral-subtle);
-    background-color: var(--selectBackgroundColor, var(--color-background-neutral-inverse-fixed));
-    border-color: var(--selectBorderColor, var(--color-background-neutral-subtlest));
-    border-radius: var(--border-radius-sm);
+    --selectPlaceholderColor: var(--components-colors-input-color-text-placeholder);
+    background-color: var(
+      --selectBackgroundColor,
+      var(--components-colors-input-color-background-default)
+    );
+    border-color: var(--selectBorderColor, var(--components-colors-input-color-border-default));
+    border-radius: var(--components-dimensions-input-border-radius);
     border-style: solid;
-    border-width: var(--border-width-xs);
-    color: var(--selectTextColor, var(--color-background-neutral-primary-fixed));
-    font-size: var(--font-size-14);
+    border-width: var(--components-dimensions-input-border-width-default);
+    color: var(--selectTextColor, var(--components-colors-input-color-text-default));
+    font-size: var(--font-size-sm);
     font-weight: var(--font-weight-regular);
-    line-height: var(--border-radius-xl);
-    outline: 2px solid var(--selectOutlineColor, transparent);
+    line-height: var(--font-line-height-md);
+    outline: none;
     cursor: default;
     width: 100%;
     transition-property: all;
@@ -84,12 +89,13 @@
     padding-right: var(--selectPaddingRight);
     padding-top: var(--selectPaddingTop);
     @include ellipsis.text-ellipsis;
+    box-shadow: var(--selectBoxShadow, var(--inset-10)) inset;
 
     /* left icon or both */
     &.icon-placement-left,
     &.icon-placement-both {
       padding-left: calc(
-        var(--selectPaddingLeft) + var(--selectIconSize, 1rem) + var(--border-radius-md)
+        var(--selectPaddingLeft) + var(--selectIconSize, 1rem) + var(--spacing-sm)
       );
     }
 
@@ -98,7 +104,7 @@
     &.icon-placement-right,
     &.icon-placement-both {
       padding-right: calc(
-        var(--selectPaddingRight) + var(--selectIconSize, 1rem) + var(--border-radius-md)
+        var(--selectPaddingRight) + var(--selectIconSize, 1rem) + var(--spacing-sm)
       );
     }
 
@@ -106,33 +112,33 @@
     &.clearable.icon-placement-right,
     &.clearable.icon-placement-both {
       padding-right: calc(
-        var(--selectPaddingRight) + (var(--selectIconSize, 1rem) + var(--border-radius-md)) * 2
+        var(--selectPaddingRight) + (var(--selectIconSize, 1rem) + var(--spacing-sm)) * 2
       );
     }
 
-    &:disabled {
-      --selectBackgroundColor: var(--color-background-warm-stronger);
-      --selectTextColor: var(--color-text-warm-tertiary);
+    &.disabled {
+      --selectBackgroundColor: var(--components-colors-input-color-background-disabled);
+      --selectTextColor: var(--components-colors-input-color-text-disabled);
       cursor: not-allowed;
     }
 
     /* hover when no variant is defined */
-    &:hover:not([class*='variant']) {
-      --selectBorderColor: var(--color-background-brand-primary);
+    &:hover:not(.disabled) {
+      --selectBorderColor: var(--components-colors-input-color-border-hover);
+      --selectBoxShadow: var(--inset-20);
     }
 
     /* focus when no variant is defined */
-    &:focus:not([class*='variant']) {
-      --selectOutlineColor: var(--color-background-brand-subtle);
-      --selectBorderColor: var(--color-background-brand-primary);
+    &:focus:not(.disabled) {
+      --selectBorderColor: var(--components-colors-input-color-border-active);
     }
 
     &.transparent {
       --selectBorderColor: transparent;
-      --selectBackgroundColor: transparent;
+      --selectBackgroundColor: var(--components-colors-input-color-background-transparent);
 
       &:hover {
-        --selectBorderColor: var(--color-background-neutral-minimal);
+        --selectBorderColor: var(--components-colors-input-color-border-hover-transparent);
       }
     }
 
@@ -172,61 +178,47 @@
 
   .variant {
     &-danger {
-      --selectBorderColor: var(--color-background-danger-strongest);
-      --selectOutlineColor: var(--color-background-danger-secondary);
+      --selectBorderColor: var(--components-colors-input-color-border-error);
     }
 
     &-success {
-      --selectBorderColor: var(--color-background-accent-green-strongest);
-      --selectOutlineColor: var(--color-background-accent-green-primary);
+      --selectBorderColor: var(--components-colors-input-color-border-success);
     }
 
     &-warning {
-      --selectBorderColor: var(--color-background-warning-stronger);
-      --selectOutlineColor: var(--color-background-warning-subtle);
+      --selectBorderColor: var(--components-colors-input-color-border-warning);
     }
   }
 
   .size {
     &-lg {
-      --selectHeight: var(--size-icon-2xl);
-      --selectPaddingBottom: var(--border-radius-xl);
-      --selectPaddingLeft: var(--border-radius-lg);
-      --selectPaddingRight: var(--border-radius-lg);
-      --selectPaddingTop: var(--border-radius-xl);
+      --selectHeight: var(--components-dimensions-input-max-height-lg);
+      --selectPaddingBottom: var(--components-dimensions-input-padding-block-lg);
+      --selectPaddingLeft: var(--components-dimensions-input-padding-inline-lg);
+      --selectPaddingRight: var(--components-dimensions-input-padding-inline-lg);
+      --selectPaddingTop: var(--components-dimensions-input-padding-block-lg);
     }
 
     &-md {
-      --selectHeight: var(--width-40);
-      --selectPaddingBottom: var(--border-radius-lg);
-      --selectPaddingLeft: var(--border-radius-lg);
-      --selectPaddingRight: var(--border-radius-lg);
-      --selectPaddingTop: var(--border-radius-lg);
+      --selectHeight: var(--components-dimensions-input-max-height-md);
+      --selectPaddingBottom: var(--components-dimensions-input-padding-block-md);
+      --selectPaddingLeft: var(--components-dimensions-input-padding-inline-md);
+      --selectPaddingRight: var(--components-dimensions-input-padding-inline-md);
+      --selectPaddingTop: var(--components-dimensions-input-padding-block-md);
     }
 
     &-sm {
-      --selectHeight: var(--size-icon-xl);
-      --selectPaddingBottom: var(--border-radius-md);
-      --selectPaddingLeft: var(--border-radius-lg);
-      --selectPaddingRight: var(--border-radius-lg);
-      --selectPaddingTop: var(--border-radius-md);
-    }
-
-    &-xs {
-      --selectHeight: var(--border-radius-2xl);
-      --selectPaddingBottom: var(--border-radius-sm);
-      --selectPaddingLeft: var(--border-radius-md);
-      --selectPaddingRight: var(--border-radius-md);
-      --selectPaddingTop: var(--border-radius-sm);
-      --selectIconSize: 0.75rem;
+      --selectHeight: var(--components-dimensions-input-max-height-sm);
+      --selectPaddingBottom: var(--components-dimensions-input-padding-block-sm);
+      --selectPaddingLeft: var(--components-dimensions-input-padding-inline-sm);
+      --selectPaddingRight: var(--components-dimensions-input-padding-inline-sm);
+      --selectPaddingTop: var(--components-dimensions-input-padding-block-sm);
     }
   }
 
   .icon-wrapper {
     position: absolute;
     top: 0;
-    left: var(--iconPlacementLeft, auto);
-    right: var(--iconPlacementRight, auto);
     bottom: 0;
     display: flex;
     justify-content: center;
@@ -235,19 +227,22 @@
     transition-property: all;
     transition-timing-function: var(--timing-primary);
     transition-duration: var(--duration-medium);
-    color: var(--color-background-neutral-primary-fixed);
+
+    left: var(--iconPlacementLeft, auto);
+    right: var(--iconPlacementRight, auto);
+    color: var(--selectIconWrapperColor, var(--components-colors-input-color-icon-default));
 
     &.icon-placement-left {
-      --iconPlacementLeft: var(--border-radius-lg);
+      --iconPlacementLeft: var(--spacing-md);
       &.size-xs {
-        --iconPlacementLeft: var(--border-radius-md);
+        --iconPlacementLeft: var(--spacing-sm);
       }
     }
 
     &.icon-placement-right {
-      --iconPlacementRight: var(--border-radius-lg);
+      --iconPlacementRight: var(--spacing-md);
       &.size-xs {
-        --iconPlacementRight: var(--border-radius-md);
+        --iconPlacementRight: var(--spacing-sm);
       }
     }
 
@@ -262,28 +257,28 @@
     width: 100%;
 
     &.disabled .icon-wrapper {
-      color: var(--color-border-warm-primary);
+      --selectIconWrapperColor: var(--components-colors-input-color-icon-disabled);
     }
   }
 
   .menu {
     max-height: 9.6875rem; /* 155px */
-    background-color: var(--color-background-neutral-inverse-fixed);
-    border-color: var(--color-background-neutral-subtlest);
-    border-radius: var(--border-radius-sm);
+    background-color: var(--components-colors-input-color-background-default);
+    border-color: var(--components-colors-input-color-border-hover);
+    border-radius: var(--components-dimensions-input-border-radius);
     border-style: solid;
-    border-width: var(--border-width-xs);
-    color: var(--color-background-neutral-primary-fixed);
-    font-size: var(--font-size-14);
+    border-width: var(--components-dimensions-input-border-width-default);
+    color: var(--components-colors-input-color-text-default);
+    font-size: var(--font-size-sm);
     font-weight: var(--font-weight-regular);
-    line-height: var(--border-radius-xl);
+    line-height: var(--font-line-height-md);
     outline: none;
     position: absolute;
     z-index: 2;
     right: 0;
     left: 0;
     margin: 0;
-    margin-top: var(--border-radius-lg);
+    margin-top: var(--spacing-md);
     padding: 0;
     transition-property: all;
     transition-timing-function: var(--timing-primary);
@@ -297,12 +292,12 @@
   }
 
   .item {
-    color: var(--itemTextColor, var(--color-icon-warm-tertiary));
+    color: var(--itemTextColor, var(--color-text-warm-tertiary));
     cursor: var(--itemCursor, default);
-    padding: var(--border-radius-lg);
+    padding: var(--spacing-md);
     list-style: none;
     text-decoration: none;
-    font-size: var(--font-size-14);
+    font-size: var(--font-size-sm);
     transition-property: background;
     transition-duration: var(--duration-medium);
     transition-timing-function: var(--timing-primary);
@@ -314,27 +309,27 @@
 
     &.selected {
       &:not(.multiple) {
-        --itemTextColor: var(--color-background-neutral-primary-fixed);
+        --itemTextColor: var(--components-colors-input-color-text-default);
         font-weight: var(--font-weight-semi-bold);
       }
       &.multiple:not(.allowUnselectFromList) {
-        --itemTextColor: var(--color-background-warm-stronger);
+        --itemTextColor: var(--color-beige-40);
         --itemCursor: not-allowed;
       }
     }
 
     &.disabled {
-      --itemTextColor: var(--color-border-warm-primary);
+      --itemTextColor: var(--components-colors-input-color-text-disabled);
       --itemCursor: not-allowed;
     }
   }
 
   .tags {
-    margin-top: var(--border-radius-xl);
+    margin-top: var(--spacing-lg);
 
     .styled-tag:not(:last-child) {
-      margin-right: var(--border-radius-md);
-      margin-bottom: var(--border-radius-md);
+      margin-right: var(--spacing-sm);
+      margin-bottom: var(--spacing-sm);
     }
 
     &:empty {
