@@ -230,7 +230,7 @@ export const wtf = [
   'ban',
 ] as const
 
-export const files = ['file', 'image'] as const
+export const foldersAndFiles = ['folder', 'folder-outline', 'file', 'image'] as const
 
 export const markdown = [
   'bold',
@@ -251,8 +251,6 @@ export const markdown = [
   'font',
   'underline',
 ] as const
-
-export const table = ['table', 'columns'] as const
 
 export const brands = [
   'behance',
@@ -282,12 +280,11 @@ export const icons = [
   ...actions,
   ...arrows,
   ...brands,
-  ...files,
+  ...foldersAndFiles,
   ...flags,
   ...markdown,
   ...miscellaneous,
   ...player,
-  ...table,
   ...welcome,
   ...wtf,
 ] as const
