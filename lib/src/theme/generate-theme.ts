@@ -23,13 +23,17 @@ const variableStyles = fs.readFileSync(variablesPath, 'utf8')
 
 const getStringFrom = (map: Record<string, string>) => `${map.property} {\n${map.value}}\n`
 
-const stringifiedTechTokens = `${techTokens}`
+const insertAfterThemeDeclaration = (cssContent: string, cssToInsert: string) => {
+  const regex = /(@theme\s+static\s*\{)(\n?)/
+  return cssContent.replace(regex, `$1\n${cssToInsert}$2`)
+}
 
-const variablesStylesWithTailwindResets = variableStyles.replace(
-  '@theme static {\n',
-  `@theme static {\n${stringifiedTechTokens}`
+const stringifiedTechTokens = techTokens.replace(/@theme\s+\w+\s*\{([^}]*)\}/s, '$1').trim()
+
+const variablesStylesWithTailwindResets = insertAfterThemeDeclaration(
+  variableStyles,
+  stringifiedTechTokens
 )
-
 const baseLayer = { property: '@layer base', value: `${resetStyles}\n${baseStyles}` }
 
 const generateThemeCss = () =>
