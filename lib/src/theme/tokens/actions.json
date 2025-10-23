@@ -1038,6 +1038,24 @@
                 "FRAME_FILL",
                 "SHAPE_FILL"
               ]
+            },
+            "visited": {
+              "default": {
+                "value": "{color.background.brand.minimal}",
+                "type": "color.background",
+                "scope": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ]
+              },
+              "hover": {
+                "value": "{color.background.brand.primary}",
+                "type": "color.background",
+                "scope": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ]
+              }
             }
           },
           "secondary": {
@@ -1048,6 +1066,24 @@
                 "FRAME_FILL",
                 "SHAPE_FILL"
               ]
+            },
+            "visited": {
+              "default": {
+                "value": "{color.background.neutral.subtlest}",
+                "type": "color.background",
+                "scope": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ]
+              },
+              "hover": {
+                "value": "{color.background.neutral.primary}",
+                "type": "color.background",
+                "scope": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ]
+              }
             }
           }
         },
@@ -1068,14 +1104,23 @@
               ]
             },
             "visited": {
-              "value": "{color.text.brand.secondary}",
-              "type": "color.text",
-              "scope": [
-                "TEXT_FILL"
-              ]
+              "default": {
+                "value": "{color.text.brand.secondary}",
+                "type": "color.text",
+                "scope": [
+                  "TEXT_FILL"
+                ]
+              },
+              "hover": {
+                "value": "{color.text.neutral.primary}",
+                "type": "color.text",
+                "scope": [
+                  "TEXT_FILL"
+                ]
+              }
             },
             "disabled": {
-              "value": "{color.text.warm.minimal}",
+              "value": "{color.text.warm.subtle}",
               "type": "color.text",
               "scope": [
                 "TEXT_FILL"
@@ -1098,14 +1143,23 @@
               ]
             },
             "visited": {
-              "value": "{color.text.neutral.tertiary}",
-              "type": "color.text",
-              "scope": [
-                "TEXT_FILL"
-              ]
+              "default": {
+                "value": "{color.text.neutral.tertiary}",
+                "type": "color.text",
+                "scope": [
+                  "TEXT_FILL"
+                ]
+              },
+              "hover": {
+                "value": "{color.text.neutral.inverse}",
+                "type": "color.text",
+                "scope": [
+                  "TEXT_FILL"
+                ]
+              }
             },
             "disabled": {
-              "value": "{color.text.neutral.subtlest}",
+              "value": "{color.text.neutral.subtle}",
               "type": "color.text",
               "scope": [
                 "TEXT_FILL"
@@ -1130,11 +1184,20 @@
               ]
             },
             "visited": {
-              "value": "{color.icon.brand.secondary}",
-              "type": "color.fill",
-              "scope": [
-                "SHAPE_FILL"
-              ]
+              "default": {
+                "value": "{color.icon.brand.secondary}",
+                "type": "color.fill",
+                "scope": [
+                  "SHAPE_FILL"
+                ]
+              },
+              "hover": {
+                "value": "{color.icon.neutral.primary}",
+                "type": "color.fill",
+                "scope": [
+                  "SHAPE_FILL"
+                ]
+              }
             },
             "disabled": {
               "value": "{color.icon.warm.minimal}",
@@ -1160,11 +1223,20 @@
               ]
             },
             "visited": {
-              "value": "{color.icon.neutral.tertiary}",
-              "type": "color.fill",
-              "scope": [
-                "SHAPE_FILL"
-              ]
+              "default": {
+                "value": "{color.icon.neutral.tertiary}",
+                "type": "color.fill",
+                "scope": [
+                  "SHAPE_FILL"
+                ]
+              },
+              "hover": {
+                "value": "{color.icon.neutral.inverse}",
+                "type": "color.fill",
+                "scope": [
+                  "SHAPE_FILL"
+                ]
+              }
             },
             "disabled": {
               "value": "{color.icon.neutral.subtlest}",
@@ -1185,11 +1257,20 @@
               ]
             },
             "visited": {
-              "value": "{color.background.brand.subtle}",
-              "type": "color.fill",
-              "scope": [
-                "SHAPE_FILL"
-              ]
+              "default": {
+                "value": "{color.background.brand.primary}",
+                "type": "color.fill",
+                "scope": [
+                  "SHAPE_FILL"
+                ]
+              },
+              "hover": {
+                "value": "{color.background.brand.primary}",
+                "type": "color.fill",
+                "scope": [
+                  "SHAPE_FILL"
+                ]
+              }
             },
             "disabled": {
               "value": "{color.background.warm.strong}",
@@ -1208,11 +1289,20 @@
               ]
             },
             "visited": {
-              "value": "{color.background.neutral.subtle}",
-              "type": "color.fill",
-              "scope": [
-                "SHAPE_FILL"
-              ]
+              "default": {
+                "value": "{color.background.neutral.primary}",
+                "type": "color.fill",
+                "scope": [
+                  "SHAPE_FILL"
+                ]
+              },
+              "hover": {
+                "value": "{color.background.neutral.primary}",
+                "type": "color.fill",
+                "scope": [
+                  "SHAPE_FILL"
+                ]
+              }
             },
             "disabled": {
               "value": "{color.background.neutral.subtlest}",
@@ -1385,6 +1475,17 @@
       }
     },
     "link": {
+      "underline": {
+        "size": {
+          "height": {
+            "value": "{height.2}",
+            "type": "dimension",
+            "scope": [
+              "WIDTH_HEIGHT"
+            ]
+          }
+        }
+      },
       "size": {
         "icon": {
           "lg": {
