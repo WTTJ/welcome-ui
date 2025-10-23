@@ -190,10 +190,10 @@
   .size {
     &-lg {
       --selectHeight: var(--components-dimensions-input-max-height-lg);
-      --selectPaddingBottom: var(--spacing-lg);
+      --selectPaddingBottom: var(--spacing-md);
       --selectPaddingLeft: var(--spacing-md);
       --selectPaddingRight: var(--spacing-md);
-      --selectPaddingTop: var(--spacing-lg);
+      --selectPaddingTop: var(--spacing-md);
     }
 
     &-md {
