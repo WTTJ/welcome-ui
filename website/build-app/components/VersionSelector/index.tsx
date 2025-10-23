@@ -28,7 +28,7 @@ export const VersionSelector = () => {
       name="welcome"
       onChange={handleChange}
       options={versions}
-      size="sm"
+      size="md"
       value={VERSION}
     />
   )
