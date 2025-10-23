@@ -25,13 +25,13 @@
           /* Can't use --color: var(...); because of visited specificity (see docs about Privacy restrictions: https://developer.mozilla.org/en-US/docs/Web/CSS/:visited) */
           color: var(--colorVisited);
           .wui-text {
-            background-color: var(--components-colors-link-color-underline-primary-visited);
+            background-color: var(--backgroundColorVisited);
           }
         }
         &-secondary {
           color: var(--colorVisited);
           .wui-text {
-            background-color: var(--components-colors-link-color-underline-secondary-visited);
+            background-color: var(--backgroundColorVisited);
           }
         }
       }
@@ -47,12 +47,15 @@
           &.variant {
             &-primary {
               /* Can't use --color: var(...); because of visited specificity (see docs about Privacy restrictions: https://developer.mozilla.org/en-US/docs/Web/CSS/:visited) */
-              color: var(--colorHover);
+              color: var(--colorVisitedHover);
+              .wui-text {
+                background-color: var(--backgroundColorVisitedHover);
+              }
             }
             &-secondary {
-              color: var(--colorHover);
+              color: var(--colorVisitedHover);
               .wui-text {
-                background-color: var(--components-colors-link-color-underline-secondary-visited);
+                background-color: var(--backgroundColorVisitedHover);
               }
             }
           }
@@ -87,20 +90,34 @@
       --backgroundImageColorDisabled: var(
         --components-colors-link-color-underline-primary-disabled
       );
+      --backgroundColorVisited: var(
+        --components-colors-link-color-background-primary-visited-default
+      );
+      --backgroundColorVisitedHover: var(
+        --components-colors-link-color-background-primary-visited-hover
+      );
       --color: var(--components-colors-link-color-text-primary-default);
       --colorHover: var(--components-colors-link-color-text-primary-hover);
       --colorDisabled: var(--components-colors-link-color-text-primary-disabled);
-      --colorVisited: var(--components-colors-link-color-text-primary-visited);
+      --colorVisited: var(--components-colors-link-color-text-primary-visited-default);
+      --colorVisitedHover: var(--components-colors-link-color-text-primary-visited-hover);
     }
     &-secondary {
       --backgroundImageColor: var(--components-colors-link-color-underline-secondary-default);
       --backgroundImageColorDisabled: var(
         --components-colors-link-color-underline-secondary-disabled
       );
+      --backgroundColorVisited: var(
+        --components-colors-link-color-background-secondary-visited-default
+      );
+      --backgroundColorVisitedHover: var(
+        --components-colors-link-color-background-secondary-visited-hover
+      );
       --color: var(--components-colors-link-color-text-secondary-default);
       --colorHover: var(--components-colors-link-color-text-secondary-hover);
       --colorDisabled: var(--components-colors-link-color-text-secondary-disabled);
-      --colorVisited: var(--components-colors-link-color-text-secondary-visited);
+      --colorVisited: var(--components-colors-link-color-text-secondary-visited-default);
+      --colorVisitedHover: var(--components-colors-link-color-text-secondary-visited-hover);
     }
   }
 
