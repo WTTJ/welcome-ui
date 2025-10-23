@@ -25,7 +25,7 @@ yarn add postcss --dev
 2 - Add dependencies for vite project
 
 ```bash
-yarn add @tailwindcss/vite --dev
+yarn add @tailwindcss/vite sass-embedded --dev
 ```
 
 3 - Add on your vite config tailwindcss plugin
