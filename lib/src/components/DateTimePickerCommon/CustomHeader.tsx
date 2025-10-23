@@ -63,11 +63,11 @@ export const CustomHeader = ({
           name="month"
           onChange={changeMonth}
           options={months}
-          size="sm"
+          size="md"
           value={month}
         />
       )}
-      <Select id="year" name="year" onChange={changeYear} options={years} size="sm" value={year} />
+      <Select id="year" name="year" onChange={changeYear} options={years} size="md" value={year} />
       <Button
         disabled={isNextDisabled}
         onClick={isMonthYearPicker ? increaseYear : increaseMonth}

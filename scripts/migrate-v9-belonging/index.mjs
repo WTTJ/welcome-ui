@@ -22,6 +22,10 @@ const MIGRATION_CONFIG = [
   //   components: ['InputText', 'DatePicker', 'DateTimePicker'],
   //   script: './transform-inputText.mjs',
   // },
+  {
+    components: 'Select',
+    script: './transform-select.mjs',
+  },
   // {
   //   components: 'Swiper',
   //   script: './transform-swiper.mjs',
