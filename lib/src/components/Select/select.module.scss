@@ -46,7 +46,8 @@
       width: auto;
     }
 
-    &:disabled {
+    &.disabled {
+      cursor: not-allowed;
       color: var(--components-colors-input-color-text-disabled);
     }
   }
@@ -88,6 +89,7 @@
     padding-right: var(--selectPaddingRight);
     padding-top: var(--selectPaddingTop);
     @include ellipsis.text-ellipsis;
+    box-shadow: var(--selectBoxShadow, var(--inset-10)) inset;
 
     /* left icon or both */
     &.icon-placement-left,
@@ -114,19 +116,20 @@
       );
     }
 
-    &:disabled {
+    &.disabled {
       --selectBackgroundColor: var(--components-colors-input-color-background-disabled);
       --selectTextColor: var(--components-colors-input-color-text-disabled);
       cursor: not-allowed;
     }
 
     /* hover when no variant is defined */
-    &:hover {
+    &:hover:not(.disabled) {
       --selectBorderColor: var(--components-colors-input-color-border-hover);
+      --selectBoxShadow: var(--inset-20);
     }
 
     /* focus when no variant is defined */
-    &:focus {
+    &:focus:not(.disabled) {
       --selectBorderColor: var(--components-colors-input-color-border-active);
     }
 
@@ -190,26 +193,26 @@
   .size {
     &-lg {
       --selectHeight: var(--components-dimensions-input-max-height-lg);
-      --selectPaddingBottom: var(--spacing-md);
-      --selectPaddingLeft: var(--spacing-md);
-      --selectPaddingRight: var(--spacing-md);
-      --selectPaddingTop: var(--spacing-md);
+      --selectPaddingBottom: var(--components-dimensions-input-padding-block-lg);
+      --selectPaddingLeft: var(--components-dimensions-input-padding-inline-lg);
+      --selectPaddingRight: var(--components-dimensions-input-padding-inline-lg);
+      --selectPaddingTop: var(--components-dimensions-input-padding-block-lg);
     }
 
     &-md {
       --selectHeight: var(--components-dimensions-input-max-height-md);
-      --selectPaddingBottom: var(--spacing-md);
-      --selectPaddingLeft: var(--spacing-md);
-      --selectPaddingRight: var(--spacing-md);
-      --selectPaddingTop: var(--spacing-md);
+      --selectPaddingBottom: var(--components-dimensions-input-padding-block-md);
+      --selectPaddingLeft: var(--components-dimensions-input-padding-inline-md);
+      --selectPaddingRight: var(--components-dimensions-input-padding-inline-md);
+      --selectPaddingTop: var(--components-dimensions-input-padding-block-md);
     }
 
     &-sm {
       --selectHeight: var(--components-dimensions-input-max-height-sm);
-      --selectPaddingBottom: var(--spacing-sm);
-      --selectPaddingLeft: var(--spacing-md);
-      --selectPaddingRight: var(--spacing-md);
-      --selectPaddingTop: var(--spacing-sm);
+      --selectPaddingBottom: var(--components-dimensions-input-padding-block-sm);
+      --selectPaddingLeft: var(--components-dimensions-input-padding-inline-sm);
+      --selectPaddingRight: var(--components-dimensions-input-padding-inline-sm);
+      --selectPaddingTop: var(--components-dimensions-input-padding-block-sm);
     }
   }
 
