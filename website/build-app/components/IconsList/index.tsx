@@ -8,12 +8,11 @@ import {
   actions,
   arrows,
   brands,
-  files,
   flags,
+  foldersAndFiles,
   markdown,
   miscellaneous,
   player,
-  table,
   welcome,
   wtf,
 } from '@/components/Icon/icons'
@@ -32,12 +31,11 @@ export type IconListProps = {
     | 'actions'
     | 'arrows'
     | 'brands'
-    | 'files'
     | 'flags'
+    | 'foldersAndFiles'
     | 'markdown'
     | 'miscellaneous'
     | 'player'
-    | 'table'
     | 'welcome'
     | 'wtf'
   isIconsFont?: boolean
@@ -113,12 +111,11 @@ export const IconsList = ({ collectionName }: IconListProps) => {
     actions: actions,
     arrows: arrows,
     brands: brands,
-    files: files,
     flags: flags,
+    foldersAndFiles: foldersAndFiles,
     markdown: markdown,
     miscellaneous: miscellaneous,
     player: player,
-    table: table,
     welcome: welcome,
     wtf: wtf,
   }
