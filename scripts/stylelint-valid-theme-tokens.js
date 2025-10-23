@@ -23,7 +23,7 @@ const knownTokens = extractThemeTokens()
 export const ruleName = 'custom/valid-theme-token'
 
 export const messages = {
-  rejected: token => `The "${token}" token does not exist in theme-vars.d.ts`,
+  rejected: token => `The "${token}" token does not exist in lib/src/theme/theme.css`,
 }
 
 const isCamelCase = token => /[a-z][A-Z]/.test(token.replace(/^--/, ''))
