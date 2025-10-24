@@ -3,8 +3,8 @@ import { Tooltip } from '@/components/Tooltip'
 
 const Example = () => {
   return (
-    <Tooltip content="Tooltip" fixed withArrow>
-      <Button>With an arrow ⬇️</Button>
+    <Tooltip content="Tooltip content" title="Tooltip Title">
+      <Button>Tooltip with title</Button>
     </Tooltip>
   )
 }
