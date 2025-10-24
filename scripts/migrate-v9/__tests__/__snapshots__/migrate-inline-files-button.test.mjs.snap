@@ -22,7 +22,7 @@ export const ButtonComponent = () => {
       <Button data-testid="my-draft-button" disabled={FALSE} onClick={ON_CLICK} size="sm">
         Published
       </Button>
-      <Button className="mt-xxl w-full" as="a" dataTestId="my-button-1" to={SIGN_IN_PATH}>
+      <Button as="a" className="mt-xxl w-full" dataTestId="my-button-1" to={SIGN_IN_PATH}>
         <FormattedMessage defaultMessage="Back to Sign in" id="D7hbFB" />
       </Button>
       <Button dataTestId="my-button-2" onClick={() => console.debug('submit')} type="submit">

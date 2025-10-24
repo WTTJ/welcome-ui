@@ -1,17 +1,36 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`External Migration - Complex Styled Components > migrates complex styled components (styled(Component), template literals, interpolations) > complex-component.tsx 1`] = `
-"import { FormattedMessage } from 'react-intl'
-import { Text } from 'welcome-ui/Text'
-import { classNames } from 'welcome-ui/utils'
+"import { useEffect, useState } from 'react'
+import { FormattedMessage } from 'react-intl'
+import { Text } from 'welcome-ui-v9/Text'
+import { classNames } from 'welcome-ui-v9/utils'
 
 import styles from './styles.module.scss'
+
 const cx = classNames(styles)
+
 type Variant = 'primary' | 'secondary'
+
 export const Complex = ({ variant = 'primary' }: { variant?: Variant }) => {
+  const [, setOpen] = useState<boolean>(false)
+
+  const coco = true
+
+  function handleClick() {
+    // eslint-disable-next-line no-console
+    console.log('Clicked!')
+  }
+
+  useEffect(() => {
+    setOpen(coco)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   return (
     <div
       className={cx('wrapper')}
+      data-testid="testid"
       style={
         {
           '--wrapper-background-color':
@@ -21,7 +40,7 @@ export const Complex = ({ variant = 'primary' }: { variant?: Variant }) => {
       }
       variant={variant}
     >
-      <Link className={cx('card')} elevated to="/fishcakes">
+      <Link className={cx('card')} elevated onClick={handleClick} to="/fishcakes">
         <div className={cx('title-wrapper')}>
           <Text
             as="h3"
@@ -50,8 +69,8 @@ export const Complex = ({ variant = 'primary' }: { variant?: Variant }) => {
 
 exports[`External Migration - Complex Styled Components > migrates complex styled components (styled(Component), template literals, interpolations) > complex-styles.module.scss 1`] = `
 "/* Imported utilities */
-@import 'welcome-ui/utils/theme/breakpoints';
-@import 'welcome-ui/utils/theme/texts';
+@use 'welcome-ui-v9/utils/scss/breakpoints' as breakpoints;
+@import 'welcome-ui-v9/utils/scss/texts';
 
 /* Generated SCSS mixins from CSS template literals */
 @mixin trigger-active-styles {
@@ -100,7 +119,7 @@ padding: var(--spacing-xxl) 0;
 
 .card {
 background: white;
-  border-radius: var(--spacing-md);
+  border-radius: var(--radius-md);
   padding: var(--spacing-lg);
   
   &.elevated {
@@ -134,7 +153,7 @@ border: none;
   padding: var(--spacing-md) var(--spacing-lg);
   cursor: pointer;
   width: 100%;
-  border-radius: var(--spacing-md);
+  border-radius: var(--radius-md);
   transition: background-color 300ms;
   bottom: var(--spacing-md);
 

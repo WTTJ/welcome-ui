@@ -14,10 +14,10 @@ const FormattedMessage = ({
 export const TextComponent = () => {
   return (
     <div>
-      <Text className="mt-md text-h3" as="h1" variant="h4">
+      <Text as="h1" className="mt-md text-h3" variant="h4">
         This is a paragraph with custom styling.
       </Text>
-      <Text className="mt-auto text-center text-dark-50 text-sm" as="span">
+      <Text as="span" className="mt-auto text-center text-dark-50 text-sm">
         <FormattedMessage defaultMessage="© 2024 Acme Corp. All rights reserved." id="8XKXo+" />
       </Text>
     </div>

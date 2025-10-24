@@ -1,13 +1,16 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`External Migration - Simple Styled Components > migrates simple styled components (styled.div, styled.button, etc.) > simple-component.tsx 1`] = `
-"import styles from './styles.module.scss'
-import { classNames } from 'welcome-ui/utils'
+"import { classNames } from 'welcome-ui-v9/utils'
+
+import styles from './styles.module.scss'
+
 const cx = classNames(styles)
+
 export const SimpleComponent = () => {
   return (
     <div className={cx('container')}>
-      <Text className={cx('header')} as="h1">
+      <Text as="h1" className={cx('header')}>
         Simple Header
       </Text>
       <section className={cx('content')}>
@@ -21,28 +24,28 @@ export const SimpleComponent = () => {
 
 exports[`External Migration - Simple Styled Components > migrates simple styled components (styled.div, styled.button, etc.) > simple-styles.module.scss 1`] = `
 "@layer components {
-  .container {
-    display: flex;
-    flex-direction: column;
-    padding: var(--spacing-lg);
-  }
+.container {
+display: flex;
+  flex-direction: column;
+  padding: var(--spacing-lg);
+}
 
-  .header {
-    color: var(--color-primary-500);
-    margin-bottom: var(--spacing-md);
-  }
+.header {
+color: var(--color-primary-500);
+  margin-bottom: var(--spacing-md);
+}
 
-  .content {
-    flex: 1;
-  }
+.content {
+flex: 1;
+}
 
-  .button {
-    background-color: var(--color-primary-500);
-    color: white;
-    padding: var(--spacing-sm) var(--spacing-md);
-    border: none;
-    border-radius: var(--spacing-sm);
-    cursor: pointer;
-  }
+.button {
+background-color: var(--color-primary-500);
+  color: white;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
 }"
 `;

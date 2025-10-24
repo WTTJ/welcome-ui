@@ -155,6 +155,23 @@ function cleanupCss(css) {
  *   'color: primary-500;' → 'color: var(--color-primary-500);'
  */
 function transformCssThemeTokens(css) {
+  // Tranform border radius tokens
+  const borderRadiusTokens = ['none', 'sm', 'md', 'lg', 'xl']
+  borderRadiusTokens.forEach(token => {
+    const regex = new RegExp(`(border-radius:\\s*)${token}(\\s*[;}]|\\s+)`, 'g')
+    css = css.replace(regex, `$1var(--radius-${token})$2`)
+  })
+
+  // Transfrom transition tokens
+  const transitionTokens = ['none', 'fast', 'medium', 'slow']
+  transitionTokens.forEach(token => {
+    const regex = new RegExp(
+      `(transition(?:-[a-z-]+)?:\\s*(?:[^;{}]*\\s+)?)${token}(\\s*[;}]|\\s+)`,
+      'g'
+    )
+    css = css.replace(regex, `$1var(--transition-${token})$2`)
+  })
+
   // Transform spacing tokens (xs, sm, md, lg, xl, xxl, 3xl)
   const spacingTokens = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl', '3xl']
   spacingTokens.forEach(token => {

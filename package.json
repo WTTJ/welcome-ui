@@ -26,7 +26,7 @@
     "test": "yarn workspace welcome-ui test",
     "test:scripts": "CI=1 vitest scripts/",
     "test:scripts:complex": "CI=1 vitest migrate-external-files-complex",
-    "test:scripts:update": "vitest scripts/"
+    "test:scripts:update": "vitest scripts/ -u"
   },
   "private": true,
   "workspaces": [
