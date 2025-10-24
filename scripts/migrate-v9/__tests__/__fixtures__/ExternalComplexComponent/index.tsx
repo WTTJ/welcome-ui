@@ -7,7 +7,7 @@ type Variant = 'primary' | 'secondary'
 
 export const Complex = ({ variant = 'primary' }: { variant?: Variant }) => {
   return (
-    <S.Wrapper variant={variant}>
+    <S.Wrapper data-testid="testid" variant={variant}>
       <S.Card elevated to="/fishcakes">
         <S.TitleWrapper isActive={false}>
           <S.Title color="neutral-10" displayDetail>

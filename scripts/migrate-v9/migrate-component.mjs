@@ -189,7 +189,7 @@ function processComponentProps({ attributes, baseClassName, tag }) {
       return
     }
 
-    if (propName === 'style') {
+    if (propName === 'style' || propName === 'data-testid') {
       newAttributes.push(attr)
       return
     }

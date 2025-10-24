@@ -15,6 +15,7 @@ export const Complex = ({ variant = 'primary' }: { variant?: Variant }) => {
   return (
     <div
       className={cx('wrapper')}
+      data-testid="testid"
       style={
         {
           '--wrapper-background-color':
@@ -53,8 +54,8 @@ export const Complex = ({ variant = 'primary' }: { variant?: Variant }) => {
 
 exports[`External Migration - Complex Styled Components > migrates complex styled components (styled(Component), template literals, interpolations) > complex-styles.module.scss 1`] = `
 "/* Imported utilities */
-@import 'welcome-ui/utils/theme/breakpoints';
-@import 'welcome-ui/utils/theme/texts';
+@import 'welcome-ui-v9/utils/theme/breakpoints';
+@import 'welcome-ui-v9/utils/theme/texts';
 
 /* Generated SCSS mixins from CSS template literals */
 @mixin trigger-active-styles {
