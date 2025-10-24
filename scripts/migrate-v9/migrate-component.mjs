@@ -13,6 +13,7 @@ const generate = getModule(generateModule)
 
 /**
  * Migrates component file from styled-components to CSS Modules
+ * - Replaces imports from 'welcome-ui/**' to 'welcome-ui-v9/**'
  * - Replaces `import * as S from './styles'` with CSS Module imports
  * - Transforms `<S.MyElement />` to `<div className={cx('my-element')} />`
  * - Injects CSS variables for dynamic styles
@@ -29,6 +30,13 @@ export async function migrateComponentFile({ componentPath, cssVariables, styles
   traverse(ast, {
     // Replace import * as S from './styles' or '../styles' with import './styles.module.scss'
     ImportDeclaration(path) {
+      // Handle welcome-ui/** to welcome-ui-v9/** migration
+      if (path.node.source.value.includes('welcome-ui/')) {
+        const newImportPath = path.node.source.value.replace('welcome-ui/', 'welcome-ui-v9/')
+        path.node.source.value = newImportPath
+        return
+      }
+
       if (
         path.node.specifiers.length === 1 &&
         path.node.specifiers[0].type === 'ImportNamespaceSpecifier' &&
@@ -43,19 +51,19 @@ export async function migrateComponentFile({ componentPath, cssVariables, styles
 
         // Replace with styles.module.scss import
         path.replaceWith(
-          parse(`import styles from '${scssImportPath}'`, {
+          parse(`import styles from '${scssImportPath}'\n\n`, {
             sourceType: 'module',
           }).program.body[0]
         )
         // Insert const cx = classNames(styles) declaration after imports
         path.insertAfter(
-          parse('const cx = classNames(styles)', {
+          parse('const cx = classNames(styles)\n\n', {
             sourceType: 'module',
           }).program.body[0]
         )
         // Insert classNames import after the styles import (order needs to be preserved)
         path.insertAfter(
-          parse("import { classNames } from 'welcome-ui/utils'", {
+          parse("import { classNames } from 'welcome-ui-v9/utils'\n\n", {
             sourceType: 'module',
           }).program.body[0]
         )
@@ -149,7 +157,12 @@ export async function migrateComponentFile({ componentPath, cssVariables, styles
 
   const output = generate(ast, {}, code).code
 
-  fs.writeFileSync(componentPath, output, 'utf8')
+  // Add extra spacing after transformations
+  const formattedOutput = output
+    .replace(/(\n)(export const)/g, '\n\n$2')
+    .replace(/(const cx = classNames\(styles\))/g, '\n\n$1\n\n')
+
+  fs.writeFileSync(componentPath, formattedOutput, 'utf8')
 }
 
 /**

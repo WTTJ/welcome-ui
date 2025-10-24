@@ -2,12 +2,15 @@
 
 exports[`External Migration - Complex Styled Components > migrates complex styled components (styled(Component), template literals, interpolations) > complex-component.tsx 1`] = `
 "import { FormattedMessage } from 'react-intl'
-import { Text } from 'welcome-ui/Text'
-import { classNames } from 'welcome-ui/utils'
+import { Text } from 'welcome-ui-v9/Text'
+import { classNames } from 'welcome-ui-v9/utils'
 
 import styles from './styles.module.scss'
+
 const cx = classNames(styles)
+
 type Variant = 'primary' | 'secondary'
+
 export const Complex = ({ variant = 'primary' }: { variant?: Variant }) => {
   return (
     <div
@@ -100,7 +103,7 @@ padding: var(--spacing-xxl) 0;
 
 .card {
 background: white;
-  border-radius: var(--spacing-md);
+  border-radius: var(--radius-md);
   padding: var(--spacing-lg);
   
   &.elevated {
@@ -134,7 +137,7 @@ border: none;
   padding: var(--spacing-md) var(--spacing-lg);
   cursor: pointer;
   width: 100%;
-  border-radius: var(--spacing-md);
+  border-radius: var(--radius-md);
   transition: background-color 300ms;
   bottom: var(--spacing-md);
 

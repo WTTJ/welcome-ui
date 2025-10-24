@@ -6,13 +6,13 @@ exports[`Inline Migration - Stack Components > migrates Stack components with la
 export const StackComponent = () => {
   return (
     <div>
-      <div className="flex flex-row gap-xxs items-center">
+      <Stack alignItems="center" direction="row" spacing="xxs">
         <div>Stack item 1</div>
         <div>Stack item 2</div>
-      </div>
-      <div className="flex flex-1 flex-col gap-xxl">
+      </Stack>
+      <Stack flex={1} gap="xxl">
         <div>Flexible stack item</div>
-      </div>
+      </Stack>
     </div>
   )
 }

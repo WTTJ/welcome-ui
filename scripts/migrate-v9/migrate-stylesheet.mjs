@@ -76,10 +76,10 @@ export function migrateStylesTsToScss({
     scssContent.push('/* Imported utilities */')
     imports.forEach((_, importName) => {
       if (importName === 'breakpoints') {
-        scssContent.push(`@import 'welcome-ui/utils/theme/breakpoints';`)
+        scssContent.push(`@import 'welcome-ui-v9/utils/theme/breakpoints';`)
       }
       if (importName === 'texts') {
-        scssContent.push(`@import 'welcome-ui/utils/theme/texts';`)
+        scssContent.push(`@import 'welcome-ui-v9/utils/theme/texts';`)
       }
     })
     scssContent.push('') // Empty line separator

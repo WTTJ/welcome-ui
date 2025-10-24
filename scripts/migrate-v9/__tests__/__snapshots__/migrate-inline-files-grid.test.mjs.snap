@@ -6,10 +6,10 @@ exports[`Inline Migration - Grid Components > migrates Grid components with layo
 export const GridComponent = () => {
   return (
     <div>
-      <div className="grid" columns={2} gutter="sm">
+      <Grid columns={2} gutter="sm">
         <div>Grid item 1</div>
         <div>Grid item 2</div>
-      </div>
+      </Grid>
     </div>
   )
 }
