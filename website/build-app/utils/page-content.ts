@@ -9,6 +9,7 @@ type Data = {
   ariakit?: string
   category?: string
   description?: string
+  isNew?: boolean
   packageName?: string
   peerDependencies?: string
   title?: string

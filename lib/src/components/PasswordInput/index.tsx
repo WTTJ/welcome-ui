@@ -19,20 +19,14 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
     const dataTestId = rest['data-testid'] ? `${rest['data-testid']}-action` : undefined
 
     return (
-      <InputText
-        {...rest}
-        icon={
-          <ToggleButton
-            aria-label={toggleAriaLabel ?? (isHidden ? 'Show password' : 'Hide password')}
-            data-testid={dataTestId}
-            isHidden={isHidden}
-            onClick={handleToggle}
-          />
-        }
-        iconPlacement="right"
-        ref={ref}
-        type={type}
-      />
+      <InputText {...rest} ref={ref} type={type}>
+        <ToggleButton
+          aria-label={toggleAriaLabel ?? (isHidden ? 'Show password' : 'Hide password')}
+          data-testid={dataTestId}
+          isHidden={isHidden}
+          onClick={handleToggle}
+        />
+      </InputText>
     )
   }
 )

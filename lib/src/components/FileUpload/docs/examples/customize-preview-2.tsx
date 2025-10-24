@@ -1,8 +1,7 @@
-import * as React from 'react'
-
 import { Button } from '@/components/Button'
-import { getFileIcon } from '@/components/Files'
+import { getFileIconName } from '@/components/Files'
 import { FileUpload } from '@/components/FileUpload'
+import { Icon } from '@/components/Icon'
 
 const Example = () => {
   const handleChange = () => {
@@ -26,10 +25,11 @@ const Example = () => {
             {files.map(file => {
               const name = typeof file === 'string' ? file : file.name
               const preview = typeof file === 'string' ? file : file.preview
+              const iconName = getFileIconName(file)
 
               return (
                 <Button key={preview} onClick={() => onRemoveFile(file)}>
-                  {React.createElement(getFileIcon(file))} Click to remove {name}
+                  <Icon name={iconName} /> Click to remove {name}
                 </Button>
               )
             })}

@@ -10,7 +10,9 @@ export type ToggleProps = Omit<
   ToggleOptions
 
 interface ToggleOptions {
-  checkedIcon?: JSX.Element
-  size?: 'md' | 'sm' | 'xs'
-  uncheckedIcon?: JSX.Element
+  size?: 'lg' | 'md' | 'sm'
+  /**
+   * If true, display an eye / eye-slash icon to toggle visibility.
+   */
+  withVisibilityIcon?: boolean
 }

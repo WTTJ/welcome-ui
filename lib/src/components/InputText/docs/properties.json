@@ -80,7 +80,7 @@
       },
       "size": {
         "defaultValue": {
-          "value": "md"
+          "value": "lg"
         },
         "description": "",
         "name": "size",
@@ -107,9 +107,6 @@
             },
             {
               "value": "\"sm\""
-            },
-            {
-              "value": "\"xs\""
             }
           ]
         }

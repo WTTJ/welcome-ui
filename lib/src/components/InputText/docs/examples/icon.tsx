@@ -1,17 +1,17 @@
-import { AvatarIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { InputText } from '@/components/InputText'
 
 const Example = () => {
   return (
     <>
-      <InputText icon={<AvatarIcon />} placeholder="Welcome" />
-      <InputText icon={<AvatarIcon />} iconPlacement="right" placeholder="Welcome" />
+      <InputText icon={<Icon name="user-circle" />} placeholder="Welcome" />
+      <InputText icon={<Icon name="user-circle" />} iconPlacement="right" placeholder="Welcome" />
       <InputText
-        icon={<AvatarIcon />}
+        icon={<Icon name="user-circle" />}
         iconPlacement="right"
         isClearable
         placeholder="Welcome"
-        size="xs"
+        size="md"
       />
     </>
   )

@@ -1,7 +1,7 @@
 import type { DialogOptions } from '@ariakit/react'
 import type { ComponentProps, ComponentPropsWithRef } from 'react'
 
-import type { IconProps } from '@/components/Icon'
+import type { IconName } from '@/components/Icon/types'
 
 export interface AssetDrawerOptions extends DialogOptions<'div'> {
   /**
@@ -22,7 +22,7 @@ export type HeaderProps = ComponentProps<'div'> & {
   /**
    * Icon from Icon component on the gray square
    */
-  icon?: React.FC<IconProps>
+  iconName?: IconName
   /**
    * Add a back icon on header and call function on click
    */
@@ -38,6 +38,6 @@ export type HeaderProps = ComponentProps<'div'> & {
 }
 
 export type IconBlockProps = {
-  icon: React.FC<IconProps>
+  iconName: IconName
   size?: 'md' | 'sm'
 }

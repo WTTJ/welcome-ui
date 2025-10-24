@@ -5,22 +5,26 @@ packageName: avatar
 title: Avatar
 ---
 
-### Size
-
-You can use a size from the theme or override with a specific value e.g. `size="md"` or `size="100px"`.
-
-<div data-playground="sizes.tsx" data-component="Avatar"></div>
-
 ### Image
 
-Pass an image url with `src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4"`.
+Pass an image url with `src="you-url"`.
 
 <div data-playground="images.tsx" data-component="Avatar"></div>
 
-### Only text
+### Placeholder
 
-If no image is provided we create a two-letter initial based on the name. We choose a random colour from `secondary-xxx` theme colours for the background. Font size is calculated automatically.
+If no image is provided and no name is given, we display a generic placeholder.
 
-Note: if overriding the size, you must specify both a width and height to maintain the aspect-ratio and a (rational) font-size.
+<div data-playground="placeholder.tsx" data-component="Avatar"></div>
+
+### Text
+
+If no image is provided we create a two-letter initial based on the name. We choose a random colour from secondaries theme colours for the background. For `xs`and `sm` sizes, we only display the first letter.
 
 <div data-playground="texts.tsx" data-component="Avatar"></div>
+
+### Size
+
+You can use `xs`, `sm`, `md` and `lg` sizes.
+
+<div data-playground="sizes.tsx" data-component="Avatar"></div>

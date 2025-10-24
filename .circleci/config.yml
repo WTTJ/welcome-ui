@@ -296,7 +296,7 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /v\d.(\d\d|\d).(\d\d|\d)/
+              only: /v\d+.(\d\d|\d).(\d\d|\d)/
       - alpha_release:
           context:
             - welcome-ui
@@ -308,7 +308,7 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /v\d.(\d\d|\d).(\d\d|\d)-.*/
+              only: /v\d+.(\d\d|\d).(\d\d|\d)-.*/
       - dev_release:
           context:
             - welcome-ui

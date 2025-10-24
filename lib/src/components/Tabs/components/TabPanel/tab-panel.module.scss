@@ -5,11 +5,11 @@
     }
 
     [aria-orientation='horizontal'] & {
-      margin-top: var(--spacing-xl);
+      margin-top: var(--components-dimensions-tab-size-icon-lg);
     }
 
     [aria-orientation='vertical'] & {
-      margin-left: var(--spacing-xl);
+      margin-left: var(--components-dimensions-tab-size-icon-lg);
     }
   }
 }

@@ -1,0 +1,77 @@
+# Version 9 - Belonging: Implements the Belonging experience redesign
+
+Hi, today we are releasing a new batch in the v9, with redesigned components.
+
+![Version 9 illustration](https://www.welcome-ui.com/v9.png)
+
+## Upgrade steps
+
+### 1. Upgrade your dependencies
+
+TODO
+
+### 2. Script to migrate
+
+In welcome-ui repository, run this script to change styled props to tailwind classes in your project, and apply other breaking changes from components listed below.
+
+```bash
+yarn migrate '../your_project_path' --replace
+```
+
+You will have to confirm each change, you can press `y` to apply the change, `n` to skip it, `a` to apply all remaining changes and `q` to quit.
+
+If you want to see the changes before applying them, you can run the script without `--replace` flag:
+
+```bash
+yarn migrate '../your_project_path/subfolder'
+```
+
+#### Example of changes
+
+TODO
+
+### 3. Fix remaining issues
+
+We cannot cover all cases, so you may have to fix some issues manually. Check `_CSS_TO_EDIT` comments in your code to find them, and check the list of components changes below.
+
+## Components changes
+
+### Badge
+
+The `lg` size has been added. Available sizes are now `sm`, `md` (default), and `lg`.
+The `brand` variant replaces the previous `primary` variant, and the `warm` variant replaces the previous `default` variant. Available variants are now `brand`, `blue`, `neutral`, and `warm` (default).
+The `sm` size is now dedicated to status indicators and no longer supports text content.
+
+### Button
+
+The shape variants no longer exist. All the buttons have the same border-radius now. The `xs` size has been removed, `lg` is the new default size. New sizes are `sm`, `md` and `lg`. The `ghost` variant has been removed, the closest one is now `tertiary`.
+
+### Avatar
+
+We removed the `size` prop values `xl` and `xxl`. The new available sizes are:
+
+- sm become xs
+- md become sm
+- lg become md
+- xl become lg
+
+### Toggle
+
+Sizes changed to `sm`, `md` and `lg`.
+
+Also we removed checkedIcon and uncheckedIcon props, you can now use `withVisibilityIcon` prop to add an eye / eye-slash icon to toggle visibility.
+
+```diff
+- <Toggle checkedIcon={<EyeIcon />} uncheckedIcon={<EyeSlashIcon />} />
++ <Toggle withVisibilityIcon />
+```
+
+### Tooltip
+
+The props `withArrow` is now deprecated.
+
+Also added an optional props `title`.
+
+## Utils
+
+## example

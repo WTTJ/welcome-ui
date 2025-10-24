@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { NegativeIcon, PositiveIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { classNames } from '@/utils/classNames'
 
 import filedropStyles from '../filedrop.module.scss'
@@ -25,9 +25,9 @@ export const Preview: React.FC<FileDropChildren> = ({
   wordings,
 }) => {
   if (isHoverAccept) {
-    return <PositiveIcon />
+    return <Icon name="smile-beam-solid" />
   } else if (isHoverReject) {
-    return <NegativeIcon />
+    return <Icon name="sad-solid" />
   } else if (error) {
     return <Message openFile={openFile} {...wordings} />
   } else if (fileUrl) {

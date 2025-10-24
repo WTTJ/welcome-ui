@@ -9,7 +9,7 @@ export interface TooltipOptions {
   fixed?: boolean
   gutter?: number
   placement?: TooltipPlacement
-  withArrow?: boolean
+  title?: JSX.Element | string
 }
 
 export type TooltipPlacement = AriakitTooltipStoreProps['placement']
