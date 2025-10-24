@@ -17,6 +17,7 @@
       "import": "./dist/utils.js"
     },
     "./*.css": "./dist/*.css",
+    "./scss/*": "./dist/scss/*.scss",
     "./*": {
       "types": "./dist/types/components/*/index.d.ts",
       "import": "./dist/*.js"
