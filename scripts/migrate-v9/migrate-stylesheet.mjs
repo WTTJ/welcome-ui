@@ -76,7 +76,7 @@ export function migrateStylesTsToScss({
     scssContent.push('/* Imported utilities */')
     imports.forEach((_, importName) => {
       if (importName === 'breakpoints') {
-        scssContent.push(`@import 'welcome-ui-v9/utils/scss/breakpoints';`)
+        scssContent.push(`@use 'welcome-ui-v9/utils/scss/breakpoints' as breakpoints;`)
       }
       if (importName === 'texts') {
         scssContent.push(`@import 'welcome-ui-v9/utils/scss/texts';`)

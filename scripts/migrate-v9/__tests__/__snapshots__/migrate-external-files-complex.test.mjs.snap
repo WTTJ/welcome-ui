@@ -69,7 +69,7 @@ export const Complex = ({ variant = 'primary' }: { variant?: Variant }) => {
 
 exports[`External Migration - Complex Styled Components > migrates complex styled components (styled(Component), template literals, interpolations) > complex-styles.module.scss 1`] = `
 "/* Imported utilities */
-@import 'welcome-ui-v9/utils/scss/breakpoints';
+@use 'welcome-ui-v9/utils/scss/breakpoints' as breakpoints;
 @import 'welcome-ui-v9/utils/scss/texts';
 
 /* Generated SCSS mixins from CSS template literals */
