@@ -34,7 +34,6 @@ export async function migrateComponentFile({ componentPath, cssVariables, styles
       if (path.node.source.value.includes('welcome-ui/')) {
         const newImportPath = path.node.source.value.replace('welcome-ui/', 'welcome-ui-v9/')
         path.node.source.value = newImportPath
-        return
       }
 
       if (
