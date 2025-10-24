@@ -1,7 +1,8 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`External Migration - Complex Styled Components > migrates complex styled components (styled(Component), template literals, interpolations) > complex-component.tsx 1`] = `
-"import { FormattedMessage } from 'react-intl'
+"import { useEffect, useState } from 'react'
+import { FormattedMessage } from 'react-intl'
 import { Text } from 'welcome-ui-v9/Text'
 import { classNames } from 'welcome-ui-v9/utils'
 
@@ -12,6 +13,20 @@ const cx = classNames(styles)
 type Variant = 'primary' | 'secondary'
 
 export const Complex = ({ variant = 'primary' }: { variant?: Variant }) => {
+  const [, setOpen] = useState<boolean>(false)
+
+  const coco = true
+
+  function handleClick() {
+    // eslint-disable-next-line no-console
+    console.log('Clicked!')
+  }
+
+  useEffect(() => {
+    setOpen(coco)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   return (
     <div
       className={cx('wrapper')}
@@ -25,7 +40,7 @@ export const Complex = ({ variant = 'primary' }: { variant?: Variant }) => {
       }
       variant={variant}
     >
-      <Link className={cx('card')} elevated to="/fishcakes">
+      <Link className={cx('card')} elevated onClick={handleClick} to="/fishcakes">
         <div className={cx('title-wrapper')}>
           <Text
             as="h3"

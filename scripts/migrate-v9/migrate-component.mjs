@@ -155,12 +155,17 @@ export async function migrateComponentFile({ componentPath, cssVariables, styles
     },
   })
 
-  const output = generate(ast, {}, code).code
+  const output = generate(
+    ast,
+    {
+      retainFunctionParens: true,
+      retainLines: true,
+    },
+    code
+  ).code
 
   // Add extra spacing after transformations
-  const formattedOutput = output
-    .replace(/(\n)(export const)/g, '\n\n$2')
-    .replace(/(const cx = classNames\(styles\))/g, '\n\n$1\n\n')
+  const formattedOutput = output.replace(/(const cx = classNames\(styles\))/g, '\n\n$1')
 
   fs.writeFileSync(componentPath, formattedOutput, 'utf8')
 }
