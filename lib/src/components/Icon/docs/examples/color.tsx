@@ -3,13 +3,20 @@ import { Icon } from '@/components/Icon'
 const Example = () => {
   return (
     <>
-      <Icon className="text-green-30" name="folder" size="xl" />
-      <Icon className="text-blue-40" name="folder" size="xl" />
-      <Icon className="text-teal-40" name="folder" size="xl" />
-      <Icon className="text-violet-40" name="folder" size="xl" />
-      <Icon className="text-pink-40" name="folder" size="xl" />
-      <Icon className="text-orange-40" name="folder" size="xl" />
-      <Icon className="text-beige-40" name="folder" size="xl" />
+      <Icon className="text-background-accent-green-primary" name="folder" size="xl" />
+      <Icon className="text-background-accent-teal-primary" name="folder" size="xl" />
+      <Icon className="text-background-accent-blue-primary" name="folder" size="xl" />
+      <Icon className="text-background-accent-violet-primary" name="folder" size="xl" />
+      <Icon className="text-background-accent-pink-primary" name="folder" size="xl" />
+      <Icon className="text-background-accent-orange-primary" name="folder" size="xl" />
+      <Icon className="text-background-warm-stronger" name="folder" size="xl" />
+      <Icon className="text-background-accent-green-strong" name="folder" size="xl" />
+      <Icon className="text-background-accent-teal-strong" name="folder" size="xl" />
+      <Icon className="text-background-accent-blue-strong" name="folder" size="xl" />
+      <Icon className="text-background-accent-violet-strong" name="folder" size="xl" />
+      <Icon className="text-background-accent-pink-strong" name="folder" size="xl" />
+      <Icon className="text-background-accent-orange-strong" name="folder" size="xl" />
+      <Icon className="text-beige-60" name="folder" size="xl" />
     </>
   )
 }

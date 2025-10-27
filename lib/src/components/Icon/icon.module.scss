@@ -38,4 +38,52 @@
       --size: var(--size-icon-2xl);
     }
   }
+
+  .name-folder {
+    /* default value helping to look correct but is not precisely the correct secondary-color  */
+    --secondary-color: color-mix(in srgb, currentColor 75%, black 25%);
+
+    &:global(.text-background-accent-green-primary) {
+      --secondary-color: var(--color-background-accent-green-stronger);
+    }
+    &:global(.text-background-accent-teal-primary) {
+      --secondary-color: var(--color-background-accent-teal-stronger);
+    }
+    &:global(.text-background-accent-blue-primary) {
+      --secondary-color: var(--color-background-accent-blue-stronger);
+    }
+    &:global(.text-background-accent-violet-primary) {
+      --secondary-color: var(--color-background-accent-violet-stronger);
+    }
+    &:global(.text-background-accent-pink-primary) {
+      --secondary-color: var(--color-background-accent-pink-stronger);
+    }
+    &:global(.text-background-accent-orange-primary) {
+      --secondary-color: var(--color-background-accent-orange-stronger);
+    }
+    &:global(.text-background-warm-stronger) {
+      --secondary-color: var(--color-beige-60);
+    }
+    &:global(.text-background-accent-green-strong) {
+      --secondary-color: var(--color-background-accent-green-strongest);
+    }
+    &:global(.text-background-accent-teal-strong) {
+      --secondary-color: var(--color-background-accent-teal-strongest);
+    }
+    &:global(.text-background-accent-blue-strong) {
+      --secondary-color: var(--color-background-accent-blue-strongest);
+    }
+    &:global(.text-background-accent-violet-strong) {
+      --secondary-color: var(--color-background-accent-violet-strongest);
+    }
+    &:global(.text-background-accent-pink-strong) {
+      --secondary-color: var(--color-background-accent-pink-strongest);
+    }
+    &:global(.text-background-accent-orange-strong) {
+      --secondary-color: var(--color-background-accent-orange-strongest);
+    }
+    &:global(.text-beige-60) {
+      --secondary-color: var(--color-beige-80);
+    }
+  }
 }

@@ -1,6 +1,25 @@
 {
   "Icon": {
     "props": {
+      "colors": {
+        "defaultValue": null,
+        "description": "",
+        "name": "colors",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Icon/types.ts",
+          "name": "IconOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Icon/types.ts",
+            "name": "IconOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "CSSProperties[]"
+        }
+      },
       "size": {
         "defaultValue": {
           "value": "md"
