@@ -2,7 +2,7 @@ import { screen } from '@testing-library/react'
 
 import { render } from '@tests'
 
-import { Icon } from './Icon'
+import { Icon } from './'
 
 describe('Icon', () => {
   it('renders even when name does not exist in svg sprite', () => {
