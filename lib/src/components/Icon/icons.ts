@@ -97,8 +97,6 @@ export const miscellaneous = [
   'envelope',
   'equal-circle',
   'minus',
-  'folder',
-  'folder-open',
   'venus',
   'mars',
   'estate',
@@ -230,7 +228,7 @@ export const wtf = [
   'ban',
 ] as const
 
-export const foldersAndFiles = ['folder', 'folder-outline', 'file', 'image'] as const
+export const foldersAndFiles = ['folder', 'folder-open', 'folder-full', 'file', 'image'] as const
 
 export const markdown = [
   'bold',
