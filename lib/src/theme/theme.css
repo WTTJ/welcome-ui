@@ -307,7 +307,7 @@
   --color-secondary-pink: #f696c8;
   --color-secondary-teal: #00c7ae;
   --color-secondary-violet: #acacff;
-  --font-family-default: 'Work Sans', sans-serif;
+  --font-family-default: 'Work Sans', 'work-sans', sans-serif;
   --font-family-headings: 'welcome-font', sans-serif;
   --font-family-icons: 'welcome-icon-font';
   --font-size-11: 0.6875rem;
