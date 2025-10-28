@@ -3,7 +3,7 @@ import DownshiftImport from 'downshift'
 import React, { forwardRef, Fragment, useCallback, useMemo, useState } from 'react'
 
 import { CloseButton as ClearButton } from '@/components/CloseButton'
-import { FIELD_ICON_SIZE } from '@/constants/field-icon-size'
+import { Icon } from '@/components/Icon'
 import { classNames } from '@/utils'
 import { createEvent } from '@/utils/create-event'
 import { throttle as handleThrottle } from '@/utils/throttle'
@@ -43,7 +43,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
       renderGroupHeader,
       renderItem,
       search,
-      size = 'md',
+      size = 'lg',
       throttle = 500,
       transparent,
       value: selected = EMPTY_STRING,
@@ -160,7 +160,6 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
             variant: isOpen ? 'focused' : variant,
             ...rest,
           }) as React.InputHTMLAttributes<HTMLInputElement>
-          const iconSize = FIELD_ICON_SIZE[size]
 
           return (
             <div {...rootProps} className={cx('wrapper')}>
@@ -184,7 +183,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
                       `size-${size}`
                     )}
                   >
-                    {React.cloneElement(icon, { ...icon.props, size: iconSize })}
+                    <Icon {...icon.props} size="lg" />
                   </div>
                 ) : null}
                 <div className={cx('indicators', `size-${size}`)}>

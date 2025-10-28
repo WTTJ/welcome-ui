@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ExternalLinkIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { classNames } from '@/utils'
 import { forwardRefWithAs } from '@/utils/forwardRefWithAs'
 
@@ -18,7 +18,7 @@ const Wrapper = ({ children, isExternal }: WrapperProps) => {
   return (
     <span className={cx('wui-text')}>
       {children}
-      {isExternal ? <ExternalLinkIcon size="sm" /> : null}
+      {isExternal ? <Icon name="external-link-alt" size="sm" /> : null}
     </span>
   )
 }
@@ -58,6 +58,7 @@ export const Link = forwardRefWithAs<LinkOptions, 'a'>((props, ref) => {
     disabled,
     isExternal,
     multiline,
+    size = 'md',
     target,
     variant = 'primary',
     ...rest
@@ -76,6 +77,7 @@ export const Link = forwardRefWithAs<LinkOptions, 'a'>((props, ref) => {
       className={cx(
         'root',
         `variant-${variant}`,
+        `size-${size}`,
         isExternal && 'isExternal',
         multiline && 'isMultiline',
         className
@@ -83,8 +85,10 @@ export const Link = forwardRefWithAs<LinkOptions, 'a'>((props, ref) => {
       ref={ref}
       // for security
       rel={target === '_blank' ? 'noopener noreferrer' : undefined}
+      tabIndex={disabled ? -1 : 0}
       {...rest}
     >
+      {disabled ? <Icon className={cx('icon-disabled')} name="ban" size="md" /> : null}
       {_children}
     </Element>
   )

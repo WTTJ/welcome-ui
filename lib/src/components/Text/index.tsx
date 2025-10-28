@@ -5,28 +5,11 @@ import { classNames, forwardRefWithAs } from '@/utils'
 import textStyles from './text.module.scss'
 import type { TextProps } from './types'
 
-export const TAG_NAMES = {
-  h0: 'h1',
-  h1: 'h1',
-  h2: 'h2',
-  h3: 'h3',
-  h4: 'h4',
-  h5: 'h5',
-  h6: 'h6',
-  lg: 'p',
-  md: 'p',
-  sm: 'p',
-  'subtitle-md': 'span',
-  'subtitle-sm': 'span',
-  xs: 'p',
-} as const
-
 const cx = classNames(textStyles)
 
 export const Text = forwardRefWithAs<TextProps, 'p'>(
-  ({ as, children, className, lines, variant = 'md', withDash, ...rest }, ref) => {
-    const tagName = as || TAG_NAMES[variant]
-    const isHeading = variant?.startsWith('h')
+  ({ as = 'p', children, className, lines, variant = 'md', withDash, ...rest }, ref) => {
+    const isHeading = variant?.startsWith('heading') || variant?.startsWith('display')
     const isMultiLine = lines && lines > 1 && lines !== Number.POSITIVE_INFINITY
     const isSingleLine = lines === 1
 
@@ -43,7 +26,7 @@ export const Text = forwardRefWithAs<TextProps, 'p'>(
     const cssVariables = isMultiLine || isSingleLine ? { '--lineClamp': lines } : {}
 
     return createElement(
-      tagName,
+      as,
       {
         className: classes,
         ref,

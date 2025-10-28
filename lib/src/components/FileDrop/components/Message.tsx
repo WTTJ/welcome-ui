@@ -16,10 +16,10 @@ export const Message = ({
 }: MessageProps) => {
   return (
     <>
-      <Text className={cx('message-title')} variant="h4">
+      <Text as="h4" className={cx('message-title')} variant="heading-md-strong">
         {title}
       </Text>
-      <Text className={cx('message-hint')} variant="sm">
+      <Text className={cx('message-hint')} variant="body-md">
         {hint}
       </Text>
       <Button

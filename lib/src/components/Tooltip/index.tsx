@@ -1,12 +1,12 @@
 import {
   Tooltip as AriakitTooltip,
   TooltipAnchor as AriakitTooltipAnchor,
-  TooltipArrow as AriakitTooltipArrow,
   useStoreState,
   useTooltipStore,
 } from '@ariakit/react'
 import React, { forwardRef, useCallback, useEffect, useState } from 'react'
 
+import { Text } from '@/components/Text'
 import { classNames } from '@/utils'
 
 import tooltipStyles from './tooltip.module.scss'
@@ -23,7 +23,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       fixed = false,
       gutter = 8,
       placement = fixed ? 'top' : 'bottom',
-      withArrow = false,
+      title,
       ...rest
     }: TooltipProps,
     ref
@@ -86,8 +86,14 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
           store={tooltip}
           updatePosition={fixed ? undefined : updatePosition}
         >
-          {withArrow ? <AriakitTooltipArrow /> : null}
-          {content}
+          {title ? (
+            <Text as="span" className={cx('title')} variant="label-md-strong">
+              {title}
+            </Text>
+          ) : null}
+          <Text as="span" variant="body-md-strong">
+            {content}
+          </Text>
         </AriakitTooltip>
       </>
     )

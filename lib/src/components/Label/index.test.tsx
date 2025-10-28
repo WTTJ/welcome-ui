@@ -12,9 +12,10 @@ describe('Label', () => {
   })
 
   it('shows required asterisk when required', () => {
-    render(<Label required>Required Label</Label>)
+    const { container } = render(<Label required>Required Label</Label>)
 
-    expect(screen.getByText('*')).toBeInTheDocument()
+    const asterisk = container.querySelector('[href="#asterisk"]')
+    expect(asterisk).toBeInTheDocument()
   })
 
   it('shows VariantIcon when variant is provided', () => {

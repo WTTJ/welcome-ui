@@ -41,7 +41,7 @@ const AlertComponent = forwardRef<HTMLDivElement, AlertProps>(
         if (child.type === AlertSecondaryButton) {
           return cloneElement<ButtonProps>(child, {
             size,
-            variant: withAiButton ? 'tertiary-ai' : undefined,
+            variant: withAiButton ? 'primary-ai' : undefined,
           })
         }
 
@@ -73,7 +73,7 @@ const AlertComponent = forwardRef<HTMLDivElement, AlertProps>(
         ref={ref}
         {...rest}
       >
-        {!!handleClose && <CloseButton className="close-button" onClick={handleClose} size="xs" />}
+        {!!handleClose && <CloseButton className="close-button" onClick={handleClose} size="sm" />}
         {showIcon ? (
           <VariantIcon className={cx('variant-icon')} size={size} variant={defaultVariantIcon} />
         ) : null}
