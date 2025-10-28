@@ -1,19 +1,41 @@
+import { Icon } from '@/components/Icon'
 import { classNames, forwardRefWithAs } from '@/utils'
 
-import breadcrumStyles from './breadcrumb.module.scss'
+import type { IconName } from '../Icon/types'
+
+import breadcrumbStyles from './breadcrumb.module.scss'
 import type { BreadcrumbItemOptions } from './types'
 
-const cx = classNames(breadcrumStyles)
+const cx = classNames(breadcrumbStyles)
 
 /**
  * @name Breadcrumb.Item
  */
 export const Item = forwardRefWithAs<BreadcrumbItemOptions, 'a'>(
   (
-    { as: Component = 'a', children, 'data-testid': dataTestId, isActive, separator, ...rest },
+    {
+      as: Component = 'a',
+      children,
+      collapsed,
+      'data-testid': dataTestId,
+      icon: customIcon,
+      isActive,
+      separator,
+      ...rest
+    },
     ref
   ) => {
     const isClickable = rest.href || rest.to
+    const isCollapsed = Boolean(collapsed && !isActive)
+
+    let icon: IconName
+    if (isCollapsed) {
+      icon = 'ellipsis-h'
+    } else if (customIcon === true) {
+      icon = isActive ? 'folder-open' : 'folder'
+    } else if (customIcon) {
+      icon = customIcon
+    }
 
     return (
       <li aria-label="breadcrumb" className={cx('item-wrapper')} data-testid={dataTestId}>
@@ -29,9 +51,12 @@ export const Item = forwardRefWithAs<BreadcrumbItemOptions, 'a'>(
           className={cx('item-content', rest.className)}
           ref={ref}
         >
-          {children}
+          {icon ? <Icon name={icon} size="md" /> : null}
+          {!isCollapsed ? children : null}
         </Component>
       </li>
     )
   }
 )
+
+Item.displayName = 'Breadcrumb.Item'
