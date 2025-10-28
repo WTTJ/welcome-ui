@@ -63,7 +63,7 @@
     "@xstyled/styled-components": "^4.0.0",
     "aws-sdk": "^2.1691.0",
     "colors": "^1.4.0",
-    "eslint": "^9.24.0",
+    "eslint": "^9.38.0",
     "eslint-config-prettier": "^10.1.2",
     "eslint-plugin-perfectionist": "^4.12.3",
     "eslint-plugin-prettier": "^5.2.6",
