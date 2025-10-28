@@ -13,8 +13,8 @@ export const ToggleComponent = () => {
   return (
     <form>
       <Toggle
-        className="inline-flex"
         checked={FALSE}
+        className="inline-flex"
         onClick={() => console.debug()}
         {...register('email', {
           pattern: 'This field has invalid format',

@@ -1,6 +1,6 @@
 {
   "name": "welcome-ui",
-  "version": "9.0.1",
+  "version": "9.0.2-alpha.0",
   "description": "Customizable design system with react, typescript, tailwindcss and ariakit.",
   "files": [
     "dist"
@@ -17,6 +17,7 @@
       "import": "./dist/utils.js"
     },
     "./*.css": "./dist/*.css",
+    "./scss/*": "./dist/scss/*.scss",
     "./*": {
       "types": "./dist/types/components/*/index.d.ts",
       "import": "./dist/*.js"
