@@ -25,8 +25,9 @@ export const BreadcrumbComponent = forwardRef<HTMLDivElement, BreadcrumbProps>(
   (
     {
       children,
+      icon,
       lastChildNotClickable = true,
-      separator = <Icon name="angle-right-b" size="xs" />,
+      separator = <Icon name="angle-right-b" size="md" />,
       ...rest
     },
     ref
@@ -41,6 +42,7 @@ export const BreadcrumbComponent = forwardRef<HTMLDivElement, BreadcrumbProps>(
       const isActive = isLastChild && lastChildNotClickable
 
       return cloneElement(child, {
+        icon,
         isActive,
         key: `breadcrumb-${index}`,
         separator: isLastChild ? undefined : separator,
