@@ -2,7 +2,7 @@ import { Breadcrumb } from '@/components/Breadcrumb'
 
 const Example = () => {
   return (
-    <Breadcrumb className="max-w-250">
+    <Breadcrumb className="max-w-[250px]">
       <Breadcrumb.Item href="/">Introduction</Breadcrumb.Item>
       <Breadcrumb.Item href="/">Components</Breadcrumb.Item>
       <Breadcrumb.Item>Breadcrumb</Breadcrumb.Item>
