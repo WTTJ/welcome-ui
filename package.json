@@ -18,6 +18,7 @@
     "migrate:inline": "node ./scripts/migrate-v9/inline/index.mjs",
     "migrate:external": "node ./scripts/migrate-v9/external/index.mjs",
     "migrate:v9": "node ./scripts/migrate-v9/index.mjs",
+    "migrate:v9:icons": "node ./scripts/migrate-v9/migrate-icons.mjs",
     "postinstall": "husky install",
     "release:dev": "node .dev-releases/version.mjs",
     "release:alpha": "yarn workspace welcome-ui run release-it --preRelease=alpha",
