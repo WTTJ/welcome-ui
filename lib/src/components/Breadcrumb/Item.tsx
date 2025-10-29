@@ -33,7 +33,7 @@ export const Item = forwardRef<HTMLAnchorElement, BreadcrumbItemProps>(
     if (isCollapsed) {
       icon = 'ellipsis-h'
     } else if (customIcon === true) {
-      icon = isActive ? 'folder-open' : 'folder-outline'
+      icon = isActive ? 'folder-open' : 'folder'
     } else if (customIcon) {
       icon = customIcon
     }
