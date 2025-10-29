@@ -93,9 +93,7 @@ export function migrateStylesTsToScss({
   }
 
   // Add styles (inside @layer)
-  scssContent.push('@layer components {')
   scssContent.push(...classDefs)
-  scssContent.push('}')
 
   // Join it all up
   return scssContent.join('\n')
