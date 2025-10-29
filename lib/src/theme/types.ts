@@ -1347,28 +1347,50 @@ export type ThemeVariables = {
   '--color-logo-mark-primary': string
   '--color-logo-mark-primary-fixed': string
   '--font-size-12': string
+  '--text-12': string
   '--font-size-14': string
+  '--text-14': string
   '--font-size-16': string
+  '--text-16': string
   '--font-size-18': string
+  '--text-18': string
   '--font-size-20': string
+  '--text-20': string
   '--font-size-24': string
+  '--text-24': string
   '--font-size-32': string
+  '--text-32': string
   '--font-size-36': string
+  '--text-36': string
   '--font-size-48': string
+  '--text-48': string
   '--font-size-60': string
+  '--text-60': string
   '--font-size-72': string
+  '--text-72': string
   '--font-size-xs': string
+  '--text-xs': string
   '--font-size-sm': string
+  '--text-sm': string
   '--font-size-md': string
+  '--text-md': string
   '--font-size-lg': string
+  '--text-lg': string
   '--font-size-xl': string
+  '--text-xl': string
   '--font-size-2xl': string
   '--font-size-xxl': string
+  '--text-2xl': string
   '--font-size-3xl': string
+  '--text-3xl': string
   '--font-size-4xl': string
+  '--text-4xl': string
   '--font-size-5xl': string
+  '--text-5xl': string
   '--font-size-6xl': string
+  '--text-6xl': string
   '--font-size-7xl': string
+  '--text-7xl': string
   '--font-family-title': string
   '--font-family-body': string
   '--font-weight-regular': string
