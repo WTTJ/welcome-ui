@@ -199,6 +199,7 @@ class IconMigrator {
     iconNames.forEach(iconName => {
       const iconComponentName = `${iconName}Icon`
       // Remplacer <IconNameIcon par <IconNameIcon
+      // eslint-disable-next-line no-useless-escape
       const usageRegex = new RegExp(`<IconsFont\\.${iconName}(?=\\s|\/|>)`, 'g')
       result = result.replace(usageRegex, `<${iconComponentName}`)
     })
