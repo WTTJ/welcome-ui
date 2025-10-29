@@ -314,7 +314,10 @@
               "value": "\"folder\""
             },
             {
-              "value": "\"folder-outline\""
+              "value": "\"folder-open\""
+            },
+            {
+              "value": "\"folder-full\""
             },
             {
               "value": "\"file\""
@@ -474,9 +477,6 @@
             },
             {
               "value": "\"minus\""
-            },
-            {
-              "value": "\"folder-open\""
             },
             {
               "value": "\"venus\""
@@ -1198,7 +1198,10 @@
               "value": "\"folder\""
             },
             {
-              "value": "\"folder-outline\""
+              "value": "\"folder-open\""
+            },
+            {
+              "value": "\"folder-full\""
             },
             {
               "value": "\"file\""
@@ -1358,9 +1361,6 @@
             },
             {
               "value": "\"minus\""
-            },
-            {
-              "value": "\"folder-open\""
             },
             {
               "value": "\"venus\""
@@ -2040,7 +2040,10 @@
               "value": "\"folder\""
             },
             {
-              "value": "\"folder-outline\""
+              "value": "\"folder-open\""
+            },
+            {
+              "value": "\"folder-full\""
             },
             {
               "value": "\"file\""
@@ -2200,9 +2203,6 @@
             },
             {
               "value": "\"minus\""
-            },
-            {
-              "value": "\"folder-open\""
             },
             {
               "value": "\"venus\""
