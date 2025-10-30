@@ -110,7 +110,7 @@
     "brace-expansion": "^2.0.2"
   },
   "dependencies": {
-    "tailwindcss": "^4.1.14"
+    "tailwindcss": "^4.1.16"
   },
   "packageManager": "yarn@1.22.22"
 }
