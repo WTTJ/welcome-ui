@@ -1,62 +1,125 @@
 @layer components {
+  /* Main pagination list */
   .list {
     list-style-type: none;
     padding: 0;
     margin: 0;
     display: flex;
-    gap: var(--components-dimensions-pagination-start-padding-inline-leading-lg);
+    gap: var(--components-dimensions-pagination-gap-pages);
     align-items: center;
     flex-wrap: wrap;
   }
 
+  /* Pagination button or link - default state */
   .item {
     color: var(--color, var(--components-colors-pagination-color-icon-unchecked-pressed));
-    background-color: var(
-      --backgroundColor,
-      var(--components-colors-pagination-color-background-unchecked-default)
-    );
+    background-color: var(--backgroundColor, var(--components-colors-pagination-color-background-unchecked-default));
     font-size: var(--components-dimensions-pagination-start-padding-inline-trailing-md);
     font-weight: var(--font-weight-semi-bold);
-    height: var(--components-dimensions-pagination-size-max-height-md);
-    width: var(--components-dimensions-pagination-size-max-height-md);
-    border-radius: 50%;
+    border-radius: var(--components-dimensions-pagination-border-radius);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     text-decoration: none;
-
-    &:not([disabled]):hover,
-    &:focus-visible {
-      --backgroundColor: var(--color-background-neutral-subtlest);
-    }
-
-    &:focus-visible {
-      --color: var(--components-colors-pagination-color-icon-unchecked-pressed);
-      outline: none !important; /* important for firefox */
-    }
+    border-color: var(--borderColor, var(--components-colors-pagination-color-border-unchecked-default));
+    border-width: var(--borderWidth, var(--components-dimensions-pagination-border-width-unchecked));
+    border-style: solid;
+    box-shadow: var(--elevation-10);
   }
-  .disabled-arrow {
+
+  /* State: hover and focus (not selected, not disabled) */
+  .item:not([disabled]):not([aria-current='true']):hover,
+  .item:not([disabled]):not([aria-current='true']):focus-visible {
+    background-color: var(--components-colors-pagination-color-background-unchecked-hover);
+    border-color: var(--components-colors-pagination-color-border-unchecked-hover);
+    box-shadow: var(--elevation-20);
+    outline: none !important; /* important for Firefox */
+  }
+
+  /* State: active (not selected, not disabled) */
+  .item:not([disabled]):not([aria-current='true']):active {
+    background-color: var(--components-colors-pagination-color-background-unchecked-pressed);
+    border-color: var(--components-colors-pagination-color-border-unchecked-pressed);
+  }
+
+  /* State: disabled (arrows) */
+  .item.disabled-arrow,
+  .item[disabled] {
     cursor: not-allowed;
-    --color: var(--color-icon-warm-tertiary);
-    --backgroundColor: var(--color-background-warm-stronger);
+    color: var(--components-colors-pagination-color-text-unchecked-disabled);
+    background: repeating-linear-gradient(
+      -45deg,
+      var(--color-neutral-30),
+      var(--color-neutral-30) 1.75px,
+      var(--color-background-warm-stronger) 3.75px,
+      var(--color-background-warm-stronger) 3.25px
+    ) padding-box;
+    box-shadow: none;
+    border: 0;
   }
 
-  .page {
-    &[aria-current='true'] {
-      --backgroundColor: var(--components-colors-pagination-color-icon-unchecked-pressed);
-      --color: var(--components-colors-pagination-color-background-unchecked-default);
+  /* Page link - selected state (current) */
+  .page[aria-current='true'] {
+    background-color: var(--components-colors-pagination-color-background-checked-default);
+    border-color: var(--components-colors-pagination-color-border-checked-default);
+    border-width: var(--components-dimensions-pagination-border-width-checked);
+    color: var(--components-colors-pagination-color-text-checked-default);
+  }
+  /* State: hover/focus on selected page */
+  .page[aria-current='true']:hover,
+  .page[aria-current='true']:focus-visible {
+    background-color: var(--components-colors-pagination-color-background-checked-hover);
+    border-color: var(--components-colors-pagination-color-border-checked-hover);
+    color: var(--components-colors-pagination-color-text-checked-hover);
+    outline: none !important;
+  }
+  /* State: active on selected page */
+  .page[aria-current='true']:active {
+    background-color: var(--components-colors-pagination-color-background-checked-pressed);
+    border-color: var(--components-colors-pagination-color-border-checked-pressed);
+    color: var(--components-colors-pagination-color-text-checked-pressed);
+  }
 
-      &:hover,
-      &:focus-visible {
-        --backgroundColor: var(--components-colors-pagination-color-icon-unchecked-pressed);
+  .with-text-left, .with-text-right {
+    gap: var(--components-dimensions-pagination-gap-content);
+  }
+
+  .size {
+    &-lg {
+      font-size: var(--font-size-md);
+      height: var(--components-dimensions-pagination-size-max-height-lg);
+      width: var(--components-dimensions-pagination-size-min-height-lg);
+
+      &.with-text-right {
+        padding-left: var(--components-dimensions-pagination-start-padding-inline-leading-lg);
+        padding-right: var(--components-dimensions-pagination-end-padding-inline-leading-lg);
+        width: auto;
+      }
+
+      &.with-text-left {
+        padding-left: (var(--components-dimensions-pagination-start-padding-inline-trailing-lg));
+        padding-right: var(--components-dimensions-pagination-end-padding-inline-trailing-lg);
+        width: auto;
       }
     }
-  }
 
-  .dots {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    &-md {
+      font-size: var(--font-size-sm);
+      height: var(--components-dimensions-pagination-size-max-height-md);
+      width: var(--components-dimensions-pagination-size-min-height-md);
+
+      &.with-text-right {
+        padding-left: var(--components-dimensions-pagination-start-padding-inline-leading-md);
+        padding-right: var(--components-dimensions-pagination-end-padding-inline-leading-md);
+        width: auto;
+      }
+
+      &.with-text-left {
+        padding-left: var(--components-dimensions-pagination-start-padding-inline-trailing-md);
+        padding-right: var(--components-dimensions-pagination-end-padding-inline-trailing-md);
+        width: auto;
+      }
+    }
   }
 }
