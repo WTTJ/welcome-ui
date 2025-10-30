@@ -7,33 +7,13 @@ const Example = () => {
       <Button
         onClick={() =>
           toast(
-            <Toast.Growl>
+            <Toast.Growl
+              cta={<Toast.GrowlAction onClick={() => alert('action')}>Action</Toast.GrowlAction>}
+              variant="info"
+            >
               <Toast.Title>Lorem ipsum dolor sit amet</Toast.Title>
               Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
               himenaeos
-              <div className="mt-[1rem]">
-                <Button onClick={() => alert('action')} size="md" variant="secondary">
-                  Action
-                </Button>
-              </div>
-            </Toast.Growl>
-          )
-        }
-      >
-        Default
-      </Button>
-      <Button
-        onClick={() =>
-          toast(
-            <Toast.Growl variant="info">
-              <Toast.Title>Lorem ipsum dolor sit amet</Toast.Title>
-              Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-              himenaeos
-              <div className="mt-[1rem]">
-                <Button onClick={() => alert('action')} size="md" variant="secondary">
-                  Action
-                </Button>
-              </div>
             </Toast.Growl>
           )
         }
@@ -43,7 +23,7 @@ const Example = () => {
       <Button
         onClick={() =>
           toast(
-            <Toast.Growl variant="danger">
+            <Toast.Growl variant="error">
               <Toast.Title>Lorem ipsum dolor sit amet</Toast.Title>
               Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
               himenaeos
@@ -78,37 +58,6 @@ const Example = () => {
         }
       >
         Success
-      </Button>
-      <Button
-        onClick={() =>
-          toast(
-            <Toast.Growl variant="ai">
-              <Toast.Title>Lorem ipsum dolor sit amet</Toast.Title>
-              Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-              himenaeos
-              <div className="mt-[1rem]">
-                <Button onClick={() => alert('action')} size="md" variant="primary-ai">
-                  Action
-                </Button>
-              </div>
-            </Toast.Growl>
-          )
-        }
-      >
-        AI
-      </Button>
-      <Button
-        onClick={() =>
-          toast(
-            <Toast.Growl hideIcon variant="warning">
-              <Toast.Title>Lorem ipsum dolor sit amet</Toast.Title>
-              Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-              himenaeos
-            </Toast.Growl>
-          )
-        }
-      >
-        No icon
       </Button>
     </>
   )

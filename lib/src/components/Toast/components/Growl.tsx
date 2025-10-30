@@ -1,8 +1,13 @@
 import { forwardRef } from 'react'
 
-import { Alert } from '@/components/Alert'
-import { classNames } from '@/utils'
+import { Button } from '@/components/Button'
+import type { ButtonProps } from '@/components/Button/types'
+import { CloseButton } from '@/components/CloseButton'
+import { Icon } from '@/components/Icon'
+import { Text } from '@/components/Text'
+import { classNames, forwardRefWithAs } from '@/utils'
 
+import { ICON } from '..'
 import toastStyles from '../toast.module.scss'
 import type { GrowlProps } from '../types'
 
@@ -12,19 +17,53 @@ const cx = classNames(toastStyles)
  * @name Toast.Growl
  */
 export const Growl = forwardRef<HTMLDivElement, GrowlProps>(
-  ({ children, className, hasCloseButton = true, onClose, variant, ...rest }, ref) => {
+  (
+    {
+      children,
+      className,
+      cta,
+      duration,
+      hasCloseButton = true,
+      onClose,
+      showProgressBar = false,
+      title,
+      variant = 'info',
+      ...rest
+    },
+    ref
+  ) => {
     return (
-      <Alert
-        className={cx('growl', className)}
-        handleClose={hasCloseButton ? onClose : undefined}
-        ref={ref}
-        variant={variant}
-        {...rest}
-      >
-        <div className={cx('pr-xl')}>{children}</div>
-      </Alert>
+      <div className={cx('root', `variant-${variant}`, className)} ref={ref} {...rest}>
+        <div className={cx('growl')}>
+          {variant ? <Icon className={cx('icon')} name={ICON[variant]} size="lg" /> : null}
+          <div className={cx('content')}>
+            <span>
+              <Text variant="body-md-strong">{title}</Text>
+              <Text variant="body-md">{children}</Text>
+            </span>
+            {cta ? <>{cta}</> : null}
+          </div>
+          {hasCloseButton ? (
+            <CloseButton className={cx('close-button')} onClick={onClose} size="sm" />
+          ) : null}
+        </div>
+        <div
+          className={cx(showProgressBar && 'progress')}
+          style={{
+            ['--duration' as keyof React.CSSProperties]: !hasCloseButton
+              ? '5000ms'
+              : `${duration}ms`,
+          }}
+        >
+          <div className={cx('progress-bar')} />
+        </div>
+      </div>
     )
   }
 )
+
+export const GrowlAction = forwardRefWithAs<ButtonProps, 'button'>((props, ref) => (
+  <Button ref={ref} size="md" variant="secondary" {...props} />
+))
 
 Growl.displayName = 'Growl'
