@@ -1,4 +1,112 @@
 @layer components {
+  .root {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-width: var(--components-dimensions-toast-border-width);
+    border-radius: var(--components-dimensions-toast-border-radius);
+    border-color: var(--components-colors-toast-color-border-default);
+    box-shadow: var(--elevation-20);
+    background-color: var(--components-colors-toast-color-background-default);
+    transition: all var(--duration-medium);
+
+    &:hover {
+      border-color: var(--components-colors-toast-color-border-hover);
+      box-shadow: var(--elevation-30);
+    }
+  }
+
+  .icon {
+    flex-shrink: 0;
+    border-radius: var(--components-dimensions-toast-icon-border-radius);
+    padding: var(--components-dimensions-toast-icon-padding-inline);
+
+    background-color: var(--iconBackgroundColor);
+    color: var(--iconColor);
+  }
+
+  .variant {
+    &-error {
+      --iconBackgroundColor: var(--components-colors-toast-icon-color-background-error);
+      --iconColor: var(--components-colors-toast-icon-color-icon-error);
+    }
+
+    &-warning {
+      --iconBackgroundColor: var(--components-colors-toast-icon-color-background-warning);
+      --iconColor: var(--components-colors-toast-icon-color-icon-warning);
+    }
+
+    &-success {
+      --iconBackgroundColor: var(--components-colors-toast-icon-color-background-success);
+      --iconColor: var(--components-colors-toast-icon-color-icon-success);
+    }
+
+    &-info {
+      --iconBackgroundColor: var(--components-colors-toast-icon-color-background-information);
+      --iconColor: var(--components-colors-toast-icon-color-icon-information);
+    }
+  }
+
+  .progress {
+    width: 100%;
+    height: 4px;
+    background: var(--components-colors-latency-color-background-bar);
+  }
+
+  .progress-bar {
+    width: 100%;
+    height: 100%;
+    background: var(--components-colors-latency-color-background-progress);
+    transform-origin: left center;
+    animation: toast-progress var(--duration) linear forwards;
+  }
+
+  .hide-progress-bar {
+    display: none;
+  }
+
+  @keyframes toast-progress {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  .snackbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: var(--components-dimensions-toast-padding-inline);
+    gap: var(--components-dimensions-toast-gap-content);
+    max-width: 660px;
+  }
+
+  .growl {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: var(--components-dimensions-toast-padding-inline);
+    gap: var(--components-dimensions-growl-gap-content);
+    max-width: 450px;
+
+    .content {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: var(--spacing-md);
+    }
+
+    .close-button {
+      align-self: start;
+    }
+
+    .icon {
+      align-self: flex-start;
+    }
+  }
+
   .title {
     display: flex;
     align-items: center;
@@ -8,62 +116,6 @@
 
     & > *:first-child {
       flex-shrink: 0;
-    }
-  }
-
-  .growl {
-    position: relative;
-    padding: var(--border-radius-xl);
-    border-radius: var(--border-radius-md);
-    border-style: solid;
-    border-width: var(--border-width-xs);
-    max-width: 340px;
-
-    & div:first-of-type {
-      align-self: baseline;
-      font-size: var(--font-size-14);
-    }
-
-    & button {
-      flex-shrink: 0;
-    }
-  }
-
-  .snackbar {
-    display: flex;
-    align-items: center;
-    padding: var(--border-radius-md) var(--border-radius-lg);
-    border-radius: var(--border-radius-md);
-    width: max-content;
-    gap: var(--border-radius-md);
-
-    & div:first-of-type {
-      align-self: center;
-      font-size: var(--font-size-14);
-    }
-
-    & div:last-of-type {
-      flex-direction: row;
-      margin-left: var(--border-radius-sm) !important;
-    }
-  }
-
-  .snackbar-separator {
-    padding-left: var(--border-radius-md);
-    border-left: 1px solid;
-    border-left-color: var(--borderLeftColor, --color-neutral-90);
-
-    &.info {
-      --borderLeftColor: var(--color-background-accent-blue-secondary);
-    }
-    &.success {
-      --borderLeftColor: var(--color-background-accent-green-primary);
-    }
-    &.warning {
-      --borderLeftColor: var(--color-background-warning-subtle);
-    }
-    &.danger {
-      --borderLeftColor: var(--color-background-danger-subtle);
     }
   }
 }

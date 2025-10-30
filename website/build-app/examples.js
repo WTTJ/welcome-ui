@@ -221,6 +221,7 @@ export default {
   "/TimePicker/docs/examples/tailwind.tsx": dynamic(() => import("../../lib/src/components/TimePicker/docs/examples/tailwind.tsx").then(mod => mod), { ssr: false }),
   "/Toast/docs/examples/custom-close.tsx": dynamic(() => import("../../lib/src/components/Toast/docs/examples/custom-close.tsx").then(mod => mod), { ssr: false }),
   "/Toast/docs/examples/growl.tsx": dynamic(() => import("../../lib/src/components/Toast/docs/examples/growl.tsx").then(mod => mod), { ssr: false }),
+  "/Toast/docs/examples/latency.tsx": dynamic(() => import("../../lib/src/components/Toast/docs/examples/latency.tsx").then(mod => mod), { ssr: false }),
   "/Toast/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Toast/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Toast/docs/examples/snackbar.tsx": dynamic(() => import("../../lib/src/components/Toast/docs/examples/snackbar.tsx").then(mod => mod), { ssr: false }),
   "/Toast/docs/examples/toast.tsx": dynamic(() => import("../../lib/src/components/Toast/docs/examples/toast.tsx").then(mod => mod), { ssr: false }),
