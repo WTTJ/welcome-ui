@@ -7,17 +7,6 @@ const Example = () => {
       <Button
         onClick={() =>
           toast(
-            <Toast.Snackbar cta={<Toast.SnackbarAction>Action</Toast.SnackbarAction>}>
-              Lorem ipsum dolor sit amet taciti sociosqu ad
-            </Toast.Snackbar>
-          )
-        }
-      >
-        Default
-      </Button>
-      <Button
-        onClick={() =>
-          toast(
             <Toast.Snackbar
               cta={<Toast.SnackbarAction>Action</Toast.SnackbarAction>}
               variant="info"
@@ -34,7 +23,7 @@ const Example = () => {
           toast(
             <Toast.Snackbar
               cta={<Toast.SnackbarAction>Action</Toast.SnackbarAction>}
-              variant="danger"
+              variant="error"
             >
               Lorem ipsum dolor sit amet taciti sociosqu ad
             </Toast.Snackbar>
@@ -70,32 +59,6 @@ const Example = () => {
         }
       >
         Success
-      </Button>
-      <Button
-        onClick={() =>
-          toast(
-            <Toast.Snackbar cta={<Toast.SnackbarAction>Action</Toast.SnackbarAction>} variant="ai">
-              Lorem ipsum dolor sit amet taciti sociosqu ad
-            </Toast.Snackbar>
-          )
-        }
-      >
-        AI
-      </Button>
-      <Button
-        onClick={() =>
-          toast(
-            <Toast.Snackbar
-              cta={<Toast.SnackbarAction>Action</Toast.SnackbarAction>}
-              hideIcon
-              variant="info"
-            >
-              Lorem ipsum dolor sit amet taciti sociosqu ad
-            </Toast.Snackbar>
-          )
-        }
-      >
-        No icon
       </Button>
     </>
   )
