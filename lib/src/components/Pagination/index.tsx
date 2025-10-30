@@ -13,15 +13,20 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
   (
     {
       'aria-label': ariaLabel,
+      buttonFirstProps,
+      buttonLastProps,
       buttonNextProps,
       buttonPrevProps,
       dataTestId,
       getHref,
       listProps,
+      navigationTexts,
       onChange,
       page,
       pageCount,
       rangeDisplay = 5,
+      showEdgeControls = false,
+      size = 'lg',
       ...rest
     },
     ref
@@ -31,6 +36,23 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
     const lastPageRef = useRef<HTMLButtonElement>(null)
     const isPrevButtonDisabled = page === 1
     const isNextButtonDisabled = page === pageCount
+    const isFirstButtonDisabled = page === 1
+    const isLastButtonDisabled = page === pageCount
+
+    const firstPageText = navigationTexts?.firstPage || 'First Page'
+    const lastPageText = navigationTexts?.lastPage || 'Last Page'
+    const nextPageText = navigationTexts?.nextPage || 'Next Page'
+    const previousPageText = navigationTexts?.previousPage || 'Previous Page'
+
+    const handleFirst = useCallback(() => {
+      if (isFirstButtonDisabled) return
+      onChange(1)
+    }, [isFirstButtonDisabled, onChange])
+
+    const handleLast = useCallback(() => {
+      if (isLastButtonDisabled) return
+      onChange(pageCount)
+    }, [isLastButtonDisabled, pageCount, onChange])
 
     const handlePrevious = useCallback(() => {
       if (isPrevButtonDisabled) return
@@ -49,10 +71,36 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
     return (
       <nav aria-label={ariaLabel ?? 'Pagination'} data-testid={dataTestId} ref={ref} {...rest}>
         <ol className={cx('list')} {...listProps}>
+          {showEdgeControls ? (
+            <li>
+              <button
+                aria-label={firstPageText}
+                className={cx(
+                  'item',
+                  `size-${size}`,
+                  navigationTexts?.firstPage && 'with-text-right',
+                  isFirstButtonDisabled && 'disabled-arrow'
+                )}
+                data-testid={dataTestId ? `${dataTestId}-arrow-first` : undefined}
+                disabled={isFirstButtonDisabled}
+                onClick={handleFirst}
+                type="button"
+                {...buttonFirstProps}
+              >
+                <Icon className={cx('icon')} name="angle-double-left" size="lg" />
+                {navigationTexts?.firstPage ? firstPageText : null}
+              </button>
+            </li>
+          ) : null}
           <li>
             <button
-              aria-label="Previous Page"
-              className={cx('item', isPrevButtonDisabled && 'disabled-arrow')}
+              aria-label={previousPageText}
+              className={cx(
+                'item',
+                `size-${size}`,
+                navigationTexts?.previousPage && 'with-text-right',
+                isPrevButtonDisabled && 'disabled-arrow'
+              )}
               data-testid={dataTestId ? `${dataTestId}-arrow-prev` : undefined}
               disabled={isPrevButtonDisabled}
               onClick={handlePrevious}
@@ -60,19 +108,27 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
               type="button"
               {...buttonPrevProps}
             >
-              <Icon name="angle-left-b" size="sm" />
+              <Icon className={cx('icon')} name="angle-left" size="lg" />
+              {navigationTexts?.previousPage ? previousPageText : null}
             </button>
           </li>
           {pages.map((iPage: number | string, i: number) =>
             iPage === '-' ? (
               <li key={`${i}-`}>
-                <span className={cx('dots')}>...</span>
+                <button
+                  aria-label="Collapsed Pages"
+                  className={cx('item', `size-${size}`)}
+                  type="button"
+                  {...buttonNextProps}
+                >
+                  ...
+                </button>
               </li>
             ) : (
               <li key={iPage}>
                 <a
                   aria-current={iPage === page}
-                  className={cx('item', 'page')}
+                  className={cx('item', 'page', `size-${size}`)}
                   data-testid={dataTestId ? `${dataTestId}-${iPage}` : undefined}
                   href={getHref?.(iPage)}
                   onClick={event => {
@@ -89,8 +145,13 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
           )}
           <li>
             <button
-              aria-label="Next Page"
-              className={cx('item', isNextButtonDisabled && 'disabled-arrow')}
+              aria-label={nextPageText}
+              className={cx(
+                'item',
+                `size-${size}`,
+                navigationTexts?.nextPage && 'with-text-left',
+                isNextButtonDisabled && 'disabled-arrow'
+              )}
               data-testid={dataTestId ? `${dataTestId}-arrow-next` : undefined}
               disabled={isNextButtonDisabled}
               onClick={handleNext}
@@ -98,9 +159,31 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
               type="button"
               {...buttonNextProps}
             >
-              <Icon name="angle-right-b" size="sm" />
+              {navigationTexts?.nextPage ? nextPageText : null}{' '}
+              <Icon name="angle-right" size="lg" />
             </button>
           </li>
+          {showEdgeControls ? (
+            <li>
+              <button
+                aria-label={lastPageText}
+                className={cx(
+                  'item',
+                  `size-${size}`,
+                  navigationTexts?.lastPage && 'with-text-left',
+                  isLastButtonDisabled && 'disabled-arrow'
+                )}
+                data-testid={dataTestId ? `${dataTestId}-arrow-last` : undefined}
+                disabled={isLastButtonDisabled}
+                onClick={handleLast}
+                type="button"
+                {...buttonLastProps}
+              >
+                {navigationTexts?.lastPage ? lastPageText : null}
+                <Icon className={cx('icon')} name="angle-double-right" size="lg" />
+              </button>
+            </li>
+          ) : null}
         </ol>
       </nav>
     )

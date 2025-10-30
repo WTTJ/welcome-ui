@@ -1,6 +1,44 @@
 {
   "Pagination": {
     "props": {
+      "buttonFirstProps": {
+        "defaultValue": null,
+        "description": "",
+        "name": "buttonFirstProps",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
+          "name": "PaginationOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
+            "name": "PaginationOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ButtonHTMLAttributes<HTMLButtonElement>"
+        }
+      },
+      "buttonLastProps": {
+        "defaultValue": null,
+        "description": "",
+        "name": "buttonLastProps",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
+          "name": "PaginationOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
+            "name": "PaginationOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ButtonHTMLAttributes<HTMLButtonElement>"
+        }
+      },
       "buttonNextProps": {
         "defaultValue": null,
         "description": "",
@@ -96,6 +134,25 @@
           "name": "OlHTMLAttributes<HTMLOListElement>"
         }
       },
+      "navigationTexts": {
+        "defaultValue": null,
+        "description": "",
+        "name": "navigationTexts",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
+          "name": "PaginationOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
+            "name": "PaginationOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "NavigationTexts"
+        }
+      },
       "onChange": {
         "defaultValue": null,
         "description": "",
@@ -172,6 +229,66 @@
         "required": false,
         "type": {
           "name": "number"
+        }
+      },
+      "showEdgeControls": {
+        "defaultValue": {
+          "value": false
+        },
+        "description": "",
+        "name": "showEdgeControls",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
+          "name": "PaginationOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
+            "name": "PaginationOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "size": {
+        "defaultValue": {
+          "value": "lg"
+        },
+        "description": "",
+        "name": "size",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
+          "name": "PaginationOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
+            "name": "PaginationOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"lg\" | \"md\"",
+          "value": [
+            {
+              "value": "\"lg\""
+            },
+            {
+              "value": "\"md\""
+            }
+          ]
         }
       }
     }

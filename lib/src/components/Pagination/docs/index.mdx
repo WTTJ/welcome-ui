@@ -10,3 +10,21 @@ title: Pagination
 When your range display is above your pageCount, all the pages are shown.<br />Change range with `rangeDisplay`, by default it is `5`.
 
 <div data-playground="range.tsx" data-component="Pagination"></div>
+
+### First and Last buttons
+
+You can optionally display First and Last buttons by setting `showEdgeControls` to `true`. These buttons allow users to quickly jump to the first or last page, which is especially useful for large datasets with many pages.
+
+<div data-playground="first-last.tsx" data-component="Pagination"></div>
+
+### Size
+
+The Pagination component supports two different sizes: `md` and `lg` (default). Use the `size` prop to control the overall size of the pagination controls.
+
+<div data-playground="size.tsx" data-component="Pagination"></div>
+
+### Custom texts
+
+You can customize the text displayed on all navigation buttons using the `navigationTexts` prop.
+
+<div data-playground="custom-texts.tsx" data-component="Pagination"></div>
