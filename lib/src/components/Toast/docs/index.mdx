@@ -71,6 +71,14 @@ You can choose not to show a close button on Growl or Snackbar with the `hasClos
 
 <div data-playground="without-close.tsx" data-component="Toast"></div>
 
+## Latency
+
+You can choose to hide the progress bar on Snackbar with the `hideProgressBar` prop (defaults to `false`).
+
+For the Growl, the progress bar is hidden by default, you can show it with the `showProgressBar` prop (defaults to `false`).
+
+<div data-playground="latency.tsx" data-component="Toast"></div>
+
 ### Close or dismiss a toast
 
 You can close or dismiss a toast programmatically with the `dismiss` and `remove` functions. Dismiss will hide the toast with a fade out animation, while remove will hide the toast immediately.
