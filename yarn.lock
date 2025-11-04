@@ -9583,10 +9583,10 @@ stubborn-fs@^1.2.5:
   resolved "https://registry.npmjs.org/stubborn-fs/-/stubborn-fs-1.2.5.tgz"
   integrity sha512-H2N9c26eXjzL/S/K+i/RHHcFanE74dptvvjM8iwzwbVcWY/zjBbgRqF3K0DY4+OD+uTTASTBvDoxPDaPN02D7g==
 
-style-dictionary@^5.0.4:
-  version "5.0.4"
-  resolved "https://registry.yarnpkg.com/style-dictionary/-/style-dictionary-5.0.4.tgz#12f750284c93f7ade7c64eb3245da3b50df7c9b5"
-  integrity sha512-+k82riDTHnCpOYzKz1Xa4W219dEOI8pc2a2jnWZuAFY11PHvRL1Ao55Lle3t/kQbiRU5QACdC3xeUNuByaKE3w==
+style-dictionary@^5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/style-dictionary/-/style-dictionary-5.1.1.tgz#0a13d0aa80b488b403983923dca1c6fc57901c8e"
+  integrity sha512-scRFwr2VrerXy6BzO2Ym8AI0dRGkAIoS2YhooagytxCFkoXPYCLhvIxg3VO/yD2i4VeU4aGmHG80+ZLdPDb0uw==
   dependencies:
     "@bundled-es-modules/deepmerge" "^4.3.1"
     "@bundled-es-modules/glob" "^11.0.3"
