@@ -1,15 +1,14 @@
-import * as React from 'react'
+import { useState } from 'react'
 
 import { Pagination } from '@/components/Pagination'
 import type { PaginationProps } from '@/components/Pagination/types'
 
 const Example = () => {
-  const [page, setPage] = React.useState<PaginationProps['page']>(8)
+  const [page, setPage] = useState<PaginationProps['page']>(8)
 
   return (
     <Pagination
       aria-label="Example Pagination"
-      dataTestId="pagination"
       getHref={page => `?page=${page}`}
       onChange={page => setPage(Number(page))}
       page={page}
