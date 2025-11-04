@@ -11,6 +11,10 @@ export const arrows = [
   'arrow-to-right',
   'top-arrow-to-top',
   'arrow-to-bottom',
+  'angle-double-left',
+  'angle-double-right',
+  'angle-left',
+  'angle-right',
 ] as const
 
 export const actions = [

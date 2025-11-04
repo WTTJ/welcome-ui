@@ -55,6 +55,12 @@ We removed the `size` prop values `xl` and `xxl`. The new available sizes are:
 - lg become md
 - xl become lg
 
+### Pagination
+
+- **Size variants**: Added `size` prop with `md` and `lg` (default) options to control the overall size of pagination controls
+- **Edge controls**: Added `showEdgeControls` prop to display optional First and Last buttons for quick navigation to the beginning or end of large datasets
+- **Custom texts**: Added `navigationTexts` prop to customize the text displayed on all navigation buttons (firstPage, lastPage, nextPage, previousPage)
+
 ### Toggle
 
 Sizes changed to `sm`, `md` and `lg`.
@@ -65,7 +71,6 @@ Also we removed checkedIcon and uncheckedIcon props, you can now use `withVisibi
 - <Toggle checkedIcon={<EyeIcon />} uncheckedIcon={<EyeSlashIcon />} />
 + <Toggle withVisibilityIcon />
 ```
-
 ### Tooltip
 
 The props `withArrow` is now deprecated.
