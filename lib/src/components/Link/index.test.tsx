@@ -25,6 +25,7 @@ describe('<Link>', () => {
     const button = getByTestId('link')
 
     expect(button).toHaveAttribute('rel', 'noopener noreferrer')
+    expect(button).toHaveAttribute('target', '_blank')
   })
 
   it('should wrap text node with underline', () => {
