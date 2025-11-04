@@ -1,84 +1,109 @@
 import React, { Children, cloneElement, forwardRef } from 'react'
 
-import { Button } from '@/components/Button'
 import type { ButtonProps } from '@/components/Button/types'
 import { CloseButton } from '@/components/CloseButton'
+import { Icon } from '@/components/Icon'
+import type { IconProps } from '@/components/Icon/types'
 import { Text } from '@/components/Text'
-import { VariantIcon } from '@/components/VariantIcon'
 import { classNames } from '@/utils'
 
 import alertStyles from './alert.module.scss'
-import type { AlertProps, AlertTitleProps, CloneActionsReturns } from './types'
+import { AlertButton, AlertSecondaryButton } from './components/Buttons'
+import { AlertTitle } from './components/Title'
+import type { AlertProps } from './types'
 
 const cx = classNames(alertStyles)
 
+export const ICON: Record<AlertProps['variant'], IconProps['name']> = {
+  ai: 'sparkles',
+  brand: 'lightbulb-alt',
+  danger: 'exclamation-octagon',
+  info: 'info-circle',
+  success: 'check-circle',
+  warning: 'exclamation-triangle',
+}
+
 const AlertComponent = forwardRef<HTMLDivElement, AlertProps>(
   (
-    { children, className, cta, handleClose, hideIcon, isFullWidth, size = 'sm', variant, ...rest },
+    { children, className, cta, handleClose, isFullWidth, size = 'md', variant = 'brand', ...rest },
     ref
   ) => {
-    const defaultVariantIcon = variant === 'beige' ? undefined : variant
-    const withAiButton = variant === 'ai'
-    const showIcon = !hideIcon
+    const isAiVariant = variant === 'ai'
+    // Check if Alert has Title component
+    const hasTitle = Children.toArray(children).some(child => {
+      if (React.isValidElement(child)) {
+        return child.type === AlertTitle
+      }
+      return false
+    })
+
+    const icon = (
+      <div className={cx('icon-wrapper', `icon-wrapper-${variant}`)}>
+        <Icon name={ICON[variant]} />
+      </div>
+    )
 
     const content = Children.toArray(children).map((child: React.ReactElement) => {
       if (child.type === AlertTitle)
-        return cloneElement(child, { hasCloseButton: !!handleClose, variant: size })
+        return (
+          <div className={cx('title-with-icon')}>
+            {icon}
+            {cloneElement(child, {
+              hasCloseButton: !!handleClose,
+              variant: `body-${size}-strong`,
+            })}
+          </div>
+        )
 
       return child
     })
 
-    // Handle clone actions recursively in case of multiple buttons
-    const cloneActions = (child: React.ReactElement): CloneActionsReturns => {
-      if (child) {
+    const cloneActions = (children: React.ReactNode): React.ReactElement[] => {
+      return Children.toArray(children).flatMap((child: React.ReactElement) => {
+        // Support Fragments to wrap multiple buttons
+        if (React.isValidElement(child) && child.type === React.Fragment) {
+          return cloneActions((child.props as { children: React.ReactNode }).children)
+        }
+
         if (child.type === AlertButton) {
-          // If Alert variant is ai, we override the CTA Buttons to use the AI sub-variants
           return cloneElement<ButtonProps>(child, {
             size,
-            variant: withAiButton ? 'primary-ai' : undefined,
+            variant: isAiVariant ? 'primary-ai' : undefined,
           })
         }
+
         if (child.type === AlertSecondaryButton) {
           return cloneElement<ButtonProps>(child, {
             size,
-            variant: withAiButton ? 'primary-ai' : undefined,
           })
         }
 
-        if (child.props?.children) {
-          return cloneElement(child, {
-            ...child.props,
-            children: Children.map(child.props.children, (nestedChild: React.ReactElement) =>
-              cloneActions(nestedChild)
-            ),
-          })
-        }
-      }
-
-      return child
+        return child
+      })
     }
 
-    const actions = React.isValidElement(cta) ? cloneActions(cta) : cta
+    const actions = !!cta && cloneActions(cta)
 
     return (
       <div
         className={cx(
           'root',
           isFullWidth && 'full-width',
-          size && `size-${size}`,
+          `size-${size}`,
           variant && `variant-${variant}`,
-          showIcon && 'icon',
           className
         )}
         ref={ref}
         {...rest}
       >
-        {!!handleClose && <CloseButton className="close-button" onClick={handleClose} size="sm" />}
-        {showIcon ? (
-          <VariantIcon className={cx('variant-icon')} size={size} variant={defaultVariantIcon} />
-        ) : null}
+        {!!handleClose && <CloseButton className={cx('close-button')} onClick={handleClose} />}
         <div className={cx('content')}>
-          <Text as="div" className={cx('content-text')}>
+          <Text
+            as="div"
+            className={cx('content-text', !hasTitle && `without-title`)}
+            variant={`body-${size}`}
+          >
+            {!hasTitle && icon}
             {content}
           </Text>
           {!!actions && <div className={cx('content-actions')}>{actions}</div>}
@@ -87,30 +112,6 @@ const AlertComponent = forwardRef<HTMLDivElement, AlertProps>(
     )
   }
 )
-
-// We need this component to check its existence in <Alert> and to allow users to add Button in <Alert> content
-const AlertButton = forwardRef<HTMLButtonElement, Omit<ButtonProps, 'size'>>(
-  ({ variant = 'secondary', ...props }, ref) => (
-    <Button className="shrink-0 w-fit" ref={ref} {...props} variant={variant} />
-  )
-)
-const AlertSecondaryButton = forwardRef<HTMLButtonElement, Omit<ButtonProps, 'size'>>(
-  ({ variant = 'tertiary', ...props }, ref) => (
-    <Button className="shrink-0 w-fit" ref={ref} {...props} variant={variant} />
-  )
-)
-export const AlertTitle = ({ children, hasCloseButton, variant, ...rest }: AlertTitleProps) => {
-  return (
-    <Text
-      as="span"
-      className={cx('title', `title-size-${variant}`, hasCloseButton && 'title-close-button')}
-      variant={variant}
-      {...rest}
-    >
-      {children}
-    </Text>
-  )
-}
 
 export const Alert = Object.assign(AlertComponent, {
   Button: AlertButton,
