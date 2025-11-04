@@ -15,14 +15,58 @@ Here you'll find all the core components you need to create a delightful webapp.
 1 - Install the `welcome-ui` package and **peer dependencies** listed below:
 
 ```bash
-yarn add welcome-ui react@^18.0.0
+yarn add welcome-ui tailwindcss react@^19.0.0
+```
+
+```bash
+yarn add postcss --dev
+```
+
+2 - Add dependencies for vite project
+
+```bash
+yarn add @tailwindcss/vite sass-embedded --dev
+```
+
+3 - Add on your vite config tailwindcss plugin
+
+```bash
+import { defineConfig } from 'vite'
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [
+    tailwindcss(),
+  ],
+})
 ```
 
 ## Import library & Theme
 
-Getting started
+On your theme or global css import:
 
-TODO
+- TailwindCSS
+- Welcome UI Theme
+- Welcome UI components style
+
+```css
+@import 'tailwindcss';
+
+@import 'welcome-ui/theme.css';
+
+@import 'welcome-ui/Accordion.css';
+@import 'welcome-ui/Alert.css';
+@import 'welcome-ui-new/***other-components-you-need***.css';
+...
+```
+
+## Enjoy! 🌞
+
+```jsx
+import { Button } from 'welcome-ui/Button'
+
+return <Button>Ok let's go</Button>
+```
 
 ## Develop on local
 

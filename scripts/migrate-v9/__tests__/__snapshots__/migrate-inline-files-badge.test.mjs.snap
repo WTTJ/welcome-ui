@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Inline Migration - Badge Components > migrates Badge components with styling props to Badge with classNames > badge-component.tsx 1`] = `
+"import { Badge } from 'welcome-ui/Badge'
+
+export const BadgeComponent = () => {
+  return (
+    <div>
+      <Badge className="ml-sm" size="sm" variant="primary">
+        14
+      </Badge>
+      <Badge className="mr-md" size="lg" variant="secondary">
+        New
+      </Badge>
+    </div>
+  )
+}
+"
+`;

@@ -1,0 +1,27 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Inline Migration - Text Components > migrates Text components with typography and spacing props to span with classNames > text-component.tsx 1`] = `
+"import { Text } from 'welcome-ui/Text'
+
+const FormattedMessage = ({
+  defaultMessage,
+  id,
+}: {
+  defaultMessage: string
+  id: string
+}): React.ReactNode => <span id={id}>{defaultMessage}</span>
+
+export const TextComponent = () => {
+  return (
+    <div>
+      <Text as="h1" className="mt-md text-h3" variant="h4">
+        This is a paragraph with custom styling.
+      </Text>
+      <Text as="span" className="mt-auto text-center text-dark-50 text-sm">
+        <FormattedMessage defaultMessage="© 2024 Acme Corp. All rights reserved." id="8XKXo+" />
+      </Text>
+    </div>
+  )
+}
+"
+`;

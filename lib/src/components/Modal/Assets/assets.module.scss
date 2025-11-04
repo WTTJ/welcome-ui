@@ -1,4 +1,4 @@
-@use '../../../theme/utils/breakpoints' as breakpoints;
+@use '../../../utils/scss/breakpoints' as breakpoints;
 
 @mixin sizeOfElements {
   width: var(--contentWidthMobile);

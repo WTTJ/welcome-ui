@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Inline Migration - Textarea Components > migrates Textarea components with styling props to Textarea with classNames > textarea-component.tsx 1`] = `
+"import { Textarea } from 'welcome-ui/Textarea'
+
+const register = (name: string, options?: object) => {
+  return { name, ...options }
+}
+
+export const TextareaComponent = () => {
+  return (
+    <form>
+      <Textarea className="mt-md" name="i18n_description_en" {...register('i18n_description_en')} />
+      <Textarea placeholder="Enter description" rows={4} />
+    </form>
+  )
+}
+"
+`;

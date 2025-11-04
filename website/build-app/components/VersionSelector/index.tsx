@@ -4,10 +4,11 @@ import { Select } from '@/components/Select'
 
 import lib from '../../../../lib/package.json'
 
-const VERSION = 'v8'
+const VERSION = 'v9'
 
 const versions = [
   { label: `v${lib.version}`, value: VERSION },
+  { label: 'v8', value: 'v8' },
   { label: 'v7', value: 'v7' },
   { label: 'v6', value: 'v6' },
   { label: 'v5', value: 'v5' },

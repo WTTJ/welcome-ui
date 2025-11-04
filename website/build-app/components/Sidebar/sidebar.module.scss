@@ -2,8 +2,8 @@
   color: var(--color-neutral-70);
   position: relative;
   transition:
-    color var(--transition-medium),
-    padding-left var(--transition-medium);
+    color var(--duration-medium),
+    padding-left var(--duration-medium);
 
   &:hover,
   &:focus {
@@ -18,7 +18,7 @@
     left: 0;
     top: 1px;
     background-color: transparent;
-    transition: background-color var(--transition-medium);
+    transition: background-color var(--duration-medium);
   }
 
   &[aria-current='page'] {

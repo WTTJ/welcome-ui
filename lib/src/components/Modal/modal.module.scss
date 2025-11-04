@@ -1,5 +1,5 @@
 /* stylelint-disable no-descending-specificity */
-@use '../../theme/utils/breakpoints.scss' as breakpoints;
+@use '../../utils/scss/breakpoints.scss' as breakpoints;
 
 @layer components {
   .root {

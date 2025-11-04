@@ -14,6 +14,8 @@ export interface AssetDrawerOptions extends DialogOptions<'div'> {
 
 export type AssetDrawerProps = AssetDrawerOptions & ComponentPropsWithRef<'div'>
 
+export type BackdropProps = Pick<BaseDialogOptions, 'backdrop' | 'hideOnInteractOutside'>
+
 export type HeaderProps = ComponentProps<'div'> & {
   /**
    * Show on right a block, for example an HeaderAction
@@ -41,3 +43,4 @@ export type IconBlockProps = {
   icon: React.FC<IconProps>
   size?: 'md' | 'sm'
 }
+type BaseDialogOptions = Omit<DialogOptions<'div'>, 'as'>

@@ -9,20 +9,38 @@ import { Text } from '@/components/Text'
 
 const posts = [
   {
-    cover: 'https://github.com/user-attachments/assets/cef3758f-1b87-4d4c-af04-89df91571a4a',
+    cover: 'https://www.welcome-ui.com/v9.png',
+    date: new Date('2025-10-21'),
+    description:
+      'We are excited to announce the release of Welcome UI Version 9, which has replaced styled-components with Tailwind CSS.',
+    link: 'https://www.welcome-ui.com/foundations/upgrades/v9',
+    tags: ['release'],
+    title: 'TailwindCSS migration',
+  },
+  {
+    cover: 'https://www.welcome-ui.com/v8.png',
+    date: new Date('2025-03-12'),
+    description:
+      'Version 8 out now! We upgrade xstyled/styled-component to v4 and styled-components to v6',
+    link: 'https://www.welcome-ui.com/foundations/upgrades/migration#v-8',
+    tags: ['release'],
+    title: 'XStyled and styled-component upgrades',
+  },
+  {
+    cover: 'https://www.welcome-ui.com/v7.png',
     date: new Date('2025-01-28'),
     description:
       'Welcome UI V7 is here! This release bring back the only one package to rule them all: welcome-ui',
-    link: 'https://www.welcome-ui.com/foundations/migration',
+    link: 'https://www.welcome-ui.com/foundations/migration#v-7',
     tags: ['release'],
     title: 'Mono-package is back!',
   },
   {
-    cover: 'https://github.com/user-attachments/assets/34259431-1bc3-4d97-84b7-e2048c7208da',
+    cover: 'https://www.welcome-ui.com/v6.png',
     date: new Date('2024-10-24'),
     description:
       'We are happy to release Welcome UI V6 who focuses on the rebranding of our colors and tokens, and adding a Logo component.',
-    link: 'https://www.welcome-ui.com/foundations/upgrades/v6',
+    link: 'https://www.welcome-ui.com/foundations/migrations#v-6',
     tags: ['release'],
     title: 'More colors!',
   },
@@ -81,7 +99,7 @@ const Home = () => {
           {posts.map(({ authors, cover, date, description, link, tags, title }) => (
             <li className="mb-3xl" key={link}>
               <Card>
-                {cover ? <Card /> : null}
+                {cover ? <Card.Cover alt="Cover" src={cover} /> : null}
                 <Card.Body>
                   <div className="flex gap-xxs mb-xl">
                     {tags?.map(tag => (

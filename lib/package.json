@@ -1,6 +1,6 @@
 {
   "name": "welcome-ui",
-  "version": "9.0.0-alpha.4",
+  "version": "9.0.3",
   "description": "Customizable design system with react, typescript, tailwindcss and ariakit.",
   "files": [
     "dist"
@@ -17,6 +17,7 @@
       "import": "./dist/utils.js"
     },
     "./*.css": "./dist/*.css",
+    "./scss/*": "./dist/scss/*.scss",
     "./*": {
       "types": "./dist/types/components/*/index.d.ts",
       "import": "./dist/*.js"
@@ -75,8 +76,8 @@
   },
   "devDependencies": {
     "@testing-library/dom": "^10.4.1",
-    "@testing-library/jest-dom": "^6.8.0",
-    "@testing-library/react": "^16.2.0",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
     "@types/lodash.capitalize": "^4.2.9",
     "@types/lodash.debounce": "^4.0.6",

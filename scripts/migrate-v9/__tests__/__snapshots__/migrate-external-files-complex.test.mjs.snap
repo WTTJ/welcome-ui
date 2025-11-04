@@ -1,0 +1,189 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`External Migration - Complex Styled Components > migrates complex styled components (styled(Component), template literals, interpolations) > complex-component.tsx 1`] = `
+"import { useEffect, useState } from 'react'
+import { FormattedMessage } from 'react-intl'
+import { Text } from 'welcome-ui-v9/Text'
+import { classNames } from 'welcome-ui-v9/utils'
+
+import styles from './styles.module.scss'
+
+const cx = classNames(styles)
+
+type Variant = 'primary' | 'secondary'
+
+export const Complex = ({ variant = 'primary' }: { variant?: Variant }) => {
+  const [, setOpen] = useState<boolean>(false)
+
+  const coco = true
+
+  function handleClick() {
+    // eslint-disable-next-line no-console
+    console.log('Clicked!')
+  }
+
+  useEffect(() => {
+    setOpen(coco)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  return (
+    <div
+      className={cx('wrapper')}
+      data-testid="testid"
+      style={
+        {
+          '--wrapper-background-color':
+            variant === 'primary' ? 'var(--primary-500)' : 'var(--secondary-500)',
+          '--wrapper-position': variant === 'primary' ? 'var(--absolute)' : 'var(--relative)',
+        } as React.CSSProperties
+      }
+      variant={variant}
+    >
+      <Link className={cx('card')} elevated onClick={handleClick} to="/fishcakes">
+        <div className={cx('title-wrapper')}>
+          <Text
+            as="h3"
+            className="text-neutral-10"
+            className={cx('title')}
+            displayDetail
+            style={
+              {
+                '--title-margin-top': displayDetail ? 'var(--spacing-sm)' : '0',
+              } as React.CSSProperties
+            }
+          >
+            Complex component
+          </Text>
+        </div>
+      </Link>
+      <Text as="span" className="mt-auto text-center text-dark-50 text-sm" variant="h5">
+        <FormattedMessage defaultMessage="© 2024 Acme Corp. All rights reserved." id="8XKXo+" />
+      </Text>
+      <button className={cx('trigger-button', 'is-active', 'is-fixed')}>Toggle</button>
+    </div>
+  )
+}
+"
+`;
+
+exports[`External Migration - Complex Styled Components > migrates complex styled components (styled(Component), template literals, interpolations) > complex-styles.module.scss 1`] = `
+"/* Imported utilities */
+@use 'welcome-ui-v9/utils/scss/breakpoints' as breakpoints;
+@import 'welcome-ui-v9/utils/scss/texts';
+
+/* Generated SCSS mixins from CSS template literals */
+@mixin trigger-active-styles {
+    /* WUI V9 TO MIGRATE */
+  /*
+  \${Box} {
+      background-color: var(--color-beige-10);
+    }
+  */
+
+    color: var(--color-neutral-50);
+    background-color: var(--color-beige-30);
+
+    /* WUI V9 TO MIGRATE */
+  /*
+  \${OrganizationLogo} {
+      outline-color: var(--color-beige-30) !important;
+      border: 1px solid;
+      border-color: var(--color-beige-50);
+    }
+  */
+
+    /* WUI V9 TO MIGRATE */
+  /*
+  \${OrganizationName} {
+      color: var(--color-neutral-90);
+    }
+  */
+
+      }
+
+@layer components {
+.wrapper {
+padding: var(--spacing-xxl) 0;
+    background-color: var(--wrapper-background-color);
+    isolation: isolate;
+    position: var(--wrapper-position);
+    min-height: calc(100vh - TOPNAV_HEIGHT /* WUI V9 TO MIGRATE: constant TOPNAV_HEIGHT */);
+
+    @media screen and (min-width: breakpoints.$breakpoint-lg) {
+      padding: var(--spacing-3xl) 0;
+      position: var(--wrapper-position);
+      margin: var(--spacing-sm);
+    }
+}
+
+.card {
+background: white;
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  
+  &.elevated {
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.title {
+/* WUI V9 TO MIGRATE */
+@include texts.h4;
+  color: var(--color-neutral-90);
+  margin-top: var(--title-margin-top);
+}
+
+.title-wrapper {
+display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.organization-name {
+color: var(--color-neutral-60);
+  font-weight: var(--font-weight-medium);
+  margin: 0;
+  transition: color 300ms;
+}
+
+.trigger-button {
+border: none;
+  background-color: transparent;
+  padding: var(--spacing-md) var(--spacing-lg);
+  cursor: pointer;
+  width: 100%;
+  border-radius: var(--radius-md);
+  transition: background-color 300ms;
+  bottom: var(--spacing-md);
+
+  &.is-fixed {
+display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      height: 48px;
+      width: 48px;
+  }
+
+  &:hover {
+    @include trigger-active-styles;
+
+    /* WUI V9 TO MIGRATE */
+/*
+\${OrganizationName} {
+      color: var(--color-beige-80);
+    }
+*/
+}
+
+  &.is-active {
+@include trigger-active-styles;
+  };
+
+  &:active {
+    @include trigger-active-styles;
+  }
+}
+}"
+`;

@@ -57,7 +57,7 @@
       border-radius: var(--radius-circle);
       top: var(--spacing-3);
       left: var(--spacing-3);
-      transition: medium;
+      transition: var(--duration-medium);
       background-color: var(--backgroundColor, var(--color-transparent));
     }
 

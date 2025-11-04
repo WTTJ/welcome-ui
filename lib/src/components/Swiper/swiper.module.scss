@@ -1,4 +1,4 @@
-@use '../../theme/utils/breakpoints.scss' as breakpoints;
+@use '../../utils/scss/breakpoints.scss' as breakpoints;
 
 @layer components {
   .root {
@@ -56,7 +56,7 @@
           min-width: var(--slideWidthMobile);
           max-width: var(--slideWidthMobile);
 
-          &:nth-of-type(var(--slideMobile)n + 1) {
+          &:nth-of-type(n + 1) {
             scroll-snap-align: start;
           }
         }
@@ -69,7 +69,7 @@
           min-width: var(--slideWidthTablet);
           max-width: var(--slideWidthTablet);
 
-          &:nth-of-type(var(--slideTablet)n + 1) {
+          &:nth-of-type(n + 1) {
             scroll-snap-align: start;
           }
         }
@@ -84,11 +84,11 @@
 
           scroll-snap-align: unset;
 
-          &:nth-of-type(var(--slideDesktop)n + 1) {
+          &:nth-of-type(n + 1) {
             scroll-snap-align: start;
           }
 
-          &:not(:nth-of-type(var(--slideDesktop)n + 1)) {
+          &:not(:nth-of-type(n + 1)) {
             scroll-snap-align: unset;
           }
         }

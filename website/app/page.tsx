@@ -91,7 +91,7 @@ const Home = () => {
           allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
           className="border-0 md:h-[37.5rem] h-[18.75rem] mt-3xl w-full"
           sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-          src="https://codesandbox.io/embed/homepage-example-mcypy?autoresize=1&hidenavigation=1&initialpath=src&module=%2Fsrc%2FExample.tsx&theme=dark&view=split"
+          src="https://stackblitz.com/edit/ew8gehqm?embed=1&file=demo.tsx&hideNavigation=1"
           title="homepage-example"
         />
       </Section>
