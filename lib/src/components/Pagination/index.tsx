@@ -159,7 +159,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
               type="button"
               {...buttonNextProps}
             >
-              {navigationTexts?.nextPage ? nextPageText : null}{' '}
+              {navigationTexts?.nextPage ? nextPageText : null}
               <Icon name="angle-right" size="lg" />
             </button>
           </li>
