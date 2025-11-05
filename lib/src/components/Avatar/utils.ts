@@ -12,7 +12,7 @@ export function getInitials(name = ''): string {
   }
 }
 
-export const getColorFromName = (name: string): Colors => {
+export const getColorFromName = (name = ''): Colors => {
   const index = name.length % colors.length
   return colors[index] as Colors
 }
