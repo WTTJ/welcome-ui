@@ -192,8 +192,5 @@
         }
       }
     }
-  },
-  "useTabStore": {
-    "props": {}
   }
 }

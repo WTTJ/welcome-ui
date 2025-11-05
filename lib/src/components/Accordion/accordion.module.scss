@@ -1,12 +1,12 @@
 @layer components {
   .root {
-    background-color: var(--color-neutral-10);
-    border: var(--border-width-sm) solid var(--color-neutral-30);
-    border-radius: var(--radius-md);
+    background-color: var(--color-background-neutral-inverse-fixed);
+    border: var(--border-width-xs) solid var(--color-background-neutral-subtlest);
+    border-radius: var(--border-radius-sm);
     transition: var(--duration-medium);
 
     &:hover {
-      border-color: var(--color-neutral-50);
+      border-color: var(--color-icon-neutral-subtlest);
     }
   }
 
@@ -14,10 +14,10 @@
     flex-shrink: 0;
     transform: rotate3d(0);
     transition: var(--duration-medium);
-    padding: var(--spacing-sm);
+    padding: var(--border-radius-md);
     display: flex;
-    border-radius: var(--radius-circle);
-    color: var(--color-neutral-90);
+    border-radius: var(--border-radius-full);
+    color: var(--color-background-neutral-primary-fixed);
     & *:first-child {
       margin: auto;
     }
@@ -25,13 +25,13 @@
 
   .disclosure {
     width: 100%;
-    padding: var(--spacing-lg);
+    padding: var(--border-radius-xl);
     background-color: transparent;
     border: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: var(--spacing-lg);
+    gap: var(--border-radius-xl);
 
     &[aria-expanded='true'] {
       .icon {
@@ -43,7 +43,7 @@
     &:hover {
       cursor: pointer;
       .icon {
-        background-color: var(--color-neutral-30);
+        background-color: var(--color-background-neutral-subtlest);
       }
     }
 
@@ -74,9 +74,9 @@
   }
 
   .content-child {
-    padding: var(--spacing-lg);
+    padding: var(--border-radius-xl);
     padding-top: 0;
-    color: var(--color-neutral-70);
-    font-size: var(--font-size-sm);
+    color: var(--color-background-neutral-tertiary);
+    font-size: var(--font-size-14);
   }
 }

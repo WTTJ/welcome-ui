@@ -1,18 +1,18 @@
 @layer components {
   .root {
     /* VARIABLES FROM THEME - DONT CHANGE WITH REACT PROPS */
-    border-radius: var(--radius-md);
+    border-radius: var(--border-radius-sm);
     background-size: cover;
     background-position: center;
-    background-color: var(--color-neutral-10);
-    border-color: var(--color-neutral-30);
+    background-color: var(--components-colors-card-color-background-default);
+    border-color: var(--color-background-neutral-subtlest);
     border-style: solid;
-    border-width: var(--border-width-sm);
+    border-width: var(--border-width-xs);
     overflow: hidden;
   }
 
   .body {
     /* VARIABLES FROM THEME - DONT CHANGE WITH REACT PROPS */
-    padding: var(--spacing-lg);
+    padding: var(--components-dimensions-card-action-dismiss-padding-block-start-lg);
   }
 }

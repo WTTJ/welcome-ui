@@ -2,7 +2,7 @@ import { usePathname } from 'next/navigation'
 import React from 'react'
 
 import { Button } from '@/components/Button'
-import { GithubIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { Text } from '@/components/Text'
 import { classNames } from '@/utils'
 
@@ -32,9 +32,9 @@ export const NavBar = ({ className, onClick }: NavBarProps) => {
                 className={cx('link')}
                 href={`/${item}`}
                 onClick={onClick}
-                variant="subtitle-md"
+                variant="label-lg"
               >
-                {item}
+                {item.toUpperCase()}
               </Text>
             </li>
           ))}
@@ -45,12 +45,11 @@ export const NavBar = ({ className, onClick }: NavBarProps) => {
         as="a"
         href="https://github.com/WTTJ/welcome-ui"
         rel="noreferrer noopener"
-        shape="circle"
-        size="sm"
+        size="md"
         target="_blank"
-        variant="ghost"
+        variant="tertiary"
       >
-        <GithubIcon />
+        <Icon name="github" />
       </Button>
     </div>
   )

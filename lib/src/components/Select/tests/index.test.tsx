@@ -2,7 +2,7 @@ import { act, screen, waitFor } from '@testing-library/react'
 import capitalize from 'lodash.capitalize'
 import React, { useState } from 'react'
 
-import { AvatarIcon, DateIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 
 import { render } from '@tests'
 
@@ -327,7 +327,7 @@ describe('<Select>', () => {
         options={MONTHS}
         renderItem={option => (
           <div style={{ alignItems: 'center', display: 'flex' }}>
-            <DateIcon size="sm" />
+            <Icon name="calendar" size="sm" />
             <span>{(option as SelectOption).label}</span>
           </div>
         )}
@@ -346,7 +346,7 @@ describe('<Select>', () => {
     render(
       <Select
         dataTestId="select"
-        icon={<AvatarIcon data-testid="avatar-icon" />}
+        icon={<Icon data-testid="avatar-icon" name="user-circle" />}
         name="select"
         options={MONTHS}
         value="february"

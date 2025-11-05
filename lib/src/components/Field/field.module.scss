@@ -21,10 +21,10 @@
 
     &:not(.inline) {
       .hint {
-        margin-top: var(--spacing-xs);
+        margin-top: var(--components-dimensions-field-gap-assistive);
       }
       .label {
-        margin-bottom: var(--spacing-sm);
+        margin-bottom: var(--components-dimensions-field-gap-label);
       }
     }
   }
@@ -34,8 +34,8 @@
     grid-template-columns: min-content 1fr;
     height: fit-content;
 
-    grid-row-gap: var(--spacing-xs);
-    grid-column-gap: var(--spacing-sm);
+    grid-row-gap: var(--components-dimensions-field-gap-assistive);
+    grid-column-gap: var(--components-dimensions-field-gap-label);
 
     &:has(.label):has(.hint) {
       grid-template-areas:

@@ -11,7 +11,7 @@ const Element = () => (
       'border-beige-30',
       'border-solid',
       'border-1px',
-      'rounded-lg',
+      'rounded-md',
       'text-neutral-90',
       'p-sm'
     )}

@@ -2,7 +2,7 @@ import type { MouseEvent } from 'react'
 import React from 'react'
 
 import { Button } from '@/components/Button'
-import { CrossIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { classNames, forwardRefWithAs } from '@/utils'
 
 import tagStyles from './tag.module.scss'
@@ -64,10 +64,10 @@ export const Tag = forwardRefWithAs<TagOptions, 'div'>((props, ref) => {
           {...removeButtonProps}
           className={cx('removeButton', removeButtonProps?.className)}
           onClick={handleRemove}
-          size="xs"
-          variant="ghost"
+          size="sm"
+          variant="tertiary"
         >
-          <CrossIcon size="xs" />
+          <Icon name="times" size="xs" />
         </Button>
       ) : null}
     </Element>

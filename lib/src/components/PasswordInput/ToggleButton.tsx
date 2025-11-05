@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Button } from '@/components/Button'
-import { HideIcon, ShowIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 
 export type ToggleButtonProps = React.ComponentPropsWithoutRef<typeof Button> & {
   isHidden: boolean
@@ -13,12 +13,11 @@ export const ToggleButton = ({ isHidden, onClick, ...rest }: ToggleButtonProps) 
       aria-controls="password"
       aria-expanded={!isHidden}
       onClick={onClick}
-      shape="circle"
-      size="xs"
-      variant="ghost"
+      size="sm"
+      variant="tertiary"
       {...rest}
     >
-      {isHidden ? <ShowIcon /> : <HideIcon />}
+      {isHidden ? <Icon name="eye" /> : <Icon name="eye-slash" />}
     </Button>
   )
 }
