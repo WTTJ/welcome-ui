@@ -83,6 +83,7 @@ export const Link = forwardRefWithAs<LinkOptions, 'a'>((props, ref) => {
       ref={ref}
       // for security
       rel={target === '_blank' ? 'noopener noreferrer' : undefined}
+      target={target}
       {...rest}
     >
       {_children}
