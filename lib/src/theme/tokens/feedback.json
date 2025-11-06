@@ -20,7 +20,7 @@
         }
       }
     },
-    "callout": {
+    "alert": {
       "icon": {
         "color": {
           "background": {
@@ -248,6 +248,15 @@
               ]
             }
           }
+        },
+        "icon": {
+          "default": {
+            "value": "{color.border.transparent.black.subtle}",
+            "type": "color",
+            "scope": [
+              "ALL_SCOPES"
+            ]
+          }
         }
       }
     },
@@ -367,6 +376,60 @@
             ]
           },
           "hover": {
+            "value": "{color.icon.neutral.primary}",
+            "type": "color.fill",
+            "scope": [
+              "SHAPE_FILL"
+            ]
+          }
+        }
+      }
+    },
+    "modal": {
+      "color": {
+        "background": {
+          "default": {
+            "value": "{color.background.neutral.inverse}",
+            "type": "color.background",
+            "scope": [
+              "FRAME_FILL"
+            ]
+          }
+        },
+        "text": {
+          "title": {
+            "value": "{color.text.neutral.primary}",
+            "type": "color.text",
+            "scope": [
+              "TEXT_FILL"
+            ]
+          },
+          "body": {
+            "value": "{color.text.neutral.secondary}",
+            "type": "color.text",
+            "scope": [
+              "TEXT_FILL"
+            ]
+          }
+        },
+        "border": {
+          "default": {
+            "value": "{color.border.warm.subtle}",
+            "type": "color.border",
+            "scope": [
+              "STROKE_COLOR"
+            ]
+          },
+          "hover": {
+            "value": "{color.border.warm.tertiary}",
+            "type": "color.border",
+            "scope": [
+              "STROKE_COLOR"
+            ]
+          }
+        },
+        "icon": {
+          "default": {
             "value": "{color.icon.neutral.primary}",
             "type": "color.fill",
             "scope": [
@@ -571,6 +634,13 @@
           }
         },
         "text": {
+          "title": {
+            "value": "{color.text.neutral.primary}",
+            "type": "color.text",
+            "scope": [
+              "TEXT_FILL"
+            ]
+          },
           "body": {
             "brand": {
               "value": "{color.text.brand.primary}",
@@ -621,13 +691,6 @@
                 "TEXT_FILL"
               ]
             }
-          },
-          "title": {
-            "value": "{color.text.neutral.primary}",
-            "type": "color.text",
-            "scope": [
-              "TEXT_FILL"
-            ]
           }
         }
       }
@@ -736,7 +799,7 @@
     }
   },
   "components-dimensions": {
-    "callout": {
+    "alert": {
       "icon": {
         "padding": {
           "inline": {
@@ -771,35 +834,44 @@
           "scope": [
             "ALL_SCOPES"
           ]
+        },
+        "width": {
+          "ai": {
+            "value": "{border.width.sm}",
+            "type": "float",
+            "scope": [
+              "ALL_SCOPES"
+            ]
+          }
         }
       },
       "gap": {
-        "content": {
-          "sm": {
-            "value": "{spacing.sm}",
+        "actions": {
+          "lg": {
+            "value": "{spacing.md}",
             "type": "spacing",
             "scope": [
               "GAP"
             ]
           },
           "md": {
-            "value": "{spacing.md}",
+            "value": "{spacing.sm}",
             "type": "spacing",
             "scope": [
               "GAP"
             ]
           }
         },
-        "actions": {
-          "sm": {
-            "value": "{spacing.sm}",
+        "content": {
+          "lg": {
+            "value": "{spacing.md}",
             "type": "spacing",
             "scope": [
               "GAP"
             ]
           },
           "md": {
-            "value": "{spacing.md}",
+            "value": "{spacing.sm}",
             "type": "spacing",
             "scope": [
               "GAP"
@@ -809,15 +881,15 @@
       },
       "padding": {
         "inline": {
-          "sm": {
-            "value": "{spacing.lg}",
+          "lg": {
+            "value": "{spacing.2xl}",
             "type": "spacing",
             "scope": [
               "GAP"
             ]
           },
           "md": {
-            "value": "{spacing.2xl}",
+            "value": "{spacing.lg}",
             "type": "spacing",
             "scope": [
               "GAP"
@@ -825,20 +897,29 @@
           }
         },
         "block": {
-          "sm": {
-            "value": "{spacing.lg}",
+          "lg": {
+            "value": "{spacing.2xl}",
             "type": "spacing",
             "scope": [
               "GAP"
             ]
           },
           "md": {
-            "value": "{spacing.2xl}",
+            "value": "{spacing.lg}",
             "type": "spacing",
             "scope": [
               "GAP"
             ]
           }
+        }
+      },
+      "size": {
+        "icon": {
+          "value": "{size.icon.lg}",
+          "type": "float",
+          "scope": [
+            "ALL_SCOPES"
+          ]
         }
       }
     },
@@ -1161,6 +1242,74 @@
           "type": "borderWidth",
           "scope": [
             "STROKE_FLOAT"
+          ]
+        }
+      }
+    },
+    "modal": {
+      "size": {
+        "width": {
+          "lg": {
+            "value": "800px",
+            "type": "dimension",
+            "scope": [
+              "WIDTH_HEIGHT"
+            ]
+          },
+          "md": {
+            "value": "600px",
+            "type": "dimension",
+            "scope": [
+              "WIDTH_HEIGHT"
+            ]
+          },
+          "sm": {
+            "value": "450px",
+            "type": "dimension",
+            "scope": [
+              "WIDTH_HEIGHT"
+            ]
+          }
+        }
+      },
+      "border": {
+        "radius": {
+          "value": "{border.radius.lg}",
+          "type": "borderRadius",
+          "scope": [
+            "CORNER_RADIUS"
+          ]
+        },
+        "width": {
+          "value": "{border.width.xs}",
+          "type": "borderWidth",
+          "scope": [
+            "STROKE_FLOAT"
+          ]
+        }
+      },
+      "padding": {
+        "inline": {
+          "value": "{spacing.xl}",
+          "type": "spacing",
+          "scope": [
+            "GAP"
+          ]
+        },
+        "block": {
+          "value": "{spacing.xl}",
+          "type": "spacing",
+          "scope": [
+            "GAP"
+          ]
+        }
+      },
+      "gap": {
+        "content": {
+          "value": "{spacing.md}",
+          "type": "spacing",
+          "scope": [
+            "GAP"
           ]
         }
       }
