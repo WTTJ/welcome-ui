@@ -1,0 +1,100 @@
+{
+  "StickyNotes": {
+    "props": {
+      "handleClose": {
+        "defaultValue": null,
+        "description": "",
+        "name": "handleClose",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/StickyNotes/types.ts",
+          "name": "StickyNotesOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/StickyNotes/types.ts",
+            "name": "StickyNotesOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "() => void"
+        }
+      },
+      "shape": {
+        "defaultValue": {
+          "value": "square"
+        },
+        "description": "",
+        "name": "shape",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/StickyNotes/types.ts",
+          "name": "StickyNotesOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/StickyNotes/types.ts",
+            "name": "StickyNotesOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"rectangle\" | \"square\"",
+          "value": [
+            {
+              "value": "\"rectangle\""
+            },
+            {
+              "value": "\"square\""
+            }
+          ]
+        }
+      },
+      "variant": {
+        "defaultValue": {
+          "value": "brand"
+        },
+        "description": "",
+        "name": "variant",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/StickyNotes/types.ts",
+          "name": "StickyNotesOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/StickyNotes/types.ts",
+            "name": "StickyNotesOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Variant",
+          "value": [
+            {
+              "value": "\"blue\""
+            },
+            {
+              "value": "\"brand\""
+            },
+            {
+              "value": "\"green\""
+            },
+            {
+              "value": "\"orange\""
+            },
+            {
+              "value": "\"pink\""
+            },
+            {
+              "value": "\"teal\""
+            },
+            {
+              "value": "\"violet\""
+            }
+          ]
+        }
+      }
+    }
+  }
+}
