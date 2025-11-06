@@ -73,7 +73,9 @@ const AlertComponent = forwardRef<HTMLDivElement, AlertProps>(
         ref={ref}
         {...rest}
       >
-        {!!handleClose && <CloseButton className="close-button" onClick={handleClose} size="xs" />}
+        {!!handleClose && (
+          <CloseButton className={cx('close-button')} onClick={handleClose} size="xs" />
+        )}
         {showIcon ? (
           <VariantIcon className={cx('variant-icon')} size={size} variant={defaultVariantIcon} />
         ) : null}
