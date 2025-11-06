@@ -1,219 +1,4 @@
 {
-  "AlertTitle": {
-    "props": {
-      "lines": {
-        "defaultValue": null,
-        "description": "",
-        "name": "lines",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Text/types.ts",
-          "name": "TextOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Text/types.ts",
-            "name": "TextOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "number"
-        }
-      },
-      "sizes": {
-        "defaultValue": null,
-        "description": "",
-        "name": "sizes",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Text/types.ts",
-          "name": "TextOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Text/types.ts",
-            "name": "TextOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "enum",
-          "raw": "\"md\" | \"sm\" | \"lg\" | \"xl\"",
-          "value": [
-            {
-              "value": "\"md\""
-            },
-            {
-              "value": "\"sm\""
-            },
-            {
-              "value": "\"lg\""
-            },
-            {
-              "value": "\"xl\""
-            }
-          ]
-        }
-      },
-      "strong": {
-        "defaultValue": null,
-        "description": "",
-        "name": "strong",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Text/types.ts",
-          "name": "TextOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Text/types.ts",
-            "name": "TextOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "enum",
-          "raw": "boolean",
-          "value": [
-            {
-              "value": "false"
-            },
-            {
-              "value": "true"
-            }
-          ]
-        }
-      },
-      "variant": {
-        "defaultValue": {
-          "value": "tertiary"
-        },
-        "description": "",
-        "name": "variant",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Text/types.ts",
-          "name": "TextOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Text/types.ts",
-            "name": "TextOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "enum",
-          "raw": "\"display-xl\" | \"display-lg\" | \"display-md\" | \"display-sm\" | \"heading-xl\" | \"heading-lg\" | \"heading-md\" | \"heading-sm\" | \"heading-xs\" | \"heading-md-strong\" | \"heading-sm-strong\" | ... 14 more ... | \"label-sm-strong\"",
-          "value": [
-            {
-              "value": "\"display-xl\""
-            },
-            {
-              "value": "\"display-lg\""
-            },
-            {
-              "value": "\"display-md\""
-            },
-            {
-              "value": "\"display-sm\""
-            },
-            {
-              "value": "\"heading-xl\""
-            },
-            {
-              "value": "\"heading-lg\""
-            },
-            {
-              "value": "\"heading-md\""
-            },
-            {
-              "value": "\"heading-sm\""
-            },
-            {
-              "value": "\"heading-xs\""
-            },
-            {
-              "value": "\"heading-md-strong\""
-            },
-            {
-              "value": "\"heading-sm-strong\""
-            },
-            {
-              "value": "\"heading-xs-strong\""
-            },
-            {
-              "value": "\"body-xl\""
-            },
-            {
-              "value": "\"body-lg\""
-            },
-            {
-              "value": "\"body-md\""
-            },
-            {
-              "value": "\"body-sm\""
-            },
-            {
-              "value": "\"body-xl-strong\""
-            },
-            {
-              "value": "\"body-lg-strong\""
-            },
-            {
-              "value": "\"body-md-strong\""
-            },
-            {
-              "value": "\"body-sm-strong\""
-            },
-            {
-              "value": "\"label-xl\""
-            },
-            {
-              "value": "\"label-lg\""
-            },
-            {
-              "value": "\"label-md\""
-            },
-            {
-              "value": "\"label-sm\""
-            },
-            {
-              "value": "\"label-md-strong\""
-            },
-            {
-              "value": "\"label-sm-strong\""
-            }
-          ]
-        }
-      },
-      "withDash": {
-        "defaultValue": null,
-        "description": "",
-        "name": "withDash",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Text/types.ts",
-          "name": "TextOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Text/types.ts",
-            "name": "TextOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "enum",
-          "raw": "boolean",
-          "value": [
-            {
-              "value": "false"
-            },
-            {
-              "value": "true"
-            }
-          ]
-        }
-      }
-    }
-  },
   "Alert": {
     "props": {
       "closeButtonDataTestId": {
@@ -273,34 +58,6 @@
           "name": "() => void"
         }
       },
-      "hideIcon": {
-        "defaultValue": null,
-        "description": "@description you can remove the icon by setting this prop to false\nby default the icon is shown unless the variant is 'beige'",
-        "name": "hideIcon",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Alert/types.ts",
-          "name": "AlertOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Alert/types.ts",
-            "name": "AlertOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "enum",
-          "raw": "boolean",
-          "value": [
-            {
-              "value": "false"
-            },
-            {
-              "value": "true"
-            }
-          ]
-        }
-      },
       "isFullWidth": {
         "defaultValue": null,
         "description": "",
@@ -331,7 +88,7 @@
       },
       "size": {
         "defaultValue": {
-          "value": "sm"
+          "value": "md"
         },
         "description": "",
         "name": "size",
@@ -348,20 +105,20 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "\"md\" | \"sm\"",
+          "raw": "\"lg\" | \"md\"",
           "value": [
             {
-              "value": "\"md\""
+              "value": "\"lg\""
             },
             {
-              "value": "\"sm\""
+              "value": "\"md\""
             }
           ]
         }
       },
       "variant": {
         "defaultValue": {
-          "value": "tertiary"
+          "value": "brand"
         },
         "description": "",
         "name": "variant",
@@ -378,13 +135,13 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "\"ai\" | \"beige\" | \"danger\" | \"info\" | \"success\" | \"warning\"",
+          "raw": "\"ai\" | \"brand\" | \"danger\" | \"info\" | \"success\" | \"warning\"",
           "value": [
             {
               "value": "\"ai\""
             },
             {
-              "value": "\"beige\""
+              "value": "\"brand\""
             },
             {
               "value": "\"danger\""

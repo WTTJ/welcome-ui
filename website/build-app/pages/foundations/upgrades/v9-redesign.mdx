@@ -38,9 +38,7 @@ We cannot cover all cases, so you may have to fix some issues manually. Check `_
 
 ### Badge
 
-The `lg` size has been added. Available sizes are now `sm`, `md` (default), and `lg`.
-The `brand` variant replaces the previous `primary` variant, and the `warm` variant replaces the previous `default` variant. Available variants are now `brand`, `blue`, `neutral`, and `warm` (default).
-The `sm` size is now dedicated to status indicators and no longer supports text content.
+The `lg` size has been added. Available sizes are now `sm`, `md` (default), and `lg`. The `brand` variant replaces the previous `primary` variant, and the `warm` variant replaces the previous `default` variant. Available variants are now `brand`, `blue`, `neutral`, and `warm` (default). The `sm` size is now dedicated to status indicators and no longer supports text content.
 
 ### Button
 
@@ -71,11 +69,20 @@ Also we removed checkedIcon and uncheckedIcon props, you can now use `withVisibi
 - <Toggle checkedIcon={<EyeIcon />} uncheckedIcon={<EyeSlashIcon />} />
 + <Toggle withVisibilityIcon />
 ```
+
 ### Tooltip
 
 The props `withArrow` is now deprecated.
 
 Also added an optional props `title`.
+
+### Alert
+
+Sizes changed to `md` and `lg`.
+
+We removed variants `beige` and `default`, the closest one is now `brand` (default).
+
+You cannot remove the icon.
 
 ## Utils
 

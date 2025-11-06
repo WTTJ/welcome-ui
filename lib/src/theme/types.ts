@@ -442,35 +442,36 @@ export type ThemeVariables = {
   '--components-colors-dropdown-menu-color-border-default': string
   '--components-colors-latency-color-background-progress': string
   '--components-colors-latency-color-background-bar': string
-  '--components-colors-callout-icon-color-background-brand': string
-  '--components-colors-callout-icon-color-background-information': string
-  '--components-colors-callout-icon-color-background-warning': string
-  '--components-colors-callout-icon-color-background-danger': string
-  '--components-colors-callout-icon-color-background-success': string
-  '--components-colors-callout-icon-color-icon-brand': string
-  '--components-colors-callout-icon-color-icon-information': string
-  '--components-colors-callout-icon-color-icon-warning': string
-  '--components-colors-callout-icon-color-icon-danger': string
-  '--components-colors-callout-icon-color-icon-success': string
-  '--components-colors-callout-icon-color-icon-ai': string
-  '--components-colors-callout-color-background-brand': string
-  '--components-colors-callout-color-background-information': string
-  '--components-colors-callout-color-background-success': string
-  '--components-colors-callout-color-background-warning': string
-  '--components-colors-callout-color-background-danger': string
-  '--components-colors-callout-color-background-ai': string
-  '--components-colors-callout-color-text-brand-title': string
-  '--components-colors-callout-color-text-brand-body': string
-  '--components-colors-callout-color-text-information-title': string
-  '--components-colors-callout-color-text-information-body': string
-  '--components-colors-callout-color-text-success-title': string
-  '--components-colors-callout-color-text-success-body': string
-  '--components-colors-callout-color-text-warning-title': string
-  '--components-colors-callout-color-text-warning-body': string
-  '--components-colors-callout-color-text-danger-title': string
-  '--components-colors-callout-color-text-danger-body': string
-  '--components-colors-callout-color-text-ai-title': string
-  '--components-colors-callout-color-text-ai-body': string
+  '--components-colors-alert-icon-color-background-brand': string
+  '--components-colors-alert-icon-color-background-information': string
+  '--components-colors-alert-icon-color-background-warning': string
+  '--components-colors-alert-icon-color-background-danger': string
+  '--components-colors-alert-icon-color-background-success': string
+  '--components-colors-alert-icon-color-icon-brand': string
+  '--components-colors-alert-icon-color-icon-information': string
+  '--components-colors-alert-icon-color-icon-warning': string
+  '--components-colors-alert-icon-color-icon-danger': string
+  '--components-colors-alert-icon-color-icon-success': string
+  '--components-colors-alert-icon-color-icon-ai': string
+  '--components-colors-alert-color-background-brand': string
+  '--components-colors-alert-color-background-information': string
+  '--components-colors-alert-color-background-success': string
+  '--components-colors-alert-color-background-warning': string
+  '--components-colors-alert-color-background-danger': string
+  '--components-colors-alert-color-background-ai': string
+  '--components-colors-alert-color-text-brand-title': string
+  '--components-colors-alert-color-text-brand-body': string
+  '--components-colors-alert-color-text-information-title': string
+  '--components-colors-alert-color-text-information-body': string
+  '--components-colors-alert-color-text-success-title': string
+  '--components-colors-alert-color-text-success-body': string
+  '--components-colors-alert-color-text-warning-title': string
+  '--components-colors-alert-color-text-warning-body': string
+  '--components-colors-alert-color-text-danger-title': string
+  '--components-colors-alert-color-text-danger-body': string
+  '--components-colors-alert-color-text-ai-title': string
+  '--components-colors-alert-color-text-ai-body': string
+  '--components-colors-alert-color-icon-default': string
   '--components-colors-growl-icon-color-background-information': string
   '--components-colors-growl-icon-color-background-success': string
   '--components-colors-growl-icon-color-background-warning': string
@@ -486,6 +487,12 @@ export type ThemeVariables = {
   '--components-colors-growl-color-border-hover': string
   '--components-colors-growl-color-icon-default': string
   '--components-colors-growl-color-icon-hover': string
+  '--components-colors-modal-color-background-default': string
+  '--components-colors-modal-color-text-title': string
+  '--components-colors-modal-color-text-body': string
+  '--components-colors-modal-color-border-default': string
+  '--components-colors-modal-color-border-hover': string
+  '--components-colors-modal-color-icon-default': string
   '--components-colors-tooltip-color-background': string
   '--components-colors-tooltip-color-border': string
   '--components-colors-tooltip-color-text': string
@@ -511,6 +518,7 @@ export type ThemeVariables = {
   '--components-colors-sticky-note-color-background-pink': string
   '--components-colors-sticky-note-color-background-orange': string
   '--components-colors-sticky-note-color-border-default': string
+  '--components-colors-sticky-note-color-text-title': string
   '--components-colors-sticky-note-color-text-body-brand': string
   '--components-colors-sticky-note-color-text-body-green': string
   '--components-colors-sticky-note-color-text-body-teal': string
@@ -518,7 +526,6 @@ export type ThemeVariables = {
   '--components-colors-sticky-note-color-text-body-violet': string
   '--components-colors-sticky-note-color-text-body-pink': string
   '--components-colors-sticky-note-color-text-body-orange': string
-  '--components-colors-sticky-note-color-text-title': string
   '--components-colors-toast-icon-color-background-information': string
   '--components-colors-toast-icon-color-background-success': string
   '--components-colors-toast-icon-color-background-warning': string
@@ -788,18 +795,20 @@ export type ThemeVariables = {
   '--components-dimensions-dropdown-menu-gap-content': string
   '--components-dimensions-dropdown-menu-border-radius': string
   '--components-dimensions-dropdown-menu-border-width': string
-  '--components-dimensions-callout-icon-padding-inline': string
-  '--components-dimensions-callout-icon-padding-block': string
-  '--components-dimensions-callout-icon-border-radius': string
-  '--components-dimensions-callout-border-radius': string
-  '--components-dimensions-callout-gap-content-sm': string
-  '--components-dimensions-callout-gap-content-md': string
-  '--components-dimensions-callout-gap-actions-sm': string
-  '--components-dimensions-callout-gap-actions-md': string
-  '--components-dimensions-callout-padding-inline-sm': string
-  '--components-dimensions-callout-padding-inline-md': string
-  '--components-dimensions-callout-padding-block-sm': string
-  '--components-dimensions-callout-padding-block-md': string
+  '--components-dimensions-alert-icon-padding-inline': string
+  '--components-dimensions-alert-icon-padding-block': string
+  '--components-dimensions-alert-icon-border-radius': string
+  '--components-dimensions-alert-border-radius': string
+  '--components-dimensions-alert-border-width-ai': string
+  '--components-dimensions-alert-gap-actions-lg': string
+  '--components-dimensions-alert-gap-actions-md': string
+  '--components-dimensions-alert-gap-content-lg': string
+  '--components-dimensions-alert-gap-content-md': string
+  '--components-dimensions-alert-padding-inline-lg': string
+  '--components-dimensions-alert-padding-inline-md': string
+  '--components-dimensions-alert-padding-block-lg': string
+  '--components-dimensions-alert-padding-block-md': string
+  '--components-dimensions-alert-size-icon': string
   '--components-dimensions-growl-icon-size-icon': string
   '--components-dimensions-growl-icon-padding-inline': string
   '--components-dimensions-growl-icon-padding-block': string
@@ -837,6 +846,14 @@ export type ThemeVariables = {
   '--components-dimensions-sticky-note-gap-content': string
   '--components-dimensions-sticky-note-border-radius': string
   '--components-dimensions-sticky-note-border-width': string
+  '--components-dimensions-modal-size-width-lg': string
+  '--components-dimensions-modal-size-width-md': string
+  '--components-dimensions-modal-size-width-sm': string
+  '--components-dimensions-modal-border-radius': string
+  '--components-dimensions-modal-border-width': string
+  '--components-dimensions-modal-padding-inline': string
+  '--components-dimensions-modal-padding-block': string
+  '--components-dimensions-modal-gap-content': string
   '--components-dimensions-field-gap-label': string
   '--components-dimensions-field-gap-assistive': string
   '--components-dimensions-label-size-leading': string

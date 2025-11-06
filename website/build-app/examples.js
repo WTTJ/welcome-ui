@@ -10,7 +10,6 @@ export default {
   "/Accordion/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Accordion/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Alert/docs/examples/close-button.tsx": dynamic(() => import("../../lib/src/components/Alert/docs/examples/close-button.tsx").then(mod => mod), { ssr: false }),
   "/Alert/docs/examples/cta.tsx": dynamic(() => import("../../lib/src/components/Alert/docs/examples/cta.tsx").then(mod => mod), { ssr: false }),
-  "/Alert/docs/examples/hide-icon.tsx": dynamic(() => import("../../lib/src/components/Alert/docs/examples/hide-icon.tsx").then(mod => mod), { ssr: false }),
   "/Alert/docs/examples/is-full-width.tsx": dynamic(() => import("../../lib/src/components/Alert/docs/examples/is-full-width.tsx").then(mod => mod), { ssr: false }),
   "/Alert/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Alert/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Alert/docs/examples/sizes.tsx": dynamic(() => import("../../lib/src/components/Alert/docs/examples/sizes.tsx").then(mod => mod), { ssr: false }),
