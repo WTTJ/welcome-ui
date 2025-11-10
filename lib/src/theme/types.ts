@@ -223,186 +223,160 @@ export type ThemeVariables = {
   '--components-colors-card-color-border-hover': string
   '--components-colors-card-color-icon-default': string
   '--components-colors-card-color-icon-hover': string
-  '--components-colors-tag-color-background-brand-dark-default': string
-  '--components-colors-tag-color-background-brand-dark-hover': string
-  '--components-colors-tag-color-background-brand-dark-disabled': string
-  '--components-colors-tag-color-background-brand-light-default': string
-  '--components-colors-tag-color-background-brand-light-hover': string
-  '--components-colors-tag-color-background-brand-light-disabled': string
-  '--components-colors-tag-color-background-warm-dark-default': string
-  '--components-colors-tag-color-background-warm-dark-hover': string
-  '--components-colors-tag-color-background-warm-dark-disabled': string
-  '--components-colors-tag-color-background-warm-light-default': string
-  '--components-colors-tag-color-background-warm-light-hover': string
-  '--components-colors-tag-color-background-warm-light-disabled': string
-  '--components-colors-tag-color-background-green-dark-default': string
-  '--components-colors-tag-color-background-green-dark-hover': string
-  '--components-colors-tag-color-background-green-dark-disabled': string
-  '--components-colors-tag-color-background-green-light-default': string
-  '--components-colors-tag-color-background-green-light-hover': string
-  '--components-colors-tag-color-background-green-light-disabled': string
-  '--components-colors-tag-color-background-teal-dark-default': string
-  '--components-colors-tag-color-background-teal-dark-hover': string
-  '--components-colors-tag-color-background-teal-dark-disabled': string
-  '--components-colors-tag-color-background-teal-light-default': string
-  '--components-colors-tag-color-background-teal-light-hover': string
-  '--components-colors-tag-color-background-teal-light-disabled': string
-  '--components-colors-tag-color-background-blue-dark-default': string
-  '--components-colors-tag-color-background-blue-dark-hover': string
-  '--components-colors-tag-color-background-blue-dark-disabled': string
-  '--components-colors-tag-color-background-blue-light-default': string
-  '--components-colors-tag-color-background-blue-light-hover': string
-  '--components-colors-tag-color-background-blue-light-disabled': string
-  '--components-colors-tag-color-background-violet-dark-default': string
-  '--components-colors-tag-color-background-violet-dark-hover': string
-  '--components-colors-tag-color-background-violet-dark-disabled': string
-  '--components-colors-tag-color-background-violet-light-default': string
-  '--components-colors-tag-color-background-violet-light-hover': string
-  '--components-colors-tag-color-background-violet-light-disabled': string
-  '--components-colors-tag-color-background-pink-dark-default': string
-  '--components-colors-tag-color-background-pink-dark-hover': string
-  '--components-colors-tag-color-background-pink-dark-disabled': string
-  '--components-colors-tag-color-background-pink-light-default': string
-  '--components-colors-tag-color-background-pink-light-hover': string
-  '--components-colors-tag-color-background-pink-light-disabled': string
-  '--components-colors-tag-color-background-orange-dark-default': string
-  '--components-colors-tag-color-background-orange-dark-hover': string
-  '--components-colors-tag-color-background-orange-dark-disabled': string
-  '--components-colors-tag-color-background-orange-light-default': string
-  '--components-colors-tag-color-background-orange-light-hover': string
-  '--components-colors-tag-color-background-orange-light-disabled': string
-  '--components-colors-tag-color-background-red-dark-default': string
-  '--components-colors-tag-color-background-red-dark-hover': string
-  '--components-colors-tag-color-background-red-dark-disabled': string
-  '--components-colors-tag-color-background-red-light-default': string
-  '--components-colors-tag-color-background-red-light-hover': string
-  '--components-colors-tag-color-background-red-light-disabled': string
+  '--components-colors-drawer-body-color-background-default': string
+  '--components-colors-drawer-color-text-title': string
+  '--components-colors-drawer-color-text-description': string
+  '--components-colors-drawer-color-border-default': string
+  '--components-colors-drawer-color-border-hover': string
+  '--components-colors-drawer-color-icon-default': string
+  '--components-colors-tag-color-background-brand-default': string
+  '--components-colors-tag-color-background-brand-hover': string
+  '--components-colors-tag-color-background-brand-disabled': string
+  '--components-colors-tag-color-background-brand-ai-default': string
+  '--components-colors-tag-color-background-brand-ai-hover': string
+  '--components-colors-tag-color-background-brand-ai-disabled': string
+  '--components-colors-tag-color-background-warm-default': string
+  '--components-colors-tag-color-background-warm-hover': string
+  '--components-colors-tag-color-background-warm-disabled': string
+  '--components-colors-tag-color-background-warm-ai-default': string
+  '--components-colors-tag-color-background-warm-ai-hover': string
+  '--components-colors-tag-color-background-warm-ai-disabled': string
+  '--components-colors-tag-color-background-green-default': string
+  '--components-colors-tag-color-background-green-hover': string
+  '--components-colors-tag-color-background-green-disabled': string
+  '--components-colors-tag-color-background-green-ai-default': string
+  '--components-colors-tag-color-background-green-ai-hover': string
+  '--components-colors-tag-color-background-green-ai-disabled': string
+  '--components-colors-tag-color-background-teal-default': string
+  '--components-colors-tag-color-background-teal-hover': string
+  '--components-colors-tag-color-background-teal-disabled': string
+  '--components-colors-tag-color-background-teal-ai-default': string
+  '--components-colors-tag-color-background-teal-ai-hover': string
+  '--components-colors-tag-color-background-teal-ai-disabled': string
+  '--components-colors-tag-color-background-blue-default': string
+  '--components-colors-tag-color-background-blue-hover': string
+  '--components-colors-tag-color-background-blue-disabled': string
+  '--components-colors-tag-color-background-blue-ai-default': string
+  '--components-colors-tag-color-background-blue-ai-hover': string
+  '--components-colors-tag-color-background-blue-ai-disabled': string
+  '--components-colors-tag-color-background-violet-default': string
+  '--components-colors-tag-color-background-violet-hover': string
+  '--components-colors-tag-color-background-violet-disabled': string
+  '--components-colors-tag-color-background-violet-ai-default': string
+  '--components-colors-tag-color-background-violet-ai-hover': string
+  '--components-colors-tag-color-background-violet-ai-disabled': string
+  '--components-colors-tag-color-background-pink-default': string
+  '--components-colors-tag-color-background-pink-hover': string
+  '--components-colors-tag-color-background-pink-disabled': string
+  '--components-colors-tag-color-background-pink-ai-default': string
+  '--components-colors-tag-color-background-pink-ai-hover': string
+  '--components-colors-tag-color-background-pink-ai-disabled': string
+  '--components-colors-tag-color-background-orange-default': string
+  '--components-colors-tag-color-background-orange-hover': string
+  '--components-colors-tag-color-background-orange-disabled': string
+  '--components-colors-tag-color-background-orange-ai-default': string
+  '--components-colors-tag-color-background-orange-ai-hover': string
+  '--components-colors-tag-color-background-orange-ai-disabled': string
+  '--components-colors-tag-color-background-red-default': string
+  '--components-colors-tag-color-background-red-hover': string
+  '--components-colors-tag-color-background-red-disabled': string
+  '--components-colors-tag-color-background-red-ai-default': string
+  '--components-colors-tag-color-background-red-ai-hover': string
+  '--components-colors-tag-color-background-red-ai-disabled': string
   '--components-colors-tag-color-background-dash-default': string
   '--components-colors-tag-color-background-dash-hover': string
   '--components-colors-tag-color-background-dash-disabled': string
-  '--components-colors-tag-color-background-ai-default': string
-  '--components-colors-tag-color-background-ai-hover': string
-  '--components-colors-tag-color-background-ai-disabled': string
-  '--components-colors-tag-color-text-brand-dark-default': string
-  '--components-colors-tag-color-text-brand-dark-hover': string
-  '--components-colors-tag-color-text-brand-dark-disabled': string
-  '--components-colors-tag-color-text-brand-light-default': string
-  '--components-colors-tag-color-text-brand-light-hover': string
-  '--components-colors-tag-color-text-brand-light-disabled': string
-  '--components-colors-tag-color-text-warm-dark-default': string
-  '--components-colors-tag-color-text-warm-dark-hover': string
-  '--components-colors-tag-color-text-warm-dark-disabled': string
-  '--components-colors-tag-color-text-warm-light-default': string
-  '--components-colors-tag-color-text-warm-light-hover': string
-  '--components-colors-tag-color-text-warm-light-disabled': string
-  '--components-colors-tag-color-text-green-dark-default': string
-  '--components-colors-tag-color-text-green-dark-disabled': string
-  '--components-colors-tag-color-text-green-light-default': string
-  '--components-colors-tag-color-text-green-light-disabled': string
-  '--components-colors-tag-color-text-teal-dark-default': string
-  '--components-colors-tag-color-text-teal-dark-hover': string
-  '--components-colors-tag-color-text-teal-dark-disabled': string
-  '--components-colors-tag-color-text-teal-light-default': string
-  '--components-colors-tag-color-text-teal-light-hover': string
-  '--components-colors-tag-color-text-teal-light-disabled': string
-  '--components-colors-tag-color-text-blue-dark-default': string
-  '--components-colors-tag-color-text-blue-dark-hover': string
-  '--components-colors-tag-color-text-blue-dark-disabled': string
-  '--components-colors-tag-color-text-blue-light-default': string
-  '--components-colors-tag-color-text-blue-light-hover': string
-  '--components-colors-tag-color-text-blue-light-disabled': string
-  '--components-colors-tag-color-text-violet-dark-default': string
-  '--components-colors-tag-color-text-violet-dark-hover': string
-  '--components-colors-tag-color-text-violet-dark-disabled': string
-  '--components-colors-tag-color-text-violet-light-default': string
-  '--components-colors-tag-color-text-violet-light-hover': string
-  '--components-colors-tag-color-text-violet-light-disabled': string
-  '--components-colors-tag-color-text-pink-dark-default': string
-  '--components-colors-tag-color-text-pink-dark-hover': string
-  '--components-colors-tag-color-text-pink-dark-disabled': string
-  '--components-colors-tag-color-text-pink-light-default': string
-  '--components-colors-tag-color-text-pink-light-hover': string
-  '--components-colors-tag-color-text-pink-light-disabled': string
-  '--components-colors-tag-color-text-orange-dark-default': string
-  '--components-colors-tag-color-text-orange-dark-hover': string
-  '--components-colors-tag-color-text-orange-dark-disabled': string
-  '--components-colors-tag-color-text-orange-light-default': string
-  '--components-colors-tag-color-text-orange-light-hover': string
-  '--components-colors-tag-color-text-orange-light-disabled': string
-  '--components-colors-tag-color-text-red-dark-default': string
-  '--components-colors-tag-color-text-red-dark-hover': string
-  '--components-colors-tag-color-text-red-dark-disabled': string
-  '--components-colors-tag-color-text-red-light-default': string
-  '--components-colors-tag-color-text-red-light-hover': string
-  '--components-colors-tag-color-text-red-light-disabled': string
+  '--components-colors-tag-color-text-brand-default': string
+  '--components-colors-tag-color-text-brand-hover': string
+  '--components-colors-tag-color-text-brand-disabled': string
+  '--components-colors-tag-color-text-warm-default': string
+  '--components-colors-tag-color-text-warm-hover': string
+  '--components-colors-tag-color-text-warm-disabled': string
+  '--components-colors-tag-color-text-green-default': string
+  '--components-colors-tag-color-text-green-hover': string
+  '--components-colors-tag-color-text-green-disabled': string
+  '--components-colors-tag-color-text-teal-default': string
+  '--components-colors-tag-color-text-teal-hover': string
+  '--components-colors-tag-color-text-teal-disabled': string
+  '--components-colors-tag-color-text-blue-default': string
+  '--components-colors-tag-color-text-blue-hover': string
+  '--components-colors-tag-color-text-blue-disabled': string
+  '--components-colors-tag-color-text-violet-default': string
+  '--components-colors-tag-color-text-violet-hover': string
+  '--components-colors-tag-color-text-violet-disabled': string
+  '--components-colors-tag-color-text-pink-default': string
+  '--components-colors-tag-color-text-pink-hover': string
+  '--components-colors-tag-color-text-pink-disabled': string
+  '--components-colors-tag-color-text-orange-default': string
+  '--components-colors-tag-color-text-orange-hover': string
+  '--components-colors-tag-color-text-orange-disabled': string
+  '--components-colors-tag-color-text-red-default': string
+  '--components-colors-tag-color-text-red-hover': string
+  '--components-colors-tag-color-text-red-disabled': string
   '--components-colors-tag-color-text-dash-default': string
   '--components-colors-tag-color-text-dash-hover': string
   '--components-colors-tag-color-text-dash-disabled': string
-  '--components-colors-tag-color-text-ai-default': string
-  '--components-colors-tag-color-text-ai-hover': string
-  '--components-colors-tag-color-text-ai-disabled': string
+  '--components-colors-tag-color-icon-brand-default': string
+  '--components-colors-tag-color-icon-brand-hover': string
+  '--components-colors-tag-color-icon-brand-disabled': string
+  '--components-colors-tag-color-icon-brand-ai-default': string
+  '--components-colors-tag-color-icon-brand-ai-hover': string
+  '--components-colors-tag-color-icon-brand-ai-disabled': string
+  '--components-colors-tag-color-icon-warm-default': string
+  '--components-colors-tag-color-icon-warm-hover': string
+  '--components-colors-tag-color-icon-warm-disabled': string
+  '--components-colors-tag-color-icon-warm-ai-default': string
+  '--components-colors-tag-color-icon-warm-ai-hover': string
+  '--components-colors-tag-color-icon-warm-ai-disabled': string
+  '--components-colors-tag-color-icon-green-default': string
+  '--components-colors-tag-color-icon-green-hover': string
+  '--components-colors-tag-color-icon-green-disabled': string
+  '--components-colors-tag-color-icon-green-ai-default': string
+  '--components-colors-tag-color-icon-green-ai-hover': string
+  '--components-colors-tag-color-icon-green-ai-disabled': string
+  '--components-colors-tag-color-icon-teal-default': string
+  '--components-colors-tag-color-icon-teal-hover': string
+  '--components-colors-tag-color-icon-teal-disabled': string
+  '--components-colors-tag-color-icon-teal-ai-default': string
+  '--components-colors-tag-color-icon-teal-ai-hover': string
+  '--components-colors-tag-color-icon-teal-ai-disabled': string
+  '--components-colors-tag-color-icon-blue-default': string
+  '--components-colors-tag-color-icon-blue-hover': string
+  '--components-colors-tag-color-icon-blue-disabled': string
+  '--components-colors-tag-color-icon-blue-ai-default': string
+  '--components-colors-tag-color-icon-blue-ai-hover': string
+  '--components-colors-tag-color-icon-blue-ai-disabled': string
+  '--components-colors-tag-color-icon-violet-default': string
+  '--components-colors-tag-color-icon-violet-hover': string
+  '--components-colors-tag-color-icon-violet-disabled': string
+  '--components-colors-tag-color-icon-violet-ai-default': string
+  '--components-colors-tag-color-icon-violet-ai-hover': string
+  '--components-colors-tag-color-icon-violet-ai-disabled': string
+  '--components-colors-tag-color-icon-pink-default': string
+  '--components-colors-tag-color-icon-pink-hover': string
+  '--components-colors-tag-color-icon-pink-disabled': string
+  '--components-colors-tag-color-icon-pink-ai-default': string
+  '--components-colors-tag-color-icon-pink-ai-hover': string
+  '--components-colors-tag-color-icon-pink-ai-disabled': string
+  '--components-colors-tag-color-icon-orange-default': string
+  '--components-colors-tag-color-icon-orange-hover': string
+  '--components-colors-tag-color-icon-orange-disabled': string
+  '--components-colors-tag-color-icon-orange-ai-default': string
+  '--components-colors-tag-color-icon-orange-ai-hover': string
+  '--components-colors-tag-color-icon-orange-ai-disabled': string
+  '--components-colors-tag-color-icon-red-default': string
+  '--components-colors-tag-color-icon-red-hover': string
+  '--components-colors-tag-color-icon-red-disabled': string
+  '--components-colors-tag-color-icon-red-ai-default': string
+  '--components-colors-tag-color-icon-red-ai-hover': string
+  '--components-colors-tag-color-icon-red-ai-disabled': string
+  '--components-colors-tag-color-icon-dash-default': string
+  '--components-colors-tag-color-icon-dash-hover': string
+  '--components-colors-tag-color-icon-dash-disabled': string
   '--components-colors-tag-color-border-default': string
   '--components-colors-tag-color-border-dash-default': string
   '--components-colors-tag-color-border-dash-hover': string
   '--components-colors-tag-color-border-dash-disabled': string
-  '--components-colors-tag-color-icon-brand-dark-default': string
-  '--components-colors-tag-color-icon-brand-dark-hover': string
-  '--components-colors-tag-color-icon-brand-dark-disabled': string
-  '--components-colors-tag-color-icon-brand-light-default': string
-  '--components-colors-tag-color-icon-brand-light-hover': string
-  '--components-colors-tag-color-icon-brand-light-disabled': string
-  '--components-colors-tag-color-icon-warm-dark-default': string
-  '--components-colors-tag-color-icon-warm-dark-hover': string
-  '--components-colors-tag-color-icon-warm-dark-disabled': string
-  '--components-colors-tag-color-icon-warm-light-default': string
-  '--components-colors-tag-color-icon-warm-light-hover': string
-  '--components-colors-tag-color-icon-warm-light-disabled': string
-  '--components-colors-tag-color-icon-green-dark-default': string
-  '--components-colors-tag-color-icon-green-dark-disabled': string
-  '--components-colors-tag-color-icon-green-light-default': string
-  '--components-colors-tag-color-icon-green-light-disabled': string
-  '--components-colors-tag-color-icon-teal-dark-default': string
-  '--components-colors-tag-color-icon-teal-dark-hover': string
-  '--components-colors-tag-color-icon-teal-dark-disabled': string
-  '--components-colors-tag-color-icon-teal-light-default': string
-  '--components-colors-tag-color-icon-teal-light-hover': string
-  '--components-colors-tag-color-icon-teal-light-disabled': string
-  '--components-colors-tag-color-icon-blue-dark-default': string
-  '--components-colors-tag-color-icon-blue-dark-hover': string
-  '--components-colors-tag-color-icon-blue-dark-disabled': string
-  '--components-colors-tag-color-icon-blue-light-default': string
-  '--components-colors-tag-color-icon-blue-light-hover': string
-  '--components-colors-tag-color-icon-blue-light-disabled': string
-  '--components-colors-tag-color-icon-violet-dark-default': string
-  '--components-colors-tag-color-icon-violet-dark-hover': string
-  '--components-colors-tag-color-icon-violet-dark-disabled': string
-  '--components-colors-tag-color-icon-violet-light-default': string
-  '--components-colors-tag-color-icon-violet-light-hover': string
-  '--components-colors-tag-color-icon-violet-light-disabled': string
-  '--components-colors-tag-color-icon-pink-dark-default': string
-  '--components-colors-tag-color-icon-pink-dark-hover': string
-  '--components-colors-tag-color-icon-pink-dark-disabled': string
-  '--components-colors-tag-color-icon-pink-light-default': string
-  '--components-colors-tag-color-icon-pink-light-hover': string
-  '--components-colors-tag-color-icon-pink-light-disabled': string
-  '--components-colors-tag-color-icon-orange-dark-default': string
-  '--components-colors-tag-color-icon-orange-dark-hover': string
-  '--components-colors-tag-color-icon-orange-dark-disabled': string
-  '--components-colors-tag-color-icon-orange-light-default': string
-  '--components-colors-tag-color-icon-orange-light-hover': string
-  '--components-colors-tag-color-icon-orange-light-disabled': string
-  '--components-colors-tag-color-icon-red-dark-default': string
-  '--components-colors-tag-color-icon-red-dark-hover': string
-  '--components-colors-tag-color-icon-red-dark-disabled': string
-  '--components-colors-tag-color-icon-red-light-default': string
-  '--components-colors-tag-color-icon-red-light-hover': string
-  '--components-colors-tag-color-icon-red-light-disabled': string
-  '--components-colors-tag-color-icon-dash-default': string
-  '--components-colors-tag-color-icon-dash-hover': string
-  '--components-colors-tag-color-icon-dash-disabled': string
-  '--components-colors-tag-color-icon-ai-default': string
-  '--components-colors-tag-color-icon-ai-hover': string
-  '--components-colors-tag-color-icon-ai-disabled': string
   '--components-colors-window-header-action-color-background-common-default': string
   '--components-colors-window-header-action-color-background-common-hover': string
   '--components-colors-window-header-action-color-background-common-pressed': string
@@ -434,12 +408,18 @@ export type ThemeVariables = {
   '--components-colors-dropdown-menu-item-color-background-default': string
   '--components-colors-dropdown-menu-item-color-background-hover': string
   '--components-colors-dropdown-menu-item-color-background-disabled': string
-  '--components-colors-dropdown-menu-item-color-text': string
+  '--components-colors-dropdown-menu-item-color-text-content-default': string
+  '--components-colors-dropdown-menu-item-color-text-content-hover': string
+  '--components-colors-dropdown-menu-item-color-text-content-disabled': string
+  '--components-colors-dropdown-menu-item-color-text-description-default': string
+  '--components-colors-dropdown-menu-item-color-text-description-hover': string
+  '--components-colors-dropdown-menu-item-color-text-description-disabled': string
   '--components-colors-dropdown-menu-item-color-icon-default': string
   '--components-colors-dropdown-menu-item-color-icon-hover': string
   '--components-colors-dropdown-menu-item-color-icon-disabled': string
   '--components-colors-dropdown-menu-color-background-default': string
   '--components-colors-dropdown-menu-color-border-default': string
+  '--components-colors-dropdown-menu-color-border-hover': string
   '--components-colors-latency-color-background-progress': string
   '--components-colors-latency-color-background-bar': string
   '--components-colors-alert-icon-color-background-brand': string
@@ -733,6 +713,13 @@ export type ThemeVariables = {
   '--components-dimensions-badge-border-radius-lg': string
   '--components-dimensions-badge-border-radius-md': string
   '--components-dimensions-badge-border-radius-sm': string
+  '--components-dimensions-drawer-size-width-lg': string
+  '--components-dimensions-drawer-size-width-md': string
+  '--components-dimensions-drawer-size-width-sm': string
+  '--components-dimensions-drawer-body-padding-inline': string
+  '--components-dimensions-drawer-body-padding-block': string
+  '--components-dimensions-drawer-border-radius': string
+  '--components-dimensions-drawer-border-width': string
   '--components-dimensions-card-action-dismiss-size-icon-lg': string
   '--components-dimensions-card-action-dismiss-size-icon-md': string
   '--components-dimensions-card-action-dismiss-size-icon-sm': string
@@ -750,6 +737,10 @@ export type ThemeVariables = {
   '--components-dimensions-card-padding-block-md': string
   '--components-dimensions-card-padding-block-sm': string
   '--components-dimensions-card-gap-title': string
+  '--components-dimensions-card-gap-actions': string
+  '--components-dimensions-card-gap-footer-lg': string
+  '--components-dimensions-card-gap-footer-md': string
+  '--components-dimensions-card-gap-footer-sm': string
   '--components-dimensions-card-gap-content-lg': string
   '--components-dimensions-card-gap-content-md': string
   '--components-dimensions-card-gap-content-sm': string
@@ -763,7 +754,8 @@ export type ThemeVariables = {
   '--components-dimensions-tag-padding-block-md': string
   '--components-dimensions-tag-gap-content': string
   '--components-dimensions-tag-border-radius': string
-  '--components-dimensions-tag-border-width': string
+  '--components-dimensions-tag-border-width-default': string
+  '--components-dimensions-tag-border-width-ai': string
   '--components-dimensions-window-header-action-size-container': string
   '--components-dimensions-window-header-action-size-icon': string
   '--components-dimensions-window-header-action-border-radius': string
@@ -785,13 +777,19 @@ export type ThemeVariables = {
   '--components-dimensions-window-body-padding-block-xl': string
   '--components-dimensions-window-border-radius': string
   '--components-dimensions-window-border-width': string
-  '--components-dimensions-dropdown-menu-item-padding-inline': string
-  '--components-dimensions-dropdown-menu-item-padding-block': string
+  '--components-dimensions-dropdown-menu-divider-padding-block-lg': string
+  '--components-dimensions-dropdown-menu-divider-padding-block-md': string
+  '--components-dimensions-dropdown-menu-item-padding-inline-lg': string
+  '--components-dimensions-dropdown-menu-item-padding-inline-md': string
+  '--components-dimensions-dropdown-menu-item-padding-block-lg': string
+  '--components-dimensions-dropdown-menu-item-padding-block-md': string
   '--components-dimensions-dropdown-menu-item-gap-content': string
   '--components-dimensions-dropdown-menu-item-border-radius': string
   '--components-dimensions-dropdown-menu-size-icon': string
-  '--components-dimensions-dropdown-menu-padding-inline': string
-  '--components-dimensions-dropdown-menu-padding-block': string
+  '--components-dimensions-dropdown-menu-padding-inline-lg': string
+  '--components-dimensions-dropdown-menu-padding-inline-md': string
+  '--components-dimensions-dropdown-menu-padding-block-lg': string
+  '--components-dimensions-dropdown-menu-padding-block-md': string
   '--components-dimensions-dropdown-menu-gap-content': string
   '--components-dimensions-dropdown-menu-border-radius': string
   '--components-dimensions-dropdown-menu-border-width': string

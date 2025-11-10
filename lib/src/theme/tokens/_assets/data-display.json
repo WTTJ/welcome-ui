@@ -465,52 +465,139 @@
         }
       }
     },
+    "drawer": {
+      "body": {
+        "color": {
+          "background": {
+            "default": {
+              "value": "{color.background.neutral.inverse}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            }
+          }
+        }
+      },
+      "color": {
+        "text": {
+          "title": {
+            "value": "{color.text.neutral.primary}",
+            "type": "color.text",
+            "scope": [
+              "TEXT_FILL"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
+          },
+          "description": {
+            "value": "{color.text.neutral.secondary}",
+            "type": "color.text",
+            "scope": [
+              "TEXT_FILL"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
+          }
+        },
+        "border": {
+          "default": {
+            "value": "{color.border.warm.minimal}",
+            "type": "color.border",
+            "scope": [
+              "STROKE_COLOR"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
+          },
+          "hover": {
+            "value": "{color.border.warm.subtle}",
+            "type": "color.border",
+            "scope": [
+              "STROKE_COLOR"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
+          }
+        },
+        "icon": {
+          "default": {
+            "value": "{color.text.neutral.primary}",
+            "type": "color.fill",
+            "scope": [
+              "SHAPE_FILL"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
+          }
+        }
+      }
+    },
     "tag": {
       "color": {
         "background": {
           "brand": {
-            "dark": {
-              "default": {
-                "value": "{color.background.brand.secondary}",
-                "type": "color.background",
-                "scope": [
-                  "FRAME_FILL",
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "hover": {
-                "value": "{color.background.brand.primary}",
-                "type": "color.background",
-                "scope": [
-                  "FRAME_FILL",
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.background.brand.minimal}",
-                "type": "color.background",
-                "scope": [
-                  "FRAME_FILL",
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+            "default": {
+              "value": "{color.background.brand.secondary}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
               }
             },
-            "light": {
+            "hover": {
+              "value": "{color.background.brand.primary}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "disabled": {
+              "value": "{color.background.brand.minimal}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "ai": {
               "default": {
                 "value": "{color.background.brand.subtle}",
                 "type": "color.background",
@@ -553,50 +640,48 @@
             }
           },
           "warm": {
-            "dark": {
-              "default": {
-                "value": "{color.background.warm.strong}",
-                "type": "color.background",
-                "scope": [
-                  "FRAME_FILL",
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "hover": {
-                "value": "{color.background.warm.stronger}",
-                "type": "color.background",
-                "scope": [
-                  "FRAME_FILL",
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.background.warm.primary}",
-                "type": "color.background",
-                "scope": [
-                  "FRAME_FILL",
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+            "default": {
+              "value": "{color.background.warm.primary}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
               }
             },
-            "light": {
+            "hover": {
+              "value": "{color.background.warm.strong}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "disabled": {
+              "value": "{color.background.warm.primary}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "ai": {
               "default": {
-                "value": "{color.background.warm.primary}",
+                "value": "{color.background.warm.minimal}",
                 "type": "color.background",
                 "scope": [
                   "FRAME_FILL",
@@ -609,7 +694,7 @@
                 }
               },
               "hover": {
-                "value": "{color.background.warm.strong}",
+                "value": "{color.background.warm.primary}",
                 "type": "color.background",
                 "scope": [
                   "FRAME_FILL",
@@ -637,48 +722,46 @@
             }
           },
           "green": {
-            "dark": {
-              "default": {
-                "value": "{color.background.accent.green.secondary}",
-                "type": "color.background",
-                "scope": [
-                  "FRAME_FILL",
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "hover": {
-                "value": "{color.background.accent.green.primary}",
-                "type": "color.background",
-                "scope": [
-                  "FRAME_FILL",
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.background.accent.green.minimal}",
-                "type": "color.background",
-                "scope": [
-                  "FRAME_FILL",
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+            "default": {
+              "value": "{color.background.accent.green.secondary}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
               }
             },
-            "light": {
+            "hover": {
+              "value": "{color.background.accent.green.primary}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "disabled": {
+              "value": "{color.background.accent.green.minimal}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "ai": {
               "default": {
                 "value": "{color.background.accent.green.minimal}",
                 "type": "color.background",
@@ -721,7 +804,46 @@
             }
           },
           "teal": {
-            "dark": {
+            "default": {
+              "value": "{color.background.accent.teal.secondary}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "hover": {
+              "value": "{color.background.accent.teal.primary}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "disabled": {
+              "value": "{color.background.accent.teal.minimal}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "ai": {
               "default": {
                 "value": "{color.background.accent.teal.subtle}",
                 "type": "color.background",
@@ -761,94 +883,51 @@
                   }
                 }
               }
-            },
-            "light": {
-              "default": {
-                "value": "{color.background.accent.teal.minimal}",
-                "type": "color.background",
-                "scope": [
-                  "FRAME_FILL",
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "hover": {
-                "value": "{color.background.accent.teal.subtle}",
-                "type": "color.background",
-                "scope": [
-                  "FRAME_FILL",
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.background.accent.teal.minimal}",
-                "type": "color.background",
-                "scope": [
-                  "FRAME_FILL",
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              }
             }
           },
           "blue": {
-            "dark": {
-              "default": {
-                "value": "{color.background.accent.blue.secondary}",
-                "type": "color.background",
-                "scope": [
-                  "FRAME_FILL",
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "hover": {
-                "value": "{color.background.accent.blue.primary}",
-                "type": "color.background",
-                "scope": [
-                  "FRAME_FILL",
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.background.accent.blue.minimal}",
-                "type": "color.background",
-                "scope": [
-                  "FRAME_FILL",
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+            "default": {
+              "value": "{color.background.accent.blue.secondary}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
               }
             },
-            "light": {
+            "hover": {
+              "value": "{color.background.accent.blue.primary}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "disabled": {
+              "value": "{color.background.accent.blue.minimal}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "ai": {
               "default": {
-                "value": "{color.background.accent.blue.minimal}",
+                "value": "{color.background.accent.blue.subtle}",
                 "type": "color.background",
                 "scope": [
                   "FRAME_FILL",
@@ -861,7 +940,7 @@
                 }
               },
               "hover": {
-                "value": "{color.background.accent.blue.subtle}",
+                "value": "{color.background.accent.blue.secondary}",
                 "type": "color.background",
                 "scope": [
                   "FRAME_FILL",
@@ -889,50 +968,48 @@
             }
           },
           "violet": {
-            "dark": {
-              "default": {
-                "value": "{color.background.accent.violet.secondary}",
-                "type": "color.background",
-                "scope": [
-                  "FRAME_FILL",
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "hover": {
-                "value": "{color.background.accent.violet.primary}",
-                "type": "color.background",
-                "scope": [
-                  "FRAME_FILL",
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.background.accent.violet.minimal}",
-                "type": "color.background",
-                "scope": [
-                  "FRAME_FILL",
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+            "default": {
+              "value": "{color.background.accent.violet.secondary}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
               }
             },
-            "light": {
+            "hover": {
+              "value": "{color.background.accent.violet.primary}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "disabled": {
+              "value": "{color.background.accent.violet.minimal}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "ai": {
               "default": {
-                "value": "{color.background.accent.violet.minimal}",
+                "value": "{color.background.accent.violet.subtle}",
                 "type": "color.background",
                 "scope": [
                   "FRAME_FILL",
@@ -945,7 +1022,7 @@
                 }
               },
               "hover": {
-                "value": "{color.background.accent.violet.subtle}",
+                "value": "{color.background.accent.violet.secondary}",
                 "type": "color.background",
                 "scope": [
                   "FRAME_FILL",
@@ -973,50 +1050,48 @@
             }
           },
           "pink": {
-            "dark": {
-              "default": {
-                "value": "{color.background.accent.pink.secondary}",
-                "type": "color.background",
-                "scope": [
-                  "FRAME_FILL",
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "hover": {
-                "value": "{color.background.accent.pink.primary}",
-                "type": "color.background",
-                "scope": [
-                  "FRAME_FILL",
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.background.accent.pink.minimal}",
-                "type": "color.background",
-                "scope": [
-                  "FRAME_FILL",
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+            "default": {
+              "value": "{color.background.accent.pink.secondary}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
               }
             },
-            "light": {
+            "hover": {
+              "value": "{color.background.accent.pink.primary}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "disabled": {
+              "value": "{color.background.accent.pink.minimal}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "ai": {
               "default": {
-                "value": "{color.background.accent.pink.minimal}",
+                "value": "{color.background.accent.pink.subtle}",
                 "type": "color.background",
                 "scope": [
                   "FRAME_FILL",
@@ -1029,7 +1104,7 @@
                 }
               },
               "hover": {
-                "value": "{color.background.accent.pink.subtle}",
+                "value": "{color.background.accent.pink.secondary}",
                 "type": "color.background",
                 "scope": [
                   "FRAME_FILL",
@@ -1057,50 +1132,48 @@
             }
           },
           "orange": {
-            "dark": {
-              "default": {
-                "value": "{color.background.accent.orange.secondary}",
-                "type": "color.background",
-                "scope": [
-                  "FRAME_FILL",
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "hover": {
-                "value": "{color.background.accent.orange.primary}",
-                "type": "color.background",
-                "scope": [
-                  "FRAME_FILL",
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.background.accent.orange.minimal}",
-                "type": "color.background",
-                "scope": [
-                  "FRAME_FILL",
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+            "default": {
+              "value": "{color.background.accent.orange.secondary}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
               }
             },
-            "light": {
+            "hover": {
+              "value": "{color.background.accent.orange.primary}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "disabled": {
+              "value": "{color.background.accent.orange.minimal}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "ai": {
               "default": {
-                "value": "{color.background.accent.orange.minimal}",
+                "value": "{color.background.accent.orange.subtle}",
                 "type": "color.background",
                 "scope": [
                   "FRAME_FILL",
@@ -1113,7 +1186,7 @@
                 }
               },
               "hover": {
-                "value": "{color.background.accent.orange.subtle}",
+                "value": "{color.background.accent.orange.secondary}",
                 "type": "color.background",
                 "scope": [
                   "FRAME_FILL",
@@ -1141,50 +1214,48 @@
             }
           },
           "red": {
-            "dark": {
-              "default": {
-                "value": "{color.background.danger.secondary}",
-                "type": "color.background",
-                "scope": [
-                  "FRAME_FILL",
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "hover": {
-                "value": "{color.background.danger.primary}",
-                "type": "color.background",
-                "scope": [
-                  "FRAME_FILL",
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.background.danger.minimal}",
-                "type": "color.background",
-                "scope": [
-                  "FRAME_FILL",
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+            "default": {
+              "value": "{color.background.danger.secondary}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
               }
             },
-            "light": {
+            "hover": {
+              "value": "{color.background.danger.primary}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "disabled": {
+              "value": "{color.background.danger.minimal}",
+              "type": "color.background",
+              "scope": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "ai": {
               "default": {
-                "value": "{color.background.danger.minimal}",
+                "value": "{color.background.danger.subtle}",
                 "type": "color.background",
                 "scope": [
                   "FRAME_FILL",
@@ -1197,7 +1268,7 @@
                 }
               },
               "hover": {
-                "value": "{color.background.danger.subtle}",
+                "value": "{color.background.danger.secondary}",
                 "type": "color.background",
                 "scope": [
                   "FRAME_FILL",
@@ -1264,14 +1335,15 @@
                 }
               }
             }
-          },
-          "ai": {
+          }
+        },
+        "text": {
+          "brand": {
             "default": {
-              "value": "{color.background.warm.primary}",
-              "type": "color.background",
+              "value": "{color.text.brand.primary}",
+              "type": "color.text",
               "scope": [
-                "FRAME_FILL",
-                "SHAPE_FILL"
+                "TEXT_FILL"
               ],
               "$extensions": {
                 "tokens-studio": {
@@ -1280,11 +1352,10 @@
               }
             },
             "hover": {
-              "value": "{color.background.warm.strong}",
-              "type": "color.background",
+              "value": "{color.text.brand.primary}",
+              "type": "color.text",
               "scope": [
-                "FRAME_FILL",
-                "SHAPE_FILL"
+                "TEXT_FILL"
               ],
               "$extensions": {
                 "tokens-studio": {
@@ -1293,11 +1364,10 @@
               }
             },
             "disabled": {
-              "value": "{color.background.warm.primary}",
-              "type": "color.background",
+              "value": "{color.text.brand.tertiary}",
+              "type": "color.text",
               "scope": [
-                "FRAME_FILL",
-                "SHAPE_FILL"
+                "TEXT_FILL"
               ],
               "$extensions": {
                 "tokens-studio": {
@@ -1305,683 +1375,307 @@
                 }
               }
             }
-          }
-        },
-        "text": {
-          "brand": {
-            "dark": {
-              "default": {
-                "value": "{color.text.brand.primary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "hover": {
-                "value": "{color.text.brand.primary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.text.brand.tertiary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              }
-            },
-            "light": {
-              "default": {
-                "value": "{color.text.brand.secondary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "hover": {
-                "value": "{color.text.brand.secondary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.text.brand.tertiary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              }
-            }
           },
           "warm": {
-            "dark": {
-              "default": {
-                "value": "{color.text.warm.primary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "hover": {
-                "value": "{color.text.warm.primary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.text.warm.subtle}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+            "default": {
+              "value": "{color.text.warm.primary}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
               }
             },
-            "light": {
-              "default": {
-                "value": "{color.text.warm.tertiary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+            "hover": {
+              "value": "{color.text.warm.primary}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
-              },
-              "hover": {
-                "value": "{color.text.warm.tertiary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.text.warm.subtle}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+              }
+            },
+            "disabled": {
+              "value": "{color.text.warm.subtle}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
               }
             }
           },
           "green": {
-            "dark": {
-              "default": {
-                "value": "{color.text.accent.green.primary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.text.accent.green.subtle}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+            "default": {
+              "value": "{color.text.accent.green.primary}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
               }
             },
-            "light": {
-              "default": {
-                "value": "{color.text.accent.green.tertiary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+            "hover": {
+              "value": "{color.text.accent.green.primary}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
-              },
-              "disabled": {
-                "value": "{color.text.accent.green.subtle}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+              }
+            },
+            "disabled": {
+              "value": "{color.text.accent.green.subtle}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
               }
             }
           },
           "teal": {
-            "dark": {
-              "default": {
-                "value": "{color.text.accent.teal.primary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "hover": {
-                "value": "{color.text.accent.teal.primary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.text.accent.teal.subtle}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+            "default": {
+              "value": "{color.text.accent.teal.primary}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
               }
             },
-            "light": {
-              "default": {
-                "value": "{color.text.accent.teal.tertiary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+            "hover": {
+              "value": "{color.text.accent.teal.primary}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
-              },
-              "hover": {
-                "value": "{color.text.accent.teal.tertiary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.text.accent.teal.subtle}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+              }
+            },
+            "disabled": {
+              "value": "{color.text.accent.teal.subtle}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
               }
             }
           },
           "blue": {
-            "dark": {
-              "default": {
-                "value": "{color.text.accent.blue.primary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "hover": {
-                "value": "{color.text.accent.blue.primary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.text.accent.blue.subtle}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+            "default": {
+              "value": "{color.text.accent.blue.primary}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
               }
             },
-            "light": {
-              "default": {
-                "value": "{color.text.accent.blue.tertiary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+            "hover": {
+              "value": "{color.text.accent.blue.primary}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
-              },
-              "hover": {
-                "value": "{color.text.accent.blue.tertiary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.text.accent.blue.subtle}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+              }
+            },
+            "disabled": {
+              "value": "{color.text.accent.blue.subtle}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
               }
             }
           },
           "violet": {
-            "dark": {
-              "default": {
-                "value": "{color.text.accent.violet.primary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "hover": {
-                "value": "{color.text.accent.violet.primary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.text.accent.violet.subtle}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+            "default": {
+              "value": "{color.text.accent.violet.primary}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
               }
             },
-            "light": {
-              "default": {
-                "value": "{color.text.accent.violet.tertiary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+            "hover": {
+              "value": "{color.text.accent.violet.primary}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
-              },
-              "hover": {
-                "value": "{color.text.accent.violet.tertiary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.text.accent.violet.subtle}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+              }
+            },
+            "disabled": {
+              "value": "{color.text.accent.violet.subtle}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
               }
             }
           },
           "pink": {
-            "dark": {
-              "default": {
-                "value": "{color.text.accent.pink.primary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "hover": {
-                "value": "{color.text.accent.pink.primary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.text.accent.pink.subtle}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+            "default": {
+              "value": "{color.text.accent.pink.primary}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
               }
             },
-            "light": {
-              "default": {
-                "value": "{color.text.accent.pink.tertiary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+            "hover": {
+              "value": "{color.text.accent.pink.primary}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
-              },
-              "hover": {
-                "value": "{color.text.accent.pink.tertiary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.text.accent.pink.subtle}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+              }
+            },
+            "disabled": {
+              "value": "{color.text.accent.pink.subtle}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
               }
             }
           },
           "orange": {
-            "dark": {
-              "default": {
-                "value": "{color.text.accent.orange.primary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "hover": {
-                "value": "{color.text.accent.orange.primary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.text.accent.orange.subtle}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+            "default": {
+              "value": "{color.text.accent.orange.primary}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
               }
             },
-            "light": {
-              "default": {
-                "value": "{color.text.accent.orange.tertiary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+            "hover": {
+              "value": "{color.text.accent.orange.primary}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
-              },
-              "hover": {
-                "value": "{color.text.accent.orange.tertiary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.text.accent.orange.subtle}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+              }
+            },
+            "disabled": {
+              "value": "{color.text.accent.orange.subtle}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
               }
             }
           },
           "red": {
-            "dark": {
-              "default": {
-                "value": "{color.text.danger.primary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "hover": {
-                "value": "{color.text.danger.primary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.text.danger.tertiary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+            "default": {
+              "value": "{color.text.danger.primary}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
               }
             },
-            "light": {
-              "default": {
-                "value": "{color.text.danger.tertiary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+            "hover": {
+              "value": "{color.text.danger.primary}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
-              },
-              "hover": {
-                "value": "{color.text.danger.tertiary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.text.danger.tertiary}",
-                "type": "color.text",
-                "scope": [
-                  "TEXT_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+              }
+            },
+            "disabled": {
+              "value": "{color.text.danger.tertiary}",
+              "type": "color.text",
+              "scope": [
+                "TEXT_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
               }
             }
@@ -2023,141 +1717,49 @@
                 }
               }
             }
-          },
-          "ai": {
-            "default": {
-              "value": "{color.text.warm.tertiary}",
-              "type": "color.text",
-              "scope": [
-                "TEXT_FILL"
-              ],
-              "$extensions": {
-                "tokens-studio": {
-                  "mode": "mode 1"
-                }
-              }
-            },
-            "hover": {
-              "value": "{color.text.warm.tertiary}",
-              "type": "color.text",
-              "scope": [
-                "TEXT_FILL"
-              ],
-              "$extensions": {
-                "tokens-studio": {
-                  "mode": "mode 1"
-                }
-              }
-            },
-            "disabled": {
-              "value": "{color.text.warm.subtle}",
-              "type": "color.text",
-              "scope": [
-                "TEXT_FILL"
-              ],
-              "$extensions": {
-                "tokens-studio": {
-                  "mode": "mode 1"
-                }
-              }
-            }
-          }
-        },
-        "border": {
-          "default": {
-            "value": "{color.border.neutral.inverse}",
-            "type": "color.border",
-            "scope": [
-              "STROKE_COLOR"
-            ],
-            "$extensions": {
-              "tokens-studio": {
-                "mode": "mode 1"
-              }
-            }
-          },
-          "dash": {
-            "default": {
-              "value": "{color.border.neutral.subtlest}",
-              "type": "color.border",
-              "scope": [
-                "STROKE_COLOR"
-              ],
-              "$extensions": {
-                "tokens-studio": {
-                  "mode": "mode 1"
-                }
-              }
-            },
-            "hover": {
-              "value": "{color.border.neutral.subtle}",
-              "type": "color.border",
-              "scope": [
-                "STROKE_COLOR"
-              ],
-              "$extensions": {
-                "tokens-studio": {
-                  "mode": "mode 1"
-                }
-              }
-            },
-            "disabled": {
-              "value": "{color.border.neutral.subtlest}",
-              "type": "color.border",
-              "scope": [
-                "STROKE_COLOR"
-              ],
-              "$extensions": {
-                "tokens-studio": {
-                  "mode": "mode 1"
-                }
-              }
-            }
           }
         },
         "icon": {
           "brand": {
-            "dark": {
-              "default": {
-                "value": "{color.icon.brand.primary}",
-                "type": "color.fill",
-                "scope": [
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "hover": {
-                "value": "{color.icon.brand.primary}",
-                "type": "color.fill",
-                "scope": [
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.icon.brand.tertiary}",
-                "type": "color.fill",
-                "scope": [
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+            "default": {
+              "value": "{color.icon.brand.primary}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
               }
             },
-            "light": {
+            "hover": {
+              "value": "{color.icon.brand.primary}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "disabled": {
+              "value": "{color.icon.brand.tertiary}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "ai": {
               "default": {
-                "value": "{color.icon.brand.secondary}",
+                "value": "{color.icon.brand.subtle}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
@@ -2169,7 +1771,7 @@
                 }
               },
               "hover": {
-                "value": "{color.icon.brand.secondary}",
+                "value": "{color.icon.brand.tertiary}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
@@ -2181,7 +1783,7 @@
                 }
               },
               "disabled": {
-                "value": "{color.icon.brand.tertiary}",
+                "value": "{color.icon.brand.subtle}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
@@ -2195,47 +1797,45 @@
             }
           },
           "warm": {
-            "dark": {
-              "default": {
-                "value": "{color.icon.warm.primary}",
-                "type": "color.fill",
-                "scope": [
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "hover": {
-                "value": "{color.icon.warm.primary}",
-                "type": "color.fill",
-                "scope": [
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.icon.warm.subtle}",
-                "type": "color.fill",
-                "scope": [
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+            "default": {
+              "value": "{color.icon.warm.primary}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
               }
             },
-            "light": {
+            "hover": {
+              "value": "{color.icon.warm.primary}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "disabled": {
+              "value": "{color.icon.warm.subtle}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "ai": {
               "default": {
-                "value": "{color.icon.warm.subtle}",
+                "value": "{color.icon.warm.minimal}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
@@ -2273,20 +1873,44 @@
             }
           },
           "green": {
-            "dark": {
-              "default": {
-                "value": "{color.icon.accent.green.primary}",
-                "type": "color.fill",
-                "scope": [
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+            "default": {
+              "value": "{color.icon.accent.green.primary}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
-              },
-              "disabled": {
+              }
+            },
+            "hover": {
+              "value": "{color.icon.accent.green.primary}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "disabled": {
+              "value": "{color.icon.accent.green.subtle}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "ai": {
+              "default": {
                 "value": "{color.icon.accent.green.subtle}",
                 "type": "color.fill",
                 "scope": [
@@ -2297,10 +1921,8 @@
                     "mode": "mode 1"
                   }
                 }
-              }
-            },
-            "light": {
-              "default": {
+              },
+              "hover": {
                 "value": "{color.icon.accent.green.tertiary}",
                 "type": "color.fill",
                 "scope": [
@@ -2327,47 +1949,45 @@
             }
           },
           "teal": {
-            "dark": {
-              "default": {
-                "value": "{color.icon.accent.teal.primary}",
-                "type": "color.fill",
-                "scope": [
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "hover": {
-                "value": "{color.icon.accent.teal.primary}",
-                "type": "color.fill",
-                "scope": [
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.icon.accent.teal.subtle}",
-                "type": "color.fill",
-                "scope": [
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+            "default": {
+              "value": "{color.icon.accent.teal.primary}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
               }
             },
-            "light": {
+            "hover": {
+              "value": "{color.icon.accent.teal.primary}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "disabled": {
+              "value": "{color.icon.accent.teal.subtle}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "ai": {
               "default": {
-                "value": "{color.icon.accent.teal.tertiary}",
+                "value": "{color.icon.accent.teal.subtle}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
@@ -2405,47 +2025,45 @@
             }
           },
           "blue": {
-            "dark": {
-              "default": {
-                "value": "{color.icon.accent.blue.primary}",
-                "type": "color.fill",
-                "scope": [
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "hover": {
-                "value": "{color.icon.accent.blue.primary}",
-                "type": "color.fill",
-                "scope": [
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.icon.accent.blue.subtle}",
-                "type": "color.fill",
-                "scope": [
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+            "default": {
+              "value": "{color.icon.accent.blue.primary}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
               }
             },
-            "light": {
+            "hover": {
+              "value": "{color.icon.accent.blue.primary}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "disabled": {
+              "value": "{color.icon.accent.blue.subtle}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "ai": {
               "default": {
-                "value": "{color.icon.accent.blue.tertiary}",
+                "value": "{color.icon.accent.blue.subtle}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
@@ -2483,47 +2101,45 @@
             }
           },
           "violet": {
-            "dark": {
-              "default": {
-                "value": "{color.icon.accent.violet.primary}",
-                "type": "color.fill",
-                "scope": [
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "hover": {
-                "value": "{color.icon.accent.violet.primary}",
-                "type": "color.fill",
-                "scope": [
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.icon.accent.violet.subtle}",
-                "type": "color.fill",
-                "scope": [
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+            "default": {
+              "value": "{color.icon.accent.violet.primary}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
               }
             },
-            "light": {
+            "hover": {
+              "value": "{color.icon.accent.violet.primary}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "disabled": {
+              "value": "{color.icon.accent.violet.subtle}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "ai": {
               "default": {
-                "value": "{color.icon.accent.violet.tertiary}",
+                "value": "{color.icon.accent.violet.subtle}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
@@ -2561,47 +2177,45 @@
             }
           },
           "pink": {
-            "dark": {
-              "default": {
-                "value": "{color.icon.accent.pink.primary}",
-                "type": "color.fill",
-                "scope": [
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "hover": {
-                "value": "{color.icon.accent.pink.primary}",
-                "type": "color.fill",
-                "scope": [
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.icon.accent.pink.subtle}",
-                "type": "color.fill",
-                "scope": [
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+            "default": {
+              "value": "{color.icon.accent.pink.primary}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
               }
             },
-            "light": {
+            "hover": {
+              "value": "{color.icon.accent.pink.primary}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "disabled": {
+              "value": "{color.icon.accent.pink.subtle}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "ai": {
               "default": {
-                "value": "{color.icon.accent.pink.tertiary}",
+                "value": "{color.icon.accent.pink.subtle}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
@@ -2639,47 +2253,45 @@
             }
           },
           "orange": {
-            "dark": {
-              "default": {
-                "value": "{color.icon.accent.orange.primary}",
-                "type": "color.fill",
-                "scope": [
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "hover": {
-                "value": "{color.icon.accent.orange.primary}",
-                "type": "color.fill",
-                "scope": [
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.icon.accent.orange.subtle}",
-                "type": "color.fill",
-                "scope": [
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+            "default": {
+              "value": "{color.icon.accent.orange.primary}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
               }
             },
-            "light": {
+            "hover": {
+              "value": "{color.icon.accent.orange.primary}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "disabled": {
+              "value": "{color.icon.accent.orange.subtle}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "ai": {
               "default": {
-                "value": "{color.icon.accent.orange.tertiary}",
+                "value": "{color.icon.accent.orange.subtle}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
@@ -2717,45 +2329,43 @@
             }
           },
           "red": {
-            "dark": {
-              "default": {
-                "value": "{color.icon.danger.primary}",
-                "type": "color.fill",
-                "scope": [
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "hover": {
-                "value": "{color.icon.danger.primary}",
-                "type": "color.fill",
-                "scope": [
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
-                }
-              },
-              "disabled": {
-                "value": "{color.icon.danger.tertiary}",
-                "type": "color.fill",
-                "scope": [
-                  "SHAPE_FILL"
-                ],
-                "$extensions": {
-                  "tokens-studio": {
-                    "mode": "mode 1"
-                  }
+            "default": {
+              "value": "{color.icon.danger.primary}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
                 }
               }
             },
-            "light": {
+            "hover": {
+              "value": "{color.icon.danger.primary}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "disabled": {
+              "value": "{color.icon.danger.tertiary}",
+              "type": "color.fill",
+              "scope": [
+                "SHAPE_FILL"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "ai": {
               "default": {
                 "value": "{color.icon.danger.tertiary}",
                 "type": "color.fill",
@@ -2769,7 +2379,7 @@
                 }
               },
               "hover": {
-                "value": "{color.icon.danger.tertiary}",
+                "value": "{color.icon.danger.secondary}",
                 "type": "color.fill",
                 "scope": [
                   "SHAPE_FILL"
@@ -2831,13 +2441,27 @@
                 }
               }
             }
+          }
+        },
+        "border": {
+          "default": {
+            "value": "{color.border.neutral.inverse}",
+            "type": "color.border",
+            "scope": [
+              "STROKE_COLOR"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
           },
-          "ai": {
+          "dash": {
             "default": {
-              "value": "{color.icon.warm.subtle}",
-              "type": "color.fill",
+              "value": "{color.border.neutral.subtlest}",
+              "type": "color.border",
               "scope": [
-                "SHAPE_FILL"
+                "STROKE_COLOR"
               ],
               "$extensions": {
                 "tokens-studio": {
@@ -2846,10 +2470,10 @@
               }
             },
             "hover": {
-              "value": "{color.icon.warm.subtle}",
-              "type": "color.fill",
+              "value": "{color.border.neutral.subtle}",
+              "type": "color.border",
               "scope": [
-                "SHAPE_FILL"
+                "STROKE_COLOR"
               ],
               "$extensions": {
                 "tokens-studio": {
@@ -2858,10 +2482,10 @@
               }
             },
             "disabled": {
-              "value": "{color.icon.warm.subtle}",
-              "type": "color.fill",
+              "value": "{color.border.neutral.subtlest}",
+              "type": "color.border",
               "scope": [
-                "SHAPE_FILL"
+                "STROKE_COLOR"
               ],
               "$extensions": {
                 "tokens-studio": {
@@ -3306,7 +2930,7 @@
             }
           },
           "text": {
-            "value": {
+            "content": {
               "default": {
                 "value": "{color.text.neutral.primary}",
                 "type": "color.text",
@@ -3442,6 +3066,18 @@
         "border": {
           "default": {
             "value": "{color.background.warm.primary}",
+            "type": "color.border",
+            "scope": [
+              "STROKE_COLOR"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
+          },
+          "hover": {
+            "value": "{color.background.warm.strong}",
             "type": "color.border",
             "scope": [
               "STROKE_COLOR"
@@ -3701,6 +3337,102 @@
         }
       }
     },
+    "drawer": {
+      "size": {
+        "width": {
+          "lg": {
+            "value": "900px",
+            "type": "dimension",
+            "scope": [
+              "WIDTH_HEIGHT"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
+          },
+          "md": {
+            "value": "708px",
+            "type": "dimension",
+            "scope": [
+              "WIDTH_HEIGHT"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
+          },
+          "sm": {
+            "value": "516px",
+            "type": "dimension",
+            "scope": [
+              "WIDTH_HEIGHT"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
+          }
+        }
+      },
+      "body": {
+        "padding": {
+          "inline": {
+            "value": "{spacing.2xl}px",
+            "type": "spacing",
+            "scope": [
+              "GAP"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
+          },
+          "block": {
+            "value": "{spacing.2xl}px",
+            "type": "spacing",
+            "scope": [
+              "GAP"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
+          }
+        }
+      },
+      "border": {
+        "radius": {
+          "value": "{border.radius.md}px",
+          "type": "borderRadius",
+          "scope": [
+            "CORNER_RADIUS"
+          ],
+          "$extensions": {
+            "tokens-studio": {
+              "mode": "mode 1"
+            }
+          }
+        },
+        "width": {
+          "value": "{border.width.xs}px",
+          "type": "borderWidth",
+          "scope": [
+            "STROKE_FLOAT"
+          ],
+          "$extensions": {
+            "tokens-studio": {
+              "mode": "mode 1"
+            }
+          }
+        }
+      }
+    },
     "card": {
       "action": {
         "dismiss": {
@@ -3935,7 +3667,19 @@
             }
           }
         },
-        "content": {
+        "actions": {
+          "value": "{spacing.sm}px",
+          "type": "spacing",
+          "scope": [
+            "GAP"
+          ],
+          "$extensions": {
+            "tokens-studio": {
+              "mode": "mode 1"
+            }
+          }
+        },
+        "footer": {
           "lg": {
             "value": "{spacing.xl}px",
             "type": "spacing",
@@ -3962,6 +3706,44 @@
           },
           "sm": {
             "value": "{spacing.md}px",
+            "type": "spacing",
+            "scope": [
+              "GAP"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
+          }
+        },
+        "content": {
+          "lg": {
+            "value": "{spacing.xl}px",
+            "type": "spacing",
+            "scope": [
+              "GAP"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
+          },
+          "md": {
+            "value": "{spacing.lg}px",
+            "type": "spacing",
+            "scope": [
+              "GAP"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
+          },
+          "sm": {
+            "value": "{spacing.sm}px",
             "type": "spacing",
             "scope": [
               "GAP"
@@ -4128,14 +3910,28 @@
           }
         },
         "width": {
-          "value": "{border.width.sm}px",
-          "type": "borderWidth",
-          "scope": [
-            "STROKE_FLOAT"
-          ],
-          "$extensions": {
-            "tokens-studio": {
-              "mode": "mode 1"
+          "default": {
+            "value": "{border.width.sm}px",
+            "type": "borderWidth",
+            "scope": [
+              "STROKE_FLOAT"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
+          },
+          "ai": {
+            "value": "{border.width.xs}px",
+            "type": "borderWidth",
+            "scope": [
+              "STROKE_FLOAT"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
             }
           }
         }
@@ -4432,29 +4228,87 @@
       }
     },
     "dropdown-menu": {
+      "divider": {
+        "padding": {
+          "block": {
+            "lg": {
+              "value": "{spacing.sm}px",
+              "type": "spacing",
+              "scope": [
+                "GAP"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "md": {
+              "value": "{spacing.xs}px",
+              "type": "spacing",
+              "scope": [
+                "GAP"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            }
+          }
+        }
+      },
       "item": {
         "padding": {
           "inline": {
-            "value": "{spacing.lg}px",
-            "type": "spacing",
-            "scope": [
-              "GAP"
-            ],
-            "$extensions": {
-              "tokens-studio": {
-                "mode": "mode 1"
+            "lg": {
+              "value": "{spacing.lg}px",
+              "type": "spacing",
+              "scope": [
+                "GAP"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "md": {
+              "value": "{spacing.md}px",
+              "type": "spacing",
+              "scope": [
+                "GAP"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
               }
             }
           },
           "block": {
-            "value": "{spacing.md}px",
-            "type": "spacing",
-            "scope": [
-              "GAP"
-            ],
-            "$extensions": {
-              "tokens-studio": {
-                "mode": "mode 1"
+            "lg": {
+              "value": "{spacing.md}px",
+              "type": "spacing",
+              "scope": [
+                "GAP"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
+              }
+            },
+            "md": {
+              "value": "{spacing.sm}px",
+              "type": "spacing",
+              "scope": [
+                "GAP"
+              ],
+              "$extensions": {
+                "tokens-studio": {
+                  "mode": "mode 1"
+                }
               }
             }
           }
@@ -4504,26 +4358,54 @@
       },
       "padding": {
         "inline": {
-          "value": "{spacing.sm}px",
-          "type": "spacing",
-          "scope": [
-            "GAP"
-          ],
-          "$extensions": {
-            "tokens-studio": {
-              "mode": "mode 1"
+          "lg": {
+            "value": "{spacing.sm}px",
+            "type": "spacing",
+            "scope": [
+              "GAP"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
+          },
+          "md": {
+            "value": "{spacing.sm}px",
+            "type": "spacing",
+            "scope": [
+              "GAP"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
             }
           }
         },
         "block": {
-          "value": "{spacing.sm}px",
-          "type": "spacing",
-          "scope": [
-            "GAP"
-          ],
-          "$extensions": {
-            "tokens-studio": {
-              "mode": "mode 1"
+          "lg": {
+            "value": "{spacing.sm}px",
+            "type": "spacing",
+            "scope": [
+              "GAP"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
+          },
+          "md": {
+            "value": "{spacing.sm}px",
+            "type": "spacing",
+            "scope": [
+              "GAP"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
             }
           }
         }
