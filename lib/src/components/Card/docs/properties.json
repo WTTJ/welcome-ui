@@ -1,4 +1,63 @@
 {
+  "Card.Body": {
+    "props": {
+      "metadata": {
+        "defaultValue": null,
+        "description": "",
+        "name": "metadata",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Card/types.ts",
+          "name": "BodyOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Card/types.ts",
+            "name": "BodyOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "ReactNode",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            },
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            },
+            {
+              "value": "ReactElement<any, string | JSXElementConstructor<any>>",
+              "description": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.",
+              "fullComment": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.\n@template P The type of the props object\n@template T The type of the component or tag\n@example ```tsx\nconst element: ReactElement = <div />;\n```",
+              "tags": {
+                "template": "P The type of the props object\nT The type of the component or tag",
+                "example": "```tsx\nconst element: ReactElement = <div />;\n```"
+              }
+            },
+            {
+              "value": "Iterable<ReactNode>",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            },
+            {
+              "value": "ReactPortal",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
+        }
+      }
+    }
+  },
   "Card.Cover": {
     "props": {
       "alt": {
@@ -37,6 +96,882 @@
         "required": true,
         "type": {
           "name": "string"
+        }
+      }
+    }
+  },
+  "Card.Header": {
+    "props": {
+      "icon": {
+        "defaultValue": null,
+        "description": "",
+        "name": "icon",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Card/types.ts",
+          "name": "HeaderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Card/types.ts",
+            "name": "HeaderOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"symbol\" | \"link\" | \"map\" | \"search\" | \"video\" | \"filter\" | \"image\" | \"asterisk\" | \"info-circle\" | \"chart-line\" | \"plus\" | \"archive-alt\" | \"arrows-merge-v\" | \"arrows-shrink-v\" | ... 230 more ... | \"ban\"",
+          "value": [
+            {
+              "value": "\"symbol\""
+            },
+            {
+              "value": "\"link\""
+            },
+            {
+              "value": "\"map\""
+            },
+            {
+              "value": "\"search\""
+            },
+            {
+              "value": "\"video\""
+            },
+            {
+              "value": "\"filter\""
+            },
+            {
+              "value": "\"image\""
+            },
+            {
+              "value": "\"asterisk\""
+            },
+            {
+              "value": "\"info-circle\""
+            },
+            {
+              "value": "\"chart-line\""
+            },
+            {
+              "value": "\"plus\""
+            },
+            {
+              "value": "\"archive-alt\""
+            },
+            {
+              "value": "\"arrows-merge-v\""
+            },
+            {
+              "value": "\"arrows-shrink-v\""
+            },
+            {
+              "value": "\"apps\""
+            },
+            {
+              "value": "\"user-check\""
+            },
+            {
+              "value": "\"user-plus\""
+            },
+            {
+              "value": "\"user-times\""
+            },
+            {
+              "value": "\"check\""
+            },
+            {
+              "value": "\"times\""
+            },
+            {
+              "value": "\"trash\""
+            },
+            {
+              "value": "\"import\""
+            },
+            {
+              "value": "\"upload\""
+            },
+            {
+              "value": "\"draggable-dots\""
+            },
+            {
+              "value": "\"copy\""
+            },
+            {
+              "value": "\"pen\""
+            },
+            {
+              "value": "\"left-arrow-from-left\""
+            },
+            {
+              "value": "\"arrow-from-right\""
+            },
+            {
+              "value": "\"resize-handle\""
+            },
+            {
+              "value": "\"arrow-resize-diagonal\""
+            },
+            {
+              "value": "\"external-link-alt\""
+            },
+            {
+              "value": "\"heart-solid\""
+            },
+            {
+              "value": "\"heart\""
+            },
+            {
+              "value": "\"eye\""
+            },
+            {
+              "value": "\"eye-slash\""
+            },
+            {
+              "value": "\"sign-out-alt\""
+            },
+            {
+              "value": "\"bars\""
+            },
+            {
+              "value": "\"ellipsis-v\""
+            },
+            {
+              "value": "\"ellipsis-h\""
+            },
+            {
+              "value": "\"move-arrow\""
+            },
+            {
+              "value": "\"bell\""
+            },
+            {
+              "value": "\"print\""
+            },
+            {
+              "value": "\"bolt-alt\""
+            },
+            {
+              "value": "\"redo\""
+            },
+            {
+              "value": "\"save\""
+            },
+            {
+              "value": "\"setting\""
+            },
+            {
+              "value": "\"share-alt\""
+            },
+            {
+              "value": "\"share\""
+            },
+            {
+              "value": "\"angle-left-b\""
+            },
+            {
+              "value": "\"angle-right-b\""
+            },
+            {
+              "value": "\"angle-up\""
+            },
+            {
+              "value": "\"angle-down\""
+            },
+            {
+              "value": "\"arrow-left\""
+            },
+            {
+              "value": "\"arrow-right\""
+            },
+            {
+              "value": "\"arrow-up\""
+            },
+            {
+              "value": "\"arrow-down\""
+            },
+            {
+              "value": "\"left-arrow-to-left\""
+            },
+            {
+              "value": "\"arrow-to-right\""
+            },
+            {
+              "value": "\"top-arrow-to-top\""
+            },
+            {
+              "value": "\"arrow-to-bottom\""
+            },
+            {
+              "value": "\"angle-double-left\""
+            },
+            {
+              "value": "\"angle-double-right\""
+            },
+            {
+              "value": "\"angle-left\""
+            },
+            {
+              "value": "\"angle-right\""
+            },
+            {
+              "value": "\"behance\""
+            },
+            {
+              "value": "\"dribbble\""
+            },
+            {
+              "value": "\"facebook\""
+            },
+            {
+              "value": "\"github\""
+            },
+            {
+              "value": "\"google\""
+            },
+            {
+              "value": "\"instagram\""
+            },
+            {
+              "value": "\"linkedin\""
+            },
+            {
+              "value": "\"npm\""
+            },
+            {
+              "value": "\"pinterest\""
+            },
+            {
+              "value": "\"slack\""
+            },
+            {
+              "value": "\"stackoverflow\""
+            },
+            {
+              "value": "\"tiktok\""
+            },
+            {
+              "value": "\"twitch\""
+            },
+            {
+              "value": "\"x\""
+            },
+            {
+              "value": "\"xing\""
+            },
+            {
+              "value": "\"youtube\""
+            },
+            {
+              "value": "\"zapier\""
+            },
+            {
+              "value": "\"folder\""
+            },
+            {
+              "value": "\"folder-open\""
+            },
+            {
+              "value": "\"folder-full\""
+            },
+            {
+              "value": "\"file\""
+            },
+            {
+              "value": "\"flag-fr\""
+            },
+            {
+              "value": "\"flag-en\""
+            },
+            {
+              "value": "\"flag-us\""
+            },
+            {
+              "value": "\"bold\""
+            },
+            {
+              "value": "\"arrow\""
+            },
+            {
+              "value": "\"brackets-curly\""
+            },
+            {
+              "value": "\"italic\""
+            },
+            {
+              "value": "\"list-ol-alt\""
+            },
+            {
+              "value": "\"list-ul\""
+            },
+            {
+              "value": "\"quote\""
+            },
+            {
+              "value": "\"text-strike-through\""
+            },
+            {
+              "value": "\"heading\""
+            },
+            {
+              "value": "\"heading-1\""
+            },
+            {
+              "value": "\"heading-2\""
+            },
+            {
+              "value": "\"heading-3\""
+            },
+            {
+              "value": "\"heading-4\""
+            },
+            {
+              "value": "\"heading-5\""
+            },
+            {
+              "value": "\"heading-6\""
+            },
+            {
+              "value": "\"font\""
+            },
+            {
+              "value": "\"underline\""
+            },
+            {
+              "value": "\"music\""
+            },
+            {
+              "value": "\"sparkles\""
+            },
+            {
+              "value": "\"rocket\""
+            },
+            {
+              "value": "\"file-alt\""
+            },
+            {
+              "value": "\"user-square\""
+            },
+            {
+              "value": "\"book-reader\""
+            },
+            {
+              "value": "\"file-question-alt\""
+            },
+            {
+              "value": "\"sad-solid\""
+            },
+            {
+              "value": "\"smile-beam-solid\""
+            },
+            {
+              "value": "\"sad\""
+            },
+            {
+              "value": "\"smile-beam\""
+            },
+            {
+              "value": "\"sign-right\""
+            },
+            {
+              "value": "\"exclamation-triangle\""
+            },
+            {
+              "value": "\"exclamation-circle\""
+            },
+            {
+              "value": "\"exclamation-octagon\""
+            },
+            {
+              "value": "\"chart-pie\""
+            },
+            {
+              "value": "\"paperclip\""
+            },
+            {
+              "value": "\"chart-bar\""
+            },
+            {
+              "value": "\"fire\""
+            },
+            {
+              "value": "\"trophy\""
+            },
+            {
+              "value": "\"bookmark-solid\""
+            },
+            {
+              "value": "\"bookmark\""
+            },
+            {
+              "value": "\"clock\""
+            },
+            {
+              "value": "\"comment-alt-lines\""
+            },
+            {
+              "value": "\"file-edit-alt\""
+            },
+            {
+              "value": "\"illustration\""
+            },
+            {
+              "value": "\"calendar\""
+            },
+            {
+              "value": "\"users-alt\""
+            },
+            {
+              "value": "\"globe\""
+            },
+            {
+              "value": "\"graduation-cap\""
+            },
+            {
+              "value": "\"envelope\""
+            },
+            {
+              "value": "\"equal-circle\""
+            },
+            {
+              "value": "\"minus\""
+            },
+            {
+              "value": "\"venus\""
+            },
+            {
+              "value": "\"mars\""
+            },
+            {
+              "value": "\"estate\""
+            },
+            {
+              "value": "\"columns\""
+            },
+            {
+              "value": "\"english-to-chinese\""
+            },
+            {
+              "value": "\"bag-alt\""
+            },
+            {
+              "value": "\"map-marker-alt\""
+            },
+            {
+              "value": "\"lock-alt\""
+            },
+            {
+              "value": "\"flag\""
+            },
+            {
+              "value": "\"at\""
+            },
+            {
+              "value": "\"user\""
+            },
+            {
+              "value": "\"user-circle\""
+            },
+            {
+              "value": "\"clipboard-check\""
+            },
+            {
+              "value": "\"building\""
+            },
+            {
+              "value": "\"compass\""
+            },
+            {
+              "value": "\"phone\""
+            },
+            {
+              "value": "\"pin\""
+            },
+            {
+              "value": "\"microphone\""
+            },
+            {
+              "value": "\"user-search\""
+            },
+            {
+              "value": "\"house-user\""
+            },
+            {
+              "value": "\"star-solid\""
+            },
+            {
+              "value": "\"star\""
+            },
+            {
+              "value": "\"coins\""
+            },
+            {
+              "value": "\"euro-circle\""
+            },
+            {
+              "value": "\"file-search-alt\""
+            },
+            {
+              "value": "\"question-circle\""
+            },
+            {
+              "value": "\"gift\""
+            },
+            {
+              "value": "\"birthday-cake\""
+            },
+            {
+              "value": "\"bunting-flags\""
+            },
+            {
+              "value": "\"tag-alt\""
+            },
+            {
+              "value": "\"tablet\""
+            },
+            {
+              "value": "\"mobile\""
+            },
+            {
+              "value": "\"plus-circle\""
+            },
+            {
+              "value": "\"check-circle\""
+            },
+            {
+              "value": "\"certified\""
+            },
+            {
+              "value": "\"plug\""
+            },
+            {
+              "value": "\"play\""
+            },
+            {
+              "value": "\"stop-circle-solid\""
+            },
+            {
+              "value": "\"pause-circle-solid\""
+            },
+            {
+              "value": "\"previous\""
+            },
+            {
+              "value": "\"step-forward\""
+            },
+            {
+              "value": "\"expand-arrows-alt\""
+            },
+            {
+              "value": "\"compress-arrows\""
+            },
+            {
+              "value": "\"screen-share\""
+            },
+            {
+              "value": "\"stop-screen-share\""
+            },
+            {
+              "value": "\"microphone-slash\""
+            },
+            {
+              "value": "\"cast\""
+            },
+            {
+              "value": "\"cast-connected\""
+            },
+            {
+              "value": "\"cast-unavailable\""
+            },
+            {
+              "value": "\"video-slash\""
+            },
+            {
+              "value": "\"airplay\""
+            },
+            {
+              "value": "\"history\""
+            },
+            {
+              "value": "\"playlist\""
+            },
+            {
+              "value": "\"volume-up\""
+            },
+            {
+              "value": "\"volume-mute\""
+            },
+            {
+              "value": "\"closed-captioning\""
+            },
+            {
+              "value": "\"wttj\""
+            },
+            {
+              "value": "\"package\""
+            },
+            {
+              "value": "\"basketball\""
+            },
+            {
+              "value": "\"book-alt\""
+            },
+            {
+              "value": "\"lightbulb-alt\""
+            },
+            {
+              "value": "\"life-ring\""
+            },
+            {
+              "value": "\"calculator-alt\""
+            },
+            {
+              "value": "\"camera\""
+            },
+            {
+              "value": "\"shopping-cart\""
+            },
+            {
+              "value": "\"clipboard-notes\""
+            },
+            {
+              "value": "\"coffee\""
+            },
+            {
+              "value": "\"ruler\""
+            },
+            {
+              "value": "\"desktop\""
+            },
+            {
+              "value": "\"hard-hat\""
+            },
+            {
+              "value": "\"credit-card\""
+            },
+            {
+              "value": "\"moon-solid\""
+            },
+            {
+              "value": "\"moon\""
+            },
+            {
+              "value": "\"crosshair\""
+            },
+            {
+              "value": "\"crown\""
+            },
+            {
+              "value": "\"restaurant\""
+            },
+            {
+              "value": "\"diamond\""
+            },
+            {
+              "value": "\"industry\""
+            },
+            {
+              "value": "\"fingerprint\""
+            },
+            {
+              "value": "\"flag-solid\""
+            },
+            {
+              "value": "\"handshake\""
+            },
+            {
+              "value": "\"hashtag\""
+            },
+            {
+              "value": "\"headphones\""
+            },
+            {
+              "value": "\"balance-scale\""
+            },
+            {
+              "value": "\"key-skeleton\""
+            },
+            {
+              "value": "\"leaf\""
+            },
+            {
+              "value": "\"masonry\""
+            },
+            {
+              "value": "\"masonry-plus\""
+            },
+            {
+              "value": "\"megaphone\""
+            },
+            {
+              "value": "\"processor\""
+            },
+            {
+              "value": "\"mountains\""
+            },
+            {
+              "value": "\"images\""
+            },
+            {
+              "value": "\"chart-pie-alt\""
+            },
+            {
+              "value": "\"pizza-slice\""
+            },
+            {
+              "value": "\"puzzle-piece-solid\""
+            },
+            {
+              "value": "\"puzzle-piece\""
+            },
+            {
+              "value": "\"shield\""
+            },
+            {
+              "value": "\"wrench\""
+            },
+            {
+              "value": "\"server\""
+            },
+            {
+              "value": "\"sun\""
+            },
+            {
+              "value": "\"hunting\""
+            },
+            {
+              "value": "\"thumbs-up\""
+            },
+            {
+              "value": "\"thumbs-down\""
+            },
+            {
+              "value": "\"trees\""
+            },
+            {
+              "value": "\"sofa\""
+            },
+            {
+              "value": "\"exit\""
+            },
+            {
+              "value": "\"ban\""
+            }
+          ]
+        }
+      },
+      "onClose": {
+        "defaultValue": null,
+        "description": "",
+        "name": "onClose",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Card/types.ts",
+          "name": "HeaderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Card/types.ts",
+            "name": "HeaderOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "() => void"
+        }
+      },
+      "size": {
+        "defaultValue": null,
+        "description": "",
+        "name": "size",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Card/types.ts",
+          "name": "HeaderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Card/types.ts",
+            "name": "HeaderOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"lg\" | \"md\" | \"sm\"",
+          "value": [
+            {
+              "value": "\"lg\""
+            },
+            {
+              "value": "\"md\""
+            },
+            {
+              "value": "\"sm\""
+            }
+          ]
+        }
+      },
+      "withCloseButton": {
+        "defaultValue": null,
+        "description": "",
+        "name": "withCloseButton",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Card/types.ts",
+          "name": "HeaderOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Card/types.ts",
+            "name": "HeaderOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "Card": {
+    "props": {
+      "size": {
+        "defaultValue": {
+          "value": "md"
+        },
+        "description": "",
+        "name": "size",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Card/types.ts",
+          "name": "CardOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Card/types.ts",
+            "name": "CardOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"lg\" | \"md\" | \"sm\"",
+          "value": [
+            {
+              "value": "\"lg\""
+            },
+            {
+              "value": "\"md\""
+            },
+            {
+              "value": "\"sm\""
+            }
+          ]
         }
       }
     }
