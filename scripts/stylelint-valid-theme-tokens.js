@@ -2,6 +2,10 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
+import stylelint from 'stylelint'
+
+const { utils } = stylelint
+
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
@@ -44,7 +48,13 @@ export const rule = () => {
           continue
         }
         if (!knownTokens.includes(token)) {
-          result.warn(messages.rejected(token), { node: decl, rule: ruleName, word: token })
+          utils.report({
+            message: messages.rejected(token),
+            node: decl,
+            result,
+            ruleName,
+            word: token,
+          })
         }
       }
     })
