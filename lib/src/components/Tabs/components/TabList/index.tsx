@@ -1,26 +1,28 @@
-import { TabList as AriakitTabList, useStoreState } from '@ariakit/react'
+import { TabList as AriakitTabList } from '@ariakit/react'
 import React, { forwardRef, useRef } from 'react'
 
 import { classNames } from '@/utils'
 import { useForkRef } from '@/utils/useForkRef'
 
 import type { TabListProps } from '../../types'
-import { useTrackActiveTabs } from '../../utils'
-import { ActiveBar } from '../ActiveBar'
 
 import styles from './tab-list.module.scss'
 
 const cx = classNames(styles)
 
 export const TabList = forwardRef<HTMLDivElement, TabListProps>(
-  ({ children, className, size = 'md', store, ...rest }, ref) => {
+  ({ children, className, size = 'lg', store, ...rest }, ref) => {
     const listRef = useRef()
     const [, listForkedRef] = useForkRef<HTMLDivElement>(ref, listRef)
 
-    const { orientation, selectedId } = useStoreState(store)
-    const { activeTab, tabs } = useTrackActiveTabs(selectedId, children)
-
-    const hasMultipleTabs = React.Children.count(children) > 1
+    const childrenWithSize = React.Children.map(children, child => {
+      if (React.isValidElement(child)) {
+        return React.cloneElement(child, {
+          size: child.props.size || size,
+        })
+      }
+      return child
+    })
 
     return (
       <AriakitTabList
@@ -29,10 +31,7 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
         store={store}
         {...rest}
       >
-        {tabs}
-        {hasMultipleTabs ? (
-          <ActiveBar activeTab={activeTab} listRef={listRef} orientation={orientation} />
-        ) : null}
+        {childrenWithSize}
       </AriakitTabList>
     )
   }
