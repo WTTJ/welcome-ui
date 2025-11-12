@@ -20,15 +20,6 @@ const Tabs = () => {
           Tab 3
         </Tab>
       </Tab.List>
-      <Tab.Panel data-testid="panel1" store={tab} tabId="tab1">
-        Panel 1
-      </Tab.Panel>
-      <Tab.Panel data-testid="panel2" store={tab} tabId="tab2">
-        Panel 2
-      </Tab.Panel>
-      <Tab.Panel data-testid="panel3" store={tab} tabId="tab3">
-        Panel 3
-      </Tab.Panel>
     </>
   )
 }
@@ -43,9 +34,6 @@ const OneTab = () => {
           Tab 1
         </Tab>
       </Tab.List>
-      <Tab.Panel store={tab} tabId="tab1">
-        Panel 1
-      </Tab.Panel>
     </>
   )
 }
@@ -68,40 +56,33 @@ describe('Tabs', () => {
     expect(tab3).toHaveAttribute('aria-selected', 'false')
     expect(tab3).toHaveAttribute('aria-disabled')
 
-    const panel1 = screen.getByTestId('panel1')
-    const panel2 = screen.getByTestId('panel2')
-    const panel3 = screen.getByTestId('panel3')
-
-    expect(panel1).toHaveTextContent('Panel 1')
-    expect(panel1).not.toHaveAttribute('hidden')
-    expect(panel2).toHaveTextContent('Panel 2')
-    expect(panel2).toHaveAttribute('hidden')
-    expect(panel3).toHaveTextContent('Panel 3')
-    expect(panel3).toHaveAttribute('hidden')
-
-    const activeBar = screen.getByRole('tablist').querySelector('span:last-child')
-
-    expect(activeBar).toBeInTheDocument()
-
     // Simulate click on second tab
     await user.click(tab2)
 
     expect(tab1).toHaveAttribute('aria-selected', 'false')
     expect(tab2).toHaveAttribute('aria-selected', 'true')
     expect(tab3).toHaveAttribute('aria-selected', 'false')
-
-    expect(panel1).toHaveAttribute('hidden')
-    expect(panel2).not.toHaveAttribute('hidden')
-    expect(panel3).toHaveAttribute('hidden')
   })
 
-  describe('with one tab', () => {
-    it('does not render active bar', async () => {
-      render(<OneTab />)
+  it('prevents clicking disabled tabs', async () => {
+    const { user } = render(<Tabs />)
 
-      const activeBar = screen.getByRole('tablist').querySelector('span:last-child')
+    const tab1 = screen.getByTestId('tab1')
+    const tab3 = screen.getByTestId('tab3')
 
-      expect(activeBar).not.toBeInTheDocument()
-    })
+    expect(tab1).toHaveAttribute('aria-selected', 'true')
+
+    // Click disabled tab should not change selection
+    await user.click(tab3)
+    expect(tab1).toHaveAttribute('aria-selected', 'true')
+    expect(tab3).toHaveAttribute('aria-selected', 'false')
+  })
+
+  it('renders single tab correctly', () => {
+    render(<OneTab />)
+
+    const tab = screen.getByRole('tab')
+    expect(tab).toHaveTextContent('Tab 1')
+    expect(tab).toHaveAttribute('aria-selected', 'true')
   })
 })

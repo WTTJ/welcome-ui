@@ -65,7 +65,7 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "boolean | \"symbol\" | \"link\" | \"map\" | \"search\" | \"video\" | \"filter\" | \"image\" | \"previous\" | \"heading\" | \"copy\" | \"asterisk\" | \"info-circle\" | \"chart-line\" | \"plus\" | \"archive-alt\" | ... 225 more ... | \"ban\"",
+          "raw": "boolean | \"symbol\" | \"link\" | \"map\" | \"search\" | \"video\" | \"filter\" | \"image\" | \"previous\" | \"heading\" | \"copy\" | \"asterisk\" | \"info-circle\" | \"chart-line\" | \"plus\" | \"archive-alt\" | ... 229 more ... | \"ban\"",
           "value": [
             {
               "value": "false"
@@ -258,6 +258,18 @@
             },
             {
               "value": "\"arrow-to-bottom\""
+            },
+            {
+              "value": "\"angle-double-left\""
+            },
+            {
+              "value": "\"angle-double-right\""
+            },
+            {
+              "value": "\"angle-left\""
+            },
+            {
+              "value": "\"angle-right\""
             },
             {
               "value": "\"behance\""
@@ -949,7 +961,7 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "boolean | \"symbol\" | \"link\" | \"map\" | \"search\" | \"video\" | \"filter\" | \"image\" | \"previous\" | \"heading\" | \"copy\" | \"asterisk\" | \"info-circle\" | \"chart-line\" | \"plus\" | \"archive-alt\" | ... 225 more ... | \"ban\"",
+          "raw": "boolean | \"symbol\" | \"link\" | \"map\" | \"search\" | \"video\" | \"filter\" | \"image\" | \"previous\" | \"heading\" | \"copy\" | \"asterisk\" | \"info-circle\" | \"chart-line\" | \"plus\" | \"archive-alt\" | ... 229 more ... | \"ban\"",
           "value": [
             {
               "value": "false"
@@ -1142,6 +1154,18 @@
             },
             {
               "value": "\"arrow-to-bottom\""
+            },
+            {
+              "value": "\"angle-double-left\""
+            },
+            {
+              "value": "\"angle-double-right\""
+            },
+            {
+              "value": "\"angle-left\""
+            },
+            {
+              "value": "\"angle-right\""
             },
             {
               "value": "\"behance\""
@@ -1791,7 +1815,7 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "boolean | \"symbol\" | \"link\" | \"map\" | \"search\" | \"video\" | \"filter\" | \"image\" | \"previous\" | \"heading\" | \"copy\" | \"asterisk\" | \"info-circle\" | \"chart-line\" | \"plus\" | \"archive-alt\" | ... 225 more ... | \"ban\"",
+          "raw": "boolean | \"symbol\" | \"link\" | \"map\" | \"search\" | \"video\" | \"filter\" | \"image\" | \"previous\" | \"heading\" | \"copy\" | \"asterisk\" | \"info-circle\" | \"chart-line\" | \"plus\" | \"archive-alt\" | ... 229 more ... | \"ban\"",
           "value": [
             {
               "value": "false"
@@ -1984,6 +2008,18 @@
             },
             {
               "value": "\"arrow-to-bottom\""
+            },
+            {
+              "value": "\"angle-double-left\""
+            },
+            {
+              "value": "\"angle-double-right\""
+            },
+            {
+              "value": "\"angle-left\""
+            },
+            {
+              "value": "\"angle-right\""
             },
             {
               "value": "\"behance\""
