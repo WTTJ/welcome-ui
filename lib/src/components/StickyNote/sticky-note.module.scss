@@ -1,0 +1,157 @@
+@layer components {
+  .root {
+    transform: rotate3d(0, 0, 1, 0.3deg);
+
+    /* VARIABLES FROM THEME - DO NOT CHANGE */
+    border-color: var(--components-colors-sticky-note-color-border-default);
+    border-style: solid;
+    border-width: var(--border-width-xs);
+    border-radius: var(--components-dimensions-sticky-note-border-radius);
+    padding: var(--spacing-3xl) var(--spacing-xl) var(--spacing-xl) var(--spacing-xl);
+    box-shadow: var(--elevation-30);
+
+    /* VARIABLES FROM COMPONENT - CHANGE WITH REACT PROPS */
+    width: var(--StickyNoteWidth);
+    height: var(--StickyNoteHeight);
+    background-color: var(--StickyNoteBackgroundColor);
+    color: var(--StickyNoteColor);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--spacing-xxl);
+      background-color: rgba(0, 0, 0, 0.02);
+    }
+  }
+
+  .shape {
+    &-rectangle {
+      --StickyNoteWidth: var(--components-dimensions-sticky-note-size-width-rectangle);
+      --StickyNoteHeight: var(--components-dimensions-sticky-note-size-height-rectangle);
+    }
+    &-square {
+      --StickyNoteWidth: var(--components-dimensions-sticky-note-size-width-square);
+      --StickyNoteHeight: var(--components-dimensions-sticky-note-size-height-square);
+    }
+  }
+
+  .variant {
+    &-brand {
+      --StickyNoteBackgroundColor: var(--components-colors-sticky-note-color-background-brand);
+      --StickyNoteColor: var(--components-colors-sticky-note-color-text-body-brand);
+
+      .title-icon {
+        --StickyNoteTitleIconColor: var(--components-colors-sticky-note-icon-color-icon-brand);
+        --StickyNoteTitleIconBackgroundColor: var(
+          --components-colors-sticky-note-icon-color-background-brand
+        );
+      }
+    }
+    &-blue {
+      --StickyNoteBackgroundColor: var(--components-colors-sticky-note-color-background-blue);
+      --StickyNoteColor: var(--components-colors-sticky-note-color-text-body-blue);
+
+      .title-icon {
+        --StickyNoteTitleIconColor: var(--components-colors-sticky-note-icon-color-icon-blue);
+        --StickyNoteTitleIconBackgroundColor: var(
+          --components-colors-sticky-note-icon-color-background-blue
+        );
+      }
+    }
+    &-green {
+      --StickyNoteBackgroundColor: var(--components-colors-sticky-note-color-background-green);
+      --StickyNoteColor: var(--components-colors-sticky-note-color-text-body-green);
+
+      .title-icon {
+        --StickyNoteTitleIconColor: var(--components-colors-sticky-note-icon-color-icon-green);
+        --StickyNoteTitleIconBackgroundColor: var(
+          --components-colors-sticky-note-icon-color-background-green
+        );
+      }
+    }
+    &-violet {
+      --StickyNoteBackgroundColor: var(--components-colors-sticky-note-color-background-violet);
+      --StickyNoteColor: var(--components-colors-sticky-note-color-text-body-violet);
+
+      .title-icon {
+        --StickyNoteTitleIconColor: var(--components-colors-sticky-note-icon-color-icon-violet);
+        --StickyNoteTitleIconBackgroundColor: var(
+          --components-colors-sticky-note-icon-color-background-violet
+        );
+      }
+    }
+    &-pink {
+      --StickyNoteBackgroundColor: var(--components-colors-sticky-note-color-background-pink);
+      --StickyNoteColor: var(--components-colors-sticky-note-color-text-body-pink);
+
+      .title-icon {
+        --StickyNoteTitleIconColor: var(--components-colors-sticky-note-icon-color-icon-pink);
+        --StickyNoteTitleIconBackgroundColor: var(
+          --components-colors-sticky-note-icon-color-background-pink
+        );
+      }
+    }
+    &-orange {
+      --StickyNoteBackgroundColor: var(--components-colors-sticky-note-color-background-orange);
+      --StickyNoteColor: var(--components-colors-sticky-note-color-text-body-orange);
+
+      .title-icon {
+        --StickyNoteTitleIconColor: var(--components-colors-sticky-note-icon-color-icon-orange);
+        --StickyNoteTitleIconBackgroundColor: var(
+          --components-colors-sticky-note-icon-color-background-orange
+        );
+      }
+    }
+    &-teal {
+      --StickyNoteBackgroundColor: var(--components-colors-sticky-note-color-background-teal);
+      --StickyNoteColor: var(--components-colors-sticky-note-color-text-body-teal);
+
+      .title-icon {
+        --StickyNoteTitleIconColor: var(--components-colors-sticky-note-icon-color-icon-teal);
+        --StickyNoteTitleIconBackgroundColor: var(
+          --components-colors-sticky-note-icon-color-background-teal
+        );
+      }
+    }
+  }
+
+  .close-button {
+    position: absolute;
+    transform: rotate3d(0, 0, 1, -0.3deg);
+    right: var(--spacing-xs);
+    top: var(--spacing-xs);
+  }
+
+  .content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: var(--components-dimensions-sticky-note-gap-content);
+    transform: rotate3d(0, 0, 1, -0.3deg);
+    font-size: var(--font-size-md);
+    line-height: var(--font-line-height-md);
+  }
+
+  .title {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+  }
+
+  .title-icon {
+    flex-shrink: 0;
+    padding: var(--components-dimensions-sticky-note-icon-padding-block);
+    border-radius: var(--components-dimensions-sticky-note-icon-border-radius);
+    color: var(--StickyNoteTitleIconColor);
+    background-color: var(--StickyNoteTitleIconBackgroundColor);
+  }
+
+  .action {
+    margin-top: auto;
+    width: fit-content;
+  }
+}
