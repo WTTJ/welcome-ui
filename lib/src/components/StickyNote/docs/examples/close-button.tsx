@@ -1,4 +1,4 @@
-import { StickyNotes } from '@/components/StickyNotes'
+import { StickyNote } from '@/components/StickyNote'
 
 const Example = () => {
   const handleClose = () => {
@@ -6,10 +6,10 @@ const Example = () => {
   }
 
   return (
-    <StickyNotes handleClose={handleClose}>
-      <StickyNotes.Title>Title</StickyNotes.Title>
+    <StickyNote handleClose={handleClose}>
+      <StickyNote.Title>Title</StickyNote.Title>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    </StickyNotes>
+    </StickyNote>
   )
 }
 

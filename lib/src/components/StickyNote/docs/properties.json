@@ -1,18 +1,18 @@
 {
-  "StickyNotes": {
+  "StickyNote": {
     "props": {
       "handleClose": {
         "defaultValue": null,
         "description": "",
         "name": "handleClose",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/StickyNotes/types.ts",
-          "name": "StickyNotesOptions"
+          "fileName": "welcome-ui/lib/src/components/StickyNote/types.ts",
+          "name": "StickyNoteOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/StickyNotes/types.ts",
-            "name": "StickyNotesOptions"
+            "fileName": "welcome-ui/lib/src/components/StickyNote/types.ts",
+            "name": "StickyNoteOptions"
           }
         ],
         "required": false,
@@ -27,13 +27,13 @@
         "description": "",
         "name": "shape",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/StickyNotes/types.ts",
-          "name": "StickyNotesOptions"
+          "fileName": "welcome-ui/lib/src/components/StickyNote/types.ts",
+          "name": "StickyNoteOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/StickyNotes/types.ts",
-            "name": "StickyNotesOptions"
+            "fileName": "welcome-ui/lib/src/components/StickyNote/types.ts",
+            "name": "StickyNoteOptions"
           }
         ],
         "required": false,
@@ -57,19 +57,19 @@
         "description": "",
         "name": "variant",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/StickyNotes/types.ts",
-          "name": "StickyNotesOptions"
+          "fileName": "welcome-ui/lib/src/components/StickyNote/types.ts",
+          "name": "StickyNoteOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/StickyNotes/types.ts",
-            "name": "StickyNotesOptions"
+            "fileName": "welcome-ui/lib/src/components/StickyNote/types.ts",
+            "name": "StickyNoteOptions"
           }
         ],
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "Variant",
+          "raw": "\"blue\" | \"brand\" | \"green\" | \"orange\" | \"pink\" | \"teal\" | \"violet\"",
           "value": [
             {
               "value": "\"blue\""

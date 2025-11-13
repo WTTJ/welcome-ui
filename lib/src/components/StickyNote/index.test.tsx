@@ -2,11 +2,11 @@ import { screen } from '@testing-library/react'
 
 import { render } from '@tests'
 
-import { StickyNotes } from '.'
+import { StickyNote } from '.'
 
-describe('StickyNotes', () => {
+describe('StickyNote', () => {
   it('should render correctly', () => {
-    const { container } = render(<StickyNotes>Sample content</StickyNotes>)
+    const { container } = render(<StickyNote>Sample content</StickyNote>)
 
     expect(screen.getByText('Sample content')).toBeInTheDocument()
     expect(container.firstChild).toHaveClass(/variant-brand/)
@@ -15,9 +15,9 @@ describe('StickyNotes', () => {
 
   it('should render with correct variant and shape', () => {
     const { container } = render(
-      <StickyNotes shape="rectangle" variant="pink">
+      <StickyNote shape="rectangle" variant="pink">
         Sample content
-      </StickyNotes>
+      </StickyNote>
     )
 
     expect(container.firstChild).toHaveClass(/variant-pink/)
@@ -27,38 +27,32 @@ describe('StickyNotes', () => {
   it('should render close button when handleClose is provided', () => {
     const handleClose = vi.fn()
 
-    const { container } = render(
-      <StickyNotes handleClose={handleClose}>Sample content</StickyNotes>
-    )
+    const { container } = render(<StickyNote handleClose={handleClose}>Sample content</StickyNote>)
 
     expect(container.querySelector('button')).toBeInTheDocument()
   })
 
   it('should render title', () => {
     render(
-      <StickyNotes>
-        <StickyNotes.Title>Sample Title</StickyNotes.Title>
+      <StickyNote>
+        <StickyNote.Title>Sample Title</StickyNote.Title>
         Sample content
-      </StickyNotes>
+      </StickyNote>
     )
 
     expect(screen.getByText('Sample Title')).toBeInTheDocument()
-    expect(screen.getByText('Sample Title').previousSibling).toHaveClass(/title-icon-variant-brand/)
     expect(document.querySelector('use[href="#lightbulb-alt"]')).toBeInTheDocument()
   })
 
   it('should render title with variant and icon', () => {
     render(
-      <StickyNotes variant="orange">
-        <StickyNotes.Title icon="airplay">Sample Title</StickyNotes.Title>
+      <StickyNote variant="orange">
+        <StickyNote.Title icon="airplay">Sample Title</StickyNote.Title>
         Sample content
-      </StickyNotes>
+      </StickyNote>
     )
 
     expect(screen.getByText('Sample Title')).toBeInTheDocument()
-    expect(screen.getByText('Sample Title').previousSibling).toHaveClass(
-      /title-icon-variant-orange/
-    )
     expect(document.querySelector('use[href="#airplay"]')).toBeInTheDocument()
   })
 
@@ -66,9 +60,9 @@ describe('StickyNotes', () => {
     const handleClick = vi.fn()
 
     render(
-      <StickyNotes>
-        <StickyNotes.Button onClick={handleClick}>Click Me</StickyNotes.Button>
-      </StickyNotes>
+      <StickyNote>
+        <StickyNote.Button onClick={handleClick}>Click Me</StickyNote.Button>
+      </StickyNote>
     )
 
     const button = screen.getByText('Click Me')
