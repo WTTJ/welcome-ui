@@ -70,7 +70,7 @@
     "@types/node": "22.14.0",
     "@types/react": "18.3.12",
     "@types/react-dom": "18.3.1",
-    "@typescript-eslint/utils": "^8.46.2",
+    "@typescript-eslint/utils": "^8.46.3",
     "@vusion/webfonts-generator": "^0.8.0",
     "autoprefixer": "^10.4.21",
     "aws-sdk": "^2.1691.0",
