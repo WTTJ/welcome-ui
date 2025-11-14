@@ -65,6 +65,8 @@ export const actions = [
   'share',
 ] as const
 
+export const chat = ['chat', 'chat-bubble-user', 'comment', 'comment-alt-lines']
+
 export const miscellaneous = [
   'music',
   'sparkles',
@@ -282,6 +284,7 @@ export const icons = [
   ...actions,
   ...arrows,
   ...brands,
+  ...chat,
   ...foldersAndFiles,
   ...flags,
   ...markdown,
