@@ -9,13 +9,18 @@ import type { TextareaProps } from './types'
 const cx = classNames(textareaStyles)
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({ className, minRows = 5, variant, ...rest }, ref) => {
+  ({ className, isAdaptative = false, minRows = 5, variant, ...rest }, ref) => {
     const { getInputProps, variant: fieldVariant } = useField()
     const _variant = fieldVariant || variant
 
     return (
       <textarea
-        className={cx('root', _variant && `variant-${_variant}`, className)}
+        className={cx(
+          'root',
+          _variant && `variant-${_variant}`,
+          isAdaptative && 'adaptative',
+          className
+        )}
         ref={ref}
         rows={minRows}
         {...getInputProps(rest)}

@@ -61,10 +61,14 @@ We removed the `size` prop values `xl` and `xxl`. The new available sizes are:
 
 ### Tag
 
-- The `lg` size (old `md`) is now the default size. The `md` size replaces the old `sm` size. Available sizes are now `md` and `lg` (default). 
+- The `lg` size (old `md`) is now the default size. The `md` size replaces the old `sm` size. Available sizes are now `md` and `lg` (default).
 - The `warm` variant is now the default, replacing the old `beige` variant.
 - The `brand` variant replaces the old `primary` variant.
 - New variants include `dash`, `teal`, `violet`, and `pink`, while existing variants have been renamed: `green` (old `success`), `blue` (old `information`), `orange` (old `warning`), and `red` (old `danger`).
+
+### TextArea
+
+New variant `isAdaptative` to make the textarea adapt its height to the content.
 
 ### Toggle
 
@@ -93,13 +97,11 @@ You cannot remove the icon.
 
 ### DropdownMenu
 
-The `dataTestId` prop has been renamed to `data-testid` to align with standard React testing practices.
-The `innerProps` has been removed.
+The `dataTestId` prop has been renamed to `data-testid` to align with standard React testing practices. The `innerProps` has been removed.
 
 ### Card
 
-Introduce new `size` prop to control padding/font-size and overall size of the Card: `sm`, `md` (default) and `lg`.
-Cards can be composed of a `Card.Header` and/or a `Card.Footer` component.
+Introduce new `size` prop to control padding/font-size and overall size of the Card: `sm`, `md` (default) and `lg`. Cards can be composed of a `Card.Header` and/or a `Card.Footer` component.
 
 #### Card.Header
 

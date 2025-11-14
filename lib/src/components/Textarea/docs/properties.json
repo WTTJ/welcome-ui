@@ -1,6 +1,36 @@
 {
   "Textarea": {
     "props": {
+      "isAdaptative": {
+        "defaultValue": {
+          "value": false
+        },
+        "description": "",
+        "name": "isAdaptative",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Textarea/types.ts",
+          "name": "TextareaOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Textarea/types.ts",
+            "name": "TextareaOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
       "minRows": {
         "defaultValue": {
           "value": 5
