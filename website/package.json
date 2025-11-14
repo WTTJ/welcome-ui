@@ -8,7 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@docsearch/react": "^3.9.0",
+    "@docsearch/react": "^4.3.2",
     "@stackblitz/sdk": "^1.11.0",
     "@types/lodash": "4.17.20",
     "gray-matter": "4.0.3",
