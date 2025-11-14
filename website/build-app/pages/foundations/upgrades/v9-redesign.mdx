@@ -89,6 +89,15 @@ You cannot remove the icon.
 The `dataTestId` prop has been renamed to `data-testid` to align with standard React testing practices.
 The `innerProps` has been removed.
 
+### Card
+
+Introduce new `size` prop to control padding/font-size and overall size of the Card: `sm`, `md` (default) and `lg`.
+Cards are interactive (clickable and selectable) when `onClick` prop is provided, unless `disabled` is true.
+Cards can be composed of a `Card.Header` and/or a `Card.Footer` component.
+
+#### Card.Header
+
+Automatically adds a `close` button on the top right corner when `onClose` prop is provided.
 
 ## Utils
 

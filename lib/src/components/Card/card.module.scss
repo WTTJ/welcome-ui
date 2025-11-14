@@ -7,27 +7,55 @@
     background-size: cover;
     background-position: center;
     background-color: var(--components-colors-card-color-background-default);
-    border-color: var(--components-colors-card-color-border-default);
+    border-color: var(--borderColorCard, var(--components-colors-card-color-border-default));
     border-style: solid;
     border-width: var(--border-width-xs);
-    box-shadow: var(--elevation-10);
+    outline: transparent solid var(--border-width-md);
+    box-shadow: var(--boxShadowCard, var(--elevation-10));
     overflow: hidden;
     position: relative;
-    transition-property: box-shadow, border-color;
+    transition-property: all;
     transition-duration: var(--duration-medium);
     transition-timing-function: ease-in-out;
 
-    &:hover {
-      box-shadow: var(--elevation-20);
-      border-color: var(--components-colors-card-color-border-hover);
+    &:hover:not([aria-disabled]):not(:disabled) {
+      --borderColorCard: var(--components-colors-card-color-border-hover);
+      --boxShadowCard: var(--elevation-20);
+      --colorIconHeader: var(--components-colors-card-color-icon-hover);
+    }
 
-      .header {
-        // Icon
-        & :global(i.wui-icon-font),
-        & > svg {
-          color: var(--components-colors-card-color-icon-hover);
+    // When interactive, treat card as a button
+    &.interactive {
+      cursor: pointer;
+
+      &[aria-disabled],
+      &:disabled {
+        cursor: not-allowed;
+      }
+
+      &[data-active],
+      &:active {
+        --boxShadowCard: var(--elevation-30);
+      }
+
+      &[data-focus-visible],
+      &:focus-visible {
+        outline-width: var(--components-dimensions-button-border-width-focused);
+        outline-color: var(--components-colors-button-color-border-focused);
+        --borderColorCard: transparent;
+        --boxShadowCard: var(--elevation-30);
+
+        &[data-active],
+        &:active {
+          --boxShadowCard: var(--elevation-40);
         }
       }
+    }
+
+    &[aria-disabled],
+    &:disabled {
+      --colorCard: var(--components-colors-button-color-text-tertiary-main-disabled);
+      --colorIconHeader: var(--colorCard);
     }
   }
 
@@ -41,7 +69,7 @@
     font-weight: var(--font-weight-bold);
     font-size: var(--fontSizeHeader);
     line-height: var(--fontLineHeightHeader);
-    color: var(--components-colors-card-header-color-text-default);
+    color: var(--colorCard, var(--components-colors-card-header-color-text-default));
     padding: var(--paddingBlock) var(--paddingInline) 0;
     display: flex;
     flex-direction: row;
@@ -49,18 +77,19 @@
     gap: var(--components-dimensions-card-gap-title);
 
     &:has(.close) {
-      padding-right: calc(var(--iconSizeHeader) + var(--paddingInlineClose));
+      padding-right: calc(var(--sizeIconHeader) + var(--paddingInlineClose));
     }
 
     // Icon
     & :global(i.wui-icon-font),
-    & > svg {
+    & svg {
       flex-shrink: 0;
-      color: var(--components-colors-card-header-color-icon-default);
+      color: var(--colorIconHeader, var(--components-colors-card-header-color-icon-default));
       font-weight: initial;
-      width: var(--iconSizeHeader);
-      height: var(--iconSizeHeader);
-      font-size: var(--iconSizeHeader);
+      font-size: var(--sizeIconHeader);
+      width: var(--sizeIconHeader);
+      height: var(--sizeIconHeader);
+      transition: color var(--duration-medium) ease-in-out;
     }
 
     // Close button
@@ -68,18 +97,14 @@
       position: absolute;
       right: var(--paddingInlineClose);
       top: var(--paddingBlockClose);
+      height: auto;
       padding-inline: 0 !important;
 
       & > svg {
-        flex-shrink: 0;
         color: var(--components-colors-card-action-dismiss-icon-default);
-        font-weight: initial;
-        width: var(--iconSizeHeader);
-        height: var(--iconSizeHeader);
-        font-size: var(--iconSizeHeader);
       }
 
-      &:hover > svg {
+      &:hover:not([aria-disabled]):not(:disabled) > svg {
         color: var(--components-colors-card-action-dismiss-icon-hover);
       }
     }
@@ -92,7 +117,7 @@
   .body {
     font-size: var(--fontSizeBody);
     line-height: var(--fontLineHeightBody);
-    color: var(--components-colors-card-body-color-text-default);
+    color: var(--colorCard, var(--components-colors-card-body-color-text-default));
     padding: var(--paddingBlock) var(--paddingInline);
     display: flex;
     flex-direction: column;
@@ -101,7 +126,7 @@
     .metadata {
       font-size: var(--fontSizeMetadata);
       line-height: var(--fontLineHeightMetadata);
-      color: var(--components-colors-card-body-meta-color-text-default);
+      color: var(--colorCard, var(--components-colors-card-body-meta-color-text-default));
     }
   }
 
@@ -112,7 +137,7 @@
   .footer {
     font-size: var(--fontSizeBody);
     line-height: var(--fontLineHeightBody);
-    color: var(--components-colors-card-body-color-text-default);
+    color: var(--colorCard, var(--components-colors-card-body-color-text-default));
     padding: 0 var(--paddingBlock) var(--paddingInline);
     display: flex;
     flex-direction: row;
@@ -131,7 +156,7 @@
       --paddingInline: var(--components-dimensions-card-padding-inline-sm);
 
       // Header
-      --iconSizeHeader: var(--components-dimensions-card-action-dismiss-size-icon-sm);
+      --sizeIconHeader: var(--components-dimensions-card-action-dismiss-size-icon-sm);
       --fontSizeHeader: var(--font-size-lg);
       --fontLineHeightHeader: var(--font-line-height-xs);
       --paddingBlockClose: var(--components-dimensions-card-action-dismiss-padding-block-start-sm);
@@ -151,7 +176,7 @@
       --paddingInline: var(--components-dimensions-card-padding-inline-md);
 
       // Header
-      --iconSizeHeader: var(--components-dimensions-card-action-dismiss-size-icon-md);
+      --sizeIconHeader: var(--components-dimensions-card-action-dismiss-size-icon-md);
       --fontSizeHeader: var(--font-size-2xl);
       --fontLineHeightHeader: var(--font-line-height-xs);
       --paddingBlockClose: var(--components-dimensions-card-action-dismiss-padding-block-start-md);
@@ -171,7 +196,7 @@
       --paddingInline: var(--components-dimensions-card-padding-inline-lg);
 
       // Header
-      --iconSizeHeader: var(--components-dimensions-card-action-dismiss-size-icon-lg);
+      --sizeIconHeader: var(--components-dimensions-card-action-dismiss-size-icon-lg);
       --fontSizeHeader: var(--font-size-2xl);
       --fontLineHeightHeader: var(--font-line-height-xs);
       --paddingBlockClose: var(--components-dimensions-card-action-dismiss-padding-block-start-lg);
