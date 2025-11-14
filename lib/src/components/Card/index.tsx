@@ -1,11 +1,4 @@
-import React, {
-  createElement,
-  type KeyboardEvent,
-  type MouseEvent,
-  type Ref,
-  useRef,
-  useState,
-} from 'react'
+import React, { type KeyboardEvent, type MouseEvent, type Ref, useState } from 'react'
 
 import { Body } from '@/components/Card/Body'
 import { Cover } from '@/components/Card/Cover'
@@ -19,28 +12,26 @@ import type { CardProps } from './types'
 const cx = classNames(cardStyles)
 
 export const CardComponent = forwardRefWithAs<CardProps, 'div'>(
-  ({ as = 'div', children, className, disabled, onClick, size = 'md', ...props }, parentRef) => {
-    const internalRef = useRef<HTMLDivElement | null>(null)
-    const ref = parentRef || internalRef
-
+  ({ as = 'div', children, className, disabled, onClick, size = 'md', ...props }, ref) => {
     const isLink = 'href' in props || 'to' in props
+    const internalRef = React.useRef<HTMLDivElement | null>(null)
     const { interactive, ...interactivityProps } = useInteractivity({
       disabled,
       isLink,
       onClick,
-      ref,
+      ref: ref || internalRef,
     })
 
-    const childProps = {
-      ...props,
-      ...interactivityProps,
-      children,
-      className: cx('root', `size-${size}`, interactive && 'interactive', className),
-      ref,
-    }
-
-    const Element = as
-    return typeof as === 'string' ? createElement(as, childProps) : <Element {...childProps} />
+    return React.createElement(
+      as,
+      {
+        ...props,
+        ...interactivityProps,
+        className: cx('root', `size-${size}`, interactive && 'interactive', className),
+        ref: ref || internalRef,
+      },
+      children
+    )
   }
 )
 
