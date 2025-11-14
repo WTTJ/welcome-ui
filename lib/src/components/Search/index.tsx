@@ -191,73 +191,76 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
                 </div>
               </div>
               {isShowMenu ? (
-                <ul className={cx('menu')} {...getMenuProps()}>
-                  {
-                    (results as SearchOptionGroup[]).reduce(
-                      (acc, result, resultIndex) => {
-                        const index = acc.itemIndex++
-                        const isHighlighted = highlightedIndex === index
+                <div className={cx('menu')}>
+                  {/* We added a scroller div to handle scrollbar + border-radius from the parent container */}
+                  <ul className={cx('menu-scroller')} {...getMenuProps()}>
+                    {
+                      (results as SearchOptionGroup[]).reduce(
+                        (acc, result, resultIndex) => {
+                          const index = acc.itemIndex++
+                          const isHighlighted = highlightedIndex === index
 
-                        if (groupsEnabled) {
-                          acc.itemsToRender.push(
-                            <Fragment key={resultIndex}>
-                              {renderGroupHeader(result as SearchOptionGroup)}
-                              {(result as SearchOptionGroup).options
-                                ? (result as SearchOptionGroup).options.map(
-                                    (option, optionIndex) => {
-                                      const isItemSelected =
-                                        selectedItem &&
-                                        itemToString(selectedItem) === itemToString(option)
+                          if (groupsEnabled) {
+                            acc.itemsToRender.push(
+                              <Fragment key={resultIndex}>
+                                {renderGroupHeader(result as SearchOptionGroup)}
+                                {(result as SearchOptionGroup).options
+                                  ? (result as SearchOptionGroup).options.map(
+                                      (option, optionIndex) => {
+                                        const isItemSelected =
+                                          selectedItem &&
+                                          itemToString(selectedItem) === itemToString(option)
 
-                                      return (
-                                        <li
-                                          className={cx(
-                                            'item',
-                                            isHighlighted && 'highlighted',
-                                            isItemSelected && 'selected'
-                                          )}
-                                          key={optionIndex}
-                                          {...getItemProps({
-                                            index,
-                                            item: option,
-                                          })}
-                                        >
-                                          {renderItem(option)}
-                                        </li>
-                                      )
-                                    }
-                                  )
-                                : null}
-                            </Fragment>
-                          )
-                        } else {
-                          const isItemSelected =
-                            selectedItem && itemToString(selectedItem) === itemToString(result)
+                                        return (
+                                          <li
+                                            className={cx(
+                                              'item',
+                                              isHighlighted && 'highlighted',
+                                              isItemSelected && 'selected'
+                                            )}
+                                            key={optionIndex}
+                                            {...getItemProps({
+                                              index,
+                                              item: option,
+                                            })}
+                                          >
+                                            {renderItem(option)}
+                                          </li>
+                                        )
+                                      }
+                                    )
+                                  : null}
+                              </Fragment>
+                            )
+                          } else {
+                            const isItemSelected =
+                              selectedItem && itemToString(selectedItem) === itemToString(result)
 
-                          acc.itemsToRender.push(
-                            <li
-                              className={cx(
-                                'item',
-                                isHighlighted && 'highlighted',
-                                isItemSelected && 'selected'
-                              )}
-                              key={resultIndex}
-                              {...getItemProps({
-                                index: resultIndex,
-                                item: result,
-                              })}
-                            >
-                              {renderItem(result)}
-                            </li>
-                          )
-                        }
+                            acc.itemsToRender.push(
+                              <li
+                                className={cx(
+                                  'item',
+                                  isHighlighted && 'highlighted',
+                                  isItemSelected && 'selected'
+                                )}
+                                key={resultIndex}
+                                {...getItemProps({
+                                  index: resultIndex,
+                                  item: result,
+                                })}
+                              >
+                                {renderItem(result)}
+                              </li>
+                            )
+                          }
 
-                        return acc
-                      },
-                      { itemIndex: 0, itemsToRender: [] }
-                    ).itemsToRender
-                  }
-                </ul>
+                          return acc
+                        },
+                        { itemIndex: 0, itemsToRender: [] }
+                      ).itemsToRender
+                    }
+                  </ul>
+                </div>
               ) : null}
             </div>
           )
