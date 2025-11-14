@@ -4,12 +4,13 @@ import { Icon } from '@/components/Icon'
 const Example = () => {
   return (
     <>
-      <p className="mb-16">
-        A card doesn't have padding by default. To add padding to a card, you should wrap your
-        content in a <strong>Card.Body</strong> which has default padding.
-      </p>
-
-      <Card className="max-w-2/3">
+      <Card
+        as="a"
+        className="max-w-2/3"
+        href="https://www.welcometothejungle.com"
+        rel="noopener nofollow"
+        target="_blank"
+      >
         <Card.Body>
           <h3 className="flex items-center gap-4">
             <Icon name="book-alt" size="lg" />

@@ -13,15 +13,17 @@ const cx = classNames(cardStyles)
  * @name Card.Header
  */
 export const Header = forwardRef<HTMLDivElement, HeaderProps>(
-  ({ children, className, onClose, ...rest }, ref) => {
+  ({ children, className, disabled, onClose, ...rest }, ref) => {
     return (
       <div className={cx('header', className)} ref={ref} {...rest}>
         {children}
 
         {onClose ? (
           <Button
+            accessibleWhenDisabled={false}
             aria-label="Close"
             className={cx('close')}
+            disabled={disabled}
             onClick={() => onClose()}
             size="sm"
             variant="tertiary"
