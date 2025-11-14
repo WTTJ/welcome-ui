@@ -8,6 +8,7 @@ import {
   actions,
   arrows,
   brands,
+  chat,
   flags,
   foldersAndFiles,
   markdown,
@@ -31,6 +32,7 @@ export type IconListProps = {
     | 'actions'
     | 'arrows'
     | 'brands'
+    | 'chat'
     | 'flags'
     | 'foldersAndFiles'
     | 'markdown'
@@ -111,6 +113,7 @@ export const IconsList = ({ collectionName }: IconListProps) => {
     actions: actions,
     arrows: arrows,
     brands: brands,
+    chat: chat,
     flags: flags,
     foldersAndFiles: foldersAndFiles,
     markdown: markdown,
