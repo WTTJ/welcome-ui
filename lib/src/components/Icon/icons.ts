@@ -27,6 +27,7 @@ export const actions = [
   'arrows-merge-v', // (not unicons, personal mashup)
   'arrows-shrink-v',
   'apps',
+  'edit',
   'user-check',
   'user-plus',
   'user-times',
