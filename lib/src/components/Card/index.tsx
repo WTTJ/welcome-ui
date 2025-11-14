@@ -1,4 +1,4 @@
-import React, {
+import {
   createElement,
   type KeyboardEvent,
   type MouseEvent,
@@ -31,16 +31,16 @@ export const CardComponent = forwardRefWithAs<CardProps, 'div'>(
       ref,
     })
 
-    const childProps = {
-      ...props,
-      ...interactivityProps,
-      children,
-      className: cx('root', `size-${size}`, interactive && 'interactive', className),
-      ref,
-    }
-
-    const Element = as
-    return typeof as === 'string' ? createElement(as, childProps) : <Element {...childProps} />
+    return createElement(
+      as,
+      {
+        ...props,
+        ...interactivityProps,
+        className: cx('root', `size-${size}`, interactive && 'interactive', className),
+        ref,
+      },
+      children
+    )
   }
 )
 

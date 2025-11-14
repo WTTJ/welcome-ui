@@ -1,4 +1,4 @@
-import type { ComponentPropsWithRef, ElementType, ReactNode } from 'react'
+import type { ComponentPropsWithRef, ReactNode } from 'react'
 
 export type BodyProps = BodyOptions & ComponentPropsWithRef<'div'>
 export type CardProps = CardOptions &
@@ -23,7 +23,6 @@ interface BodyOptions {
 }
 
 interface CardOptions {
-  as?: ElementType
   disabled?: boolean
   onClick?: () => void
   size?: 'lg' | 'md' | 'sm'
