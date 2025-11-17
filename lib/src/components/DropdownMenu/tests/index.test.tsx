@@ -35,7 +35,7 @@ const DropdownRenderer = () => {
       >
         {selected}
       </DropdownMenu.Trigger>
-      <DropdownMenu dataTestId={dropdownDataTestId} id={dropdownDataTestId} store={dropdownMenu}>
+      <DropdownMenu data-testid={dropdownDataTestId} id={dropdownDataTestId} store={dropdownMenu}>
         {options.map(item => (
           <DropdownMenu.Item
             id={item.label}
@@ -58,7 +58,7 @@ describe('<DropdownMenu>', () => {
     } = renderHook(() => useDropdownMenu({ open: true }))
 
     render(
-      <DropdownMenu dataTestId={dataTestId} store={dropdownMenu}>
+      <DropdownMenu data-testid={dataTestId} store={dropdownMenu}>
         {content}
       </DropdownMenu>
     )
@@ -93,7 +93,7 @@ describe('<DropdownMenu>', () => {
     const { user } = render(
       <>
         <DropdownMenu.Trigger data-testid={triggerDataTestId} store={dropdownMenu} />
-        <DropdownMenu dataTestId={dropdownDataTestId} store={dropdownMenu} withGutter={false}>
+        <DropdownMenu data-testid={dropdownDataTestId} store={dropdownMenu} withGutter={false}>
           {content}
         </DropdownMenu>
       </>
