@@ -4,13 +4,18 @@ import { usePathname } from 'next/navigation'
 
 import { Button } from '@/components/Button'
 import { Drawer, useDrawer } from '@/components/Drawer'
+// comment the following line when you want to see all the icons locally
 import { Icon, Sprite } from '@/components/Icon'
+// uncomment the following line when you want to see all the icons locally
+// import { Icon } from '@/components/Icon'
 import { WelcomeUILogo } from '@/components/Logo'
 import { Toast } from '@/components/Toast'
 import { classNames } from '@/utils'
 
 import type { PageTree } from '~/build-app/types'
 
+// uncomment the following line when you want to see all the icons locally
+// import { Sprite } from '../../../../../front/src/components/wui/Sprite'
 import { Search } from '../Search'
 import { Sidebar } from '../Sidebar'
 import { VersionSelector } from '../VersionSelector'
