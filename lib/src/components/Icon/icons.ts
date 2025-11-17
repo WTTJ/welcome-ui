@@ -70,7 +70,6 @@ export const chat = ['chat', 'chat-bubble-user', 'comment', 'comment-alt-lines']
 
 export const miscellaneous = [
   'music',
-  'sparkles',
   'rocket',
   'file-alt',
   'user-square',
