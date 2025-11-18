@@ -90,6 +90,10 @@
         --backgroundColor: var(--backgroundColorHover);
         --boxShadow: var(--elevation-20);
       }
+
+      &.variant-dash:hover:not(.disabled) {
+        border-color: var(--components-colors-tag-color-border-dash-hover);
+      }
     }
   }
 
@@ -271,12 +275,6 @@
       --colorDisabled: var(--components-colors-tag-color-text-dash-disabled);
       border: var(--components-dimensions-tag-border-width-default) dashed var(--components-colors-tag-color-border-dash-default);
       position: relative;
-
-      @media (hover: hover) {
-        &:hover:not(.disabled) {
-          border-color: var(--components-colors-tag-color-border-dash-hover);
-        }
-      }
 
       &:hover {
         box-shadow: none;
