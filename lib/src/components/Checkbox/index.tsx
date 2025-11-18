@@ -1,7 +1,7 @@
 // Checkbox component using Ariakit for accessibility and custom styles
 // https://ariakit.org/examples/checkbox-custom
 import { Checkbox as AriaKitCheckbox } from '@ariakit/react'
-import React, { forwardRef, useState } from 'react'
+import { forwardRef, useState } from 'react'
 
 import { useField } from '@/components/Field'
 import { VisuallyHidden } from '@/components/VisuallyHidden'
@@ -23,11 +23,11 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     const _variant = fieldVariant || variant
     const { disabled } = getInputProps(rest)
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      setIsChecked(e.target.checked)
+    const handleChange = () => {
+      setIsChecked(!isChecked)
 
       if (onChange) {
-        onChange(e)
+        onChange(!isChecked)
       }
     }
 
@@ -42,14 +42,13 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           className
         )}
         data-focus-visible={focusVisible || undefined}
-        onClick={disabled ? undefined : () => setIsChecked(!isChecked)}
+        onClick={disabled ? undefined : handleChange}
       >
         <VisuallyHidden>
           <AriaKitCheckbox
             {...getInputProps(rest)}
             checked={isChecked}
             onBlur={() => setFocusVisible(false)}
-            onChange={handleChange}
             onFocusVisible={() => setFocusVisible(true)}
             ref={ref}
           />
