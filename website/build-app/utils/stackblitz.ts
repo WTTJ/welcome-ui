@@ -32,54 +32,7 @@ root.render(
 )`
 
 const globalCss = `@import 'tailwindcss';
-@import 'welcome-ui/theme.css';
-/* Temporary import, we should create a welcome-ui base css */
-@import 'welcome-ui/Accordion.css';
-@import 'welcome-ui/Alert.css';
-@import 'welcome-ui/AspectRatio.css';
-@import 'welcome-ui/Avatar.css';
-@import 'welcome-ui/Badge.css';
-@import 'welcome-ui/Breadcrumb.css';
-@import 'welcome-ui/Button.css';
-@import 'welcome-ui/ButtonGroup.css';
-@import 'welcome-ui/Card.css';
-@import 'welcome-ui/Checkbox.css';
-@import 'welcome-ui/CloseButton.css';
-@import 'welcome-ui/CustomPopper.css';
-@import 'welcome-ui/DatePicker.css';
-@import 'welcome-ui/Drawer.css';
-@import 'welcome-ui/DropdownMenu.css';
-@import 'welcome-ui/Field.css';
-@import 'welcome-ui/FieldGroup.css';
-@import 'welcome-ui/FileDrop.css';
-@import 'welcome-ui/FileUpload.css';
-@import 'welcome-ui/Hint.css';
-@import 'welcome-ui/Icon.css';
-@import 'welcome-ui/InputText.css';
-@import 'welcome-ui/Label.css';
-@import 'welcome-ui/Link.css';
-@import 'welcome-ui/Loader.css';
-@import 'welcome-ui/Logo.css';
-@import 'welcome-ui/Modal.css';
-@import 'welcome-ui/Pagination.css';
-@import 'welcome-ui/Popover.css';
-@import 'welcome-ui/Radio.css';
-@import 'welcome-ui/RadioGroup.css';
-@import 'welcome-ui/RadioTab.css';
-@import 'welcome-ui/Search.css';
-@import 'welcome-ui/Select.css';
-@import 'welcome-ui/Slider.css';
-@import 'welcome-ui/Swiper.css';
-@import 'welcome-ui/Table.css';
-@import 'welcome-ui/Tabs.css';
-@import 'welcome-ui/Tag.css';
-@import 'welcome-ui/Text.css';
-@import 'welcome-ui/Textarea.css';
-@import 'welcome-ui/Toast.css';
-@import 'welcome-ui/Toggle.css';
-@import 'welcome-ui/Tooltip.css';
-@import 'welcome-ui/VariantIcon.css';
-@import 'welcome-ui/utils.css';`
+@import 'welcome-ui/theme.css';`
 
 const viteConfig = `import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
