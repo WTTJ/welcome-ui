@@ -22,7 +22,9 @@ export interface DropdownMenuOptions extends Omit<MenuProps, 'gutter'> {
 
 export type GroupLabelProps = MenuGroupLabelProps
 
-export type ItemCheckboxCheckProps = ComponentPropsWithRef<'input'>
+export type ItemCheckboxCheckProps = Omit<ComponentPropsWithRef<'input'>, 'onChange'> & {
+  onChange?: (isChecked: boolean) => void
+}
 
 export type ItemCheckboxProps = MenuItemCheckboxProps
 
