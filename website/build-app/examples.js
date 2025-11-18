@@ -53,7 +53,6 @@ export default {
   "/Card/docs/examples/disabled.tsx": dynamic(() => import("../../lib/src/components/Card/docs/examples/disabled.tsx").then(mod => mod), { ssr: false }),
   "/Card/docs/examples/footer.tsx": dynamic(() => import("../../lib/src/components/Card/docs/examples/footer.tsx").then(mod => mod), { ssr: false }),
   "/Card/docs/examples/header.tsx": dynamic(() => import("../../lib/src/components/Card/docs/examples/header.tsx").then(mod => mod), { ssr: false }),
-  "/Card/docs/examples/interactive.tsx": dynamic(() => import("../../lib/src/components/Card/docs/examples/interactive.tsx").then(mod => mod), { ssr: false }),
   "/Card/docs/examples/link.tsx": dynamic(() => import("../../lib/src/components/Card/docs/examples/link.tsx").then(mod => mod), { ssr: false }),
   "/Card/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Card/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Card/docs/examples/picture.tsx": dynamic(() => import("../../lib/src/components/Card/docs/examples/picture.tsx").then(mod => mod), { ssr: false }),

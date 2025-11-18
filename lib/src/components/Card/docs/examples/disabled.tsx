@@ -5,7 +5,7 @@ const Example = () => {
   return (
     <>
       <Card className="max-w-2/3" disabled>
-        <Card.Header>
+        <Card.Header disabled onClose={() => {}}>
           <Icon name="book-alt" />
           The Jungle Book (disabled)
         </Card.Header>

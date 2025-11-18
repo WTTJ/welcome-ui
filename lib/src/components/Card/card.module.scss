@@ -24,34 +24,6 @@
       --colorIconHeader: var(--components-colors-card-color-icon-hover);
     }
 
-    // When interactive, treat card as a button
-    &.interactive {
-      cursor: pointer;
-
-      &[aria-disabled],
-      &:disabled {
-        cursor: not-allowed;
-      }
-
-      &[data-active],
-      &:active {
-        --boxShadowCard: var(--elevation-30);
-      }
-
-      &[data-focus-visible],
-      &:focus-visible {
-        outline-width: var(--components-dimensions-button-border-width-focused);
-        outline-color: var(--components-colors-button-color-border-focused);
-        --borderColorCard: transparent;
-        --boxShadowCard: var(--elevation-30);
-
-        &[data-active],
-        &:active {
-          --boxShadowCard: var(--elevation-40);
-        }
-      }
-    }
-
     &[aria-disabled],
     &:disabled {
       --colorCard: var(--components-colors-button-color-text-tertiary-main-disabled);
