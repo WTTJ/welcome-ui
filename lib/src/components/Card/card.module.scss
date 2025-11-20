@@ -1,18 +1,185 @@
 @layer components {
   .root {
-    /* VARIABLES FROM THEME - DONT CHANGE WITH REACT PROPS */
-    border-radius: var(--border-radius-sm);
+    font-family: var(--font-family-body);
+    letter-spacing: var(--font-letter-spacing-none);
+    font-weight: var(--font-weight-regular);
+    border-radius: var(--components-dimensions-card-border-radius);
     background-size: cover;
     background-position: center;
     background-color: var(--components-colors-card-color-background-default);
-    border-color: var(--color-background-neutral-subtlest);
+    border-color: var(--borderColorCard, var(--components-colors-card-color-border-default));
     border-style: solid;
     border-width: var(--border-width-xs);
+    outline: transparent solid var(--border-width-md);
+    box-shadow: var(--boxShadowCard, var(--elevation-10));
     overflow: hidden;
+    position: relative;
+    transition-property: all;
+    transition-duration: var(--duration-medium);
+    transition-timing-function: ease-in-out;
+
+    &:hover:not([aria-disabled]):not(:disabled) {
+      --borderColorCard: var(--components-colors-card-color-border-hover);
+      --boxShadowCard: var(--elevation-20);
+      --colorIconHeader: var(--components-colors-card-color-icon-hover);
+    }
+
+    &[aria-disabled],
+    &:disabled {
+      --colorCard: var(--components-colors-button-color-text-tertiary-main-disabled);
+      --colorIconHeader: var(--colorCard);
+    }
   }
 
+  /**
+   * Header
+   */
+
+  .header {
+    font-family: var(--font-family-title);
+    letter-spacing: var(--font-letter-spacing-xs);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--fontSizeHeader);
+    line-height: var(--fontLineHeightHeader);
+    color: var(--colorCard, var(--components-colors-card-header-color-text-default));
+    padding: var(--paddingBlock) var(--paddingInline) 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--components-dimensions-card-gap-title);
+
+    &:has(.close) {
+      padding-right: calc(var(--sizeIconHeader) + var(--paddingInlineClose));
+    }
+
+    // Icon
+    & :global(i.wui-icon-font),
+    & svg {
+      flex-shrink: 0;
+      color: var(--colorIconHeader, var(--components-colors-card-header-color-icon-default));
+      font-weight: initial;
+      font-size: var(--sizeIconHeader);
+      width: var(--sizeIconHeader);
+      height: var(--sizeIconHeader);
+      transition: color var(--duration-medium) ease-in-out;
+    }
+
+    // Close button
+    & .close {
+      position: absolute;
+      right: var(--paddingInlineClose);
+      top: var(--paddingBlockClose);
+      height: auto;
+      padding-inline: 0 !important;
+
+      & > svg {
+        color: var(--components-colors-card-action-dismiss-icon-default);
+      }
+
+      &:hover:not([aria-disabled]):not(:disabled) > svg {
+        color: var(--components-colors-card-action-dismiss-icon-hover);
+      }
+    }
+  }
+
+  /**
+   * Body
+   */
+
   .body {
-    /* VARIABLES FROM THEME - DONT CHANGE WITH REACT PROPS */
-    padding: var(--components-dimensions-card-action-dismiss-padding-block-start-lg);
+    font-size: var(--fontSizeBody);
+    line-height: var(--fontLineHeightBody);
+    color: var(--colorCard, var(--components-colors-card-body-color-text-default));
+    padding: var(--paddingBlock) var(--paddingInline);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gapBody);
+
+    .metadata {
+      font-size: var(--fontSizeMetadata);
+      line-height: var(--fontLineHeightMetadata);
+      color: var(--colorCard, var(--components-colors-card-body-meta-color-text-default));
+    }
+  }
+
+  /**
+   * Footer
+   */
+
+  .footer {
+    font-size: var(--fontSizeBody);
+    line-height: var(--fontLineHeightBody);
+    color: var(--colorCard, var(--components-colors-card-body-color-text-default));
+    padding: 0 var(--paddingBlock) var(--paddingInline);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--components-dimensions-card-gap-actions);
+  }
+
+  /**
+   * Sizes
+   */
+
+  .size {
+    &-sm {
+      // Shared
+      --paddingBlock: var(--components-dimensions-card-padding-block-sm);
+      --paddingInline: var(--components-dimensions-card-padding-inline-sm);
+
+      // Header
+      --sizeIconHeader: var(--components-dimensions-card-action-dismiss-size-icon-sm);
+      --fontSizeHeader: var(--font-size-lg);
+      --fontLineHeightHeader: var(--font-line-height-xs);
+      --paddingBlockClose: var(--components-dimensions-card-action-dismiss-padding-block-start-sm);
+      --paddingInlineClose: var(--components-dimensions-card-action-dismiss-padding-inline-end-sm);
+
+      // Body
+      --gapBody: var(--components-dimensions-card-gap-content-sm);
+      --fontSizeBody: var(--font-size-sm);
+      --fontLineHeightBody: var(--font-line-height-md);
+      --fontSizeMetadata: var(--font-size-xs);
+      --fontLineHeightMetadata: var(--font-line-height-sm);
+    }
+
+    &-md {
+      // Shared
+      --paddingBlock: var(--components-dimensions-card-padding-block-md);
+      --paddingInline: var(--components-dimensions-card-padding-inline-md);
+
+      // Header
+      --sizeIconHeader: var(--components-dimensions-card-action-dismiss-size-icon-md);
+      --fontSizeHeader: var(--font-size-2xl);
+      --fontLineHeightHeader: var(--font-line-height-xs);
+      --paddingBlockClose: var(--components-dimensions-card-action-dismiss-padding-block-start-md);
+      --paddingInlineClose: var(--components-dimensions-card-action-dismiss-padding-inline-end-md);
+
+      // Body
+      --gapBody: var(--components-dimensions-card-gap-content-md);
+      --fontSizeBody: var(--font-size-md);
+      --fontLineHeightBody: var(--font-line-height-lg);
+      --fontSizeMetadata: var(--font-size-sm);
+      --fontLineHeightMetadata: var(--font-line-height-md);
+    }
+
+    &-lg {
+      // Shared
+      --paddingBlock: var(--components-dimensions-card-padding-block-lg);
+      --paddingInline: var(--components-dimensions-card-padding-inline-lg);
+
+      // Header
+      --sizeIconHeader: var(--components-dimensions-card-action-dismiss-size-icon-lg);
+      --fontSizeHeader: var(--font-size-2xl);
+      --fontLineHeightHeader: var(--font-line-height-xs);
+      --paddingBlockClose: var(--components-dimensions-card-action-dismiss-padding-block-start-lg);
+      --paddingInlineClose: var(--components-dimensions-card-action-dismiss-padding-inline-end-lg);
+
+      // Body
+      --gapBody: var(--components-dimensions-card-gap-content-lg);
+      --fontSizeBody: var(--font-size-lg);
+      --fontLineHeightBody: var(--font-line-height-lg);
+      --fontSizeMetadata: var(--font-size-md);
+      --fontLineHeightMetadata: var(--font-line-height-lg);
+    }
   }
 }

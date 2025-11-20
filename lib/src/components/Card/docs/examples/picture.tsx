@@ -7,7 +7,8 @@ const Example = () => {
 
   return (
     <Card
-      className={`items-end bg-cover bg-center bg-no-repeat h-7xl max-w-400 flex bg-[url(${url})]`}
+      className={`items-end bg-cover bg-center bg-no-repeat h-7xl max-w-2/3 flex w-full`}
+      style={{ backgroundImage: `url(${url})` }}
     >
       <div className="bg-linear-to-t from-neutral-80 to-neutral-80/0 p-xl w-full">
         <Text as="h4" className="font-bold text-neutral-10 m-0">
