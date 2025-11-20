@@ -14,24 +14,24 @@ describe('Tag', () => {
 
   it('should render with variant', () => {
     render(
-      <Tag data-testid="tag" variant="primary">
-        Primary
+      <Tag data-testid="tag" variant="blue">
+        Blue
       </Tag>
     )
     const tag = screen.getByTestId('tag')
 
-    expect(tag.className).toMatch(/_variant-primary/)
+    expect(tag.className).toMatch(/_variant-blue/)
   })
 
   it('should render with size', () => {
     render(
-      <Tag data-testid="tag" size="xs">
-        XSmall
+      <Tag data-testid="tag" size="md">
+        Medium
       </Tag>
     )
     const tag = screen.getByTestId('tag')
 
-    expect(tag.className).toMatch(/_size-xs/)
+    expect(tag.className).toMatch(/_size-md/)
   })
 
   it('should render with icon', () => {
@@ -80,5 +80,39 @@ describe('Tag', () => {
       </Tag>
     )
     expect(screen.getByTestId('tag').className).toMatch(/custom-class/)
+  })
+
+  it('should apply disabled class when disabled prop is true', () => {
+    render(
+      <Tag data-testid="tag" disabled>
+        Disabled Tag
+      </Tag>
+    )
+    const tag = screen.getByTestId('tag')
+    expect(tag.className).toMatch(/disabled/)
+  })
+
+  it('should not call onClick when disabled', async () => {
+    const onClick = vi.fn()
+
+    const { user } = render(
+      <Tag data-testid="tag" disabled onClick={onClick}>
+        Disabled Tag
+      </Tag>
+    )
+
+    const tag = screen.getByTestId('tag')
+    await user.click(tag)
+    expect(onClick).not.toHaveBeenCalled()
+  })
+
+  it('should render with ai prop', () => {
+    render(
+      <Tag ai data-testid="tag">
+        AI Tag
+      </Tag>
+    )
+    const tag = screen.getByTestId('tag')
+    expect(tag.className).toMatch(/ai/)
   })
 })

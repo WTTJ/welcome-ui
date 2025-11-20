@@ -22,7 +22,7 @@ const components: ComponentProps[] = [
     children: (
       <div className="flex gap-md">
         <Tag>Default</Tag>
-        <Tag variant="success">Success</Tag>
+        <Tag variant="green">Success</Tag>
         <Tag variant="violet">Violet</Tag>
       </div>
     ),

@@ -103,7 +103,7 @@ const Home = () => {
                 <Card.Body>
                   <div className="flex gap-xxs mb-xl">
                     {tags?.map(tag => (
-                      <Tag key={`${link}_${tag}`} size="sm" variant="info">
+                      <Tag key={`${link}_${tag}`} size="md" variant="blue">
                         {tag}
                       </Tag>
                     ))}

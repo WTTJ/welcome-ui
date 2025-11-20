@@ -34,6 +34,7 @@ const MIGRATION_CONFIG = [
   //   component: 'Text',
   //   script: './transform-text.mjs',
   // },
+  // { components: 'Tag', script: './transform-tag.mjs' },
   // {
   //   components: 'Tooltip',
   //   script: './transform-tooltip.mjs',

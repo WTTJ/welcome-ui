@@ -3,14 +3,22 @@ import { Tag } from '@/components/Tag'
 const Example = () => {
   return (
     <>
-      <Tag as="a" href="#" onClick={() => alert('clicked')}>
-        Default
-      </Tag>
-      <Tag as="a" href="#" onClick={() => alert('clicked')} variant="success">
-        State
-      </Tag>
       <Tag as="button" onClick={() => alert('clicked')} variant="blue">
-        Secondary
+        Blue
+      </Tag>
+      <Tag as="button" onClick={() => alert('clicked')} variant="dash">
+        Dash
+      </Tag>
+      <Tag ai as="button" onClick={() => alert('clicked')} variant="teal">
+        Teal
+      </Tag>
+      <Tag
+        as="button"
+        onClick={() => alert('clicked')}
+        onRemove={() => alert('removed')}
+        variant="pink"
+      >
+        Clickable with remove
       </Tag>
     </>
   )
