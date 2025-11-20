@@ -24,13 +24,14 @@ const Example = () => {
           {isOpen ? <Icon name="angle-up" /> : <Icon name="angle-down" />}
         </DropdownMenu.Trigger>
       </ButtonGroup>
+
       <DropdownMenu aria-label="Complexity" store={dropdownMenu}>
-        <DropdownMenu.Item onClick={handleClick} store={dropdownMenu}>
-          <Icon className="mr-sm" name="trash" size="sm" />
+        <DropdownMenu.Item onClick={handleClick}>
+          <Icon name="trash" />
           <span>Second Action</span>
         </DropdownMenu.Item>
-        <DropdownMenu.Item onClick={handleClick} store={dropdownMenu}>
-          <Icon className="mr-sm" name="paperclip" size="sm" />
+        <DropdownMenu.Item onClick={handleClick}>
+          <Icon name="paperclip" />
           <span>Third Action</span>
         </DropdownMenu.Item>
       </DropdownMenu>

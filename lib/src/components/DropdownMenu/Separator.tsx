@@ -11,7 +11,7 @@ const cx = classNames(dropdownMenuStyles)
 export const Separator = forwardRef<HTMLHRElement, SeparatorProps>(
   ({ className, ...props }, ref) => {
     return (
-      <MenuSeparator ref={ref} render={<hr className={cx('separator', className)} />} {...props} />
+      <MenuSeparator {...props} ref={ref} render={<hr className={cx('separator', className)} />} />
     )
   }
 )

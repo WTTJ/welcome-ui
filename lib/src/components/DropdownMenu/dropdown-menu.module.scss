@@ -1,29 +1,57 @@
+@function striped-background($background-color) {
+  @return repeating-linear-gradient(
+      -45deg,
+      var(--color-neutral-10),
+      var(--color-neutral-10) 2.5px,
+      $background-color 2.5px,
+      $background-color 5.25px
+    )
+    padding-box;
+}
+
 @layer components {
-  .inner {
-    background-color: var(--color-background-neutral-inverse-fixed);
-    border-color: var(--color-background-neutral-subtlest);
+  .root {
+    background-color: var(--components-colors-dropdown-menu-color-background-default);
     border-style: solid;
-    border-width: var(--border-width-xs);
-    border-radius: var(--border-radius-sm);
-    font-size: var(--font-size-14);
-    min-width: 8.125rem;
+    border-width: var(--components-dimensions-dropdown-menu-border-width);
+    border-radius: var(--components-dimensions-dropdown-menu-border-radius);
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-sm);
+    line-height: var(--font-line-height-md);
+    font-weight: var(--font-weight-regular);
+    min-width: 15.75rem;
     z-index: 1;
     opacity: 0;
-    transition: opacity var(--duration-fast) ease-in-out;
+    transition:
+      all var(--duration-medium) ease-in-out,
+      opacity var(--duration-fast) ease-in-out;
+    box-sizing: border-box;
+    outline: none !important; /* important for firefox */
+
+    padding: var(--paddingBlockMenu) var(--paddingInlineMenu);
+    border-color: var(--borderColorMenu);
+    box-shadow: var(--boxShadowMenu, var(--elevation-10));
+
+    --borderColorMenu: var(--components-colors-dropdown-menu-color-border-default);
 
     &[data-enter] {
       opacity: 1;
+    }
+
+    &:hover {
+      --borderColorMenu: var(--components-colors-dropdown-menu-color-border-hover);
+      --boxShadowMenu: var(--elevation-20);
     }
   }
 
   .arrow {
     display: flex;
     z-index: 2;
-    color: var(--color-background-neutral-tertiary);
+    color: var(--components-colors-dropdown-menu-color-border-hover);
     stroke-width: 0 !important;
 
     #stroke {
-      color: var(--color-background-neutral-tertiary);
+      color: var(--components-colors-dropdown-menu-color-border-hover);
     }
   }
 
@@ -53,38 +81,154 @@
 
   .item {
     display: flex;
+    flex-direction: row;
     align-items: center;
+    gap: var(--components-dimensions-dropdown-menu-item-gap-content);
     width: 100%;
     border: 0;
     appearance: none;
     cursor: pointer;
     text-decoration: none;
-    transition: var(--duration-medium);
-    padding: var(--border-radius-lg);
+    transition: all var(--duration-medium) ease-in-out;
+    border-radius: var(--components-dimensions-dropdown-menu-item-border-radius);
 
-    background-color: var(--backgroundColor, transparent);
-    color: var(--color, --color-beige-70);
+    padding: var(--paddingBlockItem) var(--paddingInlineItem);
+    background: var(
+      --backgroundItem,
+      var(--components-colors-dropdown-menu-item-color-background-default)
+    );
+    color: var(--colorItem, var(--components-colors-dropdown-menu-item-color-text-content-default));
 
     &:focus {
       outline: none !important; /* important for firefox */
-      --backgroundColor: var(--color-background-warm-strong);
-      --color: var(--color-background-neutral-primary-fixed);
+      --backgroundItem: var(--components-colors-dropdown-menu-item-color-background-hover);
+      --colorItem: var(--components-colors-dropdown-menu-item-color-text-content-hover);
+      --colorItemDescription: var(
+        --components-colors-dropdown-menu-item-color-text-description-hover
+      );
     }
     &:hover {
-      --backgroundColor: var(--color-background-warm-strong);
-      --color: var(--color-background-neutral-primary-fixed);
+      --backgroundItem: var(--components-colors-dropdown-menu-item-color-background-hover);
+      --colorItem: var(--components-colors-dropdown-menu-item-color-text-content-hover);
+      --colorItemDescription: var(
+        --components-colors-dropdown-menu-item-color-text-description-hover
+      );
     }
-    &[disabled] {
-      --backgroundColor: transparent;
-      --color: var(--color-background-warm-stronger);
+    &[aria-disabled],
+    &:disabled {
+      --backgroundItem: #{striped-background(
+          var(--components-colors-dropdown-menu-item-color-background-disabled)
+        )};
+      --colorItem: var(--components-colors-dropdown-menu-item-color-text-content-disabled);
+      --colorItemDescription: var(
+        --components-colors-dropdown-menu-item-color-text-description-disabled
+      );
       cursor: not-allowed;
+    }
+
+    &.action {
+      line-height: var(--font-line-height-xs);
+      font-weight: var(--font-weight-semi-bold);
+    }
+
+    &.group-label {
+      line-height: var(--font-line-height-xs);
+      font-weight: var(--font-weight-semi-bold);
+      pointer-events: none;
+    }
+
+    &.search {
+      margin-bottom: var(--components-dimensions-dropdown-menu-gap-content);
+    }
+
+    .item-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .item-description {
+      color: var(
+        --colorItemDescription,
+        var(--components-colors-dropdown-menu-item-color-text-description-default)
+      );
+      transition: all var(--duration-medium) ease-in-out;
+      font-size: var(--font-size-xs);
+      line-height: var(--font-line-height-sm);
+      font-weight: var(--font-weight-regular);
+    }
+
+    & [aria-checked='true'] {
+      transition: all var(--duration-medium) ease-in-out;
+      font-weight: var(--font-weight-medium);
+    }
+
+    .item-default-check {
+      margin-left: auto;
+      width: auto !important;
+      height: auto !important;
+    }
+
+    .item-toggle-check {
+      pointer-events: none;
+    }
+
+    .item-checkbox,
+    .item-radio {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: var(--components-dimensions-dropdown-menu-item-gap-content);
+      width: 100%;
+      padding: var(--paddingBlockItem) var(--paddingInlineItem);
+
+      // Remove extra margin from label inside ariakit checkbox/radio
+      & label {
+        margin: 0;
+      }
+    }
+
+    &:has(.item-checkbox, .item-radio) {
+      padding: 0;
     }
   }
 
   .separator {
-    background-color: var(--color-background-warm-strong);
+    background-color: var(--components-colors-dropdown-menu-color-border-default);
     border: 0;
-    height: var(--border-width-xs);
-    margin: 0;
+    height: var(--components-dimensions-dropdown-menu-border-width);
+    margin: var(--paddingBlockSeparator) 0;
+  }
+
+  /**
+   * Sizes
+   */
+
+  .size {
+    &-md {
+      // Menu
+      --paddingInlineMenu: var(--components-dimensions-dropdown-menu-padding-inline-md);
+      --paddingBlockMenu: var(--components-dimensions-dropdown-menu-padding-block-md);
+
+      // Item
+      --paddingInlineItem: var(--components-dimensions-dropdown-menu-item-padding-inline-md);
+      --paddingBlockItem: var(--components-dimensions-dropdown-menu-item-padding-block-md);
+
+      // Separator
+      --paddingBlockSeparator: var(--components-dimensions-dropdown-menu-divider-padding-block-md);
+    }
+
+    &-lg {
+      // Menu
+      --paddingInlineMenu: var(--components-dimensions-dropdown-menu-padding-inline-lg);
+      --paddingBlockMenu: var(--components-dimensions-dropdown-menu-padding-block-lg);
+
+      // Item
+      --paddingInlineItem: var(--components-dimensions-dropdown-menu-item-padding-inline-lg);
+      --paddingBlockItem: var(--components-dimensions-dropdown-menu-item-padding-block-lg);
+
+      // Separator
+      --paddingBlockSeparator: var(--components-dimensions-dropdown-menu-divider-padding-block-lg);
+    }
   }
 }

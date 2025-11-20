@@ -13,8 +13,9 @@ const Example = () => {
       <DropdownMenu.Trigger as={Button} store={dropdownMenu}>
         Dropdown Menu
       </DropdownMenu.Trigger>
+
       <DropdownMenu aria-label="Example" store={dropdownMenu}>
-        <DropdownMenu.Arrow store={dropdownMenu} />
+        <DropdownMenu.Arrow />
         <DropdownMenu.Item hideOnClick={false} onClick={handleClick}>
           Instagram
         </DropdownMenu.Item>

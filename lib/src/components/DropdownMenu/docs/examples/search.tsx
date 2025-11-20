@@ -15,13 +15,11 @@ const Example = () => {
       </DropdownMenu.Trigger>
 
       <DropdownMenu aria-label="Example" store={dropdownMenu}>
-        <DropdownMenu.Arrow />
-        <DropdownMenu.Item disabled onClick={handleClick}>
-          Facebook
-        </DropdownMenu.Item>
-        <DropdownMenu.Item onClick={handleClick}>Instagram</DropdownMenu.Item>
-        <DropdownMenu.Separator />
-        <DropdownMenu.Item onClick={handleClick}>Github</DropdownMenu.Item>
+        <DropdownMenu.Search placeholder="Search a flower" />
+        <DropdownMenu.Item onClick={handleClick}>Elderflower</DropdownMenu.Item>
+        <DropdownMenu.Item onClick={handleClick}>Heather</DropdownMenu.Item>
+        <DropdownMenu.Item onClick={handleClick}>Camelia</DropdownMenu.Item>
+        <DropdownMenu.Item onClick={handleClick}>Hydrangea</DropdownMenu.Item>
       </DropdownMenu>
     </>
   )

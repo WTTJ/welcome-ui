@@ -1,22 +1,57 @@
 import type {
   MenuArrowProps,
+  MenuGroupLabelProps,
+  MenuItemCheckboxProps,
+  MenuItemCheckProps,
   MenuItemProps,
+  MenuItemRadioProps,
   MenuProps,
   MenuSeparatorProps,
   MenuStore,
 } from '@ariakit/react'
+import type { ComponentPropsWithRef, ReactNode } from 'react'
+
+export type ActionProps = MenuItemProps
 
 export type ArrowProps = MenuArrowProps
 
 export interface DropdownMenuOptions extends Omit<MenuProps, 'gutter'> {
-  dataTestId?: string
-  innerProps?: React.ComponentProps<'div'>
+  size?: 'lg' | 'md'
   withGutter?: boolean
 }
 
-export type ItemProps = MenuItemProps
+export type GroupLabelProps = MenuGroupLabelProps
 
-export type SeparatorProps = MenuSeparatorProps
+export type ItemCheckboxCheckProps = ComponentPropsWithRef<'input'>
+
+export type ItemCheckboxProps = MenuItemCheckboxProps
+
+export type ItemContentProps = ComponentPropsWithRef<'div'>
+
+export type ItemDefaultCheckProps = MenuItemCheckProps
+
+export type ItemDescriptionProps = ComponentPropsWithRef<'div'>
+
+export interface ItemProps extends MenuItemProps {
+  variant?: 'checkbox' | 'checkbox-mark' | 'radio' | 'radio-mark' | 'toggle'
+}
+
+export type ItemRadioCheckProps = ComponentPropsWithRef<'input'> & ComponentPropsWithRef<'label'>
+
+export type ItemRadioProps = MenuItemRadioProps
+
+export type ItemToggleCheckProps = ComponentPropsWithRef<'input'>
+
+export type SearchProps = MenuItemProps
+
+export interface SeparatorProps extends MenuSeparatorProps {
+  disabled?: boolean
+}
+
+export interface SubmenuOptions extends Omit<ItemProps, 'store'> {
+  item: ReactNode
+  size?: 'lg' | 'md'
+}
 
 export type TriggerProps = { store: MenuStore }
 
