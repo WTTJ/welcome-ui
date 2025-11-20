@@ -12,3 +12,5 @@ export const Cover = forwardRef<HTMLDivElement, CoverProps>(({ alt, src, ...rest
     </div>
   )
 })
+
+Cover.displayName = 'Card.Cover'

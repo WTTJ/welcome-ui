@@ -11,11 +11,14 @@ const cx = classNames(cardStyles)
  * @name Card.Body
  */
 export const Body = forwardRef<HTMLDivElement, BodyProps>(
-  ({ children, className, ...rest }, ref) => {
+  ({ children, className, metadata, ...rest }, ref) => {
     return (
       <div className={cx('body', className)} ref={ref} {...rest}>
         {children}
+        {metadata ? <div className={cx('metadata')}>{metadata}</div> : null}
       </div>
     )
   }
 )
+
+Body.displayName = 'Card.Body'
