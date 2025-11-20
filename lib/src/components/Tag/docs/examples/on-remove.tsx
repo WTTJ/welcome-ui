@@ -1,15 +1,17 @@
 import * as React from 'react'
 
+import { Icon } from '@/components/Icon'
 import { Tag } from '@/components/Tag'
-import { Text } from '@/components/Text'
 
 const Example = () => {
   const [isHide, setHide] = React.useState(false)
 
   return isHide ? (
-    <Text className="text-red-70 font-bold m-0">Tag removed</Text>
+    <Tag icon={<Icon name="exclamation-triangle" />} variant="red">
+      Tag removed
+    </Tag>
   ) : (
-    <Tag onRemove={() => setHide(true)}>Example of a removable tag</Tag>
+    <Tag onRemove={() => setHide(true)}>Removable tag</Tag>
   )
 }
 

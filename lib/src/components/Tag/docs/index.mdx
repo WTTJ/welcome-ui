@@ -15,13 +15,25 @@ Use the `variant` prop to change the appearance of the tag.
 
 ### Sizes
 
-Use size property with `xs`, `sm`, or `md`.
+Use size property with `md` or `lg` (default).
 
 <div data-playground="sizes.tsx" data-component="Tag"></div>
 
+### With icon
+
+Add an `icon` prop to display an icon alongside the tag text.
+
+<div data-playground="with-icon.tsx" data-component="Tag"></div>
+
+### AI
+
+Use the `ai` prop to automatically display a sparkles icon, and specific outline gradient colors. When `ai` is set to `true`, it overrides any custom icon.
+
+<div data-playground="ai.tsx" data-component="Tag"></div>
+
 ### List of clickable tags
 
-When we have a clickable tag, we apply an hover state
+When we have a clickable tag, we apply an hover state.
 
 <div data-playground="clickable.tsx" data-component="Tag"></div>
 
@@ -36,3 +48,9 @@ When we have only one character, we apply same size for the width and height
 Simply add a function `onRemove` to reveal a cross icon with a remove action (or other).
 
 <div data-playground="on-remove.tsx" data-component="Tag"></div>
+
+### Disabled
+
+Use the `disabled` prop to disable tag interaction.
+
+<div data-playground="disabled.tsx" data-component="Tag"></div>
