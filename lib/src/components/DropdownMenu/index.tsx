@@ -3,9 +3,12 @@ import { forwardRef } from 'react'
 
 import { classNames } from '@/utils'
 
+import { Action } from './Action'
 import { Arrow } from './Arrow'
 import dropdownMenuStyles from './dropdown-menu.module.scss'
-import { Item } from './Item'
+import { Group, GroupLabel } from './Group'
+import { ItemContent as Content, ItemDescription as Description, Item } from './Item'
+import { Search } from './Search'
 import { Separator } from './Separator'
 import { Trigger } from './Trigger'
 import type { DropdownMenuOptions } from './types'
@@ -15,39 +18,41 @@ export { useMenuStore as useDropdownMenu } from '@ariakit/react'
 
 const cx = classNames(dropdownMenuStyles)
 
-const DEFAULT_GUTTER = 4
+const DEFAULT_GUTTER = 8
 
 const DropdownMenuComponent = forwardRef<HTMLDivElement, DropdownMenuOptions>(
-  (
-    { children, className, dataTestId, innerProps = {}, store, withGutter = true, ...rest },
-    ref
-  ) => {
+  ({ className, size = 'lg', store, withGutter = true, ...props }, ref) => {
     const arrowElement = useStoreState(store, 'arrowElement')
     const gutter = withGutter && !arrowElement ? DEFAULT_GUTTER : 0
 
-    const { className: innerClassName, ...otherInnerProps } = innerProps
-
     return (
       <Menu
+        {...props}
         aria-label="dropdown-menu"
         className={className}
-        data-testid={dataTestId}
         gutter={gutter}
         ref={ref}
-        render={<div className={cx('inner', innerClassName)} {...otherInnerProps} />}
+        render={<div className={cx('root', `size-${size}`, className)} />}
         store={store}
         tabIndex={0}
-        {...rest}
-      >
-        {children}
-      </Menu>
+      />
     )
   }
 )
 
+// Import after `DropdownMenuComponent` declaration to avoid circular dependency
+import { Submenu } from './Submenu'
+
 export const DropdownMenu = Object.assign(DropdownMenuComponent, {
+  Action,
   Arrow,
+  Content,
+  Description,
+  Group,
+  GroupLabel,
   Item,
+  Search,
   Separator,
+  Submenu,
   Trigger,
 })
