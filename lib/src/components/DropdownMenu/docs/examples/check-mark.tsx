@@ -6,7 +6,7 @@ const Example = () => {
   const dropdownMenu = useDropdownMenu({
     defaultValues: {
       provider: ['facebook', 'instagram', 'linkedin'],
-      radio: 'twiter',
+      radio: 'twitter',
     },
   })
 

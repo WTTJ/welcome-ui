@@ -24,13 +24,13 @@ const Example = () => {
           <DropdownMenu.Item disabled onClick={handleClick}>
             Facebook
           </DropdownMenu.Item>
-          <DropdownMenu.Item disabled onClick={handleClick}>
+          <DropdownMenu.Item onClick={handleClick}>
             <Icon name="instagram" size="lg" />
             <DropdownMenu.Content>
               Instagram
               <DropdownMenu.Description>This is Instagram</DropdownMenu.Description>
             </DropdownMenu.Content>
-            <Icon name="angle-right" size="lg" />
+            <Icon className="ml-auto" name="angle-right" size="lg" />
           </DropdownMenu.Item>
           <DropdownMenu.Item onClick={handleClick}>Github</DropdownMenu.Item>
         </DropdownMenu.Group>

@@ -29,7 +29,7 @@ const Example = () => {
             Instagram
             <DropdownMenu.Description>This is Instagram</DropdownMenu.Description>
           </DropdownMenu.Content>
-          <Icon name="angle-right" size="lg" />
+          <Icon className="ml-auto" name="angle-right" size="lg" />
         </DropdownMenu.Item>
 
         <DropdownMenu.Separator />
@@ -40,7 +40,7 @@ const Example = () => {
             Github
             <DropdownMenu.Description>This is Github</DropdownMenu.Description>
           </DropdownMenu.Content>
-          <Icon name="angle-right" size="lg" />
+          <Icon className="ml-auto" name="angle-right" size="lg" />
         </DropdownMenu.Item>
       </DropdownMenu>
     </>

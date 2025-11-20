@@ -16,7 +16,7 @@
     border-width: var(--components-dimensions-dropdown-menu-border-width);
     border-radius: var(--components-dimensions-dropdown-menu-border-radius);
     font-family: var(--font-family-body);
-    font-size: var(--font-size-14);
+    font-size: var(--font-size-sm);
     line-height: var(--font-line-height-md);
     font-weight: var(--font-weight-regular);
     min-width: 15.75rem;
@@ -29,11 +29,10 @@
     outline: none !important; /* important for firefox */
 
     padding: var(--paddingBlockMenu) var(--paddingInlineMenu);
-    border-color: var(
-      --borderColorMenu,
-      var(--components-colors-dropdown-menu-color-border-default)
-    );
+    border-color: var(--borderColorMenu);
     box-shadow: var(--boxShadowMenu, var(--elevation-10));
+
+    --borderColorMenu: var(--components-colors-dropdown-menu-color-border-default);
 
     &[data-enter] {
       opacity: 1;
@@ -90,7 +89,7 @@
     appearance: none;
     cursor: pointer;
     text-decoration: none;
-    transition: var(--duration-medium);
+    transition: all var(--duration-medium) ease-in-out;
     border-radius: var(--components-dimensions-dropdown-menu-item-border-radius);
 
     padding: var(--paddingBlockItem) var(--paddingInlineItem);
@@ -146,7 +145,6 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      flex: 1;
     }
 
     .item-description {
@@ -154,19 +152,25 @@
         --colorItemDescription,
         var(--components-colors-dropdown-menu-item-color-text-description-default)
       );
-      font-size: var(--font-size-12);
+      transition: all var(--duration-medium) ease-in-out;
+      font-size: var(--font-size-xs);
       line-height: var(--font-line-height-sm);
       font-weight: var(--font-weight-regular);
     }
 
     & [aria-checked='true'] {
+      transition: all var(--duration-medium) ease-in-out;
       font-weight: var(--font-weight-medium);
     }
 
-    .item-check {
+    .item-default-check {
       margin-left: auto;
       width: auto !important;
       height: auto !important;
+    }
+
+    .item-toggle-check {
+      pointer-events: none;
     }
 
     .item-checkbox,
@@ -178,6 +182,7 @@
       width: 100%;
       padding: var(--paddingBlockItem) var(--paddingInlineItem);
 
+      // Remove extra margin from label inside ariakit checkbox/radio
       & label {
         margin: 0;
       }

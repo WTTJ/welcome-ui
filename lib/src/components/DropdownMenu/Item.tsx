@@ -32,9 +32,11 @@ const cx = classNames(dropdownMenuStyles)
 
 export const Item = forwardRefWithAs<ItemProps, 'button'>(
   ({ as: Component = 'button', children, className, name, value, variant, ...props }, ref) => {
+    const hideOnClick = !variant || variant === 'radio' || variant === 'radio-mark'
+
     return (
       <MenuItem
-        hideOnClick={!variant || variant === 'radio' || variant === 'radio-mark'}
+        hideOnClick={hideOnClick}
         {...props}
         ref={ref as unknown as Ref<HTMLDivElement>}
         render={
@@ -112,7 +114,7 @@ const ItemRadio = forwardRef<HTMLDivElement, ItemRadioProps>(({ className, ...pr
 const ItemDefaultCheck = forwardRef<HTMLSpanElement, ItemDefaultCheckProps>(
   ({ className, ...props }, ref) => {
     return (
-      <MenuItemCheck {...props} className={cx('item-check', className)} ref={ref}>
+      <MenuItemCheck {...props} className={cx('item-default-check', className)} ref={ref}>
         <Icon name="check" size="md" />
       </MenuItemCheck>
     )
@@ -121,17 +123,12 @@ const ItemDefaultCheck = forwardRef<HTMLSpanElement, ItemDefaultCheckProps>(
 
 const ItemCheckboxCheck = forwardRef<HTMLInputElement, ItemCheckboxCheckProps>(
   ({ name, value = true, ...props }, ref) => {
-    const store = useMenuStore()
-    const storeState = useStoreState(store)
-
-    const checked =
-      storeState.values[name] === value ||
-      (Array.isArray(storeState.values[name]) && storeState.values[name].includes(value))
+    const checked = useIsItemChecked(name, value)
 
     return (
       <Checkbox
-        {...props}
         aria-hidden="true"
+        {...props}
         checked={checked}
         key={checked.toString()}
         ref={ref}
@@ -142,26 +139,33 @@ const ItemCheckboxCheck = forwardRef<HTMLInputElement, ItemCheckboxCheckProps>(
 
 const ItemRadioCheck = forwardRef<HTMLInputElement & HTMLLabelElement, ItemRadioCheckProps>(
   ({ name, value, ...props }, ref) => {
-    const store = useMenuStore()
-    const storeState = useStoreState(store)
-
-    const checked =
-      storeState.values[name] === value ||
-      (Array.isArray(storeState.values[name]) && storeState.values[name].includes(value))
+    const checked = useIsItemChecked(name, value)
 
     return <Radio aria-hidden="true" {...props} checked={checked} ref={ref} />
   }
 )
 
 const ItemToggleCheck = forwardRef<HTMLInputElement & HTMLLabelElement, ItemToggleCheckProps>(
-  ({ name, value = true, ...props }, ref) => {
-    const store = useMenuStore()
-    const storeState = useStoreState(store)
+  ({ className, name, value = true, ...props }, ref) => {
+    const checked = useIsItemChecked(name, value)
 
-    const checked =
-      storeState.values[name] === value ||
-      (Array.isArray(storeState.values[name]) && storeState.values[name].includes(value))
-
-    return <Toggle aria-hidden="true" {...props} checked={checked} ref={ref} size="sm" />
+    return (
+      <Toggle
+        aria-hidden="true"
+        {...props}
+        checked={checked}
+        className={cx('item-toggle-check', className)}
+        ref={ref}
+        size="sm"
+      />
+    )
   }
 )
+
+const useIsItemChecked = (name: string, value: boolean | number | readonly string[] | string) => {
+  const store = useMenuStore()
+  const storeState = useStoreState(store)
+  const storeValue = storeState.values[name]
+  const checked = Array.isArray(storeValue) ? storeValue.includes(value) : storeValue === value
+  return checked
+}
