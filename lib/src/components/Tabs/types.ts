@@ -1,19 +1,8 @@
 import type { TabStore, TabStoreProps } from '@ariakit/react'
 
-import type { UseTab, UseTabState } from '.'
+import type { UseTab } from '.'
 
-export interface ActiveBarProps {
-  activeTab: HTMLElement
-  listRef: React.MutableRefObject<undefined>
-  orientation: Omit<UseTabState['orientation'], 'both'>
-}
-
-export interface ActiveBarReturn {
-  offset?: number
-  orientation?: Omit<UseTabState['orientation'], 'both'>
-  size?: number
-}
-export type Size = 'md' | 'sm'
+export type Size = 'lg' | 'md'
 
 export type TabListProps = {
   children: React.ReactNode
@@ -23,17 +12,14 @@ export type TabListProps = {
 }
 
 export interface TabOptions {
+  badge?: number | string
   children: React.ReactNode
   className?: string
+  icon?: 'folder' | React.ReactNode
+  iconColor?: 'blue' | 'green' | 'orange' | 'pink' | 'teal' | 'violet' | 'warm'
   id?: string
   size?: Size
   store: TabStore
-}
-
-export type TabPanelProps = {
-  children: React.ReactNode
-  store: UseTab
-  tabId?: string
 }
 
 export type TabProps = TabOptions & TabStoreProps
