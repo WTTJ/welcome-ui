@@ -1,6 +1,62 @@
 {
   "Tag": {
     "props": {
+      "ai": {
+        "defaultValue": null,
+        "description": "",
+        "name": "ai",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Tag/types.ts",
+          "name": "TagOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Tag/types.ts",
+            "name": "TagOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "disabled": {
+        "defaultValue": null,
+        "description": "",
+        "name": "disabled",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Tag/types.ts",
+          "name": "TagOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Tag/types.ts",
+            "name": "TagOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
       "icon": {
         "defaultValue": null,
         "description": "",
@@ -114,13 +170,10 @@
           "raw": "TagSize",
           "value": [
             {
+              "value": "\"lg\""
+            },
+            {
               "value": "\"md\""
-            },
-            {
-              "value": "\"sm\""
-            },
-            {
-              "value": "\"xs\""
             }
           ]
         }
@@ -145,22 +198,16 @@
           "raw": "TagVariant",
           "value": [
             {
-              "value": "\"default\""
-            },
-            {
-              "value": "\"ai\""
-            },
-            {
               "value": "\"blue\""
             },
             {
-              "value": "\"danger\""
+              "value": "\"brand\""
+            },
+            {
+              "value": "\"dash\""
             },
             {
               "value": "\"green\""
-            },
-            {
-              "value": "\"info\""
             },
             {
               "value": "\"orange\""
@@ -169,10 +216,7 @@
               "value": "\"pink\""
             },
             {
-              "value": "\"primary\""
-            },
-            {
-              "value": "\"success\""
+              "value": "\"red\""
             },
             {
               "value": "\"teal\""
@@ -181,7 +225,7 @@
               "value": "\"violet\""
             },
             {
-              "value": "\"warning\""
+              "value": "\"warm\""
             }
           ]
         }

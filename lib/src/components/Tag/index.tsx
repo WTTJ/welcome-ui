@@ -1,7 +1,6 @@
 import type { MouseEvent } from 'react'
 import React from 'react'
 
-import { Button } from '@/components/Button'
 import { Icon } from '@/components/Icon'
 import { classNames, forwardRefWithAs } from '@/utils'
 
@@ -22,15 +21,17 @@ function getTextLength(children: React.ReactNode): number | undefined {
 
 export const Tag = forwardRefWithAs<TagOptions, 'div'>((props, ref) => {
   const {
+    ai = false,
     as: Element = 'div',
     children,
     className,
+    disabled = false,
     icon,
     onClick,
     onRemove,
     removeButtonProps,
-    size = 'md',
-    variant,
+    size = 'lg',
+    variant = 'warm',
     ...rest
   } = props
 
@@ -38,37 +39,45 @@ export const Tag = forwardRefWithAs<TagOptions, 'div'>((props, ref) => {
   const isSquare = getTextLength(children) === 1 && !onRemove
 
   const handleRemove = (e: MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation()
+    if (disabled) return
     if (removeButtonProps?.onClick) removeButtonProps.onClick(e)
     if (onRemove) onRemove()
+  }
+
+  const handleClick = (e: MouseEvent<HTMLDivElement>) => {
+    if (disabled) return
+    if (onClick) onClick(e)
   }
 
   return (
     <Element
       className={cx(
         'root',
-        variant && `variant-${variant}`,
+        `variant-${variant}`,
         `size-${size}`,
         !!onRemove && 'hasRemoveAction',
         isSquare && 'isSquare',
+        ai && 'ai',
+        disabled && 'disabled',
         className
       )}
-      onClick={onClick}
+      onClick={handleClick}
       ref={ref}
       {...rest}
     >
-      {icon}
+      {ai && variant !== 'dash' ? <Icon name="sparkles" size="md" /> : icon}
       {children}
       {onRemove ? (
-        <Button
+        <button
           aria-label="remove tag"
+          disabled={disabled}
           {...removeButtonProps}
           className={cx('removeButton', removeButtonProps?.className)}
           onClick={handleRemove}
-          size="sm"
-          variant="tertiary"
         >
-          <Icon name="times" size="xs" />
-        </Button>
+          <Icon name="times" size="md" />
+        </button>
       ) : null}
     </Element>
   )
