@@ -63,9 +63,7 @@
   }
 
   .file-preview-size {
-    font-weight: var(--font-weight-medium);
     margin: 0;
-    color: var(--color-icon-warm-tertiary);
   }
 
   .image-preview {
@@ -75,11 +73,9 @@
   }
 
   .actions {
-    position: absolute;
     display: flex;
-    top: var(--border-radius-lg);
-    right: var(--border-radius-lg);
-    gap: var(--border-radius-sm);
+    gap: var(--spacing-8);
+    margin-top: var(--spacing-16)
   }
 
   .message-title {
