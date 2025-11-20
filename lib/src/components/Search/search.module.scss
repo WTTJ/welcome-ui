@@ -9,7 +9,7 @@
     position: absolute;
     padding: 0;
     top: 0;
-    bottom: 0;
+    height: var(--search-height, 100%);
     right: var(--indicators-right, 0);
     display: flex;
     gap: var(--spacing-xs);
