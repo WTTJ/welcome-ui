@@ -21,6 +21,8 @@ export interface FileDropOptions {
   /** Pass a comma-separated string of file types e.g. "image/png" or "image/png,image/jpeg" */
   accept?: Accept
   children?: (state: FileDropChildren) => JSX.Element
+  deleteButtonText?: string
+  editButtonText?: string
   fileName?: string
   forceFileType?: ForceFileType
   handleAddFile?: (event: CreateEvent | DropEvent | React.ChangeEvent<HTMLInputElement>) => void

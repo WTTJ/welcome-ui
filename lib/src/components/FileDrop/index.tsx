@@ -26,7 +26,9 @@ export const FileDrop = forwardRef<HTMLDivElement, FileDropProps>(
       },
       children = Preview,
       className,
+      deleteButtonText = 'Delete',
       disabled,
+      editButtonText = 'Edit',
       fileName,
       forceFileType,
       handleAddFile,
@@ -153,23 +155,28 @@ export const FileDrop = forwardRef<HTMLDivElement, FileDropProps>(
             openFile: open,
             wordings,
           })}
-          {!!file && (error || isEditable || isClearable) ? (
+          {file ? (
             <div className={cx('actions')}>
-              {error || isEditable ? (
-                <Button onClick={open} size="md" type="button" variant="tertiary">
-                  <Icon name="pen" />
-                </Button>
-              ) : null}
-              {isClearable ? (
-                <Button
-                  onClick={handleRemoveClick}
-                  size="md"
-                  type="button"
-                  variant="primary-danger"
-                >
-                  <Icon name="trash" />
-                </Button>
-              ) : null}
+              <Button
+                disabled={!isEditable}
+                onClick={open}
+                size="lg"
+                type="button"
+                variant="secondary"
+              >
+                <Icon name="pen" />
+                {editButtonText}
+              </Button>
+              <Button
+                disabled={!isClearable}
+                onClick={handleRemoveClick}
+                size="lg"
+                type="button"
+                variant="secondary-danger"
+              >
+                <Icon name="trash" />
+                {deleteButtonText}
+              </Button>
             </div>
           ) : null}
         </div>
