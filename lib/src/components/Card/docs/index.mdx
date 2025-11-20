@@ -5,6 +5,34 @@ packageName: card
 title: Card
 ---
 
+### Header
+
+The `Card.Header` should be placed at the top of the `Card.Body` component to display titles or introductory content. The `onClose` prop can be provided to automatically add a close button on the top right corner. The close button can be disabled by setting the `disabled` prop to true.
+
+<div data-playground="header.tsx" data-component="Card"></div>
+
+### Footer
+
+The `Card.Footer` should be placed at the bottom of the `Card.Body` component to display supplementary information or actions related to the card's content.
+
+<div data-playground="footer.tsx" data-component="Card"></div>
+
+### Sizes
+
+You can control the padding/font-size and overall size of the Card by using the `size` prop with the following options: `sm`, `md` (default) and `lg`.
+
+<div data-playground="sizes.tsx" data-component="Card"></div>
+
+### Link card
+
+You can use the `as` prop to render the Card as a different HTML element, such as an anchor (`<a>`) tag for link cards.
+
+<div data-playground="link.tsx" data-component="Card"></div>
+
+### Disabled card
+
+<div data-playground="disabled.tsx" data-component="Card"></div>
+
 ### Content card
 
 <div data-playground="content.tsx" data-component="Card"></div>
