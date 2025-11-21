@@ -37,9 +37,10 @@ export const Item = forwardRefWithAs<ItemProps, 'button'>(
   ) => {
     const hideOnClick = !variant || variant === 'radio' || variant === 'radio-mark'
 
-    const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
-      event.preventDefault()
-      onClick?.(event)
+    const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+      e.preventDefault()
+      e.stopPropagation()
+      onClick?.(e)
     }
 
     return (
