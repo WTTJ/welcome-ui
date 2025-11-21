@@ -9,3 +9,5 @@ export const Trigger = forwardRefWithAs<TriggerProps, 'button'>(
     return <MenuButton {...props} ref={ref} render={<Component />} />
   }
 )
+
+Trigger.displayName = 'DropdownMenu.Trigger'

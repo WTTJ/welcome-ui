@@ -18,3 +18,5 @@ export const Backdrop = forwardRef<HTMLDivElement, BackdropProps>(
     )
   }
 )
+
+Backdrop.displayName = 'Drawer.Backdrop'

@@ -113,6 +113,8 @@ const AlertComponent = forwardRef<HTMLDivElement, AlertProps>(
   }
 )
 
+AlertComponent.displayName = 'Alert'
+
 export const Alert = Object.assign(AlertComponent, {
   Button: AlertButton,
   SecondaryButton: AlertSecondaryButton,

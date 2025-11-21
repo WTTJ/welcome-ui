@@ -330,3 +330,5 @@ export const Swiper = ({ children, className, store, ...rest }: SwiperProps) => 
     </div>
   )
 }
+
+Swiper.displayName = 'Swiper'

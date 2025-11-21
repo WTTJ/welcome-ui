@@ -82,3 +82,5 @@ export const Tag = forwardRefWithAs<TagOptions, 'div'>((props, ref) => {
     </Element>
   )
 })
+
+Tag.displayName = 'Tag'

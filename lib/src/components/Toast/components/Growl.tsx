@@ -62,8 +62,10 @@ export const Growl = forwardRef<HTMLDivElement, GrowlProps>(
   }
 )
 
+Growl.displayName = 'Toast.Growl'
+
 export const GrowlAction = forwardRefWithAs<ButtonProps, 'button'>((props, ref) => (
   <Button ref={ref} size="md" variant="secondary" {...props} />
 ))
 
-Growl.displayName = 'Growl'
+GrowlAction.displayName = 'Toast.GrowlAction'

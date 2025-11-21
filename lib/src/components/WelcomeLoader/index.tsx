@@ -23,3 +23,5 @@ export const WelcomeLoader = forwardRef<HTMLDivElement, React.HTMLAttributes<HTM
     )
   }
 )
+
+WelcomeLoader.displayName = 'WelcomeLoader'

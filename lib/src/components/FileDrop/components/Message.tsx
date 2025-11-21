@@ -33,3 +33,5 @@ export const Message = ({
     </>
   )
 }
+
+Message.displayName = 'FileDrop.Message'

@@ -80,3 +80,5 @@ export const CustomHeader = ({
     </div>
   )
 }
+
+CustomHeader.displayName = 'DateTimePicker.CustomHeader'
