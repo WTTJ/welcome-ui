@@ -19,21 +19,31 @@ export const TableComponent = forwardRef<HTMLDivElement, TableProps>(
   }
 )
 
+TableComponent.displayName = 'Table'
+
 const Tbody = (props: React.HTMLAttributes<HTMLTableSectionElement>) => {
   return <tbody {...props} />
 }
+
+Tbody.displayName = 'Table.Tbody'
 
 const Th = (props: React.ThHTMLAttributes<HTMLTableCellElement>) => {
   return <th {...props} />
 }
 
+Th.displayName = 'Table.Th'
+
 const Thead = (props: React.HTMLAttributes<HTMLTableSectionElement>) => {
   return <thead {...props} />
 }
 
+Thead.displayName = 'Table.Thead'
+
 const Td = (props: React.TdHTMLAttributes<HTMLTableCellElement>) => {
   return <td {...props} />
 }
+
+Td.displayName = 'Table.Td'
 
 const Tr = ({ className, onClick, variant, ...rest }: TableTrProps) => {
   return (
@@ -44,6 +54,8 @@ const Tr = ({ className, onClick, variant, ...rest }: TableTrProps) => {
     />
   )
 }
+
+Tr.displayName = 'Table.Tr'
 
 // Nested exports
 export const Table = Object.assign(TableComponent, {

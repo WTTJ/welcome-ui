@@ -442,3 +442,5 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
     )
   }
 )
+
+Select.displayName = 'Select'

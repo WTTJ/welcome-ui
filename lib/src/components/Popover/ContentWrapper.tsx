@@ -38,3 +38,5 @@ export const ContentWrapper = ({ children, className, onClose, store }: ContentW
     </div>
   )
 }
+
+ContentWrapper.displayName = 'Popover.ContentWrapper'

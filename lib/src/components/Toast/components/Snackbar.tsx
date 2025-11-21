@@ -50,8 +50,10 @@ export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
   )
 )
 
+Snackbar.displayName = 'Toast.Snackbar'
+
 export const SnackbarAction = forwardRefWithAs<ButtonProps, 'button'>((props, ref) => (
   <Button ref={ref} size="md" variant="secondary" {...props} />
 ))
 
-Snackbar.displayName = 'Snackbar'
+SnackbarAction.displayName = 'Toast.SnackbarAction'

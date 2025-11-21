@@ -37,6 +37,8 @@ const DefaultPreview = ({ file, onRemove }: FileUploadPreviewProps) => {
   )
 }
 
+DefaultPreview.displayName = 'FileUpload.DefaultPreview'
+
 export const FileUpload = forwardRef<HTMLInputElement, FileUploadProps>(
   (
     {

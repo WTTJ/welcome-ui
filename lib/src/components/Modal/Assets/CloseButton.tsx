@@ -12,3 +12,5 @@ export const CloseButton = ({ children, ...rest }: ButtonProps) => {
     </Button>
   )
 }
+
+CloseButton.displayName = 'AssetModal.Close'

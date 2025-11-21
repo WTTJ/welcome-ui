@@ -15,3 +15,5 @@ export const Title = ({ children, className, ...rest }: TitleProps) => {
     </div>
   )
 }
+
+Title.displayName = 'Drawer.Title'

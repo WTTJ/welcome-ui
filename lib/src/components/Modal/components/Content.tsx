@@ -26,3 +26,5 @@ export const Content = forwardRef<HTMLDivElement, ContentProps>(
     )
   }
 )
+
+Content.displayName = 'Modal.Content'

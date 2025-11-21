@@ -14,3 +14,5 @@ export const Button = ({ children, className, ...rest }: Omit<ButtonProps, 'size
     </WUIButton>
   )
 }
+
+Button.displayName = 'StickyNote.Button'

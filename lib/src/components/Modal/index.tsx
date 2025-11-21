@@ -79,6 +79,8 @@ const ModalComponent = forwardRefWithAs<ModalProps, 'div'>(
   }
 )
 
+ModalComponent.displayName = 'Modal'
+
 // Nested exports
 export const Modal = Object.assign(ModalComponent, {
   Body,

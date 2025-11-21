@@ -14,3 +14,5 @@ export const VisuallyHidden = forwardRefWithAs<VisuallyHiddenProps, 'span'>(
     )
   }
 )
+
+VisuallyHidden.displayName = 'VisuallyHidden'

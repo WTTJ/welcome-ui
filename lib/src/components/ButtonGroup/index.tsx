@@ -38,3 +38,5 @@ export const ButtonGroup = forwardRefWithAs<ButtonGroupProps, 'div'>(
     )
   }
 )
+
+ButtonGroup.displayName = 'ButtonGroup'

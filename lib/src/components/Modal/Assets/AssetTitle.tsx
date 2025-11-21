@@ -13,3 +13,5 @@ export const AssetTitle = ({ children, ...rest }: TextProps) => {
     </Text>
   )
 }
+
+AssetTitle.displayName = 'AssetModal.Title'

@@ -41,3 +41,5 @@ export const Preview: React.FC<FileDropChildren> = ({
   }
   return <Message disabled={disabled} openFile={openFile} {...wordings} />
 }
+
+Preview.displayName = 'FileDrop.Preview'

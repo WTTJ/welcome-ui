@@ -13,3 +13,5 @@ export const IconBlock = ({ iconName, size = 'md' }: IconBlockProps) => {
     </div>
   )
 }
+
+IconBlock.displayName = 'AssetDrawer.IconBlock'

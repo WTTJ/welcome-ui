@@ -9,3 +9,5 @@ const cx = classNames(modalStyles)
 export const Body = forwardRef<HTMLElement, BodyProps>(({ className, ...rest }, ref) => {
   return <section className={cx('body', className)} ref={ref} {...rest} />
 })
+
+Body.displayName = 'Modal.Body'

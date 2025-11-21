@@ -30,3 +30,5 @@ export const Footer = forwardRef<HTMLDivElement, FooterProps>(
     )
   }
 )
+
+Footer.displayName = 'Modal.Footer'

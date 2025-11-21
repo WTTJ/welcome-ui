@@ -23,3 +23,5 @@ export const AssetWithTitle = forwardRef<HTMLDivElement, AssetWithTitleProps>(
     )
   }
 )
+
+AssetWithTitle.displayName = 'AssetModal.AssetWithTitle'

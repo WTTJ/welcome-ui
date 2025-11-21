@@ -22,6 +22,8 @@ export const PopoverTrigger = forwardRefWithAs<PopoverTriggerProps, 'button'>(
   }
 )
 
+PopoverTrigger.displayName = 'Popover.Trigger'
+
 export type PopoverHoverTriggerProps = React.HTMLAttributes<HTMLAnchorElement> & {
   store: UsePopoverHover
 }
@@ -39,3 +41,5 @@ export const PopoverHoverTrigger = forwardRefWithAs<PopoverHoverTriggerProps, 'a
     )
   }
 )
+
+PopoverHoverTrigger.displayName = 'Popover.HoverTrigger'

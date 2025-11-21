@@ -424,3 +424,5 @@ export const Range = forwardRef<HTMLDivElement, RangeProps>(
     )
   }
 )
+
+Range.displayName = 'Slider.Range'

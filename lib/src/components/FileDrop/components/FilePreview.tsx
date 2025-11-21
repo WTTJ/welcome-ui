@@ -47,3 +47,5 @@ export const FilePreview = ({
     </>
   )
 }
+
+FilePreview.displayName = 'FileDrop.FilePreview'

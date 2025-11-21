@@ -24,3 +24,5 @@ export const Hint = forwardRef<HTMLSpanElement, HintProps>(
     )
   }
 )
+
+Hint.displayName = 'Hint'

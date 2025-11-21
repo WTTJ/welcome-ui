@@ -38,4 +38,6 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
   }
 )
 
+Accordion.displayName = 'Accordion'
+
 export { useDisclosureStore as useAccordion } from '@ariakit/react'

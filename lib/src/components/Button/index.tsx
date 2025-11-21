@@ -59,3 +59,5 @@ export const Button = forwardRefWithAs<ButtonProps, 'button'>(
     )
   }
 )
+
+Button.displayName = 'Button'

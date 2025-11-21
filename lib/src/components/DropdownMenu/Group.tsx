@@ -14,6 +14,8 @@ export const Group = forwardRefWithAs<GroupProps, 'div'>(
   }
 )
 
+Group.displayName = 'DropdownMenu.Group'
+
 export const GroupLabel = forwardRefWithAs<GroupLabelProps, 'div'>(
   ({ as: Component = 'div', className, ...props }, ref) => {
     return (
@@ -25,3 +27,5 @@ export const GroupLabel = forwardRefWithAs<GroupLabelProps, 'div'>(
     )
   }
 )
+
+GroupLabel.displayName = 'DropdownMenu.GroupLabel'

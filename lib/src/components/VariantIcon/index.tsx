@@ -27,3 +27,5 @@ export const VariantIcon = forwardRef<HTMLDivElement, VariantIconProps>(
     )
   }
 )
+
+VariantIcon.displayName = 'VariantIcon'

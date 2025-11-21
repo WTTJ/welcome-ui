@@ -17,3 +17,5 @@ export const Action = forwardRefWithAs<ActionProps, 'button'>(
     )
   }
 )
+
+Action.displayName = 'DropdownMenu.Action'

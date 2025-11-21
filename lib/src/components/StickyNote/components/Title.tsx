@@ -17,3 +17,5 @@ export const Title = ({ children, icon = 'lightbulb-alt' }: StickyNoteTitleProps
     </Text>
   )
 }
+
+Title.displayName = 'StickyNote.Title'

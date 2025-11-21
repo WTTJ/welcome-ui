@@ -89,11 +89,15 @@ export const Item = forwardRefWithAs<ItemProps, 'button'>(
   }
 )
 
+Item.displayName = 'DropdownMenu.Item'
+
 export const ItemContent = forwardRef<HTMLDivElement, ItemContentProps>(
   ({ className, ...props }, ref) => {
     return <div {...props} className={cx('item-content', className)} ref={ref} />
   }
 )
+
+ItemContent.displayName = 'DropdownMenu.ItemContent'
 
 export const ItemDescription = forwardRef<HTMLDivElement, ItemDescriptionProps>(
   ({ className, ...props }, ref) => {
@@ -101,15 +105,21 @@ export const ItemDescription = forwardRef<HTMLDivElement, ItemDescriptionProps>(
   }
 )
 
+ItemDescription.displayName = 'DropdownMenu.ItemDescription'
+
 const ItemCheckbox = forwardRef<HTMLDivElement, ItemCheckboxProps>(
   ({ className, ...props }, ref) => {
     return <MenuItemCheckbox {...props} className={cx('item-checkbox', className)} ref={ref} />
   }
 )
 
+ItemCheckbox.displayName = 'DropdownMenu.ItemCheckbox'
+
 const ItemRadio = forwardRef<HTMLDivElement, ItemRadioProps>(({ className, ...props }, ref) => {
   return <MenuItemRadio {...props} className={cx('item-radio', className)} ref={ref} />
 })
+
+ItemRadio.displayName = 'DropdownMenu.ItemRadio'
 
 const ItemDefaultCheck = forwardRef<HTMLSpanElement, ItemDefaultCheckProps>(
   ({ className, ...props }, ref) => {
@@ -120,6 +130,8 @@ const ItemDefaultCheck = forwardRef<HTMLSpanElement, ItemDefaultCheckProps>(
     )
   }
 )
+
+ItemDefaultCheck.displayName = 'DropdownMenu.ItemDefaultCheck'
 
 const ItemCheckboxCheck = forwardRef<HTMLInputElement, ItemCheckboxCheckProps>(
   ({ name, value = true, ...props }, ref) => {
@@ -137,6 +149,8 @@ const ItemCheckboxCheck = forwardRef<HTMLInputElement, ItemCheckboxCheckProps>(
   }
 )
 
+ItemCheckboxCheck.displayName = 'DropdownMenu.ItemCheckboxCheck'
+
 const ItemRadioCheck = forwardRef<HTMLInputElement & HTMLLabelElement, ItemRadioCheckProps>(
   ({ name, value, ...props }, ref) => {
     const checked = useIsItemChecked(name, value)
@@ -144,6 +158,8 @@ const ItemRadioCheck = forwardRef<HTMLInputElement & HTMLLabelElement, ItemRadio
     return <Radio aria-hidden="true" {...props} checked={checked} ref={ref} />
   }
 )
+
+ItemRadioCheck.displayName = 'DropdownMenu.ItemRadioCheck'
 
 const ItemToggleCheck = forwardRef<HTMLInputElement & HTMLLabelElement, ItemToggleCheckProps>(
   ({ className, name, value = true, ...props }, ref) => {
@@ -161,6 +177,8 @@ const ItemToggleCheck = forwardRef<HTMLInputElement & HTMLLabelElement, ItemTogg
     )
   }
 )
+
+ItemToggleCheck.displayName = 'DropdownMenu.ItemToggleCheck'
 
 const useIsItemChecked = (name: string, value: boolean | number | readonly string[] | string) => {
   const store = useMenuStore()

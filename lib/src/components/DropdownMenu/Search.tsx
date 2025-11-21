@@ -23,3 +23,5 @@ export const Search = forwardRefWithAs<SearchProps, 'input'>(
     )
   }
 )
+
+Search.displayName = 'DropdownMenu.Search'

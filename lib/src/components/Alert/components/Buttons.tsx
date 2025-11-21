@@ -8,8 +8,12 @@ export const AlertButton = forwardRefWithAs<Omit<ButtonProps, 'size'>, 'button'>
     <Button className="shrink-0 w-fit" ref={ref} variant={variant} {...props} />
   )
 )
+
 export const AlertSecondaryButton = forwardRefWithAs<Omit<ButtonProps, 'size'>, 'button'>(
   ({ variant = 'secondary', ...props }, ref) => (
     <Button className="shrink-0 w-fit" ref={ref} variant={variant} {...props} />
   )
 )
+
+AlertButton.displayName = 'Alert.Button'
+AlertSecondaryButton.displayName = 'Alert.SecondaryButton'

@@ -21,3 +21,5 @@ export const ToggleButton = ({ isHidden, onClick, ...rest }: ToggleButtonProps) 
     </Button>
   )
 }
+
+ToggleButton.displayName = 'PasswordInput.ToggleButton'

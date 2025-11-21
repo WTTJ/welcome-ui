@@ -13,3 +13,5 @@ export const AlertTitle = ({ children, hasCloseButton, ...rest }: AlertTitleProp
     </Text>
   )
 }
+
+AlertTitle.displayName = 'Alert.Title'
