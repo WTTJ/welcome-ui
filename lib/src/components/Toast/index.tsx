@@ -39,9 +39,10 @@ export const toast = (component: JSX.Element, options?: ToastOptions) => {
   const name = 'type' in component ? component.type.displayName || component.type.name : undefined
   const position = (name === 'Growl' ? 'top-right' : 'bottom-center') as ToastPosition
 
-  const onClose = () => {
-    if (options.onClose) options.onClose()
-    toastRHT.dismiss(options.id)
+  const onClose = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
+    if (options?.onClose) options.onClose()
+    toastRHT.dismiss(options?.id)
   }
 
   const variant = component.props.variant || 'info'
