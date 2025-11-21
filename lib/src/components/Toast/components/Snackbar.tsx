@@ -31,7 +31,12 @@ export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
     },
     ref
   ) => (
-    <div className={cx('root', `variant-${variant}`, className)} ref={ref} {...rest}>
+    <div
+      className={cx('root', `variant-${variant}`, className)}
+      onClick={e => e.stopPropagation()}
+      ref={ref}
+      {...rest}
+    >
       <div className={cx('snackbar')}>
         {variant ? <Icon className={cx('icon')} name={ICON[variant]} size="lg" /> : null}
         <Text variant="body-md-strong">{children}</Text>
