@@ -5,7 +5,7 @@
     position: absolute;
     padding: 0;
     top: 0;
-    height: var(--select-height, 100%);
+    height: var(--selectHeight, 100%);
     right: var(--indicatorsRight, var(--spacing-md));
     display: flex;
     gap: var(--spacing-xs);
