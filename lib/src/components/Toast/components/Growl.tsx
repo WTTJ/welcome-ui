@@ -48,6 +48,7 @@ export const Growl = forwardRef<HTMLDivElement, GrowlProps>(
               className={cx('close-button')}
               onClick={e => {
                 e.preventDefault()
+                e.stopPropagation()
                 onClose?.()
               }}
               size="sm"
