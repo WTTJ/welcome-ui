@@ -31,13 +31,22 @@ import type {
 const cx = classNames(dropdownMenuStyles)
 
 export const Item = forwardRefWithAs<ItemProps, 'button'>(
-  ({ as: Component = 'button', children, className, name, value, variant, ...props }, ref) => {
+  (
+    { as: Component = 'button', children, className, name, onClick, value, variant, ...props },
+    ref
+  ) => {
     const hideOnClick = !variant || variant === 'radio' || variant === 'radio-mark'
+
+    const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
+      event.preventDefault()
+      onClick?.(event)
+    }
 
     return (
       <MenuItem
         hideOnClick={hideOnClick}
         {...props}
+        onClick={handleClick}
         ref={ref as unknown as Ref<HTMLDivElement>}
         render={
           <Component className={cx('item', className)}>
