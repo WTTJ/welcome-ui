@@ -40,7 +40,7 @@
     }
 
     &::placeholder {
-      --textAreaColor: var(--components-colors-input-color-text-placeholder);
+      color: var(--components-colors-input-color-text-placeholder);
     }
   }
 
