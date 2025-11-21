@@ -67,6 +67,8 @@ export const BreadcrumbComponent = forwardRef<HTMLDivElement, BreadcrumbProps>(
   }
 )
 
+BreadcrumbComponent.displayName = 'Breadcrumb'
+
 // Nested exports
 export const Breadcrumb = Object.assign(BreadcrumbComponent, {
   Item,

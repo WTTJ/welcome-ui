@@ -59,3 +59,5 @@ export const Item = forwardRef<HTMLAnchorElement, BreadcrumbItemProps>(
     )
   }
 )
+
+Item.displayName = 'Breadcrumb.Item'

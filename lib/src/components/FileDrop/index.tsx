@@ -177,3 +177,5 @@ export const FileDrop = forwardRef<HTMLDivElement, FileDropProps>(
     )
   }
 )
+
+FileDrop.displayName = 'FileDrop'

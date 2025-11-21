@@ -21,11 +21,15 @@ const StepperComponent = forwardRef<HTMLOListElement, StepperProps>(
   }
 )
 
+StepperComponent.displayName = 'Stepper'
+
 const Separator = () => (
   <div className={cx('separator')}>
     <Icon name="angle-right-b" size="lg" />
   </div>
 )
+
+Separator.displayName = 'Stepper.Separator'
 
 const Item = ({ children, icon, isCompleted, isOpen, onClick }: StepperItemProps) => {
   const selectedIcon = getIcon({ icon, isCompleted, isOpen })
@@ -42,6 +46,8 @@ const Item = ({ children, icon, isCompleted, isOpen, onClick }: StepperItemProps
     </li>
   )
 }
+
+Item.displayName = 'Stepper.Item'
 
 export const Stepper = Object.assign(StepperComponent, {
   Item,

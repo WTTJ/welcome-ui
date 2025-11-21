@@ -9,3 +9,5 @@ export const CustomPopper = ({ children }: { children: React.ReactElement }) => 
   const { children: nested, className, modifiers, placement, ...popperProps } = children.props
   return <div style={popperProps}>{children}</div>
 }
+
+CustomPopper.displayName = 'DateTimePicker.CustomPopper'

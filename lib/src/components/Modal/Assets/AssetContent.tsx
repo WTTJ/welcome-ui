@@ -16,3 +16,5 @@ export const AssetContent = ({
     </div>
   )
 }
+
+AssetContent.displayName = 'AssetModal.Content'
