@@ -44,7 +44,14 @@ export const Growl = forwardRef<HTMLDivElement, GrowlProps>(
             {cta ? <>{cta}</> : null}
           </div>
           {hasCloseButton ? (
-            <CloseButton className={cx('close-button')} onClick={onClose} size="sm" />
+            <CloseButton
+              className={cx('close-button')}
+              onClick={e => {
+                e.preventDefault()
+                onClose?.()
+              }}
+              size="sm"
+            />
           ) : null}
         </div>
         <div

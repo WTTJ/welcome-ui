@@ -36,7 +36,15 @@ export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
         {variant ? <Icon className={cx('icon')} name={ICON[variant]} size="lg" /> : null}
         <Text variant="body-md-strong">{children}</Text>
         {cta ? <>{cta}</> : null}
-        {hasCloseButton ? <CloseButton onClick={onClose} size="sm" /> : null}
+        {hasCloseButton ? (
+          <CloseButton
+            onClick={e => {
+              e.preventDefault()
+              onClose?.()
+            }}
+            size="sm"
+          />
+        ) : null}
       </div>
       <div
         className={cx('progress', hideProgressBar && 'hide-progress-bar')}
