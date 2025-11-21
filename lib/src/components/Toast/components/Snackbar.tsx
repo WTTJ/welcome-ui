@@ -40,6 +40,7 @@ export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
           <CloseButton
             onClick={e => {
               e.preventDefault()
+              e.stopPropagation()
               onClose?.()
             }}
             size="sm"
