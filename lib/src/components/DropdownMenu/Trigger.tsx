@@ -13,6 +13,7 @@ export const Trigger = forwardRefWithAs<TriggerProps, 'button'>(
       onClick?.(e)
       store.toggle()
     }
+
     return (
       <MenuButton
         onClick={handleMenuButtonClick}

@@ -1,5 +1,5 @@
 {
-  "Submenu": {
+  "DropdownMenu.Submenu": {
     "props": {
       "item": {
         "defaultValue": null,
