@@ -23,7 +23,7 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
             {title}
           </Text>
           <div className={cx('icon')}>
-            <Icon name="arrow-right" size="sm" />
+            <Icon name="angle-right" size="lg" />
           </div>
         </Disclosure>
         <DisclosureContent
