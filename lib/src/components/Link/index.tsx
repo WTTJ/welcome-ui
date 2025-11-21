@@ -23,6 +23,8 @@ const Wrapper = ({ children, isExternal }: WrapperProps) => {
   )
 }
 
+Wrapper.displayName = 'Link.Wrapper'
+
 const shouldWrapText = (child: React.ReactNode, isExternal?: boolean) => {
   if (typeof child === 'string') {
     return <Wrapper isExternal={isExternal}>{child}</Wrapper>
@@ -94,3 +96,5 @@ export const Link = forwardRefWithAs<LinkOptions, 'a'>((props, ref) => {
     </Element>
   )
 })
+
+Link.displayName = 'Link'

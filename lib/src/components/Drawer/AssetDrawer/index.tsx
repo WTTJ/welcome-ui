@@ -69,3 +69,5 @@ export const AssetDrawerComponent = forwardRefWithAs<AssetDrawerProps, 'div'>(
     )
   }
 )
+
+AssetDrawerComponent.displayName = 'AssetDrawer'

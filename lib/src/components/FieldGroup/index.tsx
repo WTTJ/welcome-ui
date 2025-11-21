@@ -18,3 +18,5 @@ export const FieldGroup = forwardRef<HTMLFieldSetElement, FieldGroupProps>(
     </fieldset>
   )
 )
+
+FieldGroup.displayName = 'FieldGroup'

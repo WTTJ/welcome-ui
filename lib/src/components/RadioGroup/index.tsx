@@ -58,3 +58,5 @@ export const RadioGroup = ({
     </FieldGroup>
   )
 }
+
+RadioGroup.displayName = 'RadioGroup'

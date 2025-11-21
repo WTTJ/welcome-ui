@@ -27,3 +27,5 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
     )
   }
 )
+
+Header.displayName = 'Modal.Header'

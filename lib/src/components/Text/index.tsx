@@ -37,3 +37,5 @@ export const Text = forwardRefWithAs<TextProps, 'p'>(
     )
   }
 )
+
+Text.displayName = 'Text'

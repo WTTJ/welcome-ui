@@ -57,6 +57,8 @@ const DrawerComponent = forwardRef<HTMLDivElement, DrawerProps>(
   }
 )
 
+DrawerComponent.displayName = 'Drawer'
+
 export const Drawer = Object.assign(DrawerComponent, {
   Backdrop,
   Close,

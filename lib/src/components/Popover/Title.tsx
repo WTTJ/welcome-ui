@@ -10,3 +10,5 @@ export const Title = forwardRef<HTMLHeadingElement, React.HTMLProps<HTMLHeadingE
     return <h6 className={cx('title', className)} ref={ref} {...props} />
   }
 )
+
+Title.displayName = 'Popover.Title'
