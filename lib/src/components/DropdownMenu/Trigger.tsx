@@ -10,6 +10,7 @@ export const Trigger = forwardRefWithAs<TriggerProps, 'button'>(
   ({ as: Component, onClick, store, ...rest }, ref) => {
     const handleMenuButtonClick = (e: MouseEvent<HTMLButtonElement>) => {
       e.preventDefault()
+      e.stopPropagation()
       onClick?.(e)
       store.toggle()
     }
