@@ -9,8 +9,13 @@ export const AlertButton = forwardRef<HTMLButtonElement, Omit<ButtonProps, 'size
     <Button className="shrink-0 w-fit" ref={ref} variant={variant} {...props} />
   )
 )
+
+AlertButton.displayName = 'Alert.Button'
+
 export const AlertSecondaryButton = forwardRef<HTMLButtonElement, Omit<ButtonProps, 'size'>>(
   ({ variant = 'secondary', ...props }, ref) => (
     <Button className="shrink-0 w-fit" ref={ref} variant={variant} {...props} />
   )
 )
+
+AlertSecondaryButton.displayName = 'Alert.SecondaryButton'

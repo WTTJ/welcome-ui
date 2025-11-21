@@ -231,4 +231,6 @@ export const SliderComponent = forwardRef<HTMLDivElement, SliderProps>(
   }
 )
 
+SliderComponent.displayName = 'Slider'
+
 export const Slider = Object.assign(SliderComponent, { Range })

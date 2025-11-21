@@ -37,3 +37,5 @@ export const Arrow = forwardRef<HTMLDivElement, ArrowProps>(
     )
   }
 )
+
+Arrow.displayName = 'DropdownMenu.Arrow'

@@ -25,6 +25,8 @@ const StickyNoteComponent = forwardRef<HTMLDivElement, StickyNoteProps>(
   }
 )
 
+StickyNoteComponent.displayName = 'StickyNote'
+
 export const StickyNote = Object.assign(StickyNoteComponent, {
   Button,
   Title,

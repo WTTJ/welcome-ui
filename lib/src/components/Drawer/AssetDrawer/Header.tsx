@@ -37,3 +37,5 @@ export const Header = ({
     </div>
   )
 }
+
+Header.displayName = 'AssetDrawer.Header'

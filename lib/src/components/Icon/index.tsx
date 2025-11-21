@@ -24,4 +24,6 @@ export const Icon = forwardRef<SVGSVGElement, IconProps>(
   }
 )
 
+Icon.displayName = 'Icon'
+
 export { Sprite } from './Sprite'
