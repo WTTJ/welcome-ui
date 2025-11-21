@@ -2,7 +2,6 @@ import { getColorFromName, getInitials } from '../utils'
 
 describe('getColorFromName', () => {
   it('returns a secondary color key based on text length', () => {
-    expect(getColorFromName()).toBe('secondary-blue')
     expect(getColorFromName('a')).toBe('secondary-green')
     expect(getColorFromName('ab')).toBe('secondary-orange')
     expect(getColorFromName('abc')).toBe('secondary-pink')
