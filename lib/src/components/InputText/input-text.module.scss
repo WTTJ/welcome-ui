@@ -51,7 +51,7 @@
     }
 
     &::placeholder {
-      --inputTextColor: var(--color-icon-neutral-subtle);
+      color: var(--components-colors-input-color-text-placeholder);
     }
   }
 

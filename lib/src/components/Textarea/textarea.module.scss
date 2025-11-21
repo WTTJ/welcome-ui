@@ -9,7 +9,6 @@
     width: 100%;
     transition: var(--duration-medium);
     padding: var(--spacing-md);
-    min-height: 8.125rem;
     outline: none;
 
     /* VARIABLES THAT CHANGE WITH REACT PROPS */
@@ -20,6 +19,8 @@
     color: var(--textAreaColor, var(--components-colors-input-color-text-default));
     border-color: var(--textAreaBorderColor, var(--components-colors-input-color-border-default));
     box-shadow: var(--textAreaBoxShadow, var(--inset-10)) inset;
+    field-sizing: var(--textAreaFieldSizing, fixed);
+    min-height: var(--textAreaMinHeight, 8.125rem);
 
     &:disabled,
     &[aria-disabled] {
@@ -39,7 +40,7 @@
     }
 
     &::placeholder {
-      --textAreaColor: var(--components-colors-input-color-text-placeholder);
+      color: var(--components-colors-input-color-text-placeholder);
     }
   }
 
@@ -55,5 +56,10 @@
     &-success {
       --textAreaBorderColor: var(--components-colors-input-color-border-success);
     }
+  }
+
+  .adaptative {
+    --textAreaFieldSizing: content;
+    --textAreaMinHeight: auto;
   }
 }

@@ -18,7 +18,7 @@ const Wrapper = ({ children, isExternal }: WrapperProps) => {
   return (
     <span className={cx('wui-text')}>
       {children}
-      {isExternal ? <Icon name="external-link-alt" size="sm" /> : null}
+      {isExternal ? <Icon name="external-link-alt" /> : null}
     </span>
   )
 }
