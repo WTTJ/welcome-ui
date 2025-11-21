@@ -27,6 +27,8 @@ export const TabComponent = forwardRefWithAs<TabProps, 'button'>(
   }
 )
 
+TabComponent.displayName = 'Tab'
+
 export const Tab = Object.assign(TabComponent, { List: TabList, Panel: TabPanel })
 
 export { useTabStore as useTab } from '@ariakit/react'

@@ -10,3 +10,5 @@ const cx = classNames(styles)
 export const Content = forwardRef<HTMLDivElement, ContentProps>(({ className, ...rest }, ref) => {
   return <div className={cx('content', className)} ref={ref} {...rest} />
 })
+
+Content.displayName = 'Drawer.Content'

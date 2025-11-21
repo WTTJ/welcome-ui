@@ -56,3 +56,5 @@ export const ActiveBar = ({ activeTab, listRef, orientation }: ActiveBarProps) =
 
   return <span className={cx('root', `orientation-${orientation}`)} style={style} />
 }
+
+ActiveBar.displayName = 'Tab.ActiveBar'

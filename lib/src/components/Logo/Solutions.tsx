@@ -15,3 +15,5 @@ export const SolutionsSymbol = forwardRef<SVGSVGElement, ComponentPropsWithRef<'
     </svg>
   )
 )
+
+SolutionsSymbol.displayName = 'Logo.Solutions'

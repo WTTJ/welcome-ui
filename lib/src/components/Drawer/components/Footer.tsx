@@ -10,3 +10,5 @@ const cx = classNames(styles)
 export const Footer = forwardRef<HTMLDivElement, FooterProps>(({ className, ...rest }, ref) => {
   return <div className={cx('footer', className)} ref={ref} {...rest} />
 })
+
+Footer.displayName = 'Drawer.Footer'

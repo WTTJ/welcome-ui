@@ -23,3 +23,5 @@ export const Submenu = forwardRef<HTMLDivElement, SubmenuOptions>(
     )
   }
 )
+
+Submenu.displayName = 'DropdownMenu.Submenu'

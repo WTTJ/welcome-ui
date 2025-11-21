@@ -33,6 +33,8 @@ const Title = ({ children, className, ...rest }: TextProps) => (
   </p>
 )
 
+Title.displayName = 'Toast.Title'
+
 export const toast = (component: JSX.Element, options?: ToastOptions) => {
   const name = 'type' in component ? component.type.displayName || component.type.name : undefined
   const position = (name === 'Growl' ? 'top-right' : 'bottom-center') as ToastPosition
@@ -61,6 +63,8 @@ export const toast = (component: JSX.Element, options?: ToastOptions) => {
     toastOptions
   )
 }
+
+Toaster.displayName = 'Toast'
 
 export const Toast = Object.assign(Toaster, {
   Growl,
