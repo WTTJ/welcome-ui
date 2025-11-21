@@ -2,7 +2,6 @@ import { getColorFromName, getInitials } from '../utils'
 
 describe('getColorFromName', () => {
   it('returns a secondary color key based on text length', () => {
-    expect(getColorFromName()).toBe('secondary-blue')
     expect(getColorFromName('a')).toBe('secondary-green')
     expect(getColorFromName('ab')).toBe('secondary-orange')
     expect(getColorFromName('abc')).toBe('secondary-pink')
@@ -10,7 +9,7 @@ describe('getColorFromName', () => {
   })
 
   it('returns the first secondary color for empty text', () => {
-    expect(getColorFromName('')).toBe('secondary-blue')
+    expect(getColorFromName('')).toBe(undefined)
   })
 
   it('ignores non-secondary keys', () => {
@@ -27,6 +26,16 @@ describe('getInitials', () => {
   it('returns first two letters for single word', () => {
     expect(getInitials('Bob')).toBe('BO')
     expect(getInitials('a')).toBe('A')
+  })
+
+  it('returns only first letter for xs and sm size', () => {
+    // xs size
+    expect(getInitials('John Doe', 'xs')).toBe('J')
+    expect(getInitials('Alice', 'xs')).toBe('A')
+
+    // sm size
+    expect(getInitials('John Doe', 'sm')).toBe('J')
+    expect(getInitials('Alice', 'sm')).toBe('A')
   })
 
   it('handles accents', () => {

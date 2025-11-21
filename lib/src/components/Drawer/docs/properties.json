@@ -120,9 +120,6 @@
       }
     }
   },
-  "useDialogStore": {
-    "props": {}
-  },
   "AssetDrawer": {
     "props": {
       "maxWidth": {

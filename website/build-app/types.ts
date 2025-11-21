@@ -14,6 +14,7 @@ export type Params<
 
 type Page = {
   id: string
+  isNew?: boolean
   parent?: string
   subPages?: string[]
   title?: string

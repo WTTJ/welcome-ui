@@ -60,7 +60,7 @@ export const AssetDrawerComponent = forwardRefWithAs<AssetDrawerProps, 'div'>(
         <div className={cx('content-wrapper')}>
           <div
             className={cx('content-max-width')}
-            style={{ '--asset-drawer-content-max-width': drawerMaxWidth } as React.CSSProperties}
+            style={{ '--assetDrawerContentMaxWidth': drawerMaxWidth } as React.CSSProperties}
           >
             <div className={cx('content')}>{children}</div>
           </div>
@@ -69,3 +69,5 @@ export const AssetDrawerComponent = forwardRefWithAs<AssetDrawerProps, 'div'>(
     )
   }
 )
+
+AssetDrawerComponent.displayName = 'AssetDrawer'

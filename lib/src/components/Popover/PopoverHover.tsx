@@ -37,6 +37,8 @@ const PopoverHoverComponent = forwardRefWithAs<PopoverHoverOptions, 'div'>(
   }
 )
 
+PopoverHoverComponent.displayName = 'PopoverHover'
+
 export const PopoverHover = Object.assign(PopoverHoverComponent, {
   Content,
   Title,

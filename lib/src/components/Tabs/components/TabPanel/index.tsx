@@ -18,3 +18,5 @@ export const TabPanel = forwardRef<HTMLDivElement, TabPanelProps>(
     )
   }
 )
+
+TabPanel.displayName = 'Tab.Panel'

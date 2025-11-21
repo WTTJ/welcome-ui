@@ -26,3 +26,5 @@ export const Backdrop = forwardRef<HTMLDivElement, BackdropProps>(
     return null
   }
 )
+
+Backdrop.displayName = 'Modal.Backdrop'

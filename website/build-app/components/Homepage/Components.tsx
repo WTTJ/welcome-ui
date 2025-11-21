@@ -22,7 +22,7 @@ const components: ComponentProps[] = [
     children: (
       <div className="flex gap-md">
         <Tag>Default</Tag>
-        <Tag variant="success">Success</Tag>
+        <Tag variant="green">Success</Tag>
         <Tag variant="violet">Violet</Tag>
       </div>
     ),
@@ -69,11 +69,10 @@ const components: ComponentProps[] = [
   {
     children: (
       <div className="flex gap-md">
-        <Avatar name="Welcome jungle" size="lg" />
-        <Avatar name="Other name" size="lg" />
+        <Avatar name="Welcome jungle" />
+        <Avatar name="Other name" />
         <Avatar
           name="Welcome logo"
-          size="lg"
           src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4"
         />
       </div>
@@ -103,7 +102,7 @@ const Component = ({ children, description, link, title }: ComponentProps) => {
       <Link as={NextLink} className="font-bold mt-md uppercase" href={link}>
         {title}
       </Link>
-      <Text className="mb-0 mt-sm" variant="sm">
+      <Text className="mb-0 mt-sm" variant="body-md">
         {description}
       </Text>
     </div>

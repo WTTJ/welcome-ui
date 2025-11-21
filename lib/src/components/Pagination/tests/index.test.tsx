@@ -112,6 +112,69 @@ describe('<Pagination>', () => {
     expect(onChange).toHaveBeenCalledWith(10)
   })
 
+  it('should render with custom navigation texts', async () => {
+    const onChange = vi.fn()
+    const navigationTexts = {
+      firstPage: 'First',
+      lastPage: 'Last',
+      nextPage: 'Next',
+      previousPage: 'Previous',
+    }
+
+    render(
+      <Pagination
+        dataTestId="pagination"
+        navigationTexts={navigationTexts}
+        onChange={onChange}
+        page={5}
+        pageCount={10}
+        showEdgeControls
+      />
+    )
+
+    const firstButton = screen.getByTestId('pagination-arrow-first')
+    const lastButton = screen.getByTestId('pagination-arrow-last')
+    const prevButton = screen.getByTestId('pagination-arrow-prev')
+    const nextButton = screen.getByTestId('pagination-arrow-next')
+
+    expect(firstButton).toHaveTextContent('First')
+    expect(lastButton).toHaveTextContent('Last')
+    expect(prevButton).toHaveTextContent('Previous')
+    expect(nextButton).toHaveTextContent('Next')
+    expect(firstButton).toHaveAttribute('aria-label', 'First')
+    expect(lastButton).toHaveAttribute('aria-label', 'Last')
+    expect(prevButton).toHaveAttribute('aria-label', 'Previous')
+    expect(nextButton).toHaveAttribute('aria-label', 'Next')
+  })
+
+  it('should navigate to first and last pages', async () => {
+    const onChange = vi.fn()
+
+    const { user } = render(
+      <Pagination
+        dataTestId="pagination"
+        onChange={onChange}
+        page={5}
+        pageCount={10}
+        showEdgeControls
+      />
+    )
+
+    const firstButton = screen.getByTestId('pagination-arrow-first')
+    const lastButton = screen.getByTestId('pagination-arrow-last')
+
+    expect(firstButton).not.toHaveAttribute('disabled')
+    expect(lastButton).not.toHaveAttribute('disabled')
+
+    /** Click on first button */
+    await user.click(firstButton)
+    expect(onChange).toHaveBeenCalledWith(1)
+
+    /** Click on last button */
+    await user.click(lastButton)
+    expect(onChange).toHaveBeenCalledWith(10)
+  })
+
   describe('usePages', () => {
     it('should return correct values', () => {
       const { result } = renderHook(() => usePages({ page: 1, pageCount: 10, rangeDisplay: 5 }))

@@ -1,0 +1,110 @@
+# Version 9 - Belonging: Implements the Belonging experience redesign
+
+Hi, today we are releasing a new batch in the v9, with redesigned components.
+
+![Version 9 illustration](https://www.welcome-ui.com/v9.png)
+
+## Upgrade steps
+
+### 1. Upgrade your dependencies
+
+TODO
+
+### 2. Script to migrate
+
+In welcome-ui repository, run this script to change styled props to tailwind classes in your project, and apply other breaking changes from components listed below.
+
+```bash
+yarn migrate '../your_project_path' --replace
+```
+
+You will have to confirm each change, you can press `y` to apply the change, `n` to skip it, `a` to apply all remaining changes and `q` to quit.
+
+If you want to see the changes before applying them, you can run the script without `--replace` flag:
+
+```bash
+yarn migrate '../your_project_path/subfolder'
+```
+
+#### Example of changes
+
+TODO
+
+### 3. Fix remaining issues
+
+We cannot cover all cases, so you may have to fix some issues manually. Check `_CSS_TO_EDIT` comments in your code to find them, and check the list of components changes below.
+
+## Components changes
+
+### Badge
+
+The `lg` size has been added. Available sizes are now `sm`, `md` (default), and `lg`. The `brand` variant replaces the previous `primary` variant, and the `warm` variant replaces the previous `default` variant. Available variants are now `brand`, `blue`, `neutral`, and `warm` (default). The `sm` size is now dedicated to status indicators and no longer supports text content.
+
+### Button
+
+The shape variants no longer exist. All the buttons have the same border-radius now. The `xs` size has been removed, `lg` is the new default size. New sizes are `sm`, `md` and `lg`. The `ghost` variant has been removed, the closest one is now `tertiary`.
+
+### Avatar
+
+We removed the `size` prop values `xl` and `xxl`. The new available sizes are:
+
+- sm become xs
+- md become sm
+- lg become md
+- xl become lg
+
+### Pagination
+
+- **Size variants**: Added `size` prop with `md` and `lg` (default) options to control the overall size of pagination controls
+- **Edge controls**: Added `showEdgeControls` prop to display optional First and Last buttons for quick navigation to the beginning or end of large datasets
+- **Custom texts**: Added `navigationTexts` prop to customize the text displayed on all navigation buttons (firstPage, lastPage, nextPage, previousPage)
+
+### Tag
+
+- The `lg` size (old `md`) is now the default size. The `md` size replaces the old `sm` size. Available sizes are now `md` and `lg` (default). 
+- The `warm` variant is now the default, replacing the old `beige` variant.
+- The `brand` variant replaces the old `primary` variant.
+- New variants include `dash`, `teal`, `violet`, and `pink`, while existing variants have been renamed: `green` (old `success`), `blue` (old `information`), `orange` (old `warning`), and `red` (old `danger`).
+
+### Toggle
+
+Sizes changed to `sm`, `md` and `lg`.
+
+Also we removed checkedIcon and uncheckedIcon props, you can now use `withVisibilityIcon` prop to add an eye / eye-slash icon to toggle visibility.
+
+```diff
+- <Toggle checkedIcon={<EyeIcon />} uncheckedIcon={<EyeSlashIcon />} />
++ <Toggle withVisibilityIcon />
+```
+
+### Tooltip
+
+The props `withArrow` is now deprecated.
+
+Also added an optional props `title`.
+
+### Alert
+
+Sizes changed to `md` and `lg`.
+
+We removed variants `beige` and `default`, the closest one is now `brand` (default).
+
+You cannot remove the icon.
+
+### DropdownMenu
+
+The `dataTestId` prop has been renamed to `data-testid` to align with standard React testing practices.
+The `innerProps` has been removed.
+
+### Card
+
+Introduce new `size` prop to control padding/font-size and overall size of the Card: `sm`, `md` (default) and `lg`.
+Cards can be composed of a `Card.Header` and/or a `Card.Footer` component.
+
+#### Card.Header
+
+Automatically adds a `close` button on the top right corner when `onClose` prop is provided.
+
+## Utils
+
+## example

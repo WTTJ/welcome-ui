@@ -41,6 +41,8 @@ const PopoverComponent = forwardRef<HTMLDivElement, PopoverOptions>(
   }
 )
 
+PopoverComponent.displayName = 'Popover'
+
 export const Popover = Object.assign(PopoverComponent, {
   Content,
   Title,

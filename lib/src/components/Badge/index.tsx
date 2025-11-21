@@ -1,5 +1,6 @@
 import { forwardRef } from 'react'
 
+import { Text } from '@/components/Text'
 import { classNames } from '@/utils'
 
 import badgeStyles from './badge.module.scss'
@@ -9,36 +10,22 @@ const cx = classNames(badgeStyles)
 
 export const Badge = forwardRef<HTMLDivElement, BadgeProps>(
   (
-    {
-      children,
-      className,
-      disabled,
-      size = 'md',
-      variant = 'default',
-      withNumberAbbreviation,
-      ...rest
-    },
+    { children, className, size = 'md', variant = 'warm', withNumberAbbreviation, ...rest },
     ref
   ) => {
     const isNumber = Number.isInteger(children)
-    const textLength = children.toString().length
-    const hasSingleCharacter = textLength === 1
     const shouldUseAbbreviation = isNumber && withNumberAbbreviation && (children as number) > 99
     const text = shouldUseAbbreviation ? '99+' : children
+    const textVariant = size === 'lg' ? 'label-md-strong' : 'label-sm-strong'
+    const isBadgeSmall = size === 'sm'
 
     return (
       <div
         {...rest}
-        className={cx(
-          'root',
-          disabled ? `disabled-${variant}` : `variant-${variant}`,
-          `size-${size}`,
-          hasSingleCharacter && `rounded-${size}`,
-          className
-        )}
+        className={cx('root', `variant-${variant}`, `size-${size}`, className)}
         ref={ref}
       >
-        {text}
+        {!isBadgeSmall && <Text variant={textVariant}>{text}</Text>}
       </div>
     )
   }

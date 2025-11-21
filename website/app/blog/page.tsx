@@ -2,7 +2,7 @@
 import { Avatar } from '@/components/Avatar'
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
-import { RightIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { Link } from '@/components/Link'
 import { Tag } from '@/components/Tag'
 import { Text } from '@/components/Text'
@@ -89,10 +89,10 @@ const Home = () => {
   return (
     <main className="p-xl">
       <div className="max-w-[37.5rem] mt-xl mx-auto">
-        <Text className="text-center" variant="subtitle-md">
+        <Text className="text-center" variant="label-lg">
           Blog
         </Text>
-        <Text className="text-center" variant="h1">
+        <Text as="h1" className="text-center" variant="display-sm">
           The latest about us
         </Text>
         <ul className="list-none m-0 mt-xxl md:mt-5xl p-0">
@@ -103,7 +103,7 @@ const Home = () => {
                 <Card.Body>
                   <div className="flex gap-xxs mb-xl">
                     {tags?.map(tag => (
-                      <Tag key={`${link}_${tag}`} size="sm" variant="info">
+                      <Tag key={`${link}_${tag}`} size="md" variant="blue">
                         {tag}
                       </Tag>
                     ))}
@@ -119,7 +119,7 @@ const Home = () => {
                           <Avatar key={`${link}_authors_${url}`} name={name} src={url} />
                         ))}
                       </div>
-                      <Text as="span" className="font-bold" variant="sm">
+                      <Text as="span" variant="body-md-strong">
                         {authors?.map(({ name }, idx) => (
                           <>
                             {idx !== 0 && ', '}
@@ -127,16 +127,16 @@ const Home = () => {
                           </>
                         ))}
                       </Text>
-                      <Text variant="xs">{date.toDateString()}</Text>
+                      <Text variant="body-sm">{date.toDateString()}</Text>
                       <Button
                         as="a"
                         className="w-fit shrink-0"
                         href={link}
                         rel="noopener nofollow"
-                        size="sm"
+                        size="md"
                         target="_blank"
                       >
-                        <span>Read more</span> <RightIcon />
+                        <span>Read more</span> <Icon name="angle-right-b" />
                       </Button>
                     </div>
                   </div>

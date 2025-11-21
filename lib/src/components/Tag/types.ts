@@ -1,6 +1,8 @@
 import type { ButtonProps } from '@/components/Button/types'
 
 export interface TagOptions {
+  ai?: boolean
+  disabled?: boolean
   icon?: React.ReactNode
   onRemove?: () => void
   removeButtonProps?: ButtonProps
@@ -8,19 +10,15 @@ export interface TagOptions {
   variant?: TagVariant
 }
 
-type TagSize = 'md' | 'sm' | 'xs'
+type TagSize = 'lg' | 'md'
 type TagVariant =
-  | 'ai'
   | 'blue'
-  | 'danger'
-  | 'default'
-  | 'default'
+  | 'brand'
+  | 'dash'
   | 'green'
-  | 'info'
   | 'orange'
   | 'pink'
-  | 'primary'
-  | 'success'
+  | 'red'
   | 'teal'
   | 'violet'
-  | 'warning'
+  | 'warm'

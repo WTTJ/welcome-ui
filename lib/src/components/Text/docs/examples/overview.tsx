@@ -3,19 +3,32 @@ import { Text } from '@/components/Text'
 const Example = () => {
   return (
     <>
-      <Text variant="h0">Heading (h0)</Text>
-      <Text variant="h1">Heading (h1)</Text>
-      <Text variant="h2">Heading (h2)</Text>
-      <Text variant="h3">Heading (h3)</Text>
-      <Text variant="h4">Heading (h4)</Text>
-      <Text variant="h5">Heading (h5)</Text>
-      <Text variant="h6">Heading (h6)</Text>
-      <Text variant="lg">Text (lg)</Text>
-      <Text variant="md">Text (md)</Text>
-      <Text variant="sm">Text (sm)</Text>
-      <Text variant="xs">Text (xs)</Text>
-      <Text variant="subtitle-md">Subtitle (md)</Text>
-      <Text variant="subtitle-sm">Subtitle (sm)</Text>
+      <Text variant="display-xl">Display (xl)</Text>
+      <Text variant="display-lg">Display (lg)</Text>
+      <Text variant="display-md">Display (md)</Text>
+      <Text variant="display-sm">Display (sm)</Text>
+      <Text variant="heading-xl">Heading (xl)</Text>
+      <Text variant="heading-lg">Heading (lg)</Text>
+      <Text variant="heading-md-strong">Heading (md)</Text>
+      <Text variant="heading-sm-strong">Heading (sm)</Text>
+      <Text variant="heading-xs-strong">Heading (xs)</Text>
+      <Text variant="heading-md-strong">Heading (md-strong)</Text>
+      <Text variant="heading-sm-strong">Heading (sm-strong)</Text>
+      <Text variant="heading-xs-strong">Heading (xs-strong)</Text>
+      <Text variant="body-xl">Body (xl)</Text>
+      <Text variant="body-lg">Body (lg)</Text>
+      <Text variant="body-md">Body (md)</Text>
+      <Text variant="body-sm">Body (sm)</Text>
+      <Text variant="body-xl-strong">Body (xl-strong)</Text>
+      <Text variant="body-lg-strong">Body (lg-strong)</Text>
+      <Text variant="body-md-strong">Body (md-strong)</Text>
+      <Text variant="body-sm-strong">Body (sm-strong)</Text>
+      <Text variant="label-xl">Label (xl)</Text>
+      <Text variant="label-lg">Label (lg)</Text>
+      <Text variant="label-md">Label (md)</Text>
+      <Text variant="label-sm">Label (sm)</Text>
+      <Text variant="label-md-strong">Label (md-strong)</Text>
+      <Text variant="label-sm-strong">Label (sm-strong)</Text>
     </>
   )
 }

@@ -45,17 +45,19 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
             {...rest}
           />
         </div>
-        <div className={cx('label-with-hint')}>
-          <div data-testid={dataTestId ? `${dataTestId}-label` : undefined}>{label}</div>
-          {hint ? (
-            <Hint
-              className={cx('hint')}
-              data-testid={dataTestId ? `${dataTestId}-hint` : undefined}
-            >
-              {hint}
-            </Hint>
-          ) : null}
-        </div>
+        {label ? (
+          <div className={cx('label-with-hint')}>
+            <div data-testid={dataTestId ? `${dataTestId}-label` : undefined}>{label}</div>
+            {hint ? (
+              <Hint
+                className={cx('hint')}
+                data-testid={dataTestId ? `${dataTestId}-hint` : undefined}
+              >
+                {hint}
+              </Hint>
+            ) : null}
+          </div>
+        ) : null}
       </Label>
     )
   }

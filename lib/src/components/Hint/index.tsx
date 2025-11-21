@@ -1,5 +1,6 @@
 import { forwardRef } from 'react'
 
+import { Text } from '@/components/Text'
 import { classNames } from '@/utils'
 
 import hintStyles from './hint.module.scss'
@@ -10,14 +11,18 @@ const cx = classNames(hintStyles)
 export const Hint = forwardRef<HTMLSpanElement, HintProps>(
   ({ children, className, variant, ...rest }, ref) => {
     return (
-      <span
+      <Text
+        as="span"
         className={cx('root', variant && `variant-${variant}`, className)}
         ref={ref}
         role={variant === 'danger' ? 'alert' : undefined}
+        variant="body-sm"
         {...rest}
       >
         {children}
-      </span>
+      </Text>
     )
   }
 )
+
+Hint.displayName = 'Hint'
