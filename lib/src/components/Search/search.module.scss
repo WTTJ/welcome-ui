@@ -9,8 +9,8 @@
     position: absolute;
     padding: 0;
     top: 0;
-    height: var(--search-height, 100%);
-    right: var(--indicators-right, 0);
+    height: var(--searchHeight, 100%);
+    right: var(--indicatorsRight, 0);
     display: flex;
     gap: var(--border-radius-sm);
   }
