@@ -9,7 +9,6 @@ import { Icon, Sprite } from '@/components/Icon'
 // uncomment the following line when you want to see all the icons locally
 // import { Icon } from '@/components/Icon'
 import { WelcomeUILogo } from '@/components/Logo'
-import { Toast } from '@/components/Toast'
 import { classNames } from '@/utils'
 
 import type { PageTree } from '~/build-app/types'
@@ -50,7 +49,6 @@ export const Header = ({ components, foundations }: HeaderProps) => {
 
   return (
     <header className={cx('header')}>
-      <Toast />
       <Sprite />
       <div className="flex gap-lg h-full items-center justify-between max-w-[87.5rem] mx-auto px-md text-neutral-60">
         <div className="flex gap-lg items-center">

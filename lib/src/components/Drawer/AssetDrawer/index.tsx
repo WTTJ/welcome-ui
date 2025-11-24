@@ -16,6 +16,7 @@ export const AssetDrawerComponent = forwardRefWithAs<AssetDrawerProps, 'div'>(
       children,
       className,
       getPersistentElements: parentGetPersistentElements,
+      hideOnInteractOutside = true,
       maxWidth,
       store,
       ...rest
@@ -34,13 +35,15 @@ export const AssetDrawerComponent = forwardRefWithAs<AssetDrawerProps, 'div'>(
 
     const hideOnInteractOutsideFn = useCallback(
       (event: Event) => {
+        if (!hideOnInteractOutside) return false
+
         const target = event.target as HTMLElement
         const isTargetWithinPersistentElements = getPersistentElements().some(element =>
           element.contains(target)
         )
         return !isTargetWithinPersistentElements
       },
-      [getPersistentElements]
+      [getPersistentElements, hideOnInteractOutside]
     )
 
     const drawerMaxWidth = typeof maxWidth === 'number' ? `${maxWidth}px` : maxWidth

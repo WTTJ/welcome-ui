@@ -33,6 +33,7 @@ export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
   ) => (
     <div
       className={cx('root', `variant-${variant}`, className)}
+      data-wui-persistent
       onClick={e => e.stopPropagation()}
       ref={ref}
       {...rest}
