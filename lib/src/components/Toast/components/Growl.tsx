@@ -35,6 +35,7 @@ export const Growl = forwardRef<HTMLDivElement, GrowlProps>(
     return (
       <div
         className={cx('root', `variant-${variant}`, className)}
+        data-wui-persistent
         onClick={e => e.stopPropagation()}
         ref={ref}
         {...rest}
