@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 
 import { Footer } from '~/build-app/components/Footer'
 import { Header } from '~/build-app/components/Header'
+import { Toast } from '~/build-app/components/Toast'
 import { getPages } from '~/build-app/utils/pages-components'
 import { getPages as getPagesExport } from '~/build-app/utils/pages-exports'
 
@@ -28,6 +29,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       <body>
         <div className="bg-neutral-10">
           <Header components={pagesComponents} foundations={pagesFoundations} />
+          <Toast />
           {children}
           <Footer />
         </div>
