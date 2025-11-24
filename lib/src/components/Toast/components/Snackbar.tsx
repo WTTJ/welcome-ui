@@ -31,12 +31,27 @@ export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
     },
     ref
   ) => (
-    <div className={cx('root', `variant-${variant}`, className)} ref={ref} {...rest}>
+    <div
+      className={cx('root', `variant-${variant}`, className)}
+      data-wui-persistent
+      onClick={e => e.stopPropagation()}
+      ref={ref}
+      {...rest}
+    >
       <div className={cx('snackbar')}>
         {variant ? <Icon className={cx('icon')} name={ICON[variant]} size="lg" /> : null}
         <Text variant="body-md-strong">{children}</Text>
         {cta ? <>{cta}</> : null}
-        {hasCloseButton ? <CloseButton onClick={onClose} size="sm" /> : null}
+        {hasCloseButton ? (
+          <CloseButton
+            onClick={e => {
+              e.preventDefault()
+              e.stopPropagation()
+              onClose?.()
+            }}
+            size="sm"
+          />
+        ) : null}
       </div>
       <div
         className={cx('progress', hideProgressBar && 'hide-progress-bar')}

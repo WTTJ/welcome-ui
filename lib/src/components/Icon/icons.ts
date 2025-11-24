@@ -27,6 +27,7 @@ export const actions = [
   'arrows-merge-v', // (not unicons, personal mashup)
   'arrows-shrink-v',
   'apps',
+  'edit',
   'user-check',
   'user-plus',
   'user-times',
@@ -65,9 +66,10 @@ export const actions = [
   'share',
 ] as const
 
+export const chat = ['chat', 'chat-bubble-user', 'comment', 'comment-alt-lines']
+
 export const miscellaneous = [
   'music',
-  'sparkles',
   'rocket',
   'file-alt',
   'user-square',
@@ -282,6 +284,7 @@ export const icons = [
   ...actions,
   ...arrows,
   ...brands,
+  ...chat,
   ...foldersAndFiles,
   ...flags,
   ...markdown,

@@ -33,7 +33,13 @@ export const Growl = forwardRef<HTMLDivElement, GrowlProps>(
     ref
   ) => {
     return (
-      <div className={cx('root', `variant-${variant}`, className)} ref={ref} {...rest}>
+      <div
+        className={cx('root', `variant-${variant}`, className)}
+        data-wui-persistent
+        onClick={e => e.stopPropagation()}
+        ref={ref}
+        {...rest}
+      >
         <div className={cx('growl')}>
           {variant ? <Icon className={cx('icon')} name={ICON[variant]} size="lg" /> : null}
           <div className={cx('content')}>
@@ -44,7 +50,15 @@ export const Growl = forwardRef<HTMLDivElement, GrowlProps>(
             {cta ? <>{cta}</> : null}
           </div>
           {hasCloseButton ? (
-            <CloseButton className={cx('close-button')} onClick={onClose} size="sm" />
+            <CloseButton
+              className={cx('close-button')}
+              onClick={e => {
+                e.preventDefault()
+                e.stopPropagation()
+                onClose?.()
+              }}
+              size="sm"
+            />
           ) : null}
         </div>
         <div

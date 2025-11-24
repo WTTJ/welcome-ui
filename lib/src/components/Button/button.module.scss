@@ -113,7 +113,8 @@
     /* Button with only icon child (SVG or icon font) gets square padding */
     &:has(svg:only-child),
     &:has(i.wui-icon-font:only-child) {
-      padding-inline: var(--buttonPaddingInlineIconOnly, var(--buttonPaddingInline));
+      width: var(--buttonHeight);
+      --buttonPaddingInline: 0;
     }
   }
 
@@ -121,8 +122,7 @@
     &-sm {
       --buttonFontSize: var(--font-size-14);
       --buttonHeight: var(--components-dimensions-button-size-max-height-sm);
-      --buttonPaddingInline: var(--spacing-sm);
-      --buttonPaddingInlineIconOnly: var(--spacing-xs);
+      --buttonPaddingInline: var(--components-dimensions-button-padding-inline-sm);
       --buttonIconSize: var(--components-dimensions-button-size-icon-sm);
       --buttonGap: var(--components-dimensions-button-gap-content-sm);
     }
@@ -130,8 +130,7 @@
     &-md {
       --buttonFontSize: var(--font-size-14);
       --buttonHeight: var(--components-dimensions-button-size-max-height-md);
-      --buttonPaddingInline: var(--spacing-md);
-      --buttonPaddingInlineIconOnly: var(--spacing-sm);
+      --buttonPaddingInline: var(--components-dimensions-button-padding-inline-md);
       --buttonIconSize: var(--components-dimensions-button-size-icon-md);
       --buttonGap: var(--components-dimensions-button-gap-content-md);
     }
@@ -139,8 +138,7 @@
     &-lg {
       --buttonFontSize: var(--font-size-16);
       --buttonHeight: var(--components-dimensions-button-size-max-height-lg);
-      --buttonPaddingInline: var(--spacing-lg);
-      --buttonPaddingInlineIconOnly: var(--spacing-md);
+      --buttonPaddingInline: var(--components-dimensions-button-padding-inline-lg);
       --buttonIconSize: var(--components-dimensions-button-size-icon-lg);
       --buttonGap: var(--components-dimensions-button-gap-content-lg);
     }
