@@ -26,6 +26,7 @@ const MIGRATION_CONFIG = [
     components: 'Select',
     script: './transform-select.mjs',
   },
+  // { components: 'Radio', script: './transform-radio.mjs' },
   // {
   //   components: 'Swiper',
   //   script: './transform-swiper.mjs',

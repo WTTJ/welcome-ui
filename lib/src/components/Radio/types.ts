@@ -8,7 +8,6 @@ export interface RadioOptions {
   label?: string
   maxWidth?: number | string
   value?: string
-  variant?: 'danger' | 'default' | 'warning'
 }
 
 export type RadioProps = ComponentPropsWithRef<'input'> &

@@ -183,9 +183,7 @@
         }
       },
       "variant": {
-        "defaultValue": {
-          "value": "default"
-        },
+        "defaultValue": null,
         "description": "",
         "name": "variant",
         "parent": {
@@ -196,19 +194,18 @@
           {
             "fileName": "welcome-ui/lib/src/components/Label/types.ts",
             "name": "LabelOptions"
-          },
-          {
-            "fileName": "welcome-ui/lib/src/components/Radio/types.ts",
-            "name": "RadioOptions"
           }
         ],
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "\"danger\" | \"warning\"",
+          "raw": "\"danger\" | \"success\" | \"warning\"",
           "value": [
             {
               "value": "\"danger\""
+            },
+            {
+              "value": "\"success\""
             },
             {
               "value": "\"warning\""
