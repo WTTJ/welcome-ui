@@ -25,7 +25,7 @@ export const FilePreview = ({
       {isUrl ? (
         <Button
           as="a"
-          className={cx('file-preview-size', 'absolute top-12 right-12')}
+          className={cx('file-preview-size', 'file-preview-button')}
           href={file}
           rel="noopener noreferrer"
           size="md"
@@ -37,7 +37,7 @@ export const FilePreview = ({
         </Button>
       ) : null}
       <Icon className={cx('file-preview-icon')} name={iconName} size="xxl" />
-      <Text as="h4" className={cx('file-preview-name')} lines={1} variant="heading-md-strong">
+      <Text className={cx('file-preview-name')} lines={1} variant="heading-xs-strong">
         {name}
       </Text>
       {!isUrl && (
