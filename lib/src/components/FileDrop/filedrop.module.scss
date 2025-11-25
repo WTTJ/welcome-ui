@@ -66,6 +66,12 @@
     margin: 0;
   }
 
+  .file-preview-button {
+    position: absolute;
+    top: var(--spacing-lg);
+    right: var(--spacing-lg);
+  }
+
   .image-preview {
     max-height: 100%;
     max-width: 100%;
@@ -74,8 +80,8 @@
 
   .actions {
     display: flex;
-    gap: var(--spacing-8);
-    margin-top: var(--spacing-16)
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-lg)
   }
 
   .message-title {
