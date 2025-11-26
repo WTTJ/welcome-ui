@@ -49,6 +49,12 @@
       --inputBoxShadow: none;
     }
 
+    &.variant {
+      &-danger {
+        --borderColor: var(--color-background-danger-strongest);
+      }
+    }
+
     &::after {
       content: '';
       position: absolute;

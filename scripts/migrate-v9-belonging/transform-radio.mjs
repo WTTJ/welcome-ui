@@ -4,7 +4,7 @@
  * Transform Radio component's props
  *
  * Main changes:
- * - remove deprecated `variant` prop (no replacement)
+ * - remove `variant="warning"` value (the "warning" variant no longer exists)
  */
 
 export function transform(content) {
@@ -25,11 +25,9 @@ export function transform(content) {
     let newAttributes = attrString
     let hasChanges = false
 
-    // Remove variant prop entirely (no longer supported)
-    if (/\bvariant=/.test(attrString)) {
-      newAttributes = newAttributes
-        .replace(/\s*\bvariant=(?:\{[^}]*\}|"[^"]*"|'[^']*')\s*/g, ' ')
-        .trim()
+    // Remove variant="warning" (only the "warning" value is no longer supported)
+    if (/\bvariant=["']warning["']/.test(attrString)) {
+      newAttributes = newAttributes.replace(/\s*\bvariant=["']warning["']\s*/g, ' ').trim()
       hasChanges = true
     }
 

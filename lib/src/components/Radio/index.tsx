@@ -11,7 +11,21 @@ import type { RadioProps } from './types'
 const cx = classNames(radioStyles)
 
 export const Radio = forwardRef<HTMLInputElement, RadioProps>(
-  ({ className, dataTestId, disabled, hint, label, onChange, onClick, value, ...rest }, ref) => {
+  (
+    {
+      className,
+      dataTestId,
+      disabled,
+      hint,
+      label,
+      onChange,
+      onClick,
+      value,
+      variant = 'default',
+      ...rest
+    },
+    ref
+  ) => {
     const handleClick = (event: React.MouseEvent<HTMLLabelElement>) => {
       event.stopPropagation()
       if (onClick) onClick(event)
@@ -23,7 +37,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
         <div className={cx('input-wrapper')}>
           <AriakitRadio
             aria-label={label}
-            className={cx('input')}
+            className={cx('input', `variant-${variant}`)}
             data-testid={dataTestId}
             disabled={disabled}
             ref={ref}

@@ -167,6 +167,7 @@ export default {
   "/Radio/docs/examples/disabled.tsx": dynamic(() => import("../../lib/src/components/Radio/docs/examples/disabled.tsx").then(mod => mod), { ssr: false }),
   "/Radio/docs/examples/hint.tsx": dynamic(() => import("../../lib/src/components/Radio/docs/examples/hint.tsx").then(mod => mod), { ssr: false }),
   "/Radio/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Radio/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
+  "/Radio/docs/examples/variants.tsx": dynamic(() => import("../../lib/src/components/Radio/docs/examples/variants.tsx").then(mod => mod), { ssr: false }),
   "/RadioGroup/docs/examples/disabled.tsx": dynamic(() => import("../../lib/src/components/RadioGroup/docs/examples/disabled.tsx").then(mod => mod), { ssr: false }),
   "/RadioGroup/docs/examples/hint.tsx": dynamic(() => import("../../lib/src/components/RadioGroup/docs/examples/hint.tsx").then(mod => mod), { ssr: false }),
   "/RadioGroup/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/RadioGroup/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
