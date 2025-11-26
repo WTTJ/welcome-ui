@@ -42,7 +42,7 @@
       --inputBoxShadow: var(--inset-10);
     }
 
-    &.disabled {
+    &:disabled {
       background-color: var(--components-colors-radio-color-background-unchecked-disabled);
       border-color: var(--components-colors-radio-color-border-unchecked-disabled);
       --inputCursor: not-allowed;

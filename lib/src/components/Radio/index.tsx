@@ -23,7 +23,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
         <div className={cx('input-wrapper')}>
           <AriakitRadio
             aria-label={label}
-            className={cx('input', disabled && 'disabled')}
+            className={cx('input')}
             data-testid={dataTestId}
             disabled={disabled}
             ref={ref}
