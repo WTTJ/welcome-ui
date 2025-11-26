@@ -164,6 +164,7 @@ export default {
   "/Popover/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Popover/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Popover/docs/examples/popover-hover.tsx": dynamic(() => import("../../lib/src/components/Popover/docs/examples/popover-hover.tsx").then(mod => mod), { ssr: false }),
   "/Popover/docs/examples/title.tsx": dynamic(() => import("../../lib/src/components/Popover/docs/examples/title.tsx").then(mod => mod), { ssr: false }),
+  "/Radio/docs/examples/disabled.tsx": dynamic(() => import("../../lib/src/components/Radio/docs/examples/disabled.tsx").then(mod => mod), { ssr: false }),
   "/Radio/docs/examples/hint.tsx": dynamic(() => import("../../lib/src/components/Radio/docs/examples/hint.tsx").then(mod => mod), { ssr: false }),
   "/Radio/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Radio/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Radio/docs/examples/variants.tsx": dynamic(() => import("../../lib/src/components/Radio/docs/examples/variants.tsx").then(mod => mod), { ssr: false }),

@@ -204,16 +204,7 @@
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "\"danger\" | \"warning\"",
-          "value": [
-            {
-              "value": "\"danger\""
-            },
-            {
-              "value": "\"warning\""
-            }
-          ]
+          "name": "\"danger\""
         }
       }
     }
