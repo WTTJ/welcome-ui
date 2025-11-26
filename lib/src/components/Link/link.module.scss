@@ -11,11 +11,11 @@
     color: var(--color);
 
     &.isExternal {
-      --backgroundSize: calc(100% - var(--spacing-lg) - var(--spacing-sm)) 50%;
+      --backgroundSize: calc(100% - var(--externalLinkIconSize) - var(--spacing-xs)) 50%;
 
       .wui-text > svg {
         display: inline;
-        margin-left: var(--spacing-sm);
+        margin-left: var(--spacing-xs);
       }
     }
 
@@ -125,19 +125,23 @@
     &-xs {
       font-size: var(--font-size-xs);
       --lineHeight: var(--font-line-height-sm);
+      --externalLinkIconSize: var(--components-dimensions-link-size-icon-xs);
     }
     &-sm {
       font-size: var(--font-size-sm);
       --lineHeight: var(--font-line-height-md);
       --backgroundPositionY: calc(200% - 0.2em);
+      --externalLinkIconSize: var(--components-dimensions-link-size-icon-sm);
     }
     &-md {
       font-size: var(--font-size-md);
       --lineHeight: var(--font-line-height-lg);
+      --externalLinkIconSize: var(--components-dimensions-link-size-icon-md);
     }
     &-lg {
       font-size: var(--font-size-lg);
       --lineHeight: var(--font-line-height-lg);
+      --externalLinkIconSize: var(--components-dimensions-link-size-icon-lg);
     }
   }
 

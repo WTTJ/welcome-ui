@@ -44,6 +44,8 @@
   .root {
     position: relative;
     display: inline-flex;
+    white-space: nowrap;
+    flex-shrink: 0;
     align-items: center;
     justify-content: center;
     border-style: solid;
