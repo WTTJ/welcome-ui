@@ -76,7 +76,7 @@
     color: var(--selectTextColor, var(--components-colors-input-color-text-default));
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-regular);
-    line-height: var(--font-line-height-md);
+    line-height: var(--selectLineHeight, 1);
     outline: none;
     cursor: default;
     width: 100%;
@@ -86,7 +86,7 @@
     height: var(--selectHeight);
     padding-bottom: var(--selectPaddingBottom);
     padding-left: var(--selectPaddingLeft);
-    padding-right: var(--selectPaddingRight);
+    padding-right: calc(var(--selectPaddingRight) + var(--spacing-xl)); /* extra space for dropdown indicator */
     padding-top: var(--selectPaddingTop);
     @include ellipsis.text-ellipsis;
     box-shadow: var(--selectBoxShadow, var(--inset-10)) inset;
@@ -104,7 +104,7 @@
     &.icon-placement-right,
     &.icon-placement-both {
       padding-right: calc(
-        var(--selectPaddingRight) + var(--selectIconSize, 1rem) + var(--spacing-sm)
+        var(--selectPaddingRight) + var(--selectIconSize, 1rem) + var(--spacing-sm) + var(--spacing-xl)
       );
     }
 
@@ -112,7 +112,7 @@
     &.clearable.icon-placement-right,
     &.clearable.icon-placement-both {
       padding-right: calc(
-        var(--selectPaddingRight) + (var(--selectIconSize, 1rem) + var(--spacing-sm)) * 2
+        var(--selectPaddingRight) + (var(--selectIconSize, 1rem) + var(--spacing-sm)) * 2 + var(--spacing-xl)
       );
     }
 
@@ -166,6 +166,7 @@
         bottom: 0;
         left: 0;
         padding: inherit;
+        line-height: 1.25;
         color: var(--selectPlaceholderColor);
         @include ellipsis.text-ellipsis;
       }
@@ -197,6 +198,7 @@
       --selectPaddingLeft: var(--components-dimensions-input-padding-inline-lg);
       --selectPaddingRight: var(--components-dimensions-input-padding-inline-lg);
       --selectPaddingTop: var(--components-dimensions-input-padding-block-lg);
+      --selectLineHeight: 1.15;
     }
 
     &-md {
@@ -205,6 +207,7 @@
       --selectPaddingLeft: var(--components-dimensions-input-padding-inline-md);
       --selectPaddingRight: var(--components-dimensions-input-padding-inline-md);
       --selectPaddingTop: var(--components-dimensions-input-padding-block-md);
+      --selectLineHeight: 1;
     }
 
     &-sm {
@@ -213,6 +216,7 @@
       --selectPaddingLeft: var(--components-dimensions-input-padding-inline-sm);
       --selectPaddingRight: var(--components-dimensions-input-padding-inline-sm);
       --selectPaddingTop: var(--components-dimensions-input-padding-block-sm);
+      --selectLineHeight: 1;
     }
   }
 
