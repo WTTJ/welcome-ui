@@ -2,50 +2,56 @@
   .root {
     display: flex;
     align-items: flex-start;
-    gap: var(--components-dimensions-radio-indicator-size);
     flex-direction: row;
+    gap: var(--components-dimensions-radio-indicator-size);
   }
 
   .input-wrapper {
-    flex-shrink: 0;
+    display: flex;
     position: relative;
     align-items: center;
-    display: flex;
     align-self: flex-start;
+    flex-shrink: 0;
   }
 
   .input {
-    border-radius: var(--components-dimensions-radio-indicator-border-radius);
-    order: -1;
     position: relative;
-    outline: none;
+    order: -1;
     padding: 0;
-    transition: var(--duration-medium) var(--timing-primary);
+    margin-top: var(--border-radius-sm);
+    width: var(--components-dimensions-radio-size);
+    height: var(--components-dimensions-radio-size);
     border-style: solid;
-    border-width: var(--components-dimensions-radio-border-width-unchecked);
+    border-radius: var(--components-dimensions-radio-indicator-border-radius);
+    border-width: var(--borderWidth, var(--components-dimensions-radio-border-width-unchecked));
     border-color: var(--borderColor, var(--components-colors-radio-color-border-unchecked-default));
     color: var(--components-colors-radio-color-background-unchecked-default);
-    height: var(--components-dimensions-radio-size);
-    width: var(--components-dimensions-radio-size);
-    margin-top: var(--border-radius-sm);
     cursor: var(--inputCursor, pointer);
+    outline: none;
+    box-shadow: var(--inputBoxShadow, var(--inset-5)) inset;
+
+    &:focus-visible:not([disabled]) {
+      outline-style: solid;
+      outline-width: var(--components-dimensions-radio-border-width-focused);
+      outline-color: var(--components-colors-radio-color-border-focused);
+      outline-offset: 0px;
+    }
 
     &:hover {
       --borderColor: var(--components-colors-radio-color-border-unchecked-hover);
+      --inputBoxShadow: var(--inset-10);
     }
 
-    &.disabled {
-      background-color: var(--components-colors-radio-indicator-color-background-disabled);
+    &:disabled {
+      background-color: var(--components-colors-radio-color-background-unchecked-disabled);
+      border-color: var(--components-colors-radio-color-border-unchecked-disabled);
       --inputCursor: not-allowed;
+      --inputBoxShadow: none;
     }
 
     &.variant {
       &-danger {
         --borderColor: var(--color-background-danger-strongest);
-      }
-
-      &-warning {
-        --borderColor: var(--color-background-warning-stronger);
       }
     }
 
@@ -56,27 +62,28 @@
       height: var(--components-dimensions-radio-indicator-size);
       border-radius: var(--components-dimensions-radio-indicator-border-radius);
       /* prettier-ignore */
-      top: calc((var(--components-dimensions-radio-size) - var( --components-dimensions-radio-indicator-size)) / 2 - var(--components-dimensions-radio-border-width-unchecked));
+      top: calc((var(--components-dimensions-radio-size) - var(--components-dimensions-radio-indicator-size)) / 2 - var(--components-dimensions-radio-border-width-checked));
       /* prettier-ignore */
-      left: calc((var(--components-dimensions-radio-size) - var( --components-dimensions-radio-indicator-size)) / 2 - var(--components-dimensions-radio-border-width-unchecked));
-      transition: var(--duration-medium);
+      left: calc((var(--components-dimensions-radio-size) - var(--components-dimensions-radio-indicator-size)) / 2 - var(--components-dimensions-radio-border-width-checked));
       background-color: var(--backgroundColor, transparent);
     }
 
     &[aria-checked='true'] {
+      --backgroundColor: var(--components-colors-radio-indicator-color-background-default);
+      --borderWidth: var(--components-dimensions-radio-border-width-checked);
+
       &:not([disabled]) {
         --borderColor: var(--components-colors-radio-indicator-color-background-default);
         color: var(--color-background-neutral-primary-fixed);
       }
 
-      &[disabled] {
-        &::after {
-          --backgroundColor: var(--components-colors-radio-indicator-color-background-hover);
-        }
+      &:not([disabled]):hover {
+        --backgroundColor: var(--components-colors-radio-indicator-color-background-hover);
+        --borderColor: var(--components-colors-radio-indicator-color-background-hover);
       }
 
-      &::after {
-        --backgroundColor: var(--components-colors-radio-indicator-color-background-default);
+      &[disabled] {
+        --backgroundColor: var(--components-colors-radio-indicator-color-background-disabled);
       }
     }
   }
