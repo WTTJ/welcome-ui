@@ -16,7 +16,7 @@ export const CloseButton = forwardRef<HTMLButtonElement, CloseButtonProps>(
         aria-label="Close"
         className={cx('root', animatePresence && 'animate-presence', className)}
         ref={ref}
-        size="md"
+        size="sm"
         variant="tertiary"
         {...props}
       >
