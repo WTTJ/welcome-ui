@@ -22,8 +22,22 @@ export const FilePreview = ({
 
   return (
     <>
+      {isUrl ? (
+        <Button
+          as="a"
+          className={cx('file-preview-size', 'file-preview-button')}
+          href={file}
+          rel="noopener noreferrer"
+          size="md"
+          target="_blank"
+          variant="secondary"
+        >
+          <span>{previewButtonText}</span>
+          <Icon name="external-link-alt" />
+        </Button>
+      ) : null}
       <Icon className={cx('file-preview-icon')} name={iconName} size="xxl" />
-      <Text as="h4" className={cx('file-preview-name')} lines={1} variant="heading-md-strong">
+      <Text className={cx('file-preview-name')} lines={1} variant="heading-xs-strong">
         {name}
       </Text>
       {!isUrl && (
@@ -31,19 +45,6 @@ export const FilePreview = ({
           {size}
         </Text>
       )}
-      {isUrl ? (
-        <Button
-          as="a"
-          className="mt-md"
-          href={file}
-          rel="noopener noreferrer"
-          size="md"
-          target="_blank"
-        >
-          <span>{previewButtonText}</span>
-          <Icon name="external-link-alt" />
-        </Button>
-      ) : null}
     </>
   )
 }
