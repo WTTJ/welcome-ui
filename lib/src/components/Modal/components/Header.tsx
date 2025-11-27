@@ -14,9 +14,9 @@ const cx = classNames(modalStyles)
  * @name Modal.Header
  */
 export const Header = forwardRef<HTMLDivElement, HeaderProps>(
-  ({ icon, subtitle, title, ...rest }, ref) => {
+  ({ className, icon, subtitle, title, ...rest }, ref) => {
     return (
-      <header className={cx('header', icon && 'icon')} ref={ref} {...rest}>
+      <header className={cx('header', icon && 'icon', className)} ref={ref} {...rest}>
         <Close />
         {icon}
         <Text className={cx('header-title')} variant="h4">

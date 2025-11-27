@@ -6,6 +6,6 @@ import { classNames } from '@/utils'
 
 const cx = classNames(modalStyles)
 
-export const Body = forwardRef<HTMLElement, BodyProps>((props, ref) => {
-  return <section className={cx('body')} ref={ref} {...props} />
+export const Body = forwardRef<HTMLElement, BodyProps>(({ className, ...rest }, ref) => {
+  return <section className={cx('body', className)} ref={ref} {...rest} />
 })

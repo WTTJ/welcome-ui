@@ -8,10 +8,11 @@ const cx = classNames(modalStyles)
 
 export const AssetContent = ({
   children,
+  className,
   ...rest
 }: React.PropsWithChildren<HTMLAttributes<HTMLDivElement>>) => {
   return (
-    <div className={cx('root', 'asset-content')} {...rest}>
+    <div className={cx('root', 'asset-content', className)} {...rest}>
       {children}
     </div>
   )
