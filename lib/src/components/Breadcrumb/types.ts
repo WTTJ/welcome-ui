@@ -1,6 +1,8 @@
 /* eslint-disable perfectionist/sort-modules */
 import type { ComponentPropsWithRef, HTMLAttributes } from 'react'
 
+import type { MergeProps } from '@/utils'
+
 import type { IconName } from '../Icon/types'
 
 /* Main component */
@@ -30,6 +32,4 @@ interface BreadcrumbItemOptions {
   to?: string
 }
 
-export type BreadcrumbItemProps = BreadcrumbItemOptions &
-  ComponentPropsWithRef<'a'> &
-  HTMLAttributes<HTMLAnchorElement>
+export type BreadcrumbItemProps = MergeProps<BreadcrumbItemOptions>
