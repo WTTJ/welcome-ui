@@ -1,36 +1,4 @@
 {
-  "TableComponent": {
-    "props": {
-      "indent": {
-        "defaultValue": null,
-        "description": "Add space on first and last child on the Td and Th component",
-        "name": "indent",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Table/types.ts",
-          "name": "TableOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Table/types.ts",
-            "name": "TableOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "enum",
-          "raw": "boolean",
-          "value": [
-            {
-              "value": "false"
-            },
-            {
-              "value": "true"
-            }
-          ]
-        }
-      }
-    }
-  },
   "Table": {
     "props": {
       "indent": {
