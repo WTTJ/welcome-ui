@@ -1,5 +1,5 @@
 {
-  "ContentWrapper": {
+  "Popover.ContentWrapper": {
     "props": {
       "className": {
         "defaultValue": null,
