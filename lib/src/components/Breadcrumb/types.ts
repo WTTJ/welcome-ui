@@ -1,6 +1,8 @@
 /* eslint-disable perfectionist/sort-modules */
 import type { ComponentPropsWithRef, HTMLAttributes } from 'react'
 
+import type { MergeProps } from '@/utils/forwardRefWithAs'
+
 /* Main component */
 
 interface BreadcrumbOptions {
@@ -25,6 +27,4 @@ interface BreadcrumbItemOptions {
   to?: string
 }
 
-export type BreadcrumbItemProps = BreadcrumbItemOptions &
-  ComponentPropsWithRef<'a'> &
-  HTMLAttributes<HTMLAnchorElement>
+export type BreadcrumbItemProps = MergeProps<BreadcrumbItemOptions>

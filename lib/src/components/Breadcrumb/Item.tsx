@@ -1,6 +1,4 @@
-import { forwardRef } from 'react'
-
-import { classNames } from '@/utils'
+import { classNames, forwardRefWithAs } from '@/utils'
 
 import breadcrumStyles from './breadcrumb.module.scss'
 import type { BreadcrumbItemProps } from './types'
@@ -10,7 +8,7 @@ const cx = classNames(breadcrumStyles)
 /**
  * @name Breadcrumb.Item
  */
-export const Item = forwardRef<HTMLAnchorElement, BreadcrumbItemProps>(
+export const Item = forwardRefWithAs<BreadcrumbItemProps, 'a'>(
   ({ children, 'data-testid': dataTestId, isActive, separator, ...rest }, ref) => {
     const isClickable = rest.href || rest.to
 
