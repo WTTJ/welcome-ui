@@ -1,21 +1,20 @@
-import { forwardRef } from 'react'
-
 import { Icon } from '@/components/Icon'
-import { classNames } from '@/utils'
+import { classNames, forwardRefWithAs } from '@/utils'
 
 import type { IconName } from '../Icon/types'
 
 import breadcrumbStyles from './breadcrumb.module.scss'
-import type { BreadcrumbItemProps } from './types'
+import type { BreadcrumbItemOptions } from './types'
 
 const cx = classNames(breadcrumbStyles)
 
 /**
  * @name Breadcrumb.Item
  */
-export const Item = forwardRef<HTMLAnchorElement, BreadcrumbItemProps>(
+export const Item = forwardRefWithAs<BreadcrumbItemOptions, 'a'>(
   (
     {
+      as: Component = 'a',
       children,
       collapsed,
       'data-testid': dataTestId,
@@ -45,7 +44,7 @@ export const Item = forwardRef<HTMLAnchorElement, BreadcrumbItemProps>(
             {separator}
           </span>
         ) : null}
-        <a
+        <Component
           aria-current={isActive ? 'page' : undefined}
           aria-disabled={!isClickable}
           {...rest}
@@ -54,7 +53,7 @@ export const Item = forwardRef<HTMLAnchorElement, BreadcrumbItemProps>(
         >
           {icon ? <Icon name={icon} size="md" /> : null}
           {!isCollapsed ? children : null}
-        </a>
+        </Component>
       </li>
     )
   }
