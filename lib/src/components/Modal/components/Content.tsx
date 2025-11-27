@@ -13,9 +13,13 @@ const cx = classNames(modalStyles)
  * @name Modal.Content
  */
 export const Content = forwardRef<HTMLDivElement, ContentProps>(
-  ({ children, withClosingButton = true, ...rest }, ref) => {
+  ({ children, className, withClosingButton = true, ...rest }, ref) => {
     return (
-      <div className={cx('content', withClosingButton && 'with-close-button')} ref={ref} {...rest}>
+      <div
+        className={(cx('content', withClosingButton && 'with-close-button'), className)}
+        ref={ref}
+        {...rest}
+      >
         <Close />
         {children}
       </div>

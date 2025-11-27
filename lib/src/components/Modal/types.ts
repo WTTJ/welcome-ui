@@ -41,12 +41,14 @@ export type HeaderProps = MergeProps<HeaderOptions, HTMLAttributes<HTMLDivElemen
 
 export type BodyProps = PropsWithChildren<HTMLAttributes<HTMLElement>>
 
-export type ContentProps = PropsWithChildren<{
-  /**
-   * show or hide the closing button
-   */
-  withClosingButton?: boolean
-}>
+export type ContentProps = PropsWithChildren<
+  HTMLAttributes<HTMLDivElement> & {
+    /**
+     * show or hide the closing button
+     */
+    withClosingButton?: boolean
+  }
+>
 
 export type BackdropProps = Pick<BaseDialogOptions, 'backdrop' | 'hideOnInteractOutside'>
 

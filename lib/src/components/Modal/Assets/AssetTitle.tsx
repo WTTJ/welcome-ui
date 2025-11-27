@@ -6,9 +6,15 @@ import modalStyles from './assets.module.scss'
 
 const cx = classNames(modalStyles)
 
-export const AssetTitle = ({ children, ...rest }: TextProps) => {
+export const AssetTitle = ({ children, className, ...rest }: TextProps) => {
   return (
-    <Text as="p" className={cx('asset-title')} lines={2} variant="heading-md-strong" {...rest}>
+    <Text
+      as="p"
+      className={cx('asset-title', className)}
+      lines={2}
+      variant="heading-md-strong"
+      {...rest}
+    >
       {children}
     </Text>
   )
