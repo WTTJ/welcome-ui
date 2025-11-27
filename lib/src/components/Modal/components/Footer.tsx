@@ -12,9 +12,9 @@ const cx = classNames(modalStyles)
  * @name Modal.Footer
  */
 export const Footer = forwardRef<HTMLDivElement, FooterProps>(
-  ({ children, information, ...rest }, ref) => {
+  ({ children, className, information, ...rest }, ref) => {
     return (
-      <footer className={cx('footer')} ref={ref} {...rest}>
+      <footer className={cx('footer', className)} ref={ref} {...rest}>
         {children ? <div className={cx('footer-children-wrapper')}>{children}</div> : null}
         {information ? (
           <div className={cx('footer-information')}>
