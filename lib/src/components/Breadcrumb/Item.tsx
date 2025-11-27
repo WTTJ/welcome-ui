@@ -1,17 +1,18 @@
-import { forwardRef } from 'react'
-
-import { classNames } from '@/utils'
+import { classNames, forwardRefWithAs } from '@/utils'
 
 import breadcrumStyles from './breadcrumb.module.scss'
-import type { BreadcrumbItemProps } from './types'
+import type { BreadcrumbItemOptions } from './types'
 
 const cx = classNames(breadcrumStyles)
 
 /**
  * @name Breadcrumb.Item
  */
-export const Item = forwardRef<HTMLAnchorElement, BreadcrumbItemProps>(
-  ({ children, 'data-testid': dataTestId, isActive, separator, ...rest }, ref) => {
+export const Item = forwardRefWithAs<BreadcrumbItemOptions, 'a'>(
+  (
+    { as: Component = 'a', children, 'data-testid': dataTestId, isActive, separator, ...rest },
+    ref
+  ) => {
     const isClickable = rest.href || rest.to
 
     return (
@@ -21,7 +22,7 @@ export const Item = forwardRef<HTMLAnchorElement, BreadcrumbItemProps>(
             {separator}
           </span>
         ) : null}
-        <a
+        <Component
           aria-current={isActive ? 'page' : undefined}
           aria-disabled={!isClickable}
           {...rest}
@@ -29,7 +30,7 @@ export const Item = forwardRef<HTMLAnchorElement, BreadcrumbItemProps>(
           ref={ref}
         >
           {children}
-        </a>
+        </Component>
       </li>
     )
   }

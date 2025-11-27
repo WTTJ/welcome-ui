@@ -16,7 +16,7 @@ export type BreadcrumbProps = BreadcrumbOptions &
 
 /* Item component */
 
-interface BreadcrumbItemOptions {
+export interface BreadcrumbItemOptions {
   children: React.ReactNode
   'data-testid'?: string
   isActive?: boolean
@@ -24,7 +24,3 @@ interface BreadcrumbItemOptions {
   /* useful for react-router */
   to?: string
 }
-
-export type BreadcrumbItemProps = BreadcrumbItemOptions &
-  ComponentPropsWithRef<'a'> &
-  HTMLAttributes<HTMLAnchorElement>
