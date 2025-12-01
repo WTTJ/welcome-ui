@@ -1,12 +1,6 @@
 @layer components {
-  .root {
-    display: flex;
-    align-items: center;
-    overflow-x: auto;
-    border-style: solid;
-    transition-property: border-color, box-shadow;
-    transition-timing-function: ease-in-out;
-
+  .wrapper {
+    position: relative;
     /* VARIABLES FROM THEME - DONT CHANGE WITH REACT PROPS */
     gap: var(--components-dimensions-stepper-gap-content);
     padding-block: var(--components-dimensions-stepper-padding-block);
@@ -17,10 +11,61 @@
     background-color: var(--components-colors-stepper-color-background);
     transition-duration: var(--duration-fast);
     box-shadow: var(--stepperBoxShadow, var(--elevation-10));
+    overflow: hidden;
+  }
+
+  .root {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    border-style: solid;
+    transition-property: border-color, box-shadow;
+    transition-timing-function: ease-in-out;
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 
     svg {
       width: var(--components-dimensions-stepper-size-icon);
       height: var(--components-dimensions-stepper-size-icon);
+    }
+
+    &.fade-left::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 70px;
+      background: linear-gradient(
+        to right,
+        var(--components-colors-stepper-color-background),
+        transparent
+      );
+      pointer-events: none;
+      z-index: 1;
+    }
+    
+    &.fade-right::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 70px;
+      background: linear-gradient(
+        to left,
+        var(--components-colors-stepper-color-background),
+        transparent
+      );
+      pointer-events: none;
+      z-index: 1;
     }
 
     &:hover {
