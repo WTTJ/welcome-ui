@@ -30,12 +30,14 @@
   }
 
   .separator {
+    flex-shrink: 0;
     color: var(--components-colors-stepper-color-icon-default);
   }
 
   .item {
     display: flex;
     align-items: center;
+    flex-shrink: 0;
     transition-property: background-color, border-color, color;
     transition-timing-function: ease-in-out;
 
