@@ -47,6 +47,17 @@ const StepperComponent = forwardRef<HTMLOListElement, StepperProps>(
       }
     }, [olRef])
 
+    // Center the current step on mount and when it changes
+    useEffect(() => {
+      const element = olRef.current
+      if (!element) return
+
+      const currentStep = element.querySelector('[aria-current="true"]')
+      if (currentStep) {
+        currentStep.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
+      }
+    }, [children, olRef])
+
     return (
       <div className={cx('wrapper')}>
         <ol
