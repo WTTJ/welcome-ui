@@ -19,6 +19,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           'root',
           _variant && `variant-${_variant}`,
           isAdaptative && 'adaptative',
+          'field-input',
           className
         )}
         ref={ref}

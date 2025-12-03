@@ -392,7 +392,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
           }) as React.InputHTMLAttributes<HTMLInputElement>
 
           return (
-            <div {...rootProps} className={cx('wrapper', disabled && 'disabled')}>
+            <div {...rootProps} className={cx('wrapper', disabled && 'disabled', 'field-input')}>
               {isSearchable ? (
                 <input
                   className={inputClassnames}

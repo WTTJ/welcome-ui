@@ -96,7 +96,7 @@ export const Field = forwardRefWithAs<FieldOptions, 'div'>((props, ref) => {
         >
           {label}
         </Label>
-        <div className={cx('input')}>{children}</div>
+        {children}
         {hintText ? (
           <Hint className={cx('hint')} id={hintID} variant={variant} {...hintProps}>
             {hintText}
