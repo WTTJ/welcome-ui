@@ -52,7 +52,7 @@ export const InputText = forwardRef<HTMLInputElement, InputTextProps>(
     }
 
     return (
-      <div className={cx('input-text-wrapper')}>
+      <div className={cx('input-text-wrapper', 'field-input')}>
         <input
           {...inputProps}
           className={cx(

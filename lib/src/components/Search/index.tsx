@@ -162,7 +162,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
           }) as React.InputHTMLAttributes<HTMLInputElement>
 
           return (
-            <div {...rootProps} className={cx('wrapper')}>
+            <div {...rootProps} className={cx('wrapper', 'field-input')}>
               <div className={cx('input-wrapper')}>
                 <input
                   className={cx(

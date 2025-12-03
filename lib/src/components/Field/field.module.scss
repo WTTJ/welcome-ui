@@ -27,6 +27,14 @@
         margin-bottom: var(--components-dimensions-field-gap-label);
       }
     }
+
+    :global(.field-input) {
+      align-self: center;
+      grid-area: input;
+      &:global(.date-picker-wrapper) {
+        justify-self: start;
+      }
+    }
   }
 
   .inline {
@@ -52,13 +60,6 @@
 
   .label {
     grid-area: label;
-  }
-
-  .input {
-    display: flex;
-    align-items: center;
-    grid-area: input;
-    width: 100%;
   }
 
   .hint {

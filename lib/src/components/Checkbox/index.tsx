@@ -39,6 +39,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           'root',
           _variant && `variant-${_variant}`,
           indeterminate && 'indeterminate',
+          'field-input',
           className
         )}
         data-focus-visible={focusVisible || undefined}

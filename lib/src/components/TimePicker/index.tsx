@@ -2,8 +2,8 @@ import type { EventHandler } from 'react'
 import { forwardRef, useEffect, useRef, useState } from 'react'
 import ReactDatePicker from 'react-datepicker'
 
-import '@/components/DateTimePickerCommon/date-time-picker.scss'
 import { CustomPopper } from '@/components/DateTimePickerCommon/CustomPopper'
+import '@/components/DateTimePickerCommon/date-time-picker.scss'
 import styles from '@/components/DateTimePickerCommon/date-time-picker.module.scss'
 import { DEFAULT_DATE, getDate } from '@/components/DateTimePickerCommon/utils'
 import { InputText } from '@/components/InputText'
@@ -112,6 +112,7 @@ export const TimePicker = forwardRef<HTMLInputElement, TimePickerProps>(
         showTimeSelectOnly
         timeIntervals={timeIntervals}
         {...rest}
+        wrapperClassName={cx(rest.wrapperClassName, 'date-picker-wrapper', 'field-input')}
       />
     )
   }
