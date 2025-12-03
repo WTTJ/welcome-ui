@@ -1,15 +1,14 @@
 @layer components {
   .root {
-    height: 100%;
     position: relative;
     overflow-x: hidden;
-    padding: var(--spacing-sm) 0;
-    font-size: var(--font-size-subtitle-sm);
-    font-weight: var(--font-weight-medium);
-    letter-spacing: var(--letter-spacing-subtitle-sm);
-    line-height: var(--line-height-subtitle-sm);
-    text-transform: uppercase;
-    font-family: var(--font-family-headings);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-regular);
+    letter-spacing: 0;
+    line-height: var(--font-line-height-md);
+    font-family: var(--font-family-body);
+
+    --breadcrumbItemGap: var(--spacing-xs);
   }
 
   .list {
@@ -18,9 +17,10 @@
     max-width: 100%;
     overflow-x: auto;
     margin: 0;
-    padding: 0;
+    padding: var(--spacing-sm) 0;
     list-style: none;
     white-space: nowrap;
+    gap: var(--breadcrumbItemGap);
   }
 
   .start-gradient {
@@ -38,25 +38,31 @@
     position: absolute;
     bottom: 0;
     top: 0;
-    width: var(--spacing-xxl);
+    width: var(--size-icon-xl);
   }
 
   .item-wrapper {
     display: inline-flex;
     flex: 0 0 auto;
-    line-height: normal;
+    gap: var(--breadcrumbItemGap);
   }
 
   .item-content {
-    color: var(--breadcrumbItemColor, var(--color-neutral-50));
+    color: var(--breadcrumbItemColor, var(--components-colors-breadcrumb-color-text-default));
     text-decoration: none;
+    display: inline-flex;
     align-items: center;
+    gap: var(--breadcrumbItemGap);
     transition: var(--duration-medium);
     direction: initial;
 
-    &:hover,
+    &:hover {
+      --breadcrumbItemColor: var(--components-colors-breadcrumb-color-text-hover);
+    }
+
     &[aria-current='page'] {
-      --breadcrumbItemColor: var(--color-neutral-70);
+      --breadcrumbItemColor: var(--components-colors-breadcrumb-color-text-active);
+      font-weight: var(--font-weight-medium);
     }
 
     &[aria-disabled='true'] {
@@ -66,8 +72,7 @@
   }
 
   .item-separator {
-    color: var(--color-neutral-50);
-    padding: 0 var(--spacing-xs);
+    color: var(--components-colors-breadcrumb-color-icon-default);
     display: flex;
     align-items: center;
   }

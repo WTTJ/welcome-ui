@@ -3,7 +3,6 @@ import { VariantIcon } from '@/components/VariantIcon'
 const Example = () => {
   return (
     <>
-      <VariantIcon />
       <VariantIcon variant="ai" />
       <VariantIcon variant="danger" />
       <VariantIcon variant="info" />

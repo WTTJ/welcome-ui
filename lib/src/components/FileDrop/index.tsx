@@ -3,7 +3,7 @@ import type { DropEvent, FileError, FileRejection } from 'react-dropzone'
 import { useDropzone } from 'react-dropzone'
 
 import { Button } from '@/components/Button'
-import { EditIcon, TrashIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { classNames } from '@/utils'
 import { createEvent } from '@/utils/create-event'
 
@@ -26,7 +26,9 @@ export const FileDrop = forwardRef<HTMLDivElement, FileDropProps>(
       },
       children = Preview,
       className,
+      deleteButtonText = 'Delete',
       disabled,
+      editButtonText = 'Edit',
       fileName,
       forceFileType,
       handleAddFile,
@@ -121,7 +123,13 @@ export const FileDrop = forwardRef<HTMLDivElement, FileDropProps>(
 
     return (
       <div
-        className={cx('root', disabled && 'disabled', isDragReject && 'drag-reject', className)}
+        className={cx(
+          'root',
+          disabled && 'disabled',
+          isDragReject && 'drag-reject',
+          'field-input',
+          className
+        )}
         {...getRootProps({
           disabled,
           handleRemoveFile,
@@ -137,7 +145,7 @@ export const FileDrop = forwardRef<HTMLDivElement, FileDropProps>(
         <input
           className={cx('file-input')}
           {...getInputProps({ disabled, multiple, name, onError: inputPropsOnError })}
-          // for extern validator we need to have access to this input
+          // for external validator we need to have access to this input
         />
         <div className={cx('file-preview')}>
           {children({
@@ -153,24 +161,28 @@ export const FileDrop = forwardRef<HTMLDivElement, FileDropProps>(
             openFile: open,
             wordings,
           })}
-          {!!file && (error || isEditable || isClearable) ? (
+          {file ? (
             <div className={cx('actions')}>
-              {error || isEditable ? (
-                <Button onClick={open} shape="circle" size="sm" type="button" variant="tertiary">
-                  <EditIcon />
-                </Button>
-              ) : null}
-              {isClearable ? (
-                <Button
-                  onClick={handleRemoveClick}
-                  shape="circle"
-                  size="sm"
-                  type="button"
-                  variant="primary-danger"
-                >
-                  <TrashIcon />
-                </Button>
-              ) : null}
+              <Button
+                disabled={!isEditable}
+                onClick={open}
+                size="lg"
+                type="button"
+                variant="secondary"
+              >
+                <Icon name="pen" />
+                {editButtonText}
+              </Button>
+              <Button
+                disabled={!isClearable}
+                onClick={handleRemoveClick}
+                size="lg"
+                type="button"
+                variant="secondary-danger"
+              >
+                <Icon name="trash" />
+                {deleteButtonText}
+              </Button>
             </div>
           ) : null}
         </div>
@@ -178,3 +190,5 @@ export const FileDrop = forwardRef<HTMLDivElement, FileDropProps>(
     )
   }
 )
+
+FileDrop.displayName = 'FileDrop'

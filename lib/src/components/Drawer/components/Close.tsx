@@ -15,3 +15,5 @@ export const Close = ({ className }: CloseProps) => {
     />
   )
 }
+
+Close.displayName = 'Drawer.Close'

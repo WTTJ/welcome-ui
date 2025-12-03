@@ -9,3 +9,5 @@ export const Trigger = forwardRefWithAs<TriggerProps, 'button'>(
     return <DialogDisclosure ref={ref} render={As ? <As /> : undefined} store={store} {...rest} />
   }
 )
+
+Trigger.displayName = 'Drawer.Trigger'

@@ -19,7 +19,7 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
       <header className={cx('header', icon && 'icon', className)} ref={ref} {...rest}>
         <Close />
         {icon}
-        <Text className={cx('header-title')} variant="h4">
+        <Text as="h4" className={cx('header-title')} variant="heading-md-strong">
           {title}
         </Text>
         {subtitle ? <Text className={cx('header-subtitle')}>{subtitle}</Text> : null}
@@ -27,3 +27,5 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
     )
   }
 )
+
+Header.displayName = 'Modal.Header'

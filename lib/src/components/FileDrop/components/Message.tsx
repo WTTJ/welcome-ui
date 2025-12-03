@@ -16,10 +16,10 @@ export const Message = ({
 }: MessageProps) => {
   return (
     <>
-      <Text className={cx('message-title')} variant="h4">
+      <Text className={cx('message-title')} variant="heading-xs-strong">
         {title}
       </Text>
-      <Text className={cx('message-hint')} variant="sm">
+      <Text className={cx('message-hint')} variant="body-md">
         {hint}
       </Text>
       <Button
@@ -33,3 +33,5 @@ export const Message = ({
     </>
   )
 }
+
+Message.displayName = 'FileDrop.Message'

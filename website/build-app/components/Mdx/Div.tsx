@@ -2,6 +2,7 @@ import { existsSync, readFileSync } from 'fs'
 import { join } from 'path'
 
 import { Alert } from '@/components/Alert'
+import type { ColorVariants } from '@/theme/types'
 
 import type examples from '~/build-app/examples'
 
@@ -16,9 +17,9 @@ type DivProps = {
   children: string
   node?: {
     properties: {
-      dataColors?: string
+      dataColors?: ColorVariants
       dataComponent?: string
-      dataIcons?: IconListProps['name']
+      dataIcons?: IconListProps['collectionName']
       dataIconsFont?: string
       dataOverview?: string
       dataPlayground?: string
@@ -44,7 +45,7 @@ export const Div = ({ children, node }: DivProps) => {
   if (iconsEntry) {
     const isIconsFont = node?.properties?.dataIconsFont === 'true' ? true : false
 
-    return <IconsList isIconsFont={isIconsFont} name={iconsEntry} />
+    return <IconsList collectionName={iconsEntry} isIconsFont={isIconsFont} />
   }
 
   // Theme objects

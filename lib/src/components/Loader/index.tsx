@@ -30,3 +30,5 @@ export const Loader = ({
     </div>
   )
 }
+
+Loader.displayName = 'Loader'

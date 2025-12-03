@@ -5,13 +5,13 @@
     position: absolute;
     padding: 0;
     top: 0;
-    height: var(--select-height, 100%);
-    right: var(--indicators-right, var(--spacing-md));
+    height: var(--selectHeight, 100%);
+    right: var(--indicatorsRight, var(--spacing-md));
     display: flex;
     gap: var(--spacing-xs);
 
     &.size-xs {
-      --indicators-right: var(--spacing-sm);
+      --indicatorsRight: var(--spacing-sm);
     }
   }
 
@@ -27,6 +27,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    max-height: var(--selectHeight);
 
     .styled-icon {
       transform: none;
@@ -45,8 +46,9 @@
       width: auto;
     }
 
-    &:disabled {
-      color: var(--color-beige-60);
+    &.disabled {
+      cursor: not-allowed;
+      color: var(--components-colors-input-color-text-disabled);
     }
   }
 
@@ -56,40 +58,44 @@
     &:has(> .icon-placement-right) {
       .indicators {
         /* icon size + spacing */
-        --indicators-right: calc(var(--spacing-lg) + var(--spacing-md) * 2);
+        --indicatorsRight: calc(var(--spacing-lg) + var(--spacing-md) * 2);
       }
     }
   }
 
   .root {
-    --select-placeholder-color: var(--color-neutral-60);
-    background-color: var(--select-background-color, var(--color-neutral-10));
-    border-color: var(--select-border-color, var(--color-neutral-30));
-    border-radius: var(--radius-md);
+    --selectPlaceholderColor: var(--components-colors-input-color-text-placeholder);
+    background-color: var(
+      --selectBackgroundColor,
+      var(--components-colors-input-color-background-default)
+    );
+    border-color: var(--selectBorderColor, var(--components-colors-input-color-border-default));
+    border-radius: var(--components-dimensions-input-border-radius);
     border-style: solid;
-    border-width: var(--border-width-sm);
-    color: var(--select-text-color, var(--color-neutral-90));
+    border-width: var(--components-dimensions-input-border-width-default);
+    color: var(--selectTextColor, var(--components-colors-input-color-text-default));
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-regular);
-    line-height: var(--line-height-16);
-    outline: 2px solid var(--select-outline-color, transparent);
+    line-height: var(--selectLineHeight, 1);
+    outline: none;
     cursor: default;
     width: 100%;
     transition-property: all;
     transition-timing-function: var(--timing-primary);
     transition-duration: var(--duration-medium);
-    height: var(--select-height);
-    padding-bottom: var(--select-padding-bottom);
-    padding-left: var(--select-padding-left);
-    padding-right: var(--select-padding-right);
-    padding-top: var(--select-padding-top);
+    height: var(--selectHeight);
+    padding-bottom: var(--selectPaddingBottom);
+    padding-left: var(--selectPaddingLeft);
+    padding-right: calc(var(--selectPaddingRight) + var(--spacing-xl)); /* extra space for dropdown indicator */
+    padding-top: var(--selectPaddingTop);
     @include ellipsis.text-ellipsis;
+    box-shadow: var(--selectBoxShadow, var(--inset-10)) inset;
 
     /* left icon or both */
     &.icon-placement-left,
     &.icon-placement-both {
       padding-left: calc(
-        var(--select-padding-left) + var(--select-icon-size, 1rem) + var(--spacing-sm)
+        var(--selectPaddingLeft) + var(--selectIconSize, 1rem) + var(--spacing-sm)
       );
     }
 
@@ -98,7 +104,7 @@
     &.icon-placement-right,
     &.icon-placement-both {
       padding-right: calc(
-        var(--select-padding-right) + var(--select-icon-size, 1rem) + var(--spacing-sm)
+        var(--selectPaddingRight) + var(--selectIconSize, 1rem) + var(--spacing-sm) + var(--spacing-xl)
       );
     }
 
@@ -106,38 +112,38 @@
     &.clearable.icon-placement-right,
     &.clearable.icon-placement-both {
       padding-right: calc(
-        var(--select-padding-right) + (var(--select-icon-size, 1rem) + var(--spacing-sm)) * 2
+        var(--selectPaddingRight) + (var(--selectIconSize, 1rem) + var(--spacing-sm)) * 2 + var(--spacing-xl)
       );
     }
 
-    &:disabled {
-      --select-background-color: var(--select-color-beige-40);
-      --select-text-color: var(--select-color-beige-70);
+    &.disabled {
+      --selectBackgroundColor: var(--components-colors-input-color-background-disabled);
+      --selectTextColor: var(--components-colors-input-color-text-disabled);
       cursor: not-allowed;
     }
 
     /* hover when no variant is defined */
-    &:hover:not([class*='variant']) {
-      --select-border-color: var(--color-brand-40);
+    &:hover:not(.disabled) {
+      --selectBorderColor: var(--components-colors-input-color-border-hover);
+      --selectBoxShadow: var(--inset-20);
     }
 
     /* focus when no variant is defined */
-    &:focus:not([class*='variant']) {
-      --select-outline-color: var(--color-brand-20);
-      --select-border-color: var(--color-brand-40);
+    &:focus:not(.disabled) {
+      --selectBorderColor: var(--components-colors-input-color-border-active);
     }
 
     &.transparent {
-      --select-border-color: transparent;
-      --select-background-color: transparent;
+      --selectBorderColor: transparent;
+      --selectBackgroundColor: var(--components-colors-input-color-background-transparent);
 
       &:hover {
-        --select-border-color: var(--color-neutral-20);
+        --selectBorderColor: var(--components-colors-input-color-border-hover-transparent);
       }
     }
 
     &::placeholder {
-      color: var(--select-placeholder-color);
+      color: var(--selectPlaceholderColor);
     }
 
     br {
@@ -160,7 +166,8 @@
         bottom: 0;
         left: 0;
         padding: inherit;
-        color: var(--select-placeholder-color);
+        line-height: 1.25;
+        color: var(--selectPlaceholderColor);
         @include ellipsis.text-ellipsis;
       }
 
@@ -172,61 +179,50 @@
 
   .variant {
     &-danger {
-      --select-border-color: var(--color-red-70);
-      --select-outline-color: var(--color-red-30);
+      --selectBorderColor: var(--components-colors-input-color-border-error);
     }
 
     &-success {
-      --select-border-color: var(--color-green-60);
-      --select-outline-color: var(--color-green-30);
+      --selectBorderColor: var(--components-colors-input-color-border-success);
     }
 
     &-warning {
-      --select-border-color: var(--color-orange-60);
-      --select-outline-color: var(--color-orange-20);
+      --selectBorderColor: var(--components-colors-input-color-border-warning);
     }
   }
 
   .size {
     &-lg {
-      --select-height: var(--height-48);
-      --select-padding-bottom: var(--spacing-16);
-      --select-padding-left: var(--spacing-12);
-      --select-padding-right: var(--spacing-12);
-      --select-padding-top: var(--spacing-16);
+      --selectHeight: var(--components-dimensions-input-max-height-lg);
+      --selectPaddingBottom: var(--components-dimensions-input-padding-block-lg);
+      --selectPaddingLeft: var(--components-dimensions-input-padding-inline-lg);
+      --selectPaddingRight: var(--components-dimensions-input-padding-inline-lg);
+      --selectPaddingTop: var(--components-dimensions-input-padding-block-lg);
+      --selectLineHeight: 1.15;
     }
 
     &-md {
-      --select-height: var(--height-40);
-      --select-padding-bottom: var(--spacing-12);
-      --select-padding-left: var(--spacing-12);
-      --select-padding-right: var(--spacing-12);
-      --select-padding-top: var(--spacing-12);
+      --selectHeight: var(--components-dimensions-input-max-height-md);
+      --selectPaddingBottom: var(--components-dimensions-input-padding-block-md);
+      --selectPaddingLeft: var(--components-dimensions-input-padding-inline-md);
+      --selectPaddingRight: var(--components-dimensions-input-padding-inline-md);
+      --selectPaddingTop: var(--components-dimensions-input-padding-block-md);
+      --selectLineHeight: 1;
     }
 
     &-sm {
-      --select-height: var(--height-32);
-      --select-padding-bottom: var(--spacing-8);
-      --select-padding-left: var(--spacing-12);
-      --select-padding-right: var(--spacing-12);
-      --select-padding-top: var(--spacing-8);
-    }
-
-    &-xs {
-      --select-height: var(--height-24);
-      --select-padding-bottom: var(--spacing-4);
-      --select-padding-left: var(--spacing-8);
-      --select-padding-right: var(--spacing-8);
-      --select-padding-top: var(--spacing-4);
-      --select-icon-size: 0.75rem;
+      --selectHeight: var(--components-dimensions-input-max-height-sm);
+      --selectPaddingBottom: var(--components-dimensions-input-padding-block-sm);
+      --selectPaddingLeft: var(--components-dimensions-input-padding-inline-sm);
+      --selectPaddingRight: var(--components-dimensions-input-padding-inline-sm);
+      --selectPaddingTop: var(--components-dimensions-input-padding-block-sm);
+      --selectLineHeight: 1;
     }
   }
 
   .icon-wrapper {
     position: absolute;
     top: 0;
-    left: var(--icon-placement-left, auto);
-    right: var(--icon-placement-right, auto);
     bottom: 0;
     display: flex;
     justify-content: center;
@@ -235,19 +231,22 @@
     transition-property: all;
     transition-timing-function: var(--timing-primary);
     transition-duration: var(--duration-medium);
-    color: var(--color-neutral-90);
+
+    left: var(--iconPlacementLeft, auto);
+    right: var(--iconPlacementRight, auto);
+    color: var(--selectIconWrapperColor, var(--components-colors-input-color-icon-default));
 
     &.icon-placement-left {
-      --icon-placement-left: var(--spacing-md);
+      --iconPlacementLeft: var(--spacing-md);
       &.size-xs {
-        --icon-placement-left: var(--spacing-sm);
+        --iconPlacementLeft: var(--spacing-sm);
       }
     }
 
     &.icon-placement-right {
-      --icon-placement-right: var(--spacing-md);
+      --iconPlacementRight: var(--spacing-md);
       &.size-xs {
-        --icon-placement-right: var(--spacing-sm);
+        --iconPlacementRight: var(--spacing-sm);
       }
     }
 
@@ -262,21 +261,21 @@
     width: 100%;
 
     &.disabled .icon-wrapper {
-      color: var(--color-beige-60);
+      --selectIconWrapperColor: var(--components-colors-input-color-icon-disabled);
     }
   }
 
   .menu {
     max-height: 9.6875rem; /* 155px */
-    background-color: var(--color-neutral-10);
-    border-color: var(--color-neutral-30);
-    border-radius: var(--radius-md);
+    background-color: var(--components-colors-input-color-background-default);
+    border-color: var(--components-colors-input-color-border-hover);
+    border-radius: var(--components-dimensions-input-border-radius);
     border-style: solid;
-    border-width: var(--border-width-sm);
-    color: var(--color-neutral-90);
+    border-width: var(--components-dimensions-input-border-width-default);
+    color: var(--components-colors-input-color-text-default);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-regular);
-    line-height: var(--line-height-16);
+    line-height: var(--font-line-height-md);
     outline: none;
     position: absolute;
     z-index: 2;
@@ -297,8 +296,8 @@
   }
 
   .item {
-    color: var(--item-text-color, var(--color-beige-70));
-    cursor: var(--item-cursor, default);
+    color: var(--itemTextColor, var(--color-text-warm-tertiary));
+    cursor: var(--itemCursor, default);
     padding: var(--spacing-md);
     list-style: none;
     text-decoration: none;
@@ -309,23 +308,23 @@
     @include ellipsis.text-ellipsis;
 
     &.highlighted {
-      background-color: var(--color-beige-20);
+      background-color: var(--color-background-warm-primary);
     }
 
     &.selected {
       &:not(.multiple) {
-        --item-text-color: var(--color-neutral-90);
-        font-weight: var(--font-weight-bold);
+        --itemTextColor: var(--components-colors-input-color-text-default);
+        font-weight: var(--font-weight-semi-bold);
       }
       &.multiple:not(.allowUnselectFromList) {
-        --item-text-color: var(--color-beige-40);
-        --item-cursor: not-allowed;
+        --itemTextColor: var(--color-beige-40);
+        --itemCursor: not-allowed;
       }
     }
 
     &.disabled {
-      --item-text-color: var(--color-beige-60);
-      --item-cursor: not-allowed;
+      --itemTextColor: var(--components-colors-input-color-text-disabled);
+      --itemCursor: not-allowed;
     }
   }
 
