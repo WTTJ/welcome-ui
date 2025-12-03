@@ -18,7 +18,7 @@ export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(
     const handleClick = disabled ? null : onClick
 
     return (
-      <div className={cx('wrapper')} onClick={handleClick}>
+      <div className={cx('wrapper', 'field-input')} onClick={handleClick}>
         {withVisibilityIcon ? (
           <div
             className={cx(

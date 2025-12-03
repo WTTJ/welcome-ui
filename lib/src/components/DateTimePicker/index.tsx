@@ -68,7 +68,7 @@ export const DateTimePicker = forwardRef<HTMLInputElement, DateTimePickerProps>(
     }, [value])
 
     return (
-      <div className={cx('date-time-picker')}>
+      <div className={cx('date-time-picker', 'field-input')}>
         {Children.map(children, (child: React.ReactElement, i) => {
           const isDatePicker = i === 0
 

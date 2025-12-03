@@ -123,7 +123,13 @@ export const FileDrop = forwardRef<HTMLDivElement, FileDropProps>(
 
     return (
       <div
-        className={cx('root', disabled && 'disabled', isDragReject && 'drag-reject', className)}
+        className={cx(
+          'root',
+          disabled && 'disabled',
+          isDragReject && 'drag-reject',
+          'field-input',
+          className
+        )}
         {...getRootProps({
           disabled,
           handleRemoveFile,
