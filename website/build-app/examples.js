@@ -200,6 +200,7 @@ export default {
   "/Slider/docs/examples/values.tsx": dynamic(() => import("../../lib/src/components/Slider/docs/examples/values.tsx").then(mod => mod), { ssr: false }),
   "/Stepper/docs/examples/item.tsx": dynamic(() => import("../../lib/src/components/Stepper/docs/examples/item.tsx").then(mod => mod), { ssr: false }),
   "/Stepper/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Stepper/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
+  "/Stepper/docs/examples/responsive.tsx": dynamic(() => import("../../lib/src/components/Stepper/docs/examples/responsive.tsx").then(mod => mod), { ssr: false }),
   "/Stepper/docs/examples/separator.tsx": dynamic(() => import("../../lib/src/components/Stepper/docs/examples/separator.tsx").then(mod => mod), { ssr: false }),
   "/StickyNote/docs/examples/button.tsx": dynamic(() => import("../../lib/src/components/StickyNote/docs/examples/button.tsx").then(mod => mod), { ssr: false }),
   "/StickyNote/docs/examples/close-button.tsx": dynamic(() => import("../../lib/src/components/StickyNote/docs/examples/close-button.tsx").then(mod => mod), { ssr: false }),
