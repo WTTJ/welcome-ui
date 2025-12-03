@@ -1,52 +1,10 @@
 {
-  "TabComponent": {
+  "Tab": {
     "props": {
-      "className": {
+      "badge": {
         "defaultValue": null,
         "description": "",
-        "name": "className",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Tabs/types.ts",
-          "name": "TabOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Tabs/types.ts",
-            "name": "TabOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "string"
-        }
-      },
-      "id": {
-        "defaultValue": null,
-        "description": "The ID of the composite store is used to reference elements within the\ncomposite widget before hydration. If not provided, a random ID will be\ngenerated.",
-        "name": "id",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Tabs/types.ts",
-          "name": "TabOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Tabs/types.ts",
-            "name": "TabOptions"
-          },
-          {
-            "fileName": "welcome-ui/node_modules/@ariakit/core/esm/composite/composite-store.d.ts",
-            "name": "CompositeStoreState"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "string"
-        }
-      },
-      "size": {
-        "defaultValue": null,
-        "description": "",
-        "name": "size",
+        "name": "badge",
         "parent": {
           "fileName": "welcome-ui/lib/src/components/Tabs/types.ts",
           "name": "TabOptions"
@@ -60,44 +18,17 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "Size",
+          "raw": "string | number",
           "value": [
             {
-              "value": "\"md\""
+              "value": "string"
             },
             {
-              "value": "\"sm\""
+              "value": "number"
             }
           ]
         }
       },
-      "store": {
-        "defaultValue": null,
-        "description": "Another store object that will be kept in sync with the original store.\n\nLive examples:\n- [Navigation Menubar](https://ariakit.org/examples/menubar-navigation)",
-        "name": "store",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Tabs/types.ts",
-          "name": "TabOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Tabs/types.ts",
-            "name": "TabOptions"
-          },
-          {
-            "fileName": "welcome-ui/node_modules/@ariakit/core/esm/utils/store.d.ts",
-            "name": "StoreProps"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "TabStore & Store<Partial<TabStoreState>>"
-        }
-      }
-    }
-  },
-  "Tab": {
-    "props": {
       "className": {
         "defaultValue": null,
         "description": "",
@@ -115,6 +46,104 @@
         "required": false,
         "type": {
           "name": "string"
+        }
+      },
+      "icon": {
+        "defaultValue": null,
+        "description": "",
+        "name": "icon",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Tabs/types.ts",
+          "name": "TabOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Tabs/types.ts",
+            "name": "TabOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "ReactNode",
+          "value": [
+            {
+              "value": "string"
+            },
+            {
+              "value": "number"
+            },
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            },
+            {
+              "value": "ReactElement<any, string | JSXElementConstructor<any>>",
+              "description": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.",
+              "fullComment": "Represents a JSX element.\n\nWhere {@link ReactNode} represents everything that can be rendered, `ReactElement`\nonly represents JSX.\n@template P The type of the props object\n@template T The type of the component or tag\n@example ```tsx\nconst element: ReactElement = <div />;\n```",
+              "tags": {
+                "template": "P The type of the props object\nT The type of the component or tag",
+                "example": "```tsx\nconst element: ReactElement = <div />;\n```"
+              }
+            },
+            {
+              "value": "Iterable<ReactNode>",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            },
+            {
+              "value": "ReactPortal",
+              "description": "",
+              "fullComment": "",
+              "tags": {}
+            }
+          ]
+        }
+      },
+      "iconColor": {
+        "defaultValue": null,
+        "description": "",
+        "name": "iconColor",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Tabs/types.ts",
+          "name": "TabOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Tabs/types.ts",
+            "name": "TabOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"blue\" | \"green\" | \"orange\" | \"pink\" | \"teal\" | \"violet\" | \"warm\"",
+          "value": [
+            {
+              "value": "\"blue\""
+            },
+            {
+              "value": "\"green\""
+            },
+            {
+              "value": "\"orange\""
+            },
+            {
+              "value": "\"pink\""
+            },
+            {
+              "value": "\"teal\""
+            },
+            {
+              "value": "\"violet\""
+            },
+            {
+              "value": "\"warm\""
+            }
+          ]
         }
       },
       "id": {
@@ -160,10 +189,10 @@
           "raw": "Size",
           "value": [
             {
-              "value": "\"md\""
+              "value": "\"lg\""
             },
             {
-              "value": "\"sm\""
+              "value": "\"md\""
             }
           ]
         }

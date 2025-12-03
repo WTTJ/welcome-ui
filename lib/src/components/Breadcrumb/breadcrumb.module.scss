@@ -1,9 +1,7 @@
 @layer components {
   .root {
-    height: 100%;
     position: relative;
     overflow-x: hidden;
-    padding: var(--border-radius-md) 0;
     font-size: var(--font-size-14);
     font-weight: var(--font-weight-regular);
     letter-spacing: 0;
@@ -19,7 +17,7 @@
     max-width: 100%;
     overflow-x: auto;
     margin: 0;
-    padding: 0;
+    padding: var(--spacing-sm) 0;
     list-style: none;
     white-space: nowrap;
     gap: var(--breadcrumbItemGap);
