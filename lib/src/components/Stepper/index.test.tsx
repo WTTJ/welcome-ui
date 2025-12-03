@@ -5,6 +5,22 @@ import { render } from '@tests'
 import { Stepper } from './index'
 
 describe('Stepper', () => {
+  beforeEach(() => {
+    // Mock scrollIntoView
+    Element.prototype.scrollIntoView = vi.fn()
+
+    // Mock ResizeObserver
+    global.ResizeObserver = class ResizeObserver {
+      disconnect() {}
+      observe() {}
+      unobserve() {}
+    }
+  })
+
+  afterEach(() => {
+    vi.clearAllMocks()
+  })
+
   it('renders correctly with children', async () => {
     const onClick = vi.fn()
 
