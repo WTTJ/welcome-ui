@@ -22,21 +22,6 @@ const Example = () => {
           Tab 5
         </Tab>
       </Tab.List>
-      <Tab.Panel store={tab} tabId="tab1">
-        Tab.Panel 1
-      </Tab.Panel>
-      <Tab.Panel store={tab} tabId="tab2">
-        Tab.Panel 2
-      </Tab.Panel>
-      <Tab.Panel store={tab} tabId="tab3">
-        Tab.Panel 3
-      </Tab.Panel>
-      <Tab.Panel store={tab} tabId="tab4">
-        Tab.Panel 4
-      </Tab.Panel>
-      <Tab.Panel store={tab} tabId="tab5">
-        Tab.Panel 5
-      </Tab.Panel>
     </>
   )
 }
