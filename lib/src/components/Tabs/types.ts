@@ -2,7 +2,7 @@ import type { TabStore, TabStoreProps } from '@ariakit/react'
 
 import type { IconName } from '@/components/Icon/types'
 
-import type { UseTab } from '.'
+import type { UseTab } from './index'
 
 export type Size = 'lg' | 'md'
 

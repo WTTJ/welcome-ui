@@ -2,16 +2,16 @@
 import Link from 'next/link'
 import { useParams, usePathname } from 'next/navigation'
 
-import { Tab, useTab } from '@/components/Tabs'
+import { Tabs, useTab } from '@/components/Tabs'
 
 import type { PageTree } from '~/build-app/types'
 import { getName } from '~/build-app/utils/transform-name'
 
-type TabsProps = {
+type TabListProps = {
   pages: PageTree
 }
 
-export const Tabs = ({ pages }: TabsProps) => {
+export const TabList = ({ pages }: TabListProps) => {
   const pathname = usePathname()
   const { id } = useParams()
 
@@ -22,20 +22,16 @@ export const Tabs = ({ pages }: TabsProps) => {
   if (!subPages) return null
 
   return (
-    <Tab.List
-      aria-label="Tabs"
-      className="bg-neutral-10 mb-xl sticky top-70 z-1 pt-xxl"
-      store={tab}
-    >
+    <Tabs aria-label="Tabs" className="bg-neutral-10 mb-xl sticky top-70 z-1 pt-xxl" store={tab}>
       {subPages.map(subPage => {
         const link = `/foundations/${subPage.parent}/${subPage.id}`
 
         return (
-          <Tab as={Link} href={link} id={subPage.id as string} key={link} store={tab}>
+          <Tabs.Tab as={Link} href={link} id={subPage.id as string} key={link} store={tab}>
             {getName(subPage.id)}
-          </Tab>
+          </Tabs.Tab>
         )
       })}
-    </Tab.List>
+    </Tabs>
   )
 }

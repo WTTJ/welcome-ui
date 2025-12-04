@@ -2,24 +2,24 @@ import { screen } from '@testing-library/react'
 
 import { render } from '@tests'
 
-import { Tab, useTab } from '../'
+import { Tabs, useTab } from '../index'
 
-const Tabs = () => {
+const TabsList = () => {
   const tab = useTab({ defaultSelectedId: 'tab1' })
 
   return (
     <>
-      <Tab.List aria-label="Tabs" store={tab}>
-        <Tab data-testid="tab1" id="tab1" store={tab}>
+      <Tabs aria-label="Tabs" store={tab}>
+        <Tabs.Tab data-testid="tab1" id="tab1" store={tab}>
           Tab 1
-        </Tab>
-        <Tab data-testid="tab2" id="tab2" store={tab}>
+        </Tabs.Tab>
+        <Tabs.Tab data-testid="tab2" id="tab2" store={tab}>
           Tab 2
-        </Tab>
-        <Tab data-testid="tab3" disabled id="tab3" store={tab}>
+        </Tabs.Tab>
+        <Tabs.Tab data-testid="tab3" disabled id="tab3" store={tab}>
           Tab 3
-        </Tab>
-      </Tab.List>
+        </Tabs.Tab>
+      </Tabs>
     </>
   )
 }
@@ -29,18 +29,18 @@ const OneTab = () => {
 
   return (
     <>
-      <Tab.List aria-label="Tabs" store={tab}>
-        <Tab id="tab1" store={tab}>
+      <Tabs aria-label="Tabs" store={tab}>
+        <Tabs.Tab id="tab1" store={tab}>
           Tab 1
-        </Tab>
-      </Tab.List>
+        </Tabs.Tab>
+      </Tabs>
     </>
   )
 }
 
 describe('Tabs', () => {
   it('renders an accessible structure', async () => {
-    const { user } = render(<Tabs />)
+    const { user } = render(<TabsList />)
 
     const tab1 = screen.getByTestId('tab1')
     const tab2 = screen.getByTestId('tab2')
@@ -65,7 +65,7 @@ describe('Tabs', () => {
   })
 
   it('prevents clicking disabled tabs', async () => {
-    const { user } = render(<Tabs />)
+    const { user } = render(<TabsList />)
 
     const tab1 = screen.getByTestId('tab1')
     const tab3 = screen.getByTestId('tab3')

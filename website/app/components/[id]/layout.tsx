@@ -10,7 +10,7 @@ import { getPageContent } from '~/build-app/utils/page-content'
 import { getPages } from '~/build-app/utils/pages-components'
 import { getRepository } from '~/build-app/utils/transform-name'
 
-import { Tabs } from './tabs'
+import { TabList } from './tabs'
 
 type LayoutProps = React.PropsWithChildren<Params>
 
@@ -93,7 +93,7 @@ const Layout = async ({ children, params }: LayoutProps) => {
             ) : null}
           </div>
         </div>
-        <Tabs pages={pages} />
+        <TabList pages={pages} />
         <Documentation.Child>
           {children}
           <PrevNextPage basePage="components" currentId={id} pages={pages} />
