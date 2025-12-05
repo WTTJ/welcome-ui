@@ -18,7 +18,15 @@ const Example = () => {
   }
 
   return (
-    <Select isSearchable name="welcome" onChange={handleChange} options={ITEMS} value={value} />
+    <Select
+      defaultHighlightedIndex={0}
+      isSearchable
+      name="welcome"
+      onChange={handleChange}
+      options={ITEMS}
+      renderNoResults={value => `No results for "${value}"`}
+      value={value}
+    />
   )
 }
 

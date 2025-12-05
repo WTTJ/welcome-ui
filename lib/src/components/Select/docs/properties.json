@@ -475,6 +475,25 @@
           "name": "(values: SelectOption[], handleRemove: (value: string) => void) => ReactElement<any, string | JSXElementConstructor<any>>"
         }
       },
+      "renderNoResults": {
+        "defaultValue": null,
+        "description": "",
+        "name": "renderNoResults",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+          "name": "SelectOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Select/types.ts",
+            "name": "SelectOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "(inputValue: SelectValue) => ReactNode"
+        }
+      },
       "size": {
         "defaultValue": {
           "value": "lg"
