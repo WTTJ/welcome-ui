@@ -1,44 +1,32 @@
-import { Badge } from '@/components/Badge'
-import { Icon } from '@/components/Icon'
-import { Tab, useTab } from '@/components/Tabs'
+import { Tabs, useTab } from '@/components/Tabs'
 
 const Example = () => {
   const tab = useTab({ defaultSelectedId: 'tab2' })
-  const selectedId = tab.useState('selectedId')
-
-  const getVariant = (item: string) => (selectedId === item ? 'brand' : 'warm')
 
   return (
     <>
-      <Tab.List aria-label="Tabs" store={tab}>
-        <Tab id="tab1" store={tab}>
-          Tab 1<Badge variant={getVariant('tab1')}>new</Badge>
-        </Tab>
-        <Tab id="tab2" store={tab}>
-          Tab 2<Badge variant={getVariant('tab2')}>old</Badge>
-          <Badge variant={getVariant('tab2')}>2</Badge>
-        </Tab>
-        <Tab id="tab3" store={tab}>
+      <Tabs aria-label="Tabs" store={tab}>
+        <Tabs.Tab badge="new" id="tab1" store={tab}>
+          Tab 1
+        </Tabs.Tab>
+        <Tabs.Tab badge="old" id="tab2" store={tab}>
+          Tab 2
+        </Tabs.Tab>
+        <Tabs.Tab badge={3} id="tab3" store={tab}>
           Tab 3
-          <Icon name="heart" />
-        </Tab>
-        <Tab id="tab4" store={tab}>
-          <img src="https://cdn.welcometothejungle.com/wttj-front/production/assets/images/logos/wttj.svg?v=3a3dbd7122a01600fb67e66b889bb47c" />{' '}
-          Tab 4
-        </Tab>
-      </Tab.List>
-      <Tab.Panel store={tab} tabId="tab1">
-        Tab.Panel 1
-      </Tab.Panel>
-      <Tab.Panel store={tab} tabId="tab2">
-        Tab.Panel 2
-      </Tab.Panel>
-      <Tab.Panel store={tab} tabId="tab3">
-        Tab.Panel 3
-      </Tab.Panel>
-      <Tab.Panel store={tab} tabId="tab4">
-        Tab.Panel 4
-      </Tab.Panel>
+        </Tabs.Tab>
+      </Tabs>
+      <Tabs aria-label="Tabs" size="md" store={tab}>
+        <Tabs.Tab badge="new" id="tab1" store={tab}>
+          Tab 1
+        </Tabs.Tab>
+        <Tabs.Tab badge="old" id="tab2" store={tab}>
+          Tab 2
+        </Tabs.Tab>
+        <Tabs.Tab badge={3} id="tab3" store={tab}>
+          Tab 3
+        </Tabs.Tab>
+      </Tabs>
     </>
   )
 }

@@ -1,35 +1,37 @@
-import { Tab as AriakitTab } from '@ariakit/react'
+import { TabList as AriakitTabList } from '@ariakit/react'
+import React, { cloneElement, forwardRef, isValidElement } from 'react'
 
 import { classNames } from '@/utils'
-import { forwardRefWithAs } from '@/utils/forwardRefWithAs'
 
-import { TabList } from './components/TabList'
-import { TabPanel } from './components/TabPanel'
+import { Tab } from './Tab'
+import { TabPanel } from './TabPanel'
 import styles from './tabs.module.scss'
-import type { TabProps } from './types'
+import type { TabListProps } from './types'
 
 const cx = classNames(styles)
 
-export const TabComponent = forwardRefWithAs<TabProps, 'button'>(
-  ({ as: As, children, className, id, store, ...rest }, ref) => {
+export const TabsComponent = forwardRef<HTMLDivElement, TabListProps>(
+  ({ children, className, size = 'lg', store, ...rest }, ref) => {
+    const childrenWithSize = React.Children.map(children, child =>
+      isValidElement(child) ? cloneElement(child, { size } as unknown) : child
+    )
+
     return (
-      <AriakitTab
-        className={cx('root', className)}
-        id={id}
+      <AriakitTabList
+        className={cx('tab-list', `size-${size}`, className)}
         ref={ref}
-        render={As ? <As /> : undefined}
         store={store}
         {...rest}
       >
-        {children}
-      </AriakitTab>
+        {childrenWithSize}
+      </AriakitTabList>
     )
   }
 )
 
-TabComponent.displayName = 'Tab'
+TabsComponent.displayName = 'Tabs'
 
-export const Tab = Object.assign(TabComponent, { List: TabList, Panel: TabPanel })
+export const Tabs = Object.assign(TabsComponent, { Panel: TabPanel, Tab: Tab })
 
 export { useTabStore as useTab } from '@ariakit/react'
 
