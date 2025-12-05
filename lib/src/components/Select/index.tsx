@@ -47,9 +47,11 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
       autoFocus,
       className,
       dataTestId,
+      defaultHighlightedIndex,
       disableCloseOnSelect,
       disabled,
       groupsEnabled,
+      highlightedIndex,
       icon,
       iconPlacement = 'left',
       id,
@@ -69,6 +71,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
       renderGroupHeader,
       renderItem = itemToString,
       renderMultiple = multipleSelections,
+      renderNoResults,
       size = 'lg',
       transparent,
       value: defaultSelected,
@@ -320,6 +323,8 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
 
     return (
       <Downshift
+        defaultHighlightedIndex={defaultHighlightedIndex}
+        highlightedIndex={highlightedIndex}
         id={id}
         inputValue={isSearchable ? (inputContent as string) : ''}
         isOpen={isOpen}
@@ -417,6 +422,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
               {isShowMenu ? (
                 <ul className={cx('menu')} {...getMenuProps()}>
                   {renderOptions({ getItemProps, highlightedIndex, options })}
+                  {!options.length ? renderNoResults?.(inputValue) : null}
                   {isShowCreate && inputValue.length ? (
                     <li
                       className={cx('item', highlightedIndex === options.length && 'highlighted')}
@@ -434,6 +440,13 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
                   ) : null}
                 </ul>
               ) : null}
+
+              {!options.length && renderNoResults ? (
+                <ul className={cx('menu')} {...getMenuProps()}>
+                  <li className={`${cx('item')} cursor-default`}>{renderNoResults(inputValue)}</li>
+                </ul>
+              ) : null}
+
               {isMultiple ? renderMultiple(selected, handleRemove) : null}
             </div>
           )
