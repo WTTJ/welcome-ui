@@ -36,6 +36,9 @@ const MIGRATION_CONFIG = [
   //   script: './transform-text.mjs',
   // },
   // { components: 'Tag', script: './transform-tag.mjs' },
+  { components: 'Tab.List', script: './transform-tabs.mjs' },
+  { components: 'Tab', script: './transform-tabs.mjs' },
+  { components: 'Tab.Panel', script: './transform-tabs.mjs' },
   // {
   //   components: 'Tooltip',
   //   script: './transform-tooltip.mjs',

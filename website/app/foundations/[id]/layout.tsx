@@ -6,7 +6,7 @@ import type { Params } from '~/build-app/types'
 import { getPages } from '~/build-app/utils/pages-exports'
 import { getName } from '~/build-app/utils/transform-name'
 
-import { Tabs } from './tabs'
+import { TabList } from './tabs'
 
 const Layout = async ({ children, params }: React.PropsWithChildren<Params>) => {
   const { id } = await params
@@ -19,7 +19,7 @@ const Layout = async ({ children, params }: React.PropsWithChildren<Params>) => 
         <Text as="h1" className="py-3xl" variant="display-sm">
           {getName(id)}
         </Text>
-        <Tabs pages={pages} />
+        <TabList pages={pages} />
         <Documentation.Child>{children}</Documentation.Child>
       </div>
     </Documentation.Layout>
