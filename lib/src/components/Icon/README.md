@@ -30,7 +30,7 @@ To add a new icon to the sprite, you have to:
    yarn sprite
    ```
 
-   This command will create a sprite for welcome-ui website with free icons only.
+   This command will create a sprite within the welcome-ui repository with free icons only.
 
    ### 🚀 For production (all icons: free + paying + custom)
 
@@ -40,7 +40,7 @@ To add a new icon to the sprite, you have to:
    yarn sprite --prod
    ```
 
-   This command will create a production-ready sprite for WTTJ internal usage with all icons.
+   This command will create a production-ready sprite within the front repository for WTTJ internal usage with all icons.
 
 3. **Commit and push** the changes to both `front` and `welcome-ui` repositories.
 
