@@ -10,7 +10,7 @@
   "dependencies": {
     "@docsearch/react": "^3.9.0",
     "@stackblitz/sdk": "^1.11.0",
-    "@types/lodash": "4.17.20",
+    "@types/lodash": "4.17.21",
     "gray-matter": "4.0.3",
     "lodash": "4.17.21",
     "marked": "16.4.1",
