@@ -171,6 +171,7 @@ export const player = [
 ] as const
 
 export const wtf = [
+  'icons',
   'package',
   'basketball',
   'book-alt',
