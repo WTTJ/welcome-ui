@@ -94,6 +94,7 @@
   /** Content */
 
   .content {
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -143,6 +144,7 @@
 
   /** Icon */
   .icon-wrapper {
+    display: flex;
     flex-shrink: 0;
     padding: var(--components-dimensions-alert-icon-padding-block);
     border-radius: var(--components-dimensions-alert-icon-border-radius);
