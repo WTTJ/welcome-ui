@@ -1,0 +1,87 @@
+@layer components {
+  .header {
+    display: flex;
+    align-items: center;
+
+    min-height: var(--components-dimensions-window-header-size-min-height);
+    border-bottom: var(--components-dimensions-window-border-width) solid;
+    border-color: var(--components-colors-window-color-border-default);
+    padding-inline: var(--components-dimensions-window-header-padding-inline-xs);
+    padding-block: var(--components-dimensions-window-header-padding-block-xs);
+    gap: var(--components-dimensions-window-header-gap-content);
+  }
+
+  .tabs {
+    display: flex;
+    gap: var(--spacing-sm);
+  }
+
+  .tab-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+  }
+
+  .button {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: var(--components-dimensions-window-header-action-size-container);
+    height: var(--components-dimensions-window-header-action-size-container);
+    border-radius: var(--components-dimensions-window-header-action-border-radius);
+    background-color: var(--windowButtonBackgroundColor, transparent);
+
+    svg {
+      color: var(
+        --windowButtonIconColor,
+        var(--components-colors-window-header-action-color-icon-common-default)
+      );
+    }
+
+    &:hover {
+      --windowButtonBackgroundColor: var(
+        --components-colors-window-header-action-color-background-common-hover
+      );
+      --windowButtonIconColor: var(
+        --components-colors-window-header-action-color-icon-common-hover
+      );
+    }
+
+    &:active {
+      --windowButtonBackgroundColor: var(
+        --components-colors-window-header-action-color-background-common-pressed
+      );
+      --windowButtonIconColor: var(
+        --components-colors-window-header-action-color-icon-common-pressed
+      );
+    }
+  }
+
+  .close-button {
+    border: 1px solid var(--components-colors-window-header-action-color-border-close-default);
+    --windowButtonIconColor: var(--components-colors-window-header-action-color-icon-close-default);
+
+    &:hover {
+      --windowButtonBackgroundColor: var(
+        --components-colors-window-header-action-color-background-close-hover
+      );
+      --windowButtonIconColor: var(--components-colors-window-header-action-color-icon-close-hover);
+    }
+
+    &:active {
+      --windowButtonBackgroundColor: var(
+        --components-colors-window-header-action-color-background-close-pressed
+      );
+      --windowButtonIconColor: var(
+        --components-colors-window-header-action-color-icon-close-pressed
+      );
+    }
+  }
+
+  .header-actions {
+    display: flex;
+    gap: var(--components-dimensions-window-header-gap-content);
+  }
+}
