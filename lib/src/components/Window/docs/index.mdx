@@ -1,0 +1,27 @@
+---
+category: layout
+description: The Window component is a UI container element that provides a structured layout with header sections. It offers flexible organization of content with support for titles, tabs, and action buttons.
+packageName: window
+title: Window
+usage: Window
+---
+
+Use `Window` and `Window.Header` to create a structured window layout.
+
+### Header
+
+Use `Window.Header` to create the header section of your window. The header supports various sub-components for flexible layouts.
+
+#### Title
+
+Use `Window.Header.Title` to display a title in the header.
+
+#### Tabs
+
+Use `Window.Header.Tabs` to display tabs in the header. Requires a tab store and an array of tab items.
+
+<div data-playground="tabs.tsx" data-component="Window"></div>
+
+#### Left and Right Actions
+
+Use `Window.Header.LeftActions` for expandable controls and `Window.Header.RightActions` for closable controls and custom action buttons.

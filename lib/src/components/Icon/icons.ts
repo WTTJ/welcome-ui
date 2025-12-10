@@ -43,6 +43,8 @@ export const actions = [
   'arrow-from-right',
   'resize-handle', // (not unicons)
   'arrow-resize-diagonal',
+  'draggabledots',
+  'compress-alt',
   'external-link-alt',
   'heart-solid',
   'heart',
