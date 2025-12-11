@@ -20,6 +20,34 @@
           "name": "() => void"
         }
       },
+      "isFullWidth": {
+        "defaultValue": null,
+        "description": "",
+        "name": "isFullWidth",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/StickyNote/types.ts",
+          "name": "StickyNoteOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/StickyNote/types.ts",
+            "name": "StickyNoteOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
       "shape": {
         "defaultValue": {
           "value": "square"

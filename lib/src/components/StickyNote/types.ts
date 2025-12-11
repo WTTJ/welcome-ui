@@ -13,6 +13,7 @@ export type StickyNoteTitleProps = ComponentProps<'div'> &
 interface StickyNoteOptions {
   children: React.ReactNode
   handleClose?: () => void
+  isFullWidth?: boolean
   shape?: 'rectangle' | 'square'
   variant?: 'blue' | 'brand' | 'green' | 'orange' | 'pink' | 'teal' | 'violet'
 }

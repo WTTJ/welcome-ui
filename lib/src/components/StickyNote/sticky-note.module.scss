@@ -1,6 +1,7 @@
 @layer components {
   .root {
     transform: rotate3d(0, 0, 1, 0.3deg);
+    display: flex;
 
     /* VARIABLES FROM THEME - DO NOT CHANGE */
     border-color: var(--components-colors-sticky-note-color-border-default);
@@ -12,7 +13,7 @@
 
     /* VARIABLES FROM COMPONENT - CHANGE WITH REACT PROPS */
     width: var(--StickyNoteWidth);
-    height: var(--StickyNoteHeight);
+    min-height: var(--StickyNoteHeight);
     background-color: var(--StickyNoteBackgroundColor);
     color: var(--StickyNoteColor);
 
@@ -35,6 +36,9 @@
     &-square {
       --StickyNoteWidth: var(--components-dimensions-sticky-note-size-width-square);
       --StickyNoteHeight: var(--components-dimensions-sticky-note-size-height-square);
+    }
+    &-full {
+      --StickyNoteWidth: 100%;
     }
   }
 
@@ -126,10 +130,8 @@
   }
 
   .content {
-    position: relative;
     display: flex;
     flex-direction: column;
-    height: 100%;
     gap: var(--components-dimensions-sticky-note-gap-content);
     transform: rotate3d(0, 0, 1, -0.3deg);
     font-size: var(--font-size-md);

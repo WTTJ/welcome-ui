@@ -11,11 +11,20 @@ import type { StickyNoteProps } from './types'
 const cx = classNames(styles)
 
 const StickyNoteComponent = forwardRef<HTMLDivElement, StickyNoteProps>(
-  ({ children, className, handleClose, shape = 'square', variant = 'brand' }, ref) => {
+  ({ children, className, handleClose, isFullWidth, shape = 'square', variant = 'brand' }, ref) => {
     const hasCloseButton = Boolean(handleClose)
 
     return (
-      <div className={cx('root', `variant-${variant}`, `shape-${shape}`, className)} ref={ref}>
+      <div
+        className={cx(
+          'root',
+          `variant-${variant}`,
+          `shape-${shape}`,
+          isFullWidth && 'shape-full',
+          className
+        )}
+        ref={ref}
+      >
         {hasCloseButton ? (
           <CloseButton className={cx('close-button')} onClick={handleClose} size="sm" />
         ) : null}
