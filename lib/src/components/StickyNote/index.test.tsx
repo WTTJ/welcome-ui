@@ -74,4 +74,10 @@ describe('StickyNote', () => {
 
     expect(handleClick).toHaveBeenCalledTimes(1)
   })
+
+  it('should render full width', () => {
+    const { container } = render(<StickyNote isFullWidth>Sample content</StickyNote>)
+
+    expect(container.firstChild).toHaveClass(/shape-full/)
+  })
 })
