@@ -1,4 +1,3 @@
-import { Icon } from '@/components/Icon'
 import { Tabs, useTab } from '@/components/Tabs'
 
 const Example = () => {
@@ -22,7 +21,7 @@ const Example = () => {
         <Tabs.Tab icon="folder-full" iconColor="orange" id="tab5" store={tab}>
           Tab 5
         </Tabs.Tab>
-        <Tabs.Tab icon={<Icon name="heart" />} iconColor="orange" id="tab6" store={tab}>
+        <Tabs.Tab icon="folder-full" iconColor="warm" id="tab6" store={tab}>
           Tab 6
         </Tabs.Tab>
       </Tabs>

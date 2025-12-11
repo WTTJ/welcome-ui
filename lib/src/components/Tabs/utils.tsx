@@ -38,9 +38,7 @@ export function getIcon({
           ? 'text-background-accent-violet-strong'
           : 'text-background-accent-violet-primary'
       case 'warm':
-        return isActive
-          ? 'text-background-accent-warm-strong'
-          : 'text-background-accent-warm-primary'
+        return isActive ? 'text-beige-60' : 'text-background-warm-stronger'
       default:
         return ''
     }

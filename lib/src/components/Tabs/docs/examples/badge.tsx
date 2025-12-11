@@ -4,7 +4,7 @@ const Example = () => {
   const tab = useTab({ defaultSelectedId: 'tab2' })
 
   return (
-    <>
+    <div className="flex flex-col gap-xl">
       <Tabs aria-label="Tabs" store={tab}>
         <Tabs.Tab badge="new" id="tab1" store={tab}>
           Tab 1
@@ -27,7 +27,7 @@ const Example = () => {
           Tab 3
         </Tabs.Tab>
       </Tabs>
-    </>
+    </div>
   )
 }
 
