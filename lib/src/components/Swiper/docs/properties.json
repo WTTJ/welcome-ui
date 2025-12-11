@@ -1,5 +1,5 @@
 {
-  "useSwiper": {
+  "Swiper": {
     "props": {
       "autoplay": {
         "defaultValue": null,
@@ -303,29 +303,6 @@
         "required": false,
         "type": {
           "name": "{ desktop: boolean; mobile: boolean; }"
-        }
-      }
-    }
-  },
-  "Swiper": {
-    "props": {
-      "store": {
-        "defaultValue": null,
-        "description": "",
-        "name": "store",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Swiper/types.ts",
-          "name": "SwiperOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Swiper/types.ts",
-            "name": "SwiperOptions"
-          }
-        ],
-        "required": true,
-        "type": {
-          "name": "{ autoplay: boolean; centeredSlides: boolean; currentPage: number; currentSlidesPerView: number; duration: number; firstSlideToShow: number; fullWidth: boolean; id: string; navigationSize: ButtonSize; ... 11 more ...; withPagination: { ...; }; }"
         }
       }
     }

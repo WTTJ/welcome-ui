@@ -4,6 +4,7 @@
     align-items: center;
     transition-property: background-color, border-color, color, box-shadow;
     transition-timing-function: ease-in-out;
+    cursor: pointer;
 
     /* VARIABLES FROM THEME - DONT CHANGE WITH REACT PROPS */
     border-radius: var(--radius-md);
