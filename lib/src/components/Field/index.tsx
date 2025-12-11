@@ -83,27 +83,27 @@ export const Field = forwardRefWithAs<FieldOptions, 'div'>((props, ref) => {
   )
 
   return (
-    <FieldContext.Provider value={state}>
-      <div ref={ref} {...rest} className={cx('root', inline && 'inline', className)}>
-        <Label
-          className={cx('label', hideLabel && 'visuallyHidden')}
-          disabled={disabled}
-          htmlFor={inputId}
-          id={labelID}
-          required={required}
-          variant={variant}
-          {...labelProps}
-        >
-          {label}
-        </Label>
+    <div ref={ref} {...rest} className={cx('root', inline && 'inline', className)}>
+      <Label
+        className={cx('label', hideLabel && 'visuallyHidden')}
+        disabled={disabled}
+        htmlFor={inputId}
+        id={labelID}
+        required={required}
+        variant={variant}
+        {...labelProps}
+      >
+        {label}
+      </Label>
+      <FieldContext.Provider value={state}>
         <div className={cx('input')}>{children}</div>
-        {hintText ? (
-          <Hint className={cx('hint')} id={hintID} variant={variant} {...hintProps}>
-            {hintText}
-          </Hint>
-        ) : null}
-      </div>
-    </FieldContext.Provider>
+      </FieldContext.Provider>
+      {hintText ? (
+        <Hint className={cx('hint')} id={hintID} variant={variant} {...hintProps}>
+          {hintText}
+        </Hint>
+      ) : null}
+    </div>
   )
 })
 
