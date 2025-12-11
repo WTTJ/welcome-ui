@@ -5,7 +5,7 @@ import type { ButtonProps } from '@/components/Button/types'
 import { CloseButton } from '@/components/CloseButton'
 import { Text } from '@/components/Text'
 import { VariantIcon } from '@/components/VariantIcon'
-import { classNames } from '@/utils'
+import { classNames, forwardRefWithAs } from '@/utils'
 
 import alertStyles from './alert.module.scss'
 import type { AlertProps, AlertTitleProps, CloneActionsReturns } from './types'
@@ -91,12 +91,12 @@ const AlertComponent = forwardRef<HTMLDivElement, AlertProps>(
 )
 
 // We need this component to check its existence in <Alert> and to allow users to add Button in <Alert> content
-const AlertButton = forwardRef<HTMLButtonElement, Omit<ButtonProps, 'size'>>(
+const AlertButton = forwardRefWithAs<Omit<ButtonProps, 'size'>, 'button'>(
   ({ variant = 'secondary', ...props }, ref) => (
     <Button className="shrink-0 w-fit" ref={ref} {...props} variant={variant} />
   )
 )
-const AlertSecondaryButton = forwardRef<HTMLButtonElement, Omit<ButtonProps, 'size'>>(
+const AlertSecondaryButton = forwardRefWithAs<Omit<ButtonProps, 'size'>, 'button'>(
   ({ variant = 'tertiary', ...props }, ref) => (
     <Button className="shrink-0 w-fit" ref={ref} {...props} variant={variant} />
   )
