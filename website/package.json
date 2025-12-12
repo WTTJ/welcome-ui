@@ -14,7 +14,7 @@
     "gray-matter": "4.0.3",
     "lodash": "4.17.21",
     "marked": "16.4.1",
-    "next": "15.5.7",
+    "next": "15.5.9",
     "prism-react-renderer": "2.4.1",
     "prop-types": "^15.8.1",
     "react-markdown": "10.1.0",
