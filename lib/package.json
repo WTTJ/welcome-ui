@@ -1,6 +1,6 @@
 {
   "name": "welcome-ui",
-  "version": "9.0.11",
+  "version": "9.0.12",
   "description": "Customizable design system with react, typescript, tailwindcss and ariakit.",
   "files": [
     "dist"
