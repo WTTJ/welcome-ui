@@ -21,6 +21,7 @@ export const Preview: React.FC<FileDropChildren> = ({
   isAnImage,
   isHoverAccept,
   isHoverReject,
+  isLoading,
   openFile,
   wordings,
 }) => {
@@ -28,6 +29,15 @@ export const Preview: React.FC<FileDropChildren> = ({
     return <Icon name="smile-beam-solid" />
   } else if (isHoverReject) {
     return <Icon name="sad-solid" />
+  } else if (isLoading) {
+    return (
+      <Message
+        hint={wordings?.loadingHint}
+        isLoading
+        openFile={openFile}
+        title={wordings?.loadingTitle}
+      />
+    )
   } else if (error) {
     return <Message openFile={openFile} {...wordings} />
   } else if (fileUrl) {

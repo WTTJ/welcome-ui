@@ -97,6 +97,7 @@ export default {
   "/FileDrop/docs/examples/custom-filename.tsx": dynamic(() => import("../../lib/src/components/FileDrop/docs/examples/custom-filename.tsx").then(mod => mod), { ssr: false }),
   "/FileDrop/docs/examples/disabled.tsx": dynamic(() => import("../../lib/src/components/FileDrop/docs/examples/disabled.tsx").then(mod => mod), { ssr: false }),
   "/FileDrop/docs/examples/image.tsx": dynamic(() => import("../../lib/src/components/FileDrop/docs/examples/image.tsx").then(mod => mod), { ssr: false }),
+  "/FileDrop/docs/examples/loading.tsx": dynamic(() => import("../../lib/src/components/FileDrop/docs/examples/loading.tsx").then(mod => mod), { ssr: false }),
   "/FileDrop/docs/examples/no-type.tsx": dynamic(() => import("../../lib/src/components/FileDrop/docs/examples/no-type.tsx").then(mod => mod), { ssr: false }),
   "/FileDrop/docs/examples/others.tsx": dynamic(() => import("../../lib/src/components/FileDrop/docs/examples/others.tsx").then(mod => mod), { ssr: false }),
   "/FileDrop/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/FileDrop/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),

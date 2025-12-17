@@ -212,6 +212,34 @@
           ]
         }
       },
+      "isLoading": {
+        "defaultValue": null,
+        "description": "",
+        "name": "isLoading",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/FileDrop/types.ts",
+          "name": "FileDropOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/FileDrop/types.ts",
+            "name": "FileDropOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
       "name": {
         "defaultValue": null,
         "description": "",

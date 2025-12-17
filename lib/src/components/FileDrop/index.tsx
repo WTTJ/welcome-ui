@@ -35,6 +35,7 @@ export const FileDrop = forwardRef<HTMLDivElement, FileDropProps>(
       handleRemoveFile,
       isClearable,
       isEditable,
+      isLoading,
       maxSize = DEFAULT_MAX_FILE_SIZE,
       multiple,
       name,
@@ -158,6 +159,7 @@ export const FileDrop = forwardRef<HTMLDivElement, FileDropProps>(
             isAnImage: forceFileType === 'image' || isAnImage(file),
             isHoverAccept: isDragAccept,
             isHoverReject: isDragReject,
+            isLoading,
             openFile: open,
             wordings,
           })}
@@ -171,7 +173,7 @@ export const FileDrop = forwardRef<HTMLDivElement, FileDropProps>(
                 variant="secondary"
               >
                 <Icon name="pen" />
-                {editButtonText}
+                <span>{editButtonText}</span>
               </Button>
               <Button
                 disabled={!isClearable}
@@ -181,7 +183,7 @@ export const FileDrop = forwardRef<HTMLDivElement, FileDropProps>(
                 variant="secondary-danger"
               >
                 <Icon name="trash" />
-                {deleteButtonText}
+                <span>{deleteButtonText}</span>
               </Button>
             </div>
           ) : null}
