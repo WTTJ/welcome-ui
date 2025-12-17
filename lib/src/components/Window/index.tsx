@@ -5,6 +5,7 @@ import { Body } from './components/Body'
 import { BoxText } from './components/BoxText'
 import { Header } from './components/Header'
 import { Media } from './components/Media'
+import { TabPanel } from './components/TabPanel'
 import type { WindowProps } from './types'
 import windowStyles from './window.module.scss'
 
@@ -21,4 +22,5 @@ export const Window = Object.assign(WindowComponent, {
   BoxText,
   Header,
   Media,
+  TabPanel,
 })

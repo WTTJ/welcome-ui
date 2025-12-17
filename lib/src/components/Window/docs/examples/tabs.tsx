@@ -8,7 +8,7 @@ const Example = () => {
   })
 
   return (
-    <>
+    <Window className="max-w-400">
       <Window.Header>
         <Window.Header.LeftActions isDraggable isExpandable />
         <Window.Header.Tabs
@@ -21,7 +21,21 @@ const Example = () => {
         />
         <Window.Header.RightActions isClosable />
       </Window.Header>
-    </>
+      <Window.TabPanel store={tabStore} tabId="tab1">
+        <Window.Body>Content for the first tab</Window.Body>
+      </Window.TabPanel>
+      <Window.TabPanel store={tabStore} tabId="tab2">
+        <Window.BoxText>
+          This is a styled text box in the second tab. It provides a visually distinct content area
+          with a different background color.
+        </Window.BoxText>
+      </Window.TabPanel>
+      <Window.TabPanel store={tabStore} tabId="tab3">
+        <Window.Media>
+          <img alt="Example media content" src="/landscape.jpg" />
+        </Window.Media>
+      </Window.TabPanel>
+    </Window>
   )
 }
 export default Example
