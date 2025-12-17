@@ -1,3 +1,4 @@
+import type { TabListProps } from '@ariakit/react'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
 
 import type { UseTab } from '@/components/Tabs'
@@ -5,26 +6,39 @@ import type { MergeProps, PropsWithAs } from '@/utils'
 
 import type { IconName } from '../Icon/types'
 
-export type ActionButtonProps = HTMLAttributes<HTMLButtonElement> & { icon: IconName }
+export interface ActionButtonOptions {
+  icon: IconName
+}
 
-export type BodyProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>> & {
+export type ActionButtonProps = MergeProps<HTMLAttributes<HTMLButtonElement>, ActionButtonOptions>
+export interface BodyOptions {
   size?: 'lg' | 'md' | 'sm' | 'xl' | 'xs'
 }
 
+export type BodyProps = MergeProps<PropsWithChildren<HTMLAttributes<HTMLDivElement>>, BodyOptions>
+
 export type BoxTextProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
-export type HeaderLeftActionsProps = {
+export interface HeaderLeftActionsOptions {
   isExpandable?: boolean
   onExpandChange?: (expanded: boolean) => void
 }
+export type HeaderLeftActionsProps = MergeProps<
+  PropsWithChildren<HTMLAttributes<HTMLDivElement>>,
+  HeaderLeftActionsOptions
+>
 
 export type HeaderProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
-export type HeaderRightActionsProps = {
-  children?: React.ReactNode
+export interface HeaderRightActionsOptions {
   isClosable?: boolean
   onClose?: VoidFunction
 }
+
+export type HeaderRightActionsProps = MergeProps<
+  PropsWithChildren<HTMLAttributes<HTMLDivElement>>,
+  HeaderRightActionsOptions
+>
 
 export type HeaderTabItem = {
   icon: IconName
@@ -32,12 +46,17 @@ export type HeaderTabItem = {
   title: string
 }
 
-export type HeaderTabsProps = {
+export interface HeaderTabsOptions {
   items: HeaderTabItem[]
-  store: UseTab
 }
 
-export type HeaderTitleProps = PropsWithAs<'h2', { title: JSX.Element | string }>
+export type HeaderTabsProps = MergeProps<TabListProps<'div'>, HeaderTabsOptions>
+
+export interface HeaderTitleOptions {
+  title: JSX.Element | string
+}
+
+export type HeaderTitleProps = PropsWithAs<'h2', HeaderTitleOptions>
 
 export type MediaProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
