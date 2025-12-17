@@ -4,7 +4,7 @@ const Example = () => {
   return (
     <>
       <Window.Header>
-        <Window.Header.LeftActions isDraggable isExpandable />
+        <Window.Header.LeftActions isExpandable />
         <Window.Header.Title title="My Window Title" />
         <Window.Header.RightActions isClosable>
           {/* eslint-disable-next-line no-console */}
