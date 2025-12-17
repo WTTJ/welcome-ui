@@ -16,4 +16,6 @@ export type TabPanelProps = {
   store: TabStore
   tabId?: string
 }
-export type WindowProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+export type WindowProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>> & {
+  role?: 'alertdialog' | 'dialog' | 'region'
+}
