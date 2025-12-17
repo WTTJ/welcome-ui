@@ -1,0 +1,37 @@
+{
+  "Window": {
+    "props": {
+      "role": {
+        "defaultValue": null,
+        "description": "",
+        "name": "role",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Window/types.ts",
+          "name": "WindowOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Window/types.ts",
+            "name": "WindowOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"dialog\" | \"alertdialog\" | \"region\"",
+          "value": [
+            {
+              "value": "\"dialog\""
+            },
+            {
+              "value": "\"alertdialog\""
+            },
+            {
+              "value": "\"region\""
+            }
+          ]
+        }
+      }
+    }
+  }
+}

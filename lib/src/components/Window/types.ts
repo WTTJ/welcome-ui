@@ -1,7 +1,7 @@
 import type { HTMLAttributes, PropsWithChildren } from 'react'
 
 import type { UseTab } from '@/components/Tabs'
-import type { PropsWithAs } from '@/utils'
+import type { MergeProps, PropsWithAs } from '@/utils'
 
 import type { IconName } from '../Icon/types'
 
@@ -41,11 +41,21 @@ export type HeaderTitleProps = PropsWithAs<'h2', { title: JSX.Element | string }
 
 export type MediaProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
-export type TabPanelProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>> & {
+export interface TabPanelOptions {
   store: UseTab
   tabId?: string
 }
 
-export type WindowProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>> & {
+export type TabPanelProps = MergeProps<
+  TabPanelOptions,
+  PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+>
+
+export interface WindowOptions {
   role?: 'alertdialog' | 'dialog' | 'region'
 }
+
+export type WindowProps = MergeProps<
+  WindowOptions,
+  PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+>
