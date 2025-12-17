@@ -6,7 +6,8 @@ export function getIcon({
   icon,
   iconColor,
   isActive,
-}: Pick<TabProps, 'icon' | 'iconColor'> & { isActive: boolean }) {
+  size,
+}: Pick<TabProps, 'icon' | 'iconColor' | 'size'> & { isActive: boolean }) {
   if (!icon) return null
 
   if (typeof icon !== 'string') return icon
@@ -44,5 +45,5 @@ export function getIcon({
     }
   })()
 
-  return <Icon className={iconClassName} name={icon} />
+  return <Icon className={iconClassName} name={icon} size={size} />
 }
