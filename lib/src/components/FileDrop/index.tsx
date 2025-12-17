@@ -163,7 +163,7 @@ export const FileDrop = forwardRef<HTMLDivElement, FileDropProps>(
             openFile: open,
             wordings,
           })}
-          {file ? (
+          {!isLoading && file ? (
             <div className={cx('actions')}>
               <Button
                 disabled={!isEditable}

@@ -18,7 +18,7 @@ export const Message = ({
 }: MessageProps) => {
   return (
     <>
-      <Icon className="mb-lg" name="import" size="lg" />
+      <Icon className={cx('message-icon')} name="import" size="lg" />
       <Text className={cx('message-title')} variant="heading-xs-strong">
         {title}
       </Text>
