@@ -2,22 +2,22 @@ import { Tab as AriakitTab, TabList as AriakitTabList } from '@ariakit/react'
 import { forwardRef, useState } from 'react'
 
 import { Icon } from '@/components/Icon'
-import type { UseTab } from '@/components/Tabs'
 import { Text } from '@/components/Text'
-import type { PropsWithAs } from '@/utils'
 import { classNames } from '@/utils'
 
-import type { ActionButtonProps, HeaderProps } from '../types'
+import type {
+  ActionButtonProps,
+  HeaderLeftActionsProps,
+  HeaderProps,
+  HeaderRightActionsProps,
+  HeaderTabsProps,
+  HeaderTitleProps,
+} from '../types'
 import windowStyles from '../window.module.scss'
 
 const cx = classNames(windowStyles)
 
-const Button = ({
-  'aria-label': ariaLabel,
-  className,
-  icon,
-  onClick,
-}: ActionButtonProps & { icon: string }) => {
+const Button = ({ 'aria-label': ariaLabel, className, icon, onClick }: ActionButtonProps) => {
   return (
     <button
       aria-label={ariaLabel}
@@ -30,7 +30,7 @@ const Button = ({
   )
 }
 
-const CloseButton = ({ onClick }: ActionButtonProps) => {
+const CloseButton = ({ onClick }: Omit<ActionButtonProps, 'icon'>) => {
   return (
     <Button
       aria-label="Close window"
@@ -41,13 +41,7 @@ const CloseButton = ({ onClick }: ActionButtonProps) => {
   )
 }
 
-const Tabs = ({
-  items,
-  store,
-}: {
-  items: { icon: string; id: string; title: string }[]
-  store: UseTab
-}) => {
+const Tabs = ({ items, store }: HeaderTabsProps) => {
   return (
     <AriakitTabList className={cx('header-tabs')} store={store}>
       {items.map(item => (
@@ -60,15 +54,7 @@ const Tabs = ({
   )
 }
 
-const RightActions = ({
-  children,
-  isClosable = false,
-  onClose,
-}: {
-  children?: React.ReactNode
-  isClosable?: boolean
-  onClose?: VoidFunction
-}) => {
+const RightActions = ({ children, isClosable = false, onClose }: HeaderRightActionsProps) => {
   const handleCloseWindow = () => {
     onClose?.()
   }
@@ -81,17 +67,7 @@ const RightActions = ({
   )
 }
 
-const LeftActions = ({
-  handleDragAndDrop,
-  isDraggable = false,
-  isExpandable = false,
-  onExpandChange,
-}: {
-  handleDragAndDrop?: VoidFunction
-  isDraggable?: boolean
-  isExpandable?: boolean
-  onExpandChange?: (expanded: boolean) => void
-}) => {
+const LeftActions = ({ isExpandable = false, onExpandChange }: HeaderLeftActionsProps) => {
   const [isExpanded, setIsExpanded] = useState(false)
 
   const handleExpandWindow = () => {
@@ -102,14 +78,6 @@ const LeftActions = ({
 
   return (
     <div className={cx('header-actions')}>
-      {isDraggable ? (
-        <Button
-          aria-label="Drag window"
-          aria-roledescription="draggable"
-          icon="draggabledots"
-          onClick={handleDragAndDrop}
-        />
-      ) : null}
       {isExpandable ? (
         <button
           aria-expanded={isExpanded}
@@ -125,11 +93,7 @@ const LeftActions = ({
   )
 }
 
-const Title = ({
-  as = 'h2',
-  className,
-  title,
-}: PropsWithAs<'h2', { title: JSX.Element | string }>) => {
+const Title = ({ as = 'h2', className, title }: HeaderTitleProps) => {
   return (
     <Text as={as} className={cx('header-title', className)} variant="body-md-strong">
       {title}

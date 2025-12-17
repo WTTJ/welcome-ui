@@ -10,7 +10,7 @@ const Example = () => {
   return (
     <Window className="max-w-400">
       <Window.Header>
-        <Window.Header.LeftActions isDraggable isExpandable />
+        <Window.Header.LeftActions isExpandable />
         <Window.Header.Tabs
           items={[
             { icon: 'folder', id: 'tab1', title: '1st tab' },
