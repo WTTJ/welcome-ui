@@ -134,6 +134,12 @@
     gap: var(--components-dimensions-window-header-gap-content);
   }
 
+  .tab-panel {
+    &[hidden] {
+      display: none;
+    }
+  }
+
   .media,
   .box-text {
     margin-block: var(--components-dimensions-window-body-padding-block-xs);
