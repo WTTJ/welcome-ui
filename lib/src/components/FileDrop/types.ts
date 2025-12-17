@@ -14,6 +14,7 @@ export type FileDropChildren = {
   isAnImage?: boolean
   isHoverAccept?: DropzoneState['isDragAccept']
   isHoverReject?: DropzoneState['isDragReject']
+  isLoading?: boolean
   openFile?: OpenType
   wordings?: WordingsType
 }
@@ -29,6 +30,7 @@ export interface FileDropOptions {
   handleRemoveFile?: (event: CreateEvent | DropEvent | React.ChangeEvent<HTMLInputElement>) => void
   isClearable?: boolean
   isEditable?: boolean
+  isLoading?: boolean
   name?: string
   onBlur?: () => void
   onChange?: (event: CreateEvent | DropEvent | React.ChangeEvent<HTMLInputElement>) => void
@@ -61,6 +63,7 @@ type FileType = FileWithPreview | string
 type FileUrlType = string | URL
 interface MessageOptions {
   disabled?: boolean
+  isLoading?: boolean
   openFile?: FileDropChildren['openFile']
 }
 
@@ -69,6 +72,8 @@ type OpenType = DropzoneState['open']
 type WordingsType = {
   fileButtonText?: JSX.Element | string
   hint?: JSX.Element | string
+  loadingHint?: JSX.Element | string
+  loadingTitle?: JSX.Element | string
   previewButtonText?: JSX.Element | string
   title?: JSX.Element | string
 }
