@@ -56,7 +56,7 @@ export interface HeaderTitleOptions {
   title: JSX.Element | string
 }
 
-export type HeaderTitleProps = PropsWithAs<'h2', HeaderTitleOptions>
+export type HeaderTitleProps = PropsWithAs<'p', HeaderTitleOptions>
 
 export type MediaProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>>
 
