@@ -59,10 +59,10 @@ const StepperComponent = forwardRef<HTMLOListElement, StepperProps>(
     }, [children, olRef])
 
     return (
-      <div className={cx('wrapper')}>
+      <div className={cx('root')}>
         <ol
           className={cx(
-            'root',
+            'wrapper',
             className,
             showLeftFade && 'fade-left',
             showRightFade && 'fade-right'
