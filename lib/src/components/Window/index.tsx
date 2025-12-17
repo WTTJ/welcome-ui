@@ -11,9 +11,15 @@ import windowStyles from './window.module.scss'
 
 const cx = classNames(windowStyles)
 
-const WindowComponent = forwardRefWithAs<WindowProps, 'div'>(({ children, className }) => {
-  return <div className={cx('root', className)}>{children}</div>
-})
+const WindowComponent = forwardRefWithAs<WindowProps, 'div'>(
+  ({ children, className, role = 'region', ...rest }) => {
+    return (
+      <div className={cx('root', className)} role={role} {...rest}>
+        {children}
+      </div>
+    )
+  }
+)
 
 WindowComponent.displayName = 'Window'
 

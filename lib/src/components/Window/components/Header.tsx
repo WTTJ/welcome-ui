@@ -63,14 +63,14 @@ const Tabs = ({
 const RightActions = ({
   children,
   isClosable = false,
+  onClose,
 }: {
   children?: React.ReactNode
-  isClosable: boolean
+  isClosable?: boolean
+  onClose?: VoidFunction
 }) => {
-  const [isClosed, setIsClosed] = useState(false)
-
   const handleCloseWindow = () => {
-    setIsClosed(!isClosed)
+    onClose?.()
   }
 
   return (
@@ -85,28 +85,41 @@ const LeftActions = ({
   handleDragAndDrop,
   isDraggable = false,
   isExpandable = false,
+  onExpandChange,
 }: {
   handleDragAndDrop?: VoidFunction
   isDraggable?: boolean
   isExpandable?: boolean
+  onExpandChange?: (expanded: boolean) => void
 }) => {
   const [isExpanded, setIsExpanded] = useState(false)
 
   const handleExpandWindow = () => {
-    setIsExpanded(!isExpanded)
+    const newExpanded = !isExpanded
+    setIsExpanded(newExpanded)
+    onExpandChange?.(newExpanded)
   }
 
   return (
     <div className={cx('header-actions')}>
       {isDraggable ? (
-        <Button aria-label="Drag window" icon="draggabledots" onClick={handleDragAndDrop} />
+        <Button
+          aria-label="Drag window"
+          aria-roledescription="draggable"
+          icon="draggabledots"
+          onClick={handleDragAndDrop}
+        />
       ) : null}
       {isExpandable ? (
-        <Button
-          aria-label="Expand window"
-          icon={isExpanded ? 'compress-alt' : 'arrow-resize-diagonal'}
+        <button
+          aria-expanded={isExpanded}
+          aria-label={isExpanded ? 'Collapse window' : 'Expand window'}
+          className={cx('header-action-button')}
           onClick={handleExpandWindow}
-        />
+          type="button"
+        >
+          <Icon name={isExpanded ? 'compress-alt' : 'arrow-resize-diagonal'} />
+        </button>
       ) : null}
     </div>
   )
