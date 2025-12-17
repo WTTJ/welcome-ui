@@ -7,9 +7,6 @@ import windowStyles from '../window.module.scss'
 
 const cx = classNames(windowStyles)
 
-/**
- * @name Window.Body
- */
 export const Body = forwardRef<HTMLDivElement, BodyProps>(
   ({ children, size = 'md', ...rest }, ref) => {
     return (
