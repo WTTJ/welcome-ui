@@ -93,7 +93,7 @@ const LeftActions = ({ isExpandable = false, onExpandChange }: HeaderLeftActions
   )
 }
 
-const Title = ({ as = 'h2', className, title }: HeaderTitleProps) => {
+const Title = ({ as, className, title }: HeaderTitleProps) => {
   return (
     <Text as={as} className={cx('header-title', className)} variant="body-md-strong">
       {title}
