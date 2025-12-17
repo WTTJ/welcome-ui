@@ -1,0 +1,66 @@
+---
+category: layout
+description: A versatile container component for creating structured layouts with customizable headers, body content, and media sections. Features header elements including titles, tabs, and action buttons, plus body components with adjustable padding sizes, styled text boxes, and media content support.
+packageName: window
+title: Window
+usage: Window
+isNew: true
+---
+
+## Overview
+
+Use `Window` to create a structured container with header and body sections.
+
+<div data-playground="overview.tsx" data-component="Window"></div>
+
+## Header
+
+Use `Window.Header` to create the header section of your window. The header supports various sub-components for flexible layouts.
+
+### Title
+
+Use `Window.Header.Title` to display a title in the header.
+
+### Tabs
+
+Use `Window.Header.Tabs` to display tabs in the header. Requires a tab store and an array of tab items. Use `Window.TabPanel` components to display content for each tab.
+
+<div data-playground="tabs.tsx" data-component="Window"></div>
+
+### Actions
+
+#### Left Actions
+
+Use `Window.Header.LeftActions` for expandable controls on the left side of the header.
+
+#### Right Actions
+
+Use `Window.Header.RightActions` for closable controls and custom action buttons on the right side of the header.
+
+<div data-playground="custom-header-action.tsx" data-component="Window"></div>
+
+## Tab Panels
+
+Use `Window.TabPanel` to create content sections that correspond to tabs in the header. Each tab panel requires both a `store` prop (the same tab store used in `Window.Header.Tabs`) and a `tabId` prop that matches the id of its corresponding tab.
+
+## Body
+
+Use `Window.Body` to create the content section of your window.
+
+### Sizes
+
+The `size` prop controls the padding of the body. Available sizes are: `xs`, `sm`, `md` (default), `lg`, and `xl`.
+
+<div data-playground="sizes.tsx" data-component="Window"></div>
+
+### BoxText
+
+Use `Window.BoxText` to display content in a styled text box within the window. This provides a visually distinct content area.
+
+<div data-playground="body-text.tsx" data-component="Window"></div>
+
+### Media
+
+Use `Window.Media` to display images, videos, or other media content within the window. The media container handles proper sizing and layout.
+
+<div data-playground="media.tsx" data-component="Window"></div>

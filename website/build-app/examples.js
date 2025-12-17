@@ -266,5 +266,11 @@ export default {
   "/VariantIcon/docs/examples/sizes.tsx": dynamic(() => import("../../lib/src/components/VariantIcon/docs/examples/sizes.tsx").then(mod => mod), { ssr: false }),
   "/VisuallyHidden/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/VisuallyHidden/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/WelcomeLoader/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/WelcomeLoader/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
-  "/WelcomeLoader/docs/examples/resize.tsx": dynamic(() => import("../../lib/src/components/WelcomeLoader/docs/examples/resize.tsx").then(mod => mod), { ssr: false })
+  "/WelcomeLoader/docs/examples/resize.tsx": dynamic(() => import("../../lib/src/components/WelcomeLoader/docs/examples/resize.tsx").then(mod => mod), { ssr: false }),
+  "/Window/docs/examples/body-text.tsx": dynamic(() => import("../../lib/src/components/Window/docs/examples/body-text.tsx").then(mod => mod), { ssr: false }),
+  "/Window/docs/examples/custom-header-action.tsx": dynamic(() => import("../../lib/src/components/Window/docs/examples/custom-header-action.tsx").then(mod => mod), { ssr: false }),
+  "/Window/docs/examples/media.tsx": dynamic(() => import("../../lib/src/components/Window/docs/examples/media.tsx").then(mod => mod), { ssr: false }),
+  "/Window/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Window/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
+  "/Window/docs/examples/sizes.tsx": dynamic(() => import("../../lib/src/components/Window/docs/examples/sizes.tsx").then(mod => mod), { ssr: false }),
+  "/Window/docs/examples/tabs.tsx": dynamic(() => import("../../lib/src/components/Window/docs/examples/tabs.tsx").then(mod => mod), { ssr: false })
 };

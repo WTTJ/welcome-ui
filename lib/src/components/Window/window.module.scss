@@ -1,0 +1,192 @@
+@layer components {
+  .root {
+    transition-property: border-color, background-color, box-shadow;
+    transition-timing-function: ease-in-out;
+    border-style: solid;
+
+    background-color: var(--components-colors-window-body-color-background-default);
+    border-width: var(--components-dimensions-window-border-width);
+    border-color: var(--components-colors-window-color-border-default);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--elevation-10);
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: var(--components-dimensions-window-header-size-min-height);
+    border-bottom: var(--components-dimensions-window-border-width) solid;
+    border-color: var(--components-colors-window-color-border-default);
+    padding-inline: var(--components-dimensions-window-header-padding-inline-xs);
+    padding-block: var(--components-dimensions-window-header-padding-block-xs);
+    gap: var(--components-dimensions-window-header-gap-content);
+  }
+
+  .header-title {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .header-tabs {
+    display: flex;
+    gap: var(--spacing-sm);
+  }
+
+  .header-tab-item {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition-property: border-color, background-color, box-shadow;
+    transition-timing-function: ease-in-out;
+
+    /* VARIABLES FROM THEME - DONT CHANGE WITH REACT PROPS */
+    border-radius: var(--radius-md);
+    border-width: var(--components-dimensions-window-header-tab-border-width-active);
+    gap: var(--spacing-xs);
+    padding-block: var(--spacing-xs);
+    padding-inline: var(--spacing-sm);
+    transition-duration: var(--duration-fast);
+
+    /* VARIABLES FROM REACT PROPS - DEFAULT VALUES */
+    border-color: var(--windowTabItemBorderColor, transparent);
+    background-color: var(--windowTabItemBackgroundColor, transparent);
+    color: var(--windowTabItemColor, var(--components-colors-window-header-tab-color-text-default));
+
+    &:hover {
+      --windowTabItemBackgroundColor: var(
+        --components-colors-window-header-tab-color-background-hover
+      );
+      --windowTabItemColor: var(--components-colors-window-header-tab-color-text-hover);
+    }
+
+    &[aria-selected='true'] {
+      --windowTabItemBorderColor: var(--color-border-brand-primary);
+      --windowTabItemBackgroundColor: var(
+        --components-colors-window-header-tab-color-background-active
+      );
+      --windowTabItemColor: var(--components-colors-window-header-tab-color-text-active);
+    }
+  }
+
+  .header-action-button {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* VARIABLES FROM THEME - DONT CHANGE WITH REACT PROPS */
+    width: var(--components-dimensions-window-header-action-size-container);
+    height: var(--components-dimensions-window-header-action-size-container);
+    border-radius: var(--components-dimensions-window-header-action-border-radius);
+
+    /* VARIABLES FROM REACT PROPS - DEFAULT VALUES */
+    background-color: var(--windowButtonBackgroundColor, transparent);
+
+    svg {
+      color: var(
+        --windowButtonIconColor,
+        var(--components-colors-window-header-action-color-icon-common-default)
+      );
+    }
+
+    &:hover {
+      --windowButtonBackgroundColor: var(
+        --components-colors-window-header-action-color-background-common-hover
+      );
+      --windowButtonIconColor: var(
+        --components-colors-window-header-action-color-icon-common-hover
+      );
+    }
+
+    &:active {
+      --windowButtonBackgroundColor: var(
+        --components-colors-window-header-action-color-background-common-pressed
+      );
+      --windowButtonIconColor: var(
+        --components-colors-window-header-action-color-icon-common-pressed
+      );
+    }
+  }
+
+  .header-close-button {
+    border: 1px solid var(--components-colors-window-header-action-color-border-close-default);
+    --windowButtonIconColor: var(--components-colors-window-header-action-color-icon-close-default);
+
+    &:hover {
+      --windowButtonBackgroundColor: var(
+        --components-colors-window-header-action-color-background-close-hover
+      );
+      --windowButtonIconColor: var(--components-colors-window-header-action-color-icon-close-hover);
+    }
+
+    &:active {
+      --windowButtonBackgroundColor: var(
+        --components-colors-window-header-action-color-background-close-pressed
+      );
+      --windowButtonIconColor: var(
+        --components-colors-window-header-action-color-icon-close-pressed
+      );
+    }
+  }
+
+  .header-actions {
+    display: flex;
+    gap: var(--components-dimensions-window-header-gap-content);
+  }
+
+  .tab-panel {
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  .media,
+  .box-text {
+    margin-block: var(--components-dimensions-window-body-padding-block-xs);
+    margin-inline: var(--components-dimensions-window-body-padding-inline-xs);
+  }
+
+  .media :first-child {
+    border-radius: var(--components-dimensions-window-border-radius);
+    max-width: 100%;
+    height: auto;
+  }
+
+  .box-text {
+    border-radius: var(--components-dimensions-window-border-radius);
+    background-color: var(--color-background-warm-primary);
+    padding-block: var(--components-dimensions-window-body-padding-block-sm);
+    padding-inline: var(--components-dimensions-window-body-padding-inline-sm);
+  }
+
+  .size {
+    &-xl {
+      padding-block: var(--components-dimensions-window-body-padding-block-xl);
+      padding-inline: var(--components-dimensions-window-body-padding-inline-xl);
+    }
+
+    &-lg {
+      padding-block: var(--components-dimensions-window-body-padding-block-lg);
+      padding-inline: var(--components-dimensions-window-body-padding-inline-lg);
+    }
+
+    &-md {
+      padding-block: var(--components-dimensions-window-body-padding-block-md);
+      padding-inline: var(--components-dimensions-window-body-padding-inline-md);
+    }
+
+    &-sm {
+      padding-block: var(--components-dimensions-window-body-padding-block-sm);
+      padding-inline: var(--components-dimensions-window-body-padding-inline-sm);
+    }
+
+    &-xs {
+      padding-block: var(--components-dimensions-window-body-padding-block-xs);
+      padding-inline: var(--components-dimensions-window-body-padding-inline-xs);
+    }
+  }
+}
