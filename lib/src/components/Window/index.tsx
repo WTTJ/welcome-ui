@@ -1,32 +1,14 @@
-// Faire un store commun avec :
-// - is expanded
-// - is closed
-// - active tab
-
 import { classNames } from '@/utils'
 import { forwardRefWithAs } from '@/utils/forwardRefWithAs'
 
+import { Body } from './components/Body'
+import { BoxText } from './components/BoxText'
 import { Header } from './components/Header'
+import { Media } from './components/Media'
 import type { WindowProps } from './types'
 import windowStyles from './window.module.scss'
 
 const cx = classNames(windowStyles)
-
-// export function useModal(options?: UseModalProps): UseModal {
-//   const { onClose, setOpen, ...storeOptions } = options || {}
-
-//   const dialog = useDialogStore({
-//     setOpen: open => {
-//       if (!open && onClose) {
-//         onClose()
-//       }
-//       setOpen?.(open)
-//     },
-//     ...storeOptions,
-//   })
-
-//   return dialog
-// }
 
 const WindowComponent = forwardRefWithAs<WindowProps, 'div'>(({ children, className }) => {
   return <div className={cx('root', className)}>{children}</div>
@@ -34,7 +16,9 @@ const WindowComponent = forwardRefWithAs<WindowProps, 'div'>(({ children, classN
 
 WindowComponent.displayName = 'Window'
 
-// Nested exports
 export const Window = Object.assign(WindowComponent, {
+  Body,
+  BoxText,
   Header,
+  Media,
 })

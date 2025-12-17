@@ -1,8 +1,9 @@
-import { useTab } from '@/components/Tabs'
+import { useTabStore } from '@ariakit/react'
+
 import { Window } from '@/components/Window'
 
 const Example = () => {
-  const tabStore = useTab({
+  const tabStore = useTabStore({
     defaultSelectedId: 'tab1',
   })
 
@@ -12,16 +13,13 @@ const Example = () => {
         <Window.Header.LeftActions isDraggable isExpandable />
         <Window.Header.Tabs
           items={[
-            { icon: 'folder', id: 'tab1', title: 'Tab 1' },
-            { icon: 'folder', id: 'tab2', title: 'Tab 2' },
-            { icon: 'folder', id: 'tab3', title: 'Tab 3' },
+            { icon: 'folder', id: 'tab1', title: '1st tab' },
+            { icon: 'folder', id: 'tab2', title: '2nd tab' },
+            { icon: 'folder', id: 'tab3', title: '3rd tab' },
           ]}
           store={tabStore}
         />
-        <Window.Header.RightActions isClosable>
-          {/* eslint-disable-next-line no-console */}
-          <Window.Header.Button icon="pen" onClick={() => console.log('edit')} />
-        </Window.Header.RightActions>
+        <Window.Header.RightActions isClosable />
       </Window.Header>
     </>
   )
