@@ -83,6 +83,7 @@
     width: var(--components-dimensions-window-header-action-size-container);
     height: var(--components-dimensions-window-header-action-size-container);
     border-radius: var(--components-dimensions-window-header-action-border-radius);
+    outline: transparent solid var(--border-width-md);
 
     /* VARIABLES FROM REACT PROPS - DEFAULT VALUES */
     background-color: var(--windowButtonBackgroundColor, transparent);
@@ -92,6 +93,12 @@
         --windowButtonIconColor,
         var(--components-colors-window-header-action-color-icon-common-default)
       );
+    }
+
+    &[data-focus-visible],
+    &:focus-visible {
+      outline-width: var(--components-dimensions-button-border-width-focused);
+      outline-color: var(--components-colors-button-color-border-focused);
     }
 
     &:hover {
