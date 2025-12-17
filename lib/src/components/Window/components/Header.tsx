@@ -21,7 +21,7 @@ const Button = ({
   return (
     <button
       aria-label={ariaLabel}
-      className={cx('button', className)}
+      className={cx('header-action-button', className)}
       onClick={onClick}
       type="button"
     >
@@ -34,7 +34,7 @@ const CloseButton = ({ onClick }: ActionButtonProps) => {
   return (
     <Button
       aria-label="Close window"
-      className={cx('close-button')}
+      className={cx('header-close-button')}
       icon="times"
       onClick={onClick}
     />
@@ -49,16 +49,14 @@ const Tabs = ({
   store: UseTab
 }) => {
   return (
-    <AriakitTab store={store}>
-      <AriakitTabList className={cx('tabs')} store={store}>
-        {items.map(item => (
-          <AriakitTab className={cx('tab-item')} id={item.id} store={store}>
-            <Icon name={item.icon} />
-            {item.title}
-          </AriakitTab>
-        ))}
-      </AriakitTabList>
-    </AriakitTab>
+    <AriakitTabList className={cx('header-tabs')} store={store}>
+      {items.map(item => (
+        <AriakitTab className={cx('header-tab-item')} id={item.id} key={item.id} store={store}>
+          <Icon name={item.icon} />
+          <Text variant="label-sm">{item.title}</Text>
+        </AriakitTab>
+      ))}
+    </AriakitTabList>
   )
 }
 
@@ -114,9 +112,13 @@ const LeftActions = ({
   )
 }
 
-const Title = ({ as = 'h2', title }: PropsWithAs<'h2', { title: JSX.Element | string }>) => {
+const Title = ({
+  as = 'h2',
+  className,
+  title,
+}: PropsWithAs<'h2', { title: JSX.Element | string }>) => {
   return (
-    <Text as={as} variant="body-md-strong">
+    <Text as={as} className={cx('header-title', className)} variant="body-md-strong">
       {title}
     </Text>
   )
@@ -137,7 +139,6 @@ export const HeaderComponent = forwardRef<HTMLDivElement, HeaderProps>(
 
 HeaderComponent.displayName = 'Window.Header'
 
-// Nested exports
 export const Header = Object.assign(HeaderComponent, {
   Button,
   LeftActions,
@@ -145,11 +146,3 @@ export const Header = Object.assign(HeaderComponent, {
   Tabs,
   Title,
 })
-
-// TODO after lunch:
-// - Global store like modal
-// - Add elements in the header example with more action for future
-// - tabs style
-// - body variants: xs, sm, md, lg, xl
-// - free text, box text, media
-// - test
