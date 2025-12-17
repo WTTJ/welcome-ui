@@ -101,9 +101,6 @@ const Title = ({ as = 'h2', className, title }: HeaderTitleProps) => {
   )
 }
 
-/**
- * @name Window.Header
- */
 export const HeaderComponent = forwardRef<HTMLDivElement, HeaderProps>(
   ({ children, ...rest }, ref) => {
     return (

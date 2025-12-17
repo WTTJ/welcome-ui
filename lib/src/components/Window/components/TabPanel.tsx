@@ -8,9 +8,6 @@ import windowStyles from '../window.module.scss'
 
 const cx = classNames(windowStyles)
 
-/**
- * @name Window.TabPanel
- */
 export const TabPanel = forwardRef<HTMLDivElement, TabPanelProps>(
   ({ children, store, tabId, ...rest }, ref) => {
     return (

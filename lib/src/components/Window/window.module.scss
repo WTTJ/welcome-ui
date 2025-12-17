@@ -78,9 +78,12 @@
     justify-content: center;
     align-items: center;
 
+    /* VARIABLES FROM THEME - DONT CHANGE WITH REACT PROPS */
     width: var(--components-dimensions-window-header-action-size-container);
     height: var(--components-dimensions-window-header-action-size-container);
     border-radius: var(--components-dimensions-window-header-action-border-radius);
+
+    /* VARIABLES FROM REACT PROPS - DEFAULT VALUES */
     background-color: var(--windowButtonBackgroundColor, transparent);
 
     svg {

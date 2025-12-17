@@ -7,9 +7,6 @@ import windowStyles from '../window.module.scss'
 
 const cx = classNames(windowStyles)
 
-/**
- * @name Window.Media
- */
 export const Media = forwardRef<HTMLDivElement, MediaProps>(({ children, ...rest }, ref) => {
   return (
     <div className={cx('media')} ref={ref} {...rest}>
