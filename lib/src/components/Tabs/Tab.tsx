@@ -33,6 +33,7 @@ export const Tab = forwardRefWithAs<TabProps, 'button'>(
       icon,
       iconColor,
       isActive,
+      size,
     })
 
     const badgeVariant = isActive ? 'neutral' : 'warm'
