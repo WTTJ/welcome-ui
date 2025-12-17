@@ -170,26 +170,26 @@
   resolved "https://registry.npmjs.org/@alloc/quick-lru/-/quick-lru-5.2.0.tgz"
   integrity sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==
 
-"@ariakit/core@0.4.16":
-  version "0.4.16"
-  resolved "https://registry.yarnpkg.com/@ariakit/core/-/core-0.4.16.tgz#5272b6beccd2bc4420ab2d850e57cc68de690a9e"
-  integrity sha512-nPJ0Be8d5ZvRApYGqdLMuYUjP7ktkPmTPOXyZFw+0Illk8LKgF3Q74ctVGuoQurJNDsANXcewzlyXK4vyIAGTA==
+"@ariakit/core@0.4.17":
+  version "0.4.17"
+  resolved "https://registry.yarnpkg.com/@ariakit/core/-/core-0.4.17.tgz#a2eb307c5a231d27098ab8f8852c6216c9bf6492"
+  integrity sha512-OmbUcVZgmQw0AvpX5urCAi3KtEuD30DG8W8gpQVzFpCUWUtJ21bmc6a4s2rm2g1oKPIVShy61FGLtKdKLaTG6g==
 
-"@ariakit/react-core@0.4.19":
-  version "0.4.19"
-  resolved "https://registry.yarnpkg.com/@ariakit/react-core/-/react-core-0.4.19.tgz#5764c3f1b74f9556aec308e85d7a2cd24b909e0a"
-  integrity sha512-Aj+fu4pMyPXtlBghI+E7KSWItqJkbAqEhut3DlsFAjK9fQdHE+e1tQJG1PtnoEdD9BExkJWQ6R4M5a9HkEhqPA==
+"@ariakit/react-core@0.4.20":
+  version "0.4.20"
+  resolved "https://registry.yarnpkg.com/@ariakit/react-core/-/react-core-0.4.20.tgz#1937784492be150b552141275ac58e3e30e79174"
+  integrity sha512-4rfmaKgSIctHRDrA4wt8MLSI4rNA6wyD7XSTShghHrJfDEXujuOoZqvmPjtMr///kWfW9OV9USOOn8ie/7H/nw==
   dependencies:
-    "@ariakit/core" "0.4.16"
+    "@ariakit/core" "0.4.17"
     "@floating-ui/dom" "^1.0.0"
     use-sync-external-store "^1.2.0"
 
-"@ariakit/react@0.4.19":
-  version "0.4.19"
-  resolved "https://registry.yarnpkg.com/@ariakit/react/-/react-0.4.19.tgz#c80c3d6869ccbb3dceb31a41c39d12f9e8be0071"
-  integrity sha512-n6q8leSQWXMk4vhcZlpnj8cIlAY0n+1bvVTwHvaVfmec4LjW49MFKkJRZd1AiV+SE73nkxPwSL3IbaS4p1aRxQ==
+"@ariakit/react@0.4.20":
+  version "0.4.20"
+  resolved "https://registry.yarnpkg.com/@ariakit/react/-/react-0.4.20.tgz#6d70093d9faf2cadd1a6bf2d71eb8da6f64aaaa8"
+  integrity sha512-1X44x3co7MInk5SV4lSvRdy8Nwrt56YNBreKPkcZ/LlwdmY2/2r4A26I7Kzhv+VYIxDTavZYrqOlWnix5ojceg==
   dependencies:
-    "@ariakit/react-core" "0.4.19"
+    "@ariakit/react-core" "0.4.20"
 
 "@asamuzakjp/css-color@^3.1.1":
   version "3.1.1"

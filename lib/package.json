@@ -58,7 +58,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@ariakit/react": "0.4.19",
+    "@ariakit/react": "0.4.20",
     "@emotion/is-prop-valid": "^1.4.0",
     "@juggle/resize-observer": "^3.4.0",
     "copy-to-clipboard": "^3.3.3",
