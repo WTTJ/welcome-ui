@@ -1,29 +1,20 @@
+import { DialogDismiss } from '@ariakit/react'
 import { forwardRef } from 'react'
 
-import { Text } from '@/components/Text'
-import { classNames } from '@/utils'
+import { Window as WUIWindow } from '@/components/Window'
 
-import modalStyles from '../modal.module.scss'
 import type { HeaderProps } from '../types'
-
-import { Close } from './Close'
-
-const cx = classNames(modalStyles)
 
 /**
  * @name Modal.Header
  */
 export const Header = forwardRef<HTMLDivElement, HeaderProps>(
-  ({ className, icon, subtitle, title, ...rest }, ref) => {
+  ({ className, title, ...rest }, ref) => {
     return (
-      <header className={cx('header', icon && 'icon', className)} ref={ref} {...rest}>
-        <Close />
-        {icon}
-        <Text as="h4" className={cx('header-title')} variant="heading-md-strong">
-          {title}
-        </Text>
-        {subtitle ? <Text className={cx('header-subtitle')}>{subtitle}</Text> : null}
-      </header>
+      <WUIWindow.Header className={className} ref={ref} {...rest}>
+        <WUIWindow.Header.Title title={title} />
+        <DialogDismiss render={<WUIWindow.Header.CloseButton />} />
+      </WUIWindow.Header>
     )
   }
 )
