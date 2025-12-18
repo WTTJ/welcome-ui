@@ -16,7 +16,7 @@ const Example = () => {
       <Modal ariaLabel="example" store={modal}>
         <Modal.Content>
           <Modal.Header title={title} />
-          <Modal.Body iconName="rocket" title={title}>
+          <Modal.Body iconName="rocket" subtitle={subtitle} title={title}>
             Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
             aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
           </Modal.Body>
