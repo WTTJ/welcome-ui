@@ -12,9 +12,15 @@ export const Body = forwardRef<HTMLElement, BodyProps>(
   ({ children, className, iconName, subtitle, title, ...rest }, ref) => {
     return (
       <section className={cx('body', className)} ref={ref} {...rest}>
-        {iconName ? <Icon name={iconName} /> : null}
-        {title ? <Text variant="heading-md-strong">{title}</Text> : null}
-        {subtitle ? <Text variant="body-lg">{subtitle}</Text> : null}
+        <div className={cx('body-header')}>
+          {iconName ? <Icon name={iconName} size="lg" /> : null}
+          {title ? <Text variant="heading-md-strong">{title}</Text> : null}
+        </div>
+        {subtitle ? (
+          <Text className={cx('body-header-subtitle')} variant="body-lg">
+            {subtitle}
+          </Text>
+        ) : null}
         {children}
       </section>
     )
