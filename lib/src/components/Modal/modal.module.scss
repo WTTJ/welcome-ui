@@ -44,7 +44,7 @@
     /* if the Modal have a Body, but not a Footer || have a Footer, but not a Body */
     &:has(.body):not(:has(.footer)),
     &:has(.footer):not(:has(.body)) {
-      .header {
+      header {
         padding-bottom: var(--border-radius-xl);
       }
     }
@@ -56,7 +56,7 @@
         padding-bottom: var(--border-radius-xl);
       }
       /* AND if the Modal have a Header */
-      &:has(.header) .body {
+      &:has(header) .body {
         padding-right: var(--size-icon-xl);
       }
     }
@@ -68,12 +68,12 @@
     }
 
     /* if the Modal has a Footer, but no Header and no Body */
-    &:not(:has(.header)):not(:has(.body)) .footer {
+    &:not(:has(header)):not(:has(.body)) .footer {
       padding-top: var(--border-radius-xl);
     }
     /* Styles the close button */
     /* if the Modal has a Header, hide the Content's close button */
-    &:has(.header) {
+    &:has(header) {
       .content.with-close-button > .close {
         display: none;
       }
@@ -82,8 +82,8 @@
 
   .size {
     &-lg {
-      /* 720px; */
-      --dialogWidth: 45rem;
+      /* 800px; */
+      --dialogWidth: 50rem;
     }
 
     &-md {
@@ -94,11 +94,6 @@
     &-sm {
       /* 450px; */
       --dialogWidth: 28.125rem;
-    }
-
-    &-xs {
-      /* 320px; */
-      --dialogWidth: 20rem;
     }
   }
 
@@ -129,7 +124,7 @@
     z-index: 1;
   }
 
-  .header {
+  /* .header {
     position: sticky;
     top: 0;
     z-index: 1;
@@ -164,12 +159,12 @@
       position: absolute;
       right: var(--border-radius-xl);
     }
-  }
+  } */
 
-  .header-subtitle {
+  /* .header-subtitle {
     color: var(--color-background-neutral-tertiary);
     margin: 0;
-  }
+  } */
 
   .body {
     color: var(--color-background-neutral-primary-fixed);

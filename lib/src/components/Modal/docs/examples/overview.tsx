@@ -11,7 +11,7 @@ const Example = () => {
       </Modal.Trigger>
       <Modal ariaLabel="example" store={modal}>
         <Modal.Content>
-          <Modal.Body>
+          <Modal.Body iconName="file-blank" subtitle="Description" title="Title">
             Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
             aliquam nec, convallis sit amet erat. Mauris auctor blandit porta. In imperdiet rutrum
             nunc. Integer suscipit sodales ex, ut lobortis orci rutrum id. Vestibulum scelerisque
