@@ -1,5 +1,4 @@
 import { Button } from '@/components/Button'
-import { Icon } from '@/components/Icon'
 import { Modal, useModal } from '@/components/Modal'
 
 const Example = () => {
@@ -8,12 +7,6 @@ const Example = () => {
   const modal3 = useModal()
   const title = 'Nullam non lacinia'
   const subtitle = 'Praesent sit amet quam ac velit faucibus dapibus, quisque sapien ligula.'
-  const icon = <Icon className="h-40 w-[2.5rem] text-(--color-neutral-90)" name="rocket" />
-  const informations = {
-    subtitle:
-      'Sed lorem lacus, hendrerit non sodales id, consectetur quis magna. Mauris auctor blandit porta. In imperdiet rutrum nunc.',
-    title: 'Donec id tellus',
-  }
 
   return (
     <>
@@ -22,12 +15,12 @@ const Example = () => {
       </Modal.Trigger>
       <Modal ariaLabel="example" store={modal}>
         <Modal.Content>
-          <Modal.Header icon={icon} subtitle={subtitle} title={title} />
-          <Modal.Body>
+          <Modal.Header title={title} />
+          <Modal.Body iconName="rocket" title={title}>
             Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
             aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
           </Modal.Body>
-          <Modal.Footer information={informations}>
+          <Modal.Footer>
             <div className="w-full">
               <Button className="mr-(--spacing-sm)" variant="secondary">
                 Lorem dolir
@@ -43,8 +36,8 @@ const Example = () => {
       </Modal.Trigger>
       <Modal ariaLabel="example-2" store={modal2}>
         <Modal.Content>
-          <Modal.Header subtitle={subtitle} title={title} />
-          <Modal.Body>
+          <Modal.Header title={title} />
+          <Modal.Body subtitle={subtitle} title={title}>
             Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
             aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
           </Modal.Body>
@@ -64,12 +57,12 @@ const Example = () => {
       </Modal.Trigger>
       <Modal ariaLabel="example-3" store={modal3}>
         <Modal.Content>
-          <Modal.Header icon={icon} title={title} />
-          <Modal.Body>
+          <Modal.Header title={title} />
+          <Modal.Body iconName="rocket" title={title}>
             Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
             aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
           </Modal.Body>
-          <Modal.Footer information={informations} />
+          <Modal.Footer />
         </Modal.Content>
       </Modal>
     </>
