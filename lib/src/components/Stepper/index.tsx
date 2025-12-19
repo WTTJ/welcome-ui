@@ -1,4 +1,4 @@
-import { forwardRef } from 'react'
+import { forwardRef, useEffect, useRef, useState } from 'react'
 
 import { Icon } from '@/components/Icon'
 import { classNames } from '@/utils'
@@ -13,10 +13,65 @@ const cx = classNames(styles)
 
 const StepperComponent = forwardRef<HTMLOListElement, StepperProps>(
   ({ children, className }, ref) => {
+    const [showLeftFade, setShowLeftFade] = useState(false)
+    const [showRightFade, setShowRightFade] = useState(false)
+    const internalRef = useRef<HTMLOListElement>(null)
+    const olRef = (ref as React.RefObject<HTMLOListElement>) || internalRef
+
+    useEffect(() => {
+      const element = olRef.current
+      if (!element) return
+
+      const handleScroll = () => {
+        const { clientWidth, scrollLeft, scrollWidth } = element
+
+        // Show left fade if scrolled from the left
+        setShowLeftFade(scrollLeft > 0)
+
+        // Show right fade if not scrolled to the end
+        setShowRightFade(scrollLeft < scrollWidth - clientWidth - 1)
+      }
+
+      // Initial check
+      handleScroll()
+
+      element.addEventListener('scroll', handleScroll)
+
+      // Also check on resize
+      const resizeObserver = new ResizeObserver(handleScroll)
+      resizeObserver.observe(element)
+
+      return () => {
+        element.removeEventListener('scroll', handleScroll)
+        resizeObserver.disconnect()
+      }
+    }, [olRef])
+
+    // Center the current step on mount and when it changes
+    useEffect(() => {
+      const element = olRef.current
+      if (!element) return
+
+      const currentStep = element.querySelector('[aria-current="true"]')
+      if (currentStep) {
+        currentStep.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
+      }
+    }, [children, olRef])
+
     return (
-      <ol className={cx('root', className)} ref={ref}>
-        {children}
-      </ol>
+      <div className={cx('root')}>
+        <ol
+          className={cx(
+            'wrapper',
+            className,
+            showLeftFade && 'fade-left',
+            showRightFade && 'fade-right'
+          )}
+          ref={olRef}
+        >
+          {children}
+        </ol>
+      </div>
     )
   }
 )

@@ -1,12 +1,6 @@
 @layer components {
   .root {
-    display: flex;
-    align-items: center;
-    overflow-x: auto;
-    border-style: solid;
-    transition-property: border-color, box-shadow;
-    transition-timing-function: ease-in-out;
-
+    position: relative;
     /* VARIABLES FROM THEME - DONT CHANGE WITH REACT PROPS */
     gap: var(--components-dimensions-stepper-gap-content);
     padding-block: var(--components-dimensions-stepper-padding-block);
@@ -17,10 +11,49 @@
     background-color: var(--components-colors-stepper-color-background);
     transition-duration: var(--duration-fast);
     box-shadow: var(--stepperBoxShadow, var(--elevation-10));
+    overflow: hidden;
+  }
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    border-style: solid;
+    transition-property: border-color, box-shadow;
+    transition-timing-function: ease-in-out;
 
     svg {
       width: var(--components-dimensions-stepper-size-icon);
       height: var(--components-dimensions-stepper-size-icon);
+    }
+
+    &.fade-left::before,
+    &.fade-right::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 70px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    &.fade-left::before {
+      left: 0;
+      background: linear-gradient(
+        to right,
+        var(--components-colors-stepper-color-background),
+        transparent
+      );
+    }
+    
+    &.fade-right::after {
+      right: 0;
+      background: linear-gradient(
+        to left,
+        var(--components-colors-stepper-color-background),
+        transparent
+      );
     }
 
     &:hover {
@@ -30,12 +63,14 @@
   }
 
   .separator {
+    flex-shrink: 0;
     color: var(--components-colors-stepper-color-icon-default);
   }
 
   .item {
     display: flex;
     align-items: center;
+    flex-shrink: 0;
     transition-property: background-color, border-color, color;
     transition-timing-function: ease-in-out;
 
