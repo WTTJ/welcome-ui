@@ -2,6 +2,7 @@ import React, { forwardRef } from 'react'
 
 import { CloseButton } from '@/components/CloseButton'
 import { useField } from '@/components/Field'
+import { Icon } from '@/components/Icon'
 import { classNames } from '@/utils'
 
 import inputTextStyles from './input-text.module.scss'
@@ -9,18 +10,19 @@ import type { InputTextProps, Size } from './types'
 
 const cx = classNames(inputTextStyles)
 
-const FIELD_ICON_SIZE: { [key in Size]: string } = { lg: 'sm', md: 'sm', sm: 'sm', xs: 'xs' }
+const FIELD_ICON_SIZE: { [key in Size]: string } = { lg: 'md', md: 'md', sm: 'sm' }
 
 export const InputText = forwardRef<HTMLInputElement, InputTextProps>(
   (
     {
+      children,
       className,
       icon,
       iconPlacement = 'left',
       isClearable,
       name,
       onChange,
-      size = 'md',
+      size = 'lg',
       transparent,
       type = 'text',
       value,
@@ -37,6 +39,9 @@ export const InputText = forwardRef<HTMLInputElement, InputTextProps>(
     const hasRightIcon = hasIcon && iconPlacement === 'right'
     const hasLeftIcon = hasIcon && iconPlacement === 'left'
     const iconSize = FIELD_ICON_SIZE[size]
+    const inputProps = getInputProps(rest)
+    const hasChildren = Boolean(children)
+    const shouldShowRightElement = isClearable || hasRightIcon || hasChildren
 
     const handleReset = () => {
       const event = {
@@ -47,9 +52,9 @@ export const InputText = forwardRef<HTMLInputElement, InputTextProps>(
     }
 
     return (
-      <div className={cx('input-text-wrapper')}>
+      <div className={cx('input-text-wrapper', 'field-input')}>
         <input
-          {...getInputProps(rest)}
+          {...inputProps}
           className={cx(
             'root',
             `size-${size}`,
@@ -66,18 +71,35 @@ export const InputText = forwardRef<HTMLInputElement, InputTextProps>(
         />
 
         {hasLeftIcon ? (
-          <div className={cx('icon-wrapper', `icon-placement-left-${iconSize}`)}>
-            {React.cloneElement(icon, { ...icon.props, size: iconSize })}
+          <div
+            className={cx(
+              'icon-wrapper',
+              `icon-placement-left-${iconSize}`,
+              inputProps.disabled && 'disabled'
+            )}
+          >
+            <Icon {...icon.props} name={icon.props.name} size={iconSize} />
           </div>
         ) : null}
 
-        {isClearable || hasRightIcon ? (
-          <div className={cx('icon-wrapper', `icon-placement-right-${iconSize}`)}>
-            {isClearable && value ? <CloseButton onClick={handleReset} size="xs" /> : null}
-            {hasRightIcon ? React.cloneElement(icon, { ...icon.props, size: iconSize }) : null}
+        {shouldShowRightElement ? (
+          <div
+            className={cx(
+              'icon-wrapper',
+              `icon-placement-right-${iconSize}`,
+              inputProps.disabled && 'disabled'
+            )}
+          >
+            {isClearable && value ? <CloseButton onClick={handleReset} size="sm" /> : null}
+            {hasRightIcon && !hasChildren ? (
+              <Icon {...icon.props} name={icon.props.name} size={iconSize} />
+            ) : null}
+            {hasChildren ? children : null}
           </div>
         ) : null}
       </div>
     )
   }
 )
+
+InputText.displayName = 'InputText'

@@ -26,6 +26,48 @@
           "name": "Accept"
         }
       },
+      "deleteButtonText": {
+        "defaultValue": {
+          "value": "Delete"
+        },
+        "description": "",
+        "name": "deleteButtonText",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/FileDrop/types.ts",
+          "name": "FileDropOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/FileDrop/types.ts",
+            "name": "FileDropOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "editButtonText": {
+        "defaultValue": {
+          "value": "Edit"
+        },
+        "description": "",
+        "name": "editButtonText",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/FileDrop/types.ts",
+          "name": "FileDropOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/FileDrop/types.ts",
+            "name": "FileDropOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
       "fileName": {
         "defaultValue": null,
         "description": "",
@@ -146,6 +188,34 @@
         "defaultValue": null,
         "description": "",
         "name": "isEditable",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/FileDrop/types.ts",
+          "name": "FileDropOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/FileDrop/types.ts",
+            "name": "FileDropOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
+      "isLoading": {
+        "defaultValue": null,
+        "description": "",
+        "name": "isLoading",
         "parent": {
           "fileName": "welcome-ui/lib/src/components/FileDrop/types.ts",
           "name": "FileDropOptions"

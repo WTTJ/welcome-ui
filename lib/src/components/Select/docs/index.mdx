@@ -10,6 +10,10 @@ peerDependencies: 'downshift match-sorter'
 
 <div data-playground="clearable.tsx" data-component="Select"></div>
 
+### Disabled
+
+<div data-playground="disabled.tsx" data-component="Select"></div>
+
 ### Multiple values
 
 Just add the `isMultiple` prop. Note: to be able to choose multiple values you must pass an array for the `value`.
@@ -24,7 +28,7 @@ Passing a `renderMultiple` function allows you to format the selected items belo
 
 ### Searchable
 
-To be able to filter (i.e. search) the results, add the `isSearchable` prop.
+To be able to filter (i.e. search) the results, add the `isSearchable` prop. You can also pass a `renderNoResults` function to display a custom message when no results match the search query.
 
 <div data-playground="searchable.tsx" data-component="Select"></div>
 

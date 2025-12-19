@@ -1,5 +1,5 @@
 {
-  "SliderComponent": {
+  "Slider.Range": {
     "props": {
       "borderSelectorColor": {
         "defaultValue": null,
@@ -130,17 +130,17 @@
         "name": "onChange",
         "parent": {
           "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
-          "name": "SliderOptions"
+          "name": "RangeOptions"
         },
         "declarations": [
           {
             "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
-            "name": "SliderOptions"
+            "name": "RangeOptions"
           }
         ],
         "required": true,
         "type": {
-          "name": "(value: number) => void"
+          "name": "(value: RangeType) => void"
         }
       },
       "step": {
@@ -198,27 +198,24 @@
         "name": "type",
         "parent": {
           "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
-          "name": "SliderOptions"
+          "name": "RangeOptions"
         },
         "declarations": [
           {
             "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
-            "name": "SliderOptions"
+            "name": "RangeOptions"
           }
         ],
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "Type",
+          "raw": "\"inline\" | \"fields\"",
           "value": [
             {
               "value": "\"inline\""
             },
             {
-              "value": "\"left-field\""
-            },
-            {
-              "value": "\"right-field\""
+              "value": "\"fields\""
             }
           ]
         }
@@ -229,17 +226,17 @@
         "name": "value",
         "parent": {
           "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
-          "name": "SliderOptions"
+          "name": "RangeOptions"
         },
         "declarations": [
           {
             "fileName": "welcome-ui/lib/src/components/Slider/types.ts",
-            "name": "SliderOptions"
+            "name": "RangeOptions"
           }
         ],
         "required": true,
         "type": {
-          "name": "number"
+          "name": "RangeType"
         }
       },
       "values": {

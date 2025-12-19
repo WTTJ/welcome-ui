@@ -20,6 +20,68 @@
           "name": "number"
         }
       },
+      "sizes": {
+        "defaultValue": null,
+        "description": "",
+        "name": "sizes",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Text/types.ts",
+          "name": "TextOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Text/types.ts",
+            "name": "TextOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"md\" | \"lg\" | \"sm\" | \"xl\"",
+          "value": [
+            {
+              "value": "\"md\""
+            },
+            {
+              "value": "\"lg\""
+            },
+            {
+              "value": "\"sm\""
+            },
+            {
+              "value": "\"xl\""
+            }
+          ]
+        }
+      },
+      "strong": {
+        "defaultValue": null,
+        "description": "",
+        "name": "strong",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Text/types.ts",
+          "name": "TextOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Text/types.ts",
+            "name": "TextOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
       "variant": {
         "defaultValue": null,
         "description": "",
@@ -37,46 +99,85 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "\"h1\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\" | \"h0\" | \"lg\" | \"md\" | \"sm\" | \"subtitle-md\" | \"subtitle-sm\" | \"xs\"",
+          "raw": "\"display-xl\" | \"display-lg\" | \"display-md\" | \"display-sm\" | \"heading-xl\" | \"heading-lg\" | \"heading-md\" | \"heading-sm\" | \"heading-xs\" | \"heading-md-strong\" | \"heading-sm-strong\" | ... 14 more ... | \"label-sm-strong\"",
           "value": [
             {
-              "value": "\"h1\""
+              "value": "\"display-xl\""
             },
             {
-              "value": "\"h2\""
+              "value": "\"display-lg\""
             },
             {
-              "value": "\"h3\""
+              "value": "\"display-md\""
             },
             {
-              "value": "\"h4\""
+              "value": "\"display-sm\""
             },
             {
-              "value": "\"h5\""
+              "value": "\"heading-xl\""
             },
             {
-              "value": "\"h6\""
+              "value": "\"heading-lg\""
             },
             {
-              "value": "\"h0\""
+              "value": "\"heading-md\""
             },
             {
-              "value": "\"lg\""
+              "value": "\"heading-sm\""
             },
             {
-              "value": "\"md\""
+              "value": "\"heading-xs\""
             },
             {
-              "value": "\"sm\""
+              "value": "\"heading-md-strong\""
             },
             {
-              "value": "\"subtitle-md\""
+              "value": "\"heading-sm-strong\""
             },
             {
-              "value": "\"subtitle-sm\""
+              "value": "\"heading-xs-strong\""
             },
             {
-              "value": "\"xs\""
+              "value": "\"body-xl\""
+            },
+            {
+              "value": "\"body-lg\""
+            },
+            {
+              "value": "\"body-md\""
+            },
+            {
+              "value": "\"body-sm\""
+            },
+            {
+              "value": "\"body-xl-strong\""
+            },
+            {
+              "value": "\"body-lg-strong\""
+            },
+            {
+              "value": "\"body-md-strong\""
+            },
+            {
+              "value": "\"body-sm-strong\""
+            },
+            {
+              "value": "\"label-xl\""
+            },
+            {
+              "value": "\"label-lg\""
+            },
+            {
+              "value": "\"label-md\""
+            },
+            {
+              "value": "\"label-sm\""
+            },
+            {
+              "value": "\"label-md-strong\""
+            },
+            {
+              "value": "\"label-sm-strong\""
             }
           ]
         }

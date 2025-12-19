@@ -1,0 +1,169 @@
+@layer components {
+  .root {
+    position: relative;
+    /* VARIABLES FROM THEME - DONT CHANGE WITH REACT PROPS */
+    gap: var(--components-dimensions-stepper-gap-content);
+    padding-block: var(--components-dimensions-stepper-padding-block);
+    padding-inline: var(--components-dimensions-stepper-padding-inline);
+    border-width: var(--components-dimensions-stepper-border-width-default);
+    border-radius: var(--components-dimensions-stepper-border-radius);
+    border-color: var(--stepperBorderColor, var(--components-colors-stepper-color-border-default));
+    background-color: var(--components-colors-stepper-color-background);
+    transition-duration: var(--duration-fast);
+    box-shadow: var(--stepperBoxShadow, var(--elevation-10));
+    overflow: hidden;
+  }
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    border-style: solid;
+    transition-property: border-color, box-shadow;
+    transition-timing-function: ease-in-out;
+
+    svg {
+      width: var(--components-dimensions-stepper-size-icon);
+      height: var(--components-dimensions-stepper-size-icon);
+    }
+
+    &.fade-left::before,
+    &.fade-right::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 70px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    &.fade-left::before {
+      left: 0;
+      background: linear-gradient(
+        to right,
+        var(--components-colors-stepper-color-background),
+        transparent
+      );
+    }
+    
+    &.fade-right::after {
+      right: 0;
+      background: linear-gradient(
+        to left,
+        var(--components-colors-stepper-color-background),
+        transparent
+      );
+    }
+
+    &:hover {
+      --stepperBorderColor: var(--components-colors-stepper-color-border-hover);
+      --stepperBoxShadow: var(--elevation-20);
+    }
+  }
+
+  .separator {
+    flex-shrink: 0;
+    color: var(--components-colors-stepper-color-icon-default);
+  }
+
+  .item {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    transition-property: background-color, border-color, color;
+    transition-timing-function: ease-in-out;
+
+    /* VARIABLES FROM THEME - DONT CHANGE WITH REACT PROPS */
+    gap: var(--components-dimensions-stepper-step-gap-content);
+    padding-block: var(--components-dimensions-stepper-step-padding-block);
+    padding-inline: var(--components-dimensions-stepper-step-padding-inline);
+    border-width: var(--components-dimensions-stepper-step-border-width-active);
+    border-radius: var(--components-dimensions-stepper-step-border-radius);
+    transition-duration: var(--duration-medium);
+
+    /* VARIABLES FROM REACT PROPS - DEFAULT VALUES */
+    background-color: var(
+      --stepperItemBackgroundColor,
+      var(--components-colors-stepper-step-color-background-unchecked-default)
+    );
+    border-color: var(--stepperItemBorderColor, transparent);
+    color: var(
+      --stepperItemColor,
+      var(--components-colors-stepper-step-color-text-unchecked-default)
+    );
+
+    svg {
+      width: var(--components-dimensions-stepper-step-size-icon);
+      height: var(--components-dimensions-stepper-step-size-icon);
+      color: var(
+        --stepperItemIconColor,
+        var(--components-colors-stepper-step-color-icon-unchecked-default)
+      );
+    }
+
+    /* VARIABLES FROM THEME - CHANGE WITH REACT PROPS */
+
+    &[aria-current='true'] {
+      --stepperItemColor: var(--components-colors-stepper-step-color-text-checked-default);
+      --stepperItemBorderColor: var(--components-colors-stepper-step-color-border-checked-default);
+      --stepperItemBackgroundColor: var(
+        --components-colors-stepper-step-color-background-checked-default
+      );
+
+      svg {
+        --stepperItemIconColor: var(--components-colors-stepper-step-color-icon-checked-default);
+      }
+    }
+
+    &.clickable {
+      cursor: pointer;
+
+      &:hover {
+        --stepperItemColor: var(--components-colors-stepper-step-color-text-unchecked-hover);
+        --stepperItemBackgroundColor: var(
+          --components-colors-stepper-step-color-background-checked-hover
+        );
+
+        &:not(.completed) {
+          svg {
+            --stepperItemIconColor: var(
+              --components-colors-stepper-step-color-icon-unchecked-hover
+            );
+          }
+        }
+      }
+
+      &[aria-current='true'] {
+        --stepperItemColor: var(--components-colors-stepper-step-color-text-checked-default);
+        --stepperItemBackgroundColor: var(
+          --components-colors-stepper-step-color-background-checked-default
+        );
+        --stepperItemBorderColor: var(
+          --components-colors-stepper-step-color-border-checked-default
+        );
+
+        &:hover {
+          --stepperItemBackgroundColor: var(
+            --components-colors-stepper-step-color-background-checked-hover
+          );
+          --stepperItemBorderColor: var(
+            --components-colors-stepper-step-color-border-checked-hover
+          );
+        }
+
+        &:not(.completed) {
+          svg {
+            --stepperItemIconColor: var(--components-colors-stepper-step-color-icon-checked-hover);
+          }
+        }
+      }
+    }
+
+    &.completed {
+      svg {
+        --stepperItemIconColor: var(--components-colors-stepper-step-color-icon-success);
+      }
+    }
+  }
+}

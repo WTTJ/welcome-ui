@@ -5,8 +5,7 @@ import React, { forwardRef, Fragment, useCallback, useEffect, useMemo, useState 
 
 import { CloseButton as ClearButton } from '@/components/CloseButton'
 import { useField } from '@/components/Field'
-import { DownIcon } from '@/components/Icon'
-import { FIELD_ICON_SIZE } from '@/constants/field-icon-size'
+import { Icon } from '@/components/Icon'
 import { classNames } from '@/utils'
 import { createEvent } from '@/utils/create-event'
 import { useForkRef } from '@/utils/useForkRef'
@@ -48,9 +47,11 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
       autoFocus,
       className,
       dataTestId,
+      defaultHighlightedIndex,
       disableCloseOnSelect,
       disabled,
       groupsEnabled,
+      highlightedIndex,
       icon,
       iconPlacement = 'left',
       id,
@@ -70,7 +71,8 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
       renderGroupHeader,
       renderItem = itemToString,
       renderMultiple = multipleSelections,
-      size = 'md',
+      renderNoResults,
+      size = 'lg',
       transparent,
       value: defaultSelected,
       variant,
@@ -308,8 +310,6 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
       [isMultiple, allowUnselectFromList, selected, groupsEnabled, renderGroupHeader, renderItem]
     )
 
-    const iconSize = FIELD_ICON_SIZE[size]
-
     const inputClassnames = cx(
       'root',
       `size-${size}`,
@@ -317,11 +317,14 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
       isClearable && 'clearable',
       transparent && 'transparent',
       icon && `icon-placement-${iconPlacement}`,
-      className
+      className,
+      disabled && 'disabled'
     )
 
     return (
       <Downshift
+        defaultHighlightedIndex={defaultHighlightedIndex}
+        highlightedIndex={highlightedIndex}
         id={id}
         inputValue={isSearchable ? (inputContent as string) : ''}
         isOpen={isOpen}
@@ -359,15 +362,15 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
           )
           const ArrowIcon = (
             <div
-              className={cx('dropdown-indicator', isOpen && 'open')}
+              className={cx('dropdown-indicator', isOpen && 'open', disabled && 'disabled')}
               data-testid={dataTestId ? `${dataTestId}-arrow-icon` : null}
               disabled={disabled}
               tabIndex={-1}
               {...getToggleButtonProps({
-                onClick: () => setIsOpen(!isOpen),
+                onClick: () => !disabled && setIsOpen(!isOpen),
               })}
             >
-              <DownIcon className={cx('styled-icon')} size="sm" />
+              <Icon className={cx('styled-icon')} name="angle-down" size="lg" />
             </div>
           )
 
@@ -394,7 +397,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
           }) as React.InputHTMLAttributes<HTMLInputElement>
 
           return (
-            <div {...rootProps} className={cx('wrapper', disabled && 'disabled')}>
+            <div {...rootProps} className={cx('wrapper', disabled && 'disabled', 'field-input')}>
               {isSearchable ? (
                 <input
                   className={inputClassnames}
@@ -408,7 +411,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
               )}
               {icon ? (
                 <div className={cx('icon-wrapper', `icon-placement-left`, `size-${size}`)}>
-                  {React.cloneElement(icon, { ...icon.props, size: iconSize })}
+                  <Icon {...icon.props} size="md" />
                 </div>
               ) : null}
               <div className={cx('indicators', `size-${size}`)}>
@@ -419,6 +422,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
               {isShowMenu ? (
                 <ul className={cx('menu')} {...getMenuProps()}>
                   {renderOptions({ getItemProps, highlightedIndex, options })}
+                  {!options.length ? renderNoResults?.(inputValue) : null}
                   {isShowCreate && inputValue.length ? (
                     <li
                       className={cx('item', highlightedIndex === options.length && 'highlighted')}
@@ -436,6 +440,13 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
                   ) : null}
                 </ul>
               ) : null}
+
+              {!options.length && renderNoResults ? (
+                <ul className={cx('menu')} {...getMenuProps()}>
+                  <li className={`${cx('item')} cursor-default`}>{renderNoResults(inputValue)}</li>
+                </ul>
+              ) : null}
+
               {isMultiple ? renderMultiple(selected, handleRemove) : null}
             </div>
           )
@@ -444,3 +455,5 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
     )
   }
 )
+
+Select.displayName = 'Select'

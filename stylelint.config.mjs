@@ -13,6 +13,7 @@ export default {
         'comment-empty-line-before': null,
         'custom-property-empty-line-before': null,
         'custom-property-pattern': null,
+        'custom/valid-theme-token': true,
         'declaration-block-no-duplicate-properties': null,
         'declaration-block-no-redundant-longhand-properties': null,
         'declaration-empty-line-before': null,
@@ -33,4 +34,5 @@ export default {
       },
     },
   ],
+  plugins: ['./scripts/stylelint-valid-theme-tokens.js'],
 }

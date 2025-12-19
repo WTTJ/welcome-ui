@@ -1,118 +1,4 @@
 {
-  "AlertTitle": {
-    "props": {
-      "lines": {
-        "defaultValue": null,
-        "description": "",
-        "name": "lines",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Text/types.ts",
-          "name": "TextOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Text/types.ts",
-            "name": "TextOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "number"
-        }
-      },
-      "variant": {
-        "defaultValue": {
-          "value": "tertiary"
-        },
-        "description": "",
-        "name": "variant",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Text/types.ts",
-          "name": "TextOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Text/types.ts",
-            "name": "TextOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "enum",
-          "raw": "\"h1\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\" | \"h0\" | \"lg\" | \"md\" | \"sm\" | \"subtitle-md\" | \"subtitle-sm\" | \"xs\"",
-          "value": [
-            {
-              "value": "\"h1\""
-            },
-            {
-              "value": "\"h2\""
-            },
-            {
-              "value": "\"h3\""
-            },
-            {
-              "value": "\"h4\""
-            },
-            {
-              "value": "\"h5\""
-            },
-            {
-              "value": "\"h6\""
-            },
-            {
-              "value": "\"h0\""
-            },
-            {
-              "value": "\"lg\""
-            },
-            {
-              "value": "\"md\""
-            },
-            {
-              "value": "\"sm\""
-            },
-            {
-              "value": "\"subtitle-md\""
-            },
-            {
-              "value": "\"subtitle-sm\""
-            },
-            {
-              "value": "\"xs\""
-            }
-          ]
-        }
-      },
-      "withDash": {
-        "defaultValue": null,
-        "description": "",
-        "name": "withDash",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Text/types.ts",
-          "name": "TextOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Text/types.ts",
-            "name": "TextOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "enum",
-          "raw": "boolean",
-          "value": [
-            {
-              "value": "false"
-            },
-            {
-              "value": "true"
-            }
-          ]
-        }
-      }
-    }
-  },
   "Alert": {
     "props": {
       "closeButtonDataTestId": {
@@ -172,34 +58,6 @@
           "name": "() => void"
         }
       },
-      "hideIcon": {
-        "defaultValue": null,
-        "description": "@description you can remove the icon by setting this prop to false\nby default the icon is shown unless the variant is 'beige'",
-        "name": "hideIcon",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Alert/types.ts",
-          "name": "AlertOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Alert/types.ts",
-            "name": "AlertOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "enum",
-          "raw": "boolean",
-          "value": [
-            {
-              "value": "false"
-            },
-            {
-              "value": "true"
-            }
-          ]
-        }
-      },
       "isFullWidth": {
         "defaultValue": null,
         "description": "",
@@ -230,7 +88,7 @@
       },
       "size": {
         "defaultValue": {
-          "value": "sm"
+          "value": "md"
         },
         "description": "",
         "name": "size",
@@ -247,20 +105,20 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "\"md\" | \"sm\"",
+          "raw": "\"lg\" | \"md\"",
           "value": [
             {
-              "value": "\"md\""
+              "value": "\"lg\""
             },
             {
-              "value": "\"sm\""
+              "value": "\"md\""
             }
           ]
         }
       },
       "variant": {
         "defaultValue": {
-          "value": "tertiary"
+          "value": "brand"
         },
         "description": "",
         "name": "variant",
@@ -277,13 +135,13 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "\"ai\" | \"beige\" | \"danger\" | \"info\" | \"success\" | \"warning\"",
+          "raw": "\"ai\" | \"brand\" | \"danger\" | \"info\" | \"success\" | \"warning\"",
           "value": [
             {
               "value": "\"ai\""
             },
             {
-              "value": "\"beige\""
+              "value": "\"brand\""
             },
             {
               "value": "\"danger\""

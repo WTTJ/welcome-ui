@@ -1,5 +1,5 @@
 import { Button } from '@/components/Button'
-import { CrossIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { classNames } from '@/utils'
 
 import popoverStyles from './popover.module.scss'
@@ -31,16 +31,12 @@ export const ContentWrapper = ({ children, className, onClose, store }: ContentW
       <Arrow store={store} />
       {children as React.ReactElement}
       {withCloseButton ? (
-        <Button
-          className={cx('close-button')}
-          onClick={handleClose}
-          shape="square"
-          size="xs"
-          variant="secondary"
-        >
-          <CrossIcon />
+        <Button className={cx('close-button')} onClick={handleClose} size="sm" variant="secondary">
+          <Icon name="times" />
         </Button>
       ) : null}
     </div>
   )
 }
+
+ContentWrapper.displayName = 'Popover.ContentWrapper'

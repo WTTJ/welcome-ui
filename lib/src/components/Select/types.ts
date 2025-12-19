@@ -39,6 +39,7 @@ export interface SelectOptions {
     values: SelectOption[],
     handleRemove: (value: string) => void
   ) => React.ReactElement
+  renderNoResults?: (inputValue: SelectValue) => React.ReactNode
   size?: Size
   transparent?: boolean
   value?: SelectValue

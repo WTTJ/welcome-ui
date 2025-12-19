@@ -34,7 +34,7 @@
             "name": "AvatarOptions"
           }
         ],
-        "required": true,
+        "required": false,
         "type": {
           "name": "string"
         }
@@ -61,6 +61,9 @@
           "raw": "Size",
           "value": [
             {
+              "value": "\"xs\""
+            },
+            {
               "value": "\"sm\""
             },
             {
@@ -68,12 +71,6 @@
             },
             {
               "value": "\"lg\""
-            },
-            {
-              "value": "\"xl\""
-            },
-            {
-              "value": "\"xxl\""
             }
           ]
         }

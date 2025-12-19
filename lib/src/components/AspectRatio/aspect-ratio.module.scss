@@ -1,7 +1,7 @@
 @layer components {
   .root {
     & > * {
-      aspect-ratio: var(--aspect-ratio, 4 / 3);
+      aspect-ratio: var(--aspectRatio, 4 / 3);
     }
 
     & > img,
@@ -12,16 +12,16 @@
 
   .ratio {
     &-square {
-      --aspect-ratio: 1 / 1;
+      --aspectRatio: 1 / 1;
     }
     &-4-3 {
-      --aspect-ratio: 4 / 3;
+      --aspectRatio: 4 / 3;
     }
     &-3-2 {
-      --aspect-ratio: 3 / 2;
+      --aspectRatio: 3 / 2;
     }
     &-video {
-      --aspect-ratio: 16 / 9;
+      --aspectRatio: 16 / 9;
     }
   }
 }

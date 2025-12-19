@@ -4,13 +4,17 @@ import { usePathname } from 'next/navigation'
 
 import { Button } from '@/components/Button'
 import { Drawer, useDrawer } from '@/components/Drawer'
-import { MenuIcon } from '@/components/Icon'
+// comment the following line when you want to see all the icons locally
+import { Icon, Sprite } from '@/components/Icon'
+// uncomment the following line when you want to see all the icons locally
+// import { Icon } from '@/components/Icon'
 import { WelcomeUILogo } from '@/components/Logo'
-import { Toast } from '@/components/Toast'
 import { classNames } from '@/utils'
 
 import type { PageTree } from '~/build-app/types'
 
+// uncomment the following line when you want to see all the icons locally
+// import { Sprite } from '../../../../../front/src/components/wui/Sprite'
 import { Search } from '../Search'
 import { Sidebar } from '../Sidebar'
 import { VersionSelector } from '../VersionSelector'
@@ -45,7 +49,7 @@ export const Header = ({ components, foundations }: HeaderProps) => {
 
   return (
     <header className={cx('header')}>
-      <Toast />
+      <Sprite />
       <div className="flex gap-lg h-full items-center justify-between max-w-[87.5rem] mx-auto px-md text-neutral-60">
         <div className="flex gap-lg items-center">
           <div className="shrink-0">
@@ -56,14 +60,8 @@ export const Header = ({ components, foundations }: HeaderProps) => {
           <VersionSelector />
           <Search />
         </div>
-        <Drawer.Trigger
-          as={Button}
-          className="lg:hidden shrink-0"
-          shape="circle"
-          size="sm"
-          store={drawer}
-        >
-          <MenuIcon />
+        <Drawer.Trigger as={Button} className="lg:hidden shrink-0" size="sm" store={drawer}>
+          <Icon name="bars" />
         </Drawer.Trigger>
         <NavBar className="hidden lg:flex" />
         <Drawer className="lg:hidden z-[999]" size="100%" store={drawer} withBackdrop>

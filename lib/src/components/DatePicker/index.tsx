@@ -141,7 +141,10 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
         showMonthYearPicker={showMonthYearPicker}
         useWeekdaysShort={useWeekdaysShort}
         {...rest}
+        wrapperClassName={cx(rest.wrapperClassName, 'date-picker-wrapper', 'field-input')}
       />
     )
   }
 )
+
+DatePicker.displayName = 'DatePicker'

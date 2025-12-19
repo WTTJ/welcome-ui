@@ -27,3 +27,5 @@ export const Arrow = ({ store }: ArrowProps) => {
     </Ariakit.PopoverArrow>
   )
 }
+
+Arrow.displayName = 'Popover.Arrow'

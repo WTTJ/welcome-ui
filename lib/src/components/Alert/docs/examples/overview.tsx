@@ -1,12 +1,7 @@
 import { Alert } from '@/components/Alert'
 
 const Example = () => {
-  return (
-    <Alert>
-      Nunc laoreet egestas nulla, et dapibus sem malesuada in. Suspendisse eleifend accumsan
-      ultrices. Phasellus iaculis nisi sed dui ornare commodo. Nullam dapibus varius nibh a ornare.
-    </Alert>
-  )
+  return <Alert>Nunc laoreet egestas nulla</Alert>
 }
 
 export default Example

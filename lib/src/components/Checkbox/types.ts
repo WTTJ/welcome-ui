@@ -5,6 +5,9 @@ export interface CheckboxOptions {
   variant?: Variant
 }
 
-export type CheckboxProps = CheckboxOptions & ComponentProps<'input'>
+export type CheckboxProps = CheckboxOptions &
+  Omit<ComponentProps<'input'>, 'onChange'> & {
+    onChange?: (isChecked: boolean) => void
+  }
 
 export type Variant = 'danger' | 'success' | 'warning'

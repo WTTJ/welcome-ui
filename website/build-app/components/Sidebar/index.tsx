@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useParams, usePathname } from 'next/navigation'
 import { useEffect, useRef } from 'react'
 
+import { Badge } from '@/components/Badge'
 import { Text } from '@/components/Text'
 import { classNames } from '@/utils'
 
@@ -45,18 +46,22 @@ export const Sidebar = ({ className, isSubPage, menu, onClick }: SidebarProps) =
       {menu.map(({ category, pages, parent }) => (
         <ul className="flex flex-col shrink-0" key={`sidebar_${category}`}>
           {category ? (
-            <Text className="mb-lg" variant="subtitle-sm">
+            <Text className="mb-lg" variant="label-md">
               {getName(category)}
             </Text>
           ) : null}
           <ul className="flex flex-col gap-lg">
-            {pages.map(({ id, parent: pageParent, title }) => {
+            {pages.map(({ id, isNew, parent: pageParent, title }) => {
               const href = `/${parent}/${pageParent ? `${pageParent}/` : ''}${id}`
               const isCurrent =
                 isSubPage && subPage ? currentRoute === `${href}/${subPage}` : currentRoute === href
 
               return (
-                <li key={`sidebar_${category}_page_${id}`} onClick={onClick}>
+                <li
+                  className="flex items-center gap-sm"
+                  key={`sidebar_${category}_page_${id}`}
+                  onClick={onClick}
+                >
                   <Link
                     aria-current={isCurrent ? 'page' : undefined}
                     className={cx('link')}
@@ -64,6 +69,7 @@ export const Sidebar = ({ className, isSubPage, menu, onClick }: SidebarProps) =
                   >
                     {title || getName(id)}
                   </Link>
+                  {isNew ? <Badge variant="brand">NEW</Badge> : null}
                 </li>
               )
             })}
