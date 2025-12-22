@@ -277,6 +277,7 @@ export const brands = [
   'xing', // (not unicons)
   'youtube',
   'zapier', // (not unicons)
+  'medium', // (not unicons)
 ] as const
 
 export const welcome = ['symbol', 'wttj'] as const
