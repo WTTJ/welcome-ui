@@ -93,6 +93,20 @@
     transition:
       height var(--duration-fast) linear,
       width var(--duration-fast) linear;
+    /* When modal is fullscreen, limit Window media height and center it */
+    [data-window-media] {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    [data-window-media] :first-child {
+      max-height: calc(
+        100vh - 37px - var(--components-dimensions-window-body-padding-block-xs) * 2
+      ); /* 37px is the height of Window.Header */
+      width: auto;
+      height: auto;
+    }
   }
 
   .size {

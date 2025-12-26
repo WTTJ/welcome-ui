@@ -9,7 +9,7 @@ const cx = classNames(windowStyles)
 
 export const Media = forwardRef<HTMLDivElement, MediaProps>(({ children, ...rest }, ref) => {
   return (
-    <div className={cx('media')} ref={ref} {...rest}>
+    <div className={cx('media')} data-window-media ref={ref} {...rest}>
       {children}
     </div>
   )
