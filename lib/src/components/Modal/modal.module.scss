@@ -93,6 +93,7 @@
     transition:
       height var(--duration-fast) linear,
       width var(--duration-fast) linear;
+
     /* When modal is fullscreen, limit Window media height and center it */
     [data-window-media] {
       display: flex;
