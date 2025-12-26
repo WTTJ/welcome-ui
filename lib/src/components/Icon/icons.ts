@@ -1,3 +1,5 @@
+import type { IconName } from './types'
+
 export const arrows = [
   'angle-left-b',
   'angle-right-b',
@@ -68,7 +70,7 @@ export const actions = [
   'share',
 ] as const
 
-export const chat = ['chat', 'chat-bubble-user', 'comment', 'comment-alt-lines']
+export const chat = ['chat', 'chat-bubble-user', 'comment', 'comment-alt-lines'] as const
 
 export const miscellaneous = [
   'music',
@@ -297,3 +299,6 @@ export const icons = [
   ...welcome,
   ...wtf,
 ] as const
+
+export const isValidIconName = (iconName: string): iconName is (typeof icons)[number] =>
+  icons.includes(iconName as IconName)
