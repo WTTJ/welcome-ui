@@ -178,6 +178,7 @@ export const wtf = [
   'icons',
   'package',
   'basketball',
+  'bill',
   'book-alt',
   'lightbulb-alt',
   'life-ring',
