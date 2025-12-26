@@ -1,3 +1,5 @@
+import type { IconName } from './types'
+
 export const arrows = [
   'angle-left-b',
   'angle-right-b',
@@ -68,7 +70,7 @@ export const actions = [
   'share',
 ] as const
 
-export const chat = ['chat', 'chat-bubble-user', 'comment', 'comment-alt-lines']
+export const chat = ['chat', 'chat-bubble-user', 'comment', 'comment-alt-lines'] as const
 
 export const miscellaneous = [
   'music',
@@ -176,6 +178,7 @@ export const wtf = [
   'icons',
   'package',
   'basketball',
+  'bill',
   'book-alt',
   'lightbulb-alt',
   'life-ring',
@@ -277,6 +280,7 @@ export const brands = [
   'xing', // (not unicons)
   'youtube',
   'zapier', // (not unicons)
+  'medium', // (not unicons)
 ] as const
 
 export const welcome = ['symbol', 'wttj'] as const
@@ -296,3 +300,6 @@ export const icons = [
   ...welcome,
   ...wtf,
 ] as const
+
+export const isValidIconName = (iconName: string): iconName is (typeof icons)[number] =>
+  icons.includes(iconName as IconName)
