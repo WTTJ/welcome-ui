@@ -138,12 +138,6 @@ Modal.Body now has its own header, that is display if you're passing a `title` p
 
 - `Modal` accepts a new `fullscreen?: boolean` prop that will add a `.fullscreen` class to the root (and styles to make it full viewport). You can toggle this state from header actions (for instance `Window.Header.LeftActions` calling `onExpandChange`).
 
-#### Migration tips
-
-- Replace `Modal.Header title="..."` with the new composition API using children as shown above.
-- If you have code using `Modal.Body as={Window.Body}` and you relied on automatic modal spacing, update the consuming `Window.Body` to accept and merge `className` so both modal and window styles are preserved.
-- Where you want the modal to go fullscreen, use the `fullscreen` prop or toggle a boolean state passed to the Modal.
-
 #### Modal.Footer
 
 Modal.Footer no longer accepts the information props. It accepts a `variant` prop that can be `right` (default) or `full`. Modal.Footer buttons need to be wrapped with Modal.Footer.Buttons, and can also display a Modal.Footer.Checkbox (when you need to remember a user choice for instance).

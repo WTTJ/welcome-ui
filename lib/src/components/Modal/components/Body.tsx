@@ -11,7 +11,7 @@ export const Body = forwardRefWithAs<BodyProps, 'section'>(
     const hasHeader = Boolean(iconName || title)
 
     return (
-      <Component className={cx('body', className)} data-modal-body={true} ref={ref} {...rest}>
+      <Component className={cx('body', className)} data-modal-body ref={ref} {...rest}>
         {hasHeader ? (
           <div className={cx('body-header')}>
             {iconName ? <Icon name={iconName} size="lg" /> : null}
