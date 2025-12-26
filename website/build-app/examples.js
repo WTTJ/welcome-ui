@@ -150,6 +150,7 @@ export default {
   "/Modal/docs/examples/asset-swiper-title.tsx": dynamic(() => import("../../lib/src/components/Modal/docs/examples/asset-swiper-title.tsx").then(mod => mod), { ssr: false }),
   "/Modal/docs/examples/asset-swiper.tsx": dynamic(() => import("../../lib/src/components/Modal/docs/examples/asset-swiper.tsx").then(mod => mod), { ssr: false }),
   "/Modal/docs/examples/asset-title-subtitle.tsx": dynamic(() => import("../../lib/src/components/Modal/docs/examples/asset-title-subtitle.tsx").then(mod => mod), { ssr: false }),
+  "/Modal/docs/examples/footer-variants.tsx": dynamic(() => import("../../lib/src/components/Modal/docs/examples/footer-variants.tsx").then(mod => mod), { ssr: false }),
   "/Modal/docs/examples/header-footer.tsx": dynamic(() => import("../../lib/src/components/Modal/docs/examples/header-footer.tsx").then(mod => mod), { ssr: false }),
   "/Modal/docs/examples/on-close.tsx": dynamic(() => import("../../lib/src/components/Modal/docs/examples/on-close.tsx").then(mod => mod), { ssr: false }),
   "/Modal/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Modal/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
