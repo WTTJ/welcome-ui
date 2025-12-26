@@ -21,12 +21,10 @@ const Example = () => {
             aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
           </Modal.Body>
           <Modal.Footer>
-            <div className="w-full">
-              <Button className="mr-(--spacing-sm)" variant="secondary">
-                Lorem dolir
-              </Button>
+            <Modal.Footer.Buttons>
+              <Button variant="secondary">Lorem dolir</Button>
               <Button onClick={() => modal.hide()}>Close</Button>
-            </div>
+            </Modal.Footer.Buttons>
           </Modal.Footer>
         </Modal.Content>
       </Modal>
@@ -42,12 +40,10 @@ const Example = () => {
             aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
           </Modal.Body>
           <Modal.Footer>
-            <div className="w-full">
-              <Button className="mr-(--spacing-sm)" variant="secondary">
-                Lorem dolir
-              </Button>
+            <Modal.Footer.Buttons>
+              <Button variant="secondary">Lorem dolir</Button>
               <Button onClick={() => modal2.hide()}>Close</Button>
-            </div>
+            </Modal.Footer.Buttons>
           </Modal.Footer>
         </Modal.Content>
       </Modal>

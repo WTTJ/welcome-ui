@@ -53,4 +53,6 @@ export type ContentProps = PropsWithChildren<HTMLAttributes<HTMLDivElement>> & {
 
 export type BackdropProps = Pick<BaseDialogOptions, 'backdrop' | 'hideOnInteractOutside'>
 
-export type FooterProps = HTMLAttributes<HTMLDivElement>
+export type FooterProps = HTMLAttributes<HTMLDivElement> & {
+  variant?: 'full' | 'right'
+}
