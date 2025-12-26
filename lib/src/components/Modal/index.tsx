@@ -41,6 +41,7 @@ const ModalComponent = forwardRefWithAs<ModalProps, 'div'>(
       backdrop = true,
       children,
       className,
+      fullscreen = false,
       hideOnInteractOutside = true,
       size = 'lg',
       store,
@@ -66,7 +67,15 @@ const ModalComponent = forwardRefWithAs<ModalProps, 'div'>(
           As ? (
             <As />
           ) : (
-            <div className={cx('root', `size-${size}`, scrollable && 'scrollable', className)} />
+            <div
+              className={cx(
+                'root',
+                `size-${size}`,
+                scrollable && 'scrollable',
+                fullscreen && 'fullscreen',
+                className
+              )}
+            />
           )
         }
         store={store}

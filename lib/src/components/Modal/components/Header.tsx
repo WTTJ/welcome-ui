@@ -1,4 +1,3 @@
-import { DialogDismiss } from '@ariakit/react'
 import { forwardRef } from 'react'
 
 import { Window as WUIWindow } from '@/components/Window'
@@ -12,11 +11,10 @@ const cx = classNames(modalStyles)
  * @name Modal.Header
  */
 export const Header = forwardRef<HTMLDivElement, HeaderProps>(
-  ({ className, title, ...rest }, ref) => {
+  ({ children, className, ...rest }, ref) => {
     return (
       <WUIWindow.Header className={cx('header', className)} ref={ref} {...rest}>
-        <WUIWindow.Header.Title title={title} />
-        <DialogDismiss render={<WUIWindow.Header.CloseButton />} />
+        {children}
       </WUIWindow.Header>
     )
   }

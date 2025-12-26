@@ -26,6 +26,7 @@ export type Size = 'auto' | 'sm' | 'md' | 'lg'
 export interface ModalOptions {
   ariaLabel: string
   children: React.ReactElement
+  fullscreen?: boolean
   size?: Size
 }
 
@@ -33,11 +34,7 @@ type BaseDialogOptions = Omit<DialogOptions<'div'>, 'as'>
 
 export type ModalProps = MergeProps<BaseDialogOptions & ModalOptions, ComponentProps<'div'>>
 
-export interface HeaderOptions {
-  title: JSX.Element | string
-}
-
-export type HeaderProps = MergeProps<HeaderOptions, HTMLAttributes<HTMLDivElement>>
+export type HeaderProps = HTMLAttributes<HTMLDivElement>
 
 export interface BodyOptions {
   iconName?: IconName
