@@ -10,9 +10,6 @@ const Example = () => {
 
   return (
     <>
-      <Modal.Trigger as={Button} onClick={() => setSize('xs')} store={modal}>
-        xs
-      </Modal.Trigger>
       <Modal.Trigger as={Button} onClick={() => setSize('sm')} store={modal}>
         sm
       </Modal.Trigger>

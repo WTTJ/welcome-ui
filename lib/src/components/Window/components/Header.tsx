@@ -3,6 +3,7 @@ import { forwardRef, useState } from 'react'
 
 import { Icon } from '@/components/Icon'
 import { Text } from '@/components/Text'
+import type { As, PropsWithAs } from '@/utils'
 import { classNames } from '@/utils'
 
 import type {
@@ -17,24 +18,36 @@ import windowStyles from '../window.module.scss'
 
 const cx = classNames(windowStyles)
 
-const Button = ({ 'aria-label': ariaLabel, className, icon, onClick }: ActionButtonProps) => {
+const Button = ({
+  'aria-label': ariaLabel,
+  className,
+  icon,
+  onClick,
+  ...rest
+}: PropsWithAs<As, ActionButtonProps>) => {
   return (
     <button
       aria-label={ariaLabel}
       className={cx('header-action-button', className)}
       onClick={onClick}
       type="button"
+      {...rest}
     >
       <Icon name={icon} />
     </button>
   )
 }
 
-const CloseButton = ({ onClick }: Omit<ActionButtonProps, 'icon'>) => {
+const CloseButton = ({
+  as,
+  className,
+  onClick,
+}: PropsWithAs<As, Omit<ActionButtonProps, 'icon'>>) => {
   return (
     <Button
       aria-label="Close window"
-      className={cx('header-close-button')}
+      as={as}
+      className={cx('header-close-button', className)}
       icon="times"
       onClick={onClick}
     />
@@ -102,9 +115,9 @@ const Title = ({ as, className, title }: HeaderTitleProps) => {
 }
 
 export const HeaderComponent = forwardRef<HTMLDivElement, HeaderProps>(
-  ({ children, ...rest }, ref) => {
+  ({ children, className, ...rest }, ref) => {
     return (
-      <header className={cx('header')} ref={ref} {...rest}>
+      <header className={cx('header', className)} ref={ref} {...rest}>
         {children}
       </header>
     )
@@ -115,6 +128,7 @@ HeaderComponent.displayName = 'Window.Header'
 
 export const Header = Object.assign(HeaderComponent, {
   Button,
+  CloseButton,
   LeftActions,
   RightActions,
   Tabs,

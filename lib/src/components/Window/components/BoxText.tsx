@@ -7,12 +7,14 @@ import windowStyles from '../window.module.scss'
 
 const cx = classNames(windowStyles)
 
-export const BoxText = forwardRef<HTMLDivElement, BoxTextProps>(({ children, ...rest }, ref) => {
-  return (
-    <div className={cx('box-text')} ref={ref} {...rest}>
-      {children}
-    </div>
-  )
-})
+export const BoxText = forwardRef<HTMLDivElement, BoxTextProps>(
+  ({ children, className, ...rest }, ref) => {
+    return (
+      <div className={cx('box-text', className)} ref={ref} {...rest}>
+        {children}
+      </div>
+    )
+  }
+)
 
 BoxText.displayName = 'Window.BoxText'

@@ -20,6 +20,34 @@
           "name": "string"
         }
       },
+      "fullscreen": {
+        "defaultValue": null,
+        "description": "",
+        "name": "fullscreen",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Modal/types.ts",
+          "name": "ModalOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Modal/types.ts",
+            "name": "ModalOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
       "size": {
         "defaultValue": null,
         "description": "",
@@ -41,9 +69,6 @@
           "value": [
             {
               "value": "\"auto\""
-            },
-            {
-              "value": "\"xs\""
             },
             {
               "value": "\"sm\""
