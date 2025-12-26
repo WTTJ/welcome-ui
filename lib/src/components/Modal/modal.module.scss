@@ -3,16 +3,17 @@
 
 @layer components {
   .root {
-    background-color: var(--color-background-neutral-inverse-fixed);
-    border-color: var(--color-background-neutral-subtlest);
+    background-color: var(--components-colors-modal-color-background-default);
+    border-color: var(--components-colors-modal-color-border-default);
     border-style: solid;
-    border-width: var(--border-width-xs);
+    border-width: var(--components-dimensions-modal-border-width);
+    box-shadow: var(--elevation-40);
     z-index: 999;
-    border-radius: var(--border-radius-sm);
+    border-radius: var(--components-dimensions-modal-border-radius);
     position: fixed;
     inset: 0;
     margin: auto;
-    margin-top: var(--border-radius-2xl);
+    margin-top: var(--spacing-xl);
     top: 50%;
     transform: translate3d(0, -50%, 0);
     display: flex;
@@ -36,7 +37,7 @@
 
     @media (min-width: breakpoints.$breakpoint-md) {
       height: fit-content;
-      max-height: calc(2 * var(--border-radius-2xl) + 100vh);
+      max-height: 100vh;
       width: var(--dialogWidth);
     }
 
@@ -45,7 +46,7 @@
     &:has(.body):not(:has(.footer)),
     &:has(.footer):not(:has(.body)) {
       header {
-        padding-bottom: var(--border-radius-xl);
+        padding-bottom: var(--spacing-lg);
       }
     }
 
@@ -53,23 +54,23 @@
     /* if the Modal have a Footer */
     &:has(.footer) {
       .body {
-        padding-bottom: var(--border-radius-xl);
+        padding-bottom: var(--spacing-xl);
       }
       /* AND if the Modal have a Header */
       &:has(header) .body {
-        padding-right: var(--size-icon-xl);
+        padding-right: var(--spacing-xl);
       }
     }
 
     /* Styles the Footer */
     /* if the Modal is scrollable */
     &.scrollable .footer {
-      border-top-width: var(--border-width-xs);
+      border-top-width: var(--components-dimensions-modal-border-width);
     }
 
     /* if the Modal has a Footer, but no Header and no Body */
     &:not(:has(header)):not(:has(.body)) .footer {
-      padding-top: var(--border-radius-xl);
+      padding-top: var(--spacing-lg);
     }
     /* Styles the close button */
     /* if the Modal has a Header, hide the Content's close button */
@@ -82,23 +83,23 @@
 
   .size {
     &-lg {
-      /* 800px; */
-      --dialogWidth: 50rem;
+      /* todo: convert to rem? cc Pix */
+      --dialogWidth: var(--components-dimensions-modal-size-width-lg);
     }
 
     &-md {
-      /* 600px; */
-      --dialogWidth: 37.5rem;
+      /* todo: convert to rem? cc Pix */
+      --dialogWidth: var(--components-dimensions-modal-size-width-md);
     }
 
     &-sm {
-      /* 450px; */
-      --dialogWidth: 28.125rem;
+      /* todo: convert to rem? cc Pix */
+      --dialogWidth: var(--components-dimensions-modal-size-width-sm);
     }
   }
 
   .backdrop {
-    background-color: var(--color-overlay-strong);
+    background-color: var(--color-background-transparent-black-subtle);
     z-index: 999;
     position: fixed;
     top: 0;
@@ -119,8 +120,8 @@
 
   .close {
     position: sticky;
-    top: var(--border-radius-xl);
-    left: calc(100% - var(--border-radius-xl) - var(--size-icon-xl));
+    top: var(--spacing-xs);
+    left: calc(100% - var(--spacing-xs) - var(--size-icon-lg));
     z-index: 1;
   }
 
@@ -135,10 +136,9 @@
   }
 
   .body {
-    color: var(--color-background-neutral-primary-fixed);
-    padding-left: var(--size-icon-xl);
-    padding-right: var(--size-icon-2xl);
-    padding-bottom: var(--size-icon-xl);
+    color: var(--components-colors-modal-color-text-body);
+    padding-inline: var(--components-dimensions-modal-padding-inline);
+    padding-bottom: var(--components-dimensions-modal-padding-block);
   }
 
   .body-header {
@@ -157,36 +157,48 @@
     position: sticky;
     bottom: 0;
     width: 100%;
-    flex-shrink: 0;
     z-index: 1;
-    background-color: var(--color-background-neutral-inverse-fixed);
-    border-bottom-left-radius: var(--border-radius-sm);
-    border-bottom-right-radius: var(--border-radius-sm);
-    border-top: 0 solid var(--color-background-neutral-subtlest);
+    background-color: var(--components-colors-modal-color-background-default);
+    border-bottom-left-radius: var(--components-dimensions-modal-border-radius);
+    border-bottom-right-radius: var(--components-dimensions-modal-border-radius);
+    flex-shrink: 0;
   }
 
   .footer-children-wrapper {
-    padding-bottom: var(--border-radius-2xl);
-    padding-top: var(--border-radius-xl);
-    padding-inline: var(--size-icon-xl);
+    padding-bottom: var(--spacing-xl);
+    padding-inline: var(--spacing-xl);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
   }
 
-  .footer-information {
-    background-color: var(--color-background-warm-primary);
-    padding-bottom: var(--size-icon-xl);
-    padding-left: var(--size-icon-xl);
-    padding-right: var(--size-icon-xl);
-    padding-top: var(--border-radius-2xl);
+  .variant {
+    &-right {
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &-full {
+      flex-direction: column;
+
+      button,
+      a {
+        flex: 1;
+      }
+    }
   }
 
-  .footer-information-title {
-    color: var(--color-background-neutral-primary-fixed);
-    font-weight: var(--font-weight-semi-bold);
+  .footer-checkbox {
+    width: fit-content !important;
   }
 
-  .footer-information-subtitle {
-    color: var(--color-background-neutral-primary-fixed);
-    margin-bottom: (var(--font-letter-spacing-none));
-    margin-top: var(--border-radius-lg);
+  .footer-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    max-width: 100%;
+    flex: 1 1 auto;
+    flex-shrink: 0;
+    justify-content: flex-end;
   }
 }
