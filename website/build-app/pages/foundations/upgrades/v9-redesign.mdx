@@ -121,11 +121,28 @@ The `Modal.close` component has been removed. The Close Button is displayed auto
 
 #### Modal.Header
 
-Modal.Header no longer accept an icon props or a subtitle props. If you want to keep them, you need to passe the `icon` as an `iconName` prop to Modal.Body, and the `subtitle` as a `subtitle` prop to Modal.Body.
+Modal.Header no longer accept a title, an icon props or a subtitle props. If you want to keep them, you need to passe the `icon` as an `iconName` prop to Modal.Body, and the `subtitle` as a `subtitle` prop to Modal.Body. `Modal.Header` now expects children instead of `title`/`icon` props. Use `Window.Header.Title`, `Window.Header.RightActions`, etc. inside `Modal.Header`:
+
+```tsx
+<Modal.Header>
+  <Window.Header.Title title="My title" />
+  <Window.Header.RightActions isClosable onClose={modal.hide} />
+</Modal.Header>
+```
 
 #### Modal.Body
 
 Modal.Body now has its own header, that is display if you're passing a `title` prop or an `iconName` prop to Modal.Body. It also accepts a `subtitle` prop.
+
+#### Fullscreen support
+
+- `Modal` accepts a new `fullscreen?: boolean` prop that will add a `.fullscreen` class to the root (and styles to make it full viewport). You can toggle this state from header actions (for instance `Window.Header.LeftActions` calling `onExpandChange`).
+
+#### Migration tips
+
+- Replace `Modal.Header title="..."` with the new composition API using children as shown above.
+- If you have code using `Modal.Body as={Window.Body}` and you relied on automatic modal spacing, update the consuming `Window.Body` to accept and merge `className` so both modal and window styles are preserved.
+- Where you want the modal to go fullscreen, use the `fullscreen` prop or toggle a boolean state passed to the Modal.
 
 #### Modal.Footer
 

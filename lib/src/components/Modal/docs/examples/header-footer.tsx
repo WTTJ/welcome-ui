@@ -1,5 +1,6 @@
 import { Button } from '@/components/Button'
 import { Modal, useModal } from '@/components/Modal'
+import { Window } from '@/components/Window'
 
 const Example = () => {
   const modal = useModal()
@@ -15,7 +16,10 @@ const Example = () => {
       </Modal.Trigger>
       <Modal ariaLabel="example" store={modal}>
         <Modal.Content>
-          <Modal.Header title={title} />
+          <Modal.Header>
+            <Window.Header.Title title={title} />
+            <Window.Header.RightActions isClosable onClose={modal.hide} />
+          </Modal.Header>
           <Modal.Body iconName="rocket" subtitle={subtitle} title={title}>
             Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
             aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
@@ -34,7 +38,10 @@ const Example = () => {
       </Modal.Trigger>
       <Modal ariaLabel="example-2" store={modal2}>
         <Modal.Content>
-          <Modal.Header title={title} />
+          <Modal.Header>
+            <Window.Header.Title title={title} />
+            <Window.Header.RightActions isClosable onClose={modal2.hide} />
+          </Modal.Header>
           <Modal.Body subtitle={subtitle} title={title}>
             Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
             aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
@@ -53,7 +60,10 @@ const Example = () => {
       </Modal.Trigger>
       <Modal ariaLabel="example-3" store={modal3}>
         <Modal.Content>
-          <Modal.Header title={title} />
+          <Modal.Header>
+            <Window.Header.Title title={title} />
+            <Window.Header.RightActions isClosable onClose={modal3.hide} />
+          </Modal.Header>
           <Modal.Body iconName="rocket" title={title}>
             Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
             aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.

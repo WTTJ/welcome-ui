@@ -1,8 +1,7 @@
 import { DialogDismiss } from '@ariakit/react'
-import { forwardRef } from 'react'
 
 import { Window as WUIWindow } from '@/components/Window'
-import { classNames } from '@/utils'
+import { classNames, forwardRefWithAs } from '@/utils'
 
 import modalStyles from '../modal.module.scss'
 import type { ContentProps } from '../types'
@@ -12,7 +11,7 @@ const cx = classNames(modalStyles)
 /**
  * @name Modal.Content
  */
-export const Content = forwardRef<HTMLDivElement, ContentProps>(
+export const Content = forwardRefWithAs<ContentProps, 'div'>(
   ({ children, className, withClosingButton = true, ...rest }, ref) => {
     return (
       <div

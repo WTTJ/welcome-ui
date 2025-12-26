@@ -155,6 +155,7 @@ export default {
   "/Modal/docs/examples/on-close.tsx": dynamic(() => import("../../lib/src/components/Modal/docs/examples/on-close.tsx").then(mod => mod), { ssr: false }),
   "/Modal/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Modal/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Modal/docs/examples/sizes.tsx": dynamic(() => import("../../lib/src/components/Modal/docs/examples/sizes.tsx").then(mod => mod), { ssr: false }),
+  "/Modal/docs/examples/window.tsx": dynamic(() => import("../../lib/src/components/Modal/docs/examples/window.tsx").then(mod => mod), { ssr: false }),
   "/Modal/docs/examples/without-close.tsx": dynamic(() => import("../../lib/src/components/Modal/docs/examples/without-close.tsx").then(mod => mod), { ssr: false }),
   "/Pagination/docs/examples/custom-texts.tsx": dynamic(() => import("../../lib/src/components/Pagination/docs/examples/custom-texts.tsx").then(mod => mod), { ssr: false }),
   "/Pagination/docs/examples/first-last.tsx": dynamic(() => import("../../lib/src/components/Pagination/docs/examples/first-last.tsx").then(mod => mod), { ssr: false }),
