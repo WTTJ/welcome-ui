@@ -101,6 +101,7 @@ const Example = () => {
       <Modal ariaLabel="Window with media" fullscreen={isFullScreen} store={modal4}>
         <Modal.Content>
           <Modal.Header>
+            <Window.Header.LeftActions isExpandable onExpandChange={handleFullScreen} />
             <Window.Header.Title title="Landscape Image" />
           </Modal.Header>
           <Window.Media>
