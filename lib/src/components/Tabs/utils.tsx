@@ -1,5 +1,7 @@
 import { Icon } from '@/components/Icon'
 
+import { isValidIconName } from '../Icon/icons'
+
 import type { TabProps } from './types'
 
 export function getIcon({
@@ -10,7 +12,7 @@ export function getIcon({
 }: Pick<TabProps, 'icon' | 'iconColor' | 'size'> & { isActive: boolean }) {
   if (!icon) return null
 
-  if (typeof icon !== 'string') return icon
+  if (typeof icon !== 'string' || !isValidIconName(icon)) return icon
 
   const iconClassName = (() => {
     switch (iconColor) {
