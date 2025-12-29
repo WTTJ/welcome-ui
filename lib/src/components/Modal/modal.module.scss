@@ -45,20 +45,18 @@
 
     /* Styles the Header */
     /* add header margin-bottom only when a Modal.Body is present */
-    &:has([data-modal-body]) {
-      header {
-        margin-bottom: var(--components-dimensions-modal-padding-block);
-      }
+    &:has(.body) .header {
+      margin-bottom: var(--components-dimensions-modal-padding-block);
     }
 
     /* Styles the Body */
     /* if the Modal has a Footer */
-    &:has(.footer) [data-modal-body] {
+    &:has(.footer) .body {
       padding-bottom: var(--spacing-xl);
     }
 
     /* AND if the Modal has a Header */
-    &:has(header) [data-modal-body] {
+    &:has(.header) .body {
       padding-right: var(--spacing-xl);
     }
 
@@ -69,12 +67,12 @@
     }
 
     /* if the Modal has a Footer, but no Header and no Modal.Body */
-    &:not(:has(header)):not(:has([data-modal-body])) .footer {
+    &:not(:has(.header)):not(:has(.body)) .footer {
       padding-top: var(--spacing-lg);
     }
     /* Styles the close button */
     /* if the Modal has a Header, hide the Content's close button */
-    &:has(header) {
+    &:has(.header) {
       .content.with-close-button > .close {
         display: none;
       }
@@ -95,13 +93,13 @@
       width var(--duration-fast) linear;
 
     /* When modal is fullscreen, limit Window media height and center it */
-    [data-window-media] {
+    .window-media {
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    [data-window-media] :first-child {
+    .window-media :first-child {
       max-height: calc(
         100vh - 37px - var(--components-dimensions-window-body-padding-block-xs) * 2
       ); /* 37px is the height of Window.Header */

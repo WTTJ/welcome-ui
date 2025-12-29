@@ -3,7 +3,6 @@ import { useState } from 'react'
 
 import { Button } from '@/components/Button'
 import { Modal, useModal } from '@/components/Modal'
-import { Window } from '@/components/Window'
 
 const Example = () => {
   const modal = useModal()
@@ -30,14 +29,14 @@ const Example = () => {
       <Modal ariaLabel="Basic Window" fullscreen={isFullScreen} store={modal}>
         <Modal.Content>
           <Modal.Header>
-            <Window.Header.LeftActions isExpandable onExpandChange={handleFullScreen} />
-            <Window.Header.Title title="Find your people" />
-            <Window.Header.RightActions isClosable onClose={modal.hide} />
+            <Modal.WindowHeader.LeftActions isExpandable onExpandChange={handleFullScreen} />
+            <Modal.WindowHeader.Title title="Find your people" />
+            <Modal.WindowHeader.RightActions isClosable onClose={modal.hide} />
           </Modal.Header>
-          <Window.Body>
+          <Modal.WindowBody>
             At work, behind every success story, someone found their people. Find your next job on
             Welcome to the Jungle.
-          </Window.Body>
+          </Modal.WindowBody>
         </Modal.Content>
       </Modal>
 
@@ -48,14 +47,14 @@ const Example = () => {
       <Modal ariaLabel="Window with BoxText" fullscreen={isFullScreen} store={modal2}>
         <Modal.Content>
           <Modal.Header>
-            <Window.Header.LeftActions isExpandable onExpandChange={handleFullScreen} />
-            <Window.Header.Title title="Find your people" />
-            <Window.Header.RightActions isClosable onClose={modal2.hide} />
+            <Modal.WindowHeader.LeftActions isExpandable onExpandChange={handleFullScreen} />
+            <Modal.WindowHeader.Title title="Find your people" />
+            <Modal.WindowHeader.RightActions isClosable onClose={modal2.hide} />
           </Modal.Header>
-          <Window.BoxText>
+          <Modal.WindowBoxText>
             2At work, behind every success story, someone found their people. Find your next job on
             Welcome to the Jungle.
-          </Window.BoxText>
+          </Modal.WindowBoxText>
         </Modal.Content>
       </Modal>
 
@@ -66,8 +65,8 @@ const Example = () => {
       <Modal ariaLabel="Window with tabs" fullscreen={isFullScreen} store={modal3}>
         <Modal.Content>
           <Modal.Header>
-            <Window.Header.LeftActions isExpandable onExpandChange={handleFullScreen} />
-            <Window.Header.Tabs
+            <Modal.WindowHeader.LeftActions isExpandable onExpandChange={handleFullScreen} />
+            <Modal.WindowHeader.Tabs
               items={[
                 { icon: 'folder', id: 'tab1', title: '1st tab' },
                 { icon: 'folder', id: 'tab2', title: '2nd tab' },
@@ -75,22 +74,22 @@ const Example = () => {
               ]}
               store={tabStore}
             />
-            <Window.Header.RightActions isClosable onClose={modal3.hide} />
+            <Modal.WindowHeader.RightActions isClosable onClose={modal3.hide} />
           </Modal.Header>
-          <Window.TabPanel store={tabStore} tabId="tab1">
-            <Window.Body>Content for the first tab</Window.Body>
-          </Window.TabPanel>
-          <Window.TabPanel store={tabStore} tabId="tab2">
-            <Window.BoxText>
+          <Modal.WindowTabPanel store={tabStore} tabId="tab1">
+            <Modal.WindowBody>Content for the first tab</Modal.WindowBody>
+          </Modal.WindowTabPanel>
+          <Modal.WindowTabPanel store={tabStore} tabId="tab2">
+            <Modal.WindowBoxText>
               This is a styled text box in the second tab. It provides a visually distinct content
               area with a different background color.
-            </Window.BoxText>
-          </Window.TabPanel>
-          <Window.TabPanel store={tabStore} tabId="tab3">
-            <Window.Media>
+            </Modal.WindowBoxText>
+          </Modal.WindowTabPanel>
+          <Modal.WindowTabPanel store={tabStore} tabId="tab3">
+            <Modal.WindowMedia>
               <img alt="Example media content" src="/landscape.jpg" />
-            </Window.Media>
-          </Window.TabPanel>
+            </Modal.WindowMedia>
+          </Modal.WindowTabPanel>
         </Modal.Content>
       </Modal>
 
@@ -101,12 +100,12 @@ const Example = () => {
       <Modal ariaLabel="Window with media" fullscreen={isFullScreen} store={modal4}>
         <Modal.Content>
           <Modal.Header>
-            <Window.Header.LeftActions isExpandable onExpandChange={handleFullScreen} />
-            <Window.Header.Title title="Landscape Image" />
+            <Modal.WindowHeader.LeftActions isExpandable onExpandChange={handleFullScreen} />
+            <Modal.WindowHeader.Title title="Landscape Image" />
           </Modal.Header>
-          <Window.Media>
+          <Modal.WindowMedia>
             <img alt="Example media content" src="/landscape.jpg" />
-          </Window.Media>
+          </Modal.WindowMedia>
         </Modal.Content>
       </Modal>
     </>
