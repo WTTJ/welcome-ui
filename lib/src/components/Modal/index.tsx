@@ -1,6 +1,7 @@
 import { Dialog, useDialogStore, useStoreState } from '@ariakit/react'
 import { useEffect, useState } from 'react'
 
+import { Window } from '@/components/Window'
 import { classNames } from '@/utils'
 import { forwardRefWithAs } from '@/utils/forwardRefWithAs'
 
@@ -11,6 +12,7 @@ import { Content } from './components/Content'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { Trigger } from './components/Trigger'
+import { WindowMedia } from './components/WindowMedia'
 import modalStyles from './modal.module.scss'
 import type { ModalProps, UseModal, UseModalProps } from './types'
 
@@ -97,6 +99,11 @@ export const Modal = Object.assign(ModalComponent, {
   Footer,
   Header,
   Trigger,
+  WindowBody: Window.Body,
+  WindowBoxText: Window.BoxText,
+  WindowHeader: Window.Header,
+  WindowMedia,
+  WindowTabPanel: Window.TabPanel,
 })
 
 // Asset Modal for pictures / videos / swiper
