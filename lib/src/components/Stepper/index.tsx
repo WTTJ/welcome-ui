@@ -53,7 +53,7 @@ const StepperComponent = forwardRef<HTMLOListElement, StepperProps>(
       if (!element) return
 
       const currentStep = element.querySelector('[aria-current="true"]')
-      if (currentStep) {
+      if (currentStep && currentStep.scrollIntoView) {
         currentStep.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
       }
     }, [children, olRef])
