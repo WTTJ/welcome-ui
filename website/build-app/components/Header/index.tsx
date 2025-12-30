@@ -9,21 +9,17 @@ import { Icon, Sprite } from '@/components/Icon'
 // uncomment the following line when you want to see all the icons locally
 // import { Icon } from '@/components/Icon'
 import { WelcomeUILogo } from '@/components/Logo'
-import { classNames } from '@/utils'
+import { Tag } from '@/components/Tag'
 
 import type { PageTree } from '~/build-app/types'
 
+import lib from '../../../../lib/package.json'
 // uncomment the following line when you want to see all the icons locally
 // import { Sprite } from '../../../../../front/src/components/wui/Sprite'
 import { Search } from '../Search'
 import { Sidebar } from '../Sidebar'
-import { VersionSelector } from '../VersionSelector'
 
-import styles from './link.module.scss'
 import { NavBar } from './NavBar'
-
-const cx = classNames(styles)
-
 export const navigation = ['foundations', 'components', 'blog']
 
 type HeaderProps = {
@@ -48,23 +44,25 @@ export const Header = ({ components, foundations }: HeaderProps) => {
   }
 
   return (
-    <header className={cx('header')}>
+    <header className="sticky top-0 py-md bg-beige-10 z-999 h-70">
       <Sprite />
-      <div className="flex gap-lg h-full items-center justify-between max-w-[87.5rem] mx-auto px-md text-neutral-60">
+      <div className="flex gap-lg items-center justify-between bg-neutral-10 border-1 border-beige-30 rounded-md shadow-(--elevation-10) p-sm md:p-lg">
         <div className="flex gap-lg items-center">
-          <div className="shrink-0">
-            <Link href="/">
-              <WelcomeUILogo className="h-[40px]" />
-            </Link>
-          </div>
-          <VersionSelector />
-          <Search />
+          <Link className="shrink-0" href="/">
+            <WelcomeUILogo className="h-25 md:h-35" />
+          </Link>
+          <NavBar className="hidden lg:flex" />
         </div>
-        <Drawer.Trigger as={Button} className="lg:hidden shrink-0" size="sm" store={drawer}>
+        <div className="flex gap-md items-center">
+          <Search />
+          <Tag className="hidden md:flex" icon={<Icon name="tag-alt" />} variant="dash">
+            {lib.version}
+          </Tag>
+        </div>
+        <Drawer.Trigger as={Button} className="lg:hidden shrink-0" size="md" store={drawer}>
           <Icon name="bars" />
         </Drawer.Trigger>
-        <NavBar className="hidden lg:flex" />
-        <Drawer className="lg:hidden z-[999]" size="100%" store={drawer} withBackdrop>
+        <Drawer className="lg:hidden" size="100%" store={drawer} withBackdrop>
           <Drawer.Content className="pt-4xl">
             <NavBar onClick={handleCloseDrawer} />
             {menu ? <Sidebar isSubPage menu={menu} onClick={handleCloseDrawer} /> : null}
