@@ -76,6 +76,7 @@ export default {
   "/Drawer/docs/examples/placement.tsx": dynamic(() => import("../../lib/src/components/Drawer/docs/examples/placement.tsx").then(mod => mod), { ssr: false }),
   "/Drawer/docs/examples/sizes.tsx": dynamic(() => import("../../lib/src/components/Drawer/docs/examples/sizes.tsx").then(mod => mod), { ssr: false }),
   "/Drawer/docs/examples/styling.tsx": dynamic(() => import("../../lib/src/components/Drawer/docs/examples/styling.tsx").then(mod => mod), { ssr: false }),
+  "/Drawer/docs/examples/window.tsx": dynamic(() => import("../../lib/src/components/Drawer/docs/examples/window.tsx").then(mod => mod), { ssr: false }),
   "/DropdownMenu/docs/examples/action.tsx": dynamic(() => import("../../lib/src/components/DropdownMenu/docs/examples/action.tsx").then(mod => mod), { ssr: false }),
   "/DropdownMenu/docs/examples/arrow.tsx": dynamic(() => import("../../lib/src/components/DropdownMenu/docs/examples/arrow.tsx").then(mod => mod), { ssr: false }),
   "/DropdownMenu/docs/examples/check-mark.tsx": dynamic(() => import("../../lib/src/components/DropdownMenu/docs/examples/check-mark.tsx").then(mod => mod), { ssr: false }),

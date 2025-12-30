@@ -14,7 +14,9 @@ const Example = () => {
         Open Drawer
       </Drawer.Trigger>
       <Drawer aria-label="Default drawer" className="bg-beige-20" store={drawer}>
-        <Drawer.Title className="border-b border-b-beige-40 bg-beige-30">Hello</Drawer.Title>
+        <Drawer.Header>
+          <Drawer.Header.Title title="Hello" />
+        </Drawer.Header>
         <Drawer.Content>
           Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
           aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
