@@ -144,40 +144,40 @@ Modal.Footer no longer accepts the information props. It accepts a `variant` pro
 
 ### Drawer
 
-- **Removed `Drawer.Title`:** The standalone `Drawer.Title` component was removed. Replace usages with the new `Drawer.Header` and `Drawer.Header.Title`.
+Removed `Drawer.Title`: the standalone `Drawer.Title` component was removed. Replace usages with the new `Drawer.Header` and `Drawer.Header.Title`.
 
-  Example migration:
+Example migration:
 
-  ```diff
-  - <Drawer.Title>Hello</Drawer.Title>
-  + <Drawer.Header>
-  +   <Drawer.Header.Title title="Hello" />
-  + </Drawer.Header>
-  ```
+```diff
+- <Drawer.Title>Hello</Drawer.Title>
++ <Drawer.Header>
++   <Drawer.Header.Title title="Hello" />
++ </Drawer.Header>
+```
 
-- **New header subcomponents:** `Drawer.Header` now exposes several subcomponents that replace previous title/close placement patterns:
+New header subcomponents: `Drawer.Header` now exposes several subcomponents that replace previous title/close placement patterns:
 
-  - `Drawer.Header.Title` — renders the header title
-  - `Drawer.Header.LeftActions` — expandable/visibility actions for the left side
-  - `Drawer.Header.RightActions` — place actions on the right side (accepts `isClosable` to render a close button)
-  - `Drawer.Header.Tabs` and `Drawer.WindowTabPanel` — tabs support inside the header
-  - `Drawer.Header.CloseButton` — header-specific close button
+- `Drawer.Header.Title` — renders the header title
+- `Drawer.Header.LeftActions` — expandable/visibility actions for the left side
+- `Drawer.Header.RightActions` — place actions on the right side (accepts `isClosable` to render a close button)
+- `Drawer.Header.Tabs` and `Drawer.WindowTabPanel` — tabs support inside the header
+- `Drawer.Header.CloseButton` — header-specific close button
 
-- **Standalone close behavior changed:** When a `Drawer.Header` is present the standalone `<Drawer.Close />` (the previously common standalone close button) is automatically hidden. Use `Drawer.Header.RightActions` (with `isClosable`) or `Drawer.Header.CloseButton` to show a close control inside the header.
+Standalone close behavior changed: when a `Drawer.Header` is present the standalone `<Drawer.Close />` (the previously common standalone close button) is automatically hidden. Use `Drawer.Header.RightActions` (with `isClosable`) or `Drawer.Header.CloseButton` to show a close control inside the header.
 
-- **New `Media` slot:** `Drawer.Media` was added to render media content (images, videos) and is used by `AssetDrawer` and the new window-like Drawer examples.
+New `Media` slot: `Drawer.Media` was added to render media content (images, videos) and is used by `AssetDrawer` and the new window-like Drawer examples.
 
-- **New body helpers:** `Drawer.Body` and `Drawer.BoxText` were introduced for common content patterns. `Drawer.Content` and `Drawer.Footer` remain available.
+New body helpers: `Drawer.Body` and `Drawer.BoxText` were introduced for common content patterns. `Drawer.Content` and `Drawer.Footer` remain available.
 
-- **Fullscreen prop:** `Drawer` now accepts a `fullscreen` boolean prop to toggle the window/fullscreen layout behavior. Update any TypeScript usages to account for `fullscreen?: boolean` in `DrawerOptions`.
+Fullscreen prop: `Drawer` now accepts a `fullscreen` boolean prop to toggle the window/fullscreen layout behavior. Update any TypeScript usages to account for `fullscreen?: boolean` in `DrawerOptions`.
 
-- **New composition exports:** The `Drawer` object gained these properties (examples from the code changes):
+New composition exports: The `Drawer` object gained these properties (examples from the code changes):
 
-  - `Drawer.Header` (re-uses `Window.Header`)
-  - `Drawer.Media` (re-uses `Window.Media`)
-  - `Drawer.Body` (alias to `Window.Body`)
-  - `Drawer.BoxText` (alias to `Window.BoxText`)
-  - `Drawer.WindowTabPanel` (tab panels for header tabs)
+- `Drawer.Header` (re-uses `Window.Header`)
+- `Drawer.Media` (re-uses `Window.Media`)
+- `Drawer.Body` (alias to `Window.Body`)
+- `Drawer.BoxText` (alias to `Window.BoxText`)
+- `Drawer.WindowTabPanel` (tab panels for header tabs)
 
 ## Utils
 

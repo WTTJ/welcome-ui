@@ -16,11 +16,6 @@
     transition: var(--duration-medium);
     max-width: 100%;
 
-    @media screen and (min-width: breakpoints.$breakpoint-md) {
-      border-radius: var(--components-dimensions-drawer-border-radius);
-      margin: var(--spacing-md);
-    }
-
     --drawerLeft: 0;
     --drawerRight: 0;
     --drawerTop: 0;
@@ -43,6 +38,11 @@
     &:has(> header) {
       .drawer-close {
         display: none;
+      }
+
+      @media screen and (min-width: breakpoints.$breakpoint-md) {
+        border-radius: var(--components-dimensions-drawer-border-radius);
+        margin: var(--spacing-md);
       }
     }
 
