@@ -14,7 +14,7 @@ const Example = () => {
           action={
             <div className="flex gap-md">
               <Button>Primary</Button>
-              <Button variant="secondary">Secondary</Button>
+              <Button variant="primary-neutral">Secondary</Button>
             </div>
           }
           iconName="user-circle"

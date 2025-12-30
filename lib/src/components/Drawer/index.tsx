@@ -2,6 +2,7 @@ import type { DialogProps } from '@ariakit/react'
 import { Dialog } from '@ariakit/react'
 import { forwardRef, useCallback } from 'react'
 
+import { Window } from '@/components/Window'
 import { classNames } from '@/utils'
 
 import { AssetDrawerComponent } from './AssetDrawer'
@@ -10,7 +11,7 @@ import { Backdrop } from './components/Backdrop'
 import { Close } from './components/Close'
 import { Content } from './components/Content'
 import { Footer } from './components/Footer'
-import { Title } from './components/Title'
+import { Media } from './components/Media'
 import { Trigger } from './components/Trigger'
 import styles from './drawer.module.scss'
 import type { DrawerProps } from './types'
@@ -22,6 +23,7 @@ const DrawerComponent = forwardRef<HTMLDivElement, DrawerProps>(
     {
       children,
       className,
+      fullscreen = false,
       getPersistentElements: parentGetPersistentElements,
       hideOnInteractOutside = true,
       placement = 'right',
@@ -69,7 +71,17 @@ const DrawerComponent = forwardRef<HTMLDivElement, DrawerProps>(
         hideOnInteractOutside={hideOnInteractOutsideFn}
         modal={withBackdrop}
         ref={ref}
-        render={<div className={cx('root', `placement-${placement}`, `size-${size}`, className)} />}
+        render={
+          <div
+            className={cx(
+              'root',
+              `placement-${placement}`,
+              `size-${size}`,
+              fullscreen && 'fullscreen',
+              className
+            )}
+          />
+        }
         store={store}
         {...(rest as DialogProps<'div'>)}
       >
@@ -86,11 +98,15 @@ DrawerComponent.displayName = 'Drawer'
 
 export const Drawer = Object.assign(DrawerComponent, {
   Backdrop,
+  Body: Window.Body,
+  BoxText: Window.BoxText,
   Close,
   Content,
   Footer,
-  Title,
+  Header: Window.Header,
+  Media: Media,
   Trigger,
+  WindowTabPanel: Window.TabPanel,
 })
 
 export { useDialogStore as useDrawer } from '@ariakit/react'

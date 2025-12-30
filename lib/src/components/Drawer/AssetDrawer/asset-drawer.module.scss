@@ -5,6 +5,7 @@
     overflow: hidden;
     border-top-left-radius: var(--border-radius-2xl);
     border-top-right-radius: var(--border-radius-2xl);
+    top: auto !important;
 
     /* Needed to override the default height set in drawer.module.scss */
     /* Uses 'class contains root' because root gets prefixed */

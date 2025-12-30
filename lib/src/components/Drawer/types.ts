@@ -18,6 +18,7 @@ export type CloseProps = CloseButtonProps
 export type ContentProps = ComponentPropsWithRef<'div'>
 
 export interface DrawerOptions extends DialogOptions<'div'> {
+  fullscreen?: boolean
   placement?: Placement
   size?: Size
   withBackdrop?: boolean

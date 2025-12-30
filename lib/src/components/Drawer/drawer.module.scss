@@ -2,8 +2,10 @@
 
 @layer components {
   .root {
-    background-color: var(--color-background-neutral-inverse-fixed);
-    border: var(--border-width-xs) solid var(--color-background-neutral-subtlest);
+    background-color: var(--components-colors-drawer-body-color-background-default);
+    border: var(--components-dimensions-drawer-border-width) solid
+      var(--components-colors-drawer-color-border-default);
+    box-shadow: var(--elevation-10);
     z-index: 999;
 
     position: fixed;
@@ -14,12 +16,17 @@
     transition: var(--duration-medium);
     max-width: 100%;
 
+    @media screen and (min-width: breakpoints.$breakpoint-md) {
+      border-radius: var(--components-dimensions-drawer-border-radius);
+      margin: var(--spacing-md);
+    }
+
     --drawerLeft: 0;
     --drawerRight: 0;
     --drawerTop: 0;
     --drawerBottom: 0;
-    --drawerHeight: 100%;
-    --drawerWidth: 100%;
+    --drawerHeight: calc(100% - var(--spacing-md) * 2);
+    --drawerWidth: calc(100% - var(--spacing-md) * 2);
     --drawerTransform: translateY(0, 0);
 
     left: var(--drawerLeft);
@@ -30,21 +37,30 @@
     height: var(--drawerHeight);
     transform: var(--drawerTransform);
 
+    /* Hide the standalone close button when the Drawer contains a header
+     (the header already contains its own close button). Scope :has to the
+     root so nesting selector has a scoping root. */
+    &:has(> header) {
+      .drawer-close {
+        display: none;
+      }
+    }
+
     &.placement {
       &-bottom {
-        --drawerTop: auto;
+        --drawerTop: calc(100% - var(--drawerHeight) - var(--spacing-md) * 2);
         --drawerTransform: translateY(100%);
       }
       &-left {
-        --drawerRight: auto;
+        --drawerRight: calc(100% - var(--drawerWidth) - var(--spacing-md) * 2);
         --drawerTransform: translateX(-100%);
       }
       &-right {
-        --drawerLeft: auto;
+        --drawerLeft: calc(100% - var(--drawerWidth) - var(--spacing-md) * 2);
         --drawerTransform: translateX(100%);
       }
       &-top {
-        --drawerBottom: auto;
+        --drawerBottom: calc(100% - var(--drawerHeight));
         --drawerTransform: translateY(-100%);
       }
       &-top,
@@ -82,10 +98,42 @@
       opacity: 1;
       --drawerTransform: translateX(0, 0);
     }
+
+    &.fullscreen {
+      top: 0;
+      left: 0;
+      width: calc(100% - var(--spacing-md) * 2);
+      height: calc(100% - var(--spacing-md) * 2);
+
+      &.placement-left:not([data-enter]) {
+        --drawerTransform: translateX(-100%);
+      }
+      &.placement-right:not([data-enter]) {
+        --drawerTransform: translateX(100%);
+      }
+      &.placement-top:not([data-enter]) {
+        --drawerTransform: translateY(-100%);
+      }
+      &.placement-bottom:not([data-enter]) {
+        --drawerTransform: translateY(100%);
+      }
+
+      .media {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .media :first-child {
+        max-height: calc(100vh - 37px - var(--spacing-xxl) * 2);
+        width: auto;
+        height: auto;
+      }
+    }
   }
 
   .backdrop {
-    background-color: var(--color-overlay-strong);
+    background-color: var(--color-background-transparent-black-subtle);
     z-index: 999;
     position: fixed;
     top: 0;
@@ -106,7 +154,7 @@
 
   .content {
     flex: 1;
-    padding: var(--border-radius-2xl);
+    padding: var(--spacing-xxl);
 
     @media screen and (min-width: breakpoints.$breakpoint-md) {
       overflow-y: auto;
@@ -118,8 +166,8 @@
     position: sticky;
     z-index: 1;
     width: 100%;
-    background-color: var(--color-background-warm-strong);
-    padding: var(--border-radius-2xl);
+    background-color: var(--components-colors-drawer-body-color-background-default);
+    padding: var(--spacing-xl);
 
     @media screen and (min-width: breakpoints.$breakpoint-md) {
       bottom: auto;
@@ -136,16 +184,15 @@
     top: 0;
     width: 100%;
 
-    background-color: var(--color-background-neutral-inverse-fixed);
+    background-color: var(--components-colors-drawer-body-color-background-default);
     margin: 0;
-    padding: var(--border-radius-2xl) var(--spacing-96) var(--border-radius-2xl)
-      var(--border-radius-2xl);
+    padding: var(--spacing-xl) var(--spacing-5xl) var(--spacing-xl) var(--spacing-xl);
   }
 
   .drawer-close {
     position: absolute;
-    right: var(--border-radius-xl);
-    top: var(--border-radius-xl);
+    right: var(--spacing-xs);
+    top: var(--spacing-xs);
     z-index: 10;
   }
 }
