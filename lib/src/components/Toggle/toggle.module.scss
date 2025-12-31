@@ -1,32 +1,36 @@
 @layer components {
   .root {
+    /* VARIABLES FROM THEME - DONT CHANGE WITH REACT PROPS */
+    position: relative;
+    display: block;
     transition-property: all;
     transition-duration: var(--duration-medium);
     transition-timing-function: var(--timing-primary);
-    background-color: var(--color-neutral-10);
-    border-color: var(--color-neutral-30);
-    border-radius: var(--radius-xl);
+    border-radius: var(--components-dimensions-toggle-track-size-height-sm);
     border-style: solid;
-    border-width: var(--border-width-sm);
-    position: relative;
-    display: block;
-    margin-top: var(--toggle-margin-top);
+    border-width: var(--components-dimensions-toggle-thumb-border-width);
     outline: none !important; /* important for firefox */
     cursor: pointer;
-    height: var(--toggle-height);
-    width: var(--toggle-width);
 
-    &:focus {
-      border-color: var(--color-brand-30);
-      box-shadow: 0 0 0 var(--border-width-md) var(--color-brand-30);
-    }
+    /* VARIABLES THAT CHANGE WITH REACT PROPS */
+    background-color: var(
+      --toggleBackgroundColor,
+      (--components-colors-toggle-track-color-background-unchecked-default)
+    );
+    border-color: var(
+      --toggleBorderColor,
+      var(--components-colors-toggle-track-color-border-unchecked-default)
+    );
+    height: var(--toggleHeight);
+    width: var(--toggleWidth);
+    box-shadow:
+      var(--boxShadowColor, transparent) 0 0 0 var(--boxShadowSize, 0),
+      var(--boxShadowInset, var(--inset-5)) inset;
 
     &::after {
-      background-color: var(--color-neutral-10);
-      border-color: var(--color-neutral-50);
-      border-radius: var(--radius-circle);
+      border-radius: var(--components-dimensions-toggle-track-border-radius);
       border-style: solid;
-      border-width: var(--border-width-sm);
+      border-width: var(--components-dimensions-toggle-thumb-border-width);
       content: '';
       top: 0;
       bottom: 0;
@@ -37,68 +41,96 @@
       transition-property: all;
       transition-duration: var(--duration-medium);
       transition-timing-function: var(--timing-primary);
-      height: var(--toggle-after-height);
-      width: var(--toggle-after-height);
+
+      /* VARIABLES THAT CHANGE WITH REACT PROPS */
+      background-color: var(
+        --toggleAfterBackgroundColor,
+        var(--components-colors-toggle-thumb-color-background-default)
+      );
+      border-color: var(
+        --toggleAfterBorderColor,
+        var(--components-colors-toggle-thumb-color-border-default)
+      );
+      height: var(--toggleAfterHeight);
+      width: var(--toggleAfterHeight);
+    }
+
+    &[data-focus-visible],
+    &:focus-visible {
+      --boxShadowColor: var(--components-colors-toggle-track-color-background-checked-hover);
+      --boxShadowSize: var(--components-dimensions-toggle-track-border-width-focused);
+      --boxShadowInset: var(--inset-10);
+    }
+
+    &:hover {
+      &:not(:disabled) {
+        --toggleBorderColor: var(--components-colors-toggle-track-color-border-unchecked-hover);
+        --boxShadowInset: var(--inset-10);
+      }
     }
 
     &:disabled {
-      background-color: var(--color-beige-40);
-      border-color: var(--color-beige-60);
       cursor: not-allowed;
 
-      &::after {
-        background-color: var(--color-beige-60);
-        border-color: transparent;
-      }
+      --toggleBackgroundColor: var(--components-colors-toggle-track-color-background-disabled);
+      --toggleBorderColor: var(--components-colors-toggle-track-color-border-disabled);
+      --toggleAfterBackgroundColor: var(--components-colors-toggle-thumb-color-background-disabled);
+      --toggleAfterBorderColor: var(--components-colors-toggle-thumb-color-background-disabled);
     }
 
     &[aria-checked='true'] {
       &::after {
         /* border + left padding + right padding */
-        --toggle-computed-width: calc(var(--toggle-width) - 100% - 0.3rem);
-        transform: translateX(var(--toggle-computed-width));
+        --toggleComputedWidth: calc(var(--toggleWidth) - 100% - 0.3rem);
+        transform: translateX(var(--toggleComputedWidth));
       }
 
       &:not(:disabled) {
-        background-color: var(--color-brand-40);
-        border-color: var(--color-brand-40);
+        --toggleBackgroundColor: var(
+          --components-colors-toggle-track-color-background-checked-default
+        );
+        --toggleBorderColor: var(--components-colors-toggle-track-color-background-checked-default);
+        --toggleAfterBorderColor: var(
+          --components-colors-toggle-track-color-border-checked-default
+        );
 
-        &::after {
-          background-color: var(--color-neutral-10);
-          border-color: var(--color-neutral-10);
+        &:hover {
+          --toggleBackgroundColor: var(
+            --components-colors-toggle-track-color-background-checked-hover
+          );
+          --toggleBorderColor: var(--components-colors-toggle-track-color-background-checked-hover);
+
+          &::after {
+            --toggleAfterBorderColor: var(
+              --components-colors-toggle-track-color-border-checked-hover
+            );
+          }
         }
       }
     }
   }
 
-  .size-md {
-    --toggle-margin-top: 0;
-    --toggle-width: 2.75rem;
-    --toggle-height: var(--height-24);
-    --toggle-after-height: var(--height-20);
-    --toggle-icon-height: var(--height-16);
-    --toggle-icon-position-offset: var(--spacing-xs);
-    --toggle-icon-font-size: var(--font-size-16);
-  }
+  .size {
+    &-sm {
+      --toggleWidth: var(--components-dimensions-toggle-track-size-width-sm);
+      --toggleHeight: var(--components-dimensions-toggle-track-size-height-sm);
+      --toggleAfterHeight: var(--components-dimensions-toggle-thumb-size-sm);
+      --toggleIconSize: var(--components-dimensions-toggle-track-size-icon-sm);
+    }
 
-  .size-sm {
-    --toggle-margin-top: 0.12rem;
-    --toggle-width: 2.25rem;
-    --toggle-height: var(--height-20);
-    --toggle-after-height: var(--height-16);
-    --toggle-icon-height: var(--height-12);
-    --toggle-icon-position-offset: var(--spacing-xs);
-    --toggle-icon-font-size: var(--font-size-12);
-  }
+    &-md {
+      --toggleWidth: var(--components-dimensions-toggle-track-size-width-md);
+      --toggleHeight: var(--components-dimensions-toggle-track-size-height-md);
+      --toggleAfterHeight: var(--components-dimensions-toggle-thumb-size-md);
+      --toggleIconSize: var(--components-dimensions-toggle-track-size-icon-md);
+    }
 
-  .size-xs {
-    --toggle-margin-top: 0.32rem;
-    --toggle-width: 1.75rem;
-    --toggle-height: var(--height-16);
-    --toggle-after-height: var(--height-12);
-    --toggle-icon-height: var(--height-10);
-    --toggle-icon-position-offset: var(--spacing-xxs);
-    --toggle-icon-font-size: var(--font-size-10);
+    &-lg {
+      --toggleWidth: var(--components-dimensions-toggle-track-size-width-lg);
+      --toggleHeight: var(--components-dimensions-toggle-track-size-height-lg);
+      --toggleAfterHeight: var(--components-dimensions-toggle-thumb-size-lg);
+      --toggleIconSize: var(--components-dimensions-toggle-track-size-icon-lg);
+    }
   }
 
   .wrapper {
@@ -113,21 +145,23 @@
     z-index: 1;
     display: flex;
     align-items: center;
-    height: var(--toggle-height);
-    bottom: 0;
-    right: var(--toggle-icon-position-offset);
+    bottom: var(--spacing-xs);
+    right: var(--spacing-xs);
 
-    & > svg,
-    i {
-      font-size: var(--toggle-icon-font-size);
-      height: var(--toggle-icon-height);
-      width: var(--toggle-icon-height);
+    svg {
+      /* VARIABLES THAT CHANGE WITH REACT PROPS */
+      width: var(--toggleIconSize);
+      height: var(--toggleIconSize);
+      color: var(--toggleIconColor, var(--components-colors-toggle-track-color-icon-default));
     }
 
     &.checked {
       right: 0;
-      left: var(--toggle-icon-position-offset);
-      color: var(--color-neutral-90);
+      left: var(--spacing-xs);
+    }
+
+    &.disabled {
+      --toggleIconColor: var(--components-colors-toggle-track-color-icon-disabled);
     }
   }
 }

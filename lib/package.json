@@ -1,6 +1,6 @@
 {
   "name": "welcome-ui",
-  "version": "9.0.12",
+  "version": "10.0.0-alpha.18",
   "description": "Customizable design system with react, typescript, tailwindcss and ariakit.",
   "files": [
     "dist"
@@ -28,9 +28,11 @@
   },
   "scripts": {
     "start": "vite build --watch",
-    "build": "vite build",
-    "build:tokens": "style-dictionary build --config=style-dictionary.json --verbose",
-    "theme:generate": "yarn build:tokens && tsx src/theme/generate-theme.ts && yarn run -W prettier --write 'src/theme/theme.css'",
+    "build": "vite build && node ./scripts/patch-css-imports.js",
+    "tokens:clean": "tsx src/theme/clean-tokens.ts",
+    "tokens:build": "yarn tokens:clean && node ./src/theme/build-tokens.js",
+    "tokens:generate-types": "tsx src/theme/extract-css-vars.ts",
+    "theme:generate": "yarn tokens:build && tsx src/theme/generate-theme.ts && yarn run -W prettier --write 'src/theme/theme.css' && yarn tokens:generate-types",
     "test": "vitest"
   },
   "repository": {

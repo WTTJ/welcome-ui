@@ -16,7 +16,7 @@ export type ToastOptions = {
   position?: ToastPosition
 }
 
-export type ToastVariant = 'ai' | 'beige' | 'danger' | 'info' | 'success' | 'warning'
+export type ToastVariant = 'error' | 'info' | 'success' | 'warning'
 
 export type ToastWrapperProps = {
   toast: CustomToastOptions & Toast
@@ -28,20 +28,19 @@ type CustomToastOptions = {
 }
 
 interface GrowlOptions {
-  'data-testid'?: string
+  cta?: JSX.Element
+  duration?: ToastOptions['duration']
   hasCloseButton?: boolean
-  hideIcon?: boolean
-  onClose?: () => void
+  onClose?: ToastOptions['onClose']
+  showProgressBar?: boolean
   variant?: ToastVariant
 }
 
 interface SnackbarOptions {
-  /** add correct separator for call to action
-   * use SnackbarAction
-   */
   cta?: JSX.Element
+  duration?: ToastOptions['duration']
   hasCloseButton?: boolean
-  hideIcon?: boolean
-  onClose?: () => void
+  hideProgressBar?: boolean
+  onClose?: ToastOptions['onClose']
   variant?: ToastVariant
 }

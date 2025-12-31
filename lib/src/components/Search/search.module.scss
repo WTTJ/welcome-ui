@@ -9,16 +9,16 @@
     position: absolute;
     padding: 0;
     top: 0;
-    height: var(--search-height, 100%);
-    right: var(--indicators-right, 0);
+    height: var(--searchHeight, 100%);
+    right: var(--indicatorsRight, 0);
     display: flex;
-    gap: var(--spacing-xs);
+    gap: var(--border-radius-sm);
   }
 
   .dropdown-indicator {
     position: relative;
     height: 100%;
-    width: var(--search-clear-size);
+    width: var(--searchClearSize);
     padding: 0;
     outline: none !important; /* important for firefox */
     appearance: none;
@@ -34,78 +34,73 @@
 
     &:has(> .icon-placement-right) {
       .indicators {
-        --indicators-right: calc((var(--search-icon-size, 1rem) + var(--spacing-sm)));
+        --indicatorsRight: calc((var(--searchIconSize, 1rem) + var(--border-radius-md)));
       }
     }
   }
 
   .root {
-    background-color: var(--search-background-color, var(--color-neutral-10));
-    border-color: var(--search-border-color, var(--color-neutral-30));
-    border-radius: var(--radius-md);
+    border-radius: var(--components-dimensions-input-border-radius);
     border-style: solid;
-    border-width: var(--border-width-sm);
-    color: var(--search-text-color, var(--color-neutral-90));
+    border-width: var(--components-dimensions-input-border-width-default);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-regular);
-    line-height: var(--line-height-16);
-    outline: 2px solid var(--search-outline-color, transparent);
-    cursor: default;
+    line-height: var(--font-line-height-md);
+    outline: none;
     width: 100%;
-    transition-property: all;
-    transition-timing-function: var(--timing-primary);
-    transition-duration: var(--duration-medium);
+    transition: var(--duration-medium);
     appearance: none;
+    cursor: default;
     @include ellipsis.text-ellipsis;
 
-    height: var(--search-height);
-    padding-bottom: var(--search-padding-bottom);
-    padding-left: var(--search-padding-left);
-    padding-right: var(--search-padding-right);
-    padding-top: var(--search-padding-top);
+    /* VARIABLES THAT CHANGE WITH REACT PROPS */
+    background-color: var(
+      --searchBackgroundColor,
+      var(--components-colors-input-color-background-default)
+    );
+    color: var(--searchColor, var(--components-colors-input-color-text-default));
+    border-color: var(--searchBorderColor, var(--components-colors-input-color-border-default));
+    box-shadow: var(--searchBoxShadow, var(--inset-10)) inset;
+    height: var(--searchHeight);
+    padding-inline: var(--searchPaddingInline);
+    padding-block: var(--searchPaddingBlock);
 
     /* left icon */
     &.icon-placement-left {
       padding-left: calc(
-        var(--search-padding-left) + var(--search-icon-size, 1rem) + var(--spacing-sm)
+        var(--searchPaddingLeft) + var(--searchIconSize, 1rem) + var(--border-radius-md)
       );
     }
 
     /*  right icon */
     &.icon-placement-right {
       padding-right: calc(
-        var(--search-padding-right) + (var(--search-icon-size, 1rem) + var(--spacing-sm)) * 2
+        var(--searchPaddingRight) + (var(--searchIconSize, 1rem) + var(--border-radius-md)) * 2
       );
     }
 
-    &:disabled {
-      --search-background-color: var(--search-color-beige-40);
-      --search-text-color: var(--search-color-beige-70);
+    &:disabled,
+    &[aria-disabled] {
+      --searchBackgroundColor: var(
+        --searchBackgroundColorDisabled,
+        var(--components-colors-input-color-background-disabled)
+      );
+      --searchColor: var(--components-colors-input-color-text-disabled);
       cursor: not-allowed;
     }
 
-    /* hover when no variant is defined */
-    &:hover:not([class*='variant']) {
-      --search-border-color: var(--color-brand-40);
+    &:hover:not(:disabled):not([aria-disabled]) {
+      --borderColor: var(--borderColorHover, var(--color-border-neutral-subtlest));
+      --searchBoxShadow: var(--inset-20);
     }
 
-    /* focus when no variant is defined */
-    &:focus:not([class*='variant']) {
-      --search-outline-color: var(--color-brand-20);
-      --search-border-color: var(--color-brand-40);
-    }
-
-    &.transparent {
-      --search-border-color: transparent;
-      --search-background-color: transparent;
-
-      &:hover {
-        --search-border-color: var(--color-neutral-20);
-      }
+    &:active,
+    &:focus {
+      --searchBorderColor: var(--components-colors-input-color-border-focused);
     }
 
     &::placeholder {
-      color: var(--color-neutral-60);
+      color: var(--components-colors-input-color-text-placeholder);
     }
 
     br {
@@ -115,144 +110,149 @@
 
   .variant {
     &-danger {
-      --search-border-color: var(--color-red-70);
-      --search-outline-color: var(--color-red-30);
-    }
-
-    &-success {
-      --search-border-color: var(--color-green-60);
-      --search-outline-color: var(--color-green-30);
+      --searchBorderColor: var(--components-colors-input-color-border-error);
     }
 
     &-warning {
-      --search-border-color: var(--color-orange-60);
-      --search-outline-color: var(--color-orange-20);
+      --searchBorderColor: var(--components-colors-input-color-border-warning);
     }
+
+    &-success {
+      --searchBorderColor: var(--components-colors-input-color-border-success);
+    }
+  }
+
+  .transparent {
+    --borderColor: transparent;
+    --searchBackgroundColor: var(--components-colors-input-color-background-transparent);
+    --borderColorHover: var(--components-colors-input-color-border-hover-transparent);
   }
 
   .size {
     &-lg {
-      --search-height: var(--height-48);
-      --search-clear-size: var(--search-height);
-      --search-padding-bottom: var(--spacing-16);
-      --search-padding-left: var(--spacing-12);
-      --search-padding-right: var(--spacing-12);
-      --search-padding-top: var(--spacing-16);
+      --searchHeight: var(--components-dimensions-input-max-height-lg);
+      --searchPaddingBlock: var(--components-dimensions-input-padding-block-lg);
+      --searchPaddingInline: var(--components-dimensions-input-padding-inline-lg);
     }
 
     &-md {
-      --search-height: var(--height-40);
-      --search-clear-size: var(--search-height);
-      --search-padding-bottom: var(--spacing-12);
-      --search-padding-left: var(--spacing-12);
-      --search-padding-right: var(--spacing-12);
-      --search-padding-top: var(--spacing-12);
+      --searchHeight: var(--components-dimensions-input-max-height-md);
+      --searchPaddingBlock: var(--components-dimensions-input-padding-block-md);
+      --searchPaddingInline: var(--components-dimensions-input-padding-inline-md);
     }
 
     &-sm {
-      --search-height: var(--height-32);
-      --search-clear-size: var(--search-height);
-      --search-padding-bottom: var(--spacing-8);
-      --search-padding-left: var(--spacing-12);
-      --search-padding-right: var(--spacing-12);
-      --search-padding-top: var(--spacing-8);
-    }
-
-    &-xs {
-      --search-height: var(--height-24);
-      --search-clear-size: var(--search-height);
-      --search-padding-bottom: var(--spacing-4);
-      --search-padding-left: var(--spacing-8);
-      --search-padding-right: var(--spacing-8);
-      --search-padding-top: var(--spacing-4);
-      --search-icon-size: 0.75rem;
+      --searchHeight: var(--components-dimensions-input-max-height-sm);
+      --searchPaddingBlock: var(--components-dimensions-input-padding-block-sm);
+      --searchPaddingInline: var(--components-dimensions-input-padding-inline-sm);
     }
   }
 
   .icon-wrapper {
     position: absolute;
     top: 0;
-    left: var(--icon-placement-left, auto);
-    right: var(--icon-placement-right, auto);
     bottom: 0;
+    left: var(--searchIconLeft);
+    right: var(--searchIconRight);
     display: flex;
     justify-content: center;
     align-items: center;
     pointer-events: none;
-    transition-property: all;
+    transition: var(--duration-medium);
     transition-timing-function: var(--timing-primary);
-    transition-duration: var(--duration-medium);
-    color: var(--color-neutral-90);
+    color: var(--searchIconColor, var(--components-colors-input-color-icon-placeholder));
+    gap: var(--components-dimensions-input-padding-block-sm);
 
-    &.icon-placement-left {
-      --icon-placement-left: var(--spacing-md);
-      &.size-xs {
-        --icon-placement-left: var(--spacing-sm);
-      }
-    }
-
-    &.icon-placement-right {
-      --icon-placement-right: var(--spacing-md);
-      &.size-xs {
-        --icon-placement-right: var(--spacing-sm);
-      }
-    }
+    --searchIconLeft: auto;
+    --searchIconRight: auto;
 
     /* for button action */
     & > button {
       pointer-events: auto;
     }
+
+    &.disabled {
+      --searchIconColor: var(--components-colors-input-color-icon-disabled);
+    }
+  }
+
+  .icon-placement {
+    &-left {
+      &-sm {
+        --searchIconLeft: var(--components-dimensions-input-padding-inline-sm);
+      }
+
+      &-md {
+        --searchIconLeft: var(--components-dimensions-input-padding-inline-md);
+      }
+    }
+
+    &-right {
+      &-sm {
+        --searchIconRight: var(--components-dimensions-input-padding-inline-sm);
+      }
+
+      &-md {
+        --searchIconRight: var(--components-dimensions-input-padding-inline-md);
+      }
+    }
   }
 
   .menu {
     max-height: 9.6875rem; /* 155px */
-    background-color: var(--color-neutral-10);
-    border-color: var(--color-neutral-30);
-    border-radius: var(--radius-md);
+    background-color: var(--color-background-neutral-inverse-fixed);
+    border-color: var(--color-background-neutral-subtlest);
+    border-radius: var(--border-radius-md);
     border-style: solid;
-    border-width: var(--border-width-sm);
-    color: var(--color-neutral-90);
-    font-size: var(--font-size-sm);
+    border-width: var(--border-width-xs);
+    box-shadow: var(--elevation-20);
+    color: var(--color-background-neutral-primary-fixed);
+    font-size: var(--font-size-14);
     font-weight: var(--font-weight-regular);
-    line-height: var(--line-height-16);
+    line-height: var(--border-radius-xl);
     outline: none;
     position: absolute;
     z-index: 2;
     right: 0;
     left: 0;
-    margin: 0;
-    margin-top: var(--spacing-md);
-    padding: 0;
+    margin-top: var(--border-radius-lg);
     transition-property: all;
     transition-timing-function: var(--timing-primary);
     transition-duration: var(--duration-medium);
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
 
     &:hover > * {
       cursor: pointer;
     }
   }
 
+  .menu-scroller {
+    max-height: inherit;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0;
+    padding: 0;
+  }
+
   .item {
-    color: var(--item-text-color, var(--color-beige-70));
-    cursor: var(--item-cursor, default);
-    padding: var(--spacing-md);
+    color: var(--itemTextColor, var(--color-icon-warm-tertiary));
+    cursor: var(--itemCursor, default);
+    padding: var(--border-radius-lg);
     list-style: none;
     text-decoration: none;
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-14);
     transition-property: background;
     transition-duration: var(--duration-medium);
     transition-timing-function: var(--timing-primary);
     @include ellipsis.text-ellipsis;
 
     &.highlighted {
-      background-color: var(--color-beige-20);
+      background-color: var(--color-background-warm-primary);
     }
 
     &.selected {
-      --item-text-color: var(--color-neutral-90);
-      font-weight: var(--font-weight-bold);
+      --itemTextColor: var(--color-background-neutral-primary-fixed);
+      font-weight: var(--font-weight-semi-bold);
     }
 
     &.selected.highlighted {

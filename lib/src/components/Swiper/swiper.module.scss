@@ -10,10 +10,10 @@
 
   .dark {
     .bullet {
-      --bulletBackgroundColor: var(--color-neutral-50);
+      --bulletBackgroundColor: var(--color-icon-neutral-subtlest);
 
       &-active {
-        --bulletBackgroundColor: var(--color-brand-90);
+        --bulletBackgroundColor: var(--color-icon-brand-primary);
       }
     }
   }
@@ -141,10 +141,10 @@
     }
 
     &-background {
-      background-color: var(--color-neutral-10);
+      background-color: var(--color-background-neutral-inverse-fixed);
 
       &:hover {
-        background-color: var(--color-neutral-40);
+        background-color: var(--color-background-neutral-subtle);
       }
     }
   }
@@ -154,7 +154,7 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    padding: var(--spacing-md);
+    padding: var(--border-radius-lg);
     display: none;
     z-index: -1;
 
@@ -175,20 +175,20 @@
   }
 
   .bullet {
-    background-color: var(--bulletBackgroundColor, var(--color-beige-40));
+    background-color: var(--bulletBackgroundColor, var(--color-background-warm-stronger));
     border-radius: 50%;
     cursor: pointer;
     display: inline-block;
     height: 10px;
-    margin: 0 var(--spacing-xxs);
+    margin: 0 var(--border-radius-xs);
     width: 10px;
 
     &:hover {
-      --bulletBackgroundColor: var(--color-neutral-50);
+      --bulletBackgroundColor: var(--color-icon-neutral-subtlest);
     }
 
     &-active {
-      --bulletBackgroundColor: var(--color-brand-40);
+      --bulletBackgroundColor: var(--color-background-brand-primary);
     }
   }
 }

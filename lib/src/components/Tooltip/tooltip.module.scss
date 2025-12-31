@@ -1,21 +1,23 @@
 @layer components {
   .root {
-    background-color: var(--color-neutral-90);
-    border: var(--border-width-sm) solid var(--color-neutral-60);
-    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--components-dimensions-tooltip-gap-content);
+    background-color: var(--components-colors-tooltip-color-background);
+    border: var(--components-dimensions-tooltip-border-width) solid var(--components-colors-tooltip-color-border);
+    border-radius: var(--components-dimensions-tooltip-border-radius);
     box-sizing: border-box;
-    color: var(--color-neutral-10);
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-medium);
+    color: var(--components-colors-tooltip-color-text);
     max-width: 12.5rem;
-    padding: var(--spacing-xs) var(--spacing-sm);
+    padding: var(--components-dimensions-tooltip-padding-block) var(--components-dimensions-tooltip-padding-inline);
     transition-property: opacity, visibility;
     transition-duration: var(--duration-medium);
     z-index: 10;
     visibility: var(--visibility, hidden);
     opacity: var(--opacity, 0);
+    box-shadow: var(--elevation-20);
 
-    &[data-enter="true"] {
+    &[data-enter='true'] {
       --visibility: visible;
       --opacity: 1;
     }

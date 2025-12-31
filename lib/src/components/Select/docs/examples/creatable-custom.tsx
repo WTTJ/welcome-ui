@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { AddIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { Select } from '@/components/Select'
 import type { SelectProps } from '@/components/Select/types'
 import { Text } from '@/components/Text'
@@ -28,8 +28,8 @@ const Example = () => {
       renderCreateItem={value => {
         return (
           <div className="flex items-center">
-            <AddIcon className="mr-(--spacing-sm)" size="sm" />
-            <Text as="span" variant="sm">
+            <Icon className="mr-(--spacing-sm)" name="plus" size="sm" />
+            <Text as="span" variant="body-md">
               Add <b>{value.toString()}</b> as a new option
             </Text>
           </div>

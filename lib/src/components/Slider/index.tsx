@@ -122,9 +122,9 @@ export const SliderComponent = forwardRef<HTMLDivElement, SliderProps>(
     const sliderId = useId()
 
     return (
-      <div className={cx('slider-root', className)} ref={ref}>
+      <div className={cx('slider-root', 'field-input', className)} ref={ref}>
         {label ? (
-          <Text as="label" htmlFor={sliderId} variant="sm">
+          <Text as="label" htmlFor={sliderId} variant="body-md">
             {label}
           </Text>
         ) : null}
@@ -138,7 +138,7 @@ export const SliderComponent = forwardRef<HTMLDivElement, SliderProps>(
                 onBlur={handleInput}
                 onChange={handleInputChange}
                 onKeyDown={handleInputKeyDown}
-                size="sm"
+                size="md"
                 type="number"
                 value={inputValue.toString()}
               />
@@ -216,7 +216,7 @@ export const SliderComponent = forwardRef<HTMLDivElement, SliderProps>(
                 onBlur={handleInput}
                 onChange={handleInputChange}
                 onKeyDown={handleInputKeyDown}
-                size="sm"
+                size="md"
                 type="number"
                 value={inputValue.toString()}
               />
@@ -230,5 +230,7 @@ export const SliderComponent = forwardRef<HTMLDivElement, SliderProps>(
     )
   }
 )
+
+SliderComponent.displayName = 'Slider'
 
 export const Slider = Object.assign(SliderComponent, { Range })

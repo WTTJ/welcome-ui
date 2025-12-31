@@ -1,50 +1,50 @@
 'use client'
-import { camelCase, startCase } from 'lodash'
+
 import React from 'react'
 
 import { Card } from '@/components/Card'
-import * as Icons from '@/components/Icon'
-import { Text } from '@/components/Text'
-import { Toast, toast } from '@/components/Toast'
-import { classNames } from '@/utils'
-
-import styles from './icon-list.styles.scss'
+import { Icon } from '@/components/Icon'
 import {
   actions,
   arrows,
-  avatar,
   brands,
-  files,
+  chat,
   flags,
+  foldersAndFiles,
   markdown,
   miscellaneous,
   player,
-  table,
   welcome,
   wtf,
-} from './icons'
+} from '@/components/Icon/icons'
+import type { IconName } from '@/components/Icon/types'
+import { Text } from '@/components/Text'
+import { Toast, toast } from '@/components/Toast'
+import { Tooltip } from '@/components/Tooltip'
+import { classNames } from '@/utils'
+
+import styles from './icon-list.styles.scss'
 
 const cx = classNames(styles)
 
 export type IconListProps = {
-  isIconsFont?: boolean
-  name:
+  collectionName:
     | 'actions'
     | 'arrows'
-    | 'avatar'
     | 'brands'
-    | 'files'
+    | 'chat'
     | 'flags'
+    | 'foldersAndFiles'
     | 'markdown'
     | 'miscellaneous'
     | 'player'
-    | 'table'
     | 'welcome'
     | 'wtf'
+  isIconsFont?: boolean
 }
 
 const handleClickToCopy = (componentName: string) => {
-  const component = `<${componentName} />`
+  const component = `<Icon name="${componentName}" />`
   navigator.clipboard.writeText(component)
 
   toast(
@@ -57,45 +57,100 @@ const handleClickToCopy = (componentName: string) => {
   )
 }
 
-export const IconsList = ({ name }: IconListProps) => {
+const paidOrCustomIcons = [
+  'arrows-merge-v',
+  'resize-handle',
+  'move-arrow',
+  'npm',
+  'pinterest',
+  'stackoverflow',
+  'twitch',
+  'xing',
+  'zapier',
+  'quote',
+  'heading',
+  'heading-1',
+  'heading-2',
+  'heading-3',
+  'heading-4',
+  'heading-5',
+  'heading-6',
+  'flag',
+  'clipboard-check',
+  'pin',
+  'user-search',
+  'birthday-cake',
+  'bunting-flags',
+  'certified',
+  'screen-share',
+  'stop-screen-share',
+  'cast',
+  'cast-connected',
+  'cast-unavailable',
+  'playlist',
+  'crown',
+  'industry',
+  'fingerprint',
+  'flag',
+  'flag-solid',
+  'handshake',
+  'hashtag',
+  'leaf',
+  'masonry',
+  'masonry-solid',
+  'masonry-plus',
+  'sparkles',
+  'sofa',
+  'symbol',
+  'wttj',
+  'flag-fr',
+  'flag-en',
+  'flag-us',
+]
+
+export const IconsList = ({ collectionName }: IconListProps) => {
   const iconsByName = {
     actions: actions,
     arrows: arrows,
-    avatar: avatar,
     brands: brands,
-    files: files,
+    chat: chat,
     flags: flags,
+    foldersAndFiles: foldersAndFiles,
     markdown: markdown,
     miscellaneous: miscellaneous,
     player: player,
-    table: table,
     welcome: welcome,
     wtf: wtf,
   }
 
   return (
     <div className="gap-lg grid lg:grid-cols-4 grid-cols-2">
-      {iconsByName[name]?.map(key => {
-        const name = startCase(camelCase(key)).replace(/ /g, '')
-        const componentName = `${name}Icon`
-
-        const Icon = Icons[componentName as keyof typeof Icons]
-
-        if (!Icon) {
-          // eslint-disable-next-line no-console
-          console.error(`The "${key}" icon is missing`)
-        }
-
+      {iconsByName[collectionName]?.map((name: IconName) => {
+        const isSolid = name.endsWith('-solid')
+        const isPaidOrCustom = isSolid || paidOrCustomIcons.includes(name)
+        const tooltipContent =
+          (isSolid &&
+            'You are seeing the line version of this icon - solid version is only available on paid plan') ||
+          (isPaidOrCustom && "Icon not available because it comes from welcome's private icons")
         return (
-          <Card className={cx('card')} key={key} onClick={() => handleClickToCopy(componentName)}>
-            {Icon ? <Icon size="lg" /> : <Icons.CrossIcon size="lg" />}
+          <Card
+            className={cx('card')}
+            key={`${collectionName}-${name}`}
+            onClick={() => handleClickToCopy(name)}
+          >
+            <Icon name={name} size="lg" />
             <Text
               as="span"
-              className="pt-md px-sm text-beige-70 text-center break-words"
+              className="pt-md px-sm text-beige-70 text-center break-words flex items-center gap-1"
               lines={2}
-              variant="sm"
+              variant="body-md"
             >
-              {componentName}
+              {isPaidOrCustom ? (
+                <Tooltip content={tooltipContent}>
+                  <Icon className="text-secondary-orange" name="exclamation-triangle" size="sm" />
+                </Tooltip>
+              ) : null}
+              {name}
             </Text>
           </Card>
         )

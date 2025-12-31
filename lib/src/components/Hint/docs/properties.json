@@ -3,7 +3,7 @@
     "props": {
       "variant": {
         "defaultValue": null,
-        "description": "",
+        "description": "Change color of text according to the variant",
         "name": "variant",
         "parent": {
           "fileName": "welcome-ui/lib/src/components/Hint/types.ts",

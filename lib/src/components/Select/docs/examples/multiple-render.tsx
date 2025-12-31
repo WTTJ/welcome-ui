@@ -33,9 +33,9 @@ const Example = () => {
                 className="mr-sm mt-sm"
                 key={option.value}
                 onRemove={() => handleRemove(option.value as string)}
-                size="sm"
+                size="md"
               >
-                <Text variant="sm">{option.label}</Text>
+                <Text variant="body-md">{option.label}</Text>
               </Tag>
             )
           })}

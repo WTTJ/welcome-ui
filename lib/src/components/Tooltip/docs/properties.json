@@ -151,17 +151,19 @@
           ]
         }
       },
-      "withArrow": {
-        "defaultValue": {
-          "value": false
-        },
+      "title": {
+        "defaultValue": null,
         "description": "",
-        "name": "withArrow",
+        "name": "title",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/Tooltip/types.ts",
-          "name": "TooltipOptions"
+          "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+          "name": "HTMLAttributes"
         },
         "declarations": [
+          {
+            "fileName": "welcome-ui/node_modules/@types/react/index.d.ts",
+            "name": "HTMLAttributes"
+          },
           {
             "fileName": "welcome-ui/lib/src/components/Tooltip/types.ts",
             "name": "TooltipOptions"
@@ -170,13 +172,13 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "boolean",
+          "raw": "string | (string & Element)",
           "value": [
             {
-              "value": "false"
+              "value": "string"
             },
             {
-              "value": "true"
+              "value": "string & Element"
             }
           ]
         }

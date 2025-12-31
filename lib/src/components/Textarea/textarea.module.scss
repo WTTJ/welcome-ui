@@ -1,64 +1,65 @@
 @layer components {
   .root {
-    border-radius: var(--radius-md);
+    border-radius: var(--components-dimensions-input-border-radius);
     border-style: solid;
-    border-width: var(--border-width-sm);
+    border-width: var(--components-dimensions-input-border-width-default);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-regular);
-    line-height: var(--line-height-16);
-    outline: transparent solid var(--border-width-md);
+    line-height: var(--font-line-height-md);
     width: 100%;
     transition: var(--duration-medium);
     padding: var(--spacing-md);
-    min-height: 8.125rem;
+    outline: none;
 
     /* VARIABLES THAT CHANGE WITH REACT PROPS */
-    background-color: var(--backgroundColor, var(--color-neutral-10));
-    color: var(--color, var(--color-neutral-90));
-    border-color: var(--borderColor, var(--color-neutral-30));
+    background-color: var(
+      --textAreaBackgroundColor,
+      var(--components-colors-input-color-background-default)
+    );
+    color: var(--textAreaColor, var(--components-colors-input-color-text-default));
+    border-color: var(--textAreaBorderColor, var(--components-colors-input-color-border-default));
+    box-shadow: var(--textAreaBoxShadow, var(--inset-10)) inset;
+    field-sizing: var(--textAreaFieldSizing, fixed);
+    min-height: var(--textAreaMinHeight, 8.125rem);
 
     &:disabled,
     &[aria-disabled] {
-      --backgroundColor: var(--color-beige-40);
-      --color: var(--color-beige-70);
+      --textAreaBackgroundColor: var(--components-colors-input-color-background-disabled);
+      --textAreaColor: var(--components-colors-input-color-text-disabled);
       cursor: not-allowed;
     }
 
     &:hover {
-      --borderColor: var(--borderColorHover, var(--color-neutral-40));
+      --textAreaBorderColor: var(--components-colors-input-color-border-hover);
+      --textAreaBoxShadow: var(--inset-20);
     }
 
-    &[data-focus-visible],
-    &:focus-visible {
-      --borderColor: var(--borderColorFocused, var(--color-brand-40));
-      outline-color: var(--outlineColorFocus, var(--color-brand-20));
+    &:active,
+    &:focus {
+      --textAreaBorderColor: var(--components-colors-input-color-border-active);
     }
 
     &::placeholder {
-      color: var(--color-neutral-60);
+      color: var(--components-colors-input-color-text-placeholder);
     }
   }
 
   .variant {
     &-danger {
-      --borderColor: var(--color-red-70);
-      --borderColorHover: var(--color-red-70);
-      --borderColorFocused: var(--color-red-70);
-      --outlineColorFocus: var(--color-red-30);
+      --textAreaBorderColor: var(--components-colors-input-color-border-error);
     }
 
     &-warning {
-      --borderColor: var(--color-orange-60);
-      --borderColorHover: var(--color-orange-60);
-      --borderColorFocused: var(--color-orange-60);
-      --outlineColorFocus: var(--color-orange-30);
+      --textAreaBorderColor: var(--components-colors-input-color-border-warning);
     }
 
     &-success {
-      --borderColor: var(--color-green-60);
-      --borderColorHover: var(--color-green-60);
-      --borderColorFocused: var(--color-green-60);
-      --outlineColorFocus: var(--color-green-30);
+      --textAreaBorderColor: var(--components-colors-input-color-border-success);
     }
+  }
+
+  .adaptative {
+    --textAreaFieldSizing: content;
+    --textAreaMinHeight: auto;
   }
 }

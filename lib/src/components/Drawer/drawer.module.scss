@@ -2,8 +2,10 @@
 
 @layer components {
   .root {
-    background-color: var(--color-neutral-10);
-    border: var(--border-width-sm) solid var(--color-neutral-30);
+    background-color: var(--components-colors-drawer-body-color-background-default);
+    border: var(--components-dimensions-drawer-border-width) solid
+      var(--components-colors-drawer-color-border-default);
+    box-shadow: var(--elevation-10);
     z-index: 999;
 
     position: fixed;
@@ -14,50 +16,77 @@
     transition: var(--duration-medium);
     max-width: 100%;
 
-    --drawer-left: 0;
-    --drawer-right: 0;
-    --drawer-top: 0;
-    --drawer-bottom: 0;
-    --drawer-height: 100%;
-    --drawer-width: 100%;
-    --drawer-transform: translateY(0, 0);
+    --drawerLeft: 0;
+    --drawerRight: 0;
+    --drawerTop: 0;
+    --drawerBottom: 0;
+    --drawerHeight: calc(100% - var(--spacing-md) * 2);
+    --drawerWidth: calc(100% - var(--spacing-md) * 2);
+    --drawerTransform: translate(0, 0);
 
-    left: var(--drawer-left);
-    right: var(--drawer-right);
-    top: var(--drawer-top);
-    bottom: var(--drawer-bottom);
-    width: var(--drawer-width);
-    height: var(--drawer-height);
-    transform: var(--drawer-transform);
+    left: var(--drawerLeft);
+    right: var(--drawerRight);
+    top: var(--drawerTop);
+    bottom: var(--drawerBottom);
+    width: var(--drawerWidth);
+    height: var(--drawerHeight);
+    transform: var(--drawerTransform);
+
+    @media screen and (max-width: breakpoints.$breakpoint-md) {
+      --drawerTransform: translate(0, 0);
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      border-radius: 0;
+      transform: var(--drawerTransform);
+    }
+
+    /* Hide the standalone close button when the Drawer contains a header
+     (the header already contains its own close button). Scope :has to the
+     root so nesting selector has a scoping root. */
+    &:has(> header) {
+      .drawer-close {
+        display: none;
+      }
+    }
+
+    @media screen and (min-width: breakpoints.$breakpoint-md) {
+      border-radius: var(--components-dimensions-drawer-border-radius);
+      margin: var(--spacing-md);
+    }
 
     &.placement {
       &-bottom {
-        --drawer-top: auto;
-        --drawer-transform: translateY(100%);
+        --drawerTop: calc(100% - var(--drawerHeight) - var(--spacing-md) * 2);
+        --drawerTransform: translate(0, 100%);
       }
       &-left {
-        --drawer-right: auto;
-        --drawer-transform: translateX(-100%);
+        --drawerRight: calc(100% - var(--drawerWidth) - var(--spacing-md) * 2);
+        --drawerTransform: translate(-100%, 0);
       }
       &-right {
-        --drawer-left: auto;
-        --drawer-transform: translateX(100%);
+        --drawerLeft: calc(100% - var(--drawerWidth) - var(--spacing-md) * 2);
+        --drawerTransform: translate(100%, 0);
       }
       &-top {
-        --drawer-bottom: auto;
-        --drawer-transform: translateY(-100%);
+        --drawerBottom: calc(100% - var(--drawerHeight) - var(--spacing-md) * 2);
+        --drawerTransform: translate(0, -100%);
       }
       &-top,
       &-bottom {
         &.size {
           &-sm {
-            --drawer-height: 25rem; /* 400px */
+            --drawerHeight: 25rem; /* 400px */
           }
           &-md {
-            --drawer-height: 34.375rem; /* 550px */
+            --drawerHeight: 34.375rem; /* 550px */
           }
           &-lg {
-            --drawer-height: 42.5rem; /* 680px */
+            --drawerHeight: 42.5rem; /* 680px */
           }
         }
       }
@@ -65,13 +94,13 @@
       &-right {
         &.size {
           &-sm {
-            --drawer-width: 25rem; /* 400px */
+            --drawerWidth: 25rem; /* 400px */
           }
           &-md {
-            --drawer-width: 34.375rem; /* 550px */
+            --drawerWidth: 34.375rem; /* 550px */
           }
           &-lg {
-            --drawer-width: 42.5rem; /* 680px */
+            --drawerWidth: 42.5rem; /* 680px */
           }
         }
       }
@@ -80,12 +109,44 @@
     /* Note: this must come _after_ the placement rules to transition from offscreen to onscreen */
     &[data-enter] {
       opacity: 1;
-      --drawer-transform: translateX(0, 0);
+      --drawerTransform: translate(0, 0);
+    }
+
+    &.fullscreen {
+      top: 0;
+      left: 0;
+      width: calc(100% - var(--spacing-md) * 2);
+      height: calc(100% - var(--spacing-md) * 2);
+
+      &.placement-left:not([data-enter]) {
+        --drawerTransform: translate(-100%, 0);
+      }
+      &.placement-right:not([data-enter]) {
+        --drawerTransform: translate(100%, 0);
+      }
+      &.placement-top:not([data-enter]) {
+        --drawerTransform: translate(0, -100%);
+      }
+      &.placement-bottom:not([data-enter]) {
+        --drawerTransform: translate(0, 100%);
+      }
+
+      .media {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .media :first-child {
+        max-height: calc(100vh - 37px - var(--spacing-xxl) * 2);
+        width: auto;
+        height: auto;
+      }
     }
   }
 
   .backdrop {
-    background-color: var(--color-overlay);
+    background-color: var(--color-background-transparent-black-subtle);
     z-index: 999;
     position: fixed;
     top: 0;
@@ -106,11 +167,23 @@
 
   .content {
     flex: 1;
-    padding: var(--spacing-xl);
+    padding: var(--spacing-xxl);
 
     @media screen and (min-width: breakpoints.$breakpoint-md) {
       overflow-y: auto;
     }
+  }
+
+  .content-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .content-header-subtitle {
+    color: var(--components-colors-modal-color-text-body);
+    margin-bottom: var(--spacing-md);
   }
 
   .footer {
@@ -118,12 +191,24 @@
     position: sticky;
     z-index: 1;
     width: 100%;
-    background-color: var(--color-neutral-0);
+    background-color: var(--components-colors-drawer-body-color-background-default);
     padding: var(--spacing-xl);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+  }
 
-    @media screen and (min-width: breakpoints.$breakpoint-md) {
-      bottom: auto;
-      position: static;
+  .variant {
+    &-right {
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    &-full {
+      button,
+      a {
+        flex: 1;
+      }
     }
   }
 
@@ -136,15 +221,15 @@
     top: 0;
     width: 100%;
 
-    background-color: var(--color-neutral-10);
+    background-color: var(--components-colors-drawer-body-color-background-default);
     margin: 0;
     padding: var(--spacing-xl) var(--spacing-5xl) var(--spacing-xl) var(--spacing-xl);
   }
 
   .drawer-close {
     position: absolute;
-    right: var(--spacing-lg);
-    top: var(--spacing-lg);
+    right: var(--spacing-xs);
+    top: var(--spacing-xs);
     z-index: 10;
   }
 }

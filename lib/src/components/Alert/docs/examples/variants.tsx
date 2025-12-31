@@ -9,12 +9,6 @@ const Example = () => {
         ultrices. Phasellus iaculis nisi sed dui ornare commodo. Nullam dapibus varius nibh a
         ornare.
       </Alert>
-      <Alert variant="beige">
-        <Alert.Title>Beige variant</Alert.Title>
-        Nunc laoreet egestas nulla, et dapibus sem malesuada in. Suspendisse eleifend accumsan
-        ultrices. Phasellus iaculis nisi sed dui ornare commodo. Nullam dapibus varius nibh a
-        ornare.
-      </Alert>
       <Alert variant="danger">
         <Alert.Title>Danger variant</Alert.Title>
         Nunc laoreet egestas nulla, et dapibus sem malesuada in. Suspendisse eleifend accumsan

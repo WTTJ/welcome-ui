@@ -20,7 +20,7 @@ const Example = () => {
         malesuada.
       </Text>
       <Text lines={3}>Lorem ipsum dolor sit amet</Text>
-      <Text lines={3} variant="h4">
+      <Text lines={3} variant="heading-xs-strong">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis viverra lectus, vel
         tristique turpis. Vivamus magna nulla, elementum in feugiat feugiat, egestas eget nibh. Ut
         ac justo vitae dolor iaculis gravida. In eu nisl lorem. Cras eu mauris et tortor suscipit

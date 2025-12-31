@@ -1,7 +1,7 @@
 import { forwardRef } from 'react'
 
 import { Button } from '@/components/Button'
-import { CrossIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { classNames } from '@/utils'
 
 import closeButtonStyles from './close-button.module.scss'
@@ -16,13 +16,14 @@ export const CloseButton = forwardRef<HTMLButtonElement, CloseButtonProps>(
         aria-label="Close"
         className={cx('root', animatePresence && 'animate-presence', className)}
         ref={ref}
-        shape="circle"
         size="sm"
-        variant="ghost"
+        variant="tertiary"
         {...props}
       >
-        <CrossIcon size="lg" />
+        <Icon name="times" size="lg" />
       </Button>
     )
   }
 )
+
+CloseButton.displayName = 'CloseButton'

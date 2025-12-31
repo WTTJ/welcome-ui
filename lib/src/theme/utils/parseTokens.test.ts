@@ -6,8 +6,8 @@ import { parseTokens } from './parseTokens'
 describe('parseTokens', () => {
   it('flatten simple tokens', () => {
     const tokens: TokensStructure = {
-      primary: { $value: '#fff' },
-      secondary: { $value: '#000' },
+      primary: { value: '#fff' },
+      secondary: { value: '#000' },
     }
     expect(parseTokens(tokens)).toEqual({
       primary: '#fff',
@@ -18,8 +18,8 @@ describe('parseTokens', () => {
   it('flattens nested tokens', () => {
     const tokens: TokensStructure = {
       colors: {
-        primary: { $value: '#fff' },
-        secondary: { $value: '#000' },
+        primary: { value: '#fff' },
+        secondary: { value: '#000' },
       },
     }
     expect(parseTokens(tokens)).toEqual({
@@ -28,11 +28,11 @@ describe('parseTokens', () => {
     })
   })
 
-  it('handles $type and ignores it in keys', () => {
+  it('handles type and ignores it in keys', () => {
     const tokens: TokensStructure = {
       colors: {
-        $type: 'color',
-        primary: { $value: '#fff' },
+        primary: { value: '#fff' },
+        type: 'color',
       },
     }
     expect(parseTokens(tokens)).toEqual({
@@ -40,10 +40,10 @@ describe('parseTokens', () => {
     })
   })
 
-  it('resolves references in $value', () => {
+  it('resolves references in value', () => {
     const tokens: TokensStructure = {
-      base: { $value: '#fff' },
-      main: { $value: '{base}' },
+      base: { value: '#fff' },
+      main: { value: '{base}' },
     }
     expect(parseTokens(tokens)).toEqual({
       base: '#fff',
@@ -54,9 +54,9 @@ describe('parseTokens', () => {
   it('handles multiple references', () => {
     const tokens: TokensStructure = {
       base: {
-        accent: { $value: '#000' },
+        accent: { value: '#000' },
       },
-      combo: { $value: '{base.accent}' },
+      combo: { value: '{base.accent}' },
     }
     expect(parseTokens(tokens)).toEqual({
       'base-accent': '#000',

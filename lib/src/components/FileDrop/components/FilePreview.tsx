@@ -1,6 +1,6 @@
 import { Button } from '@/components/Button'
-import { getFileIcon, getFileName, getFileSize } from '@/components/Files'
-import { ExternalLinkIcon } from '@/components/Icon'
+import { getFileIconName, getFileName, getFileSize } from '@/components/Files'
+import { Icon } from '@/components/Icon'
 import { Text } from '@/components/Text'
 import { classNames } from '@/utils'
 
@@ -16,34 +16,37 @@ export const FilePreview = ({
   previewButtonText = 'Preview',
 }: FilePreviewProps) => {
   const isUrl = typeof file === 'string'
-  const Icon = getFileIcon(file, forceFileType)
+  const iconName = getFileIconName(file, forceFileType)
   const size = file instanceof File ? getFileSize(file) : null
   const name = isUrl && fileName ? fileName : getFileName(file)
 
   return (
     <>
-      <Icon className={cx('file-preview-icon')} size="xxl" />
-      <Text className={cx('file-preview-name')} lines={1} variant="h4">
-        {name}
-      </Text>
-      {!isUrl && (
-        <Text className={cx('file-preview-size')} lines={1} variant="sm">
-          {size}
-        </Text>
-      )}
       {isUrl ? (
         <Button
           as="a"
-          className="mt-md"
+          className={cx('file-preview-size', 'file-preview-button')}
           href={file}
           rel="noopener noreferrer"
-          size="sm"
+          size="md"
           target="_blank"
+          variant="secondary"
         >
           <span>{previewButtonText}</span>
-          <ExternalLinkIcon />
+          <Icon name="external-link-alt" />
         </Button>
       ) : null}
+      <Icon className={cx('file-preview-icon')} name={iconName} size="xxl" />
+      <Text className={cx('file-preview-name')} lines={1} variant="heading-xs-strong">
+        {name}
+      </Text>
+      {!isUrl && (
+        <Text className={cx('file-preview-size')} lines={1} variant="body-md">
+          {size}
+        </Text>
+      )}
     </>
   )
 }
+
+FilePreview.displayName = 'FileDrop.FilePreview'

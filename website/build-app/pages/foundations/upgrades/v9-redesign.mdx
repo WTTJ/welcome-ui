@@ -1,0 +1,193 @@
+# Version 9 - Belonging: Implements the Belonging experience redesign
+
+Hi, today we are releasing a new batch in the v9, with redesigned components.
+
+![Version 9 illustration](https://www.welcome-ui.com/v9.png)
+
+## Upgrade steps
+
+### 1. Upgrade your dependencies
+
+TODO
+
+### 2. Script to migrate
+
+In welcome-ui repository, run this script to change styled props to tailwind classes in your project, and apply other breaking changes from components listed below.
+
+```bash
+yarn migrate '../your_project_path' --replace
+```
+
+You will have to confirm each change, you can press `y` to apply the change, `n` to skip it, `a` to apply all remaining changes and `q` to quit.
+
+If you want to see the changes before applying them, you can run the script without `--replace` flag:
+
+```bash
+yarn migrate '../your_project_path/subfolder'
+```
+
+#### Example of changes
+
+TODO
+
+### 3. Fix remaining issues
+
+We cannot cover all cases, so you may have to fix some issues manually. Check `_CSS_TO_EDIT` comments in your code to find them, and check the list of components changes below.
+
+## Components changes
+
+### Badge
+
+The `lg` size has been added. Available sizes are now `sm`, `md` (default), and `lg`. The `brand` variant replaces the previous `primary` variant, and the `warm` variant replaces the previous `default` variant. Available variants are now `brand`, `blue`, `neutral`, and `warm` (default). The `sm` size is now dedicated to status indicators and no longer supports text content.
+
+### Button
+
+The shape variants no longer exist. All the buttons have the same border-radius now. The `xs` size has been removed, `lg` is the new default size. New sizes are `sm`, `md` and `lg`. The `ghost` variant has been removed, the closest one is now `tertiary`.
+
+### Avatar
+
+We removed the `size` prop values `xl` and `xxl`. The new available sizes are:
+
+- sm become xs
+- md become sm
+- lg become md
+- xl become lg
+
+### Pagination
+
+- **Size variants**: Added `size` prop with `md` and `lg` (default) options to control the overall size of pagination controls
+- **Edge controls**: Added `showEdgeControls` prop to display optional First and Last buttons for quick navigation to the beginning or end of large datasets
+- **Custom texts**: Added `navigationTexts` prop to customize the text displayed on all navigation buttons (firstPage, lastPage, nextPage, previousPage)
+
+### Radio
+
+The `Radio` component no longer accepts the warning `variant`.
+
+### Tag
+
+- The `lg` size (old `md`) is now the default size. The `md` size replaces the old `sm` size. Available sizes are now `md` and `lg` (default).
+- The `warm` variant is now the default, replacing the old `beige` variant.
+- The `brand` variant replaces the old `primary` variant.
+- New variants include `dash`, `teal`, `violet`, and `pink`, while existing variants have been renamed: `green` (old `success`), `blue` (old `information`), `orange` (old `warning`), and `red` (old `danger`).
+
+### TextArea
+
+New variant `isAdaptative` to make the textarea adapt its height to the content.
+
+### Toggle
+
+Sizes changed to `sm`, `md` and `lg`.
+
+Also we removed checkedIcon and uncheckedIcon props, you can now use `withVisibilityIcon` prop to add an eye / eye-slash icon to toggle visibility.
+
+```diff
+- <Toggle checkedIcon={<EyeIcon />} uncheckedIcon={<EyeSlashIcon />} />
++ <Toggle withVisibilityIcon />
+```
+
+### Tooltip
+
+The props `withArrow` is now deprecated.
+
+Also added an optional props `title`.
+
+### Alert
+
+Sizes changed to `md` and `lg`.
+
+We removed variants `beige` and `default`, the closest one is now `brand` (default).
+
+You cannot remove the icon.
+
+### DropdownMenu
+
+The `dataTestId` prop has been renamed to `data-testid` to align with standard React testing practices. The `innerProps` has been removed.
+
+### Card
+
+Introduce new `size` prop to control padding/font-size and overall size of the Card: `sm`, `md` (default) and `lg`. Cards can be composed of a `Card.Header` and/or a `Card.Footer` component.
+
+#### Card.Header
+
+Automatically adds a `close` button on the top right corner when `onClose` prop is provided.
+
+### Modal
+
+The `xs` variant no longer exists. Available sizes are now `sm`, `md`, `lg` (default), and `auto`.
+
+#### Modal.close
+
+The `Modal.close` component has been removed. The Close Button is displayed automatically in Modal.Content if no Modal.Header is provided.
+
+#### Modal.Header
+
+Modal.Header no longer accept a title, an icon props or a subtitle props. If you want to keep them, you need to passe the `icon` as an `iconName` prop to Modal.Body, and the `subtitle` as a `subtitle` prop to Modal.Body. `Modal.Header` now expects children instead of `title`/`icon` props. Use `Window.Header.Title`, `Window.Header.RightActions`, etc. inside `Modal.Header`:
+
+```tsx
+<Modal.Header>
+  <Window.Header.Title title="My title" />
+  <Window.Header.RightActions isClosable onClose={modal.hide} />
+</Modal.Header>
+```
+
+#### Modal.Body
+
+Modal.Body now has its own header, that is display if you're passing a `title` prop or an `iconName` prop to Modal.Body. It also accepts a `subtitle` prop.
+
+#### Fullscreen support
+
+- `Modal` accepts a new `fullscreen?: boolean` prop that will add a `.fullscreen` class to the root (and styles to make it full viewport). You can toggle this state from header actions (for instance `Window.Header.LeftActions` calling `onExpandChange`).
+
+#### Modal.Footer
+
+Modal.Footer no longer accepts the information props. It accepts a `variant` prop that can be `right` (default) or `full`. Modal.Footer buttons need to be wrapped with Modal.Footer.Buttons, and can also display a Modal.Footer.Checkbox (when you need to remember a user choice for instance).
+
+### Drawer
+
+Removed `Drawer.Title`: the standalone `Drawer.Title` component was removed. Replace usages with the new `Drawer.Header` and `Drawer.Header.Title`.
+
+Example migration:
+
+```diff
+- <Drawer.Title>Hello</Drawer.Title>
++ <Drawer.Header>
++   <Drawer.Header.Title title="Hello" />
++ </Drawer.Header>
+```
+
+New header subcomponents: `Drawer.Header` now exposes several subcomponents that replace previous title/close placement patterns:
+
+- `Drawer.Header.Title` — renders the header title
+- `Drawer.Header.LeftActions` — expandable/visibility actions for the left side
+- `Drawer.Header.RightActions` — place actions on the right side (accepts `isClosable` to render a close button)
+- `Drawer.Header.Tabs` and `Drawer.WindowTabPanel` — tabs support inside the header
+- `Drawer.Header.CloseButton` — header-specific close button
+
+Standalone close behavior changed: when a `Drawer.Header` is present the standalone `<Drawer.Close />` (the previously common standalone close button) is automatically hidden. Use `Drawer.Header.RightActions` (with `isClosable`) or `Drawer.Header.CloseButton` to show a close control inside the header.
+
+New `Media` slot: `Drawer.Media` was added to render media content (images, videos) and is used by `AssetDrawer` and the new window-like Drawer examples.
+
+New body helpers: `Drawer.Body` and `Drawer.BoxText` were introduced for common content patterns. `Drawer.Content` and `Drawer.Footer` remain available.
+
+New Content params: `title`, `subtitle`, and `iconName` props were added to `Drawer.Content` to render a content header inside the body.
+
+Fullscreen prop: `Drawer` now accepts a `fullscreen` boolean prop to toggle the window/fullscreen layout behavior. Update any TypeScript usages to account for `fullscreen?: boolean` in `DrawerOptions`.
+
+New composition exports: The `Drawer` object gained these properties (examples from the code changes):
+
+- `Drawer.Header` (re-uses `Window.Header`)
+- `Drawer.Media` (re-uses `Window.Media`)
+- `Drawer.Body` (alias to `Window.Body`)
+- `Drawer.BoxText` (alias to `Window.BoxText`)
+- `Drawer.WindowTabPanel` (tab panels for header tabs)
+
+## Utils
+
+## example
+
+### Tabs
+
+- The `ActiveBar` component has been removed. Use CSS to style the active tab panel instead.
+- The `Tab` component now accepts an optional `icon`, `iconColor`, and `badge` props to enhance tab labels with icons and badges. The size prop is now `md` or `lg`.
+
+- The `Tab.List` component has been renamed to `Tabs` for clarity.

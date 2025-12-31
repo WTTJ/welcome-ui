@@ -3,12 +3,12 @@ import { Avatar } from '@/components/Avatar'
 const Example = () => {
   return (
     <>
-      <Avatar name="W" size="sm" />
-      <Avatar name="We" size="md" />
-      <Avatar name="Wel" size="lg" />
-      <Avatar name="Welc" size="xl" />
-      <Avatar name="Welco" size="xxl" />
-      <Avatar className="bg-brand-40 size-[130px] text-[60px]" name="Custom" />
+      <Avatar name="Welcome UI t" />
+      <Avatar name="Welcome UI te" />
+      <Avatar name="Welcome UI tes" />
+      <Avatar name="Welcome UI test" />
+      <Avatar name="Welcome UI teest" />
+      <Avatar name="Welcome UI teeest" />
     </>
   )
 }

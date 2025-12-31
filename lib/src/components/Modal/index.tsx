@@ -1,6 +1,7 @@
 import { Dialog, useDialogStore, useStoreState } from '@ariakit/react'
 import { useEffect, useState } from 'react'
 
+import { Window } from '@/components/Window'
 import { classNames } from '@/utils'
 import { forwardRefWithAs } from '@/utils/forwardRefWithAs'
 
@@ -11,6 +12,7 @@ import { Content } from './components/Content'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { Trigger } from './components/Trigger'
+import { WindowMedia } from './components/WindowMedia'
 import modalStyles from './modal.module.scss'
 import type { ModalProps, UseModal, UseModalProps } from './types'
 
@@ -41,6 +43,7 @@ const ModalComponent = forwardRefWithAs<ModalProps, 'div'>(
       backdrop = true,
       children,
       className,
+      fullscreen = false,
       hideOnInteractOutside = true,
       size = 'lg',
       store,
@@ -66,7 +69,15 @@ const ModalComponent = forwardRefWithAs<ModalProps, 'div'>(
           As ? (
             <As />
           ) : (
-            <div className={cx('root', `size-${size}`, scrollable && 'scrollable', className)} />
+            <div
+              className={cx(
+                'root',
+                `size-${size}`,
+                scrollable && 'scrollable',
+                fullscreen && 'fullscreen',
+                className
+              )}
+            />
           )
         }
         store={store}
@@ -79,6 +90,8 @@ const ModalComponent = forwardRefWithAs<ModalProps, 'div'>(
   }
 )
 
+ModalComponent.displayName = 'Modal'
+
 // Nested exports
 export const Modal = Object.assign(ModalComponent, {
   Body,
@@ -86,6 +99,11 @@ export const Modal = Object.assign(ModalComponent, {
   Footer,
   Header,
   Trigger,
+  WindowBody: Window.Body,
+  WindowBoxText: Window.BoxText,
+  WindowHeader: Window.Header,
+  WindowMedia,
+  WindowTabPanel: Window.TabPanel,
 })
 
 // Asset Modal for pictures / videos / swiper

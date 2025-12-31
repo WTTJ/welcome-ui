@@ -10,3 +10,5 @@ export const Content = forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement
     return <div className={cx('content', className)} ref={ref} {...props} />
   }
 )
+
+Content.displayName = 'Popover.Content'

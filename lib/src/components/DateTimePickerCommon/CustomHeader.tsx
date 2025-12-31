@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 
 import { Button } from '@/components/Button'
-import { LeftIcon, RightIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { Select } from '@/components/Select'
 import { classNames } from '@/utils'
 
@@ -51,12 +51,11 @@ export const CustomHeader = ({
       <Button
         disabled={isPreviousDisabled}
         onClick={isMonthYearPicker ? decreaseYear : decreaseMonth}
-        shape="square"
-        size="xs"
+        size="sm"
         title={`Previous ${isMonthYearPicker ? 'year' : 'month'}`}
         variant="tertiary"
       >
-        <LeftIcon size="xs" />
+        <Icon name="angle-left-b" size="xs" />
       </Button>
       {!isMonthYearPicker && (
         <Select
@@ -64,21 +63,22 @@ export const CustomHeader = ({
           name="month"
           onChange={changeMonth}
           options={months}
-          size="sm"
+          size="md"
           value={month}
         />
       )}
-      <Select id="year" name="year" onChange={changeYear} options={years} size="sm" value={year} />
+      <Select id="year" name="year" onChange={changeYear} options={years} size="md" value={year} />
       <Button
         disabled={isNextDisabled}
         onClick={isMonthYearPicker ? increaseYear : increaseMonth}
-        shape="square"
-        size="xs"
+        size="sm"
         title={`Next ${isMonthYearPicker ? 'year' : 'month'}`}
         variant="tertiary"
       >
-        <RightIcon size="xs" />
+        <Icon name="angle-right-b" size="xs" />
       </Button>
     </div>
   )
 }
+
+CustomHeader.displayName = 'DateTimePicker.CustomHeader'

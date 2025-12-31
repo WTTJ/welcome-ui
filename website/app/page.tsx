@@ -2,7 +2,7 @@ import NextLink from 'next/link'
 import React from 'react'
 
 import { Button } from '@/components/Button'
-import { GithubIcon, HeartIcon, RightIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { Logo, Symbol } from '@/components/Logo'
 import { Text } from '@/components/Text'
 
@@ -15,26 +15,26 @@ const Home = () => {
   return (
     <main>
       <Section className="bg-beige-30">
-        <Text as="span" className="text-neutral-90" variant="subtitle-md">
+        <Text as="span" className="text-neutral-90" variant="label-lg">
           Welcome UI
         </Text>
-        <Text className="max-w-[820px] mb-xl mt-sm" variant="h1">
+        <Text as="h1" className="max-w-[820px] mb-xl mt-sm" variant="display-sm">
           All the components you need to create a delightful React webapp
         </Text>
-        <Text className="max-w-[640px]" variant="lg">
+        <Text className="max-w-[640px]" variant="body-xl">
           Welcome UI is a customizable design system library made with react, typescript,
           tailwindcss, ariakit and a lot of love 💛
         </Text>
-        <Button as={NextLink} className="mt-3xl" href="/foundations/getting-started" size="lg">
+        <Button as={NextLink} className="mt-3xl" href="/foundations/getting-started">
           <span>Install amazing components</span>
-          <RightIcon size="lg" />
+          <Icon name="angle-right-b" size="lg" />
         </Button>
       </Section>
       <Section>
-        <Text as="h2" className="mb-xl mt-sm" variant="h1">
+        <Text as="h2" className="mb-xl mt-sm" variant="display-sm">
           Some of our components
         </Text>
-        <Text className="max-w-[640px] mb-3xl" variant="lg">
+        <Text className="max-w-[640px] mb-3xl" variant="body-xl">
           More than 50 amazing components!
         </Text>
         <Components />
@@ -42,13 +42,13 @@ const Home = () => {
       <Section className="bg-beige-30">
         <div className="flex items-center justify-between lg:flex-row flex-col">
           <div className="flex-initial lg:mb-0 mb-5xl md:max-w-[37.5rem]">
-            <Text as="span" className="text-neutral-90" variant="subtitle-md">
+            <Text as="span" className="text-neutral-90" variant="label-lg">
               Open source
             </Text>
-            <Text as="h2" className="mb-xl mt-sm" variant="h1">
+            <Text as="h2" className="mb-xl mt-sm" variant="display-sm">
               Contribute!
             </Text>
-            <Text className="max-w-[640px]" variant="lg">
+            <Text className="max-w-[640px]" variant="body-xl">
               Welcome UI is open-sourced on GitHub. Contributions, feedback and issues are welcome –
               we want you to be a part of this great project.
             </Text>
@@ -57,11 +57,10 @@ const Home = () => {
               className="mt-3xl"
               href="https://github.com/WTTJ/welcome-ui"
               rel="noopener nofollow"
-              size="lg"
               target="_blank"
               variant="secondary"
             >
-              <GithubIcon size="lg" />
+              <Icon name="github" size="lg" />
               <span>Contribute on Github</span>
             </Button>
           </div>
@@ -69,22 +68,22 @@ const Home = () => {
         </div>
       </Section>
       <Section>
-        <Text as="h2" className="max-w-[500px] mb-xl" variant="h1">
+        <Text as="h2" className="max-w-[500px] mb-xl" variant="display-sm">
           All you’d expect from a design system...
         </Text>
-        <Text className="max-w-[640px] mb-5xl" variant="lg">
+        <Text className="max-w-[640px] mb-5xl" variant="body-xl">
           ...and a lot more!
         </Text>
         <Expectations />
       </Section>
       <Section className="bg-beige-30">
-        <Text as="span" className="text-neutral-90" variant="subtitle-md">
+        <Text as="span" className="text-neutral-90" variant="label-lg">
           Example
         </Text>
-        <Text as="h2" className="mb-xl mt-sm" variant="h1">
+        <Text as="h2" className="mb-xl mt-sm" variant="display-sm">
           Going straight to the point!
         </Text>
-        <Text className="max-w-[450px]" variant="lg">
+        <Text className="max-w-[450px]" variant="body-xl">
           Leave the UI code to our team and focus on building your astonishing project.
         </Text>
         <iframe
@@ -97,13 +96,13 @@ const Home = () => {
       </Section>
       <Section className="pt-3xl md:pt-6xl">
         <Logo className="h-[67px]" />
-        <Text as="span" className="text-neutral-90 mt-3xl" color="neutral-90" variant="subtitle-md">
+        <Text as="span" className="text-neutral-90 mt-3xl" color="neutral-90" variant="label-lg">
           Who we are?
         </Text>
-        <Text as="h2" className="max-w-[950px] mb-xl mt-sm" color="neutral-90" variant="h1">
+        <Text as="h2" className="max-w-[950px] mb-xl mt-sm" color="neutral-90" variant="display-sm">
           THE JOB IS YOURS
         </Text>
-        <Text className="max-w-[640px]" variant="lg">
+        <Text className="max-w-[640px]" variant="body-xl">
           80,000 opportunities to find the job that’s made for you.
         </Text>
         <div className="md:flex mt-5xl">
@@ -112,23 +111,21 @@ const Home = () => {
             className="!mr-md"
             href="https://www.welcometothejungle.com/en/companies/wttj/jobs"
             rel="noopener nofollow"
-            size="lg"
             target="_blank"
           >
             <span>We are recruiting</span>
-            <HeartIcon size="lg" />
+            <Icon name="heart" size="lg" />
           </Button>
           <Button
             as="a"
             className="mt-0 xs:md-md"
             href="https://www.welcometothejungle.com/en"
             rel="noopener nofollow"
-            size="lg"
             target="_blank"
-            variant="ghost"
+            variant="tertiary"
           >
             <span>Visit our website</span>
-            <RightIcon size="lg" />
+            <Icon name="angle-right-b" size="lg" />
           </Button>
         </div>
         <div className="-bottom-[9.375rem] -right-[7.5rem] absolute hidden lg:block opacity-[10]">

@@ -1,7 +1,7 @@
 import { Disclosure, DisclosureContent } from '@ariakit/react'
 import { forwardRef } from 'react'
 
-import { RightIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { Text } from '@/components/Text'
 import { classNames } from '@/utils'
 
@@ -19,9 +19,11 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
           data-testid={dataTestId ? `${dataTestId}-title` : undefined}
           store={store}
         >
-          <Text variant="h5">{title}</Text>
+          <Text as="h5" variant="heading-sm-strong">
+            {title}
+          </Text>
           <div className={cx('icon')}>
-            <RightIcon size="sm" />
+            <Icon name="angle-right" size="lg" />
           </div>
         </Disclosure>
         <DisclosureContent
@@ -35,5 +37,7 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
     )
   }
 )
+
+Accordion.displayName = 'Accordion'
 
 export { useDisclosureStore as useAccordion } from '@ariakit/react'

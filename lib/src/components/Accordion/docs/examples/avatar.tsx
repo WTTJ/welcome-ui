@@ -15,7 +15,9 @@ const Example = () => {
       title={
         <div className={cx('items-center', 'flex')}>
           <Avatar className={cx('mr-sm', 'flex')} name="accordion" />
-          <Text variant="h5">Accordion title</Text>
+          <Text as="h5" variant="heading-sm-strong">
+            Accordion title
+          </Text>
         </div>
       }
     >

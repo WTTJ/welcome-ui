@@ -222,7 +222,7 @@ export const Range = forwardRef<HTMLDivElement, RangeProps>(
     return (
       <div className={cx('range-root', className)} ref={ref}>
         {label ? (
-          <Text as="label" htmlFor={`${rangeId}-min`} variant="sm">
+          <Text as="label" htmlFor={`${rangeId}-min`} variant="body-md">
             {label}
           </Text>
         ) : null}
@@ -265,7 +265,7 @@ export const Range = forwardRef<HTMLDivElement, RangeProps>(
                     onChange({ max: maxValue, min: value })
                   }
                 }}
-                size="sm"
+                size="md"
                 type="number"
                 value={inputMinValue.toString()}
               />
@@ -410,7 +410,7 @@ export const Range = forwardRef<HTMLDivElement, RangeProps>(
                     onChange({ max: value, min: minValue })
                   }
                 }}
-                size="sm"
+                size="md"
                 type="number"
                 value={inputMaxValue.toString()}
               />
@@ -424,3 +424,5 @@ export const Range = forwardRef<HTMLDivElement, RangeProps>(
     )
   }
 )
+
+Range.displayName = 'Slider.Range'

@@ -1,5 +1,5 @@
 import { Button } from '@/components/Button'
-import { GithubIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { Text } from '@/components/Text'
 
 import { PrevNextPage } from '~/build-app/components/PrevNextPage'
@@ -10,7 +10,7 @@ import { getPageContent } from '~/build-app/utils/page-content'
 import { getPages } from '~/build-app/utils/pages-components'
 import { getRepository } from '~/build-app/utils/transform-name'
 
-import { Tabs } from './tabs'
+import { TabList } from './tabs'
 
 type LayoutProps = React.PropsWithChildren<Params>
 
@@ -46,11 +46,11 @@ const Layout = async ({ children, params }: LayoutProps) => {
       <Sidebar className="hidden lg:flex" isSubPage menu={pages} />
       <div>
         <div className="flex flex-col gap-xl mb-lg">
-          <Text className="mt-3xl" variant="h1">
+          <Text as="h1" className="mt-3xl" variant="display-sm">
             {title}
           </Text>
           {description ? (
-            <Text className="text-neutral-60 pt-lg" variant="lg">
+            <Text className="text-neutral-60 pt-lg" variant="body-xl">
               {description}
             </Text>
           ) : null}
@@ -59,11 +59,11 @@ const Layout = async ({ children, params }: LayoutProps) => {
               as="a"
               href={`https://github.com/WTTJ/welcome-ui/tree/main/lib/src/components/${title}`}
               rel="noreferrer noopener"
-              size="sm"
+              size="md"
               target="_blank"
               variant="tertiary"
             >
-              <GithubIcon />
+              <Icon name="github" />
               <span>Source</span>
             </Button>
             {ariakitLink ? (
@@ -71,7 +71,7 @@ const Layout = async ({ children, params }: LayoutProps) => {
                 as="a"
                 href={ariakitLink}
                 rel="noreferrer noopener"
-                size="sm"
+                size="md"
                 target="_blank"
                 variant="tertiary"
               >
@@ -93,7 +93,7 @@ const Layout = async ({ children, params }: LayoutProps) => {
             ) : null}
           </div>
         </div>
-        <Tabs pages={pages} />
+        <TabList pages={pages} />
         <Documentation.Child>
           {children}
           <PrevNextPage basePage="components" currentId={id} pages={pages} />

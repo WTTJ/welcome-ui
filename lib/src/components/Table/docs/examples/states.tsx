@@ -1,5 +1,5 @@
 import { Button } from '@/components/Button'
-import { SettingsIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { Table } from '@/components/Table'
 
 const Example = () => {
@@ -19,8 +19,8 @@ const Example = () => {
           <Table.Td>Lorem ipsum dolor sit amet</Table.Td>
           <Table.Td>23</Table.Td>
           <Table.Td className="text-right">
-            <Button shape="circle" size="sm" variant="secondary">
-              <SettingsIcon size="sm" />
+            <Button size="md" variant="primary-neutral">
+              <Icon name="setting" size="sm" />
             </Button>
           </Table.Td>
         </Table.Tr>
@@ -29,8 +29,8 @@ const Example = () => {
           <Table.Td>Pellentesque a maximus magna</Table.Td>
           <Table.Td>41</Table.Td>
           <Table.Td className="text-right">
-            <Button shape="circle" size="sm" variant="secondary">
-              <SettingsIcon size="sm" />
+            <Button size="md" variant="primary-neutral">
+              <Icon name="setting" size="sm" />
             </Button>
           </Table.Td>
         </Table.Tr>
@@ -39,8 +39,8 @@ const Example = () => {
           <Table.Td>Cras viverra ac erat ullamcorper maximus</Table.Td>
           <Table.Td>8</Table.Td>
           <Table.Td className="text-right">
-            <Button shape="circle" size="sm" variant="secondary">
-              <SettingsIcon size="sm" />
+            <Button size="md" variant="primary-neutral">
+              <Icon name="setting" size="sm" />
             </Button>
           </Table.Td>
         </Table.Tr>
@@ -49,8 +49,8 @@ const Example = () => {
           <Table.Td>Aliquam erat volutpat</Table.Td>
           <Table.Td>102</Table.Td>
           <Table.Td className="text-right">
-            <Button shape="circle" size="sm" variant="secondary">
-              <SettingsIcon size="sm" />
+            <Button size="md" variant="primary-neutral">
+              <Icon name="setting" size="sm" />
             </Button>
           </Table.Td>
         </Table.Tr>

@@ -1,5 +1,5 @@
 import { Button } from '@/components/Button'
-import { ArrowLeftIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { Text } from '@/components/Text'
 import { classNames } from '@/utils'
 
@@ -12,7 +12,7 @@ const cx = classNames(styles)
 export const Header = ({
   action,
   className,
-  icon,
+  iconName,
   onBackButtonClick,
   subtitle,
   title,
@@ -21,13 +21,13 @@ export const Header = ({
     <div className={cx('asset-drawer-header', className)}>
       <div className={cx('back-button')}>
         {!!onBackButtonClick && (
-          <Button onClick={onBackButtonClick} shape="circle" size="lg" variant="ghost">
-            <ArrowLeftIcon />
+          <Button onClick={onBackButtonClick} variant="tertiary">
+            <Icon name="arrow-left" />
           </Button>
         )}
-        {!!icon && <IconBlock icon={icon} />}
+        {!!iconName && <IconBlock iconName={iconName} />}
         <div className={cx('title')}>
-          <Text className="pr-xl" variant="h3">
+          <Text as="h3" className="pr-xl" variant="heading-lg">
             {title}
           </Text>
           {subtitle}
@@ -37,3 +37,5 @@ export const Header = ({
     </div>
   )
 }
+
+Header.displayName = 'AssetDrawer.Header'

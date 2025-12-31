@@ -5,15 +5,15 @@
     transition: var(--duration-medium);
 
     &:not(.checked):not(:disabled):not([aria-disabled]) {
-      border-color: var(--color-neutral-30);
+      border-color: var(--components-colors-radio-color-border-unchecked-default);
 
       &:hover {
-        background-color: var(--color-neutral-30);
+        background-color: var(--components-colors-radio-color-border-unchecked-default);
       }
 
       &:focus,
       &:active {
-        background-color: var(--color-neutral-50);
+        background-color: var(--color-icon-neutral-subtlest);
       }
     }
     padding-top: 0;

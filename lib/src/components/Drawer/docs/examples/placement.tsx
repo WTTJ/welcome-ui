@@ -7,6 +7,11 @@ import type { DrawerProps } from '@/components/Drawer/types'
 const Example = () => {
   const drawer = useDrawer()
   const [placement, setPlacement] = React.useState<DrawerProps['placement']>()
+  const [isExpanded, setIsExpanded] = React.useState(false)
+
+  const handleExpand = () => {
+    setIsExpanded(!isExpanded)
+  }
 
   return (
     <>
@@ -24,7 +29,17 @@ const Example = () => {
           Left
         </Drawer.Trigger>
       </div>
-      <Drawer aria-label="Placement drawer" placement={placement} store={drawer}>
+      <Drawer
+        aria-label="Placement drawer"
+        fullscreen={isExpanded}
+        placement={placement}
+        store={drawer}
+      >
+        <Drawer.Header>
+          <Drawer.Header.LeftActions isExpandable onExpandChange={handleExpand} />
+          <Drawer.Header.Title title="Placement Drawer" />
+          <Drawer.Header.RightActions isClosable onClose={drawer.hide} />
+        </Drawer.Header>
         <Drawer.Content>
           Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
           aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.

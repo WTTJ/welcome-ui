@@ -1,6 +1,5 @@
 import { Button } from '@/components/Button'
 import { AssetDrawer, Drawer, useDrawer } from '@/components/Drawer'
-import { UserIcon } from '@/components/Icon'
 
 const Example = () => {
   const drawer = useDrawer()
@@ -15,10 +14,10 @@ const Example = () => {
           action={
             <div className="flex gap-md">
               <Button>Primary</Button>
-              <Button variant="secondary">Secondary</Button>
+              <Button variant="primary-neutral">Secondary</Button>
             </div>
           }
-          icon={UserIcon}
+          iconName="user-circle"
           subtitle="Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis aliquam nec, convallis sit amet erat."
           title="Praesent sit amet quam faucibus dapibus"
         />

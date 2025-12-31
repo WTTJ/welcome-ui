@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react'
 
-import { SunIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { Link } from '@/components/Link'
 
 import { expectAsSupport, render } from '@tests'
@@ -23,7 +23,7 @@ describe('Button', () => {
     expect(button).toHaveTextContent(content)
     expect(button).not.toBeDisabled()
     expect(button.classList.toString().includes('variant-primary')).toBe(true)
-    expect(button.classList.toString().includes('size-md')).toBe(true)
+    expect(button.classList.toString().includes('size-lg')).toBe(true)
   })
 
   it('should render a danger button', () => {
@@ -59,26 +59,15 @@ describe('Button', () => {
     expect(onClick).toHaveBeenCalledTimes(1)
   })
 
-  it('should look like a square', () => {
-    render(
-      <Button data-testid="button" shape="square" size="sm">
-        {content}
-      </Button>
-    )
-    const button = screen.getByTestId('button')
-    expect(button.classList.toString().includes('shape-square')).toBe(true)
-    expect(button.classList.toString().includes('size-sm')).toBe(true)
-  })
-
   it('should have correct size', () => {
     render(
-      <Button data-testid="button" size="sm">
+      <Button data-testid="button" size="md">
         {content}
       </Button>
     )
     const button = screen.getByTestId('button')
 
-    expect(button.classList.toString().includes('size-sm')).toBe(true)
+    expect(button.classList.toString().includes('size-md')).toBe(true)
   })
 
   describe('disabled', () => {
@@ -106,7 +95,7 @@ describe('Button', () => {
       const button = screen.getByTestId('button')
 
       expect(button).not.toBeDisabled() // because of Ariakit adding accessibleWhenDisabled by default
-      expect(button.classList.toString().includes('variant-disabled')).toBe(true)
+      // expect(button.classList.toString().includes('disabled')).toBe(true) // disabled is no longer a variant, think about how to test
     })
   })
 
@@ -151,34 +140,34 @@ describe('Button', () => {
 
   it('should have correct Icon size with Icon and text', () => {
     render(
-      <Button data-testid="button" size="sm">
-        <SunIcon data-testid="sun" />
+      <Button data-testid="button" size="md">
+        <Icon data-testid="sun" name="sun" />
         <span>{content}</span>
       </Button>
     )
 
     const button = screen.getByTestId('button')
 
-    expect(button.classList.toString().includes('size-sm')).toBe(true)
+    expect(button.classList.toString().includes('size-md')).toBe(true)
   })
 
   it('should have correct Icon size with Icon only', () => {
     render(
-      <Button data-testid="button" size="md">
-        <SunIcon data-testid="sun" />
+      <Button data-testid="button">
+        <Icon data-testid="sun" name="sun" />
       </Button>
     )
 
     const button = screen.getByTestId('button')
     const icon = screen.getByTestId('sun')
-    expect(button.classList.toString().includes('size-md')).toBe(true)
+    expect(button.classList.toString().includes('size-lg')).toBe(true)
     expect(icon.classList.toString().includes('size-md')).toBe(true)
   })
 
   // FIXME: enable when loading style fixed
   it.skip('should have data-loading attribute', () => {
     render(
-      <Button data-testid="button" isLoading size="md">
+      <Button data-testid="button" isLoading>
         {content}
       </Button>
     )

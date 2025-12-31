@@ -37,7 +37,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
         <div className={cx('input-wrapper')}>
           <AriakitRadio
             aria-label={label}
-            className={cx('input', `variant-${variant}`, disabled && 'disabled')}
+            className={cx('input', `variant-${variant}`)}
             data-testid={dataTestId}
             disabled={disabled}
             ref={ref}
@@ -45,17 +45,19 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
             {...rest}
           />
         </div>
-        <div className={cx('label-with-hint')}>
-          <div data-testid={dataTestId ? `${dataTestId}-label` : undefined}>{label}</div>
-          {hint ? (
-            <Hint
-              className={cx('hint')}
-              data-testid={dataTestId ? `${dataTestId}-hint` : undefined}
-            >
-              {hint}
-            </Hint>
-          ) : null}
-        </div>
+        {label ? (
+          <div className={cx('label-with-hint')}>
+            <div data-testid={dataTestId ? `${dataTestId}-label` : undefined}>{label}</div>
+            {hint ? (
+              <Hint
+                className={cx('hint')}
+                data-testid={dataTestId ? `${dataTestId}-hint` : undefined}
+              >
+                {hint}
+              </Hint>
+            ) : null}
+          </div>
+        ) : null}
       </Label>
     )
   }

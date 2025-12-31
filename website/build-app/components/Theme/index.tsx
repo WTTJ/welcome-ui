@@ -1,7 +1,7 @@
 'use client'
 
 import { Text } from '@/components/Text'
-import tokens from '@/theme/tokens.json'
+import tokens from '@/theme/tokens/primitives.json'
 import type { FlatTokens, TokensStructure } from '@/theme/utils/parseTokens'
 import { parseTokens } from '@/theme/utils/parseTokens'
 
@@ -24,7 +24,7 @@ export const Theme = ({ entry }: ColorsProps) => {
   }, {} as FlatTokens)
 
   return (
-    <div className="bg-beige-20 gap-sm grid mt-lg p-xxl rounded-lg">
+    <div className="bg-beige-20 gap-sm grid mt-lg p-xxl rounded-md">
       {Object.entries(filteredEntries).map(([key, value], index) => {
         const border = index !== 0 ? 'border-t border-t-neutral-30' : ''
 

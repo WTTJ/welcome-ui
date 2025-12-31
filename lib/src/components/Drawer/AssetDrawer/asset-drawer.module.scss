@@ -3,8 +3,9 @@
 @layer components {
   .asset-drawer {
     overflow: hidden;
-    border-top-left-radius: var(--radius-2xl);
-    border-top-right-radius: var(--radius-2xl);
+    border-top-left-radius: var(--border-radius-2xl);
+    border-top-right-radius: var(--border-radius-2xl);
+    top: auto !important;
 
     /* Needed to override the default height set in drawer.module.scss */
     /* Uses 'class contains root' because root gets prefixed */
@@ -28,16 +29,16 @@
     flex: 1;
     margin: 0 auto;
     width: 100%;
-    max-width: var(--asset-drawer-content-max-width, 51.25rem); /* 820px */
+    max-width: var(--assetDrawerContentMaxWidth, 51.25rem); /* 820px */
   }
 
   .content {
-    --asset-drawer-content-padding: 0 var(--spacing-md) var(--spacing-xl);
+    --assetDrawerContentPadding: 0 var(--spacing-md) var(--spacing-xl);
 
-    padding: var(--asset-drawer-content-padding);
+    padding: var(--assetDrawerContentPadding);
 
     @media screen and (min-width: breakpoints.$breakpoint-md) {
-      --asset-drawer-content-padding: 0 var(--spacing-xl) var(--spacing-3xl);
+      --assetDrawerContentPadding: 0 var(--spacing-xl) var(--spacing-3xl);
     }
   }
 
@@ -47,7 +48,7 @@
     gap: var(--spacing-xl);
     justify-content: space-between;
 
-    background-color: var(--color-neutral-10);
+    background-color: var(--color-background-neutral-inverse-fixed);
     margin-bottom: var(--spacing-xl);
     padding-bottom: var(--spacing-md);
 
@@ -82,21 +83,21 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    border-radius: var(--radius-md);
-    background-color: var(--color-beige-20);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--color-background-warm-primary);
     transition: background-color var(--duration-medium);
 
-    --icon-block-size: var(--spacing-3xl); /* 48px */
+    --iconBlockSize: var(--size-icon-2xl); /* 48px */
 
-    width: var(--icon-block-size);
-    height: var(--icon-block-size);
+    width: var(--iconBlockSize);
+    height: var(--iconBlockSize);
 
     &.size-md {
-      --icon-block-size: var(--spacing-3xl); /* 48px */
+      --iconBlockSize: var(--size-icon-2xl); /* 48px */
     }
 
     &.size-sm {
-      --icon-block-size: var(--spacing-xxl); /* 32px */
+      --iconBlockSize: var(--size-icon-xl); /* 32px */
     }
   }
 }

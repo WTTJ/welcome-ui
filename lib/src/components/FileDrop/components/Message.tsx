@@ -1,4 +1,5 @@
 import { Button } from '@/components/Button'
+import { Icon } from '@/components/Icon'
 import { Text } from '@/components/Text'
 import { classNames } from '@/utils'
 
@@ -11,20 +12,23 @@ export const Message = ({
   disabled,
   fileButtonText = 'Browse file',
   hint = 'Drag & drop a file here or',
+  isLoading,
   openFile,
   title = 'Add file',
 }: MessageProps) => {
   return (
     <>
-      <Text className={cx('message-title')} variant="h4">
+      <Icon className={cx('message-icon')} name="import" size="lg" />
+      <Text className={cx('message-title')} variant="heading-xs-strong">
         {title}
       </Text>
-      <Text className={cx('message-hint')} variant="sm">
+      <Text className={cx('message-hint')} variant="body-md">
         {hint}
       </Text>
       <Button
         className={cx('message-file-button-text')}
         disabled={disabled}
+        isLoading={isLoading}
         onClick={openFile}
         type="button"
       >
@@ -33,3 +37,5 @@ export const Message = ({
     </>
   )
 }
+
+Message.displayName = 'FileDrop.Message'

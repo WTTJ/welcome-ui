@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ExternalLinkIcon } from '@/components/Icon'
+import { Icon } from '@/components/Icon'
 import { classNames } from '@/utils'
 import { forwardRefWithAs } from '@/utils/forwardRefWithAs'
 
@@ -12,20 +12,31 @@ const cx = classNames(linkStyles)
 interface WrapperProps {
   children?: React.ReactNode
   isExternal?: LinkOptions['isExternal']
+  size: LinkOptions['size']
 }
 
-const Wrapper = ({ children, isExternal }: WrapperProps) => {
+const Wrapper = ({ children, isExternal, size }: WrapperProps) => {
   return (
     <span className={cx('wui-text')}>
       {children}
-      {isExternal ? <ExternalLinkIcon size="sm" /> : null}
+      {isExternal ? <Icon name="external-link-alt" size={size} /> : null}
     </span>
   )
 }
 
-const shouldWrapText = (child: React.ReactNode, isExternal?: boolean) => {
+Wrapper.displayName = 'Link.Wrapper'
+
+const shouldWrapText = (
+  child: React.ReactNode,
+  size: LinkOptions['size'],
+  isExternal?: boolean
+) => {
   if (typeof child === 'string') {
-    return <Wrapper isExternal={isExternal}>{child}</Wrapper>
+    return (
+      <Wrapper isExternal={isExternal} size={size}>
+        {child}
+      </Wrapper>
+    )
   }
 
   if (React.isValidElement(child)) {
@@ -38,7 +49,9 @@ const shouldWrapText = (child: React.ReactNode, isExternal?: boolean) => {
       typeof child.props.children === 'string'
     ) {
       return isExternal ? (
-        <Wrapper isExternal={isExternal}>{child}</Wrapper>
+        <Wrapper isExternal={isExternal} size={size}>
+          {child}
+        </Wrapper>
       ) : (
         // If it is not external, we just need to add wui-text className to the child as we don't need to wrap it to display the icon
         React.cloneElement(child as React.ReactElement, {
@@ -58,17 +71,19 @@ export const Link = forwardRefWithAs<LinkOptions, 'a'>((props, ref) => {
     disabled,
     isExternal,
     multiline,
+    size = 'md',
     target,
     variant = 'primary',
     ...rest
   } = props
 
   const Element = as || 'a'
+  const iconSize = size === 'xs' ? 'sm' : 'md'
 
   const _children =
     typeof children === 'string'
-      ? shouldWrapText(children, isExternal)
-      : React.Children.map(children, child => shouldWrapText(child, isExternal))
+      ? shouldWrapText(children, iconSize, isExternal)
+      : React.Children.map(children, child => shouldWrapText(child, iconSize, isExternal))
 
   return (
     <Element
@@ -76,6 +91,7 @@ export const Link = forwardRefWithAs<LinkOptions, 'a'>((props, ref) => {
       className={cx(
         'root',
         `variant-${variant}`,
+        `size-${size}`,
         isExternal && 'isExternal',
         multiline && 'isMultiline',
         className
@@ -83,10 +99,14 @@ export const Link = forwardRefWithAs<LinkOptions, 'a'>((props, ref) => {
       ref={ref}
       // for security
       rel={target === '_blank' ? 'noopener noreferrer' : undefined}
+      tabIndex={disabled ? -1 : 0}
       target={target}
       {...rest}
     >
+      {disabled ? <Icon className={cx('icon-disabled')} name="ban" size="md" /> : null}
       {_children}
     </Element>
   )
 })
+
+Link.displayName = 'Link'
