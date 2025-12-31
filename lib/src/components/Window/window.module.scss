@@ -13,7 +13,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    background-color: var(--components-colors-window-header-color-background);
     min-height: var(--components-dimensions-window-header-size-min-height);
     border-bottom: var(--components-dimensions-window-border-width) solid;
     border-color: var(--components-colors-window-color-border-default);
@@ -26,6 +26,7 @@
     display: flex;
     flex: 1;
     justify-content: center;
+    text-align: center;
   }
 
   .header-tabs {
@@ -86,7 +87,10 @@
     outline: transparent solid var(--border-width-md);
 
     /* VARIABLES FROM REACT PROPS - DEFAULT VALUES */
-    background-color: var(--windowButtonBackgroundColor, transparent);
+    background-color: var(
+      --windowButtonBackgroundColor,
+      var(--components-colors-window-header-action-color-background-close-default)
+    );
 
     svg {
       color: var(
@@ -121,18 +125,26 @@
   }
 
   .header-close-button {
-    border: 1px solid var(--components-colors-window-header-action-color-border-close-default);
+    border: 1px solid
+      var(
+        --windowHeaderCloseButtonBorderColor,
+        var(--components-colors-window-header-action-color-border-close-default)
+      );
     --windowButtonIconColor: var(--components-colors-window-header-action-color-icon-close-default);
 
     &:hover {
-      --windowButtonBackgroundColor: var(
+      background-color: var(--components-colors-window-header-action-color-background-close-hover);
+      --windowHeaderCloseButtonBorderColor: var(
         --components-colors-window-header-action-color-background-close-hover
       );
       --windowButtonIconColor: var(--components-colors-window-header-action-color-icon-close-hover);
     }
 
     &:active {
-      --windowButtonBackgroundColor: var(
+      background-color: var(
+        --components-colors-window-header-action-color-background-close-pressed
+      );
+      --windowHeaderCloseButtonBorderColor: var(
         --components-colors-window-header-action-color-background-close-pressed
       );
       --windowButtonIconColor: var(

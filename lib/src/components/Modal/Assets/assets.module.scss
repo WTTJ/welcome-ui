@@ -22,11 +22,6 @@
   }
 
   .asset-backdrop {
-    background-color: color-mix(
-      in oklab,
-      var(--color-background-neutral-primary-fixed) 90%,
-      transparent
-    );
     z-index: 999;
     position: fixed;
     top: 0;
@@ -35,6 +30,12 @@
     bottom: 0;
     opacity: 0;
     transition: opacity 150ms ease-in-out;
+
+    background-color: color-mix(
+      in oklab,
+      var(--color-background-transparent-black-subtle) 90%,
+      transparent
+    );
 
     &.hideOnInteractOutside {
       cursor: pointer;
@@ -65,27 +66,28 @@
 
     display: flex;
     flex-direction: column;
-    border-radius: var(--size-icon-xl);
+    border-radius: var(--components-dimensions-modal-border-radius);
     overflow: hidden;
 
     .asset-title-wrapper {
-      background-color: var(--color-background-neutral-inverse-fixed);
+      background-color: var(--components-colors-modal-color-background-default);
       display: flex;
       flex-direction: column;
       justify-content: center;
       flex-shrink: 0;
-      gap: var(--border-radius-xs);
+      gap: var(--spacing-xxs);
       width: 100%;
       height: var(--titleBlockMobile);
-      padding-inline: var(--border-radius-lg);
+      padding-inline: var(--spacing-md);
 
       @media (min-width: breakpoints.$breakpoint-md) {
         height: var(--titleBlockDesktop);
-        padding-inline: var(--border-radius-2xl);
+        padding-inline: var(--spacing-xl);
       }
     }
 
     > img {
+      border-radius: var(--components-dimensions-modal-border-radius);
       width: auto;
       max-width: fit-content;
       max-height: calc(100vh - 2 * 5rem - var(--titleBlockMobile));
@@ -97,7 +99,7 @@
     }
 
     .iframe-wrapper {
-      background-color: var(--color-background-neutral-primary-fixed);
+      background-color: var(--components-colors-modal-color-text-title);
       max-height: calc(100vh - 2 * 5rem - var(--titleBlockMobile));
 
       @media (min-width: breakpoints.$breakpoint-md) {
@@ -107,7 +109,7 @@
   }
 
   .asset-title {
-    margin: var(--font-letter-spacing-none);
+    margin: 0;
   }
 
   .asset-content {
@@ -127,6 +129,21 @@
         max-width: 1600px;
       }
     }
+
+    > img:only-child {
+      border-radius: var(--components-dimensions-modal-border-radius);
+      box-shadow: var(--elevation-40);
+    }
+
+    /* If the only child is the iframe wrapper, make sure the iframe is rounded */
+    > .iframe-wrapper:only-child {
+      overflow: hidden;
+
+      iframe {
+        border-radius: var(--components-dimensions-modal-border-radius);
+        box-shadow: var(--elevation-40);
+      }
+    }
   }
 
   .dialog {
@@ -138,7 +155,7 @@
     height: fit-content;
     width: fit-content;
     flex-direction: column;
-    border-radius: var(--border-radius-sm);
+    border-radius: var(--components-dimensions-modal-border-radius);
     opacity: 0;
     transition: opacity 250ms ease-in-out;
 
@@ -152,7 +169,7 @@
     }
 
     .asset-content {
-      margin-top: var(--border-radius-2xl);
+      margin-top: var(--spacing-xl);
     }
 
     &[data-enter] {
@@ -166,17 +183,7 @@
 
   .close-button {
     position: absolute;
-    right: var(--border-radius-2xl);
-    top: var(--border-radius-2xl);
-
-    /* Hack for secondary variant on dark mode */
-    /* FIXME(isaac) this hack was already there, don't know what it does */
-    color: var(--color-background-neutral-primary-fixed);
-    border-color: var(--color-background-neutral-inverse-fixed);
-    background-color: var(--color-background-neutral-inverse-fixed);
-
-    &:hover {
-      background-color: var(--color-background-neutral-subtle);
-    }
+    right: var(--spacing-xl);
+    top: var(--spacing-xl);
   }
 }

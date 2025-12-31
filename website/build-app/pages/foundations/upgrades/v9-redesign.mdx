@@ -111,6 +111,37 @@ Introduce new `size` prop to control padding/font-size and overall size of the C
 
 Automatically adds a `close` button on the top right corner when `onClose` prop is provided.
 
+### Modal
+
+The `xs` variant no longer exists. Available sizes are now `sm`, `md`, `lg` (default), and `auto`.
+
+#### Modal.close
+
+The `Modal.close` component has been removed. The Close Button is displayed automatically in Modal.Content if no Modal.Header is provided.
+
+#### Modal.Header
+
+Modal.Header no longer accept a title, an icon props or a subtitle props. If you want to keep them, you need to passe the `icon` as an `iconName` prop to Modal.Body, and the `subtitle` as a `subtitle` prop to Modal.Body. `Modal.Header` now expects children instead of `title`/`icon` props. Use `Window.Header.Title`, `Window.Header.RightActions`, etc. inside `Modal.Header`:
+
+```tsx
+<Modal.Header>
+  <Window.Header.Title title="My title" />
+  <Window.Header.RightActions isClosable onClose={modal.hide} />
+</Modal.Header>
+```
+
+#### Modal.Body
+
+Modal.Body now has its own header, that is display if you're passing a `title` prop or an `iconName` prop to Modal.Body. It also accepts a `subtitle` prop.
+
+#### Fullscreen support
+
+- `Modal` accepts a new `fullscreen?: boolean` prop that will add a `.fullscreen` class to the root (and styles to make it full viewport). You can toggle this state from header actions (for instance `Window.Header.LeftActions` calling `onExpandChange`).
+
+#### Modal.Footer
+
+Modal.Footer no longer accepts the information props. It accepts a `variant` prop that can be `right` (default) or `full`. Modal.Footer buttons need to be wrapped with Modal.Footer.Buttons, and can also display a Modal.Footer.Checkbox (when you need to remember a user choice for instance).
+
 ## Utils
 
 ## example

@@ -8,9 +8,9 @@ import windowStyles from '../window.module.scss'
 const cx = classNames(windowStyles)
 
 export const Body = forwardRef<HTMLDivElement, BodyProps>(
-  ({ children, size = 'md', ...rest }, ref) => {
+  ({ children, className, size = 'md', ...rest }, ref) => {
     return (
-      <div className={cx('body', `size-${size}`)} ref={ref} {...rest}>
+      <div className={cx('body', `size-${size}`, className)} ref={ref} {...rest}>
         {children}
       </div>
     )
