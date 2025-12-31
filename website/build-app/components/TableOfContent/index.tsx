@@ -2,7 +2,7 @@
 import NextLink from 'next/link'
 import { useEffect, useState } from 'react'
 
-import { Text } from '@/components/Text'
+import { Window } from '@/components/Window'
 import { classNames } from '@/utils'
 
 import type { Toc } from '~/build-app/utils/page-tree'
@@ -12,11 +12,10 @@ import styles from './table-of-content.module.scss'
 const cx = classNames(styles)
 
 type TableOfContentProps = {
-  isSubPage?: boolean
   tree?: Toc[]
 }
 
-export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
+export const TableOfContent = ({ tree }: TableOfContentProps) => {
   const [activeId, setActiveId] = useState<string>('')
 
   useEffect(() => {
@@ -55,40 +54,42 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
   if (!tree) return null
 
   return (
-    <div className="hidden xl:block">
-      <nav className={cx('nav', isSubPage && 'nav-subpage')}>
-        <Text className="mb-lg ml-lg" variant="label-md">
-          On this page
-        </Text>
-        <ul className="flex flex-col gap-lg">
-          {tree.map(item => (
-            <li className="flex flex-col gap-sm" key={item.href}>
-              <NextLink
-                aria-current={`#${activeId}` === item.href ? 'page' : undefined}
-                className={cx('link', 'pl-lg')}
-                href={item.href}
-              >
-                {item.title}
-              </NextLink>
-              {item.children ? (
-                <ul className="flex flex-col gap-xs">
-                  {item.children.map(child => (
-                    <li key={child.href}>
-                      <NextLink
-                        aria-current={`#${activeId}` === child.href ? 'page' : undefined}
-                        className={cx('link', 'pl-xxl')}
-                        href={child.href}
-                      >
-                        {child.title}
-                      </NextLink>
-                    </li>
-                  ))}
-                </ul>
-              ) : null}
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </div>
+    <Window as="nav" className={`h-[calc(100vh-120px)] sticky top-100`}>
+      <Window.Header className="sticky top-0 z-1">
+        <Window.Header.Title title="On this page" />
+      </Window.Header>
+      <Window.Body className="px-sm flex flex-col gap-xl overflow-y-auto h-[calc(100%-40px)]">
+        <nav>
+          <ul className="flex flex-col gap-lg">
+            {tree.map(item => (
+              <li className="flex flex-col gap-sm" key={item.href}>
+                <NextLink
+                  aria-current={`#${activeId}` === item.href ? 'page' : undefined}
+                  className={cx('link', 'pl-lg')}
+                  href={item.href}
+                >
+                  {item.title}
+                </NextLink>
+                {item.children ? (
+                  <ul className="flex flex-col gap-xs">
+                    {item.children.map(child => (
+                      <li key={child.href}>
+                        <NextLink
+                          aria-current={`#${activeId}` === child.href ? 'page' : undefined}
+                          className={cx('link', 'pl-xxl')}
+                          href={child.href}
+                        >
+                          {child.title}
+                        </NextLink>
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </Window.Body>
+    </Window>
   )
 }
