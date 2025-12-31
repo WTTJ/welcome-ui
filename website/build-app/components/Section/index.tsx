@@ -9,7 +9,7 @@ export const Section = ({
   ...rest
 }: SectionProps) => {
   return (
-    <Element className={`md:py-90 py-xxl relative ${className}`} {...rest}>
+    <Element className={`md:py-90 py-xxl relative ${className || ''}`} {...rest}>
       <div className="relative">{children}</div>
     </Element>
   )

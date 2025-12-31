@@ -9,7 +9,7 @@ export type LayoutProps = {
 type ChildProps = {
   children: [React.ReactNode, React.ReactNode]
   header: React.ReactNode
-  title: string
+  title?: string
 }
 
 export const DocumentationLayout = ({ children }: LayoutProps) => {
@@ -29,10 +29,12 @@ export const DocumentationLayoutChild = ({
     <div className="gap-xl grid xl:grid-cols-[auto_220px] relative">
       <Window as="nav">
         <Window.Header>{header}</Window.Header>
-        <Window.Body className="flex flex-col gap-xl">
-          <Text as="h1" variant="display-sm">
-            {title}
-          </Text>
+        <Window.Body>
+          {title ? (
+            <Text as="h1" className="mt-lg" variant="display-md">
+              {title}
+            </Text>
+          ) : null}
           {content}
         </Window.Body>
       </Window>

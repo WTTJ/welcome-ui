@@ -21,7 +21,7 @@ export const NavBar = ({ className, onClick }: NavBarProps) => {
   }, [currentRoute, tab])
 
   return (
-    <div className={`flex gap-xl items-center lg:h-full ${className}`}>
+    <div className={`flex gap-xl items-center lg:h-full ${className || ''}`}>
       <nav className="lg:h-full">
         <Tabs aria-label="Main navigation" store={tab}>
           {navigation.map(item => (
