@@ -73,13 +73,14 @@ describe('<Window>', () => {
       return (
         <Window>
           <Window.Header>
-            <Window.Header.Tabs
-              items={[
-                { icon: 'folder', id: 'tab1', title: '1st tab' },
-                { icon: 'folder', id: 'tab2', title: '2nd tab' },
-              ]}
-              store={tabStore}
-            />
+            <Window.Header.Tabs store={tabStore}>
+              <Window.Header.Tab icon="folder" id="tab1" store={tabStore}>
+                1st tab
+              </Window.Header.Tab>
+              <Window.Header.Tab icon="folder" id="tab2" store={tabStore}>
+                2nd tab
+              </Window.Header.Tab>
+            </Window.Header.Tabs>
           </Window.Header>
           <Window.TabPanel store={tabStore} tabId="tab1">
             <Window.Body>First tab content</Window.Body>

@@ -11,14 +11,17 @@ const Example = () => {
     <Window className="max-w-400">
       <Window.Header>
         <Window.Header.LeftActions isExpandable />
-        <Window.Header.Tabs
-          items={[
-            { icon: 'folder', id: 'tab1', title: '1st tab' },
-            { icon: 'folder', id: 'tab2', title: '2nd tab' },
-            { icon: 'folder', id: 'tab3', title: '3rd tab' },
-          ]}
-          store={tabStore}
-        />
+        <Window.Header.Tabs store={tabStore}>
+          <Window.Header.Tab icon="folder" id="tab1" store={tabStore}>
+            1st tab
+          </Window.Header.Tab>
+          <Window.Header.Tab icon="file" id="tab2" store={tabStore}>
+            2nd tab
+          </Window.Header.Tab>
+          <Window.Header.Tab icon="image" id="tab3" store={tabStore}>
+            3rd tab
+          </Window.Header.Tab>
+        </Window.Header.Tabs>
         <Window.Header.RightActions isClosable />
       </Window.Header>
       <Window.TabPanel store={tabStore} tabId="tab1">
