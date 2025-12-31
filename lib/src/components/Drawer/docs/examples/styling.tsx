@@ -22,12 +22,10 @@ const Example = () => {
           aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
         </Drawer.Content>
         <Drawer.Footer className="border-t border-t-beige-40 bg-beige-30">
-          <div className="flex gap-lg">
-            <Button onClick={onClick}>Save</Button>
-            <Button onClick={onClick} variant="tertiary">
-              Close
-            </Button>
-          </div>
+          <Button onClick={onClick}>Save</Button>
+          <Button onClick={onClick} variant="tertiary">
+            Close
+          </Button>
         </Drawer.Footer>
       </Drawer>
     </>
