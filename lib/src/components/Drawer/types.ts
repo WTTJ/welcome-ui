@@ -31,7 +31,9 @@ export interface DrawerOptions extends DialogOptions<'div'> {
 
 export type DrawerProps = ComponentPropsWithRef<'div'> & DialogProps<'div'> & DrawerOptions
 
-export type FooterProps = ComponentPropsWithRef<'div'>
+export type FooterProps = ComponentPropsWithRef<'div'> & {
+  variant?: 'full' | 'right'
+}
 
 export type TitleProps = ComponentPropsWithRef<'div'>
 

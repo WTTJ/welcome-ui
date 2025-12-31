@@ -22,7 +22,7 @@
     --drawerBottom: 0;
     --drawerHeight: calc(100% - var(--spacing-md) * 2);
     --drawerWidth: calc(100% - var(--spacing-md) * 2);
-    --drawerTransform: translateY(0, 0);
+    --drawerTransform: translate(0, 0);
 
     left: var(--drawerLeft);
     right: var(--drawerRight);
@@ -31,6 +31,19 @@
     width: var(--drawerWidth);
     height: var(--drawerHeight);
     transform: var(--drawerTransform);
+
+    @media screen and (max-width: breakpoints.$breakpoint-md) {
+      --drawerTransform: translate(0, 0);
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      border-radius: 0;
+      transform: var(--drawerTransform);
+    }
 
     /* Hide the standalone close button when the Drawer contains a header
      (the header already contains its own close button). Scope :has to the
@@ -49,19 +62,19 @@
     &.placement {
       &-bottom {
         --drawerTop: calc(100% - var(--drawerHeight) - var(--spacing-md) * 2);
-        --drawerTransform: translateY(100%);
+        --drawerTransform: translate(0, 100%);
       }
       &-left {
         --drawerRight: calc(100% - var(--drawerWidth) - var(--spacing-md) * 2);
-        --drawerTransform: translateX(-100%);
+        --drawerTransform: translate(-100%, 0);
       }
       &-right {
         --drawerLeft: calc(100% - var(--drawerWidth) - var(--spacing-md) * 2);
-        --drawerTransform: translateX(100%);
+        --drawerTransform: translate(100%, 0);
       }
       &-top {
         --drawerBottom: calc(100% - var(--drawerHeight) - var(--spacing-md) * 2);
-        --drawerTransform: translateY(-100%);
+        --drawerTransform: translate(0, -100%);
       }
       &-top,
       &-bottom {
@@ -96,7 +109,7 @@
     /* Note: this must come _after_ the placement rules to transition from offscreen to onscreen */
     &[data-enter] {
       opacity: 1;
-      --drawerTransform: translateX(0, 0);
+      --drawerTransform: translate(0, 0);
     }
 
     &.fullscreen {
@@ -106,16 +119,16 @@
       height: calc(100% - var(--spacing-md) * 2);
 
       &.placement-left:not([data-enter]) {
-        --drawerTransform: translateX(-100%);
+        --drawerTransform: translate(-100%, 0);
       }
       &.placement-right:not([data-enter]) {
-        --drawerTransform: translateX(100%);
+        --drawerTransform: translate(100%, 0);
       }
       &.placement-top:not([data-enter]) {
-        --drawerTransform: translateY(-100%);
+        --drawerTransform: translate(0, -100%);
       }
       &.placement-bottom:not([data-enter]) {
-        --drawerTransform: translateY(100%);
+        --drawerTransform: translate(0, 100%);
       }
 
       .media {
@@ -180,10 +193,22 @@
     width: 100%;
     background-color: var(--components-colors-drawer-body-color-background-default);
     padding: var(--spacing-xl);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+  }
 
-    @media screen and (min-width: breakpoints.$breakpoint-md) {
-      bottom: auto;
-      position: static;
+  .variant {
+    &-right {
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    &-full {
+      button,
+      a {
+        flex: 1;
+      }
     }
   }
 
