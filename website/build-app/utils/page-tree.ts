@@ -28,11 +28,6 @@ export function getPageTree(content: string, isOverview?: boolean) {
   if (isOverview) {
     tableOfContents.push({ href: '#', id: 'definition', title: 'Definition' })
     tableOfContents.push({
-      href: '#installation',
-      id: 'installation',
-      title: 'Installation',
-    })
-    tableOfContents.push({
       href: '#examples',
       id: 'examples',
       title: 'Examples',

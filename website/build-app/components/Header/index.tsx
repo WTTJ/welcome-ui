@@ -44,7 +44,7 @@ export const Header = ({ components, foundations }: HeaderProps) => {
   }
 
   return (
-    <header className="sticky top-0 py-md bg-beige-10 z-999 h-70">
+    <header className="sticky top-0 mt-md bg-beige-10 z-999 h-70">
       <Sprite />
       <div className="flex gap-lg items-center justify-between bg-neutral-10 border-1 border-beige-30 rounded-md shadow-(--elevation-10) p-sm md:p-lg">
         <div className="flex gap-lg items-center">
@@ -65,7 +65,7 @@ export const Header = ({ components, foundations }: HeaderProps) => {
         <Drawer className="lg:hidden" size="100%" store={drawer} withBackdrop>
           <Drawer.Content className="pt-4xl">
             <NavBar onClick={handleCloseDrawer} />
-            {menu ? <Sidebar isSubPage menu={menu} onClick={handleCloseDrawer} /> : null}
+            {menu ? <Sidebar menu={menu} onClick={handleCloseDrawer} /> : null}
           </Drawer.Content>
         </Drawer>
       </div>
