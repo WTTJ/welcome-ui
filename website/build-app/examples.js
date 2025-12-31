@@ -71,6 +71,7 @@ export default {
   "/DateTimePicker/docs/examples/sizes.tsx": dynamic(() => import("../../lib/src/components/DateTimePicker/docs/examples/sizes.tsx").then(mod => mod), { ssr: false }),
   "/Drawer/docs/examples/asset.tsx": dynamic(() => import("../../lib/src/components/Drawer/docs/examples/asset.tsx").then(mod => mod), { ssr: false }),
   "/Drawer/docs/examples/backdrop.tsx": dynamic(() => import("../../lib/src/components/Drawer/docs/examples/backdrop.tsx").then(mod => mod), { ssr: false }),
+  "/Drawer/docs/examples/content-header.tsx": dynamic(() => import("../../lib/src/components/Drawer/docs/examples/content-header.tsx").then(mod => mod), { ssr: false }),
   "/Drawer/docs/examples/layout.tsx": dynamic(() => import("../../lib/src/components/Drawer/docs/examples/layout.tsx").then(mod => mod), { ssr: false }),
   "/Drawer/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Drawer/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Drawer/docs/examples/placement.tsx": dynamic(() => import("../../lib/src/components/Drawer/docs/examples/placement.tsx").then(mod => mod), { ssr: false }),
