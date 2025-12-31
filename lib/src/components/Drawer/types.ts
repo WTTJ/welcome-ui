@@ -2,7 +2,7 @@ import type { DialogOptions, DialogProps, DialogStore } from '@ariakit/react'
 import type { ComponentPropsWithRef } from 'react'
 
 import type { CloseButtonProps } from '@/components/CloseButton/types'
-
+import type { IconName } from '@/components/Icon/types'
 export type {
   DialogStore as UseDrawer,
   DialogStoreProps as UseDrawerProps,
@@ -15,7 +15,11 @@ export type BackdropProps = BackdropOptions & ComponentPropsWithRef<'div'>
 
 export type CloseProps = CloseButtonProps
 
-export type ContentProps = ComponentPropsWithRef<'div'>
+export type ContentProps = ComponentPropsWithRef<'div'> & {
+  iconName?: IconName
+  subtitle?: JSX.Element | string
+  title?: JSX.Element | string
+}
 
 export interface DrawerOptions extends DialogOptions<'div'> {
   fullscreen?: boolean
