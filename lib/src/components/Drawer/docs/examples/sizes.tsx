@@ -22,7 +22,7 @@ const Example = () => {
         </Drawer.Trigger>
       </div>
       <Drawer aria-label="Size drawer" size={size} store={drawer}>
-        <Drawer.Content>
+        <Drawer.Content iconName="info-circle" subtitle="Subtitle" title="Size drawer">
           Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
           aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
         </Drawer.Content>
