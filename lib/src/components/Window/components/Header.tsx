@@ -4,13 +4,14 @@ import { forwardRef, useState } from 'react'
 import { Icon } from '@/components/Icon'
 import { Text } from '@/components/Text'
 import type { As, PropsWithAs } from '@/utils'
-import { classNames } from '@/utils'
+import { classNames, forwardRefWithAs } from '@/utils'
 
 import type {
   ActionButtonProps,
   HeaderLeftActionsProps,
   HeaderProps,
   HeaderRightActionsProps,
+  HeaderTabItem,
   HeaderTabsProps,
   HeaderTitleProps,
 } from '../types'
@@ -54,18 +55,32 @@ const CloseButton = ({
   )
 }
 
-const Tabs = ({ items, store }: HeaderTabsProps) => {
+const Tabs = ({ children, store }: HeaderTabsProps) => {
   return (
     <AriakitTabList className={cx('header-tabs')} store={store}>
-      {items.map(item => (
-        <AriakitTab className={cx('header-tab-item')} id={item.id} key={item.id} store={store}>
-          <Icon name={item.icon} />
-          <Text variant="label-sm">{item.title}</Text>
-        </AriakitTab>
-      ))}
+      {children}
     </AriakitTabList>
   )
 }
+
+const Tab = forwardRefWithAs<HeaderTabItem, 'button'>(
+  ({ as: As, children, icon, id, store, ...rest }, ref) => {
+    return (
+      <AriakitTab
+        className={cx('header-tab-item')}
+        id={id}
+        key={id}
+        ref={ref}
+        render={As ? <As /> : undefined}
+        store={store}
+        {...rest}
+      >
+        <Icon name={icon} />
+        <Text variant="label-sm">{children}</Text>
+      </AriakitTab>
+    )
+  }
+)
 
 const RightActions = ({ children, isClosable = false, onClose }: HeaderRightActionsProps) => {
   const handleCloseWindow = () => {
@@ -131,6 +146,7 @@ export const Header = Object.assign(HeaderComponent, {
   CloseButton,
   LeftActions,
   RightActions,
+  Tab,
   Tabs,
   Title,
 })
