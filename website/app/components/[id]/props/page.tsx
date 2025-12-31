@@ -27,7 +27,7 @@ const Page = async ({ params }: Params) => {
   const tree = getPropertiesTree(properties)
 
   return (
-    <DocumentationLayoutChild header={<TabList pages={pages} />} title="Properties">
+    <DocumentationLayoutChild header={<TabList pages={pages} />}>
       <main>
         <Properties items={properties} />
       </main>

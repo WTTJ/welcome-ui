@@ -37,17 +37,18 @@ export const Highlight = ({ children, language = 'tsx' }: HighlightProps) => {
                   const isAdded = token.content.startsWith('+')
                   const isRemoved = token.content.startsWith('-')
                   const isDiff = isAdded || isRemoved
-                  const textColor = isRemoved ? 'text-red-30' : isAdded ? 'text-green-40' : ''
+                  const textColor = isDiff
+                    ? isRemoved
+                      ? 'text-red-30'
+                      : isAdded
+                        ? 'text-green-40'
+                        : 'text-neutral-40'
+                    : ''
 
                   const { className, ...tokenProps } = getTokenProps({ token })
                   return (
                     <span
-                      className={cx(
-                        'text-[14px] whitespace-pre-wrap',
-                        textColor,
-                        isDiff && 'text-[#2f2f2f]',
-                        className
-                      )}
+                      className={cx('text-14 whitespace-pre-wrap', textColor, className)}
                       key={key}
                       {...tokenProps}
                     />

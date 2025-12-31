@@ -58,14 +58,14 @@ export const TableOfContent = ({ tree }: TableOfContentProps) => {
       <Window.Header className="sticky top-0 z-1">
         <Window.Header.Title title="On this page" />
       </Window.Header>
-      <Window.Body className="px-sm flex flex-col gap-xl overflow-y-auto h-[calc(100%-40px)]">
+      <Window.Body className="flex flex-col gap-xl overflow-y-auto h-[calc(100%-40px)]">
         <nav>
           <ul className="flex flex-col gap-lg">
             {tree.map(item => (
               <li className="flex flex-col gap-sm" key={item.href}>
                 <NextLink
                   aria-current={`#${activeId}` === item.href ? 'page' : undefined}
-                  className={cx('link', 'pl-lg')}
+                  className={cx('link', 'pl-sm')}
                   href={item.href}
                 >
                   {item.title}
@@ -76,7 +76,7 @@ export const TableOfContent = ({ tree }: TableOfContentProps) => {
                       <li key={child.href}>
                         <NextLink
                           aria-current={`#${activeId}` === child.href ? 'page' : undefined}
-                          className={cx('link', 'pl-xxl')}
+                          className={cx('link', 'ml-sm', 'pl-lg')}
                           href={child.href}
                         >
                           {child.title}

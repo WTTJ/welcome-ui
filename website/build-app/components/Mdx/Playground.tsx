@@ -2,8 +2,8 @@
 import { useState } from 'react'
 
 import { Button } from '@/components/Button'
+import { Card } from '@/components/Card'
 import { Icon } from '@/components/Icon'
-import { Tooltip } from '@/components/Tooltip'
 import { classNames } from '@/utils'
 
 import examples from '~/build-app/examples'
@@ -62,53 +62,50 @@ export const Playground = ({
 
   return (
     <>
-      <div className="block">
-        <div
-          className={cx(
-            'bg-neutral-10 border border-beige-40 flex-wrap gap-lg mt-xl p-sm lg:p-3xl relative rounded-md',
-            columnDirection ? 'flex-col items-left' : 'items-center',
-            removeFlex ? 'block' : 'flex',
-            className
-          )}
-        >
-          {preview}
-        </div>
-      </div>
-      {withCodeEditor ? (
-        <>
-          <div className="bg-beige-30 border border-beige-40 -mt-md overflow-hidden pt-lg rounded-md pb-xs">
-            <div className="flex gap-xs pl-sm">
-              <Tooltip content="View code">
-                <Button
-                  onClick={() => setIsHighlightOpen(!isHighlightOpen)}
-                  size="md"
-                  variant="tertiary"
-                >
-                  <Icon name="arrow" />
-                </Button>
-              </Tooltip>
-              <Tooltip content="Edit on StackBlitz">
-                <Button onClick={handleClickStackBlitz} size="md" variant="tertiary">
-                  <Icon name="external-link-alt" />
-                </Button>
-              </Tooltip>
-              <Tooltip content="View on Github">
-                <Button
-                  as="a"
-                  href={`https://github.com/WTTJ/welcome-ui/tree/main/lib/src/components${pathToFile}`}
-                  rel="noreferrer noopener"
-                  size="md"
-                  target="_blank"
-                  variant="tertiary"
-                >
-                  <Icon name="github" />
-                </Button>
-              </Tooltip>
-            </div>
+      <Card className="mt-xl">
+        <Card.Body>
+          <div
+            className={cx(
+              'bg-neutral-10 flex-wrap gap-lg lg:py-6xl p-md lg:px-xxl relative',
+              columnDirection ? 'flex-col items-left' : 'items-center justify-center',
+              removeFlex ? 'block' : 'flex',
+              className
+            )}
+          >
+            {preview}
           </div>
-          {isHighlightOpen ? <Highlight>{code}</Highlight> : null}
-        </>
-      ) : null}
+        </Card.Body>
+        {withCodeEditor ? (
+          <Card className="ml-md mb-md mr-md" size="sm">
+            <Card.Body className="flex flex-row gap-md">
+              <Button
+                onClick={() => setIsHighlightOpen(!isHighlightOpen)}
+                size="md"
+                variant={isHighlightOpen ? 'primary' : 'secondary'}
+              >
+                <Icon name="arrow" />
+                <span>Code</span>
+              </Button>
+              <Button onClick={handleClickStackBlitz} size="md" variant="secondary">
+                <Icon name="external-link-alt" />
+                <span>Stackblitz</span>
+              </Button>
+              <Button
+                as="a"
+                href={`https://github.com/WTTJ/welcome-ui/tree/main/lib/src/components${pathToFile}`}
+                rel="noreferrer noopener"
+                size="md"
+                target="_blank"
+                variant="secondary"
+              >
+                <Icon name="github" />
+                <span>Github</span>
+              </Button>
+            </Card.Body>
+          </Card>
+        ) : null}
+      </Card>
+      {isHighlightOpen ? <Highlight>{code}</Highlight> : null}
     </>
   )
 }

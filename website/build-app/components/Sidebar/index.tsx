@@ -40,7 +40,7 @@ export const Sidebar = ({ className, isSubPage, menu, onClick }: SidebarProps) =
   }, [ref])
 
   return (
-    <Window as="nav" className={`h-[calc(100vh-120px)] sticky top-100 ${className}`}>
+    <Window as="nav" className={`h-[calc(100vh-120px)] sticky top-100 ${className || ''}`}>
       <Window.Header className="sticky top-0 z-1">
         <Window.Header.Title title="Menu" />
       </Window.Header>
