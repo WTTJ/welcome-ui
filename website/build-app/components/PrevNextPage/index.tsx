@@ -24,7 +24,7 @@ export const PrevNextPage = ({ basePage, currentId, pages }: PrevNextPageProps) 
   return (
     <div className="flex justify-between mt-3xl">
       {currentPageIndex > 0 ? (
-        <Button as={Link} href={`/${basePage}/${items[currentPageIndex - 1]}`} variant="tertiary">
+        <Button as={Link} href={`/${basePage}/${items[currentPageIndex - 1]}`} variant="secondary">
           <Icon name="angle-left-b" />
           <span>{getName(items[currentPageIndex - 1])}</span>
         </Button>
@@ -32,7 +32,7 @@ export const PrevNextPage = ({ basePage, currentId, pages }: PrevNextPageProps) 
         <div />
       )}
       {currentPageIndex !== lastItemIndex && (
-        <Button as={Link} href={`/${basePage}/${items[currentPageIndex + 1]}`} variant="tertiary">
+        <Button as={Link} href={`/${basePage}/${items[currentPageIndex + 1]}`} variant="secondary">
           <span>{getName(items[currentPageIndex + 1])}</span>
           <Icon name="angle-right-b" />
         </Button>

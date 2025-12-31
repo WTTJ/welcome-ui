@@ -1,14 +1,9 @@
 .nav {
-  box-shadow: var(--color-neutral-30) 1px 0px 0px inset;
   position: sticky;
-  top: calc(4.375rem + 3rem);
-  max-height: calc(100vh - 12rem);
+  top: 100px;
+  max-height: calc(100vh - 130px);
   overflow-y: auto;
   z-index: 1;
-}
-
-.nav-subpage {
-  top: calc(4.375rem + 7rem);
 }
 
 .link {

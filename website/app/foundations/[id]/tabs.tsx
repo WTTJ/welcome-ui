@@ -1,37 +1,48 @@
 'use client'
+import { useTabStore } from '@ariakit/react'
 import Link from 'next/link'
 import { useParams, usePathname } from 'next/navigation'
 
-import { Tabs, useTab } from '@/components/Tabs'
+import { Window } from '@/components/Window'
 
 import type { PageTree } from '~/build-app/types'
 import { getName } from '~/build-app/utils/transform-name'
 
 type TabListProps = {
   pages: PageTree
+  title: string
 }
 
-export const TabList = ({ pages }: TabListProps) => {
+export const TabList = ({ pages, title }: TabListProps) => {
   const pathname = usePathname()
   const { id } = useParams()
 
   const subPages = pages.filter(page => page.category === id)[0]?.pages
 
-  const tab = useTab({ selectedId: pathname.split('/').pop() })
+  const tab = useTabStore({ selectedId: pathname.split('/').pop() })
 
-  if (!subPages) return null
+  if (!subPages) {
+    return <Window.Header.Title title={title} />
+  }
 
   return (
-    <Tabs aria-label="Tabs" className="bg-neutral-10 mb-xl sticky top-70 z-1 pt-xxl" store={tab}>
+    <Window.Header.Tabs store={tab}>
       {subPages.map(subPage => {
         const link = `/foundations/${subPage.parent}/${subPage.id}`
 
         return (
-          <Tabs.Tab as={Link} href={link} id={subPage.id as string} key={link} store={tab}>
+          <Window.Header.Tab
+            as={Link}
+            href={link}
+            icon="package"
+            id={subPage.id as string}
+            key={link}
+            store={tab}
+          >
             {getName(subPage.id)}
-          </Tabs.Tab>
+          </Window.Header.Tab>
         )
       })}
-    </Tabs>
+    </Window.Header.Tabs>
   )
 }
