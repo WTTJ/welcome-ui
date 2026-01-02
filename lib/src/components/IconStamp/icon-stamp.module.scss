@@ -1,0 +1,86 @@
+@layer components {
+  .root {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    border-color: var(--components-colors-icon-stamp-color-border-default);
+    border-width: var(--components-dimensions-icon-stamp-border-width);
+    border-style: solid;
+    box-shadow: var(--elevation-10);
+    box-sizing: border-box;
+    transform: rotate(-2deg);
+
+    /* VARIABLES THAT CHANGE WITH REACT PROPS */
+    color: var(--color, var(--color-icon-neutral-subtle));
+    background: var(--backgroundColor);
+    border-radius: var(--borderRadius);
+    height: var(--size);
+    width: var(--size);
+  }
+
+  .variant {
+    &-brand {
+      --backgroundColor: var(--components-colors-icon-stamp-color-background-brand);
+      --color: var(--components-colors-icon-stamp-color-icon-brand);
+    }
+
+    &-warm {
+      --backgroundColor: var(--components-colors-icon-stamp-color-background-warm);
+      --color: var(--components-colors-icon-stamp-color-icon-warm);
+    }
+
+    &-red {
+      --backgroundColor: var(--components-colors-icon-stamp-color-background-red);
+      --color: var(--components-colors-icon-stamp-color-icon-red);
+    }
+
+    &-blue {
+      --backgroundColor: var(--components-colors-icon-stamp-color-background-blue);
+      --color: var(--components-colors-icon-stamp-color-icon-blue);
+    }
+
+    &-green {
+      --backgroundColor: var(--components-colors-icon-stamp-color-background-green);
+      --color: var(--components-colors-icon-stamp-color-icon-green);
+    }
+
+    &-orange {
+      --backgroundColor: var(--components-colors-icon-stamp-color-background-orange);
+      --color: var(--components-colors-icon-stamp-color-icon-orange);
+    }
+
+    &-pink {
+      --backgroundColor: var(--components-colors-icon-stamp-color-background-pink);
+      --color: var(--components-colors-icon-stamp-color-icon-pink);
+    }
+
+    &-teal {
+      --backgroundColor: var(--components-colors-icon-stamp-color-background-teal);
+      --color: var(--components-colors-icon-stamp-color-icon-teal);
+    }
+
+    &-violet {
+      --backgroundColor: var(--components-colors-icon-stamp-color-background-violet);
+      --color: var(--components-colors-icon-stamp-color-icon-violet);
+    }
+  }
+
+  .size {
+    &-sm {
+      --borderRadius: var(--components-dimensions-icon-stamp-border-radius-sm);
+      --size: var(--components-dimensions-icon-stamp-size-sm);
+    }
+
+    &-md {
+      --borderRadius: var(--components-dimensions-icon-stamp-border-radius-md);
+      --size: var(--components-dimensions-icon-stamp-size-md);
+    }
+
+    &-lg {
+      --borderRadius: var(--components-dimensions-icon-stamp-border-radius-lg);
+      --size: var(--components-dimensions-icon-stamp-size-lg);
+    }
+  }
+}

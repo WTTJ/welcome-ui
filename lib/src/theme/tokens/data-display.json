@@ -1940,6 +1940,158 @@
           }
         }
       }
+    },
+    "icon-stamp": {
+      "color": {
+        "background": {
+          "brand": {
+            "value": "{color.background.brand.secondary}",
+            "type": "color.background",
+            "scope": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          },
+          "warm": {
+            "value": "{color.background.warm.primary}",
+            "type": "color.background",
+            "scope": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          },
+          "green": {
+            "value": "{color.background.accent.green.secondary}",
+            "type": "color.background",
+            "scope": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          },
+          "teal": {
+            "value": "{color.background.accent.teal.secondary}",
+            "type": "color.background",
+            "scope": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          },
+          "blue": {
+            "value": "{color.background.accent.blue.secondary}",
+            "type": "color.background",
+            "scope": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          },
+          "violet": {
+            "value": "{color.background.accent.violet.secondary}",
+            "type": "color.background",
+            "scope": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          },
+          "pink": {
+            "value": "{color.background.accent.pink.secondary}",
+            "type": "color.background",
+            "scope": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          },
+          "orange": {
+            "value": "{color.background.accent.orange.secondary}",
+            "type": "color.background",
+            "scope": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          },
+          "red": {
+            "value": "{color.background.danger.secondary}",
+            "type": "color.background",
+            "scope": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        },
+        "icon": {
+          "brand": {
+            "value": "{color.icon.brand.primary}",
+            "type": "color.fill",
+            "scope": [
+              "SHAPE_FILL"
+            ]
+          },
+          "warm": {
+            "value": "{color.icon.warm.primary}",
+            "type": "color.fill",
+            "scope": [
+              "SHAPE_FILL"
+            ]
+          },
+          "green": {
+            "value": "{color.icon.accent.green.primary}",
+            "type": "color.fill",
+            "scope": [
+              "SHAPE_FILL"
+            ]
+          },
+          "teal": {
+            "value": "{color.icon.accent.teal.primary}",
+            "type": "color.fill",
+            "scope": [
+              "SHAPE_FILL"
+            ]
+          },
+          "blue": {
+            "value": "{color.icon.accent.blue.primary}",
+            "type": "color.fill",
+            "scope": [
+              "SHAPE_FILL"
+            ]
+          },
+          "violet": {
+            "value": "{color.icon.accent.violet.primary}",
+            "type": "color.fill",
+            "scope": [
+              "SHAPE_FILL"
+            ]
+          },
+          "pink": {
+            "value": "{color.icon.accent.pink.primary}",
+            "type": "color.fill",
+            "scope": [
+              "SHAPE_FILL"
+            ]
+          },
+          "orange": {
+            "value": "{color.icon.accent.orange.primary}",
+            "type": "color.fill",
+            "scope": [
+              "SHAPE_FILL"
+            ]
+          },
+          "red": {
+            "value": "{color.icon.danger.primary}",
+            "type": "color.fill",
+            "scope": [
+              "SHAPE_FILL"
+            ]
+          }
+        },
+        "border": {
+          "default": {
+            "value": "{color.border.neutral.inverse}",
+            "type": "color.border",
+            "scope": [
+              "STROKE_COLOR"
+            ]
+          }
+        }
+      }
     }
   },
   "components-dimensions": {
@@ -2803,6 +2955,86 @@
           "scope": [
             "STROKE_FLOAT"
           ]
+        }
+      }
+    },
+    "icon-stamp": {
+      "border": {
+        "width": {
+          "value": "{border.width.sm}",
+          "type": "borderWidth",
+          "scope": [
+            "STROKE_FLOAT"
+          ]
+        },
+        "radius": {
+          "lg": {
+            "value": "{border.radius.md}",
+            "type": "borderRadius",
+            "scope": [
+              "CORNER_RADIUS"
+            ]
+          },
+          "md": {
+            "value": "{border.radius.md}",
+            "type": "borderRadius",
+            "scope": [
+              "CORNER_RADIUS"
+            ]
+          },
+          "sm": {
+            "value": "{border.radius.sm}",
+            "type": "borderRadius",
+            "scope": [
+              "CORNER_RADIUS"
+            ]
+          }
+        }
+      },
+      "size": {
+        "lg": {
+          "value": "{size.48}",
+          "type": "dimension",
+          "scope": [
+            "WIDTH_HEIGHT"
+          ]
+        },
+        "md": {
+          "value": "{size.32}",
+          "type": "dimension",
+          "scope": [
+            "WIDTH_HEIGHT"
+          ]
+        },
+        "sm": {
+          "value": "{size.24}",
+          "type": "dimension",
+          "scope": [
+            "WIDTH_HEIGHT"
+          ]
+        },
+        "icon": {
+          "lg": {
+            "value": "{size.24}",
+            "type": "dimension",
+            "scope": [
+              "WIDTH_HEIGHT"
+            ]
+          },
+          "md": {
+            "value": "{size.16}",
+            "type": "dimension",
+            "scope": [
+              "WIDTH_HEIGHT"
+            ]
+          },
+          "sm": {
+            "value": "{size.12}",
+            "type": "dimension",
+            "scope": [
+              "WIDTH_HEIGHT"
+            ]
+          }
         }
       }
     }
