@@ -59,6 +59,7 @@ export default {
   "/Card/docs/examples/sizes.tsx": dynamic(() => import("../../lib/src/components/Card/docs/examples/sizes.tsx").then(mod => mod), { ssr: false }),
   "/Checkbox/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Checkbox/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Checkbox/docs/examples/variants.tsx": dynamic(() => import("../../lib/src/components/Checkbox/docs/examples/variants.tsx").then(mod => mod), { ssr: false }),
+  "/CheckeredPaper/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/CheckeredPaper/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/CloseButton/docs/examples/animate-presence.tsx": dynamic(() => import("../../lib/src/components/CloseButton/docs/examples/animate-presence.tsx").then(mod => mod), { ssr: false }),
   "/CloseButton/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/CloseButton/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/DatePicker/docs/examples/icon.tsx": dynamic(() => import("../../lib/src/components/DatePicker/docs/examples/icon.tsx").then(mod => mod), { ssr: false }),
