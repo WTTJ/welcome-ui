@@ -2826,7 +2826,7 @@
         }
       }
     },
-    "icon background": {
+    "icon-stamp": {
       "color": {
         "background": {
           "brand": {
@@ -2866,6 +2866,13 @@
           },
           "violet": {
             "value": "{color.background.accent.violet.secondary}",
+            "type": "color.background",
+            "scope": [
+              "FRAME_FILL"
+            ]
+          },
+          "pink": {
+            "value": "{color.background.accent.pink.secondary}",
             "type": "color.background",
             "scope": [
               "FRAME_FILL"
@@ -2924,6 +2931,13 @@
           },
           "violet": {
             "value": "{color.text.accent.violet.primary}",
+            "type": "color.fill",
+            "scope": [
+              "SHAPE_FILL"
+            ]
+          },
+          "pink": {
+            "value": "{color.icon.accent.pink.primary}",
             "type": "color.fill",
             "scope": [
               "SHAPE_FILL"
@@ -3820,7 +3834,7 @@
         }
       }
     },
-    "IconStamp": {
+    "icon-stamp": {
       "border": {
         "width": {
           "value": "{border.width.sm}",
