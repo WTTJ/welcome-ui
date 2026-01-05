@@ -3,7 +3,7 @@ import React from 'react'
 
 import { Button } from '@/components/Button'
 import { Icon } from '@/components/Icon'
-import { Logo, Symbol } from '@/components/Logo'
+import { Logo } from '@/components/Logo'
 
 import { Components } from '~/build-app/components/Homepage/Components'
 import { Expectations } from '~/build-app/components/Homepage/Expectations'
@@ -52,39 +52,43 @@ const Home = () => {
         />
       </Section>
       <Section>
-        <Logo className="h-67 mb-xl" />
-        <SectionTitle>FIND YOUR PEOPLE</SectionTitle>
-        <SectionDescription>
-          +90,000 opportunities to find the job that’s made for you.
-          <br />
-          We guide candidates to their future teams through immersive job listings and support them
-          throughout their job search with a personalized candidate experience.
-        </SectionDescription>
-        <div className="flex flex-col md:flex-row gap-md">
-          <Button
-            as="a"
-            className="w-fit"
-            href="https://www.welcometothejungle.com/en/companies/wttj/jobs"
-            rel="noopener nofollow"
-            target="_blank"
-          >
-            <span>We are recruiting</span>
-            <Icon name="heart" size="lg" />
-          </Button>
-          <Button
-            as="a"
-            className="w-fit"
-            href="https://www.welcometothejungle.com/en"
-            rel="noopener nofollow"
-            target="_blank"
-            variant="secondary"
-          >
-            <span>Visit our website</span>
-            <Icon name="angle-right-b" size="lg" />
-          </Button>
-        </div>
-        <div className="-bottom-100 -right-50 absolute hidden lg:block opacity-10">
-          <Symbol className="h-400" />
+        <div className="flex justify-between items-center gap-lg">
+          <div>
+            <Logo className="h-67 mb-xl" />
+            <SectionTitle>FIND YOUR PEOPLE</SectionTitle>
+            <SectionDescription>
+              +90,000 opportunities to find the job that’s made for you.
+              <br />
+              We guide candidates to their future teams through immersive job listings and support
+              them throughout their job search with a personalized candidate experience.
+            </SectionDescription>
+            <div className="flex flex-col md:flex-row gap-md">
+              <Button
+                as="a"
+                className="w-fit"
+                href="https://www.welcometothejungle.com/en/companies/wttj/jobs"
+                rel="noopener nofollow"
+                target="_blank"
+              >
+                <span>We are recruiting</span>
+                <Icon name="heart" size="lg" />
+              </Button>
+              <Button
+                as="a"
+                className="w-fit"
+                href="https://www.welcometothejungle.com/en"
+                rel="noopener nofollow"
+                target="_blank"
+                variant="secondary"
+              >
+                <span>Visit our website</span>
+                <Icon name="angle-right-b" size="lg" />
+              </Button>
+            </div>
+          </div>
+          <div className="w-450 mr-xl rounded-xl overflow-hidden rotate-6 hidden md:flex">
+            <img src="https://cdn-images.welcometothejungle.com/pnLF3TuZFTN4HhSaDrWKbm9i0Lvu45qESWp5RwoSOYk/rs:auto:1500::/q:85/czM6Ly93dHRqLXByb2R1Y3Rpb24vdXBsb2Fkcy9pbWFnZS9maWxlLzU3NzIvMTc2MTczLzEwZDE1OTJkLTU5ZTYtNDk2YS05NGI0LTBmZDNjNmNjNTc0My5qcGc" />
+          </div>
         </div>
       </Section>
     </main>
