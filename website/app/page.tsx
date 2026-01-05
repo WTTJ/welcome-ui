@@ -86,7 +86,7 @@ const Home = () => {
               </Button>
             </div>
           </div>
-          <div className="w-450 mr-xl rounded-xl overflow-hidden rotate-6 hidden md:flex">
+          <div className="w-450 mr-xl rounded-xl overflow-hidden rotate-3 hidden md:flex border-8 border-neutral-10 shadow-(--elevation-60)">
             <img src="https://cdn-images.welcometothejungle.com/pnLF3TuZFTN4HhSaDrWKbm9i0Lvu45qESWp5RwoSOYk/rs:auto:1500::/q:85/czM6Ly93dHRqLXByb2R1Y3Rpb24vdXBsb2Fkcy9pbWFnZS9maWxlLzU3NzIvMTc2MTczLzEwZDE1OTJkLTU5ZTYtNDk2YS05NGI0LTBmZDNjNmNjNTc0My5qcGc" />
           </div>
         </div>
