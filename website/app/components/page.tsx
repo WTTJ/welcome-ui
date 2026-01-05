@@ -1,11 +1,13 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
+import { Badge } from '@/components/Badge'
+import { Card } from '@/components/Card'
 import { Text } from '@/components/Text'
 
-import { Component } from '~/build-app/components/Component'
 import { getPageContent } from '~/build-app/utils/page-content'
 import { getPages } from '~/build-app/utils/pages-components'
-import { getName, getRepository } from '~/build-app/utils/transform-name'
+import { getRepository } from '~/build-app/utils/transform-name'
 
 export const metadata: Metadata = {
   title: 'Welcome UI - Components',
@@ -14,36 +16,38 @@ export const metadata: Metadata = {
 const Page = () => {
   const pages = getPages()
 
+  const allComponents = pages
+    .reduce((prev, category) => {
+      const pages = category.pages.map(page => page.id)
+      prev.push(...pages)
+      return prev
+    }, [])
+    .sort((a, b) => a.localeCompare(b))
+
   return (
     <main>
-      <Text as="h1" className="mt-4xl" variant="display-md">
+      <Text as="h1" className="mt-4xl mb-3xl" variant="display-md">
         Components
       </Text>
-      {pages.map(category => (
-        <div className="flex flex-col gap-md mt-3xl" key={category.category}>
-          <Text as="h2" className="uppercase" variant="heading-md-strong">
-            {getName(category.category as string)}
-          </Text>
-          <div className="gap-lg grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {category.pages.map(page => {
-              const { data } = getPageContent({
-                filename: `${getRepository(page.id)}/docs/index.mdx`,
-                isPackage: true,
-              })
+      <div className="gap-lg grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        {allComponents.map(component => {
+          const { data } = getPageContent({
+            filename: `${getRepository(component)}/docs/index.mdx`,
+            isPackage: true,
+          })
 
-              return (
-                <Component
-                  description={data?.description}
-                  id={page.id}
-                  isNew={data?.isNew}
-                  key={page.id}
-                  title={data?.title || page.id}
-                />
-              )
-            })}
-          </div>
-        </div>
-      ))}
+          return (
+            <Link className="h-full" href={`/components/${component}`} key={component}>
+              <Card className="h-full p-md">
+                <Text className="flex gap-xs items-center justify-between" variant="body-lg-strong">
+                  {data?.title}
+                  {data?.isNew ? <Badge variant="brand">NEW</Badge> : null}
+                </Text>
+              </Card>
+            </Link>
+          )
+        })}
+      </div>
     </main>
   )
 }
