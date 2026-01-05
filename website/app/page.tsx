@@ -12,10 +12,10 @@ import { Section, SectionDescription, SectionTitle } from '~/build-app/component
 
 const Home = () => {
   return (
-    <main className="flex flex-col gap-xl md:gap-3xl mt-xl md:mt-3xl">
+    <main className="flex flex-col gap-md md:gap-3xl md:mt-3xl">
       <Section className="flex flex-col md:flex-row md:justify-between md:items-center gap-lg">
         <div className="flex flex-col gap-md">
-          <SectionTitle className="max-w-900">
+          <SectionTitle className="max-w-700">
             All the components you need to create a delightful React webapp
           </SectionTitle>
           <SectionDescription>

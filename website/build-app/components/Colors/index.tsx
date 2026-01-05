@@ -52,7 +52,7 @@ export const Colors = ({ name }: ColorsProps) => {
   }
 
   return (
-    <div className="gap-md grid grid-cols-3 mt-md">
+    <div className="gap-md grid grid-cols-1 md:grid-cols-3 mt-md">
       {colors.map(({ value, variant }) => {
         const isWhite = variant === 'neutral-10'
         const colorVariant: ColorTokens = `--color-${variant}`

@@ -77,11 +77,11 @@ export const Playground = ({
                 variant={isHighlightOpen ? 'primary' : 'secondary'}
               >
                 <Icon name="arrow" />
-                <span>Code</span>
+                <span className="hidden md:block">Code</span>
               </Button>
               <Button onClick={handleClickStackBlitz} size="md" variant="secondary">
                 <Icon name="external-link-alt" />
-                <span>Stackblitz</span>
+                <span className="hidden md:block">Stackblitz</span>
               </Button>
               <Button
                 as="a"
@@ -92,7 +92,7 @@ export const Playground = ({
                 variant="secondary"
               >
                 <Icon name="github" />
-                <span>Github</span>
+                <span className="hidden md:block">Github</span>
               </Button>
             </Card.Body>
           </Card>

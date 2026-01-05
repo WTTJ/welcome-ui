@@ -65,7 +65,7 @@ export const Header = ({ components, foundations }: HeaderProps) => {
         <Drawer className="lg:hidden" size="100%" store={drawer} withBackdrop>
           <Drawer.Content>
             <NavBar onClick={handleCloseDrawer} />
-            {menu ? <Sidebar menu={menu} onClick={handleCloseDrawer} /> : null}
+            {menu ? <Sidebar className="mt-md" menu={menu} onClick={handleCloseDrawer} /> : null}
           </Drawer.Content>
         </Drawer>
       </div>

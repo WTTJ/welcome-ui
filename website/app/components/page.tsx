@@ -26,10 +26,10 @@ const Page = () => {
 
   return (
     <main>
-      <Text as="h1" className="mt-4xl mb-3xl" variant="display-md">
+      <Text as="h1" className="md:mt-4xl" variant="display-md">
         Components
       </Text>
-      <div className="gap-lg grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div className="gap-lg grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-xl">
         {allComponents.map(component => {
           const { data } = getPageContent({
             filename: `${getRepository(component)}/docs/index.mdx`,

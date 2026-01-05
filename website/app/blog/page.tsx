@@ -9,7 +9,7 @@ import { Text } from '@/components/Text'
 const posts = [
   {
     cover: 'https://www.welcome-ui.com/v10.png',
-    date: new Date('2024-06-18'),
+    date: new Date('2026-01-10'),
     description:
       'We are excited to announce the release of Welcome UI Version 10, which implements the Belonging experience redesign.',
     link: 'https://www.welcome-ui.com/foundations/upgrades/v10',
@@ -97,15 +97,15 @@ const posts = [
 const Home = () => {
   return (
     <main>
-      <Text as="h1" className="mt-4xl" variant="display-md">
+      <Text as="h1" className="md:mt-4xl" variant="display-md">
         The latest about us
       </Text>
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3xl mt-xl">
         {posts.map(({ authors, cover, date, description, link, tags, title }) => (
-          <li key={link}>
-            <Card className="h-full">
+          <li className="h-full" key={link}>
+            <Card className="h-full flex flex-col">
               {cover ? <Card.Cover alt="Cover" src={cover} /> : null}
-              <Card.Body className="h-full">
+              <Card.Body className="flex flex-col flex-1">
                 <div className="flex gap-xxs">
                   {tags?.map(tag => (
                     <Tag key={`${link}_${tag}`} size="md">
