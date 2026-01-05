@@ -24,7 +24,7 @@ export const Code = ({ children, className }: CodeProps) => {
   }
 
   return (
-    <Tag as="code" className="mx-xxs" size="md" variant="dash">
+    <Tag as="code" className="mx-xxs font-bold" size="md" variant="dash">
       {children}
     </Tag>
   )
