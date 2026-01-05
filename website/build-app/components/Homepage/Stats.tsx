@@ -22,7 +22,7 @@ const stats = [
         stars
       </>
     ),
-    number: '600+',
+    number: '650+',
   },
   {
     icon: <Icon name="import" size="lg" />,
@@ -33,7 +33,7 @@ const stats = [
         Downloads
       </>
     ),
-    number: '450+',
+    number: '1K+',
   },
 ]
 

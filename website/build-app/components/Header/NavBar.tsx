@@ -45,7 +45,7 @@ export const NavBar = ({ className, onClick }: NavBarProps) => {
             store={tab}
             target="_blank"
           >
-            600+
+            650+
           </Tabs.Tab>
         </Tabs>
       </nav>
