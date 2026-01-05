@@ -54,7 +54,7 @@ export const TableOfContent = ({ tree }: TableOfContentProps) => {
   if (!tree) return null
 
   return (
-    <Window as="nav" className={`h-[calc(100vh-120px)] sticky top-100`}>
+    <Window as="nav" className={`h-[calc(100vh-120px)] sticky top-100 hidden lg:block`}>
       <Window.Header className="sticky top-0 z-1">
         <Window.Header.Title title="On this page" />
       </Window.Header>

@@ -34,23 +34,17 @@ export const Playground = ({
 
   const Component = examples[pathToFile]
   const preview = Component && <Component />
-  const columnDirection = [
-    'Field',
-    'FileDrop',
-    'FileUpload',
-    'Grid',
-    'InputText',
-    'Slider',
-    'Text',
-    'Textarea',
-  ].includes(name)
   const removeFlex = [
     'Accordion',
     'AspectRatio',
+    'Field',
+    'FileDrop',
+    'FileUpload',
     'FileUpload',
     'PasswordInput',
     'Search',
     'Select',
+    'Text',
   ].includes(name)
 
   const handleClickStackBlitz = () => {
@@ -66,9 +60,8 @@ export const Playground = ({
         <Card.Body>
           <div
             className={cx(
-              'bg-neutral-10 flex-wrap gap-lg lg:py-6xl p-md lg:px-xxl relative',
-              columnDirection ? 'flex-col items-left' : 'items-center justify-center',
-              removeFlex ? 'block' : 'flex',
+              'lg:py-6xl p-md lg:px-xxl relative',
+              !removeFlex && 'flex flex-wrap gap-lg justify-center',
               className
             )}
           >

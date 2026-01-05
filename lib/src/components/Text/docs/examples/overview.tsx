@@ -2,7 +2,7 @@ import { Text } from '@/components/Text'
 
 const Example = () => {
   return (
-    <>
+    <div className="flex flex-col gap-md">
       <Text variant="display-xl">Display (xl)</Text>
       <Text variant="display-lg">Display (lg)</Text>
       <Text variant="display-md">Display (md)</Text>
@@ -29,7 +29,7 @@ const Example = () => {
       <Text variant="label-sm">Label (sm)</Text>
       <Text variant="label-md-strong">Label (md-strong)</Text>
       <Text variant="label-sm-strong">Label (sm-strong)</Text>
-    </>
+    </div>
   )
 }
 
