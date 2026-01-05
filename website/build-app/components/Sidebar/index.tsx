@@ -58,7 +58,7 @@ export const Sidebar = ({ className, isSubPage, menu, onClick }: SidebarProps) =
                 const isCurrent =
                   isSubPage && subPage
                     ? currentRoute === `${href}/${subPage}`
-                    : currentRoute === href
+                    : currentRoute === href || currentRoute === `${href}/props`
 
                 return (
                   <li

@@ -97,7 +97,7 @@ const posts = [
 const Home = () => {
   return (
     <main>
-      <Text as="h1" className="mt-4xl" variant="display-sm">
+      <Text as="h1" className="mt-4xl" variant="display-md">
         The latest about us
       </Text>
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3xl mt-xl">

@@ -1,10 +1,8 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 
-import { Badge } from '@/components/Badge'
-import { Card } from '@/components/Card'
 import { Text } from '@/components/Text'
 
+import { Component } from '~/build-app/components/Component'
 import { getPageContent } from '~/build-app/utils/page-content'
 import { getPages } from '~/build-app/utils/pages-components'
 import { getName, getRepository } from '~/build-app/utils/transform-name'
@@ -17,16 +15,16 @@ const Page = () => {
   const pages = getPages()
 
   return (
-    <main className="flex flex-col gap-xxl max-w-[62.5rem] mx-auto p-lg">
-      <Text as="h1" className="py-3xl" variant="display-sm">
+    <main>
+      <Text as="h1" className="mt-4xl" variant="display-md">
         Components
       </Text>
       {pages.map(category => (
-        <div className="flex flex-col gap-md" key={category.category}>
-          <Text as="h2" className="uppercase" variant="heading-xs-strong">
+        <div className="flex flex-col gap-md mt-3xl" key={category.category}>
+          <Text as="h2" className="uppercase" variant="heading-md-strong">
             {getName(category.category as string)}
           </Text>
-          <div className="gap-lg grid grid-cols-1 lg:grid-cols-2">
+          <div className="gap-lg grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {category.pages.map(page => {
               const { data } = getPageContent({
                 filename: `${getRepository(page.id)}/docs/index.mdx`,
@@ -34,19 +32,13 @@ const Page = () => {
               })
 
               return (
-                <Link href={`/components/${page.id}`} key={page.id}>
-                  <Card className="h-full flex flex-col gap-lg hover:border-neutral-50 p-xl rounded-sm transition-border duration-200">
-                    <div className="flex items-center gap-sm">
-                      <Text as="h3" variant="heading-md-strong">
-                        {page.title}
-                      </Text>
-                      {data.isNew ? <Badge variant="brand">NEW</Badge> : null}
-                    </div>
-                    <Text className="text-neutral-70 mt-sm" lines={3} variant="body-md">
-                      {data?.description}
-                    </Text>
-                  </Card>
-                </Link>
+                <Component
+                  description={data?.description}
+                  id={page.id}
+                  isNew={data?.isNew}
+                  key={page.id}
+                  title={data?.title || page.id}
+                />
               )
             })}
           </div>
