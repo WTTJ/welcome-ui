@@ -4,111 +4,66 @@ import React from 'react'
 import { Button } from '@/components/Button'
 import { Icon } from '@/components/Icon'
 import { Logo, Symbol } from '@/components/Logo'
-import { Text } from '@/components/Text'
 
 import { Components } from '~/build-app/components/Homepage/Components'
 import { Expectations } from '~/build-app/components/Homepage/Expectations'
 import { Stats } from '~/build-app/components/Homepage/Stats'
-import { Section } from '~/build-app/components/Section'
+import { Section, SectionDescription, SectionTitle } from '~/build-app/components/Section'
 
 const Home = () => {
   return (
-    <main>
-      <Section className="bg-beige-30">
-        <Text as="span" className="text-neutral-90" variant="label-lg">
-          Welcome UI
-        </Text>
-        <Text as="h1" className="max-w-[820px] mb-xl mt-sm" variant="display-sm">
-          All the components you need to create a delightful React webapp
-        </Text>
-        <Text className="max-w-[640px]" variant="body-xl">
-          Welcome UI is a customizable design system library made with react, typescript,
-          tailwindcss, ariakit and a lot of love 💛
-        </Text>
-        <Button as={NextLink} className="mt-3xl" href="/foundations/getting-started">
-          <span>Install amazing components</span>
-          <Icon name="angle-right-b" size="lg" />
-        </Button>
+    <main className="flex flex-col gap-xl md:gap-3xl mt-xl md:mt-3xl">
+      <Section className="flex flex-col md:flex-row md:justify-between md:items-center gap-lg">
+        <div className="flex flex-col gap-md">
+          <SectionTitle className="max-w-900">
+            All the components you need to create a delightful React webapp
+          </SectionTitle>
+          <SectionDescription>
+            Welcome UI is a customizable design system library made with react, typescript,
+            tailwindcss, ariakit and a lot of love 💛
+          </SectionDescription>
+          <Button as={NextLink} className="w-fit" href="/foundations/getting-started">
+            <span>Let’s started!</span>
+          </Button>
+        </div>
+        <Stats />
       </Section>
       <Section>
-        <Text as="h2" className="mb-xl mt-sm" variant="display-sm">
-          Some of our components
-        </Text>
-        <Text className="max-w-[640px] mb-3xl" variant="body-xl">
-          More than 50 amazing components!
-        </Text>
+        <SectionTitle>Some of our components</SectionTitle>
+        <SectionDescription>More than 50 amazing components!</SectionDescription>
         <Components />
       </Section>
-      <Section className="bg-beige-30">
-        <div className="flex items-center justify-between lg:flex-row flex-col">
-          <div className="flex-initial lg:mb-0 mb-5xl md:max-w-[37.5rem]">
-            <Text as="span" className="text-neutral-90" variant="label-lg">
-              Open source
-            </Text>
-            <Text as="h2" className="mb-xl mt-sm" variant="display-sm">
-              Contribute!
-            </Text>
-            <Text className="max-w-[640px]" variant="body-xl">
-              Welcome UI is open-sourced on GitHub. Contributions, feedback and issues are welcome –
-              we want you to be a part of this great project.
-            </Text>
-            <Button
-              as="a"
-              className="mt-3xl"
-              href="https://github.com/WTTJ/welcome-ui"
-              rel="noopener nofollow"
-              target="_blank"
-              variant="secondary"
-            >
-              <Icon name="github" size="lg" />
-              <span>Contribute on Github</span>
-            </Button>
-          </div>
-          <Stats />
-        </div>
-      </Section>
       <Section>
-        <Text as="h2" className="max-w-[500px] mb-xl" variant="display-sm">
-          All you’d expect from a design system...
-        </Text>
-        <Text className="max-w-[640px] mb-5xl" variant="body-xl">
-          ...and a lot more!
-        </Text>
+        <SectionTitle>All you’d expect from a design system...</SectionTitle>
+        <SectionDescription>...and a lot more!</SectionDescription>
         <Expectations />
       </Section>
-      <Section className="bg-beige-30">
-        <Text as="span" className="text-neutral-90" variant="label-lg">
-          Example
-        </Text>
-        <Text as="h2" className="mb-xl mt-sm" variant="display-sm">
-          Going straight to the point!
-        </Text>
-        <Text className="max-w-[450px]" variant="body-xl">
+      <Section>
+        <SectionTitle>Going straight to the point!</SectionTitle>
+        <SectionDescription>
           Leave the UI code to our team and focus on building your astonishing project.
-        </Text>
+        </SectionDescription>
         <iframe
           allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-          className="border-0 md:h-[37.5rem] h-[18.75rem] mt-3xl w-full"
+          className="border-0 md:h-600 h-300 mt-3xl w-full"
           sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
           src="https://stackblitz.com/edit/ew8gehqm?embed=1&file=demo.tsx&hideNavigation=1"
           title="homepage-example"
         />
       </Section>
-      <Section className="pt-3xl md:pt-6xl">
-        <Logo className="h-[67px]" />
-        <Text as="span" className="text-neutral-90 mt-3xl" color="neutral-90" variant="label-lg">
-          Who we are?
-        </Text>
-        <Text as="h2" className="max-w-[950px] mb-xl mt-sm" color="neutral-90" variant="display-sm">
-          THE JOB IS YOURS
-        </Text>
-        <Text className="max-w-[640px]" variant="body-xl">
-          80,000 opportunities to find the job that’s made for you.
-        </Text>
-        <div className="md:flex mt-5xl">
+      <Section>
+        <Logo className="h-67 mb-xl" />
+        <SectionTitle>FIND YOUR PEOPLE</SectionTitle>
+        <SectionDescription>
+          +90,000 opportunities to find the job that’s made for you.
+          <br />
+          We guide candidates to their future teams through immersive job listings and support them
+          throughout their job search with a personalized candidate experience.
+        </SectionDescription>
+        <div className="flex flex-col md:flex-row gap-md">
           <Button
             as="a"
-            className="!mr-md"
+            className="w-fit"
             href="https://www.welcometothejungle.com/en/companies/wttj/jobs"
             rel="noopener nofollow"
             target="_blank"
@@ -118,18 +73,18 @@ const Home = () => {
           </Button>
           <Button
             as="a"
-            className="mt-0 xs:md-md"
+            className="w-fit"
             href="https://www.welcometothejungle.com/en"
             rel="noopener nofollow"
             target="_blank"
-            variant="tertiary"
+            variant="secondary"
           >
             <span>Visit our website</span>
             <Icon name="angle-right-b" size="lg" />
           </Button>
         </div>
-        <div className="-bottom-[9.375rem] -right-[7.5rem] absolute hidden lg:block opacity-[10]">
-          <Symbol className="h-[400px]" />
+        <div className="-bottom-100 -right-50 absolute hidden lg:block opacity-10">
+          <Symbol className="h-400" />
         </div>
       </Section>
     </main>

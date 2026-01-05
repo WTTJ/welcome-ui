@@ -23,7 +23,7 @@ export const NavBar = ({ className, onClick }: NavBarProps) => {
   return (
     <div className={`flex gap-xl items-center lg:h-full ${className || ''}`}>
       <nav className="lg:h-full">
-        <Tabs aria-label="Main navigation" store={tab}>
+        <Tabs aria-label="Main navigation" className="flex-wrap" store={tab}>
           {navigation.map(item => (
             <Tabs.Tab
               as="a"

@@ -3,16 +3,17 @@ import NextLink from 'next/link'
 
 import { Alert } from '@/components/Alert'
 import { Avatar } from '@/components/Avatar'
-import { Card } from '@/components/Card'
-import { Link } from '@/components/Link'
+import { Button } from '@/components/Button'
+import { Field } from '@/components/Field'
+import { Icon } from '@/components/Icon'
+import { InputText } from '@/components/InputText'
 import { Pagination } from '@/components/Pagination'
+import { Stepper } from '@/components/Stepper'
 import { Tag } from '@/components/Tag'
-import { Text } from '@/components/Text'
-import { Toggle } from '@/components/Toggle'
+import { Window } from '@/components/Window'
 
 type ComponentProps = {
   children: React.ReactElement
-  description: string
   link: string
   title: string
 }
@@ -26,29 +27,25 @@ const components: ComponentProps[] = [
         <Tag variant="violet">Violet</Tag>
       </div>
     ),
-    description: 'Allows user to categorize or organized keywords.',
     link: 'components/tag',
     title: 'Tag',
   },
   {
     children: (
-      <div className="flex gap-md">
-        <Toggle aria-label="Toggle unchecked" className="mb-md" />
-        <Toggle aria-label="Toggle checked" />
-      </div>
+      <Field hint="A hint" label="Label">
+        <InputText icon={<Icon name="user-circle" />} placeholder="Placeholder" />
+      </Field>
     ),
-    description: 'Allows user to activate or deactivate an option.',
-    link: 'components/toggle',
-    title: 'Toggle',
+    link: 'components/field',
+    title: 'Field',
   },
   {
     children: (
-      <Alert className="md" variant="info">
+      <Alert className="md">
         <Alert.Title>Info variant</Alert.Title>
         <span>Nunc laoreet egestas nulla, et dapibus sem malesuada in</span>
       </Alert>
     ),
-    description: 'Allows user to display a short, important message to get attention.',
     link: 'components/alert',
     title: 'Alert',
   },
@@ -59,62 +56,65 @@ const components: ComponentProps[] = [
         getHref={page => `?page=${page}`}
         onChange={() => {}}
         page={1}
-        pageCount={5}
+        pageCount={3}
       />
     ),
-    description: 'Allows user to switch between pages of a list items.',
     link: 'components/pagination',
     title: 'Pagination',
   },
   {
     children: (
       <div className="flex gap-md">
-        <Avatar name="Welcome jungle" />
-        <Avatar name="Other name" />
         <Avatar
-          name="Welcome logo"
-          src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4"
+          name="Welcome UI"
+          src="https://images.unsplash.com/photo-1517849845537-4d257902454a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80"
         />
+        <Avatar name="Welcome UI" />
+        <Avatar />
       </div>
     ),
-    description:
-      'Allows user to get an avatar with initials as a fallback letter when have no image.',
     link: 'components/avatar',
     title: 'Avatar',
   },
   {
     children: (
-      <div className="flex gap-md">
-        <Link>Primary</Link>
-        <Link variant="secondary">Secondary</Link>
-      </div>
+      <Stepper>
+        <Stepper.Item isCompleted>Step 1</Stepper.Item>
+        <Stepper.Separator />
+        <Stepper.Item isOpen>Step 2</Stepper.Item>
+        <Stepper.Separator />
+        <Stepper.Item>Step 3</Stepper.Item>
+      </Stepper>
     ),
-    description: 'Allows user to get our customized anchor element.',
-    link: 'components/link',
-    title: 'Link',
+    link: 'components/stepper',
+    title: 'Stepper',
   },
 ]
 
-const Component = ({ children, description, link, title }: ComponentProps) => {
+const Component = ({ children, link, title }: ComponentProps) => {
   return (
-    <div>
-      <Card className="flex h-[10.625rem] items-center justify-center w-full">{children}</Card>
-      <Link as={NextLink} className="font-bold mt-md uppercase" href={link}>
-        {title}
-      </Link>
-      <Text className="mb-0 mt-sm" variant="body-md">
-        {description}
-      </Text>
-    </div>
+    <Window as={NextLink} href={link}>
+      <Window.Header>
+        <Window.Header.Title title={title} />
+      </Window.Header>
+      <Window.Body className="flex h-220 items-center justify-center w-full py-md px-xl">
+        {children}
+      </Window.Body>
+    </Window>
   )
 }
 
 export const Components = () => {
   return (
-    <div className="gap-xxl grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
-      {components.map(component => (
-        <Component key={component.title} {...component} />
-      ))}
+    <div>
+      <div className="gap-lg grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
+        {components.map(component => (
+          <Component key={component.title} {...component} />
+        ))}
+      </div>
+      <Button as={NextLink} className="w-fit mt-xl" href="/components">
+        <span>Explore components</span>
+      </Button>
     </div>
   )
 }

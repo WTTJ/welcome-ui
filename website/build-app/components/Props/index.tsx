@@ -160,7 +160,7 @@ export const Properties = ({ items }: PropertiesProps) => {
 
         return (
           <div>
-            {name ? <H2 className="mt-0 border-0">{name}</H2> : null}
+            {name ? <H2 className="mb-xl">{name}</H2> : null}
             <Card key={kebabCase(`property_${name}`)}>
               <Card.Body className="gap-xl">
                 {Object.entries(properties).map(item => (

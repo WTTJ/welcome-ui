@@ -6,11 +6,11 @@ import styles from './visually-hidden.module.scss'
 const cx = classNames(styles)
 
 export const VisuallyHidden = forwardRefWithAs<VisuallyHiddenProps, 'span'>(
-  ({ as: Element = 'span', children }, ref) => {
+  ({ as: Component = 'span', children }, ref) => {
     return (
-      <Element className={cx('root')} ref={ref}>
+      <Component className={cx('root')} ref={ref}>
         {children}
-      </Element>
+      </Component>
     )
   }
 )

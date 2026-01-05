@@ -14,9 +14,7 @@ type ChildProps = {
 
 export const DocumentationLayout = ({ children }: LayoutProps) => {
   return (
-    <div className="gap-xxl grid lg:grid-cols-[220px_auto] pb-3xl text-neutral-80 mt-xxl">
-      {children}
-    </div>
+    <div className="gap-xxl grid lg:grid-cols-[220px_auto] text-neutral-80 mt-xxl">{children}</div>
   )
 }
 

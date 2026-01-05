@@ -33,8 +33,8 @@ const links = [
       },
       {
         isExternal: true,
-        link: 'https://github.com/orgs/WTTJ/projects/13',
-        name: 'Project board',
+        link: 'https://github.com/WTTJ/welcome-ui/issues',
+        name: 'Issues',
       },
     ],
     name: 'Updates',
@@ -68,7 +68,7 @@ const links = [
 
 export const Footer = () => {
   return (
-    <footer className="gap-xl grid grid-cols-2 md:grid-cols-4 pb-xxl">
+    <footer className="gap-xl grid grid-cols-2 md:grid-cols-4 pb-xxl mt-xxl">
       <div className="flex flex-col gap-xs">
         <div className="flex gap-sm items-center">
           Made with <Icon className="text-brand-50" name="heart" size="lg" /> by

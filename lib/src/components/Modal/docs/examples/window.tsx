@@ -66,14 +66,17 @@ const Example = () => {
         <Modal.Content>
           <Modal.Header>
             <Modal.WindowHeader.LeftActions isExpandable onExpandChange={handleFullScreen} />
-            <Modal.WindowHeader.Tabs
-              items={[
-                { icon: 'folder', id: 'tab1', title: '1st tab' },
-                { icon: 'folder', id: 'tab2', title: '2nd tab' },
-                { icon: 'folder', id: 'tab3', title: '3rd tab' },
-              ]}
-              store={tabStore}
-            />
+            <Modal.WindowHeader.Tabs store={tabStore}>
+              <Modal.WindowHeader.Tab id="tab1" store={tabStore}>
+                Tab 1
+              </Modal.WindowHeader.Tab>
+              <Modal.WindowHeader.Tab id="tab2" store={tabStore}>
+                Tab 2
+              </Modal.WindowHeader.Tab>
+              <Modal.WindowHeader.Tab id="tab3" store={tabStore}>
+                Tab 3
+              </Modal.WindowHeader.Tab>
+            </Modal.WindowHeader.Tabs>
             <Modal.WindowHeader.RightActions isClosable onClose={modal3.hide} />
           </Modal.Header>
           <Modal.WindowTabPanel store={tabStore} tabId="tab1">

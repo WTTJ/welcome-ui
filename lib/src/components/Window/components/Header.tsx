@@ -64,18 +64,18 @@ const Tabs = ({ children, store }: HeaderTabsProps) => {
 }
 
 const Tab = forwardRefWithAs<HeaderTabItem, 'button'>(
-  ({ as: As, children, icon, id, store, ...rest }, ref) => {
+  ({ as: Component, children, icon, id, store, ...rest }, ref) => {
     return (
       <AriakitTab
         className={cx('header-tab-item')}
         id={id}
         key={id}
         ref={ref}
-        render={As ? <As /> : undefined}
+        render={Component ? <Component /> : undefined}
         store={store}
         {...rest}
       >
-        <Icon name={icon} />
+        {icon ? <Icon name={icon} /> : null}
         <Text variant="label-sm">{children}</Text>
       </AriakitTab>
     )

@@ -41,7 +41,7 @@ export type HeaderRightActionsProps = MergeProps<
 >
 
 export type HeaderTabItem = TabProps & {
-  icon: IconName
+  icon?: IconName
   id: string
 }
 

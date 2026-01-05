@@ -1,12 +1,12 @@
 @layer components {
   .root {
     border-style: solid;
-
     background-color: var(--components-colors-window-body-color-background-default);
     border-width: var(--components-dimensions-window-border-width);
     border-color: var(--components-colors-window-color-border-default);
     border-radius: var(--radius-lg);
     box-shadow: var(--elevation-10);
+    overflow: hidden;
   }
 
   .header {

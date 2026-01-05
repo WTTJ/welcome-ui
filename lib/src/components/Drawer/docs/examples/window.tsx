@@ -61,14 +61,17 @@ const Example = () => {
       <Drawer aria-label="Window with tabs" fullscreen={isFullScreen} store={drawer3}>
         <Drawer.Header>
           <Drawer.Header.LeftActions isExpandable onExpandChange={handleFullScreen} />
-          <Drawer.Header.Tabs
-            items={[
-              { icon: 'folder', id: 'tab1', title: '1st tab' },
-              { icon: 'folder', id: 'tab2', title: '2nd tab' },
-              { icon: 'folder', id: 'tab3', title: '3rd tab' },
-            ]}
-            store={tabStore}
-          />
+          <Drawer.Header.Tabs store={tabStore}>
+            <Drawer.Header.Tab id="tab1" store={tabStore}>
+              1st tab
+            </Drawer.Header.Tab>
+            <Drawer.Header.Tab id="tab2" store={tabStore}>
+              2nd tab
+            </Drawer.Header.Tab>
+            <Drawer.Header.Tab id="tab3" store={tabStore}>
+              3rd tab
+            </Drawer.Header.Tab>
+          </Drawer.Header.Tabs>
           <Drawer.Header.RightActions isClosable onClose={drawer3.hide} />
         </Drawer.Header>
         <Drawer.WindowTabPanel store={tabStore} tabId="tab1">
