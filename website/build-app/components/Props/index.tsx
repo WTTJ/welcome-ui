@@ -2,10 +2,9 @@
 import { kebabCase } from 'lodash'
 import React from 'react'
 
-import { Badge } from '@/components/Badge'
-import { Text } from '@/components/Text'
+import { Card } from '@/components/Card'
+import { Tag } from '@/components/Tag'
 
-import { Code } from '../Mdx/Code'
 import { H2 } from '../Mdx/Headings'
 
 import * as TYPES from './propTypes'
@@ -44,7 +43,7 @@ type Value = {
   value: string
 }
 
-const removeQuote = (str?: string) => str?.toString()?.replace(/'/g, '')
+const removeQuote = (str?: string) => str?.toString()?.replace(/"/g, '')
 const isArray = Array.isArray
 const reactTypes = ['ElementType<any>']
 
@@ -54,10 +53,19 @@ const getType = (type: Property[1]['type']) => {
   const { name, raw, value } = type
 
   if (raw && reactTypes.includes(raw)) {
-    return `React.${raw}`
+    return (
+      <Tag size="md" variant="dash">
+        `React.${raw}`
+      </Tag>
+    )
   }
 
-  if (raw === 'boolean') return 'Boolean'
+  if (raw === 'boolean')
+    return (
+      <Tag size="md" variant="dash">
+        Boolean
+      </Tag>
+    )
 
   // Enum
   if (name === 'enum' && value) {
@@ -70,26 +78,37 @@ const getType = (type: Property[1]['type']) => {
 
     if (values) {
       return values.map((value: string, index: number) => (
-        <>
-          {index !== 0 && ' | '}
+        <Tag key={`${value}_union_${index}`} size="md" variant="dash">
           {removeQuote(value)}
-        </>
+        </Tag>
       ))
     }
   }
 
   // Union
   if (name === 'union' && isArray(value)) {
-    return value.map(v => v.name).join(' | ')
+    return value.map((v, index) => (
+      <Tag key={`${v.value}_union_${index}`} size="md" variant="dash">
+        {v.name}
+      </Tag>
+    ))
   }
 
   // Custom
   if (name === 'custom') {
-    return raw
+    return (
+      <Tag size="md" variant="dash">
+        {raw}
+      </Tag>
+    )
   }
 
   // Fallback
-  return name
+  return (
+    <Tag size="md" variant="dash">
+      {name}
+    </Tag>
+  )
 }
 
 export const Property = ({ id, name, options }: PropertyProps) => {
@@ -102,23 +121,29 @@ export const Property = ({ id, name, options }: PropertyProps) => {
   }
 
   return (
-    <div className="mt-lg scroll-mt-[170px]" id={id}>
-      <div className="border-b border-b-neutral-30 flex gap-md items-center mb-md pb-md">
-        <Code>{name}</Code>
-        {required ? <Badge variant="brand">Required</Badge> : null}
-      </div>
-      <Text className="text-neutral-90">
-        {getType(type)}
-        <span className="text-neutral-70">
-          {defaultLabel ? ` | undefined = ${defaultLabel}` : null}
-        </span>
-      </Text>
-      {description ? (
-        <Text className="mt-sm" variant="body-md">
-          {description}
-        </Text>
-      ) : null}
-    </div>
+    <Card className="scroll-mt-170" id={id} size="sm">
+      <Card.Body className="gap-lg">
+        <div className="flex items-center gap-sm">
+          <Tag className="w-fit" variant="green">
+            {name}
+          </Tag>
+          {required ? (
+            <Tag className="w-fit" variant="warm">
+              Required
+            </Tag>
+          ) : null}
+          {defaultLabel ? (
+            <Tag className="w-fit" variant="pink">
+              {defaultLabel} (default)
+            </Tag>
+          ) : null}
+        </div>
+        <div className="flex flex-wrap gap-sm">{getType(type)}</div>
+        {description ? (
+          <div className="bg-beige-10 px-lg py-sm rounded-md">{description}</div>
+        ) : null}
+      </Card.Body>
+    </Card>
   )
 }
 
@@ -134,19 +159,21 @@ export const Properties = ({ items }: PropertiesProps) => {
         const { props: properties } = props[1]
 
         return (
-          <section key={kebabCase(`property_${name}`)}>
-            {name ? <H2 className="mt-0">{name}</H2> : null}
-            <div className="flex flex-col gap-xl mt-md">
-              {Object.entries(properties).map(item => (
-                <Property
-                  id={kebabCase(`${name}_${item[0]}`)}
-                  key={kebabCase(`property_${name}_${item[0]}`)}
-                  name={item[0]}
-                  options={item[1]}
-                />
-              ))}
-            </div>
-          </section>
+          <div>
+            {name ? <H2 className="mb-xl">{name}</H2> : null}
+            <Card key={kebabCase(`property_${name}`)}>
+              <Card.Body className="gap-xl">
+                {Object.entries(properties).map(item => (
+                  <Property
+                    id={kebabCase(`${name}_${item[0]}`)}
+                    key={kebabCase(`property_${name}_${item[0]}`)}
+                    name={item[0]}
+                    options={item[1]}
+                  />
+                ))}
+              </Card.Body>
+            </Card>
+          </div>
         )
       })}
     </div>

@@ -2,17 +2,20 @@
 import { DocSearchModal } from '@docsearch/react'
 import { useEffect, useState } from 'react'
 
+import { Button } from '@/components/Button'
 import { Icon } from '@/components/Icon'
-import { InputText } from '@/components/InputText'
 
 import '@docsearch/css'
+
+import { Tag } from '@/components/Tag'
 
 export const Search = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
     const handleKeys = (e: KeyboardEvent) => {
-      if (e.key === '45') {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault()
         setIsOpen(true)
       }
 
@@ -30,14 +33,11 @@ export const Search = () => {
 
   return (
     <>
-      <InputText
-        className="max-w-full w-[18.75rem]"
-        icon={<Icon name="search" />}
-        onClick={() => setIsOpen(true)}
-        onFocus={() => setIsOpen(true)}
-        placeholder="Search all pages"
-        size="sm"
-      />
+      <Button onClick={() => setIsOpen(true)} size="md" variant="secondary">
+        <Icon name="search" />
+        <span>Search</span>
+        <Tag size="md">⌘K</Tag>
+      </Button>
       {isOpen ? (
         <DocSearchModal
           apiKey="32543c62b03cbc6b714a873dca1feec4"
@@ -45,7 +45,7 @@ export const Search = () => {
           indexName="welcome-ui"
           initialScrollY={window.scrollY}
           onClose={() => setIsOpen(false)}
-          placeholder="Search all pages"
+          placeholder="Search..."
         />
       ) : null}
     </>

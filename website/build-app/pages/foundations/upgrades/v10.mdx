@@ -1,21 +1,30 @@
-# Version 9 - Belonging: Implements the Belonging experience redesign
+# Version 10: Implements the Belonging experience redesign
 
-Hi, today we are releasing a new batch in the v9, with redesigned components.
+Hi, today we are releasing v10 🎉 of our design system, with redesigned components.
 
-![Version 9 illustration](https://www.welcome-ui.com/v9.png)
+![Version 10 illustration](https://www.welcome-ui.com/v10.png)
 
 ## Upgrade steps
 
 ### 1. Upgrade your dependencies
 
-TODO
+```bash
+yarn add welcome-ui@latest
+```
 
 ### 2. Script to migrate
 
 In welcome-ui repository, run this script to change styled props to tailwind classes in your project, and apply other breaking changes from components listed below.
 
 ```bash
-yarn migrate '../your_project_path' --replace
+yarn migrate:v10 '../your_project_path' --replace
+```
+
+If your project is from v8 to v10, you need to run first the v9 migration script:
+
+```bash
+yarn migrate:v9 '../your_project_path' --replace
+yarn migrate:v10 '../your_project_path' --replace
 ```
 
 You will have to confirm each change, you can press `y` to apply the change, `n` to skip it, `a` to apply all remaining changes and `q` to quit.
@@ -23,12 +32,8 @@ You will have to confirm each change, you can press `y` to apply the change, `n`
 If you want to see the changes before applying them, you can run the script without `--replace` flag:
 
 ```bash
-yarn migrate '../your_project_path/subfolder'
+yarn migrate:v10 '../your_project_path/subfolder'
 ```
-
-#### Example of changes
-
-TODO
 
 ### 3. Fix remaining issues
 

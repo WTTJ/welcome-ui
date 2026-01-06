@@ -1,5 +1,3 @@
-/* REMOVE THIS STYLELINT DISABLE COMMENT WHEN THIS TAG WILL BE MIGRATED TO BELONGING DESIGN */
-/* stylelint-disable custom/valid-theme-token */
 @property --gradient-angle {
   syntax: '<angle>';
   initial-value: -60deg;
@@ -28,13 +26,13 @@
 
 @function striped-background($background-color) {
   @return repeating-linear-gradient(
-        -45deg,
-        transparent,
-        transparent 2.4px,
-        color-mix(in srgb, var(--color-neutral-50) 12%, transparent) 2.4px,
-        color-mix(in srgb, var(--color-neutral-50) 12%, transparent) 4.3px
-      ),
-    $background-color
+      -45deg,
+      transparent,
+      transparent 2.4px,
+      color-mix(in srgb, var(--color-neutral-50) 12%, transparent) 2.4px,
+      color-mix(in srgb, var(--color-neutral-50) 12%, transparent) 4.3px
+    ),
+    $background-color;
 }
 
 @layer components {
@@ -105,7 +103,7 @@
     --color: var(--colorDisabled) !important;
 
     &.ai {
-      border: inherit
+      border: inherit;
     }
 
     .removeButton {
@@ -117,7 +115,9 @@
     &-brand {
       --backgroundColor: var(--components-colors-tag-color-background-brand-default);
       --backgroundColorHover: var(--components-colors-tag-color-background-brand-hover);
-      --backgroundColorDisabled: #{striped-background(var(--components-colors-tag-color-background-brand-disabled))};
+      --backgroundColorDisabled: #{striped-background(
+          var(--components-colors-tag-color-background-brand-disabled)
+        )};
       --color: var(--components-colors-tag-color-text-brand-default);
       --colorDisabled: var(--components-colors-tag-color-text-brand-disabled);
 
@@ -125,16 +125,26 @@
         border-width: 1px;
         border-color: transparent;
         box-shadow: inset 0 0 0 2px white;
-        --backgroundColor: #{ai-gradient-border-background(var(--components-colors-tag-color-background-brand-ai-default))};
-        --backgroundColorHover: #{ai-gradient-border-background(var(--components-colors-tag-color-background-brand-ai-hover))};
-        --backgroundColorDisabled: #{striped-background(ai-gradient-border-background(var(--components-colors-tag-color-background-brand-ai-disabled)))};
+        --backgroundColor: #{ai-gradient-border-background(
+            var(--components-colors-tag-color-background-brand-ai-default)
+          )};
+        --backgroundColorHover: #{ai-gradient-border-background(
+            var(--components-colors-tag-color-background-brand-ai-hover)
+          )};
+        --backgroundColorDisabled: #{striped-background(
+            ai-gradient-border-background(
+              var(--components-colors-tag-color-background-brand-ai-disabled)
+            )
+          )};
       }
     }
 
     &-warm {
       --backgroundColor: var(--components-colors-tag-color-background-warm-default);
       --backgroundColorHover: var(--components-colors-tag-color-background-warm-hover);
-      --backgroundColorDisabled: #{striped-background(var(--components-colors-tag-color-background-warm-disabled))};
+      --backgroundColorDisabled: #{striped-background(
+          var(--components-colors-tag-color-background-warm-disabled)
+        )};
       --color: var(--components-colors-tag-color-text-warm-default);
       --colorDisabled: var(--components-colors-tag-color-text-warm-disabled);
 
@@ -142,16 +152,26 @@
         border-width: 1px;
         border-color: transparent;
         box-shadow: inset 0 0 0 2px white;
-        --backgroundColor: #{ai-gradient-border-background(var(--components-colors-tag-color-background-warm-ai-default))};
-        --backgroundColorHover: #{ai-gradient-border-background(var(--components-colors-tag-color-background-warm-ai-hover))};
-        --backgroundColorDisabled: #{striped-background(ai-gradient-border-background(var(--components-colors-tag-color-background-warm-ai-disabled)))};
+        --backgroundColor: #{ai-gradient-border-background(
+            var(--components-colors-tag-color-background-warm-ai-default)
+          )};
+        --backgroundColorHover: #{ai-gradient-border-background(
+            var(--components-colors-tag-color-background-warm-ai-hover)
+          )};
+        --backgroundColorDisabled: #{striped-background(
+            ai-gradient-border-background(
+              var(--components-colors-tag-color-background-warm-ai-disabled)
+            )
+          )};
       }
     }
 
     &-red {
       --backgroundColor: var(--components-colors-tag-color-background-red-default);
       --backgroundColorHover: var(--components-colors-tag-color-background-red-hover);
-      --backgroundColorDisabled: #{striped-background(var(--components-colors-tag-color-background-red-disabled))};
+      --backgroundColorDisabled: #{striped-background(
+          var(--components-colors-tag-color-background-red-disabled)
+        )};
       --color: var(--components-colors-tag-color-text-red-default);
       --colorDisabled: var(--components-colors-tag-color-text-red-disabled);
 
@@ -159,16 +179,26 @@
         border-width: 1px;
         border-color: transparent;
         box-shadow: inset 0 0 0 2px white;
-        --backgroundColor: #{ai-gradient-border-background(var(--components-colors-tag-color-background-red-ai-default))};
-        --backgroundColorHover: #{ai-gradient-border-background(var(--components-colors-tag-color-background-red-ai-hover))};
-        --backgroundColorDisabled: #{striped-background(ai-gradient-border-background(var(--components-colors-tag-color-background-red-ai-disabled)))};
+        --backgroundColor: #{ai-gradient-border-background(
+            var(--components-colors-tag-color-background-red-ai-default)
+          )};
+        --backgroundColorHover: #{ai-gradient-border-background(
+            var(--components-colors-tag-color-background-red-ai-hover)
+          )};
+        --backgroundColorDisabled: #{striped-background(
+            ai-gradient-border-background(
+              var(--components-colors-tag-color-background-red-ai-disabled)
+            )
+          )};
       }
     }
 
     &-blue {
       --backgroundColor: var(--components-colors-tag-color-background-blue-default);
       --backgroundColorHover: var(--components-colors-tag-color-background-blue-hover);
-      --backgroundColorDisabled: #{striped-background(var(--components-colors-tag-color-background-blue-disabled))};
+      --backgroundColorDisabled: #{striped-background(
+          var(--components-colors-tag-color-background-blue-disabled)
+        )};
       --color: var(--components-colors-tag-color-text-blue-default);
       --colorDisabled: var(--components-colors-tag-color-text-blue-disabled);
 
@@ -176,16 +206,26 @@
         border-width: 1px;
         border-color: transparent;
         box-shadow: inset 0 0 0 2px white;
-        --backgroundColor: #{ai-gradient-border-background(var(--components-colors-tag-color-background-blue-ai-default))};
-        --backgroundColorHover: #{ai-gradient-border-background(var(--components-colors-tag-color-background-blue-ai-hover))};
-        --backgroundColorDisabled: #{striped-background(ai-gradient-border-background(var(--components-colors-tag-color-background-blue-ai-disabled)))};
+        --backgroundColor: #{ai-gradient-border-background(
+            var(--components-colors-tag-color-background-blue-ai-default)
+          )};
+        --backgroundColorHover: #{ai-gradient-border-background(
+            var(--components-colors-tag-color-background-blue-ai-hover)
+          )};
+        --backgroundColorDisabled: #{striped-background(
+            ai-gradient-border-background(
+              var(--components-colors-tag-color-background-blue-ai-disabled)
+            )
+          )};
       }
     }
 
     &-green {
       --backgroundColor: var(--components-colors-tag-color-background-green-default);
       --backgroundColorHover: var(--components-colors-tag-color-background-green-hover);
-      --backgroundColorDisabled: #{striped-background(var(--components-colors-tag-color-background-green-disabled))};
+      --backgroundColorDisabled: #{striped-background(
+          var(--components-colors-tag-color-background-green-disabled)
+        )};
       --color: var(--components-colors-tag-color-text-green-default);
       --colorDisabled: var(--components-colors-tag-color-text-green-disabled);
 
@@ -193,16 +233,26 @@
         border-width: 1px;
         border-color: transparent;
         box-shadow: inset 0 0 0 2px white;
-        --backgroundColor: #{ai-gradient-border-background(var(--components-colors-tag-color-background-green-ai-default))};
-        --backgroundColorHover: #{ai-gradient-border-background(var(--components-colors-tag-color-background-green-ai-hover))};
-        --backgroundColorDisabled: #{striped-background(ai-gradient-border-background(var(--components-colors-tag-color-background-green-ai-disabled)))};
+        --backgroundColor: #{ai-gradient-border-background(
+            var(--components-colors-tag-color-background-green-ai-default)
+          )};
+        --backgroundColorHover: #{ai-gradient-border-background(
+            var(--components-colors-tag-color-background-green-ai-hover)
+          )};
+        --backgroundColorDisabled: #{striped-background(
+            ai-gradient-border-background(
+              var(--components-colors-tag-color-background-green-ai-disabled)
+            )
+          )};
       }
     }
 
     &-orange {
       --backgroundColor: var(--components-colors-tag-color-background-orange-default);
       --backgroundColorHover: var(--components-colors-tag-color-background-orange-hover);
-      --backgroundColorDisabled: #{striped-background(var(--components-colors-tag-color-background-orange-disabled))};
+      --backgroundColorDisabled: #{striped-background(
+          var(--components-colors-tag-color-background-orange-disabled)
+        )};
       --color: var(--components-colors-tag-color-text-orange-default);
       --colorDisabled: var(--components-colors-tag-color-text-orange-disabled);
 
@@ -210,16 +260,26 @@
         border-width: 1px;
         border-color: transparent;
         box-shadow: inset 0 0 0 2px white;
-        --backgroundColor: #{ai-gradient-border-background(var(--components-colors-tag-color-background-orange-ai-default))};
-        --backgroundColorHover: #{ai-gradient-border-background(var(--components-colors-tag-color-background-orange-ai-hover))};
-        --backgroundColorDisabled: #{striped-background(ai-gradient-border-background(var(--components-colors-tag-color-background-orange-ai-disabled)))};
+        --backgroundColor: #{ai-gradient-border-background(
+            var(--components-colors-tag-color-background-orange-ai-default)
+          )};
+        --backgroundColorHover: #{ai-gradient-border-background(
+            var(--components-colors-tag-color-background-orange-ai-hover)
+          )};
+        --backgroundColorDisabled: #{striped-background(
+            ai-gradient-border-background(
+              var(--components-colors-tag-color-background-orange-ai-disabled)
+            )
+          )};
       }
     }
 
     &-pink {
       --backgroundColor: var(--components-colors-tag-color-background-pink-default);
       --backgroundColorHover: var(--components-colors-tag-color-background-pink-hover);
-      --backgroundColorDisabled: #{striped-background(var(--components-colors-tag-color-background-pink-disabled))};
+      --backgroundColorDisabled: #{striped-background(
+          var(--components-colors-tag-color-background-pink-disabled)
+        )};
       --color: var(--components-colors-tag-color-text-pink-default);
       --colorDisabled: var(--components-colors-tag-color-text-pink-disabled);
 
@@ -227,16 +287,26 @@
         border-width: 1px;
         border-color: transparent;
         box-shadow: inset 0 0 0 2px white;
-        --backgroundColor: #{ai-gradient-border-background(var(--components-colors-tag-color-background-pink-ai-default))};
-        --backgroundColorHover: #{ai-gradient-border-background(var(--components-colors-tag-color-background-pink-ai-hover))};
-        --backgroundColorDisabled: #{striped-background(ai-gradient-border-background(var(--components-colors-tag-color-background-pink-ai-disabled)))};
+        --backgroundColor: #{ai-gradient-border-background(
+            var(--components-colors-tag-color-background-pink-ai-default)
+          )};
+        --backgroundColorHover: #{ai-gradient-border-background(
+            var(--components-colors-tag-color-background-pink-ai-hover)
+          )};
+        --backgroundColorDisabled: #{striped-background(
+            ai-gradient-border-background(
+              var(--components-colors-tag-color-background-pink-ai-disabled)
+            )
+          )};
       }
     }
 
     &-teal {
       --backgroundColor: var(--components-colors-tag-color-background-teal-default);
       --backgroundColorHover: var(--components-colors-tag-color-background-teal-hover);
-      --backgroundColorDisabled: #{striped-background(var(--components-colors-tag-color-background-teal-disabled))};
+      --backgroundColorDisabled: #{striped-background(
+          var(--components-colors-tag-color-background-teal-disabled)
+        )};
       --color: var(--components-colors-tag-color-text-teal-default);
       --colorDisabled: var(--components-colors-tag-color-text-teal-disabled);
 
@@ -244,16 +314,26 @@
         border-width: 1px;
         border-color: transparent;
         box-shadow: inset 0 0 0 2px white;
-        --backgroundColor: #{ai-gradient-border-background(var(--components-colors-tag-color-background-teal-ai-default))};
-        --backgroundColorHover: #{ai-gradient-border-background(var(--components-colors-tag-color-background-teal-ai-hover))};
-        --backgroundColorDisabled: #{striped-background(ai-gradient-border-background(var(--components-colors-tag-color-background-teal-ai-disabled)))};
+        --backgroundColor: #{ai-gradient-border-background(
+            var(--components-colors-tag-color-background-teal-ai-default)
+          )};
+        --backgroundColorHover: #{ai-gradient-border-background(
+            var(--components-colors-tag-color-background-teal-ai-hover)
+          )};
+        --backgroundColorDisabled: #{striped-background(
+            ai-gradient-border-background(
+              var(--components-colors-tag-color-background-teal-ai-disabled)
+            )
+          )};
       }
     }
 
     &-violet {
       --backgroundColor: var(--components-colors-tag-color-background-violet-default);
       --backgroundColorHover: var(--components-colors-tag-color-background-violet-hover);
-      --backgroundColorDisabled: #{striped-background(var(--components-colors-tag-color-background-violet-disabled))};
+      --backgroundColorDisabled: #{striped-background(
+          var(--components-colors-tag-color-background-violet-disabled)
+        )};
       --color: var(--components-colors-tag-color-text-violet-default);
       --colorDisabled: var(--components-colors-tag-color-text-violet-disabled);
 
@@ -261,19 +341,30 @@
         border-width: 1px;
         border-color: transparent;
         box-shadow: inset 0 0 0 2px white;
-        --backgroundColor: #{ai-gradient-border-background(var(--components-colors-tag-color-background-violet-ai-default))};
-        --backgroundColorHover: #{ai-gradient-border-background(var(--components-colors-tag-color-background-violet-ai-hover))};
-        --backgroundColorDisabled: #{striped-background(ai-gradient-border-background(var(--components-colors-tag-color-background-violet-ai-disabled)))};
+        --backgroundColor: #{ai-gradient-border-background(
+            var(--components-colors-tag-color-background-violet-ai-default)
+          )};
+        --backgroundColorHover: #{ai-gradient-border-background(
+            var(--components-colors-tag-color-background-violet-ai-hover)
+          )};
+        --backgroundColorDisabled: #{striped-background(
+            ai-gradient-border-background(
+              var(--components-colors-tag-color-background-violet-ai-disabled)
+            )
+          )};
       }
     }
 
     &-dash {
       --backgroundColor: var(--components-colors-tag-color-background-dash-default);
       --backgroundColorHover: var(--components-colors-tag-color-background-dash-hover);
-      --backgroundColorDisabled: #{striped-background(var(--components-colors-tag-color-background-dash-disabled))};
+      --backgroundColorDisabled: #{striped-background(
+          var(--components-colors-tag-color-background-dash-disabled)
+        )};
       --color: var(--components-colors-tag-color-text-dash-default);
       --colorDisabled: var(--components-colors-tag-color-text-dash-disabled);
-      border: var(--components-dimensions-tag-border-width-default) dashed var(--components-colors-tag-color-border-dash-default);
+      border: var(--components-dimensions-tag-border-width-default) dashed
+        var(--components-colors-tag-color-border-dash-default);
       position: relative;
 
       &:hover {
@@ -310,13 +401,13 @@
     flex-direction: row;
     gap: var(--components-dimensions-tag-padding-block-md);
   }
-  
+
   .isSquare {
     flex-basis: var(--height);
     justify-content: center;
     padding: 0;
   }
-  
+
   .removeButton {
     cursor: pointer;
     flex-shrink: 0;

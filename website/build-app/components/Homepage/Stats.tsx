@@ -22,7 +22,7 @@ const stats = [
         stars
       </>
     ),
-    number: '600+',
+    number: '650+',
   },
   {
     icon: <Icon name="import" size="lg" />,
@@ -33,16 +33,16 @@ const stats = [
         Downloads
       </>
     ),
-    number: '450+',
+    number: '1K+',
   },
 ]
 
 export const Stats = () => {
   return (
-    <div className="bg-neutral-10 flex justify-between max-w-[29.375rem] md:px-4xl px-xxl py-xxl rounded-2xl w-full">
+    <div className="bg-background-brand-minimal flex justify-between max-w-470 md:px-4xl px-xxl py-xxl rounded-2xl w-full">
       {stats?.map(stat => (
         <div className="flex flex-col items-center text-center" key={stat.number}>
-          <div className="bg-neutral-90 flex h-[3.4375rem] items-center justify-center rounded-full text-neutral-10 w-[3.4375rem]">
+          <div className="bg-neutral-90 flex h-55 items-center justify-center rounded-full text-neutral-10 w-55">
             {stat.icon}
           </div>
           <Text as="span" className="mt-lg" variant="heading-lg">

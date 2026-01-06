@@ -41,7 +41,7 @@
       },
       "handleClose": {
         "defaultValue": null,
-        "description": "@description add a close button with an onclick handleClose function",
+        "description": "add a close button with an onclick handleClose function",
         "name": "handleClose",
         "parent": {
           "fileName": "welcome-ui/lib/src/components/Alert/types.ts",

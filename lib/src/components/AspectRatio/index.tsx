@@ -7,8 +7,8 @@ import type { AspectRatioProps } from './types'
 const cx = classNames(styles)
 
 export const AspectRatio = forwardRefWithAs<AspectRatioProps, 'div'>(
-  ({ as: Element = 'div', className, ratio = '4-3', ...rest }, ref) => {
-    return <Element className={cx('root', `ratio-${ratio}`, className)} ref={ref} {...rest} />
+  ({ as: Component = 'div', className, ratio = '4-3', ...rest }, ref) => {
+    return <Component className={cx('root', `ratio-${ratio}`, className)} ref={ref} {...rest} />
   }
 )
 

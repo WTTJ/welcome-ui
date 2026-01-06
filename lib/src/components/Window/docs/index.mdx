@@ -7,43 +7,35 @@ usage: Window
 isNew: true
 ---
 
-## Overview
+### Header
 
-Use `Window` to create a structured container with header and body sections.
+Use `Window.Header` to create the header section of your window. The header supports various sub-components for flexible layouts. Use `Window.Header.Title` to display a title in the header.
 
-<div data-playground="overview.tsx" data-component="Window"></div>
+<div data-playground="header.tsx" data-component="Window"></div>
 
-## Header
-
-Use `Window.Header` to create the header section of your window. The header supports various sub-components for flexible layouts.
-
-### Title
-
-Use `Window.Header.Title` to display a title in the header.
-
-### Tabs
+#### Tabs
 
 Use `Window.Header.Tabs` to display tabs in the header. Requires a tab store and an array of tab items. Use `Window.TabPanel` components to display content for each tab.
 
 <div data-playground="tabs.tsx" data-component="Window"></div>
 
-### Actions
+#### Actions
 
-#### Left Actions
+##### Left Actions
 
 Use `Window.Header.LeftActions` for expandable controls on the left side of the header.
 
-#### Right Actions
+##### Right Actions
 
 Use `Window.Header.RightActions` for closable controls and custom action buttons on the right side of the header.
 
 <div data-playground="custom-header-action.tsx" data-component="Window"></div>
 
-## Tab Panels
+### Tab Panels
 
 Use `Window.TabPanel` to create content sections that correspond to tabs in the header. Each tab panel requires both a `store` prop (the same tab store used in `Window.Header.Tabs`) and a `tabId` prop that matches the id of its corresponding tab.
 
-## Body
+### Body
 
 Use `Window.Body` to create the content section of your window.
 

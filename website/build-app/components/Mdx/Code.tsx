@@ -1,3 +1,5 @@
+import { Tag } from '@/components/Tag'
+
 import { Properties } from '../Props'
 
 import { Highlight } from './Highlight'
@@ -22,8 +24,8 @@ export const Code = ({ children, className }: CodeProps) => {
   }
 
   return (
-    <code className="bg-neutral-30 inline-flex items-center px-sm py-xxs rounded-sm text-neutral-90 whitespace-break-spaces text-sm">
+    <Tag as="code" className="mx-xxs font-bold" size="md" variant="dash">
       {children}
-    </code>
+    </Tag>
   )
 }

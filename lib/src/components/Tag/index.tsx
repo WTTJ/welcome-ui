@@ -22,7 +22,7 @@ function getTextLength(children: React.ReactNode): number | undefined {
 export const Tag = forwardRefWithAs<TagOptions, 'div'>((props, ref) => {
   const {
     ai = false,
-    as: Element = 'div',
+    as: Component = 'div',
     children,
     className,
     disabled = false,
@@ -51,7 +51,7 @@ export const Tag = forwardRefWithAs<TagOptions, 'div'>((props, ref) => {
   }
 
   return (
-    <Element
+    <Component
       className={cx(
         'root',
         `variant-${variant}`,
@@ -79,7 +79,7 @@ export const Tag = forwardRefWithAs<TagOptions, 'div'>((props, ref) => {
           <Icon name="times" size="md" />
         </button>
       ) : null}
-    </Element>
+    </Component>
   )
 })
 

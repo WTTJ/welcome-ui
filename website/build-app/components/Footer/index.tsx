@@ -3,8 +3,6 @@ import { Icon } from '@/components/Icon'
 import { Logo } from '@/components/Logo'
 import { Text } from '@/components/Text'
 
-import { Section } from '../Section'
-
 const links = [
   {
     links: [
@@ -35,8 +33,8 @@ const links = [
       },
       {
         isExternal: true,
-        link: 'https://github.com/orgs/WTTJ/projects/13',
-        name: 'Project board',
+        link: 'https://github.com/WTTJ/welcome-ui/issues',
+        name: 'Issues',
       },
     ],
     name: 'Updates',
@@ -70,42 +68,40 @@ const links = [
 
 export const Footer = () => {
   return (
-    <Section as="footer" className="bg-beige-20 text-neutral-50">
-      <div className="gap-xl grid grid-cols-2 md:grid-cols-4">
-        <div className="flex flex-col gap-xs">
-          <div className="flex gap-sm items-center">
-            Made with <Icon className="text-brand-50" name="heart" /> by
-          </div>
-          <a
-            className="w-fit-content"
-            href="https://www.welcometothejungle.com"
-            rel="noreferrer noopener"
-            target="_blank"
-          >
-            <Logo className="h-[40px]" />
-          </a>
+    <footer className="gap-xl grid grid-cols-2 md:grid-cols-4 pb-xxl mt-4xl">
+      <div className="flex flex-col gap-xs">
+        <div className="flex gap-sm items-center">
+          Made with <Icon className="text-brand-50" name="heart" size="lg" /> by
         </div>
-        {links.map(({ links, name }) => (
-          <nav className="flex flex-col gap-lg" key={name}>
-            <Text variant="label-lg">{name}</Text>
-            <ul className="flex flex-col gap-sm">
-              {links.map(({ isExternal, link, name }) => (
-                <li key={link}>
-                  <a
-                    className="flex gap-xs items-center text-neutral-90 hover:underline"
-                    href={link}
-                    rel={isExternal ? 'noopener noreferrer' : undefined}
-                    target={isExternal ? '_blank' : undefined}
-                  >
-                    {name}
-                    <Icon className="text-neutral-60" name="external-link-alt" size="xs" />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        ))}
+        <a
+          className="w-fit-content"
+          href="https://www.welcometothejungle.com"
+          rel="noreferrer noopener"
+          target="_blank"
+        >
+          <Logo className="h-40" />
+        </a>
       </div>
-    </Section>
+      {links.map(({ links, name }) => (
+        <nav className="flex flex-col gap-lg" key={name}>
+          <Text variant="label-lg">{name}</Text>
+          <ul className="flex flex-col gap-sm">
+            {links.map(({ isExternal, link, name }) => (
+              <li key={link}>
+                <a
+                  className="flex gap-xs items-center text-neutral-90 hover:underline"
+                  href={link}
+                  rel={isExternal ? 'noopener noreferrer' : undefined}
+                  target={isExternal ? '_blank' : undefined}
+                >
+                  {name}
+                  <Icon className="text-neutral-60" name="external-link-alt" size="md" />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      ))}
+    </footer>
   )
 }

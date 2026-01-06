@@ -1,7 +1,7 @@
+'use client'
 import { Card } from '@/components/Card'
 import { Icon } from '@/components/Icon'
 import type { IconName } from '@/components/Icon/types'
-import { Text } from '@/components/Text'
 
 type ExpectationProps = {
   description: string
@@ -25,7 +25,7 @@ const expectations: ExpectationProps[] = [
   {
     description:
       'A time-saver UI framework, designed to increase your productivity and your development experience.',
-    icon: 'industry',
+    icon: 'trophy',
     title: 'Productivity gain',
   },
   {
@@ -41,8 +41,7 @@ const expectations: ExpectationProps[] = [
     title: 'Accessibility',
   },
   {
-    description:
-      'Migrated to Typescript since v4, WUI offers you the safety of a strongly typed library.',
+    description: 'Migrated to Typescript, WUI offers you the safety of a strongly typed library.',
     icon: 'fire',
     title: 'Typing',
   },
@@ -62,14 +61,12 @@ const expectations: ExpectationProps[] = [
 
 const Expectation = ({ description, icon, title }: ExpectationProps) => {
   return (
-    <Card className="p-md w-full">
-      <Icon color="neutral-90" name={icon} size="xl" />
-      <Text as="span" className="mb-md mt-lg uppercase" variant="heading-xs-strong">
+    <Card className="p-md w-full" size="sm">
+      <Card.Header>
+        <Icon name={icon} />
         {title}
-      </Text>
-      <Text className="m-0" variant="body-md">
-        {description}
-      </Text>
+      </Card.Header>
+      <Card.Body>{description}</Card.Body>
     </Card>
   )
 }

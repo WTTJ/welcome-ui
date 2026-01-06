@@ -7,7 +7,7 @@ import { Text } from '@/components/Text'
 
 import { getPageContent } from '~/build-app/utils/page-content'
 import { getPages } from '~/build-app/utils/pages-components'
-import { getName, getRepository } from '~/build-app/utils/transform-name'
+import { getRepository } from '~/build-app/utils/transform-name'
 
 export const metadata: Metadata = {
   title: 'Welcome UI - Components',
@@ -16,42 +16,38 @@ export const metadata: Metadata = {
 const Page = () => {
   const pages = getPages()
 
+  const allComponents = pages
+    .reduce((prev, category) => {
+      const pages = category.pages.map(page => page.id)
+      prev.push(...pages)
+      return prev
+    }, [])
+    .sort((a, b) => a.localeCompare(b))
+
   return (
-    <main className="flex flex-col gap-xxl max-w-[62.5rem] mx-auto p-lg">
-      <Text as="h1" className="py-3xl" variant="display-sm">
+    <main>
+      <Text as="h1" className="md:mt-4xl" variant="display-md">
         Components
       </Text>
-      {pages.map(category => (
-        <div className="flex flex-col gap-md" key={category.category}>
-          <Text as="h2" className="uppercase" variant="heading-xs-strong">
-            {getName(category.category as string)}
-          </Text>
-          <div className="gap-lg grid grid-cols-1 lg:grid-cols-2">
-            {category.pages.map(page => {
-              const { data } = getPageContent({
-                filename: `${getRepository(page.id)}/docs/index.mdx`,
-                isPackage: true,
-              })
+      <div className="gap-lg grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-xl">
+        {allComponents.map(component => {
+          const { data } = getPageContent({
+            filename: `${getRepository(component)}/docs/index.mdx`,
+            isPackage: true,
+          })
 
-              return (
-                <Link href={`/components/${page.id}`} key={page.id}>
-                  <Card className="h-full flex flex-col gap-lg hover:border-neutral-50 p-xl rounded-sm transition-border duration-200">
-                    <div className="flex items-center gap-sm">
-                      <Text as="h3" variant="heading-md-strong">
-                        {page.title}
-                      </Text>
-                      {data.isNew ? <Badge variant="brand">NEW</Badge> : null}
-                    </div>
-                    <Text className="text-neutral-70 mt-sm" lines={3} variant="body-md">
-                      {data?.description}
-                    </Text>
-                  </Card>
-                </Link>
-              )
-            })}
-          </div>
-        </div>
-      ))}
+          return (
+            <Link className="h-full" href={`/components/${component}`} key={component}>
+              <Card className="h-full p-md">
+                <Text className="flex gap-xs items-center justify-between" variant="body-lg-strong">
+                  {data?.title}
+                  {data?.isNew ? <Badge variant="brand">NEW</Badge> : null}
+                </Text>
+              </Card>
+            </Link>
+          )
+        })}
+      </div>
     </main>
   )
 }

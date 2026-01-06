@@ -5,6 +5,7 @@ import { useEffect, useRef } from 'react'
 
 import { Badge } from '@/components/Badge'
 import { Text } from '@/components/Text'
+import { Window } from '@/components/Window'
 import { classNames } from '@/utils'
 
 import type { PageTree } from '~/build-app/types'
@@ -39,43 +40,47 @@ export const Sidebar = ({ className, isSubPage, menu, onClick }: SidebarProps) =
   }, [ref])
 
   return (
-    <nav
-      className={`flex flex-col gap-3xl h-[calc(100vh - 5.5rem)] overflow-y-auto pt-3xl sticky top-[4.375rem] ${className}`}
-      ref={ref}
-    >
-      {menu.map(({ category, pages, parent }) => (
-        <ul className="flex flex-col shrink-0" key={`sidebar_${category}`}>
-          {category ? (
-            <Text className="mb-lg" variant="label-md">
-              {getName(category)}
-            </Text>
-          ) : null}
-          <ul className="flex flex-col gap-lg">
-            {pages.map(({ id, isNew, parent: pageParent, title }) => {
-              const href = `/${parent}/${pageParent ? `${pageParent}/` : ''}${id}`
-              const isCurrent =
-                isSubPage && subPage ? currentRoute === `${href}/${subPage}` : currentRoute === href
+    <Window as="nav" className={`h-[calc(100vh-120px)] sticky top-100 ${className || ''}`}>
+      <Window.Header className="sticky top-0 z-1">
+        <Window.Header.Title title="Menu" />
+      </Window.Header>
+      <Window.Body className="flex flex-col gap-xl overflow-y-auto h-[calc(100%-40px)]">
+        {menu.map(({ category, pages, parent }) => (
+          <ul className="flex flex-col shrink-0" key={`sidebar_${category}`}>
+            {category ? (
+              <Text className="mb-lg" variant="label-md-strong">
+                {getName(category)}
+              </Text>
+            ) : null}
+            <ul className="flex flex-col gap-md">
+              {pages.map(({ id, isNew, parent: pageParent, title }) => {
+                const href = `/${parent}/${pageParent ? `${pageParent}/` : ''}${id}`
+                const isCurrent =
+                  isSubPage && subPage
+                    ? currentRoute === `${href}/${subPage}`
+                    : currentRoute === href || currentRoute === `${href}/props`
 
-              return (
-                <li
-                  className="flex items-center gap-sm"
-                  key={`sidebar_${category}_page_${id}`}
-                  onClick={onClick}
-                >
-                  <Link
-                    aria-current={isCurrent ? 'page' : undefined}
-                    className={cx('link')}
-                    href={href}
+                return (
+                  <li
+                    className="flex items-center gap-sm"
+                    key={`sidebar_${category}_page_${id}`}
+                    onClick={onClick}
                   >
-                    {title || getName(id)}
-                  </Link>
-                  {isNew ? <Badge variant="brand">NEW</Badge> : null}
-                </li>
-              )
-            })}
+                    <Link
+                      aria-current={isCurrent ? 'page' : undefined}
+                      className={cx('link')}
+                      href={href}
+                    >
+                      {title || getName(id)}
+                    </Link>
+                    {isNew ? <Badge variant="brand">NEW</Badge> : null}
+                  </li>
+                )
+              })}
+            </ul>
           </ul>
-        </ul>
-      ))}
-    </nav>
+        ))}
+      </Window.Body>
+    </Window>
   )
 }

@@ -1,16 +1,11 @@
 import { usePathname } from 'next/navigation'
-import React from 'react'
+import React, { useEffect } from 'react'
 
-import { Button } from '@/components/Button'
 import { Icon } from '@/components/Icon'
-import { Text } from '@/components/Text'
-import { classNames } from '@/utils'
-
-import styles from './link.module.scss'
+import { useTab } from '@/components/Tabs'
+import { Tabs } from '@/components/Tabs'
 
 import { navigation } from '.'
-
-const cx = classNames(styles)
 
 type NavBarProps = {
   className?: string
@@ -19,38 +14,41 @@ type NavBarProps = {
 
 export const NavBar = ({ className, onClick }: NavBarProps) => {
   const currentRoute = usePathname()
+  const tab = useTab({ defaultSelectedId: currentRoute?.split('/')[1] || '' })
+
+  useEffect(() => {
+    tab.setSelectedId(currentRoute?.split('/')[1] || '')
+  }, [currentRoute, tab])
 
   return (
-    <div className={`flex gap-xl items-center lg:h-full ${className}`}>
+    <div className={`flex gap-xl items-center lg:h-full ${className || ''}`}>
       <nav className="lg:h-full">
-        <ul aria-label="Main navigation" className="flex gap-xxl lg:h-full">
+        <Tabs aria-label="Main navigation" className="flex-wrap" store={tab}>
           {navigation.map(item => (
-            <li key={`header_navigation_${item}`}>
-              <Text
-                aria-current={currentRoute.startsWith(`/${item}`) ? 'page' : undefined}
-                as="a"
-                className={cx('link')}
-                href={`/${item}`}
-                onClick={onClick}
-                variant="label-lg"
-              >
-                {item.toUpperCase()}
-              </Text>
-            </li>
+            <Tabs.Tab
+              as="a"
+              href={`/${item}`}
+              id={item}
+              key={`header_navigation_${item}`}
+              onClick={onClick}
+              store={tab}
+            >
+              {item.toUpperCase()}
+            </Tabs.Tab>
           ))}
-        </ul>
+          <Tabs.Tab
+            as="a"
+            href="https://github.com/WTTJ/welcome-ui"
+            icon={<Icon name="github" />}
+            id="github"
+            rel="noreferrer noopener"
+            store={tab}
+            target="_blank"
+          >
+            650+
+          </Tabs.Tab>
+        </Tabs>
       </nav>
-      <Button
-        aria-label="Github"
-        as="a"
-        href="https://github.com/WTTJ/welcome-ui"
-        rel="noreferrer noopener"
-        size="md"
-        target="_blank"
-        variant="tertiary"
-      >
-        <Icon name="github" />
-      </Button>
     </div>
   )
 }

@@ -6,3 +6,7 @@
 :root {
   --docsearch-primary-color: black !important;
 }
+
+body {
+  background-color: var(--color-beige-10);
+}

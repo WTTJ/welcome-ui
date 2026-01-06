@@ -39,7 +39,7 @@ const ModalComponent = forwardRefWithAs<ModalProps, 'div'>(
     {
       ariaLabel,
       /** for render property */
-      as: As,
+      as: Component,
       backdrop = true,
       children,
       className,
@@ -66,8 +66,8 @@ const ModalComponent = forwardRefWithAs<ModalProps, 'div'>(
         hideOnInteractOutside={hideOnInteractOutside}
         ref={ref}
         render={
-          As ? (
-            <As />
+          Component ? (
+            <Component />
           ) : (
             <div
               className={cx(

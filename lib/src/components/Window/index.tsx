@@ -12,11 +12,11 @@ import windowStyles from './window.module.scss'
 const cx = classNames(windowStyles)
 
 const WindowComponent = forwardRefWithAs<WindowProps, 'div'>(
-  ({ children, className, role = 'region', ...rest }) => {
+  ({ as: Component = 'div', children, className, role = 'region', ...rest }, ref) => {
     return (
-      <div className={cx('root', className)} role={role} {...rest}>
+      <Component className={cx('root', className)} ref={ref} role={role} {...rest}>
         {children}
-      </div>
+      </Component>
     )
   }
 )

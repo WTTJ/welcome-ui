@@ -27,7 +27,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <link href="/favicon.png" rel="icon" type="image/png" />
       </head>
       <body>
-        <div className="bg-neutral-10">
+        <div className="max-w-1400 mx-auto px-md">
           <Header components={pagesComponents} foundations={pagesFoundations} />
           <Toast />
           {children}

@@ -13,7 +13,7 @@ const cx = classNames(styles)
 export const Tab = forwardRefWithAs<TabProps, 'button'>(
   (
     {
-      as: As,
+      as: Component,
       badge,
       children,
       className,
@@ -43,7 +43,7 @@ export const Tab = forwardRefWithAs<TabProps, 'button'>(
         className={cx('root', `size-${size}`, className)}
         id={id}
         ref={ref}
-        render={As ? <As /> : undefined}
+        render={Component ? <Component /> : undefined}
         store={store}
         {...rest}
       >

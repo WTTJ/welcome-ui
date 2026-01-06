@@ -1,4 +1,4 @@
-import type { TabListProps } from '@ariakit/react'
+import type { TabListProps, TabProps } from '@ariakit/react'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
 
 import type { UseTab } from '@/components/Tabs'
@@ -40,14 +40,13 @@ export type HeaderRightActionsProps = MergeProps<
   HeaderRightActionsOptions
 >
 
-export type HeaderTabItem = {
-  icon: IconName
+export type HeaderTabItem = TabProps & {
+  icon?: IconName
   id: string
-  title: string
 }
 
 export interface HeaderTabsOptions {
-  items: HeaderTabItem[]
+  children: React.ReactNode
 }
 
 export type HeaderTabsProps = MergeProps<TabListProps<'div'>, HeaderTabsOptions>

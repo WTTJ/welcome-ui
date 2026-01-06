@@ -14,7 +14,7 @@ interface AlertOptions {
   closeButtonDataTestId?: string
   cta?: JSX.Element
   /**
-   * @description add a close button with an onclick handleClose function
+   * add a close button with an onclick handleClose function
    */
   handleClose?: () => void
   isFullWidth?: boolean
