@@ -28,7 +28,7 @@ const textVariants: { [size in AvatarProps['size']]: TextProps['variant'] } = {
 }
 
 export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
-  ({ className, getInitials = defaultGetInitials, name, size = 'md', src }, ref) => {
+  ({ className, getInitials = defaultGetInitials, name, size = 'md', src, ...rest }, ref) => {
     // Get default color based on name length
     const color = getColorFromName(name)
     // Show an user icon when there is no src and no name
@@ -36,6 +36,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
 
     return (
       <div
+        {...rest}
         aria-label={name}
         className={cx(
           'root',
