@@ -52,12 +52,12 @@ const getPackageJson = () => `{
   },
   "dependencies": {
     "welcome-ui": "latest",
-    "tailwindcss": "4.1.14",
+    "tailwindcss": "4.1.18",
     "react": "19.0.0",
     "react-dom": "19.0.0"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "4.1.14",
+    "@tailwindcss/vite": "4.1.18",
     "@types/react": "19.0.0",
     "@types/react-dom": "19.0.0",
     "@vitejs/plugin-react": "5.0.0",
