@@ -1,3 +1,4 @@
+'use client'
 import React, { forwardRef, useCallback, useEffect, useId, useRef, useState } from 'react'
 
 import { Hint } from '@/components/Hint'

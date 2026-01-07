@@ -1,3 +1,4 @@
+'use client'
 import { classNames } from '@/utils'
 
 import LoaderStyles from './loader.module.scss'

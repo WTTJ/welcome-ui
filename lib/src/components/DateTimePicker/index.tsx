@@ -1,3 +1,4 @@
+'use client'
 import React, { Children, cloneElement, forwardRef, useEffect, useRef, useState } from 'react'
 
 import styles from '@/components/DateTimePickerCommon/date-time-picker.module.scss'

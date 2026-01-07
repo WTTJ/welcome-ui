@@ -1,3 +1,4 @@
+'use client'
 // Checkbox component using Ariakit for accessibility and custom styles
 // https://ariakit.org/examples/checkbox-custom
 import { Checkbox as AriaKitCheckbox } from '@ariakit/react'
