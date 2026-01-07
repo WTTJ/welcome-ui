@@ -12,7 +12,11 @@ export const Close = ({ className }: CloseProps) => {
   return (
     <DialogDismiss
       render={props => (
-        <Window.Header.CloseButton className={cx('drawer-close', className)} {...props} />
+        <Window.Header.CloseButton
+          aria-label="Close"
+          className={cx('drawer-close', className)}
+          {...props}
+        />
       )}
     />
   )
