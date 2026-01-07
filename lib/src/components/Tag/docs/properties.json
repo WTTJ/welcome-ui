@@ -204,10 +204,64 @@
               "value": "\"brand\""
             },
             {
+              "value": "\"dark-blue\""
+            },
+            {
+              "value": "\"dark-brand\""
+            },
+            {
+              "value": "\"dark-green\""
+            },
+            {
+              "value": "\"dark-orange\""
+            },
+            {
+              "value": "\"dark-pink\""
+            },
+            {
+              "value": "\"dark-red\""
+            },
+            {
+              "value": "\"dark-teal\""
+            },
+            {
+              "value": "\"dark-violet\""
+            },
+            {
+              "value": "\"dark-warm\""
+            },
+            {
               "value": "\"dash\""
             },
             {
               "value": "\"green\""
+            },
+            {
+              "value": "\"light-blue\""
+            },
+            {
+              "value": "\"light-brand\""
+            },
+            {
+              "value": "\"light-green\""
+            },
+            {
+              "value": "\"light-orange\""
+            },
+            {
+              "value": "\"light-pink\""
+            },
+            {
+              "value": "\"light-red\""
+            },
+            {
+              "value": "\"light-teal\""
+            },
+            {
+              "value": "\"light-violet\""
+            },
+            {
+              "value": "\"light-warm\""
             },
             {
               "value": "\"orange\""
