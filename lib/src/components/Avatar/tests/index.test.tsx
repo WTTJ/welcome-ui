@@ -23,6 +23,22 @@ describe('<Avatar>', () => {
     expect(screen.queryByText('WJ')).toBeNull()
   })
 
+  it('should forward html props on correct element', () => {
+    render(
+      <Avatar
+        data-cs-mask
+        data-testid="test-id-test"
+        name="welcome jungle"
+        src="https://avatars3.githubusercontent.com/u/13100706?s=200&v=4"
+      />
+    )
+
+    const avatar = screen.getByTestId('test-id-test')
+
+    expect(avatar).toBeInTheDocument()
+    expect(avatar).toHaveAttribute('data-cs-mask')
+  })
+
   it('should render without name and image', () => {
     render(<Avatar />)
 
