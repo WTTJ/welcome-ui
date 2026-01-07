@@ -7,7 +7,6 @@ import { Button } from '@/components/Button'
 import { Field } from '@/components/Field'
 import { Icon } from '@/components/Icon'
 import { InputText } from '@/components/InputText'
-import { Pagination } from '@/components/Pagination'
 import { Stepper } from '@/components/Stepper'
 import { Tag } from '@/components/Tag'
 import { Window } from '@/components/Window'
@@ -41,26 +40,14 @@ const components: ComponentProps[] = [
   },
   {
     children: (
-      <Alert className="md">
-        <Alert.Title>Info variant</Alert.Title>
-        <span>Nunc laoreet egestas nulla, et dapibus sem malesuada in</span>
-      </Alert>
+      <>
+        <Icon name="basketball" size="lg" />
+        <Icon name="basketball" size="xl" />
+        <Icon name="basketball" size="xxl" />
+      </>
     ),
-    link: 'components/alert',
-    title: 'Alert',
-  },
-  {
-    children: (
-      <Pagination
-        aria-label="Pagination"
-        getHref={page => `?page=${page}`}
-        onChange={() => {}}
-        page={1}
-        pageCount={3}
-      />
-    ),
-    link: 'components/pagination',
-    title: 'Pagination',
+    link: 'components/icons',
+    title: 'Icons',
   },
   {
     children: (
@@ -75,6 +62,16 @@ const components: ComponentProps[] = [
     ),
     link: 'components/avatar',
     title: 'Avatar',
+  },
+  {
+    children: (
+      <Alert>
+        <Alert.Title>Info variant</Alert.Title>
+        <span>Nunc laoreet egestas nulla, et dapibus sem malesuada in</span>
+      </Alert>
+    ),
+    link: 'components/alert',
+    title: 'Alert',
   },
   {
     children: (

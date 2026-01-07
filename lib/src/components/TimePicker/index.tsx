@@ -1,3 +1,4 @@
+'use client'
 import type { EventHandler } from 'react'
 import { forwardRef, useEffect, useRef, useState } from 'react'
 import ReactDatePicker from 'react-datepicker'

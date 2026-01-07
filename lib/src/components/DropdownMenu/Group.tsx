@@ -1,3 +1,4 @@
+'use client'
 import type { GroupProps } from '@ariakit/react'
 import { MenuGroup, MenuGroupLabel } from '@ariakit/react'
 

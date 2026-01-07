@@ -1,3 +1,4 @@
+'use client'
 import { MenuItem } from '@ariakit/react'
 
 import { classNames, forwardRefWithAs } from '@/utils'

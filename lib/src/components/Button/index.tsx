@@ -1,3 +1,4 @@
+'use client'
 import { Button as AriakitButton } from '@ariakit/react'
 
 import { useButtonGroup } from '@/components/ButtonGroup'

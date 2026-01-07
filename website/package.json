@@ -8,13 +8,13 @@
     "start": "next start"
   },
   "dependencies": {
-    "@docsearch/react": "^3.9.0",
+    "@docsearch/react": "^4.4.0",
     "@stackblitz/sdk": "^1.11.0",
     "@types/lodash": "4.17.21",
     "gray-matter": "4.0.3",
     "lodash": "4.17.21",
-    "marked": "16.4.1",
-    "next": "15.5.9",
+    "marked": "17.0.1",
+    "next": "16.1.1",
     "prism-react-renderer": "2.4.1",
     "prop-types": "^15.8.1",
     "react-markdown": "10.1.0",
@@ -26,8 +26,9 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.18",
-    "autoprefixer": "^10.4.22",
+    "autoprefixer": "^10.4.23",
     "postcss": "^8.5.6",
+    "sass-embedded": "^1.90.0",
     "tailwindcss": "^4.1.18"
   }
 }

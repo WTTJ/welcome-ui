@@ -1,3 +1,4 @@
+'use client'
 import debounce from 'lodash.debounce'
 import type { CSSProperties } from 'react'
 import { Children, cloneElement, useCallback, useEffect, useMemo, useRef, useState } from 'react'

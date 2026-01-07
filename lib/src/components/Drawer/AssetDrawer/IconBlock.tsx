@@ -1,3 +1,4 @@
+'use client'
 import { Icon } from '@/components/Icon'
 import type { IconProps } from '@/components/Icon/types'
 import { classNames } from '@/utils'

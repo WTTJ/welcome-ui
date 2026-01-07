@@ -1,3 +1,4 @@
+'use client'
 import { cloneElement } from 'react'
 import { Toaster, toast as toastRHT } from 'react-hot-toast'
 import type { ToastPosition } from 'react-hot-toast'

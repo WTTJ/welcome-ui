@@ -1,3 +1,4 @@
+'use client'
 import { TabList as AriakitTabList } from '@ariakit/react'
 import React, { cloneElement, forwardRef, isValidElement } from 'react'
 

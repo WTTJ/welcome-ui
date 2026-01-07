@@ -1,3 +1,4 @@
+'use client'
 import { useRadioStore, useStoreState } from '@ariakit/react'
 
 import { FieldGroup } from '@/components/FieldGroup'

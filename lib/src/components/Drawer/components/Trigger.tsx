@@ -1,3 +1,4 @@
+'use client'
 import { DialogDisclosure } from '@ariakit/react'
 
 import { forwardRefWithAs } from '@/utils/forwardRefWithAs'

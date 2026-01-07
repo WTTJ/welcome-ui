@@ -1,3 +1,4 @@
+'use client'
 import type { DownshiftProps, GetRootPropsOptions } from 'downshift'
 import DownshiftImport from 'downshift'
 import React, { forwardRef, Fragment, useCallback, useMemo, useState } from 'react'

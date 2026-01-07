@@ -1,3 +1,4 @@
+'use client'
 import { Radio } from '@ariakit/react'
 import { forwardRef } from 'react'
 

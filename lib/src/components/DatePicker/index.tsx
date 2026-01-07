@@ -1,3 +1,4 @@
+'use client'
 import type { EventHandler } from 'react'
 import React, { useEffect, useRef, useState } from 'react'
 import { forwardRef } from 'react'

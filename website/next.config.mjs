@@ -1,5 +1,5 @@
 import { watch } from 'fs'
-import { join, resolve } from 'path'
+import { join } from 'path'
 
 import { generateWebsiteExamplesPages } from '../scripts/generate-examples.mjs'
 import { generateTypesDoc } from '../scripts/generate-types-doc.mjs'
@@ -60,21 +60,28 @@ const nextConfig = {
     externalDir: true,
   },
   output: 'export',
-  webpack: (config, { isServer }) => {
-    if (process.env.NODE_ENV === 'development' && isServer) {
-      if (!global.__WATCHERS_INITIALIZED__) {
-        watchTypes()
-        watchExamples()
-        global.__WATCHERS_INITIALIZED__ = true
-      }
-    }
-    config.module.rules.push({
-      include: [resolve('../lib/src')],
-      test: /\.(js|jsx|ts|tsx)$/,
-      use: [resolve('./loaders/use-client-loader.js')],
-    })
-    return config
+  sassOptions: {
+    implementation: 'sass-embedded',
   },
+  turbopack: {
+    // Set the correct workspace root to silence lockfile warning
+    root: join(process.cwd(), '..'),
+  },
+  // Initialize watchers without custom webpack loader
+  ...(process.env.NODE_ENV === 'development' && {
+    // This runs during config initialization in dev mode
+    onDemandEntries: {
+      // Keep pages in memory for 60s
+      maxInactiveAge: 60 * 1000,
+    },
+  }),
+}
+
+// Initialize watchers in development
+if (process.env.NODE_ENV === 'development' && !global.__WATCHERS_INITIALIZED__) {
+  watchTypes()
+  watchExamples()
+  global.__WATCHERS_INITIALIZED__ = true
 }
 
 export default nextConfig

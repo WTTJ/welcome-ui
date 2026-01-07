@@ -1,3 +1,4 @@
+'use client'
 import { Icon } from '@/components/Icon'
 import { VariantIcon } from '@/components/VariantIcon'
 import { classNames, forwardRefWithAs } from '@/utils'

@@ -1,3 +1,4 @@
+'use client'
 import copyToClipboard from 'copy-to-clipboard'
 import { useCallback, useState } from 'react'
 

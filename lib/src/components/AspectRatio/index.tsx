@@ -1,3 +1,4 @@
+'use client'
 import { classNames } from '@/utils'
 import { forwardRefWithAs } from '@/utils/forwardRefWithAs'
 

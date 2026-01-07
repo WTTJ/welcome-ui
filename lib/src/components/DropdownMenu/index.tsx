@@ -1,3 +1,4 @@
+'use client'
 import { Menu, useStoreState } from '@ariakit/react'
 import { forwardRef } from 'react'
 

@@ -1,3 +1,4 @@
+'use client'
 import React, { forwardRef, useEffect, useState } from 'react'
 import type { DropEvent, FileError, FileRejection } from 'react-dropzone'
 import { useDropzone } from 'react-dropzone'

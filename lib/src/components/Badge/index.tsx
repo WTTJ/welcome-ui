@@ -1,3 +1,4 @@
+'use client'
 import { forwardRef } from 'react'
 
 import { Text } from '@/components/Text'

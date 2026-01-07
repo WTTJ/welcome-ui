@@ -1,3 +1,4 @@
+'use client'
 import { Disclosure, DisclosureContent } from '@ariakit/react'
 import { forwardRef } from 'react'
 

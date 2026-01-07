@@ -1,3 +1,4 @@
+'use client'
 import { Tab as AriakitTab, useStoreState } from '@ariakit/react'
 
 import { Badge } from '@/components/Badge'

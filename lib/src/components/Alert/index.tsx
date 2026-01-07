@@ -1,3 +1,4 @@
+'use client'
 import React, { Children, cloneElement, forwardRef } from 'react'
 
 import type { ButtonProps } from '@/components/Button/types'
@@ -43,10 +44,13 @@ const AlertComponent = forwardRef<HTMLDivElement, AlertProps>(
       </div>
     )
 
-    const content = Children.toArray(children).map((child: React.ReactElement) => {
+    const content = Children.toArray(children).map((child: React.ReactElement, index) => {
       if (child.type === AlertTitle)
         return (
-          <div className={cx('title-with-icon')}>
+          <div
+            className={cx('title-with-icon')}
+            key={`alert-title-${index}-${Math.random().toString(36).substring(7)}`}
+          >
             {icon}
             {cloneElement(child, {
               hasCloseButton: !!handleClose,

@@ -1,3 +1,4 @@
+'use client'
 import type { PopoverProps } from '@ariakit/react'
 import * as Ariakit from '@ariakit/react'
 import { forwardRef } from 'react'

@@ -1,3 +1,4 @@
+'use client'
 import { DialogDismiss } from '@ariakit/react'
 
 import { Window } from '@/components/Window'

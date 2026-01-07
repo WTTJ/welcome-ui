@@ -3,10 +3,15 @@
 
 @source '../../lib/src/**/*.{ts,tsx}';
 
-:root {
-  --docsearch-primary-color: black !important;
+@layer properties {
+  :root {
+    --docsearch-primary-color: var(--color-neutral-90);
+    --docsearch-highlight-color: var(--color-neutral-60);
+  }
 }
 
-body {
-  background-color: var(--color-beige-10);
+@layer base {
+  body {
+    background-color: var(--color-beige-10);
+  }
 }

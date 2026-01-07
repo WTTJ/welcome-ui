@@ -1,3 +1,4 @@
+'use client'
 import { Checkbox } from '@ariakit/react'
 import { forwardRef } from 'react'
 
