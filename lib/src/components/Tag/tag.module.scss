@@ -139,6 +139,26 @@
       }
     }
 
+    &-light-brand {
+      --backgroundColor: var(--components-colors-tag-color-background-brand-light-default);
+      --backgroundColorHover: var(--components-colors-tag-color-background-brand-light-hover);
+      --backgroundColorDisabled: #{striped-background(
+          var(--components-colors-tag-color-background-brand-light-disabled)
+        )};
+      --color: var(--components-colors-tag-color-text-brand-default);
+      --colorDisabled: var(--components-colors-tag-color-text-brand-disabled);
+    }
+
+    &-dark-brand {
+      --backgroundColor: var(--components-colors-tag-color-background-brand-dark-default);
+      --backgroundColorHover: var(--components-colors-tag-color-background-brand-dark-hover);
+      --backgroundColorDisabled: #{striped-background(
+          var(--components-colors-tag-color-background-brand-dark-disabled)
+        )};
+      --color: var(--components-colors-tag-color-text-brand-default);
+      --colorDisabled: var(--components-colors-tag-color-text-brand-disabled);
+    }
+
     &-warm {
       --backgroundColor: var(--components-colors-tag-color-background-warm-default);
       --backgroundColorHover: var(--components-colors-tag-color-background-warm-hover);
@@ -164,6 +184,26 @@
             )
           )};
       }
+    }
+
+    &-light-warm {
+      --backgroundColor: var(--components-colors-tag-color-background-warm-light-default);
+      --backgroundColorHover: var(--components-colors-tag-color-background-warm-light-hover);
+      --backgroundColorDisabled: #{striped-background(
+          var(--components-colors-tag-color-background-warm-light-disabled)
+        )};
+      --color: var(--components-colors-tag-color-text-warm-default);
+      --colorDisabled: var(--components-colors-tag-color-text-warm-disabled);
+    }
+
+    &-dark-warm {
+      --backgroundColor: var(--components-colors-tag-color-background-warm-dark-default);
+      --backgroundColorHover: var(--components-colors-tag-color-background-warm-dark-hover);
+      --backgroundColorDisabled: #{striped-background(
+          var(--components-colors-tag-color-background-warm-dark-disabled)
+        )};
+      --color: var(--components-colors-tag-color-text-warm-default);
+      --colorDisabled: var(--components-colors-tag-color-text-warm-disabled);
     }
 
     &-red {
@@ -193,6 +233,26 @@
       }
     }
 
+    &-light-red {
+      --backgroundColor: var(--components-colors-tag-color-background-red-light-default);
+      --backgroundColorHover: var(--components-colors-tag-color-background-red-light-hover);
+      --backgroundColorDisabled: #{striped-background(
+          var(--components-colors-tag-color-background-red-disabled)
+        )};
+      --color: var(--components-colors-tag-color-text-red-default);
+      --colorDisabled: var(--components-colors-tag-color-text-red-disabled);
+    }
+
+    &-dark-red {
+      --backgroundColor: var(--components-colors-tag-color-background-red-dark-default);
+      --backgroundColorHover: var(--components-colors-tag-color-background-red-dark-hover);
+      --backgroundColorDisabled: #{striped-background(
+          var(--components-colors-tag-color-background-red-disabled)
+        )};
+      --color: var(--components-colors-tag-color-text-red-default);
+      --colorDisabled: var(--components-colors-tag-color-text-red-disabled);
+    }
+
     &-blue {
       --backgroundColor: var(--components-colors-tag-color-background-blue-default);
       --backgroundColorHover: var(--components-colors-tag-color-background-blue-hover);
@@ -218,6 +278,26 @@
             )
           )};
       }
+    }
+
+    &-light-blue {
+      --backgroundColor: var(--components-colors-tag-color-background-blue-light-default);
+      --backgroundColorHover: var(--components-colors-tag-color-background-blue-light-hover);
+      --backgroundColorDisabled: #{striped-background(
+          var(--components-colors-tag-color-background-blue-light-disabled)
+        )};
+      --color: var(--components-colors-tag-color-text-blue-default);
+      --colorDisabled: var(--components-colors-tag-color-text-blue-disabled);
+    }
+
+    &-dark-blue {
+      --backgroundColor: var(--components-colors-tag-color-background-blue-dark-default);
+      --backgroundColorHover: var(--components-colors-tag-color-background-blue-dark-hover);
+      --backgroundColorDisabled: #{striped-background(
+          var(--components-colors-tag-color-background-blue-dark-disabled)
+        )};
+      --color: var(--components-colors-tag-color-text-blue-default);
+      --colorDisabled: var(--components-colors-tag-color-text-blue-disabled);
     }
 
     &-green {
@@ -247,6 +327,26 @@
       }
     }
 
+    &-light-green {
+      --backgroundColor: var(--components-colors-tag-color-background-green-light-default);
+      --backgroundColorHover: var(--components-colors-tag-color-background-green-light-hover);
+      --backgroundColorDisabled: #{striped-background(
+          var(--components-colors-tag-color-background-green-light-disabled)
+        )};
+      --color: var(--components-colors-tag-color-text-green-default);
+      --colorDisabled: var(--components-colors-tag-color-text-green-disabled);
+    }
+
+    &-dark-green {
+      --backgroundColor: var(--components-colors-tag-color-background-green-dark-default);
+      --backgroundColorHover: var(--components-colors-tag-color-background-green-dark-hover);
+      --backgroundColorDisabled: #{striped-background(
+          var(--components-colors-tag-color-background-green-dark-disabled)
+        )};
+      --color: var(--components-colors-tag-color-text-green-default);
+      --colorDisabled: var(--components-colors-tag-color-text-green-disabled);
+    }
+
     &-orange {
       --backgroundColor: var(--components-colors-tag-color-background-orange-default);
       --backgroundColorHover: var(--components-colors-tag-color-background-orange-hover);
@@ -272,6 +372,26 @@
             )
           )};
       }
+    }
+
+    &-light-orange {
+      --backgroundColor: var(--components-colors-tag-color-background-orange-light-default);
+      --backgroundColorHover: var(--components-colors-tag-color-background-orange-light-hover);
+      --backgroundColorDisabled: #{striped-background(
+          var(--components-colors-tag-color-background-orange-light-disabled)
+        )};
+      --color: var(--components-colors-tag-color-text-orange-default);
+      --colorDisabled: var(--components-colors-tag-color-text-orange-disabled);
+    }
+
+    &-dark-orange {
+      --backgroundColor: var(--components-colors-tag-color-background-orange-dark-default);
+      --backgroundColorHover: var(--components-colors-tag-color-background-orange-dark-hover);
+      --backgroundColorDisabled: #{striped-background(
+          var(--components-colors-tag-color-background-orange-dark-disabled)
+        )};
+      --color: var(--components-colors-tag-color-text-orange-default);
+      --colorDisabled: var(--components-colors-tag-color-text-orange-disabled);
     }
 
     &-pink {
@@ -301,6 +421,26 @@
       }
     }
 
+    &-light-pink {
+      --backgroundColor: var(--components-colors-tag-color-background-pink-light-default);
+      --backgroundColorHover: var(--components-colors-tag-color-background-pink-light-hover);
+      --backgroundColorDisabled: #{striped-background(
+          var(--components-colors-tag-color-background-pink-light-disabled)
+        )};
+      --color: var(--components-colors-tag-color-text-pink-default);
+      --colorDisabled: var(--components-colors-tag-color-text-pink-disabled);
+    }
+
+    &-dark-pink {
+      --backgroundColor: var(--components-colors-tag-color-background-pink-dark-default);
+      --backgroundColorHover: var(--components-colors-tag-color-background-pink-dark-hover);
+      --backgroundColorDisabled: #{striped-background(
+          var(--components-colors-tag-color-background-pink-dark-disabled)
+        )};
+      --color: var(--components-colors-tag-color-text-pink-default);
+      --colorDisabled: var(--components-colors-tag-color-text-pink-disabled);
+    }
+
     &-teal {
       --backgroundColor: var(--components-colors-tag-color-background-teal-default);
       --backgroundColorHover: var(--components-colors-tag-color-background-teal-hover);
@@ -328,6 +468,26 @@
       }
     }
 
+    &-light-teal {
+      --backgroundColor: var(--components-colors-tag-color-background-teal-light-default);
+      --backgroundColorHover: var(--components-colors-tag-color-background-teal-light-hover);
+      --backgroundColorDisabled: #{striped-background(
+          var(--components-colors-tag-color-background-teal-light-disabled)
+        )};
+      --color: var(--components-colors-tag-color-text-teal-default);
+      --colorDisabled: var(--components-colors-tag-color-text-teal-disabled);
+    }
+
+    &-dark-teal {
+      --backgroundColor: var(--components-colors-tag-color-background-teal-dark-default);
+      --backgroundColorHover: var(--components-colors-tag-color-background-teal-dark-hover);
+      --backgroundColorDisabled: #{striped-background(
+          var(--components-colors-tag-color-background-teal-dark-disabled)
+        )};
+      --color: var(--components-colors-tag-color-text-teal-default);
+      --colorDisabled: var(--components-colors-tag-color-text-teal-disabled);
+    }
+
     &-violet {
       --backgroundColor: var(--components-colors-tag-color-background-violet-default);
       --backgroundColorHover: var(--components-colors-tag-color-background-violet-hover);
@@ -353,6 +513,26 @@
             )
           )};
       }
+    }
+
+    &-light-violet {
+      --backgroundColor: var(--components-colors-tag-color-background-violet-light-default);
+      --backgroundColorHover: var(--components-colors-tag-color-background-violet-light-hover);
+      --backgroundColorDisabled: #{striped-background(
+          var(--components-colors-tag-color-background-violet-light-disabled)
+        )};
+      --color: var(--components-colors-tag-color-text-violet-default);
+      --colorDisabled: var(--components-colors-tag-color-text-violet-disabled);
+    }
+
+    &-dark-violet {
+      --backgroundColor: var(--components-colors-tag-color-background-violet-dark-default);
+      --backgroundColorHover: var(--components-colors-tag-color-background-violet-dark-hover);
+      --backgroundColorDisabled: #{striped-background(
+          var(--components-colors-tag-color-background-violet-dark-disabled)
+        )};
+      --color: var(--components-colors-tag-color-text-violet-default);
+      --colorDisabled: var(--components-colors-tag-color-text-violet-disabled);
     }
 
     &-dash {
