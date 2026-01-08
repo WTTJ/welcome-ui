@@ -1,3 +1,4 @@
+'use client'
 import { TabPanel as AriakitTabPanel } from '@ariakit/react'
 import { forwardRef } from 'react'
 

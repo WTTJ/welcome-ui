@@ -1,3 +1,4 @@
+'use client'
 import type { DialogProps } from '@ariakit/react'
 import { Dialog } from '@ariakit/react'
 import { forwardRef, useCallback } from 'react'

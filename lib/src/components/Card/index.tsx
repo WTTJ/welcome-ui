@@ -1,3 +1,4 @@
+'use client'
 import { Body } from '@/components/Card/Body'
 import { Cover } from '@/components/Card/Cover'
 import { Footer } from '@/components/Card/Footer'

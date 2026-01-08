@@ -1,3 +1,4 @@
+'use client'
 import { forwardRef, useCallback, useRef } from 'react'
 
 import { Icon } from '@/components/Icon'

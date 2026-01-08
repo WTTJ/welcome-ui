@@ -1,3 +1,4 @@
+'use client'
 import { Dialog, useDialogStore, useStoreState } from '@ariakit/react'
 import { useEffect, useState } from 'react'
 
