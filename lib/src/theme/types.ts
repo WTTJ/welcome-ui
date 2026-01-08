@@ -529,23 +529,25 @@ export type ThemeVariables = {
   '--components-colors-dropdown-menu-color-background-default': string
   '--components-colors-dropdown-menu-color-border-default': string
   '--components-colors-dropdown-menu-color-border-hover': string
-  '--components-colors-icon-background-color-background-brand': string
-  '--components-colors-icon-background-color-background-warm': string
-  '--components-colors-icon-background-color-background-green': string
-  '--components-colors-icon-background-color-background-blue': string
-  '--components-colors-icon-background-color-background-teal': string
-  '--components-colors-icon-background-color-background-violet': string
-  '--components-colors-icon-background-color-background-orange': string
-  '--components-colors-icon-background-color-background-red': string
-  '--components-colors-icon-background-color-icon-brand': string
-  '--components-colors-icon-background-color-icon-warm': string
-  '--components-colors-icon-background-color-icon-green': string
-  '--components-colors-icon-background-color-icon-blue': string
-  '--components-colors-icon-background-color-icon-teal': string
-  '--components-colors-icon-background-color-icon-violet': string
-  '--components-colors-icon-background-color-icon-orange': string
-  '--components-colors-icon-background-color-icon-red': string
-  '--components-colors-icon-background-color-border-default': string
+  '--components-colors-icon-stamp-color-background-brand': string
+  '--components-colors-icon-stamp-color-background-warm': string
+  '--components-colors-icon-stamp-color-background-green': string
+  '--components-colors-icon-stamp-color-background-blue': string
+  '--components-colors-icon-stamp-color-background-teal': string
+  '--components-colors-icon-stamp-color-background-violet': string
+  '--components-colors-icon-stamp-color-background-pink': string
+  '--components-colors-icon-stamp-color-background-orange': string
+  '--components-colors-icon-stamp-color-background-red': string
+  '--components-colors-icon-stamp-color-icon-brand': string
+  '--components-colors-icon-stamp-color-icon-warm': string
+  '--components-colors-icon-stamp-color-icon-green': string
+  '--components-colors-icon-stamp-color-icon-blue': string
+  '--components-colors-icon-stamp-color-icon-teal': string
+  '--components-colors-icon-stamp-color-icon-violet': string
+  '--components-colors-icon-stamp-color-icon-pink': string
+  '--components-colors-icon-stamp-color-icon-orange': string
+  '--components-colors-icon-stamp-color-icon-red': string
+  '--components-colors-icon-stamp-color-border-default': string
   '--components-colors-latency-color-background-progress': string
   '--components-colors-latency-color-background-bar': string
   '--components-colors-alert-icon-color-background-brand': string

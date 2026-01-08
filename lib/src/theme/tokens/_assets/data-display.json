@@ -3714,7 +3714,7 @@
         }
       }
     },
-    "icon background": {
+    "icon-stamp": {
       "color": {
         "background": {
           "brand": {
@@ -3769,6 +3769,16 @@
           },
           "violet": {
             "value": "{color.background.accent.violet.secondary}",
+            "type": "color.background",
+            "scope": ["FRAME_FILL"],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
+          },
+          "pink": {
+            "value": "{color.background.accent.pink.secondary}",
             "type": "color.background",
             "scope": ["FRAME_FILL"],
             "$extensions": {
@@ -3851,6 +3861,16 @@
           },
           "violet": {
             "value": "{color.text.accent.violet.primary}",
+            "type": "color.fill",
+            "scope": ["SHAPE_FILL"],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
+          },
+          "pink": {
+            "value": "{color.icon.accent.pink.primary}",
             "type": "color.fill",
             "scope": ["SHAPE_FILL"],
             "$extensions": {
@@ -5056,7 +5076,7 @@
         }
       }
     },
-    "IconStamp": {
+    "icon-stamp": {
       "border": {
         "width": {
           "value": "{border.width.sm}px",
