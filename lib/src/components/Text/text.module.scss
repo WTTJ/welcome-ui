@@ -49,7 +49,8 @@
     &-heading-md,
     &-heading-sm,
     &-heading-md-strong,
-    &-heading-sm-strong {
+    &-heading-sm-strong,
+    &-heading-xs-strong {
       --fontFamily: var(--font-family-title);
       --lineHeight: var(--font-line-height-xs);
       --letterSpacing: var(--font-letter-spacing-xs);
