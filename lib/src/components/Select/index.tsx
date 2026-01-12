@@ -105,11 +105,11 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
 
     // Autofocus
     useEffect(() => {
-      if (autoFocus && currentRef.current) {
+      if (autoFocus && currentRef.current && !disabled) {
         currentRef.current.focus()
         if (isSearchable) setIsOpen(true)
       }
-    }, [isSearchable, autoFocus, currentRef])
+    }, [isSearchable, autoFocus, currentRef, disabled])
 
     // Ensure values are controlled by parent
     useEffect(() => {
@@ -139,6 +139,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
     }
 
     const handleInputKeyDown = () => {
+      if (disabled) return
       if (isSearchable && !isOpen) {
         setIsOpen(true)
       }
@@ -173,6 +174,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
 
     // Update internal state when clicking/adding a select item
     const handleSelect = (option: SelectOption) => {
+      if (disabled) return
       let newItems
       let isClearInput
 
@@ -202,11 +204,13 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
     }
 
     const handleInputClick = (e: React.MouseEvent<HTMLElement>) => {
+      if (disabled) return
       onClick?.(e)
       setIsOpen(!isOpen)
     }
 
     const handleOuterClick = (e: ControllerStateAndHelpers<SelectOption>) => {
+      if (disabled) return
       // Reset input value if not selecting a new item
       if (isMultiple && e.selectedItem) {
         setInputValue('')
@@ -359,12 +363,18 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
           )
           const ArrowIcon = (
             <div
-              className={cx('dropdown-indicator', isOpen && 'open')}
+              className={cx('dropdown-indicator', isOpen && 'open', disabled && 'disabled')}
               data-testid={dataTestId ? `${dataTestId}-arrow-icon` : null}
-              disabled={disabled}
               tabIndex={-1}
               {...getToggleButtonProps({
-                onClick: () => setIsOpen(!isOpen),
+                onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
+                  if (disabled) {
+                    e.preventDefault()
+                    e.stopPropagation()
+                    return
+                  }
+                  setIsOpen(!isOpen)
+                },
               })}
             >
               <DownIcon className={cx('styled-icon')} size="sm" />
@@ -382,7 +392,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
             name,
             onBlur,
             onClick: disabled ? undefined : handleInputClick,
-            onFocus,
+            onFocus: disabled ? undefined : onFocus,
             onKeyDown: handleInputKeyDown,
             placeholder,
             ref: mergedRefs,
@@ -394,12 +404,18 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
           }) as React.InputHTMLAttributes<HTMLInputElement>
 
           return (
-            <div {...rootProps} className={cx('wrapper', disabled && 'disabled')}>
+            <div
+              {...rootProps}
+              aria-disabled={disabled}
+              className={cx('wrapper', disabled && 'disabled')}
+            >
               {isSearchable ? (
                 <input
                   className={inputClassnames}
                   type="text"
                   {...getFieldInputProps(inputProps)}
+                  disabled={disabled}
+                  tabIndex={disabled ? -1 : 0}
                 />
               ) : (
                 <div className={inputClassnames} {...getFieldInputProps(inputProps)}>
