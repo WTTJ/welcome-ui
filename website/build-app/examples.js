@@ -164,6 +164,7 @@ export default {
   "/Select/docs/examples/disabled.tsx": dynamic(() => import("../../lib/src/components/Select/docs/examples/disabled.tsx").then(mod => mod), { ssr: false }),
   "/Select/docs/examples/formatting.tsx": dynamic(() => import("../../lib/src/components/Select/docs/examples/formatting.tsx").then(mod => mod), { ssr: false }),
   "/Select/docs/examples/icon.tsx": dynamic(() => import("../../lib/src/components/Select/docs/examples/icon.tsx").then(mod => mod), { ssr: false }),
+  "/Select/docs/examples/multiple-disabled.tsx": dynamic(() => import("../../lib/src/components/Select/docs/examples/multiple-disabled.tsx").then(mod => mod), { ssr: false }),
   "/Select/docs/examples/multiple-render.tsx": dynamic(() => import("../../lib/src/components/Select/docs/examples/multiple-render.tsx").then(mod => mod), { ssr: false }),
   "/Select/docs/examples/multiple.tsx": dynamic(() => import("../../lib/src/components/Select/docs/examples/multiple.tsx").then(mod => mod), { ssr: false }),
   "/Select/docs/examples/option-groups.tsx": dynamic(() => import("../../lib/src/components/Select/docs/examples/option-groups.tsx").then(mod => mod), { ssr: false }),

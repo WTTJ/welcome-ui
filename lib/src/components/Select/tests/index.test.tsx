@@ -301,6 +301,32 @@ describe('<Select>', () => {
     expect(tags.map(tag => tag.textContent)).toStrictEqual(['February'])
   })
 
+  it('<Select isMultiple disabled> allows removing selected tags', async () => {
+    const { user } = render(
+      <Select
+        dataTestId="select"
+        disabled
+        isMultiple
+        name="select"
+        options={MONTHS}
+        value={['february', 'march']}
+      />
+    )
+
+    let tags = screen.getAllByRole('listitem')
+
+    expect(tags.length).toBe(2)
+
+    const removeButton = tags[1].querySelector('[aria-label="remove tag"]')
+
+    await user.click(removeButton)
+
+    tags = screen.getAllByRole('listitem')
+    expect(tags.length).toBe(1)
+
+    expect(tags.map(tag => tag.textContent)).toStrictEqual(['February'])
+  })
+
   it.skip("doesn't show clear button", async () => {
     const { user } = render(<Select dataTestId="select" name="select" options={MONTHS} />)
 

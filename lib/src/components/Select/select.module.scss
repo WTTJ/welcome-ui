@@ -265,6 +265,13 @@
 
     &.disabled {
       pointer-events: none;
+      .tags {
+        pointer-events: auto;
+
+        .removeButton {
+          pointer-events: auto;
+        }
+      }
 
       .icon-wrapper {
         color: var(--color-beige-60);
