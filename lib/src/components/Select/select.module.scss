@@ -237,6 +237,7 @@
     transition-timing-function: var(--timing-primary);
     transition-duration: var(--duration-medium);
     color: var(--color-neutral-90);
+    height: var(--select-height, 100%);
 
     &.icon-placement-left {
       --icon-placement-left: var(--spacing-md);
