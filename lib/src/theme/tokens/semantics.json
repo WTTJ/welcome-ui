@@ -1698,7 +1698,7 @@
             ]
           },
           "minimal": {
-            "value": "#0000000D",
+            "value": "{color.transparent-10}",
             "type": "color.border",
             "scope": [
               "STROKE_COLOR"
@@ -2660,28 +2660,28 @@
   "border": {
     "width": {
       "xs": {
-        "value": "1px",
+        "value": "{thickness.1}",
         "type": "borderWidth",
         "scope": [
           "STROKE_FLOAT"
         ]
       },
       "sm": {
-        "value": "2px",
+        "value": "{thickness.2}",
         "type": "borderWidth",
         "scope": [
           "STROKE_FLOAT"
         ]
       },
       "md": {
-        "value": "4px",
+        "value": "{thickness.3}",
         "type": "borderWidth",
         "scope": [
           "STROKE_FLOAT"
         ]
       },
       "lg": {
-        "value": "6px",
+        "value": "{thickness.4}",
         "type": "borderWidth",
         "scope": [
           "STROKE_FLOAT"
@@ -2802,6 +2802,15 @@
       "type": "dimension",
       "scope": [
         "WIDTH_HEIGHT"
+      ]
+    }
+  },
+  "stroke": {
+    "xs": {
+      "value": "{thickness.1}",
+      "type": "float",
+      "scope": [
+        "ALL_SCOPES"
       ]
     }
   }

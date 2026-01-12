@@ -1,0 +1,8 @@
+@utility bg-grid {
+  background-image: var(--grid-pattern);
+}
+
+@utility bg-grid-* {
+  background-image: var(--grid-pattern);
+  background-color: --value(--color-background- *);
+}

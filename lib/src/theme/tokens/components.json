@@ -1,0 +1,44 @@
+{
+  "components-dimensions": {
+    "pattern-grid": {
+      "stroke": {
+        "value": "{stroke.xs}",
+        "type": "float",
+        "scope": [
+          "ALL_SCOPES"
+        ]
+      },
+      "size": {
+        "value": "{size.16}",
+        "type": "float",
+        "scope": [
+          "ALL_SCOPES"
+        ]
+      }
+    }
+  },
+  "components-colors": {
+    "pattern-grid": {
+      "color": {
+        "stroke": {
+          "default": {
+            "value": "{color.border.transparent.black.minimal}",
+            "type": "color",
+            "scope": [
+              "ALL_SCOPES"
+            ]
+          }
+        },
+        "background": {
+          "default": {
+            "value": "{color.border.transparent.black.none}",
+            "type": "color",
+            "scope": [
+              "ALL_SCOPES"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

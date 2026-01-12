@@ -190,6 +190,25 @@
   --timing-primary: ease;
   --timing-secondary: linear;
   --timing-tertiary: cubic-bezier(0.41, 0.094, 0.54, 0.07);
+
+  /* Background patterns */
+  --grid-pattern:
+    repeating-linear-gradient(
+      0,
+      var(--components-colors-pattern-grid-color-stroke-default) 0,
+      var(--components-colors-pattern-grid-color-stroke-default)
+        var(--components-dimensions-pattern-grid-stroke),
+      transparent var(--components-dimensions-pattern-grid-stroke),
+      transparent var(--components-dimensions-pattern-grid-size)
+    ),
+    repeating-linear-gradient(
+      90deg,
+      var(--components-colors-pattern-grid-color-stroke-default) 0,
+      var(--components-colors-pattern-grid-color-stroke-default)
+        var(--components-dimensions-pattern-grid-stroke),
+      transparent var(--components-dimensions-pattern-grid-stroke),
+      transparent var(--components-dimensions-pattern-grid-size)
+    );
   --components-colors-button-color-background-primary-main-default: #ffcd00;
   --components-colors-button-color-background-primary-main-hover: #e5b800;
   --components-colors-button-color-background-primary-main-pressed: #ffe166;
@@ -353,6 +372,8 @@
   --components-colors-link-color-underline-secondary-visited-default: #000000;
   --components-colors-link-color-underline-secondary-visited-hover: #000000;
   --components-colors-link-color-underline-secondary-disabled: #dedede;
+  --components-colors-pattern-grid-color-stroke-default: rgba(0, 0, 0, 0.03);
+  --components-colors-pattern-grid-color-background-default: #00000000;
   --components-colors-avatar-color-background-placeholder: #f6f3ef;
   --components-colors-avatar-color-background-initials-green: #bade94;
   --components-colors-avatar-color-background-initials-teal: #00c7ae;
@@ -788,7 +809,7 @@
   --components-colors-sticky-note-color-background-violet: #efefff;
   --components-colors-sticky-note-color-background-pink: #ffeaf5;
   --components-colors-sticky-note-color-background-orange: #ffded0;
-  --components-colors-sticky-note-color-border-default: #0000000d;
+  --components-colors-sticky-note-color-border-default: rgba(0, 0, 0, 0.03);
   --components-colors-sticky-note-color-text-title: #000000;
   --components-colors-sticky-note-color-text-body-brand: #423500;
   --components-colors-sticky-note-color-text-body-green: #142603;
@@ -946,7 +967,7 @@
   --components-colors-pagination-color-text-checked-disabled: #585858;
   --components-colors-pagination-color-border-unchecked-default: #f6f3ef;
   --components-colors-pagination-color-border-unchecked-hover: #eae4de;
-  --components-colors-pagination-color-border-unchecked-pressed: #0000000d;
+  --components-colors-pagination-color-border-unchecked-pressed: rgba(0, 0, 0, 0.03);
   --components-colors-pagination-color-border-checked-default: #ffcd00;
   --components-colors-pagination-color-border-checked-hover: #e5b800;
   --components-colors-pagination-color-border-checked-pressed: #e5b800;
@@ -986,6 +1007,8 @@
   --components-dimensions-link-padding-inline-icon: 0.125rem;
   --components-dimensions-link-gap-content: 0;
   --components-dimensions-link-gap-underline: -0.125rem;
+  --components-dimensions-pattern-grid-stroke: 1px;
+  --components-dimensions-pattern-grid-size: 1rem;
   --components-dimensions-avatar-size-lg: 4rem;
   --components-dimensions-avatar-size-md: 3rem;
   --components-dimensions-avatar-size-sm: 2rem;
@@ -1358,6 +1381,7 @@
   --color-red-70: #a80029;
   --color-red-80: #75001a;
   --color-red-90: #450101;
+  --color-transparent-10: rgba(0, 0, 0, 0.03);
   --color-background-brand-primary: #ffcd00;
   --color-background-brand-secondary: #ffe166;
   --color-background-brand-subtle: #fff1b2;
@@ -1575,7 +1599,7 @@
   --color-border-transparent-white-none: #ffffff00;
   --color-border-transparent-black-subtle: #00000042;
   --color-border-transparent-black-subtlest: #00000021;
-  --color-border-transparent-black-minimal: #0000000d;
+  --color-border-transparent-black-minimal: rgba(0, 0, 0, 0.03);
   --color-border-transparent-black-none: #00000000;
   --color-icon-brand-primary: #423500;
   --color-icon-brand-secondary: #604d00;
@@ -1789,6 +1813,10 @@
   --inset-5: 0 0 4px 0 rgba(0, 0, 0, 0.08);
   --inset-10: 0 0 6px 0 rgba(0, 0, 0, 0.08);
   --inset-20: 0 0 8px 0 rgba(0, 0, 0, 0.16);
+  --thickness-1: 1px;
+  --thickness-2: 2px;
+  --thickness-3: 4px;
+  --thickness-4: 6px;
   --border-width-xs: 1px;
   --border-width-sm: 2px;
   --border-width-md: 4px;
@@ -1819,6 +1847,7 @@
   --breakpoint-xxl: 1440px;
   --breakpoint-3xl: 1620px;
   --breakpoint-4xl: 1920px;
+  --stroke-xs: 1px;
 }
 @layer base {
   html,
@@ -1961,7 +1990,9 @@
     margin-top: -1px;
     font-family: var(--font-family-body);
   }
+}
 
+@layer base {
   h1,
   h2,
   h3,
@@ -1970,4 +2001,13 @@
   h6 {
     font-family: var(--font-family-title);
   }
+}
+
+@utility bg-grid {
+  background-image: var(--grid-pattern);
+}
+
+@utility bg-grid-* {
+  background-image: var(--grid-pattern);
+  background-color: --value(--color-background- *);
 }

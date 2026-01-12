@@ -27,6 +27,7 @@ export type ThemeVariables = {
   '--timing-primary': string
   '--timing-secondary': string
   '--timing-tertiary': string
+  '--grid-pattern': string
   '--components-colors-button-color-background-primary-main-default': string
   '--components-colors-button-color-background-primary-main-hover': string
   '--components-colors-button-color-background-primary-main-pressed': string
@@ -190,6 +191,8 @@ export type ThemeVariables = {
   '--components-colors-link-color-underline-secondary-visited-default': string
   '--components-colors-link-color-underline-secondary-visited-hover': string
   '--components-colors-link-color-underline-secondary-disabled': string
+  '--components-colors-pattern-grid-color-stroke-default': string
+  '--components-colors-pattern-grid-color-background-default': string
   '--components-colors-avatar-color-background-placeholder': string
   '--components-colors-avatar-color-background-initials-green': string
   '--components-colors-avatar-color-background-initials-teal': string
@@ -823,6 +826,8 @@ export type ThemeVariables = {
   '--components-dimensions-link-padding-inline-icon': string
   '--components-dimensions-link-gap-content': string
   '--components-dimensions-link-gap-underline': string
+  '--components-dimensions-pattern-grid-stroke': string
+  '--components-dimensions-pattern-grid-size': string
   '--components-dimensions-avatar-size-lg': string
   '--components-dimensions-avatar-size-md': string
   '--components-dimensions-avatar-size-sm': string
@@ -1195,6 +1200,7 @@ export type ThemeVariables = {
   '--color-red-70': string
   '--color-red-80': string
   '--color-red-90': string
+  '--color-transparent-10': string
   '--color-background-brand-primary': string
   '--color-background-brand-secondary': string
   '--color-background-brand-subtle': string
@@ -1626,6 +1632,10 @@ export type ThemeVariables = {
   '--inset-5': string
   '--inset-10': string
   '--inset-20': string
+  '--thickness-1': string
+  '--thickness-2': string
+  '--thickness-3': string
+  '--thickness-4': string
   '--border-width-xs': string
   '--border-width-sm': string
   '--border-width-md': string
@@ -1656,4 +1666,5 @@ export type ThemeVariables = {
   '--breakpoint-xxl': string
   '--breakpoint-3xl': string
   '--breakpoint-4xl': string
+  '--stroke-xs': string
 }
