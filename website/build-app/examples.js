@@ -118,6 +118,8 @@ export default {
   "/Icon/docs/examples/color.tsx": dynamic(() => import("../../lib/src/components/Icon/docs/examples/color.tsx").then(mod => mod), { ssr: false }),
   "/Icon/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Icon/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Icon/docs/examples/sizes.tsx": dynamic(() => import("../../lib/src/components/Icon/docs/examples/sizes.tsx").then(mod => mod), { ssr: false }),
+  "/IconStamp/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/IconStamp/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
+  "/IconStamp/docs/examples/sizes.tsx": dynamic(() => import("../../lib/src/components/IconStamp/docs/examples/sizes.tsx").then(mod => mod), { ssr: false }),
   "/InputText/docs/examples/clearable.tsx": dynamic(() => import("../../lib/src/components/InputText/docs/examples/clearable.tsx").then(mod => mod), { ssr: false }),
   "/InputText/docs/examples/disabled.tsx": dynamic(() => import("../../lib/src/components/InputText/docs/examples/disabled.tsx").then(mod => mod), { ssr: false }),
   "/InputText/docs/examples/icon.tsx": dynamic(() => import("../../lib/src/components/InputText/docs/examples/icon.tsx").then(mod => mod), { ssr: false }),
