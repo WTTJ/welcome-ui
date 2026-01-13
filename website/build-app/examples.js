@@ -113,6 +113,7 @@ export default {
   "/FileUpload/docs/examples/multiple.tsx": dynamic(() => import("../../lib/src/components/FileUpload/docs/examples/multiple.tsx").then(mod => mod), { ssr: false }),
   "/FileUpload/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/FileUpload/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/FileUpload/docs/examples/preview.tsx": dynamic(() => import("../../lib/src/components/FileUpload/docs/examples/preview.tsx").then(mod => mod), { ssr: false }),
+  "/GridBackgroundUtility/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/GridBackgroundUtility/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Hint/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Hint/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Hint/docs/examples/variants.tsx": dynamic(() => import("../../lib/src/components/Hint/docs/examples/variants.tsx").then(mod => mod), { ssr: false }),
   "/Icon/docs/examples/color.tsx": dynamic(() => import("../../lib/src/components/Icon/docs/examples/color.tsx").then(mod => mod), { ssr: false }),

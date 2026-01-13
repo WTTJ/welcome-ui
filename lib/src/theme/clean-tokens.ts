@@ -160,6 +160,31 @@ function processFoundationsFile(filePath: string): void {
       console.log('  ⚠ No semantic content found')
     }
 
+    // Extract components - look for keys that match components patterns (excluding dark mode)
+    const components: any = {}
+    const componentKeys = Object.keys(tokens).filter(
+      key => key.toLowerCase().includes('components') && !key.toLowerCase().includes('dark')
+    )
+
+    console.log(`  Found component keys: ${componentKeys.join(', ')}`)
+
+    componentKeys.forEach(key => {
+      console.log(`  Processing component key: ${key}`)
+      Object.assign(components, { [key]: tokens[key] })
+    })
+
+    if (Object.keys(components).length > 0) {
+      let processedSemantics = normalizeKeys(components)
+      processedSemantics = removeExtensions(processedSemantics)
+      processedSemantics = cleanTokenReferences(processedSemantics)
+
+      const componentsPath = path.join(TOKENS_OUTPUT_DIR, 'components.json')
+      fs.writeFileSync(componentsPath, JSON.stringify(processedSemantics, null, 2) + '\n', 'utf-8')
+      console.log(`  ✓ Created components.json`)
+    } else {
+      console.log('  ⚠ No component content found')
+    }
+
     console.log(`✓ Successfully split ${path.basename(filePath)}`)
   } catch (error) {
     console.error(`✗ Error processing ${path.basename(filePath)}:`, error)

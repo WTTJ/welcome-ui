@@ -692,6 +692,13 @@
       "scope": [
         "ALL_SCOPES"
       ]
+    },
+    "transparent-10": {
+      "value": "#00000008",
+      "type": "color",
+      "scope": [
+        "ALL_SCOPES"
+      ]
     }
   },
   "font": {
@@ -1096,6 +1103,36 @@
       "value": "0px 0px 8px 0px rgba(0, 0, 0, 0.16)",
       "type": "string",
       "scope": "global"
+    }
+  },
+  "thickness": {
+    "1": {
+      "value": "1px",
+      "type": "float",
+      "scope": [
+        "ALL_SCOPES"
+      ]
+    },
+    "2": {
+      "value": "2px",
+      "type": "float",
+      "scope": [
+        "ALL_SCOPES"
+      ]
+    },
+    "3": {
+      "value": "4px",
+      "type": "float",
+      "scope": [
+        "ALL_SCOPES"
+      ]
+    },
+    "4": {
+      "value": "6px",
+      "type": "float",
+      "scope": [
+        "ALL_SCOPES"
+      ]
     }
   }
 }

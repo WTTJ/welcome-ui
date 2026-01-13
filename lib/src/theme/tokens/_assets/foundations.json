@@ -1188,6 +1188,18 @@
             "mode": "default"
           }
         }
+      },
+      "transparent-10": {
+        "value": "#00000008",
+        "type": "color",
+        "scope": [
+          "ALL_SCOPES"
+        ],
+        "$extensions": {
+          "tokens-studio": {
+            "mode": "default"
+          }
+        }
       }
     },
     "font": {
@@ -1877,6 +1889,56 @@
         "value": "0px 0px 8px 0px rgba(0, 0, 0, 0.16)",
         "type": "string",
         "scope": "global",
+        "$extensions": {
+          "tokens-studio": {
+            "mode": "default"
+          }
+        }
+      }
+    },
+    "thickness": {
+      "1": {
+        "value": "1px",
+        "type": "float",
+        "scope": [
+          "ALL_SCOPES"
+        ],
+        "$extensions": {
+          "tokens-studio": {
+            "mode": "default"
+          }
+        }
+      },
+      "2": {
+        "value": "2px",
+        "type": "float",
+        "scope": [
+          "ALL_SCOPES"
+        ],
+        "$extensions": {
+          "tokens-studio": {
+            "mode": "default"
+          }
+        }
+      },
+      "3": {
+        "value": "4px",
+        "type": "float",
+        "scope": [
+          "ALL_SCOPES"
+        ],
+        "$extensions": {
+          "tokens-studio": {
+            "mode": "default"
+          }
+        }
+      },
+      "4": {
+        "value": "6px",
+        "type": "float",
+        "scope": [
+          "ALL_SCOPES"
+        ],
         "$extensions": {
           "tokens-studio": {
             "mode": "default"
@@ -4670,7 +4732,7 @@
               }
             },
             "minimal": {
-              "value": "#0000000D",
+              "value": "{color.transparent-10}",
               "type": "color.border",
               "scope": [
                 "STROKE_COLOR"
@@ -8541,7 +8603,7 @@
               }
             },
             "minimal": {
-              "value": "#FFFFFF0D",
+              "value": "#FFFFFF08",
               "type": "color.border",
               "scope": [
                 "STROKE_COLOR"
@@ -10155,7 +10217,7 @@
     "border": {
       "width": {
         "xs": {
-          "value": "1px",
+          "value": "{thickness.1}px",
           "type": "borderWidth",
           "scope": [
             "STROKE_FLOAT"
@@ -10167,7 +10229,7 @@
           }
         },
         "sm": {
-          "value": "2px",
+          "value": "{thickness.2}px",
           "type": "borderWidth",
           "scope": [
             "STROKE_FLOAT"
@@ -10179,7 +10241,7 @@
           }
         },
         "md": {
-          "value": "4px",
+          "value": "{thickness.3}px",
           "type": "borderWidth",
           "scope": [
             "STROKE_FLOAT"
@@ -10191,7 +10253,7 @@
           }
         },
         "lg": {
-          "value": "6px",
+          "value": "{thickness.4}px",
           "type": "borderWidth",
           "scope": [
             "STROKE_FLOAT"
@@ -10396,6 +10458,82 @@
         "$extensions": {
           "tokens-studio": {
             "mode": "default"
+          }
+        }
+      }
+    },
+    "stroke": {
+      "xs": {
+        "value": "{thickness.1}",
+        "type": "float",
+        "scope": [
+          "ALL_SCOPES"
+        ],
+        "$extensions": {
+          "tokens-studio": {
+            "mode": "default"
+          }
+        }
+      }
+    }
+  },
+  "components---dimensions-mode 1": {
+    "pattern-grid": {
+      "stroke": {
+        "value": "{stroke.xs}",
+        "type": "float",
+        "scope": [
+          "ALL_SCOPES"
+        ],
+        "$extensions": {
+          "tokens-studio": {
+            "mode": "mode 1"
+          }
+        }
+      },
+      "size": {
+        "value": "{size.16}",
+        "type": "float",
+        "scope": [
+          "ALL_SCOPES"
+        ],
+        "$extensions": {
+          "tokens-studio": {
+            "mode": "mode 1"
+          }
+        }
+      }
+    }
+  },
+  "components---colors-mode 1": {
+    "pattern-grid": {
+      "color": {
+        "stroke": {
+          "default": {
+            "value": "{color.border.transparent.black.minimal}",
+            "type": "color",
+            "scope": [
+              "ALL_SCOPES"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
+          }
+        },
+        "background": {
+          "default": {
+            "value": "{color.border.transparent.black.none}",
+            "type": "color",
+            "scope": [
+              "ALL_SCOPES"
+            ],
+            "$extensions": {
+              "tokens-studio": {
+                "mode": "mode 1"
+              }
+            }
           }
         }
       }

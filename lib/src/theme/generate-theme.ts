@@ -9,6 +9,7 @@ const __dirname = path.dirname(__filename)
 
 const fontFacesPath = path.join(__dirname, 'fontFaces.css')
 const basePath = path.join(__dirname, 'base.css')
+const utilitiesPath = path.join(__dirname, 'utilities.css')
 const resetPath = path.join(__dirname, 'resets.css')
 const themePath = path.join(__dirname, 'theme.css')
 const techTokensPath = path.join(__dirname, 'techTokens.css')
@@ -20,8 +21,7 @@ const baseStyles = fs.readFileSync(basePath, 'utf8')
 const techTokens = fs.readFileSync(techTokensPath, 'utf8')
 const resetStyles = fs.readFileSync(resetPath, 'utf8')
 const variableStyles = fs.readFileSync(variablesPath, 'utf8')
-
-const getStringFrom = (map: Record<string, string>) => `${map.property} {\n${map.value}}\n`
+const utilitiesStyles = fs.readFileSync(utilitiesPath, 'utf8')
 
 const insertAfterThemeDeclaration = (cssContent: string, cssToInsert: string) => {
   const regex = /(@theme\s+static\s*\{)(\n?)/
@@ -34,11 +34,11 @@ const variablesStylesWithTailwindResets = insertAfterThemeDeclaration(
   variableStyles,
   stringifiedTechTokens
 )
-const baseLayer = { property: '@layer base', value: `${resetStyles}\n${baseStyles}` }
 
 const generateThemeCss = () =>
-  [fontFaces, variablesStylesWithTailwindResets, getStringFrom(baseLayer)].join('\n')
-
+  [fontFaces, variablesStylesWithTailwindResets, resetStyles, baseStyles, utilitiesStyles].join(
+    '\n'
+  )
 // Generate main theme.css file
 fs.writeFileSync(themePath, generateThemeCss(), 'utf8')
 
