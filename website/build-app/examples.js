@@ -93,6 +93,7 @@ export default {
   "/Field/docs/examples/disabled.tsx": dynamic(() => import("../../lib/src/components/Field/docs/examples/disabled.tsx").then(mod => mod), { ssr: false }),
   "/Field/docs/examples/hint.tsx": dynamic(() => import("../../lib/src/components/Field/docs/examples/hint.tsx").then(mod => mod), { ssr: false }),
   "/Field/docs/examples/label.tsx": dynamic(() => import("../../lib/src/components/Field/docs/examples/label.tsx").then(mod => mod), { ssr: false }),
+  "/Field/docs/examples/max-length.tsx": dynamic(() => import("../../lib/src/components/Field/docs/examples/max-length.tsx").then(mod => mod), { ssr: false }),
   "/Field/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Field/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Field/docs/examples/refs.tsx": dynamic(() => import("../../lib/src/components/Field/docs/examples/refs.tsx").then(mod => mod), { ssr: false }),
   "/Field/docs/examples/required.tsx": dynamic(() => import("../../lib/src/components/Field/docs/examples/required.tsx").then(mod => mod), { ssr: false }),

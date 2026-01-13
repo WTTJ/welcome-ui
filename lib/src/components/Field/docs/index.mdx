@@ -23,6 +23,12 @@ Use `hint` to add an hint to your field (it can be overload by a variant - see b
 
 <div data-playground="hint.tsx" data-component="Field"></div>
 
+### Max Count
+
+Use `maxLength` to display a character count below your field. It takes an object with `count` and `max` properties. This property also passes `maxLength` to the input component to limit the number of characters that can be entered.
+
+<div data-playground="max-length.tsx" data-component="Field"></div>
+
 ### Variants
 
 Use `warning`, `error`, or `success` properties to add a variant status on your fields. The label, hint or border color are set by magic 🪄

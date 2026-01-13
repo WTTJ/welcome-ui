@@ -16,6 +16,13 @@ export interface FieldOptions extends VariantProps {
   inline?: boolean
   label: React.ReactNode
   labelProps?: LabelProps
+  /**
+   * The maximum number of characters allowed in the input field. If provided, a character count will be displayed on hint on the right side.
+   */
+  maxLength?: {
+    count: number
+    max: number
+  }
   required?: boolean
 }
 

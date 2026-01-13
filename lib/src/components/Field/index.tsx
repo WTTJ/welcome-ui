@@ -38,6 +38,7 @@ export const Field = forwardRefWithAs<FieldOptions, 'div'>((props, ref) => {
     inline,
     label,
     labelProps,
+    maxLength,
     required,
     success,
     warning,
@@ -52,12 +53,18 @@ export const Field = forwardRefWithAs<FieldOptions, 'div'>((props, ref) => {
         ? 'warning'
         : undefined
 
-  const hintText = error ?? warning ?? success ?? hint
+  const hintText =
+    error ??
+    warning ??
+    success ??
+    hint ??
+    (maxLength
+      ? `${new Intl.NumberFormat().format(maxLength.count)} / ${new Intl.NumberFormat().format(maxLength.max)}`
+      : undefined)
 
   const labelID = useDefaultID(labelProps?.id)
   const hintID = useDefaultID(hintProps?.id)
   const inputId = useDefaultID(id)
-
   const state: FieldState = useMemo(
     () => ({
       getInputProps(ownProps) {
@@ -72,6 +79,10 @@ export const Field = forwardRefWithAs<FieldOptions, 'div'>((props, ref) => {
           'aria-labelledby': ariaLabelledBy,
           disabled,
           id: inputId,
+          /**
+           * pass maxCount to children for block form
+           */
+          maxLength: maxLength?.max,
           required,
         }
       },
@@ -79,7 +90,7 @@ export const Field = forwardRefWithAs<FieldOptions, 'div'>((props, ref) => {
       labelID,
       variant,
     }),
-    [hintID, labelID, variant, hintText, disabled, inputId, required]
+    [hintID, labelID, variant, hintText, disabled, inputId, maxLength?.max, required]
   )
 
   return (
@@ -97,7 +108,12 @@ export const Field = forwardRefWithAs<FieldOptions, 'div'>((props, ref) => {
       </Label>
       <FieldContext.Provider value={state}>{children}</FieldContext.Provider>
       {hintText ? (
-        <Hint className={cx('hint')} id={hintID} variant={variant} {...hintProps}>
+        <Hint
+          className={cx('hint', !!maxLength && 'hint-max-length')}
+          id={hintID}
+          variant={variant}
+          {...hintProps}
+        >
           {hintText}
         </Hint>
       ) : null}
