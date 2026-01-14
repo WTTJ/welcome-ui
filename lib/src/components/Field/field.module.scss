@@ -64,6 +64,10 @@
 
   .hint {
     grid-area: hint;
+
+    &-max-length {
+      justify-content: end;
+    }
   }
 
   .visuallyHidden {
