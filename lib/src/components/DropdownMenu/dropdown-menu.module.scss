@@ -11,10 +11,10 @@
 
 @layer components {
   .root {
-    background-color: var(--components-colors-dropdown-menu-color-background-default);
+    background-color: var(--dropdown-menu-color-background-default);
     border-style: solid;
-    border-width: var(--components-dimensions-dropdown-menu-border-width);
-    border-radius: var(--components-dimensions-dropdown-menu-border-radius);
+    border-width: var(--dropdown-menu-border-width);
+    border-radius: var(--dropdown-menu-border-radius);
     font-family: var(--font-family-body);
     font-size: var(--font-size-sm);
     line-height: var(--font-line-height-md);
@@ -32,14 +32,14 @@
     border-color: var(--borderColorMenu);
     box-shadow: var(--boxShadowMenu, var(--elevation-10));
 
-    --borderColorMenu: var(--components-colors-dropdown-menu-color-border-default);
+    --borderColorMenu: var(--dropdown-menu-color-border-default);
 
     &[data-enter] {
       opacity: 1;
     }
 
     &:hover {
-      --borderColorMenu: var(--components-colors-dropdown-menu-color-border-hover);
+      --borderColorMenu: var(--dropdown-menu-color-border-hover);
       --boxShadowMenu: var(--elevation-20);
     }
   }
@@ -47,11 +47,11 @@
   .arrow {
     display: flex;
     z-index: 2;
-    color: var(--components-colors-dropdown-menu-color-border-hover);
+    color: var(--dropdown-menu-color-border-hover);
     stroke-width: 0 !important;
 
     #stroke {
-      color: var(--components-colors-dropdown-menu-color-border-hover);
+      color: var(--dropdown-menu-color-border-hover);
     }
   }
 
@@ -83,45 +83,45 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: var(--components-dimensions-dropdown-menu-item-gap-content);
+    gap: var(--dropdown-menu-item-gap-content);
     width: 100%;
     border: 0;
     appearance: none;
     cursor: pointer;
     text-decoration: none;
     transition: all var(--duration-medium) ease-in-out;
-    border-radius: var(--components-dimensions-dropdown-menu-item-border-radius);
+    border-radius: var(--dropdown-menu-item-border-radius);
 
     padding: var(--paddingBlockItem) var(--paddingInlineItem);
     background: var(
       --backgroundItem,
-      var(--components-colors-dropdown-menu-item-color-background-default)
+      var(--dropdown-menu-item-color-background-default)
     );
-    color: var(--colorItem, var(--components-colors-dropdown-menu-item-color-text-content-default));
+    color: var(--colorItem, var(--dropdown-menu-item-color-text-content-default));
 
     &:focus {
       outline: none !important; /* important for firefox */
-      --backgroundItem: var(--components-colors-dropdown-menu-item-color-background-hover);
-      --colorItem: var(--components-colors-dropdown-menu-item-color-text-content-hover);
+      --backgroundItem: var(--dropdown-menu-item-color-background-hover);
+      --colorItem: var(--dropdown-menu-item-color-text-content-hover);
       --colorItemDescription: var(
-        --components-colors-dropdown-menu-item-color-text-description-hover
+        --dropdown-menu-item-color-text-description-hover
       );
     }
     &:hover {
-      --backgroundItem: var(--components-colors-dropdown-menu-item-color-background-hover);
-      --colorItem: var(--components-colors-dropdown-menu-item-color-text-content-hover);
+      --backgroundItem: var(--dropdown-menu-item-color-background-hover);
+      --colorItem: var(--dropdown-menu-item-color-text-content-hover);
       --colorItemDescription: var(
-        --components-colors-dropdown-menu-item-color-text-description-hover
+        --dropdown-menu-item-color-text-description-hover
       );
     }
     &[aria-disabled],
     &:disabled {
       --backgroundItem: #{striped-background(
-          var(--components-colors-dropdown-menu-item-color-background-disabled)
+          var(--dropdown-menu-item-color-background-disabled)
         )};
-      --colorItem: var(--components-colors-dropdown-menu-item-color-text-content-disabled);
+      --colorItem: var(--dropdown-menu-item-color-text-content-disabled);
       --colorItemDescription: var(
-        --components-colors-dropdown-menu-item-color-text-description-disabled
+        --dropdown-menu-item-color-text-description-disabled
       );
       cursor: not-allowed;
     }
@@ -138,7 +138,7 @@
     }
 
     &.search {
-      margin-bottom: var(--components-dimensions-dropdown-menu-gap-content);
+      margin-bottom: var(--dropdown-menu-gap-content);
     }
 
     .item-content {
@@ -150,7 +150,7 @@
     .item-description {
       color: var(
         --colorItemDescription,
-        var(--components-colors-dropdown-menu-item-color-text-description-default)
+        var(--dropdown-menu-item-color-text-description-default)
       );
       transition: all var(--duration-medium) ease-in-out;
       font-size: var(--font-size-xs);
@@ -178,7 +178,7 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      gap: var(--components-dimensions-dropdown-menu-item-gap-content);
+      gap: var(--dropdown-menu-item-gap-content);
       width: 100%;
       padding: var(--paddingBlockItem) var(--paddingInlineItem);
 
@@ -194,9 +194,9 @@
   }
 
   .separator {
-    background-color: var(--components-colors-dropdown-menu-color-border-default);
+    background-color: var(--dropdown-menu-color-border-default);
     border: 0;
-    height: var(--components-dimensions-dropdown-menu-border-width);
+    height: var(--dropdown-menu-border-width);
     margin: var(--paddingBlockSeparator) 0;
   }
 
@@ -207,28 +207,28 @@
   .size {
     &-md {
       // Menu
-      --paddingInlineMenu: var(--components-dimensions-dropdown-menu-padding-inline-md);
-      --paddingBlockMenu: var(--components-dimensions-dropdown-menu-padding-block-md);
+      --paddingInlineMenu: var(--dropdown-menu-padding-inline-md);
+      --paddingBlockMenu: var(--dropdown-menu-padding-block-md);
 
       // Item
-      --paddingInlineItem: var(--components-dimensions-dropdown-menu-item-padding-inline-md);
-      --paddingBlockItem: var(--components-dimensions-dropdown-menu-item-padding-block-md);
+      --paddingInlineItem: var(--dropdown-menu-item-padding-inline-md);
+      --paddingBlockItem: var(--dropdown-menu-item-padding-block-md);
 
       // Separator
-      --paddingBlockSeparator: var(--components-dimensions-dropdown-menu-divider-padding-block-md);
+      --paddingBlockSeparator: var(--dropdown-menu-divider-padding-block-md);
     }
 
     &-lg {
       // Menu
-      --paddingInlineMenu: var(--components-dimensions-dropdown-menu-padding-inline-lg);
-      --paddingBlockMenu: var(--components-dimensions-dropdown-menu-padding-block-lg);
+      --paddingInlineMenu: var(--dropdown-menu-padding-inline-lg);
+      --paddingBlockMenu: var(--dropdown-menu-padding-block-lg);
 
       // Item
-      --paddingInlineItem: var(--components-dimensions-dropdown-menu-item-padding-inline-lg);
-      --paddingBlockItem: var(--components-dimensions-dropdown-menu-item-padding-block-lg);
+      --paddingInlineItem: var(--dropdown-menu-item-padding-inline-lg);
+      --paddingBlockItem: var(--dropdown-menu-item-padding-block-lg);
 
       // Separator
-      --paddingBlockSeparator: var(--components-dimensions-dropdown-menu-divider-padding-block-lg);
+      --paddingBlockSeparator: var(--dropdown-menu-divider-padding-block-lg);
     }
   }
 }

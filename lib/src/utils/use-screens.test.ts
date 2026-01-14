@@ -2,15 +2,15 @@
 
 import { useScreens } from './use-screens'
 
-vi.mock(import('@/theme/tokens/semantics.json'), async importOriginal => {
+vi.mock(import('@/theme/tokens/Semantic - Dimensions.json'), async importOriginal => {
   const actual = await importOriginal()
   return {
     default: {
       ...actual,
       breakpoint: {
         ...actual.breakpoint,
-        mobile: { value: '24rem' },
-        tablet: { value: '380' },
+        mobile: { $value: '24rem' },
+        tablet: { $value: 380 },
       },
     },
   }

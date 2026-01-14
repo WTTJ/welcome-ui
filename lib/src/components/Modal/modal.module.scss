@@ -3,13 +3,13 @@
 
 @layer components {
   .root {
-    background-color: var(--components-colors-modal-color-background-default);
-    border-color: var(--components-colors-modal-color-border-default);
+    background-color: var(--modal-color-background-default);
+    border-color: var(--modal-color-border-default);
     border-style: solid;
-    border-width: var(--components-dimensions-modal-border-width);
+    border-width: var(--modal-border-width);
     box-shadow: var(--elevation-40);
     z-index: 999;
-    border-radius: var(--components-dimensions-modal-border-radius);
+    border-radius: var(--modal-border-radius);
     position: fixed;
     inset: 0;
     margin: auto;
@@ -46,7 +46,7 @@
     /* Styles the Header */
     /* add header margin-bottom only when a Modal.Body is present */
     &:has(.body) .header {
-      margin-bottom: var(--components-dimensions-modal-padding-block);
+      margin-bottom: var(--modal-padding-block);
     }
 
     /* Styles the Body */
@@ -63,7 +63,7 @@
     /* Styles the Footer */
     /* if the Modal is scrollable */
     &.scrollable .footer {
-      border-top-width: var(--components-dimensions-modal-border-width);
+      border-top-width: var(--modal-border-width);
     }
 
     /* if the Modal has a Footer, but no Header and no Modal.Body */
@@ -101,7 +101,7 @@
 
     .window-media :first-child {
       max-height: calc(
-        100vh - 37px - var(--components-dimensions-window-body-padding-block-xs) * 2
+        100vh - 37px - var(--window-body-padding-block-xs) * 2
       ); /* 37px is the height of Window.Header */
       width: auto;
       height: auto;
@@ -111,17 +111,17 @@
   .size {
     &-lg {
       /* todo: convert to rem? cc Pix */
-      --dialogWidth: var(--components-dimensions-modal-size-width-lg);
+      --dialogWidth: var(--modal-size-width-lg);
     }
 
     &-md {
       /* todo: convert to rem? cc Pix */
-      --dialogWidth: var(--components-dimensions-modal-size-width-md);
+      --dialogWidth: var(--modal-size-width-md);
     }
 
     &-sm {
       /* todo: convert to rem? cc Pix */
-      --dialogWidth: var(--components-dimensions-modal-size-width-sm);
+      --dialogWidth: var(--modal-size-width-sm);
     }
   }
 
@@ -157,14 +157,14 @@
     top: 0;
     z-index: 1;
     width: 100%;
-    border-top-left-radius: var(--components-dimensions-modal-border-radius);
-    border-top-right-radius: var(--components-dimensions-modal-border-radius);
+    border-top-left-radius: var(--modal-border-radius);
+    border-top-right-radius: var(--modal-border-radius);
   }
 
   .body {
-    color: var(--components-colors-modal-color-text-body);
-    padding-inline: var(--components-dimensions-modal-padding-inline);
-    padding-bottom: var(--components-dimensions-modal-padding-block);
+    color: var(--modal-color-text-body);
+    padding-inline: var(--modal-padding-inline);
+    padding-bottom: var(--modal-padding-block);
   }
 
   .body-header {
@@ -175,7 +175,7 @@
   }
 
   .body-header-subtitle {
-    color: var(--components-colors-modal-color-text-body);
+    color: var(--modal-color-text-body);
     margin-bottom: var(--spacing-md);
   }
 
@@ -184,9 +184,9 @@
     bottom: 0;
     width: 100%;
     z-index: 1;
-    background-color: var(--components-colors-modal-color-background-default);
-    border-bottom-left-radius: var(--components-dimensions-modal-border-radius);
-    border-bottom-right-radius: var(--components-dimensions-modal-border-radius);
+    background-color: var(--modal-color-background-default);
+    border-bottom-left-radius: var(--modal-border-radius);
+    border-bottom-right-radius: var(--modal-border-radius);
     flex-shrink: 0;
   }
 

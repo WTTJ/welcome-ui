@@ -19,47 +19,47 @@
 
   .size {
     &-lg {
-      --borderRadius: var(--components-dimensions-badge-border-radius-lg);
-      --maxHeight: var(--components-dimensions-badge-size-max-height-lg);
-      --minWidth: var(--components-dimensions-badge-size-min-width-lg);
-      --paddingBlock: var(--components-dimensions-badge-padding-block-lg);
-      --paddingInline: var(--components-dimensions-badge-padding-inline-lg);
+      --borderRadius: var(--badge-border-radius-lg);
+      --maxHeight: var(--badge-size-max-height-lg);
+      --minWidth: var(--badge-size-min-width-lg);
+      --paddingBlock: var(--badge-padding-block-lg);
+      --paddingInline: var(--badge-padding-inline-lg);
     }
 
     &-md {
-      --borderRadius: var(--components-dimensions-badge-border-radius-md);
-      --maxHeight: var(--components-dimensions-badge-size-max-height-md);
-      --minWidth: var(--components-dimensions-badge-size-min-width-md);
-      --paddingBlock: var(--components-dimensions-badge-padding-block-md);
-      --paddingInline: var(--components-dimensions-badge-padding-inline-md);
+      --borderRadius: var(--badge-border-radius-md);
+      --maxHeight: var(--badge-size-max-height-md);
+      --minWidth: var(--badge-size-min-width-md);
+      --paddingBlock: var(--badge-padding-block-md);
+      --paddingInline: var(--badge-padding-inline-md);
     }
 
     &-sm {
-      --borderRadius: var(--components-dimensions-badge-border-radius-sm);
-      --height: var(--components-dimensions-badge-size-height);
-      --width: var(--components-dimensions-badge-size-width);
+      --borderRadius: var(--badge-border-radius-sm);
+      --height: var(--badge-size-height);
+      --width: var(--badge-size-width);
     }
   }
 
   .variant {
     &-brand {
-      --backgroundColor: var(--components-colors-badge-color-background-brand);
-      --color: var(--components-colors-badge-color-text-brand);
+      --backgroundColor: var(--badge-color-background-brand);
+      --color: var(--badge-color-text-brand);
     }
 
     &-neutral {
-      --backgroundColor: var(--components-colors-badge-color-background-neutral);
-      --color: var(--components-colors-badge-color-text-neutral);
+      --backgroundColor: var(--badge-color-background-neutral);
+      --color: var(--badge-color-text-neutral);
     }
 
     &-warm {
-      --backgroundColor: var(--components-colors-badge-color-background-warm);
-      --color: var(--components-colors-badge-color-text-warm);
+      --backgroundColor: var(--badge-color-background-warm);
+      --color: var(--badge-color-text-warm);
     }
 
     &-blue {
-      --backgroundColor: var(--components-colors-badge-color-background-blue);
-      --color: var(--components-colors-badge-color-text-blue);
+      --backgroundColor: var(--badge-color-background-blue);
+      --color: var(--badge-color-text-blue);
     }
   }
 }

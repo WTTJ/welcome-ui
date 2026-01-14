@@ -1,9 +1,9 @@
 @layer components {
   .root {
     border-style: solid;
-    background-color: var(--components-colors-window-body-color-background-default);
-    border-width: var(--components-dimensions-window-border-width);
-    border-color: var(--components-colors-window-color-border-default);
+    background-color: var(--window-body-color-background-default);
+    border-width: var(--window-border-width);
+    border-color: var(--window-color-border-default);
     border-radius: var(--radius-lg);
     box-shadow: var(--elevation-10);
     overflow: hidden;
@@ -13,13 +13,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--components-colors-window-header-color-background);
-    min-height: var(--components-dimensions-window-header-size-min-height);
-    border-bottom: var(--components-dimensions-window-border-width) solid;
-    border-color: var(--components-colors-window-color-border-default);
-    padding-inline: var(--components-dimensions-window-header-padding-inline-xs);
-    padding-block: var(--components-dimensions-window-header-padding-block-xs);
-    gap: var(--components-dimensions-window-header-gap-content);
+    background-color: var(--window-header-color-background);
+    min-height: var(--window-header-size-min-height);
+    border-bottom: var(--window-border-width) solid;
+    border-color: var(--window-color-border-default);
+    padding-inline: var(--window-header-padding-inline-xs);
+    padding-block: var(--window-header-padding-block-xs);
+    gap: var(--window-header-gap-content);
   }
 
   .header-title {
@@ -44,7 +44,7 @@
 
     /* VARIABLES FROM THEME - DONT CHANGE WITH REACT PROPS */
     border-radius: var(--radius-md);
-    border-width: var(--components-dimensions-window-header-tab-border-width-active);
+    border-width: var(--window-header-tab-border-width-active);
     gap: var(--spacing-xs);
     padding-block: var(--spacing-xs);
     padding-inline: var(--spacing-sm);
@@ -53,21 +53,21 @@
     /* VARIABLES FROM REACT PROPS - DEFAULT VALUES */
     border-color: var(--windowTabItemBorderColor, transparent);
     background-color: var(--windowTabItemBackgroundColor, transparent);
-    color: var(--windowTabItemColor, var(--components-colors-window-header-tab-color-text-default));
+    color: var(--windowTabItemColor, var(--window-header-tab-color-text-default));
 
     &:hover {
       --windowTabItemBackgroundColor: var(
-        --components-colors-window-header-tab-color-background-hover
+        --window-header-tab-color-background-hover
       );
-      --windowTabItemColor: var(--components-colors-window-header-tab-color-text-hover);
+      --windowTabItemColor: var(--window-header-tab-color-text-hover);
     }
 
     &[aria-selected='true'] {
       --windowTabItemBorderColor: var(--color-border-brand-primary);
       --windowTabItemBackgroundColor: var(
-        --components-colors-window-header-tab-color-background-active
+        --window-header-tab-color-background-active
       );
-      --windowTabItemColor: var(--components-colors-window-header-tab-color-text-active);
+      --windowTabItemColor: var(--window-header-tab-color-text-active);
     }
   }
 
@@ -81,45 +81,45 @@
 
     /* VARIABLES FROM THEME - DONT CHANGE WITH REACT PROPS */
     transition-duration: var(--duration-fast);
-    width: var(--components-dimensions-window-header-action-size-container);
-    height: var(--components-dimensions-window-header-action-size-container);
-    border-radius: var(--components-dimensions-window-header-action-border-radius);
+    width: var(--window-header-action-size-container);
+    height: var(--window-header-action-size-container);
+    border-radius: var(--window-header-action-border-radius);
     outline: transparent solid var(--border-width-md);
 
     /* VARIABLES FROM REACT PROPS - DEFAULT VALUES */
     background-color: var(
       --windowButtonBackgroundColor,
-      var(--components-colors-window-header-action-color-background-close-default)
+      var(--window-header-action-color-background-close-default)
     );
 
     svg {
       color: var(
         --windowButtonIconColor,
-        var(--components-colors-window-header-action-color-icon-common-default)
+        var(--window-header-action-color-icon-common-default)
       );
     }
 
     &[data-focus-visible],
     &:focus-visible {
-      outline-width: var(--components-dimensions-button-border-width-focused);
-      outline-color: var(--components-colors-button-color-border-focused);
+      outline-width: var(--button-border-width-focused);
+      outline-color: var(--button-color-border-focused);
     }
 
     &:hover {
       --windowButtonBackgroundColor: var(
-        --components-colors-window-header-action-color-background-common-hover
+        --window-header-action-color-background-common-hover
       );
       --windowButtonIconColor: var(
-        --components-colors-window-header-action-color-icon-common-hover
+        --window-header-action-color-icon-common-hover
       );
     }
 
     &:active {
       --windowButtonBackgroundColor: var(
-        --components-colors-window-header-action-color-background-common-pressed
+        --window-header-action-color-background-common-pressed
       );
       --windowButtonIconColor: var(
-        --components-colors-window-header-action-color-icon-common-pressed
+        --window-header-action-color-icon-common-pressed
       );
     }
   }
@@ -128,34 +128,34 @@
     border: 1px solid
       var(
         --windowHeaderCloseButtonBorderColor,
-        var(--components-colors-window-header-action-color-border-close-default)
+        var(--window-header-action-color-border-close-default)
       );
-    --windowButtonIconColor: var(--components-colors-window-header-action-color-icon-close-default);
+    --windowButtonIconColor: var(--window-header-action-color-icon-close-default);
 
     &:hover {
-      background-color: var(--components-colors-window-header-action-color-background-close-hover);
+      background-color: var(--window-header-action-color-background-close-hover);
       --windowHeaderCloseButtonBorderColor: var(
-        --components-colors-window-header-action-color-background-close-hover
+        --window-header-action-color-background-close-hover
       );
-      --windowButtonIconColor: var(--components-colors-window-header-action-color-icon-close-hover);
+      --windowButtonIconColor: var(--window-header-action-color-icon-close-hover);
     }
 
     &:active {
       background-color: var(
-        --components-colors-window-header-action-color-background-close-pressed
+        --window-header-action-color-background-close-pressed
       );
       --windowHeaderCloseButtonBorderColor: var(
-        --components-colors-window-header-action-color-background-close-pressed
+        --window-header-action-color-background-close-pressed
       );
       --windowButtonIconColor: var(
-        --components-colors-window-header-action-color-icon-close-pressed
+        --window-header-action-color-icon-close-pressed
       );
     }
   }
 
   .header-actions {
     display: flex;
-    gap: var(--components-dimensions-window-header-gap-content);
+    gap: var(--window-header-gap-content);
   }
 
   .tab-panel {
@@ -166,47 +166,47 @@
 
   .media,
   .box-text {
-    margin-block: var(--components-dimensions-window-body-padding-block-xs);
-    margin-inline: var(--components-dimensions-window-body-padding-inline-xs);
+    margin-block: var(--window-body-padding-block-xs);
+    margin-inline: var(--window-body-padding-inline-xs);
   }
 
   .media :first-child {
-    border-radius: var(--components-dimensions-window-border-radius);
+    border-radius: var(--window-border-radius);
     max-width: 100%;
     height: auto;
   }
 
   .box-text {
-    border-radius: var(--components-dimensions-window-border-radius);
+    border-radius: var(--window-border-radius);
     background-color: var(--color-background-warm-primary);
-    padding-block: var(--components-dimensions-window-body-padding-block-sm);
-    padding-inline: var(--components-dimensions-window-body-padding-inline-sm);
+    padding-block: var(--window-body-padding-block-sm);
+    padding-inline: var(--window-body-padding-inline-sm);
   }
 
   .size {
     &-xl {
-      padding-block: var(--components-dimensions-window-body-padding-block-xl);
-      padding-inline: var(--components-dimensions-window-body-padding-inline-xl);
+      padding-block: var(--window-body-padding-block-xl);
+      padding-inline: var(--window-body-padding-inline-xl);
     }
 
     &-lg {
-      padding-block: var(--components-dimensions-window-body-padding-block-lg);
-      padding-inline: var(--components-dimensions-window-body-padding-inline-lg);
+      padding-block: var(--window-body-padding-block-lg);
+      padding-inline: var(--window-body-padding-inline-lg);
     }
 
     &-md {
-      padding-block: var(--components-dimensions-window-body-padding-block-md);
-      padding-inline: var(--components-dimensions-window-body-padding-inline-md);
+      padding-block: var(--window-body-padding-block-md);
+      padding-inline: var(--window-body-padding-inline-md);
     }
 
     &-sm {
-      padding-block: var(--components-dimensions-window-body-padding-block-sm);
-      padding-inline: var(--components-dimensions-window-body-padding-inline-sm);
+      padding-block: var(--window-body-padding-block-sm);
+      padding-inline: var(--window-body-padding-inline-sm);
     }
 
     &-xs {
-      padding-block: var(--components-dimensions-window-body-padding-block-xs);
-      padding-inline: var(--components-dimensions-window-body-padding-inline-xs);
+      padding-block: var(--window-body-padding-block-xs);
+      padding-inline: var(--window-body-padding-inline-xs);
     }
   }
 }

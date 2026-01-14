@@ -86,38 +86,38 @@
 
   .variant {
     &-primary {
-      --backgroundImageColor: var(--components-colors-link-color-underline-primary-default);
+      --backgroundImageColor: var(--link-color-underline-primary-default);
       --backgroundImageColorDisabled: var(
-        --components-colors-link-color-underline-primary-disabled
+        --link-color-underline-primary-disabled
       );
       --backgroundColorVisited: var(
-        --components-colors-link-color-background-primary-visited-default
+        --link-color-background-primary-visited-default
       );
       --backgroundColorVisitedHover: var(
-        --components-colors-link-color-background-primary-visited-hover
+        --link-color-background-primary-visited-hover
       );
-      --color: var(--components-colors-link-color-text-primary-default);
-      --colorHover: var(--components-colors-link-color-text-primary-hover);
-      --colorDisabled: var(--components-colors-link-color-text-primary-disabled);
-      --colorVisited: var(--components-colors-link-color-text-primary-visited-default);
-      --colorVisitedHover: var(--components-colors-link-color-text-primary-visited-hover);
+      --color: var(--link-color-text-primary-default);
+      --colorHover: var(--link-color-text-primary-hover);
+      --colorDisabled: var(--link-color-text-primary-disabled);
+      --colorVisited: var(--link-color-text-primary-visited-default);
+      --colorVisitedHover: var(--link-color-text-primary-visited-hover);
     }
     &-secondary {
-      --backgroundImageColor: var(--components-colors-link-color-underline-secondary-default);
+      --backgroundImageColor: var(--link-color-underline-secondary-default);
       --backgroundImageColorDisabled: var(
-        --components-colors-link-color-underline-secondary-disabled
+        --link-color-underline-secondary-disabled
       );
       --backgroundColorVisited: var(
-        --components-colors-link-color-background-secondary-visited-default
+        --link-color-background-secondary-visited-default
       );
       --backgroundColorVisitedHover: var(
-        --components-colors-link-color-background-secondary-visited-hover
+        --link-color-background-secondary-visited-hover
       );
-      --color: var(--components-colors-link-color-text-secondary-default);
-      --colorHover: var(--components-colors-link-color-text-secondary-hover);
-      --colorDisabled: var(--components-colors-link-color-text-secondary-disabled);
-      --colorVisited: var(--components-colors-link-color-text-secondary-visited-default);
-      --colorVisitedHover: var(--components-colors-link-color-text-secondary-visited-hover);
+      --color: var(--link-color-text-secondary-default);
+      --colorHover: var(--link-color-text-secondary-hover);
+      --colorDisabled: var(--link-color-text-secondary-disabled);
+      --colorVisited: var(--link-color-text-secondary-visited-default);
+      --colorVisitedHover: var(--link-color-text-secondary-visited-hover);
     }
   }
 
@@ -125,31 +125,31 @@
     &-xs {
       font-size: var(--font-size-xs);
       --lineHeight: var(--font-line-height-sm);
-      --externalLinkIconSize: var(--components-dimensions-link-size-icon-xs);
+      --externalLinkIconSize: var(--link-size-icon-xs);
     }
     &-sm {
       font-size: var(--font-size-sm);
       --lineHeight: var(--font-line-height-md);
       --backgroundPositionY: calc(200% - 0.2em);
-      --externalLinkIconSize: var(--components-dimensions-link-size-icon-sm);
+      --externalLinkIconSize: var(--link-size-icon-sm);
     }
     &-md {
       font-size: var(--font-size-md);
       --lineHeight: var(--font-line-height-lg);
-      --externalLinkIconSize: var(--components-dimensions-link-size-icon-md);
+      --externalLinkIconSize: var(--link-size-icon-md);
     }
     &-lg {
       font-size: var(--font-size-lg);
       --lineHeight: var(--font-line-height-lg);
-      --externalLinkIconSize: var(--components-dimensions-link-size-icon-lg);
+      --externalLinkIconSize: var(--link-size-icon-lg);
     }
   }
 
   .wui-text {
-    margin-right: calc(var(--components-dimensions-link-padding-inline-icon) * -1);
-    margin-left: calc(var(--components-dimensions-link-padding-inline-icon) * -1);
-    padding-left: var(--components-dimensions-link-padding-inline-icon);
-    padding-right: var(--components-dimensions-link-padding-inline-icon);
+    margin-right: calc(var(--link-padding-inline-icon) * -1);
+    margin-left: calc(var(--link-padding-inline-icon) * -1);
+    padding-left: var(--link-padding-inline-icon);
+    padding-right: var(--link-padding-inline-icon);
     transition:
       background var(--duration-medium),
       color var(--duration-medium);
@@ -172,10 +172,10 @@
 
     &.variant {
       &-primary {
-        color: var(--components-colors-link-color-icon-primary-disabled);
+        color: var(--link-color-icon-primary-disabled);
       }
       &-secondary {
-        color: var(--components-colors-link-color-icon-secondary-disabled);
+        color: var(--link-color-icon-secondary-disabled);
       }
     }
   }

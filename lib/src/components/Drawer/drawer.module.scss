@@ -2,9 +2,9 @@
 
 @layer components {
   .root {
-    background-color: var(--components-colors-drawer-body-color-background-default);
-    border: var(--components-dimensions-drawer-border-width) solid
-      var(--components-colors-drawer-color-border-default);
+    background-color: var(--drawer-body-color-background-default);
+    border: var(--drawer-border-width) solid
+      var(--drawer-color-border-default);
     box-shadow: var(--elevation-10);
     z-index: 999;
 
@@ -55,7 +55,7 @@
     }
 
     @media screen and (min-width: breakpoints.$breakpoint-md) {
-      border-radius: var(--components-dimensions-drawer-border-radius);
+      border-radius: var(--drawer-border-radius);
       margin: var(--spacing-md);
     }
 
@@ -182,7 +182,7 @@
   }
 
   .content-header-subtitle {
-    color: var(--components-colors-modal-color-text-body);
+    color: var(--modal-color-text-body);
     margin-bottom: var(--spacing-md);
   }
 
@@ -191,7 +191,7 @@
     position: sticky;
     z-index: 1;
     width: 100%;
-    background-color: var(--components-colors-drawer-body-color-background-default);
+    background-color: var(--drawer-body-color-background-default);
     padding: var(--spacing-xl);
     display: flex;
     flex-wrap: wrap;
@@ -221,7 +221,7 @@
     top: 0;
     width: 100%;
 
-    background-color: var(--components-colors-drawer-body-color-background-default);
+    background-color: var(--drawer-body-color-background-default);
     margin: 0;
     padding: var(--spacing-xl) var(--spacing-5xl) var(--spacing-xl) var(--spacing-xl);
   }
