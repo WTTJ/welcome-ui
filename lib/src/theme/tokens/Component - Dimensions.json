@@ -1,0 +1,39 @@
+{
+  "pattern-grid": {
+    "stroke": {
+      "$type": "number",
+      "$value": 1,
+      "$extensions": {
+        "com.figma.variableId": "VariableID:1831:2496",
+        "com.figma.scopes": [
+          "STROKE_FLOAT"
+        ],
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:1832:119",
+          "targetVariableName": "stroke/xs",
+          "targetVariableSetId": "VariableCollectionId:214:818",
+          "targetVariableSetName": "Semantic - Dimensions"
+        }
+      }
+    },
+    "size": {
+      "$type": "number",
+      "$value": 16,
+      "$extensions": {
+        "com.figma.variableId": "VariableID:1832:109",
+        "com.figma.scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:896:1284",
+          "targetVariableName": "size/16",
+          "targetVariableSetId": "VariableCollectionId:105:794",
+          "targetVariableSetName": "Primitives"
+        }
+      }
+    }
+  },
+  "$extensions": {
+    "com.figma.modeName": "Mode 1"
+  }
+}

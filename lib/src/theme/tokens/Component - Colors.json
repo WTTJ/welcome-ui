@@ -1,0 +1,64 @@
+{
+  "pattern-grid": {
+    "color": {
+      "stroke": {
+        "default": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0.029999999329447746,
+            "hex": "#000000"
+          },
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1831:2495",
+            "com.figma.scopes": [
+              "STROKE"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:663:823",
+              "targetVariableName": "color/border/transparent/black/minimal",
+              "targetVariableSetId": "VariableCollectionId:105:896",
+              "targetVariableSetName": "Semantic - Colors"
+            }
+          }
+        }
+      },
+      "background": {
+        "default": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0,
+              0,
+              0
+            ],
+            "alpha": 0,
+            "hex": "#000000"
+          },
+          "$extensions": {
+            "com.figma.variableId": "VariableID:1832:114",
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:663:824",
+              "targetVariableName": "color/border/transparent/black/none",
+              "targetVariableSetId": "VariableCollectionId:105:896",
+              "targetVariableSetName": "Semantic - Colors"
+            }
+          }
+        }
+      }
+    }
+  },
+  "$extensions": {
+    "com.figma.modeName": "Mode 1"
+  }
+}
