@@ -2,7 +2,8 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
-import semantics from './tokens/semantics.json' assert { type: 'json' }
+// This json is here only to extract breakpoint values and generate scss variables for them
+import semantics from './tokens/Semantic - Dimensions.json' assert { type: 'json' }
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -25,7 +26,8 @@ const utilitiesStyles = fs.readFileSync(utilitiesPath, 'utf8')
 
 const insertAfterThemeDeclaration = (cssContent: string, cssToInsert: string) => {
   const regex = /(@theme\s+static\s*\{)(\n?)/
-  return cssContent.replace(regex, `$1\n${cssToInsert}$2`)
+  const content = cssContent.replace(regex, `$1\n${cssToInsert}$2`)
+  return `${content}\n`
 }
 
 const stringifiedTechTokens = techTokens.replace(/@theme\s+\w+\s*\{([^}]*)\}/s, '$1').trim()
@@ -43,11 +45,16 @@ const generateThemeCss = () =>
 fs.writeFileSync(themePath, generateThemeCss(), 'utf8')
 
 // Generate scss breakpoints file
-const breakpointsContent = Object.entries(semantics.breakpoint).reduce((acc, [key, value]) => {
-  if (key !== '$type' && typeof value === 'object' && 'value' in value) {
-    return acc + `$breakpoint-${key}: ${value['value']};\n`
-  }
-  return acc
-}, '/* screens - auto-generated from token.ts - do not edit directly */\n')
+const breakpointsContent = Object.entries(semantics.breakpoint).reduce(
+  (acc, [size, breakpointToken]) => {
+    if (size !== '$type' && typeof breakpointToken === 'object' && '$value' in breakpointToken) {
+      const breakpointValue = breakpointToken['$value']
+      const unit = breakpointValue === 0 ? '' : 'px'
+      return acc + `$breakpoint-${size}: ${breakpointValue}${unit};\n`
+    }
+    return acc
+  },
+  '/* screens - auto-generated from token.ts - do not edit directly */\n'
+)
 
 fs.writeFileSync(breakpointsPath, breakpointsContent, 'utf8')
