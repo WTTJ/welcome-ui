@@ -4,10 +4,10 @@
     display: flex;
 
     /* VARIABLES FROM THEME - DO NOT CHANGE */
-    border-color: var(--components-colors-sticky-note-color-border-default);
+    border-color: var(--sticky-note-color-border-default);
     border-style: solid;
     border-width: var(--border-width-xs);
-    border-radius: var(--components-dimensions-sticky-note-border-radius);
+    border-radius: var(--sticky-note-border-radius);
     padding: var(--spacing-3xl) var(--spacing-xl) var(--spacing-xl) var(--spacing-xl);
     box-shadow: var(--elevation-30);
 
@@ -30,12 +30,12 @@
 
   .shape {
     &-rectangle {
-      --StickyNoteWidth: var(--components-dimensions-sticky-note-size-width-rectangle);
-      --StickyNoteHeight: var(--components-dimensions-sticky-note-size-height-rectangle);
+      --StickyNoteWidth: var(--sticky-note-size-width-rectangle);
+      --StickyNoteHeight: var(--sticky-note-size-height-rectangle);
     }
     &-square {
-      --StickyNoteWidth: var(--components-dimensions-sticky-note-size-width-square);
-      --StickyNoteHeight: var(--components-dimensions-sticky-note-size-height-square);
+      --StickyNoteWidth: var(--sticky-note-size-width-square);
+      --StickyNoteHeight: var(--sticky-note-size-height-square);
     }
     &-full {
       --StickyNoteWidth: 100%;
@@ -44,79 +44,79 @@
 
   .variant {
     &-brand {
-      --StickyNoteBackgroundColor: var(--components-colors-sticky-note-color-background-brand);
-      --StickyNoteColor: var(--components-colors-sticky-note-color-text-body-brand);
+      --StickyNoteBackgroundColor: var(--sticky-note-color-background-brand);
+      --StickyNoteColor: var(--sticky-note-color-text-body-brand);
 
       .title-icon {
-        --StickyNoteTitleIconColor: var(--components-colors-sticky-note-icon-color-icon-brand);
+        --StickyNoteTitleIconColor: var(--sticky-note-icon-color-icon-brand);
         --StickyNoteTitleIconBackgroundColor: var(
-          --components-colors-sticky-note-icon-color-background-brand
+          --sticky-note-icon-color-background-brand
         );
       }
     }
     &-blue {
-      --StickyNoteBackgroundColor: var(--components-colors-sticky-note-color-background-blue);
-      --StickyNoteColor: var(--components-colors-sticky-note-color-text-body-blue);
+      --StickyNoteBackgroundColor: var(--sticky-note-color-background-blue);
+      --StickyNoteColor: var(--sticky-note-color-text-body-blue);
 
       .title-icon {
-        --StickyNoteTitleIconColor: var(--components-colors-sticky-note-icon-color-icon-blue);
+        --StickyNoteTitleIconColor: var(--sticky-note-icon-color-icon-blue);
         --StickyNoteTitleIconBackgroundColor: var(
-          --components-colors-sticky-note-icon-color-background-blue
+          --sticky-note-icon-color-background-blue
         );
       }
     }
     &-green {
-      --StickyNoteBackgroundColor: var(--components-colors-sticky-note-color-background-green);
-      --StickyNoteColor: var(--components-colors-sticky-note-color-text-body-green);
+      --StickyNoteBackgroundColor: var(--sticky-note-color-background-green);
+      --StickyNoteColor: var(--sticky-note-color-text-body-green);
 
       .title-icon {
-        --StickyNoteTitleIconColor: var(--components-colors-sticky-note-icon-color-icon-green);
+        --StickyNoteTitleIconColor: var(--sticky-note-icon-color-icon-green);
         --StickyNoteTitleIconBackgroundColor: var(
-          --components-colors-sticky-note-icon-color-background-green
+          --sticky-note-icon-color-background-green
         );
       }
     }
     &-violet {
-      --StickyNoteBackgroundColor: var(--components-colors-sticky-note-color-background-violet);
-      --StickyNoteColor: var(--components-colors-sticky-note-color-text-body-violet);
+      --StickyNoteBackgroundColor: var(--sticky-note-color-background-violet);
+      --StickyNoteColor: var(--sticky-note-color-text-body-violet);
 
       .title-icon {
-        --StickyNoteTitleIconColor: var(--components-colors-sticky-note-icon-color-icon-violet);
+        --StickyNoteTitleIconColor: var(--sticky-note-icon-color-icon-violet);
         --StickyNoteTitleIconBackgroundColor: var(
-          --components-colors-sticky-note-icon-color-background-violet
+          --sticky-note-icon-color-background-violet
         );
       }
     }
     &-pink {
-      --StickyNoteBackgroundColor: var(--components-colors-sticky-note-color-background-pink);
-      --StickyNoteColor: var(--components-colors-sticky-note-color-text-body-pink);
+      --StickyNoteBackgroundColor: var(--sticky-note-color-background-pink);
+      --StickyNoteColor: var(--sticky-note-color-text-body-pink);
 
       .title-icon {
-        --StickyNoteTitleIconColor: var(--components-colors-sticky-note-icon-color-icon-pink);
+        --StickyNoteTitleIconColor: var(--sticky-note-icon-color-icon-pink);
         --StickyNoteTitleIconBackgroundColor: var(
-          --components-colors-sticky-note-icon-color-background-pink
+          --sticky-note-icon-color-background-pink
         );
       }
     }
     &-orange {
-      --StickyNoteBackgroundColor: var(--components-colors-sticky-note-color-background-orange);
-      --StickyNoteColor: var(--components-colors-sticky-note-color-text-body-orange);
+      --StickyNoteBackgroundColor: var(--sticky-note-color-background-orange);
+      --StickyNoteColor: var(--sticky-note-color-text-body-orange);
 
       .title-icon {
-        --StickyNoteTitleIconColor: var(--components-colors-sticky-note-icon-color-icon-orange);
+        --StickyNoteTitleIconColor: var(--sticky-note-icon-color-icon-orange);
         --StickyNoteTitleIconBackgroundColor: var(
-          --components-colors-sticky-note-icon-color-background-orange
+          --sticky-note-icon-color-background-orange
         );
       }
     }
     &-teal {
-      --StickyNoteBackgroundColor: var(--components-colors-sticky-note-color-background-teal);
-      --StickyNoteColor: var(--components-colors-sticky-note-color-text-body-teal);
+      --StickyNoteBackgroundColor: var(--sticky-note-color-background-teal);
+      --StickyNoteColor: var(--sticky-note-color-text-body-teal);
 
       .title-icon {
-        --StickyNoteTitleIconColor: var(--components-colors-sticky-note-icon-color-icon-teal);
+        --StickyNoteTitleIconColor: var(--sticky-note-icon-color-icon-teal);
         --StickyNoteTitleIconBackgroundColor: var(
-          --components-colors-sticky-note-icon-color-background-teal
+          --sticky-note-icon-color-background-teal
         );
       }
     }
@@ -132,7 +132,7 @@
   .content {
     display: flex;
     flex-direction: column;
-    gap: var(--components-dimensions-sticky-note-gap-content);
+    gap: var(--sticky-note-gap-content);
     transform: rotate3d(0, 0, 1, -0.3deg);
     font-size: var(--font-size-md);
     line-height: var(--font-line-height-md);
@@ -146,8 +146,8 @@
 
   .title-icon {
     flex-shrink: 0;
-    padding: var(--components-dimensions-sticky-note-icon-padding-block);
-    border-radius: var(--components-dimensions-sticky-note-icon-border-radius);
+    padding: var(--sticky-note-icon-padding-block);
+    border-radius: var(--sticky-note-icon-border-radius);
     color: var(--StickyNoteTitleIconColor);
     background-color: var(--StickyNoteTitleIconBackgroundColor);
   }

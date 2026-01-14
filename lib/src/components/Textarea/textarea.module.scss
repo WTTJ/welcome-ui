@@ -1,8 +1,8 @@
 @layer components {
   .root {
-    border-radius: var(--components-dimensions-input-border-radius);
+    border-radius: var(--input-border-radius);
     border-style: solid;
-    border-width: var(--components-dimensions-input-border-width-default);
+    border-width: var(--input-border-width-default);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-regular);
     line-height: var(--font-line-height-md);
@@ -14,47 +14,47 @@
     /* VARIABLES THAT CHANGE WITH REACT PROPS */
     background-color: var(
       --textAreaBackgroundColor,
-      var(--components-colors-input-color-background-default)
+      var(--input-color-background-default)
     );
-    color: var(--textAreaColor, var(--components-colors-input-color-text-default));
-    border-color: var(--textAreaBorderColor, var(--components-colors-input-color-border-default));
+    color: var(--textAreaColor, var(--input-color-text-default));
+    border-color: var(--textAreaBorderColor, var(--input-color-border-default));
     box-shadow: var(--textAreaBoxShadow, var(--inset-10)) inset;
     field-sizing: var(--textAreaFieldSizing, fixed);
     min-height: var(--textAreaMinHeight, 8.125rem);
 
     &:disabled,
     &[aria-disabled] {
-      --textAreaBackgroundColor: var(--components-colors-input-color-background-disabled);
-      --textAreaColor: var(--components-colors-input-color-text-disabled);
+      --textAreaBackgroundColor: var(--input-color-background-disabled);
+      --textAreaColor: var(--input-color-text-disabled);
       cursor: not-allowed;
     }
 
     &:hover {
-      --textAreaBorderColor: var(--components-colors-input-color-border-hover);
+      --textAreaBorderColor: var(--input-color-border-hover);
       --textAreaBoxShadow: var(--inset-20);
     }
 
     &:active,
     &:focus {
-      --textAreaBorderColor: var(--components-colors-input-color-border-active);
+      --textAreaBorderColor: var(--input-color-border-active);
     }
 
     &::placeholder {
-      color: var(--components-colors-input-color-text-placeholder);
+      color: var(--input-color-text-placeholder);
     }
   }
 
   .variant {
     &-danger {
-      --textAreaBorderColor: var(--components-colors-input-color-border-error);
+      --textAreaBorderColor: var(--input-color-border-error);
     }
 
     &-warning {
-      --textAreaBorderColor: var(--components-colors-input-color-border-warning);
+      --textAreaBorderColor: var(--input-color-border-warning);
     }
 
     &-success {
-      --textAreaBorderColor: var(--components-colors-input-color-border-success);
+      --textAreaBorderColor: var(--input-color-border-success);
     }
   }
 

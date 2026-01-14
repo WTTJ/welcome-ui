@@ -21,10 +21,10 @@
 
     &:not(.inline) {
       .hint {
-        margin-top: var(--components-dimensions-field-gap-assistive);
+        margin-top: var(--field-gap-assistive);
       }
       .label {
-        margin-bottom: var(--components-dimensions-field-gap-label);
+        margin-bottom: var(--field-gap-label);
       }
     }
 
@@ -42,8 +42,8 @@
     grid-template-columns: min-content 1fr;
     height: fit-content;
 
-    grid-row-gap: var(--components-dimensions-field-gap-assistive);
-    grid-column-gap: var(--components-dimensions-field-gap-label);
+    grid-row-gap: var(--field-gap-assistive);
+    grid-column-gap: var(--field-gap-label);
 
     &:has(.label):has(.hint) {
       grid-template-areas:

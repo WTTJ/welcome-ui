@@ -20,39 +20,39 @@
 
     background-color: var(
       --tabItemBackgroundColor,
-      var(--components-colors-tab-color-background-unchecked-default)
+      var(--tab-color-background-unchecked-default)
     );
-    color: var(--tabItemColor, var(--components-colors-tab-color-text-unchecked-default));
+    color: var(--tabItemColor, var(--tab-color-text-unchecked-default));
     box-shadow:
-      inset 0 0 0 var(--tabItemBorderSize, var(--components-dimensions-tab-border-width-unchecked))
-        var(--tabItemBorderColor, var(--components-colors-tab-color-border-unchecked-default)),
+      inset 0 0 0 var(--tabItemBorderSize, var(--tab-border-width-unchecked))
+        var(--tabItemBorderColor, var(--tab-color-border-unchecked-default)),
       var(--tabItemBoxShadow, var(--elevation-10));
 
     &:focus {
       outline: none !important; /* important for firefox */
 
-      --tabItemColor: var(--components-colors-tab-color-text-unchecked-pressed);
-      --tabItemBackgroundColor: var(--components-colors-tab-color-background-unchecked-pressed);
-      --tabItemBorderColor: var(--components-colors-tab-color-border-unchecked-pressed);
+      --tabItemColor: var(--tab-color-text-unchecked-pressed);
+      --tabItemBackgroundColor: var(--tab-color-background-unchecked-pressed);
+      --tabItemBorderColor: var(--tab-color-border-unchecked-pressed);
 
       &[aria-selected='true'] {
-        --tabItemColor: var(--components-colors-tab-color-text-checked-pressed);
-        --tabItemBackgroundColor: var(--components-colors-tab-color-background-checked-pressed);
-        --tabItemBorderColor: var(--components-colors-tab-color-border-checked-pressed);
+        --tabItemColor: var(--tab-color-text-checked-pressed);
+        --tabItemBackgroundColor: var(--tab-color-background-checked-pressed);
+        --tabItemBorderColor: var(--tab-color-border-checked-pressed);
       }
     }
 
     &[aria-selected='true'] {
-      --tabItemColor: var(--components-colors-tab-color-text-checked-default);
-      --tabItemBackgroundColor: var(--components-colors-tab-color-background-checked-default);
-      --tabItemBorderColor: var(--components-colors-tab-color-border-checked-default);
-      --tabItemBorderSize: var(--components-dimensions-tab-border-width-checked);
+      --tabItemColor: var(--tab-color-text-checked-default);
+      --tabItemBackgroundColor: var(--tab-color-background-checked-default);
+      --tabItemBorderColor: var(--tab-color-border-checked-default);
+      --tabItemBorderSize: var(--tab-border-width-checked);
 
       &:hover {
-        --tabItemColor: var(--components-colors-tab-color-text-checked-hover);
-        --tabItemBackgroundColor: var(--components-colors-tab-color-background-checked-hover);
-        --tabItemBorderColor: var(--components-colors-tab-color-border-checked-hover);
-        --tabItemBorderSize: var(--components-dimensions-tab-border-width-checked);
+        --tabItemColor: var(--tab-color-text-checked-hover);
+        --tabItemBackgroundColor: var(--tab-color-background-checked-hover);
+        --tabItemBorderColor: var(--tab-color-border-checked-hover);
+        --tabItemBorderSize: var(--tab-border-width-checked);
         --tabItemBoxShadow: var(--elevation-20);
       }
     }
@@ -63,28 +63,28 @@
     }
 
     &:hover:not([aria-selected='true']):not([aria-disabled='true']) {
-      --tabItemColor: var(--components-colors-tab-color-text-unchecked-hover);
-      --tabItemBackgroundColor: var(--components-colors-tab-color-background-unchecked-hover);
-      --tabItemBorderColor: var(--components-colors-tab-color-border-unchecked-hover);
+      --tabItemColor: var(--tab-color-text-unchecked-hover);
+      --tabItemBackgroundColor: var(--tab-color-background-unchecked-hover);
+      --tabItemBorderColor: var(--tab-color-border-unchecked-hover);
       --tabItemBoxShadow: var(--elevation-20);
     }
   }
 
   .size {
     &-lg {
-      --tabItemMaxHeight: var(--components-dimensions-tab-size-max-height-lg);
-      --tabPaddingBlock: var(--components-dimensions-tab-padding-block-lg);
-      --tabPaddingInline: var(--components-dimensions-tab-padding-inline-lg);
+      --tabItemMaxHeight: var(--tab-size-max-height-lg);
+      --tabPaddingBlock: var(--tab-padding-block-lg);
+      --tabPaddingInline: var(--tab-padding-inline-lg);
       --tabFontSize: var(--font-size-sm);
-      --tabGap: var(--components-dimensions-tab-gap-content-lg);
+      --tabGap: var(--tab-gap-content-lg);
     }
 
     &-md {
-      --tabItemMaxHeight: var(--components-dimensions-tab-size-max-height-md);
-      --tabPaddingBlock: var(--components-dimensions-tab-padding-block-md);
-      --tabPaddingInline: var(--components-dimensions-tab-padding-inline-md);
+      --tabItemMaxHeight: var(--tab-size-max-height-md);
+      --tabPaddingBlock: var(--tab-padding-block-md);
+      --tabPaddingInline: var(--tab-padding-inline-md);
       --tabFontSize: var(--font-size-xs);
-      --tabGap: var(--components-dimensions-tab-gap-content-md);
+      --tabGap: var(--tab-gap-content-md);
     }
   }
 
@@ -99,11 +99,11 @@
 
     &.size {
       &-lg {
-        --tabsGap: var(--components-dimensions-tab-gap-content-lg);
+        --tabsGap: var(--tab-gap-content-lg);
       }
 
       &-md {
-        --tabsGap: var(--components-dimensions-tab-gap-content-md);
+        --tabsGap: var(--tab-gap-content-md);
       }
     }
   }

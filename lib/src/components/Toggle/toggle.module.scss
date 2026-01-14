@@ -6,20 +6,20 @@
     transition-property: all;
     transition-duration: var(--duration-medium);
     transition-timing-function: var(--timing-primary);
-    border-radius: var(--components-dimensions-toggle-track-size-height-sm);
+    border-radius: var(--toggle-track-size-height-sm);
     border-style: solid;
-    border-width: var(--components-dimensions-toggle-thumb-border-width);
+    border-width: var(--toggle-thumb-border-width);
     outline: none !important; /* important for firefox */
     cursor: pointer;
 
     /* VARIABLES THAT CHANGE WITH REACT PROPS */
     background-color: var(
       --toggleBackgroundColor,
-      (--components-colors-toggle-track-color-background-unchecked-default)
+      (--toggle-track-color-background-unchecked-default)
     );
     border-color: var(
       --toggleBorderColor,
-      var(--components-colors-toggle-track-color-border-unchecked-default)
+      var(--toggle-track-color-border-unchecked-default)
     );
     height: var(--toggleHeight);
     width: var(--toggleWidth);
@@ -28,9 +28,9 @@
       var(--boxShadowInset, var(--inset-5)) inset;
 
     &::after {
-      border-radius: var(--components-dimensions-toggle-track-border-radius);
+      border-radius: var(--toggle-track-border-radius);
       border-style: solid;
-      border-width: var(--components-dimensions-toggle-thumb-border-width);
+      border-width: var(--toggle-thumb-border-width);
       content: '';
       top: 0;
       bottom: 0;
@@ -45,11 +45,11 @@
       /* VARIABLES THAT CHANGE WITH REACT PROPS */
       background-color: var(
         --toggleAfterBackgroundColor,
-        var(--components-colors-toggle-thumb-color-background-default)
+        var(--toggle-thumb-color-background-default)
       );
       border-color: var(
         --toggleAfterBorderColor,
-        var(--components-colors-toggle-thumb-color-border-default)
+        var(--toggle-thumb-color-border-default)
       );
       height: var(--toggleAfterHeight);
       width: var(--toggleAfterHeight);
@@ -57,14 +57,14 @@
 
     &[data-focus-visible],
     &:focus-visible {
-      --boxShadowColor: var(--components-colors-toggle-track-color-background-checked-hover);
-      --boxShadowSize: var(--components-dimensions-toggle-track-border-width-focused);
+      --boxShadowColor: var(--toggle-track-color-background-checked-hover);
+      --boxShadowSize: var(--toggle-track-border-width-focused);
       --boxShadowInset: var(--inset-10);
     }
 
     &:hover {
       &:not(:disabled) {
-        --toggleBorderColor: var(--components-colors-toggle-track-color-border-unchecked-hover);
+        --toggleBorderColor: var(--toggle-track-color-border-unchecked-hover);
         --boxShadowInset: var(--inset-10);
       }
     }
@@ -72,10 +72,10 @@
     &:disabled {
       cursor: not-allowed;
 
-      --toggleBackgroundColor: var(--components-colors-toggle-track-color-background-disabled);
-      --toggleBorderColor: var(--components-colors-toggle-track-color-border-disabled);
-      --toggleAfterBackgroundColor: var(--components-colors-toggle-thumb-color-background-disabled);
-      --toggleAfterBorderColor: var(--components-colors-toggle-thumb-color-background-disabled);
+      --toggleBackgroundColor: var(--toggle-track-color-background-disabled);
+      --toggleBorderColor: var(--toggle-track-color-border-disabled);
+      --toggleAfterBackgroundColor: var(--toggle-thumb-color-background-disabled);
+      --toggleAfterBorderColor: var(--toggle-thumb-color-background-disabled);
     }
 
     &[aria-checked='true'] {
@@ -87,22 +87,22 @@
 
       &:not(:disabled) {
         --toggleBackgroundColor: var(
-          --components-colors-toggle-track-color-background-checked-default
+          --toggle-track-color-background-checked-default
         );
-        --toggleBorderColor: var(--components-colors-toggle-track-color-background-checked-default);
+        --toggleBorderColor: var(--toggle-track-color-background-checked-default);
         --toggleAfterBorderColor: var(
-          --components-colors-toggle-track-color-border-checked-default
+          --toggle-track-color-border-checked-default
         );
 
         &:hover {
           --toggleBackgroundColor: var(
-            --components-colors-toggle-track-color-background-checked-hover
+            --toggle-track-color-background-checked-hover
           );
-          --toggleBorderColor: var(--components-colors-toggle-track-color-background-checked-hover);
+          --toggleBorderColor: var(--toggle-track-color-background-checked-hover);
 
           &::after {
             --toggleAfterBorderColor: var(
-              --components-colors-toggle-track-color-border-checked-hover
+              --toggle-track-color-border-checked-hover
             );
           }
         }
@@ -112,24 +112,24 @@
 
   .size {
     &-sm {
-      --toggleWidth: var(--components-dimensions-toggle-track-size-width-sm);
-      --toggleHeight: var(--components-dimensions-toggle-track-size-height-sm);
-      --toggleAfterHeight: var(--components-dimensions-toggle-thumb-size-sm);
-      --toggleIconSize: var(--components-dimensions-toggle-track-size-icon-sm);
+      --toggleWidth: var(--toggle-track-size-width-sm);
+      --toggleHeight: var(--toggle-track-size-height-sm);
+      --toggleAfterHeight: var(--toggle-thumb-size-sm);
+      --toggleIconSize: var(--toggle-track-size-icon-sm);
     }
 
     &-md {
-      --toggleWidth: var(--components-dimensions-toggle-track-size-width-md);
-      --toggleHeight: var(--components-dimensions-toggle-track-size-height-md);
-      --toggleAfterHeight: var(--components-dimensions-toggle-thumb-size-md);
-      --toggleIconSize: var(--components-dimensions-toggle-track-size-icon-md);
+      --toggleWidth: var(--toggle-track-size-width-md);
+      --toggleHeight: var(--toggle-track-size-height-md);
+      --toggleAfterHeight: var(--toggle-thumb-size-md);
+      --toggleIconSize: var(--toggle-track-size-icon-md);
     }
 
     &-lg {
-      --toggleWidth: var(--components-dimensions-toggle-track-size-width-lg);
-      --toggleHeight: var(--components-dimensions-toggle-track-size-height-lg);
-      --toggleAfterHeight: var(--components-dimensions-toggle-thumb-size-lg);
-      --toggleIconSize: var(--components-dimensions-toggle-track-size-icon-lg);
+      --toggleWidth: var(--toggle-track-size-width-lg);
+      --toggleHeight: var(--toggle-track-size-height-lg);
+      --toggleAfterHeight: var(--toggle-thumb-size-lg);
+      --toggleIconSize: var(--toggle-track-size-icon-lg);
     }
   }
 
@@ -152,7 +152,7 @@
       /* VARIABLES THAT CHANGE WITH REACT PROPS */
       width: var(--toggleIconSize);
       height: var(--toggleIconSize);
-      color: var(--toggleIconColor, var(--components-colors-toggle-track-color-icon-default));
+      color: var(--toggleIconColor, var(--toggle-track-color-icon-default));
     }
 
     &.checked {
@@ -161,7 +161,7 @@
     }
 
     &.disabled {
-      --toggleIconColor: var(--components-colors-toggle-track-color-icon-disabled);
+      --toggleIconColor: var(--toggle-track-color-icon-disabled);
     }
   }
 }

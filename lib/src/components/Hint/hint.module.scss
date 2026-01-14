@@ -2,20 +2,20 @@
   .root {
     display: flex;
     align-items: center;
-    color: var(--color, var(--components-colors-hint-color-text-default));
+    color: var(--color, var(--hint-color-text-default));
   }
 
   .variant {
     &-danger {
-      --color: var(--components-colors-hint-color-text-error);
+      --color: var(--hint-color-text-error);
     }
 
     &-success {
-      --color: var(--components-colors-hint-color-text-success);
+      --color: var(--hint-color-text-success);
     }
 
     &-warning {
-      --color: var(--components-colors-hint-color-text-warning);
+      --color: var(--hint-color-text-warning);
     }
   }
 }

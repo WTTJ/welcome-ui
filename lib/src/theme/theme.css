@@ -2054,6 +2054,5 @@
 
 @utility bg-grid-* {
   background-image: var(--grid-pattern);
-  /* stylelint-disable-next-line scss/operator-no-unspaced */
   background-color: --value(--color-background- *);
 }

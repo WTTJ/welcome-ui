@@ -1,5 +1,5 @@
 /* eslint-disable perfectionist/sort-modules */
-import tokens from '@/theme/tokens/semantics.json' assert { type: 'json' }
+import tokens from '@/theme/tokens/Semantic - Dimensions.json' assert { type: 'json' }
 
 type ScreenSize = keyof Omit<typeof tokens.breakpoint, '$type'>
 type Screens = Record<ScreenSize, number>
@@ -11,14 +11,11 @@ type Screens = Record<ScreenSize, number>
  * Only supports number values (e.g. no 'rem', '%', etc.).
  */
 export function useScreens() {
-  return Object.entries(tokens.breakpoint).reduce((acc, [key, value]) => {
-    if (key !== '$type' && typeof value === 'object' && 'value' in value) {
-      const parsedValue =
-        typeof value['value'] === 'string'
-          ? Number(value['value'].replace('px', ''))
-          : value['value']
-      if (!isNaN(parsedValue)) {
-        acc[key as ScreenSize] = parsedValue
+  return Object.entries(tokens.breakpoint).reduce((acc, [size, breakpointToken]) => {
+    if (size !== '$type' && typeof breakpointToken === 'object' && '$value' in breakpointToken) {
+      const breakpointValue = breakpointToken.$value
+      if (!isNaN(breakpointValue)) {
+        acc[size as ScreenSize] = breakpointValue
       }
     }
     return acc

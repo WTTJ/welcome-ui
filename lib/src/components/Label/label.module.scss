@@ -5,8 +5,8 @@
     align-items: center;
     flex-shrink: 0;
     max-width: 100%;
-    gap: var(--components-dimensions-label-gap-content);
-    color: var(--components-colors-label-color-text-default);
+    gap: var(--label-gap-content);
+    color: var(--label-color-text-default);
     font-size: var(--font-size-14);
     font-weight: var(--font-weight-medium);
     line-height: var(--border-radius-2xl);
@@ -14,10 +14,10 @@
 
   .required {
     align-self: flex-start;
-    color: var(--components-colors-label-color-icon-required);
+    color: var(--label-color-icon-required);
   }
 
   .locked {
-    color: var(--components-colors-label-color-icon-default);
+    color: var(--label-color-icon-default);
   }
 }

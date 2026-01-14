@@ -3,11 +3,11 @@
     font-family: var(--font-family-body);
     letter-spacing: var(--font-letter-spacing-none);
     font-weight: var(--font-weight-regular);
-    border-radius: var(--components-dimensions-card-border-radius);
+    border-radius: var(--card-border-radius);
     background-size: cover;
     background-position: center;
-    background-color: var(--components-colors-card-color-background-default);
-    border-color: var(--borderColorCard, var(--components-colors-card-color-border-default));
+    background-color: var(--card-color-background-default);
+    border-color: var(--borderColorCard, var(--card-color-border-default));
     border-style: solid;
     border-width: var(--border-width-xs);
     outline: transparent solid var(--border-width-md);
@@ -19,14 +19,14 @@
     transition-timing-function: ease-in-out;
 
     &:hover:not([aria-disabled]):not(:disabled) {
-      --borderColorCard: var(--components-colors-card-color-border-hover);
+      --borderColorCard: var(--card-color-border-hover);
       --boxShadowCard: var(--elevation-20);
-      --colorIconHeader: var(--components-colors-card-color-icon-hover);
+      --colorIconHeader: var(--card-color-icon-hover);
     }
 
     &[aria-disabled],
     &:disabled {
-      --colorCard: var(--components-colors-button-color-text-tertiary-main-disabled);
+      --colorCard: var(--button-color-text-tertiary-main-disabled);
       --colorIconHeader: var(--colorCard);
     }
   }
@@ -41,12 +41,12 @@
     font-weight: var(--font-weight-bold);
     font-size: var(--fontSizeHeader);
     line-height: var(--fontLineHeightHeader);
-    color: var(--colorCard, var(--components-colors-card-header-color-text-default));
+    color: var(--colorCard, var(--card-header-color-text-default));
     padding: var(--paddingBlock) var(--paddingInline) 0;
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: var(--components-dimensions-card-gap-title);
+    gap: var(--card-gap-title);
 
     &:has(.close) {
       padding-right: calc(var(--sizeIconHeader) + var(--paddingInlineClose));
@@ -56,7 +56,7 @@
     & :global(i.wui-icon-font),
     & svg {
       flex-shrink: 0;
-      color: var(--colorIconHeader, var(--components-colors-card-header-color-icon-default));
+      color: var(--colorIconHeader, var(--card-header-color-icon-default));
       font-weight: initial;
       font-size: var(--sizeIconHeader);
       width: var(--sizeIconHeader);
@@ -73,11 +73,11 @@
       padding-inline: 0 !important;
 
       & > svg {
-        color: var(--components-colors-card-action-dismiss-icon-default);
+        color: var(--card-action-dismiss-icon-default);
       }
 
       &:hover:not([aria-disabled]):not(:disabled) > svg {
-        color: var(--components-colors-card-action-dismiss-icon-hover);
+        color: var(--card-action-dismiss-icon-hover);
       }
     }
   }
@@ -89,7 +89,7 @@
   .body {
     font-size: var(--fontSizeBody);
     line-height: var(--fontLineHeightBody);
-    color: var(--colorCard, var(--components-colors-card-body-color-text-default));
+    color: var(--colorCard, var(--card-body-color-text-default));
     padding: var(--paddingBlock) var(--paddingInline);
     display: flex;
     flex-direction: column;
@@ -98,7 +98,7 @@
     .metadata {
       font-size: var(--fontSizeMetadata);
       line-height: var(--fontLineHeightMetadata);
-      color: var(--colorCard, var(--components-colors-card-body-color-meta-text-default));
+      color: var(--colorCard, var(--card-body-color-meta-text-default));
     }
   }
 
@@ -109,12 +109,12 @@
   .footer {
     font-size: var(--fontSizeBody);
     line-height: var(--fontLineHeightBody);
-    color: var(--colorCard, var(--components-colors-card-body-color-text-default));
+    color: var(--colorCard, var(--card-body-color-text-default));
     padding: 0 var(--paddingBlock) var(--paddingInline);
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: var(--components-dimensions-card-gap-actions);
+    gap: var(--card-gap-actions);
   }
 
   /**
@@ -124,18 +124,18 @@
   .size {
     &-sm {
       // Shared
-      --paddingBlock: var(--components-dimensions-card-padding-block-sm);
-      --paddingInline: var(--components-dimensions-card-padding-inline-sm);
+      --paddingBlock: var(--card-padding-block-sm);
+      --paddingInline: var(--card-padding-inline-sm);
 
       // Header
-      --sizeIconHeader: var(--components-dimensions-card-action-dismiss-size-icon-sm);
+      --sizeIconHeader: var(--card-action-dismiss-size-icon-sm);
       --fontSizeHeader: var(--font-size-lg);
       --fontLineHeightHeader: var(--font-line-height-xs);
-      --paddingBlockClose: var(--components-dimensions-card-action-dismiss-padding-block-start-sm);
-      --paddingInlineClose: var(--components-dimensions-card-action-dismiss-padding-inline-end-sm);
+      --paddingBlockClose: var(--card-action-dismiss-padding-block-start-sm);
+      --paddingInlineClose: var(--card-action-dismiss-padding-inline-end-sm);
 
       // Body
-      --gapBody: var(--components-dimensions-card-gap-content-sm);
+      --gapBody: var(--card-gap-content-sm);
       --fontSizeBody: var(--font-size-sm);
       --fontLineHeightBody: var(--font-line-height-md);
       --fontSizeMetadata: var(--font-size-xs);
@@ -144,18 +144,18 @@
 
     &-md {
       // Shared
-      --paddingBlock: var(--components-dimensions-card-padding-block-md);
-      --paddingInline: var(--components-dimensions-card-padding-inline-md);
+      --paddingBlock: var(--card-padding-block-md);
+      --paddingInline: var(--card-padding-inline-md);
 
       // Header
-      --sizeIconHeader: var(--components-dimensions-card-action-dismiss-size-icon-md);
+      --sizeIconHeader: var(--card-action-dismiss-size-icon-md);
       --fontSizeHeader: var(--font-size-2xl);
       --fontLineHeightHeader: var(--font-line-height-xs);
-      --paddingBlockClose: var(--components-dimensions-card-action-dismiss-padding-block-start-md);
-      --paddingInlineClose: var(--components-dimensions-card-action-dismiss-padding-inline-end-md);
+      --paddingBlockClose: var(--card-action-dismiss-padding-block-start-md);
+      --paddingInlineClose: var(--card-action-dismiss-padding-inline-end-md);
 
       // Body
-      --gapBody: var(--components-dimensions-card-gap-content-md);
+      --gapBody: var(--card-gap-content-md);
       --fontSizeBody: var(--font-size-md);
       --fontLineHeightBody: var(--font-line-height-lg);
       --fontSizeMetadata: var(--font-size-sm);
@@ -164,18 +164,18 @@
 
     &-lg {
       // Shared
-      --paddingBlock: var(--components-dimensions-card-padding-block-lg);
-      --paddingInline: var(--components-dimensions-card-padding-inline-lg);
+      --paddingBlock: var(--card-padding-block-lg);
+      --paddingInline: var(--card-padding-inline-lg);
 
       // Header
-      --sizeIconHeader: var(--components-dimensions-card-action-dismiss-size-icon-lg);
+      --sizeIconHeader: var(--card-action-dismiss-size-icon-lg);
       --fontSizeHeader: var(--font-size-2xl);
       --fontLineHeightHeader: var(--font-line-height-xs);
-      --paddingBlockClose: var(--components-dimensions-card-action-dismiss-padding-block-start-lg);
-      --paddingInlineClose: var(--components-dimensions-card-action-dismiss-padding-inline-end-lg);
+      --paddingBlockClose: var(--card-action-dismiss-padding-block-start-lg);
+      --paddingInlineClose: var(--card-action-dismiss-padding-inline-end-lg);
 
       // Body
-      --gapBody: var(--components-dimensions-card-gap-content-lg);
+      --gapBody: var(--card-gap-content-lg);
       --fontSizeBody: var(--font-size-lg);
       --fontLineHeightBody: var(--font-line-height-lg);
       --fontSizeMetadata: var(--font-size-md);

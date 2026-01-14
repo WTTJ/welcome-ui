@@ -1,28 +1,10 @@
-import fs from 'fs'
-import path from 'path'
-import { fileURLToPath } from 'url'
-
 import stylelint from 'stylelint'
+
+import { themeVariables } from '../lib/src/theme/variables.js'
 
 const { utils } = stylelint
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-
-const themeTypesPath = path.resolve(__dirname, '../lib/src/theme/types.ts')
-
-const extractThemeTokens = () => {
-  const content = fs.readFileSync(themeTypesPath, 'utf-8')
-  const regex = /'(--[\w-]+)'\s*:/g
-  const tokens = []
-  let match
-  while ((match = regex.exec(content))) {
-    tokens.push(match[1])
-  }
-  return tokens
-}
-
-const knownTokens = extractThemeTokens()
+const knownTokens = Object.keys(themeVariables)
 
 export const ruleName = 'custom/valid-theme-token'
 
@@ -47,6 +29,7 @@ export const rule = () => {
           // Ignore camelCase or single-word tokens
           continue
         }
+
         if (!knownTokens.includes(token)) {
           utils.report({
             message: messages.rejected(token),

@@ -4,16 +4,11 @@ import type { CSSProperties } from 'react'
 import { Alert } from '@/components/Alert'
 import { Card } from '@/components/Card'
 import { Text } from '@/components/Text'
-import primitives from '@/theme/tokens/primitives.json' assert { type: 'json' }
-import semantics from '@/theme/tokens/semantics.json' assert { type: 'json' }
-import type { ColorTokenNames, ColorTokens, ColorVariants } from '@/theme/types'
-import type { TokensStructure } from '@/theme/utils/parseTokens'
-import { parseTokens } from '@/theme/utils/parseTokens'
+import type { ColorTokenNames, ColorVariants } from '@/theme/types'
+import { themeVariables } from '@/theme/variables'
 import { classNames } from '@/utils'
 
 const cx = classNames()
-
-const tokens = { color: { ...primitives.color, ...semantics.color } }
 
 type ColorVariantsObject = {
   value: string
@@ -21,20 +16,19 @@ type ColorVariantsObject = {
 }
 
 const getColors = (name: ColorVariants) => {
-  const themeValues = parseTokens(tokens as unknown as TokensStructure)
-  return Object.keys(themeValues)
+  return Object.keys(themeVariables)
     .filter(color => {
       const hasNumber = /\d/.test(color)
 
       return hasNumber
-        ? // If the color name contains a number, we look for exact matches like "color-blue-10"
-          color.match(new RegExp(`^color-${name}-\\d+$`))
-        : // Otherwise, we look for all variants like "background-brand-primary" etc.
-          color.startsWith(`color-${name}`)
+        ? // If the color name contains a number, we look for exact matches like "--color-blue-10"
+          color.match(new RegExp(`^--color-${name}-\\d+$`))
+        : // Otherwise, we look for all variants like "--color-background-brand-primary" etc.
+          color.startsWith(`--color-${name}`)
     })
     .reduce<ColorVariantsObject[]>((acc, colorName: ColorTokenNames) => {
-      const colorValue = themeValues[colorName as keyof typeof themeValues]
-      acc.push({ value: colorValue, variant: colorName.replace('color-', '') as ColorVariants })
+      const colorValue = themeVariables[`--${colorName}`]
+      acc.push({ value: colorValue, variant: colorName as ColorVariants })
 
       return acc
     }, [])
@@ -55,7 +49,7 @@ export const Colors = ({ name }: ColorsProps) => {
     <div className="gap-md grid grid-cols-1 md:grid-cols-3 mt-md">
       {colors.map(({ value, variant }) => {
         const isWhite = variant === 'neutral-10'
-        const colorVariant: ColorTokens = `--color-${variant}`
+        const colorVariant: ColorVariants = variant
 
         return (
           <Card key={`${name}.${variant}`} size="sm">
