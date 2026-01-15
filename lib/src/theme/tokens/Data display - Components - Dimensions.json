@@ -1735,7 +1735,7 @@
       }
     }
   },
-  "IconStamp": {
+  "icon-stamp": {
     "border": {
       "width": {
         "$type": "number",

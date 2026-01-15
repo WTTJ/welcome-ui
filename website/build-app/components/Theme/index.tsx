@@ -1,11 +1,11 @@
 'use client'
 
 import { Text } from '@/components/Text'
-import type { ColorTokens } from '@/theme/types'
+import type { ThemeVariables } from '@/theme/types'
 import { themeVariables } from '@/theme/variables'
 
 type ColorsProps = {
-  entry: ColorTokens
+  entry: ThemeVariables
 }
 
 export const Theme = ({ entry }: ColorsProps) => {

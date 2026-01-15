@@ -24,9 +24,10 @@ const teckTokensContent = fs.readFileSync(path.resolve(__dirname, './techTokens.
 
 const themeVariables = parseAllCSSVariables(`${variablesContent}\n${teckTokensContent}`)
 
-fs.writeFileSync(
-  path.resolve(__dirname, './variables.js'),
+const commonContent =
   `// This file is auto-generated from generate-theme-object.ts - do not edit directly\n` +
-    `export const themeVariables = ${JSON.stringify(themeVariables, null, 2)}`,
-  'utf-8'
-)
+  `export const themeVariables = ${JSON.stringify(themeVariables, null, 2)}`
+
+fs.writeFileSync(path.resolve(__dirname, './variables.ts'), `${commonContent} as const`, 'utf-8')
+
+fs.writeFileSync(path.resolve(__dirname, './variables.js'), `${commonContent}`, 'utf-8')

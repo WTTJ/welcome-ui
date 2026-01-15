@@ -15,7 +15,7 @@ export default tseslint.config(
   perfectionist.configs['recommended-natural'],
   globalIgnores([
     'lib/dist',
-    'lib/src/theme/generated/*',
+    'lib/src/theme/generated/**',
     'website/.next',
     'website/out',
     'website/build-app/examples.js',

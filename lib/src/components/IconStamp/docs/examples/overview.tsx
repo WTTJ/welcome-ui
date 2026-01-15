@@ -9,7 +9,6 @@ const Example = () => {
       <IconStamp name="icons" variant="teal" />
       <IconStamp name="icons" variant="blue" />
       <IconStamp name="icons" variant="violet" />
-      <IconStamp name="icons" variant="pink" />
       <IconStamp name="icons" variant="orange" />
       <IconStamp name="icons" variant="red" />
     </>

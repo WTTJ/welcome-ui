@@ -11,7 +11,6 @@ export type IconStampVariant =
   | 'brand'
   | 'green'
   | 'orange'
-  | 'pink'
   | 'red'
   | 'teal'
   | 'violet'
