@@ -20,3 +20,7 @@ export type ColorTokenNames = {
 export type ColorVariants = {
   [K in keyof ThemeVariables]: K extends `--color-${infer Rest}` ? Rest : never
 }[keyof ThemeVariables]
+
+export type ScreenSizes = {
+  [K in keyof ThemeVariables]: K extends `--breakpoint-${infer Rest}` ? Rest : never
+}[keyof ThemeVariables]
