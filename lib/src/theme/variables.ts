@@ -1697,4 +1697,4 @@ export const themeVariables = {
   "--timing-secondary": "linear",
   "--timing-tertiary": "cubic-bezier(0.41, 0.094, 0.54, 0.07)",
   "--grid-pattern": "repeating-linear-gradient(\n      0,\n      var(--pattern-grid-color-stroke-default) 0,\n      var(--pattern-grid-color-stroke-default) var(--pattern-grid-stroke),\n      transparent var(--pattern-grid-stroke),\n      transparent var(--pattern-grid-size)\n    ),\n    repeating-linear-gradient(\n      90deg,\n      var(--pattern-grid-color-stroke-default) 0,\n      var(--pattern-grid-color-stroke-default) var(--pattern-grid-stroke),\n      transparent var(--pattern-grid-stroke),\n      transparent var(--pattern-grid-size)\n    )"
-}
+} as const

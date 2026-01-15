@@ -4,7 +4,7 @@ import type { CSSProperties } from 'react'
 import { Alert } from '@/components/Alert'
 import { Card } from '@/components/Card'
 import { Text } from '@/components/Text'
-import type { ColorTokenNames, ColorVariants } from '@/theme/types'
+import type { ColorTokenNames, ColorTokens } from '@/theme/types'
 import { themeVariables } from '@/theme/variables'
 import { classNames } from '@/utils'
 
@@ -12,10 +12,10 @@ const cx = classNames()
 
 type ColorVariantsObject = {
   value: string
-  variant: ColorVariants
+  variant: ColorTokens
 }
 
-const getColors = (name: ColorVariants) => {
+const getColors = (name: ColorTokens) => {
   return Object.keys(themeVariables)
     .filter(color => {
       const hasNumber = /\d/.test(color)
@@ -28,14 +28,14 @@ const getColors = (name: ColorVariants) => {
     })
     .reduce<ColorVariantsObject[]>((acc, colorName: ColorTokenNames) => {
       const colorValue = themeVariables[`--${colorName}`]
-      acc.push({ value: colorValue, variant: colorName as ColorVariants })
+      acc.push({ value: colorValue, variant: colorName as ColorTokens })
 
       return acc
     }, [])
 }
 
 type ColorsProps = {
-  name: ColorVariants
+  name: ColorTokens
 }
 
 export const Colors = ({ name }: ColorsProps) => {
@@ -48,8 +48,8 @@ export const Colors = ({ name }: ColorsProps) => {
   return (
     <div className="gap-md grid grid-cols-1 md:grid-cols-3 mt-md">
       {colors.map(({ value, variant }) => {
-        const isWhite = variant === 'neutral-10'
-        const colorVariant: ColorVariants = variant
+        const isWhite = variant === '--color-neutral-10'
+        const colorVariant: ColorTokens = variant
 
         return (
           <Card key={`${name}.${variant}`} size="sm">

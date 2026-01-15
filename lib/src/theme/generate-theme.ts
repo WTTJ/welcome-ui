@@ -2,8 +2,18 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
-// This json is here only to extract breakpoint values and generate scss variables for them
-import semantics from './tokens/Semantic - Dimensions.json' assert { type: 'json' }
+import { themeVariables } from './variables'
+
+const breakpoints = Object.entries(themeVariables).reduce<Record<string, string>>(
+  (acc, [key, value]) => {
+    if (key.startsWith('--breakpoint-')) {
+      const size = key.replace('--breakpoint-', '')
+      acc[size] = value
+    }
+    return acc
+  },
+  {}
+)
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -45,16 +55,8 @@ const generateThemeCss = () =>
 fs.writeFileSync(themePath, generateThemeCss(), 'utf8')
 
 // Generate scss breakpoints file
-const breakpointsContent = Object.entries(semantics.breakpoint).reduce(
-  (acc, [size, breakpointToken]) => {
-    if (size !== '$type' && typeof breakpointToken === 'object' && '$value' in breakpointToken) {
-      const breakpointValue = breakpointToken['$value']
-      const unit = breakpointValue === 0 ? '' : 'px'
-      return acc + `$breakpoint-${size}: ${breakpointValue}${unit};\n`
-    }
-    return acc
-  },
-  '/* screens - auto-generated from token.ts - do not edit directly */\n'
-)
+const breakpointsContent = Object.entries(breakpoints).reduce((acc, [size, value]) => {
+  return acc + `$breakpoint-${size}: ${value};\n`
+}, '/* screens - auto-generated from token.ts - do not edit directly */\n')
 
 fs.writeFileSync(breakpointsPath, breakpointsContent, 'utf8')
