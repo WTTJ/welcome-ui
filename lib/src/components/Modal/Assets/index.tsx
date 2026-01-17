@@ -1,3 +1,4 @@
+'use client'
 import { AssetBackdrop } from './AssetBackdrop'
 import { AssetContent } from './AssetContent'
 import { AssetTitle } from './AssetTitle'

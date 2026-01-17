@@ -1,3 +1,4 @@
+'use client'
 import {
   Tooltip as AriakitTooltip,
   TooltipAnchor as AriakitTooltipAnchor,

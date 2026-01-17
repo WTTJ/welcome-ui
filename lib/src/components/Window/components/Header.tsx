@@ -1,3 +1,4 @@
+'use client'
 import { Tab as AriakitTab, TabList as AriakitTabList } from '@ariakit/react'
 import { forwardRef, useState } from 'react'
 

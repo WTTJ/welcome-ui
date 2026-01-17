@@ -3,10 +3,10 @@ import { DocSearchModal } from '@docsearch/react'
 import { useEffect, useState } from 'react'
 
 import { Button } from '@/components/Button'
-import { Icon } from '@/components/Icon'
 
 import '@docsearch/css'
 
+import { Icon } from '@/components/Icon'
 import { Tag } from '@/components/Tag'
 
 export const Search = () => {
@@ -39,6 +39,7 @@ export const Search = () => {
         <Tag size="md">⌘K</Tag>
       </Button>
       {isOpen ? (
+        // @ts-expect-error do not want to use AI for now
         <DocSearchModal
           apiKey="32543c62b03cbc6b714a873dca1feec4"
           appId="1ZI5OZ0946"

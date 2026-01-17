@@ -1,3 +1,4 @@
+'use client'
 import type { ControllerStateAndHelpers, GetItemPropsOptions, GetRootPropsOptions } from 'downshift'
 import DownshiftImport from 'downshift'
 import { matchSorter } from 'match-sorter'

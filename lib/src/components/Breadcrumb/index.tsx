@@ -1,3 +1,4 @@
+'use client'
 import { ResizeObserver } from '@juggle/resize-observer'
 import React, {
   Children,

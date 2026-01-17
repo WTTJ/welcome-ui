@@ -1,3 +1,4 @@
+'use client'
 import { classNames, forwardRefWithAs } from '@/utils'
 
 import type { VisuallyHiddenProps } from './types'

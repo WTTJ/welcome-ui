@@ -1,3 +1,4 @@
+'use client'
 import { useLottie } from 'lottie-light-react'
 import { forwardRef } from 'react'
 

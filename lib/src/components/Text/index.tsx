@@ -1,3 +1,4 @@
+'use client'
 import { createElement, type CSSProperties } from 'react'
 
 import { classNames, forwardRefWithAs } from '@/utils'

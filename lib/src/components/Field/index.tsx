@@ -1,3 +1,4 @@
+'use client'
 import { createContext, useContext, useId, useMemo } from 'react'
 
 import { Hint } from '@/components/Hint'
