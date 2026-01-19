@@ -4,8 +4,8 @@ import type { CSSProperties } from 'react'
 import { Alert } from '@/components/Alert'
 import { Card } from '@/components/Card'
 import { Text } from '@/components/Text'
+import { themeVariables } from '@/theme/generated/variables'
 import type { ColorTokenNames, ColorTokens } from '@/theme/types'
-import { themeVariables } from '@/theme/variables'
 import { classNames } from '@/utils'
 
 const cx = classNames()

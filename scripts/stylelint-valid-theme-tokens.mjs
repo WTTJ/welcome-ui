@@ -1,6 +1,6 @@
 import stylelint from 'stylelint'
 
-import { themeVariables } from '../lib/src/theme/variables.js'
+import { themeVariables } from '../lib/src/theme/generated/variables.js'
 
 const { utils } = stylelint
 
@@ -9,7 +9,7 @@ const knownTokens = Object.keys(themeVariables)
 export const ruleName = 'custom/valid-theme-token'
 
 export const messages = {
-  rejected: token => `The "${token}" token does not exist in lib/src/theme/theme.css`,
+  rejected: token => `The "${token}" token does not exist in lib/src/theme/generated/theme.css`,
 }
 
 const isCamelCase = token => /[a-z][A-Z]/.test(token.replace(/^--/, ''))

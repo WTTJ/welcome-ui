@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
-import { themeVariables } from './variables'
+import { themeVariables } from '../generated/variables'
 
 const breakpoints = Object.entries(themeVariables).reduce<Record<string, string>>(
   (acc, [key, value]) => {
@@ -18,14 +18,16 @@ const breakpoints = Object.entries(themeVariables).reduce<Record<string, string>
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-const fontFacesPath = path.join(__dirname, 'fontFaces.css')
-const basePath = path.join(__dirname, 'base.css')
-const utilitiesPath = path.join(__dirname, 'utilities.css')
-const resetPath = path.join(__dirname, 'resets.css')
-const themePath = path.join(__dirname, 'theme.css')
-const techTokensPath = path.join(__dirname, 'techTokens.css')
-const variablesPath = path.join(__dirname, 'variables.css')
-const breakpointsPath = path.join(__dirname, '../utils/scss/breakpoints.scss')
+const fontFacesPath = path.join(__dirname, '../layers/fontFaces.css')
+const basePath = path.join(__dirname, '../layers/base.css')
+const utilitiesPath = path.join(__dirname, '../layers/utilities.css')
+const resetPath = path.join(__dirname, '../layers/resets.css')
+const techTokensPath = path.join(__dirname, '../layers/techTokens.css')
+
+const themePath = path.join(__dirname, '../generated/theme.css')
+const variablesPath = path.join(__dirname, '../generated/variables.css')
+
+const breakpointsPath = path.join(__dirname, '../../utils/scss/breakpoints.scss')
 
 const fontFaces = fs.readFileSync(fontFacesPath, 'utf8')
 const baseStyles = fs.readFileSync(basePath, 'utf8')

@@ -1,8 +1,8 @@
 'use client'
 
 import { Text } from '@/components/Text'
+import { themeVariables } from '@/theme/generated/variables'
 import type { ThemeVariables } from '@/theme/types'
-import { themeVariables } from '@/theme/variables'
 
 type ColorsProps = {
   entry: ThemeVariables

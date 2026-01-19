@@ -1,4 +1,4 @@
-// This file is auto-generated from generate-theme-object.ts - do not edit directly
+// This file is auto-generated from generate-theme-variables.ts - do not edit directly
 export const themeVariables = {
   "--button-color-background-primary-main-default": "#ffcd00",
   "--button-color-background-primary-main-hover": "#e5b800",
@@ -1697,4 +1697,4 @@ export const themeVariables = {
   "--timing-secondary": "linear",
   "--timing-tertiary": "cubic-bezier(0.41, 0.094, 0.54, 0.07)",
   "--grid-pattern": "repeating-linear-gradient(\n      0,\n      var(--pattern-grid-color-stroke-default) 0,\n      var(--pattern-grid-color-stroke-default) var(--pattern-grid-stroke),\n      transparent var(--pattern-grid-stroke),\n      transparent var(--pattern-grid-size)\n    ),\n    repeating-linear-gradient(\n      90deg,\n      var(--pattern-grid-color-stroke-default) 0,\n      var(--pattern-grid-color-stroke-default) var(--pattern-grid-stroke),\n      transparent var(--pattern-grid-stroke),\n      transparent var(--pattern-grid-size)\n    )"
-}
+} as const

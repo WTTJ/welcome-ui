@@ -7,7 +7,7 @@
     "check:audit": "/bin/bash -c 'yarn audit --level low; [[ $? -ge 2 ]] && exit 1 || exit 0'",
     "check:audit:fix": "npm_config_yes=true npx yarn-audit-fix",
     "check:docs": "node ./scripts/check-docs.mjs",
-    "check:theme": "node --import=tsx lib/src/theme/generate-theme.ts",
+    "check:theme": "node --import=tsx lib/src/theme/scripts/generate-theme.ts",
     "lint:css": "stylelint **/*.scss --config ./stylelint.config.mjs",
     "lint:js": "eslint scripts lib website --max-warnings 0",
     "lint:mdx": "prettier --parser mdx --write '**/docs/index.mdx'",

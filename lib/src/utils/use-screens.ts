@@ -1,5 +1,5 @@
+import { themeVariables } from '@/theme/generated/variables'
 import type { ScreenSizes } from '@/theme/types'
-import { themeVariables } from '@/theme/variables'
 
 const breakpoints = Object.entries(themeVariables).reduce<Record<string, string>>(
   (acc, [key, value]) => {

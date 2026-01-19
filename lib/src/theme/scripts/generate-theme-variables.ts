@@ -19,15 +19,25 @@ function parseAllCSSVariables(cssContent: string): CSSVariables {
   }, {})
 }
 
-const variablesContent = fs.readFileSync(path.resolve(__dirname, './variables.css'), 'utf-8')
-const teckTokensContent = fs.readFileSync(path.resolve(__dirname, './techTokens.css'), 'utf-8')
+const variablesContent = fs.readFileSync(
+  path.resolve(__dirname, '../generated/variables.css'),
+  'utf-8'
+)
+const teckTokensContent = fs.readFileSync(
+  path.resolve(__dirname, '../layers/techTokens.css'),
+  'utf-8'
+)
 
 const themeVariables = parseAllCSSVariables(`${variablesContent}\n${teckTokensContent}`)
 
 const commonContent =
-  `// This file is auto-generated from generate-theme-object.ts - do not edit directly\n` +
+  `// This file is auto-generated from generate-theme-variables.ts - do not edit directly\n` +
   `export const themeVariables = ${JSON.stringify(themeVariables, null, 2)}`
 
-fs.writeFileSync(path.resolve(__dirname, './variables.ts'), `${commonContent} as const`, 'utf-8')
+fs.writeFileSync(
+  path.resolve(__dirname, '../generated/variables.ts'),
+  `${commonContent} as const`,
+  'utf-8'
+)
 
-fs.writeFileSync(path.resolve(__dirname, './variables.js'), `${commonContent}`, 'utf-8')
+fs.writeFileSync(path.resolve(__dirname, '../generated/variables.js'), `${commonContent}`, 'utf-8')

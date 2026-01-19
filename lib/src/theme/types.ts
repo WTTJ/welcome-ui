@@ -1,7 +1,7 @@
 /* eslint-disable perfectionist/sort-modules */
 // UTILS
 
-import type { themeVariables } from './variables'
+import type { themeVariables } from './generated/variables'
 
 export type ThemeVariables = typeof themeVariables
 

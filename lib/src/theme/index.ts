@@ -1,1 +1,1 @@
-import './theme.css'
+import './generated/theme.css'
