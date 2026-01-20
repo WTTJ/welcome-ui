@@ -2049,10 +2049,12 @@
 }
 
 @utility bg-grid {
+  background-position: -0.5px 0.5px;
   background-image: var(--grid-pattern);
 }
 
 @utility bg-grid-* {
+  background-position: -0.5px 0.5px;
   background-image: var(--grid-pattern);
   background-color: --value(--color-background- *);
 }
