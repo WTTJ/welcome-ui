@@ -15,8 +15,7 @@ const breakpoints = Object.entries(themeVariables).reduce<Record<string, string>
 type Screens = Record<ScreenSizes, number>
 
 /**
- * A custom hook tuh
- * jjg retrieve the screen sizes defined in the theme tokens.
+ * A custom hook to retrieve the screen sizes defined in the theme tokens.
  * @returns An object containing the screen sizes defined in the theme tokens,
  * with keys as screen names and absolute values.
  * Only supports number values (e.g. no 'rem', '%', etc.).
