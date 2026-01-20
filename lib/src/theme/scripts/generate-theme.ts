@@ -59,6 +59,6 @@ fs.writeFileSync(themePath, generateThemeCss(), 'utf8')
 // Generate scss breakpoints file
 const breakpointsContent = Object.entries(breakpoints).reduce((acc, [size, value]) => {
   return acc + `$breakpoint-${size}: ${value};\n`
-}, '/* screens - auto-generated from token.ts - do not edit directly */\n')
+}, '/* these breakpoints are auto-generated from lib/src/theme/scripts/generate-theme.ts - do not edit directly */\n')
 
 fs.writeFileSync(breakpointsPath, breakpointsContent, 'utf8')
