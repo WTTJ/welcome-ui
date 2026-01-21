@@ -1,9 +1,18 @@
+import { Accordion, useAccordion } from '@/components/Accordion'
 import { Button } from '@/components/Button'
 import { Drawer, useDrawer } from '@/components/Drawer'
 
 const Example = () => {
   const drawer = useDrawer()
   const drawer2 = useDrawer()
+  const accordion = useAccordion()
+  const accordion2 = useAccordion()
+  const accordion3 = useAccordion()
+  const accordion4 = useAccordion()
+  const accordion5 = useAccordion()
+  const accordion6 = useAccordion()
+  const accordion7 = useAccordion()
+  const accordion8 = useAccordion()
 
   const onClickCloseDrawer = () => drawer.hide()
   const onClickCloseDrawer2 = () => drawer2.hide()
@@ -39,7 +48,46 @@ const Example = () => {
           <Drawer.Header.Title title="Full footer" />
         </Drawer.Header>
         <Drawer.Content>
-          Content with full-width footer where elements take the full available space.
+          <Accordion store={accordion} title="Accordion title">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </Accordion>
+          <Accordion store={accordion2} title="Accordion title">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </Accordion>
+          <Accordion store={accordion3} title="Accordion title">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </Accordion>
+          <Accordion store={accordion4} title="Accordion title">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </Accordion>
+          <Accordion store={accordion5} title="Accordion title">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </Accordion>
+          <Accordion store={accordion6} title="Accordion title">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </Accordion>
+          <Accordion store={accordion7} title="Accordion title">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </Accordion>
+          <Accordion store={accordion8} title="Accordion title">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </Accordion>
         </Drawer.Content>
         <Drawer.Footer variant="full">
           <Button onClick={onClickCloseDrawer2} variant="secondary">
