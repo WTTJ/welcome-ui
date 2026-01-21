@@ -12,7 +12,7 @@
     "@stackblitz/sdk": "^1.11.0",
     "@types/lodash": "4.17.21",
     "gray-matter": "4.0.3",
-    "lodash": "4.17.21",
+    "lodash": "4.17.23",
     "marked": "16.4.1",
     "next": "15.5.9",
     "prism-react-renderer": "2.4.1",
