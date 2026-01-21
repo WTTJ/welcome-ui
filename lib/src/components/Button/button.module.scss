@@ -74,7 +74,7 @@
 
     &[data-focus-visible],
     &:focus-visible {
-      outline-width: var(--components-dimensions-button-border-width-focused);
+      outline-width: var(--button-border-width-focused);
       outline-color: var(--buttonOutlineColorFocus);
     }
 
@@ -123,75 +123,67 @@
   .size {
     &-sm {
       --buttonFontSize: var(--font-size-14);
-      --buttonHeight: var(--components-dimensions-button-size-max-height-sm);
-      --buttonPaddingInline: var(--components-dimensions-button-padding-inline-sm);
-      --buttonIconSize: var(--components-dimensions-button-size-icon-sm);
-      --buttonGap: var(--components-dimensions-button-gap-content-sm);
+      --buttonHeight: var(--button-size-max-height-sm);
+      --buttonPaddingInline: var(--button-padding-inline-sm);
+      --buttonIconSize: var(--button-size-icon-sm);
+      --buttonGap: var(--button-gap-content-sm);
     }
 
     &-md {
       --buttonFontSize: var(--font-size-14);
-      --buttonHeight: var(--components-dimensions-button-size-max-height-md);
-      --buttonPaddingInline: var(--components-dimensions-button-padding-inline-md);
-      --buttonIconSize: var(--components-dimensions-button-size-icon-md);
-      --buttonGap: var(--components-dimensions-button-gap-content-md);
+      --buttonHeight: var(--button-size-max-height-md);
+      --buttonPaddingInline: var(--button-padding-inline-md);
+      --buttonIconSize: var(--button-size-icon-md);
+      --buttonGap: var(--button-gap-content-md);
     }
 
     &-lg {
       --buttonFontSize: var(--font-size-16);
-      --buttonHeight: var(--components-dimensions-button-size-max-height-lg);
-      --buttonPaddingInline: var(--components-dimensions-button-padding-inline-lg);
-      --buttonIconSize: var(--components-dimensions-button-size-icon-lg);
-      --buttonGap: var(--components-dimensions-button-gap-content-lg);
+      --buttonHeight: var(--button-size-max-height-lg);
+      --buttonPaddingInline: var(--button-padding-inline-lg);
+      --buttonIconSize: var(--button-size-icon-lg);
+      --buttonGap: var(--button-gap-content-lg);
     }
   }
 
   .variant {
     &-primary {
-      --buttonBackground: var(--components-colors-button-color-background-primary-main-default);
-      --buttonBackgroundActive: var(
-        --components-colors-button-color-background-primary-main-pressed
-      );
-      --buttonBackgroundHover: var(--components-colors-button-color-background-primary-main-hover);
-      --buttonOutlineColorFocus: var(--components-colors-button-color-border-focused);
-      --buttonColorDisabled: var(--components-colors-button-color-text-primary-main-disabled);
+      --buttonBackground: var(--button-color-background-primary-main-default);
+      --buttonBackgroundActive: var(--button-color-background-primary-main-pressed);
+      --buttonBackgroundHover: var(--button-color-background-primary-main-hover);
+      --buttonOutlineColorFocus: var(--button-color-border-focused);
+      --buttonColorDisabled: var(--button-color-text-primary-main-disabled);
       --buttonBackgroundDisabled: #{ai-striped-background(
-          var(--components-colors-button-color-background-primary-main-disabled)
+          var(--button-color-background-primary-main-disabled)
         )};
     }
 
     &-primary-neutral {
-      --buttonBackground: var(--components-colors-button-color-background-primary-neutral-default);
-      --buttonBackgroundActive: var(
-        --components-colors-button-color-background-primary-neutral-pressed
-      );
-      --buttonBackgroundHover: var(
-        --components-colors-button-color-background-primary-neutral-hover
-      );
+      --buttonBackground: var(--button-color-background-primary-neutral-default);
+      --buttonBackgroundActive: var(--button-color-background-primary-neutral-pressed);
+      --buttonBackgroundHover: var(--button-color-background-primary-neutral-hover);
       --buttonBackgroundDisabled: #{ai-striped-background(
-          var(--components-colors-button-color-background-primary-neutral-disabled)
+          var(--button-color-background-primary-neutral-disabled)
         )};
-      --buttonColor: var(--components-colors-button-color-text-primary-neutral-default);
-      --buttonColorDisabled: var(--components-colors-button-color-text-primary-neutral-disabled);
-      --buttonColorHover: var(--components-colors-button-color-text-primary-neutral-hover);
-      --buttonColorPressed: var(--components-colors-button-color-text-primary-neutral-pressed);
-      --buttonOutlineColorFocus: var(--components-colors-button-color-border-focused);
+      --buttonColor: var(--button-color-text-primary-neutral-default);
+      --buttonColorDisabled: var(--button-color-text-primary-neutral-disabled);
+      --buttonColorHover: var(--button-color-text-primary-neutral-hover);
+      --buttonColorPressed: var(--button-color-text-primary-neutral-pressed);
+      --buttonOutlineColorFocus: var(--button-color-border-focused);
     }
 
     &-primary-ai {
       --buttonBackground: #{ai-gradient-border-background(
-          var(--components-colors-button-color-background-primary-ai-default)
+          var(--button-color-background-primary-ai-default)
         )};
       --buttonBackgroundActive: #{ai-gradient-border-background(
-          var(--components-colors-button-color-background-primary-ai-pressed)
+          var(--button-color-background-primary-ai-pressed)
         )};
       --buttonBackgroundHover: #{ai-gradient-border-background(
-          var(--components-colors-button-color-background-primary-ai-hover)
+          var(--button-color-background-primary-ai-hover)
         )};
       --buttonBackgroundDisabled:
-        #{ai-striped-background(
-            var(--components-colors-button-color-background-primary-ai-disabled)
-          )},
+        #{ai-striped-background(var(--button-color-background-primary-ai-disabled))},
         linear-gradient(
             107.75deg,
             var(--color-neutral-30) 0%,
@@ -202,12 +194,12 @@
             var(--color-neutral-50) 100%
           )
           border-box;
-      --buttonBorderWidth: var(--components-dimensions-button-border-width-ai);
-      --buttonColor: var(--components-colors-button-color-text-primary-ai-default);
-      --buttonColorDisabled: var(--components-colors-button-color-text-primary-ai-disabled);
-      --buttonColorHover: var(--components-colors-button-color-text-primary-ai-hover);
-      --buttonColorPressed: var(--components-colors-button-color-text-primary-ai-pressed);
-      --buttonOutlineColorFocus: var(--components-colors-button-color-border-focused);
+      --buttonBorderWidth: var(--button-border-width-ai);
+      --buttonColor: var(--button-color-text-primary-ai-default);
+      --buttonColorDisabled: var(--button-color-text-primary-ai-disabled);
+      --buttonColorHover: var(--button-color-text-primary-ai-hover);
+      --buttonColorPressed: var(--button-color-text-primary-ai-pressed);
+      --buttonOutlineColorFocus: var(--button-color-border-focused);
       animation: rotate-gradient 3s linear infinite paused;
 
       @media (hover: hover) and (pointer: fine) {
@@ -222,104 +214,80 @@
     }
 
     &-primary-danger {
-      --buttonBackground: var(--components-colors-button-color-background-primary-danger-default);
-      --buttonBackgroundActive: var(
-        --components-colors-button-color-background-primary-danger-pressed
-      );
-      --buttonBackgroundHover: var(
-        --components-colors-button-color-background-primary-danger-hover
-      );
+      --buttonBackground: var(--button-color-background-primary-danger-default);
+      --buttonBackgroundActive: var(--button-color-background-primary-danger-pressed);
+      --buttonBackgroundHover: var(--button-color-background-primary-danger-hover);
       --buttonBackgroundDisabled: #{ai-striped-background(
-          var(--components-colors-button-color-background-primary-danger-disabled)
+          var(--button-color-background-primary-danger-disabled)
         )};
-      --buttonColor: var(--components-colors-button-color-text-primary-danger-default);
-      --buttonColorDisabled: var(--components-colors-button-color-text-primary-danger-disabled);
-      --buttonColorHover: var(--components-colors-button-color-text-primary-danger-hover);
-      --buttonColorPressed: var(--components-colors-button-color-text-primary-danger-pressed);
-      --buttonBorderWidth: var(--components-dimensions-button-border-width-secondary);
-      --buttonOutlineColorFocus: var(--components-colors-button-color-border-focused);
+      --buttonColor: var(--button-color-text-primary-danger-default);
+      --buttonColorDisabled: var(--button-color-text-primary-danger-disabled);
+      --buttonColorHover: var(--button-color-text-primary-danger-hover);
+      --buttonColorPressed: var(--button-color-text-primary-danger-pressed);
+      --buttonBorderWidth: var(--button-border-width-secondary);
+      --buttonOutlineColorFocus: var(--button-color-border-focused);
     }
 
     &-secondary {
-      --buttonBackground: var(--components-colors-button-color-background-secondary-main-default);
-      --buttonBackgroundActive: var(
-        --components-colors-button-color-background-secondary-main-pressed
-      );
-      --buttonBackgroundHover: var(
-        --components-colors-button-color-background-secondary-main-hover
-      );
+      --buttonBackground: var(--button-color-background-secondary-main-default);
+      --buttonBackgroundActive: var(--button-color-background-secondary-main-pressed);
+      --buttonBackgroundHover: var(--button-color-background-secondary-main-hover);
       --buttonBackgroundDisabled: #{ai-striped-background(
-          var(--components-colors-button-color-background-secondary-main-disabled)
+          var(--button-color-background-secondary-main-disabled)
         )};
-      --buttonColor: var(--components-colors-button-color-text-secondary-main-default);
-      --buttonColorDisabled: var(--components-colors-button-color-text-secondary-main-disabled);
-      --buttonColorHover: var(--components-colors-button-color-text-secondary-main-hover);
-      --buttonColorPressed: var(--components-colors-button-color-text-secondary-main-pressed);
-      --buttonBorderWidth: var(--components-dimensions-button-border-width-secondary);
-      --buttonBorderColor: var(--components-colors-button-color-border-secondary-main-default);
-      --buttonBorderColorHover: var(--components-colors-button-color-border-secondary-main-hover);
-      --buttonBorderColorActive: var(
-        --components-colors-button-color-border-secondary-main-pressed
-      );
-      --buttonOutlineColorFocus: var(--components-colors-button-color-border-focused);
+      --buttonColor: var(--button-color-text-secondary-main-default);
+      --buttonColorDisabled: var(--button-color-text-secondary-main-disabled);
+      --buttonColorHover: var(--button-color-text-secondary-main-hover);
+      --buttonColorPressed: var(--button-color-text-secondary-main-pressed);
+      --buttonBorderWidth: var(--button-border-width-secondary);
+      --buttonBorderColor: var(--button-color-border-secondary-main-default);
+      --buttonBorderColorHover: var(--button-color-border-secondary-main-hover);
+      --buttonBorderColorActive: var(--button-color-border-secondary-main-pressed);
+      --buttonOutlineColorFocus: var(--button-color-border-focused);
     }
 
     &-secondary-danger {
-      --buttonBackground: var(--components-colors-button-color-background-secondary-danger-default);
-      --buttonBackgroundActive: var(
-        --components-colors-button-color-background-secondary-danger-pressed
-      );
-      --buttonBackgroundHover: var(
-        --components-colors-button-color-background-secondary-danger-hover
-      );
+      --buttonBackground: var(--button-color-background-secondary-danger-default);
+      --buttonBackgroundActive: var(--button-color-background-secondary-danger-pressed);
+      --buttonBackgroundHover: var(--button-color-background-secondary-danger-hover);
       --buttonBackgroundDisabled: #{ai-striped-background(
-          var(--components-colors-button-color-background-secondary-danger-disabled)
+          var(--button-color-background-secondary-danger-disabled)
         )};
-      --buttonColor: var(--components-colors-button-color-text-secondary-danger-default);
-      --buttonColorDisabled: var(--components-colors-button-color-text-secondary-danger-disabled);
-      --buttonColorHover: var(--components-colors-button-color-text-secondary-danger-hover);
-      --buttonColorPressed: var(--components-colors-button-color-text-secondary-danger-pressed);
-      --buttonBorderWidth: var(--components-dimensions-button-border-width-secondary);
-      --buttonBorderColor: var(--components-colors-button-color-border-secondary-danger-default);
-      --buttonBorderColorHover: var(--components-colors-button-color-border-secondary-danger-hover);
-      --buttonBorderColorActive: var(
-        --components-colors-button-color-border-secondary-danger-pressed
-      );
-      --buttonOutlineColorFocus: var(--components-colors-button-color-border-focused);
+      --buttonColor: var(--button-color-text-secondary-danger-default);
+      --buttonColorDisabled: var(--button-color-text-secondary-danger-disabled);
+      --buttonColorHover: var(--button-color-text-secondary-danger-hover);
+      --buttonColorPressed: var(--button-color-text-secondary-danger-pressed);
+      --buttonBorderWidth: var(--button-border-width-secondary);
+      --buttonBorderColor: var(--button-color-border-secondary-danger-default);
+      --buttonBorderColorHover: var(--button-color-border-secondary-danger-hover);
+      --buttonBorderColorActive: var(--button-color-border-secondary-danger-pressed);
+      --buttonOutlineColorFocus: var(--button-color-border-focused);
     }
 
     &-tertiary {
-      --buttonBackground: var(--components-colors-button-color-background-tertiary-main-default);
-      --buttonBackgroundActive: var(
-        --components-colors-button-color-background-tertiary-main-pressed
-      );
-      --buttonBackgroundHover: var(--components-colors-button-color-background-tertiary-main-hover);
+      --buttonBackground: var(--button-color-background-tertiary-main-default);
+      --buttonBackgroundActive: var(--button-color-background-tertiary-main-pressed);
+      --buttonBackgroundHover: var(--button-color-background-tertiary-main-hover);
       --buttonBackgroundDisabled: #{ai-striped-background(
-          var(--components-colors-button-color-background-tertiary-main-disabled)
+          var(--button-color-background-tertiary-main-disabled)
         )};
-      --buttonColor: var(--components-colors-button-color-text-tertiary-main-default);
-      --buttonColorDisabled: var(--components-colors-button-color-text-tertiary-main-disabled);
-      --buttonColorHover: var(--components-colors-button-color-text-tertiary-main-hover);
-      --buttonColorPressed: var(--components-colors-button-color-text-tertiary-main-pressed);
-      --buttonOutlineColorFocus: var(--components-colors-button-color-border-focused);
+      --buttonColor: var(--button-color-text-tertiary-main-default);
+      --buttonColorDisabled: var(--button-color-text-tertiary-main-disabled);
+      --buttonColorHover: var(--button-color-text-tertiary-main-hover);
+      --buttonColorPressed: var(--button-color-text-tertiary-main-pressed);
+      --buttonOutlineColorFocus: var(--button-color-border-focused);
     }
 
     &-tertiary-danger {
-      --buttonBackground: var(--components-colors-button-color-background-tertiary-danger-default);
-      --buttonBackgroundActive: var(
-        --components-colors-button-color-background-tertiary-danger-pressed
-      );
-      --buttonBackgroundHover: var(
-        --components-colors-button-color-background-tertiary-danger-hover
-      );
-      --buttonBackgroundDisabled: var(
-        --components-colors-button-color-background-tertiary-danger-disabled
-      );
-      --buttonColor: var(--components-colors-button-color-text-tertiary-danger-default);
-      --buttonColorDisabled: var(--components-colors-button-color-text-tertiary-danger-disabled);
-      --buttonColorHover: var(--components-colors-button-color-text-tertiary-danger-hover);
-      --buttonColorPressed: var(--components-colors-button-color-text-tertiary-danger-pressed);
-      --buttonOutlineColorFocus: var(--components-colors-button-color-border-focused);
+      --buttonBackground: var(--button-color-background-tertiary-danger-default);
+      --buttonBackgroundActive: var(--button-color-background-tertiary-danger-pressed);
+      --buttonBackgroundHover: var(--button-color-background-tertiary-danger-hover);
+      --buttonBackgroundDisabled: var(--button-color-background-tertiary-danger-disabled);
+      --buttonColor: var(--button-color-text-tertiary-danger-default);
+      --buttonColorDisabled: var(--button-color-text-tertiary-danger-disabled);
+      --buttonColorHover: var(--button-color-text-tertiary-danger-hover);
+      --buttonColorPressed: var(--button-color-text-tertiary-danger-pressed);
+      --buttonOutlineColorFocus: var(--button-color-border-focused);
     }
   }
 

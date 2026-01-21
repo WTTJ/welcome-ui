@@ -5,10 +5,10 @@
     transition: var(--duration-medium);
 
     &:not(.checked):not(:disabled):not([aria-disabled]) {
-      border-color: var(--components-colors-radio-color-border-unchecked-default);
+      border-color: var(--radio-color-border-unchecked-default);
 
       &:hover {
-        background-color: var(--components-colors-radio-color-border-unchecked-default);
+        background-color: var(--radio-color-border-unchecked-default);
       }
 
       &:focus,

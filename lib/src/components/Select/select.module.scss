@@ -48,7 +48,7 @@
 
     &.disabled {
       cursor: not-allowed;
-      color: var(--components-colors-input-color-text-disabled);
+      color: var(--input-color-text-disabled);
     }
   }
 
@@ -64,16 +64,16 @@
   }
 
   .root {
-    --selectPlaceholderColor: var(--components-colors-input-color-text-placeholder);
+    --selectPlaceholderColor: var(--input-color-text-placeholder);
     background-color: var(
       --selectBackgroundColor,
-      var(--components-colors-input-color-background-default)
+      var(--input-color-background-default)
     );
-    border-color: var(--selectBorderColor, var(--components-colors-input-color-border-default));
-    border-radius: var(--components-dimensions-input-border-radius);
+    border-color: var(--selectBorderColor, var(--input-color-border-default));
+    border-radius: var(--input-border-radius);
     border-style: solid;
-    border-width: var(--components-dimensions-input-border-width-default);
-    color: var(--selectTextColor, var(--components-colors-input-color-text-default));
+    border-width: var(--input-border-width-default);
+    color: var(--selectTextColor, var(--input-color-text-default));
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-regular);
     line-height: var(--selectLineHeight, 1);
@@ -117,28 +117,28 @@
     }
 
     &.disabled {
-      --selectBackgroundColor: var(--components-colors-input-color-background-disabled);
-      --selectTextColor: var(--components-colors-input-color-text-disabled);
+      --selectBackgroundColor: var(--input-color-background-disabled);
+      --selectTextColor: var(--input-color-text-disabled);
       cursor: not-allowed;
     }
 
     /* hover when no variant is defined */
     &:hover:not(.disabled) {
-      --selectBorderColor: var(--components-colors-input-color-border-hover);
+      --selectBorderColor: var(--input-color-border-hover);
       --selectBoxShadow: var(--inset-20);
     }
 
     /* focus when no variant is defined */
     &:focus:not(.disabled) {
-      --selectBorderColor: var(--components-colors-input-color-border-active);
+      --selectBorderColor: var(--input-color-border-active);
     }
 
     &.transparent {
       --selectBorderColor: transparent;
-      --selectBackgroundColor: var(--components-colors-input-color-background-transparent);
+      --selectBackgroundColor: var(--input-color-background-transparent);
 
       &:hover {
-        --selectBorderColor: var(--components-colors-input-color-border-hover-transparent);
+        --selectBorderColor: var(--input-color-border-hover-transparent);
       }
     }
 
@@ -179,43 +179,43 @@
 
   .variant {
     &-danger {
-      --selectBorderColor: var(--components-colors-input-color-border-error);
+      --selectBorderColor: var(--input-color-border-error);
     }
 
     &-success {
-      --selectBorderColor: var(--components-colors-input-color-border-success);
+      --selectBorderColor: var(--input-color-border-success);
     }
 
     &-warning {
-      --selectBorderColor: var(--components-colors-input-color-border-warning);
+      --selectBorderColor: var(--input-color-border-warning);
     }
   }
 
   .size {
     &-lg {
-      --selectHeight: var(--components-dimensions-input-max-height-lg);
-      --selectPaddingBottom: var(--components-dimensions-input-padding-block-lg);
-      --selectPaddingLeft: var(--components-dimensions-input-padding-inline-lg);
-      --selectPaddingRight: var(--components-dimensions-input-padding-inline-lg);
-      --selectPaddingTop: var(--components-dimensions-input-padding-block-lg);
+      --selectHeight: var(--input-max-height-lg);
+      --selectPaddingBottom: var(--input-padding-block-lg);
+      --selectPaddingLeft: var(--input-padding-inline-lg);
+      --selectPaddingRight: var(--input-padding-inline-lg);
+      --selectPaddingTop: var(--input-padding-block-lg);
       --selectLineHeight: 1.15;
     }
 
     &-md {
-      --selectHeight: var(--components-dimensions-input-max-height-md);
-      --selectPaddingBottom: var(--components-dimensions-input-padding-block-md);
-      --selectPaddingLeft: var(--components-dimensions-input-padding-inline-md);
-      --selectPaddingRight: var(--components-dimensions-input-padding-inline-md);
-      --selectPaddingTop: var(--components-dimensions-input-padding-block-md);
+      --selectHeight: var(--input-max-height-md);
+      --selectPaddingBottom: var(--input-padding-block-md);
+      --selectPaddingLeft: var(--input-padding-inline-md);
+      --selectPaddingRight: var(--input-padding-inline-md);
+      --selectPaddingTop: var(--input-padding-block-md);
       --selectLineHeight: 1;
     }
 
     &-sm {
-      --selectHeight: var(--components-dimensions-input-max-height-sm);
-      --selectPaddingBottom: var(--components-dimensions-input-padding-block-sm);
-      --selectPaddingLeft: var(--components-dimensions-input-padding-inline-sm);
-      --selectPaddingRight: var(--components-dimensions-input-padding-inline-sm);
-      --selectPaddingTop: var(--components-dimensions-input-padding-block-sm);
+      --selectHeight: var(--input-max-height-sm);
+      --selectPaddingBottom: var(--input-padding-block-sm);
+      --selectPaddingLeft: var(--input-padding-inline-sm);
+      --selectPaddingRight: var(--input-padding-inline-sm);
+      --selectPaddingTop: var(--input-padding-block-sm);
       --selectLineHeight: 1;
     }
   }
@@ -234,7 +234,7 @@
 
     left: var(--iconPlacementLeft, auto);
     right: var(--iconPlacementRight, auto);
-    color: var(--selectIconWrapperColor, var(--components-colors-input-color-icon-default));
+    color: var(--selectIconWrapperColor, var(--input-color-icon-default));
 
     &.icon-placement-left {
       --iconPlacementLeft: var(--spacing-md);
@@ -261,18 +261,18 @@
     width: 100%;
 
     &.disabled .icon-wrapper {
-      --selectIconWrapperColor: var(--components-colors-input-color-icon-disabled);
+      --selectIconWrapperColor: var(--input-color-icon-disabled);
     }
   }
 
   .menu {
     max-height: 9.6875rem; /* 155px */
-    background-color: var(--components-colors-input-color-background-default);
-    border-color: var(--components-colors-input-color-border-hover);
-    border-radius: var(--components-dimensions-input-border-radius);
+    background-color: var(--input-color-background-default);
+    border-color: var(--input-color-border-hover);
+    border-radius: var(--input-border-radius);
     border-style: solid;
-    border-width: var(--components-dimensions-input-border-width-default);
-    color: var(--components-colors-input-color-text-default);
+    border-width: var(--input-border-width-default);
+    color: var(--input-color-text-default);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-regular);
     line-height: var(--font-line-height-md);
@@ -313,7 +313,7 @@
 
     &.selected {
       &:not(.multiple) {
-        --itemTextColor: var(--components-colors-input-color-text-default);
+        --itemTextColor: var(--input-color-text-default);
         font-weight: var(--font-weight-semi-bold);
       }
       &.multiple:not(.allowUnselectFromList) {
@@ -323,7 +323,7 @@
     }
 
     &.disabled {
-      --itemTextColor: var(--components-colors-input-color-text-disabled);
+      --itemTextColor: var(--input-color-text-disabled);
       --itemCursor: not-allowed;
     }
   }

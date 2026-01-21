@@ -3,7 +3,7 @@ export default {
   overrides: [
     {
       files: ['**/*.{css,scss}'],
-      ignoreFiles: ['website/out/**', 'lib/dist/**'],
+      ignoreFiles: ['website/out/**', 'lib/dist/**', 'lib/src/theme/generated/**'],
       rules: {
         'alpha-value-notation': null,
         'at-rule-empty-line-before': null,
@@ -34,5 +34,5 @@ export default {
       },
     },
   ],
-  plugins: ['./scripts/stylelint-valid-theme-tokens.js'],
+  plugins: ['./scripts/stylelint-valid-theme-tokens.mjs'],
 }

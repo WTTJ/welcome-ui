@@ -1,0 +1,26 @@
+@theme static {
+  --*: initial;
+  --spacing: 0.0625rem;
+  --spacing-0: 0;
+  --duration-fast: 100ms;
+  --duration-medium: 300ms;
+  --duration-slow: 500ms;
+  --timing-primary: ease;
+  --timing-secondary: linear;
+  --timing-tertiary: cubic-bezier(0.41, 0.094, 0.54, 0.07);
+  --grid-pattern:
+    repeating-linear-gradient(
+      0,
+      var(--pattern-grid-color-stroke-default) 0,
+      var(--pattern-grid-color-stroke-default) var(--pattern-grid-stroke),
+      transparent var(--pattern-grid-stroke),
+      transparent var(--pattern-grid-size)
+    ),
+    repeating-linear-gradient(
+      90deg,
+      var(--pattern-grid-color-stroke-default) 0,
+      var(--pattern-grid-color-stroke-default) var(--pattern-grid-stroke),
+      transparent var(--pattern-grid-stroke),
+      transparent var(--pattern-grid-size)
+    );
+}

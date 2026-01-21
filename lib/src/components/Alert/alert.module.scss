@@ -4,25 +4,25 @@
     display: flex;
     align-items: flex-start;
     width: 100%;
-    gap: var(--gap, var(--components-dimensions-alert-gap-content-md));
-    border-radius: var(--components-dimensions-alert-border-radius);
+    gap: var(--gap, var(--alert-gap-content-md));
+    border-radius: var(--alert-border-radius);
     border-width: var(--border-width-sm);
     border-style: solid;
 
     /* VARIABLES THAT CHANGE WITH REACT PROPS */
     padding: var(--padding);
     max-width: var(--maxWidth, max-content);
-    background-color: var(--backgroundColor, var(--components-colors-alert-color-background-brand));
-    border-color: var(--borderColor, var(--components-colors-alert-color-background-brand));
-    color: var(--color, var(--components-colors-alert-color-text-brand-body));
+    background-color: var(--backgroundColor, var(--alert-color-background-brand));
+    border-color: var(--borderColor, var(--alert-color-background-brand));
+    color: var(--color, var(--alert-color-text-brand-body));
   }
 
   .size {
     &-md {
-      --padding: var(--components-dimensions-alert-padding-inline-md);
+      --padding: var(--alert-padding-inline-md);
 
       .content-actions {
-        --gap: var(--components-dimensions-alert-gap-actions-md);
+        --gap: var(--alert-gap-actions-md);
       }
 
       .without-title {
@@ -35,21 +35,21 @@
     }
 
     &-lg {
-      --padding: var(--components-dimensions-alert-padding-inline-lg);
-      --gap: var(--components-dimensions-alert-gap-content-lg);
+      --padding: var(--alert-padding-inline-lg);
+      --gap: var(--alert-gap-content-lg);
 
       .content-actions {
-        --gap: var(--components-dimensions-alert-gap-actions-lg);
+        --gap: var(--alert-gap-actions-lg);
       }
     }
   }
 
   .variant {
     &-ai {
-      --backgroundColor: var(--components-colors-alert-color-background-ai);
+      --backgroundColor: var(--alert-color-background-ai);
       --borderColor: transparent;
       background:
-        linear-gradient(var(--components-colors-alert-color-background-ai) 0 0) padding-box,
+        linear-gradient(var(--alert-color-background-ai) 0 0) padding-box,
         linear-gradient(
             90deg,
             var(--color-green-30) 0%,
@@ -63,26 +63,26 @@
     }
 
     &-danger {
-      --backgroundColor: var(--components-colors-alert-color-background-danger);
-      --borderColor: var(--components-colors-alert-color-background-danger);
+      --backgroundColor: var(--alert-color-background-danger);
+      --borderColor: var(--alert-color-background-danger);
       --color: var(--color-icon-danger-primary);
     }
 
     &-info {
-      --backgroundColor: var(--components-colors-alert-color-background-information);
-      --borderColor: var(--components-colors-alert-color-background-information);
+      --backgroundColor: var(--alert-color-background-information);
+      --borderColor: var(--alert-color-background-information);
       --color: var(--color-icon-accent-blue-primary);
     }
 
     &-success {
-      --backgroundColor: var(--components-colors-alert-color-background-success);
-      --borderColor: var(--components-colors-alert-color-background-success);
+      --backgroundColor: var(--alert-color-background-success);
+      --borderColor: var(--alert-color-background-success);
       --color: var(--color-icon-accent-green-primary);
     }
 
     &-warning {
-      --backgroundColor: var(--components-colors-alert-color-background-warning);
-      --borderColor: var(--components-colors-alert-color-background-warning);
+      --backgroundColor: var(--alert-color-background-warning);
+      --borderColor: var(--alert-color-background-warning);
       --color: var(--color-icon-warning-primary);
     }
   }
@@ -99,13 +99,13 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    gap: var(--gap, var(--components-dimensions-alert-gap-content-md));
+    gap: var(--gap, var(--alert-gap-content-md));
   }
 
   .content-text {
     display: flex;
     flex-direction: column;
-    gap: var(--gap, var(--components-dimensions-alert-gap-content-md));
+    gap: var(--gap, var(--alert-gap-content-md));
 
     &.without-title {
       flex-direction: row;
@@ -146,34 +146,34 @@
   .icon-wrapper {
     display: flex;
     flex-shrink: 0;
-    padding: var(--components-dimensions-alert-icon-padding-block);
-    border-radius: var(--components-dimensions-alert-icon-border-radius);
+    padding: var(--alert-icon-padding-block);
+    border-radius: var(--alert-icon-border-radius);
     background-color: var(
       --iconWrapperBackgroundColor,
-      var(--components-colors-alert-icon-color-background-brand)
+      var(--alert-icon-color-background-brand)
     );
-    color: var(--iconWrapperColor, var(--components-colors-alert-icon-color-icon-brand));
+    color: var(--iconWrapperColor, var(--alert-icon-color-icon-brand));
 
     &-success {
-      --iconWrapperBackgroundColor: var(--components-colors-alert-icon-color-background-success);
-      --iconWrapperColor: var(--components-colors-alert-icon-color-icon-success);
+      --iconWrapperBackgroundColor: var(--alert-icon-color-background-success);
+      --iconWrapperColor: var(--alert-icon-color-icon-success);
     }
 
     &-danger {
-      --iconWrapperBackgroundColor: var(--components-colors-alert-icon-color-background-danger);
-      --iconWrapperColor: var(--components-colors-alert-icon-color-icon-danger);
+      --iconWrapperBackgroundColor: var(--alert-icon-color-background-danger);
+      --iconWrapperColor: var(--alert-icon-color-icon-danger);
     }
 
     &-info {
       --iconWrapperBackgroundColor: var(
-        --components-colors-alert-icon-color-background-information
+        --alert-icon-color-background-information
       );
-      --iconWrapperColor: var(--components-colors-alert-icon-color-icon-information);
+      --iconWrapperColor: var(--alert-icon-color-icon-information);
     }
 
     &-warning {
-      --iconWrapperBackgroundColor: var(--components-colors-alert-icon-color-background-warning);
-      --iconWrapperColor: var(--components-colors-alert-icon-color-icon-warning);
+      --iconWrapperBackgroundColor: var(--alert-icon-color-background-warning);
+      --iconWrapperColor: var(--alert-icon-color-icon-warning);
     }
 
     &-ai {
@@ -190,7 +190,7 @@
         var(--color-teal-40) 306.35deg,
         var(--color-green-30) 360deg
       );
-      --iconWrapperColor: var(--components-colors-alert-icon-color-icon-ai);
+      --iconWrapperColor: var(--alert-icon-color-icon-ai);
     }
   }
 }

@@ -1,8 +1,18 @@
-/* eslint-disable perfectionist/sort-modules */
-import tokens from '@/theme/tokens/semantics.json' assert { type: 'json' }
+import { themeVariables } from '@/theme/generated/variables'
+import type { ScreenSizes } from '@/theme/types'
 
-type ScreenSize = keyof Omit<typeof tokens.breakpoint, '$type'>
-type Screens = Record<ScreenSize, number>
+const breakpoints = Object.entries(themeVariables).reduce<Record<string, string>>(
+  (acc, [key, value]) => {
+    if (key.startsWith('--breakpoint-')) {
+      const size = key.replace('--breakpoint-', '')
+      acc[size] = value
+    }
+    return acc
+  },
+  {}
+)
+
+type Screens = Record<ScreenSizes, number>
 
 /**
  * A custom hook to retrieve the screen sizes defined in the theme tokens.
@@ -11,16 +21,8 @@ type Screens = Record<ScreenSize, number>
  * Only supports number values (e.g. no 'rem', '%', etc.).
  */
 export function useScreens() {
-  return Object.entries(tokens.breakpoint).reduce((acc, [key, value]) => {
-    if (key !== '$type' && typeof value === 'object' && 'value' in value) {
-      const parsedValue =
-        typeof value['value'] === 'string'
-          ? Number(value['value'].replace('px', ''))
-          : value['value']
-      if (!isNaN(parsedValue)) {
-        acc[key as ScreenSize] = parsedValue
-      }
-    }
+  return Object.entries(breakpoints).reduce<Screens>((acc, [size, breakpointValue]) => {
+    acc[size as ScreenSizes] = Number(breakpointValue.replace('px', ''))
     return acc
   }, {} as Screens)
 }

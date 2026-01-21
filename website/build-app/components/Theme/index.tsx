@@ -1,43 +1,50 @@
 'use client'
 
 import { Text } from '@/components/Text'
-import tokens from '@/theme/tokens/primitives.json'
-import type { FlatTokens, TokensStructure } from '@/theme/utils/parseTokens'
-import { parseTokens } from '@/theme/utils/parseTokens'
+import { themeVariables } from '@/theme/generated/variables'
+import type { ThemeVariables } from '@/theme/types'
 
 type ColorsProps = {
-  entry: string
+  entry: ThemeVariables
 }
 
 export const Theme = ({ entry }: ColorsProps) => {
-  const entries = parseTokens(tokens as unknown as TokensStructure)
-
-  if (!entries) {
-    return <div>Unknown entry: {entry}</div>
-  }
-
-  const filteredEntries = Object.entries(entries).reduce((acc, [key, value]) => {
-    if (key.startsWith(entry)) {
-      acc[key] = value
-    }
-    return acc
-  }, {} as FlatTokens)
+  const filteredEntries = Object.entries(themeVariables).reduce<Record<string, string>>(
+    (acc, [key, value]) => {
+      if (key.startsWith(`--${entry}`)) {
+        acc[key] = value
+      }
+      return acc
+    },
+    {}
+  )
 
   return (
     <div className="bg-beige-20 gap-sm grid mt-lg p-xxl rounded-md">
       {Object.entries(filteredEntries).map(([key, value], index) => {
         const border = index !== 0 ? 'border-t border-t-neutral-30' : ''
 
+        const isRem = value.endsWith('rem')
+        const isPx = value.endsWith('px')
+        const isCalc = value.startsWith('calc')
+        const isNumber = !isNaN(Number(value))
         return (
           <div className={`${border} gap-xxl grid grid-cols-[150px_150px_150px] pt-sm`} key={key}>
-            <Text className="font-bold text-violet-80">{key}</Text>
-            <Text className="text-neutral-70">
-              {value as string}
-              {typeof value === 'number' && 'px'}
-            </Text>
-            {typeof value === 'string' && (value.endsWith('rem') || value === '0px') && (
-              <Text>({parseInt(value) / 16})</Text>
-            )}
+            <Text className="font-bold text-violet-80}">{key}</Text>
+            {isRem ? (
+              <>
+                <Text>{Number(value.replace('rem', '')) * 16}px</Text>
+                <Text>({value})</Text>
+              </>
+            ) : null}
+            {isPx ? (
+              <>
+                <Text>{value}</Text>
+                <Text>({Number(value.replace('px', '')) / 16}rem)</Text>
+              </>
+            ) : null}
+            {isNumber ? <Text>{value}</Text> : null}
+            {isCalc ? <Text>{value}</Text> : null}
           </div>
         )
       })}

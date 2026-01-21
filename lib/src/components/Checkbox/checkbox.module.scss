@@ -4,33 +4,33 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: var(--components-dimensions-checkbox-size-container);
-    width: var(--components-dimensions-checkbox-size-container);
+    height: var(--checkbox-size-container);
+    width: var(--checkbox-size-container);
     flex-shrink: 0;
     cursor: pointer;
     border-style: solid;
-    border-width: var(--components-dimensions-checkbox-border-width-default);
-    border-radius: var(--components-dimensions-checkbox-border-radius);
-    outline: transparent solid var(--components-dimensions-checkbox-border-width-focused);
+    border-width: var(--checkbox-border-width-default);
+    border-radius: var(--checkbox-border-radius);
+    outline: transparent solid var(--checkbox-border-width-focused);
     transition-property: border-color, background-color, color, outline-color;
     transition-duration: var(--duration-medium);
 
     /* VARIABLES THAT CHANGE WITH REACT PROPS */
-    color: var(--color, var(--components-colors-checkbox-color-icon-default));
+    color: var(--color, var(--checkbox-color-icon-default));
     background-color: var(
       --backgroundColor,
-      var(--components-colors-checkbox-color-background-unchecked-default)
+      var(--checkbox-color-background-unchecked-default)
     );
     border-color: var(
       --borderColor,
-      var(--components-colors-checkbox-color-border-unchecked-default)
+      var(--checkbox-color-border-unchecked-default)
     );
 
     &:disabled,
     &[aria-disabled] {
-      --color: var(--components-colors-checkbox-color-icon-disabled);
-      --backgroundColor: var(--components-colors-checkbox-color-border-disabled);
-      --borderColor: var(--components-colors-checkbox-color-border-disabled);
+      --color: var(--checkbox-color-icon-disabled);
+      --backgroundColor: var(--checkbox-color-border-disabled);
+      --borderColor: var(--checkbox-color-border-disabled);
 
       cursor: not-allowed;
     }
@@ -38,7 +38,7 @@
     &:not([aria-disabled]):hover {
       --borderColor: var(
         --borderColorHover,
-        var(--components-colors-checkbox-color-border-unchecked-hover)
+        var(--checkbox-color-border-unchecked-hover)
       );
     }
 
@@ -46,21 +46,21 @@
     &:focus-visible {
       --borderColor: var(
         --borderColorFocused,
-        var(--components-colors-checkbox-color-border-focused)
+        var(--checkbox-color-border-focused)
       );
       outline-color: var(
         --outlineColorFocus,
-        var(--components-colors-checkbox-color-border-focused)
+        var(--checkbox-color-border-focused)
       );
     }
 
     &[aria-checked='true'] {
       &:not([aria-disabled]) {
-        --backgroundColor: var(--components-colors-checkbox-color-background-checked-default);
-        --borderColor: var(--components-colors-checkbox-color-background-checked-default);
+        --backgroundColor: var(--checkbox-color-background-checked-default);
+        --borderColor: var(--checkbox-color-background-checked-default);
 
         &:hover {
-          --backgroundColor: var(--components-colors-checkbox-color-background-checked-hover);
+          --backgroundColor: var(--checkbox-color-background-checked-hover);
           --borderColor: var(--backgroundColor);
         }
       }
@@ -69,9 +69,9 @@
 
   .variant {
     &-danger {
-      --borderColor: var(--components-colors-checkbox-color-border-error);
-      --borderColorHover: var(--components-colors-checkbox-color-border-error);
-      --borderColorFocused: var(--components-colors-checkbox-color-border-error);
+      --borderColor: var(--checkbox-color-border-error);
+      --borderColorHover: var(--checkbox-color-border-error);
+      --borderColorFocused: var(--checkbox-color-border-error);
       --outlineColorFocus: var(--color-background-danger-secondary);
     }
 
@@ -92,11 +92,11 @@
 
   .indeterminate {
     &:not([aria-disabled]) {
-      --backgroundColor: var(--components-colors-checkbox-color-background-checked-default);
-      --borderColor: var(--components-colors-checkbox-color-background-checked-default);
+      --backgroundColor: var(--checkbox-color-background-checked-default);
+      --borderColor: var(--checkbox-color-background-checked-default);
 
       &:hover {
-        --backgroundColor: var(--components-colors-checkbox-color-background-checked-hover);
+        --backgroundColor: var(--checkbox-color-background-checked-hover);
         --borderColor: var(--backgroundColor);
       }
     }

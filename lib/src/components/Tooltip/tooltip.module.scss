@@ -2,14 +2,14 @@
   .root {
     display: flex;
     flex-direction: column;
-    gap: var(--components-dimensions-tooltip-gap-content);
-    background-color: var(--components-colors-tooltip-color-background);
-    border: var(--components-dimensions-tooltip-border-width) solid var(--components-colors-tooltip-color-border);
-    border-radius: var(--components-dimensions-tooltip-border-radius);
+    gap: var(--tooltip-gap-content);
+    background-color: var(--tooltip-color-background);
+    border: var(--tooltip-border-width) solid var(--tooltip-color-border);
+    border-radius: var(--tooltip-border-radius);
     box-sizing: border-box;
-    color: var(--components-colors-tooltip-color-text);
+    color: var(--tooltip-color-text);
     max-width: 12.5rem;
-    padding: var(--components-dimensions-tooltip-padding-block) var(--components-dimensions-tooltip-padding-inline);
+    padding: var(--tooltip-padding-block) var(--tooltip-padding-inline);
     transition-property: opacity, visibility;
     transition-duration: var(--duration-medium);
     z-index: 10;

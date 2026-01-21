@@ -3,23 +3,23 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    border-width: var(--components-dimensions-toast-border-width);
-    border-radius: var(--components-dimensions-toast-border-radius);
-    border-color: var(--components-colors-toast-color-border-default);
+    border-width: var(--toast-border-width);
+    border-radius: var(--toast-border-radius);
+    border-color: var(--toast-color-border-default);
     box-shadow: var(--elevation-20);
-    background-color: var(--components-colors-toast-color-background-default);
+    background-color: var(--toast-color-background-default);
     transition: all var(--duration-medium);
 
     &:hover {
-      border-color: var(--components-colors-toast-color-border-hover);
+      border-color: var(--toast-color-border-hover);
       box-shadow: var(--elevation-30);
     }
   }
 
   .icon {
     flex-shrink: 0;
-    border-radius: var(--components-dimensions-toast-icon-border-radius);
-    padding: var(--components-dimensions-toast-icon-padding-inline);
+    border-radius: var(--toast-icon-border-radius);
+    padding: var(--toast-icon-padding-inline);
 
     background-color: var(--iconBackgroundColor);
     color: var(--iconColor);
@@ -27,36 +27,36 @@
 
   .variant {
     &-error {
-      --iconBackgroundColor: var(--components-colors-toast-icon-color-background-error);
-      --iconColor: var(--components-colors-toast-icon-color-icon-error);
+      --iconBackgroundColor: var(--toast-icon-color-background-error);
+      --iconColor: var(--toast-icon-color-icon-error);
     }
 
     &-warning {
-      --iconBackgroundColor: var(--components-colors-toast-icon-color-background-warning);
-      --iconColor: var(--components-colors-toast-icon-color-icon-warning);
+      --iconBackgroundColor: var(--toast-icon-color-background-warning);
+      --iconColor: var(--toast-icon-color-icon-warning);
     }
 
     &-success {
-      --iconBackgroundColor: var(--components-colors-toast-icon-color-background-success);
-      --iconColor: var(--components-colors-toast-icon-color-icon-success);
+      --iconBackgroundColor: var(--toast-icon-color-background-success);
+      --iconColor: var(--toast-icon-color-icon-success);
     }
 
     &-info {
-      --iconBackgroundColor: var(--components-colors-toast-icon-color-background-information);
-      --iconColor: var(--components-colors-toast-icon-color-icon-information);
+      --iconBackgroundColor: var(--toast-icon-color-background-information);
+      --iconColor: var(--toast-icon-color-icon-information);
     }
   }
 
   .progress {
     width: 100%;
     height: 4px;
-    background: var(--components-colors-latency-color-background-bar);
+    background: var(--latency-color-background-bar);
   }
 
   .progress-bar {
     width: 100%;
     height: 100%;
-    background: var(--components-colors-latency-color-background-progress);
+    background: var(--latency-color-background-progress);
     transform-origin: left center;
     animation: toast-progress var(--duration) linear forwards;
   }
@@ -78,8 +78,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: var(--components-dimensions-toast-padding-inline);
-    gap: var(--components-dimensions-toast-gap-content);
+    padding: var(--toast-padding-inline);
+    gap: var(--toast-gap-content);
     max-width: 660px;
   }
 
@@ -87,8 +87,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: var(--components-dimensions-toast-padding-inline);
-    gap: var(--components-dimensions-growl-gap-content);
+    padding: var(--toast-padding-inline);
+    gap: var(--growl-gap-content);
     max-width: 450px;
 
     .content {
