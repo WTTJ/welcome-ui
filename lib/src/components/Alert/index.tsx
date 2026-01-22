@@ -43,10 +43,10 @@ const AlertComponent = forwardRef<HTMLDivElement, AlertProps>(
       </div>
     )
 
-    const content = Children.toArray(children).map((child: React.ReactElement) => {
+    const content = Children.toArray(children).map((child: React.ReactElement, index) => {
       if (child.type === AlertTitle)
         return (
-          <div className={cx('title-with-icon')}>
+          <div className={cx('title-with-icon')} key={`alert-title-${index}`}>
             {icon}
             {cloneElement(child, {
               hasCloseButton: !!handleClose,
