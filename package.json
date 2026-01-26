@@ -63,7 +63,7 @@
   "devDependencies": {
     "@babel/generator": "^7.28.6",
     "@babel/parser": "^7.28.6",
-    "@babel/traverse": "^7.28.4",
+    "@babel/traverse": "^7.28.6",
     "@commitlint/cli": "^20.3.1",
     "@commitlint/config-conventional": "^20.3.1",
     "@eslint/js": "^9.39.1",
