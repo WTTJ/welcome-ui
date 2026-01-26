@@ -9,7 +9,7 @@ import { Text } from '@/components/Text'
 const posts = [
   {
     cover: 'https://www.welcome-ui.com/v10.png',
-    date: new Date('2026-01-10'),
+    date: new Date('2026-01-26'),
     description:
       'We are excited to announce the release of Welcome UI Version 10, which implements the Belonging experience redesign.',
     link: 'https://www.welcome-ui.com/foundations/upgrades/v10',
