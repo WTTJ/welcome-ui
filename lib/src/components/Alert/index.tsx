@@ -25,7 +25,17 @@ export const ICON: Record<AlertProps['variant'], IconProps['name']> = {
 
 const AlertComponent = forwardRef<HTMLDivElement, AlertProps>(
   (
-    { children, className, cta, handleClose, isFullWidth, size = 'md', variant = 'brand', ...rest },
+    {
+      children,
+      className,
+      cta,
+      handleClose,
+      icon,
+      isFullWidth,
+      size = 'md',
+      variant = 'brand',
+      ...rest
+    },
     ref
   ) => {
     const isAiVariant = variant === 'ai'
@@ -37,9 +47,9 @@ const AlertComponent = forwardRef<HTMLDivElement, AlertProps>(
       return false
     })
 
-    const icon = (
+    const iconElement = (
       <div className={cx('icon-wrapper', `icon-wrapper-${variant}`)}>
-        <Icon name={ICON[variant]} />
+        <Icon name={icon || ICON[variant]} />
       </div>
     )
 
@@ -47,7 +57,7 @@ const AlertComponent = forwardRef<HTMLDivElement, AlertProps>(
       if (child.type === AlertTitle)
         return (
           <div className={cx('title-with-icon')} key={`alert-title-${index}`}>
-            {icon}
+            {iconElement}
             {cloneElement(child, {
               hasCloseButton: !!handleClose,
               variant: `body-${size}-strong`,
@@ -103,7 +113,7 @@ const AlertComponent = forwardRef<HTMLDivElement, AlertProps>(
             className={cx('content-text', !hasTitle && `without-title`)}
             variant={`body-${size}`}
           >
-            {!hasTitle && icon}
+            {!hasTitle && iconElement}
             {content}
           </Text>
           {!!actions && <div className={cx('content-actions')}>{actions}</div>}
