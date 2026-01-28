@@ -116,6 +116,7 @@ export const miscellaneous = [
   'bag-alt',
   'chart-line',
   'map-marker-alt',
+  'map-pin',
   'lock-alt',
   'flag', // (not unicons)
   'at',
