@@ -95,17 +95,19 @@ export const Field = forwardRefWithAs<FieldOptions, 'div'>((props, ref) => {
 
   return (
     <div ref={ref} {...rest} className={cx('root', inline && 'inline', className)}>
-      <Label
-        className={cx('label', hideLabel && 'visuallyHidden')}
-        disabled={disabled}
-        htmlFor={inputId}
-        id={labelID}
-        required={required}
-        variant={variant}
-        {...labelProps}
-      >
-        {label}
-      </Label>
+      {label ? (
+        <Label
+          className={cx('label', hideLabel && 'visuallyHidden')}
+          disabled={disabled}
+          htmlFor={inputId}
+          id={labelID}
+          required={required}
+          variant={variant}
+          {...labelProps}
+        >
+          {label}
+        </Label>
+      ) : null}
       <FieldContext.Provider value={state}>{children}</FieldContext.Provider>
       {hintText ? (
         <Hint
