@@ -398,25 +398,27 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
 
           return (
             <div {...rootProps} className={cx('wrapper', disabled && 'disabled', 'field-input')}>
-              {isSearchable ? (
-                <input
-                  className={inputClassnames}
-                  type="text"
-                  {...getFieldInputProps(inputProps)}
-                />
-              ) : (
-                <div className={inputClassnames} {...getFieldInputProps(inputProps)}>
-                  {inputContent}
+              <div className={cx('input-wrapper')}>
+                {isSearchable ? (
+                  <input
+                    className={inputClassnames}
+                    type="text"
+                    {...getFieldInputProps(inputProps)}
+                  />
+                ) : (
+                  <div className={inputClassnames} {...getFieldInputProps(inputProps)}>
+                    {inputContent}
+                  </div>
+                )}
+                {icon ? (
+                  <div className={cx('icon-wrapper', `icon-placement-left`, `size-${size}`)}>
+                    <Icon {...icon.props} size="md" />
+                  </div>
+                ) : null}
+                <div className={cx('indicators', `size-${size}`)}>
+                  {isShowDeleteIcon ? DeleteIcon : null}
+                  {ArrowIcon}
                 </div>
-              )}
-              {icon ? (
-                <div className={cx('icon-wrapper', `icon-placement-left`, `size-${size}`)}>
-                  <Icon {...icon.props} size="md" />
-                </div>
-              ) : null}
-              <div className={cx('indicators', `size-${size}`)}>
-                {isShowDeleteIcon ? DeleteIcon : null}
-                {ArrowIcon}
               </div>
 
               {isShowMenu ? (

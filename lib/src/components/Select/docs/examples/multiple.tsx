@@ -1,5 +1,6 @@
 import * as React from 'react'
 
+import { Icon } from '@/components/Icon'
 import { Select } from '@/components/Select'
 import type { SelectProps } from '@/components/Select/types'
 
@@ -17,7 +18,16 @@ const Example = () => {
     setValue(newValue)
   }
 
-  return <Select isMultiple name="welcome" onChange={handleChange} options={ITEMS} value={value} />
+  return (
+    <Select
+      icon={<Icon name="search" />}
+      isMultiple
+      name="welcome"
+      onChange={handleChange}
+      options={ITEMS}
+      value={value}
+    />
+  )
 }
 
 export default Example
