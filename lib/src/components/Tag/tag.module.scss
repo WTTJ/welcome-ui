@@ -1,3 +1,5 @@
+@use '../../utils/scss/striped-background' as *;
+
 @property --gradient-angle {
   syntax: '<angle>';
   initial-value: -60deg;
@@ -22,17 +24,6 @@
         var(--color-green-30)
       )
       border-box;
-}
-
-@function striped-background($background-color) {
-  @return repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 2.4px,
-      color-mix(in srgb, var(--color-neutral-50) 12%, transparent) 2.4px,
-      color-mix(in srgb, var(--color-neutral-50) 12%, transparent) 4.3px
-    ),
-    $background-color;
 }
 
 @layer components {
@@ -115,9 +106,7 @@
     &-brand {
       --backgroundColor: var(--tag-color-background-brand-default);
       --backgroundColorHover: var(--tag-color-background-brand-hover);
-      --backgroundColorDisabled: #{striped-background(
-          var(--tag-color-background-brand-disabled)
-        )};
+      --backgroundColorDisabled: #{striped-background(var(--tag-color-background-brand-disabled))};
       --color: var(--tag-color-text-brand-default);
       --colorDisabled: var(--tag-color-text-brand-disabled);
 
@@ -132,9 +121,7 @@
             var(--tag-color-background-brand-ai-hover)
           )};
         --backgroundColorDisabled: #{striped-background(
-            ai-gradient-border-background(
-              var(--tag-color-background-brand-ai-disabled)
-            )
+            ai-gradient-border-background(var(--tag-color-background-brand-ai-disabled))
           )};
       }
     }
@@ -162,9 +149,7 @@
     &-warm {
       --backgroundColor: var(--tag-color-background-warm-default);
       --backgroundColorHover: var(--tag-color-background-warm-hover);
-      --backgroundColorDisabled: #{striped-background(
-          var(--tag-color-background-warm-disabled)
-        )};
+      --backgroundColorDisabled: #{striped-background(var(--tag-color-background-warm-disabled))};
       --color: var(--tag-color-text-warm-default);
       --colorDisabled: var(--tag-color-text-warm-disabled);
 
@@ -179,9 +164,7 @@
             var(--tag-color-background-warm-ai-hover)
           )};
         --backgroundColorDisabled: #{striped-background(
-            ai-gradient-border-background(
-              var(--tag-color-background-warm-ai-disabled)
-            )
+            ai-gradient-border-background(var(--tag-color-background-warm-ai-disabled))
           )};
       }
     }
@@ -209,9 +192,7 @@
     &-red {
       --backgroundColor: var(--tag-color-background-red-default);
       --backgroundColorHover: var(--tag-color-background-red-hover);
-      --backgroundColorDisabled: #{striped-background(
-          var(--tag-color-background-red-disabled)
-        )};
+      --backgroundColorDisabled: #{striped-background(var(--tag-color-background-red-disabled))};
       --color: var(--tag-color-text-red-default);
       --colorDisabled: var(--tag-color-text-red-disabled);
 
@@ -226,9 +207,7 @@
             var(--tag-color-background-red-ai-hover)
           )};
         --backgroundColorDisabled: #{striped-background(
-            ai-gradient-border-background(
-              var(--tag-color-background-red-ai-disabled)
-            )
+            ai-gradient-border-background(var(--tag-color-background-red-ai-disabled))
           )};
       }
     }
@@ -236,9 +215,7 @@
     &-light-red {
       --backgroundColor: var(--tag-color-background-red-light-default);
       --backgroundColorHover: var(--tag-color-background-red-light-hover);
-      --backgroundColorDisabled: #{striped-background(
-          var(--tag-color-background-red-disabled)
-        )};
+      --backgroundColorDisabled: #{striped-background(var(--tag-color-background-red-disabled))};
       --color: var(--tag-color-text-red-default);
       --colorDisabled: var(--tag-color-text-red-disabled);
     }
@@ -246,9 +223,7 @@
     &-dark-red {
       --backgroundColor: var(--tag-color-background-red-dark-default);
       --backgroundColorHover: var(--tag-color-background-red-dark-hover);
-      --backgroundColorDisabled: #{striped-background(
-          var(--tag-color-background-red-disabled)
-        )};
+      --backgroundColorDisabled: #{striped-background(var(--tag-color-background-red-disabled))};
       --color: var(--tag-color-text-red-default);
       --colorDisabled: var(--tag-color-text-red-disabled);
     }
@@ -256,9 +231,7 @@
     &-blue {
       --backgroundColor: var(--tag-color-background-blue-default);
       --backgroundColorHover: var(--tag-color-background-blue-hover);
-      --backgroundColorDisabled: #{striped-background(
-          var(--tag-color-background-blue-disabled)
-        )};
+      --backgroundColorDisabled: #{striped-background(var(--tag-color-background-blue-disabled))};
       --color: var(--tag-color-text-blue-default);
       --colorDisabled: var(--tag-color-text-blue-disabled);
 
@@ -273,9 +246,7 @@
             var(--tag-color-background-blue-ai-hover)
           )};
         --backgroundColorDisabled: #{striped-background(
-            ai-gradient-border-background(
-              var(--tag-color-background-blue-ai-disabled)
-            )
+            ai-gradient-border-background(var(--tag-color-background-blue-ai-disabled))
           )};
       }
     }
@@ -303,9 +274,7 @@
     &-green {
       --backgroundColor: var(--tag-color-background-green-default);
       --backgroundColorHover: var(--tag-color-background-green-hover);
-      --backgroundColorDisabled: #{striped-background(
-          var(--tag-color-background-green-disabled)
-        )};
+      --backgroundColorDisabled: #{striped-background(var(--tag-color-background-green-disabled))};
       --color: var(--tag-color-text-green-default);
       --colorDisabled: var(--tag-color-text-green-disabled);
 
@@ -320,9 +289,7 @@
             var(--tag-color-background-green-ai-hover)
           )};
         --backgroundColorDisabled: #{striped-background(
-            ai-gradient-border-background(
-              var(--tag-color-background-green-ai-disabled)
-            )
+            ai-gradient-border-background(var(--tag-color-background-green-ai-disabled))
           )};
       }
     }
@@ -350,9 +317,7 @@
     &-orange {
       --backgroundColor: var(--tag-color-background-orange-default);
       --backgroundColorHover: var(--tag-color-background-orange-hover);
-      --backgroundColorDisabled: #{striped-background(
-          var(--tag-color-background-orange-disabled)
-        )};
+      --backgroundColorDisabled: #{striped-background(var(--tag-color-background-orange-disabled))};
       --color: var(--tag-color-text-orange-default);
       --colorDisabled: var(--tag-color-text-orange-disabled);
 
@@ -367,9 +332,7 @@
             var(--tag-color-background-orange-ai-hover)
           )};
         --backgroundColorDisabled: #{striped-background(
-            ai-gradient-border-background(
-              var(--tag-color-background-orange-ai-disabled)
-            )
+            ai-gradient-border-background(var(--tag-color-background-orange-ai-disabled))
           )};
       }
     }
@@ -397,9 +360,7 @@
     &-pink {
       --backgroundColor: var(--tag-color-background-pink-default);
       --backgroundColorHover: var(--tag-color-background-pink-hover);
-      --backgroundColorDisabled: #{striped-background(
-          var(--tag-color-background-pink-disabled)
-        )};
+      --backgroundColorDisabled: #{striped-background(var(--tag-color-background-pink-disabled))};
       --color: var(--tag-color-text-pink-default);
       --colorDisabled: var(--tag-color-text-pink-disabled);
 
@@ -414,9 +375,7 @@
             var(--tag-color-background-pink-ai-hover)
           )};
         --backgroundColorDisabled: #{striped-background(
-            ai-gradient-border-background(
-              var(--tag-color-background-pink-ai-disabled)
-            )
+            ai-gradient-border-background(var(--tag-color-background-pink-ai-disabled))
           )};
       }
     }
@@ -444,9 +403,7 @@
     &-teal {
       --backgroundColor: var(--tag-color-background-teal-default);
       --backgroundColorHover: var(--tag-color-background-teal-hover);
-      --backgroundColorDisabled: #{striped-background(
-          var(--tag-color-background-teal-disabled)
-        )};
+      --backgroundColorDisabled: #{striped-background(var(--tag-color-background-teal-disabled))};
       --color: var(--tag-color-text-teal-default);
       --colorDisabled: var(--tag-color-text-teal-disabled);
 
@@ -461,9 +418,7 @@
             var(--tag-color-background-teal-ai-hover)
           )};
         --backgroundColorDisabled: #{striped-background(
-            ai-gradient-border-background(
-              var(--tag-color-background-teal-ai-disabled)
-            )
+            ai-gradient-border-background(var(--tag-color-background-teal-ai-disabled))
           )};
       }
     }
@@ -491,9 +446,7 @@
     &-violet {
       --backgroundColor: var(--tag-color-background-violet-default);
       --backgroundColorHover: var(--tag-color-background-violet-hover);
-      --backgroundColorDisabled: #{striped-background(
-          var(--tag-color-background-violet-disabled)
-        )};
+      --backgroundColorDisabled: #{striped-background(var(--tag-color-background-violet-disabled))};
       --color: var(--tag-color-text-violet-default);
       --colorDisabled: var(--tag-color-text-violet-disabled);
 
@@ -508,9 +461,7 @@
             var(--tag-color-background-violet-ai-hover)
           )};
         --backgroundColorDisabled: #{striped-background(
-            ai-gradient-border-background(
-              var(--tag-color-background-violet-ai-disabled)
-            )
+            ai-gradient-border-background(var(--tag-color-background-violet-ai-disabled))
           )};
       }
     }
@@ -538,13 +489,10 @@
     &-dash {
       --backgroundColor: var(--tag-color-background-dash-default);
       --backgroundColorHover: var(--tag-color-background-dash-hover);
-      --backgroundColorDisabled: #{striped-background(
-          var(--tag-color-background-dash-disabled)
-        )};
+      --backgroundColorDisabled: #{striped-background(var(--tag-color-background-dash-disabled))};
       --color: var(--tag-color-text-dash-default);
       --colorDisabled: var(--tag-color-text-dash-disabled);
-      border: var(--tag-border-width-default) dashed
-        var(--tag-color-border-dash-default);
+      border: var(--tag-border-width-default) dashed var(--tag-color-border-dash-default);
       position: relative;
 
       &:hover {
