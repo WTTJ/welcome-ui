@@ -43,10 +43,10 @@ export const Growl = forwardRef<HTMLDivElement, GrowlProps>(
         <div className={cx('growl')}>
           {variant ? <Icon className={cx('icon')} name={ICON[variant]} size="lg" /> : null}
           <div className={cx('content')}>
-            <span>
+            <div>
               <Text variant="body-md-strong">{title}</Text>
               <Text variant="body-md">{children}</Text>
-            </span>
+            </div>
             {cta ? <>{cta}</> : null}
           </div>
           {hasCloseButton ? (

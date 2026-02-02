@@ -11,7 +11,7 @@ const Example = () => {
               cta={<Toast.GrowlAction onClick={() => alert('action')}>Action</Toast.GrowlAction>}
               variant="info"
             >
-              <Toast.Title>Lorem ipsum dolor sit amet</Toast.Title>
+              <Toast.Title as="span">Lorem ipsum dolor sit amet</Toast.Title>
               Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
               himenaeos
             </Toast.Growl>
@@ -24,7 +24,7 @@ const Example = () => {
         onClick={() =>
           toast(
             <Toast.Growl variant="error">
-              <Toast.Title>Lorem ipsum dolor sit amet</Toast.Title>
+              <Toast.Title as="span">Lorem ipsum dolor sit amet</Toast.Title>
               Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
               himenaeos
             </Toast.Growl>
@@ -37,7 +37,7 @@ const Example = () => {
         onClick={() =>
           toast(
             <Toast.Growl variant="warning">
-              <Toast.Title>Lorem ipsum dolor sit amet</Toast.Title>
+              <Toast.Title as="span">Lorem ipsum dolor sit amet</Toast.Title>
               Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
               himenaeos
             </Toast.Growl>
@@ -50,7 +50,7 @@ const Example = () => {
         onClick={() =>
           toast(
             <Toast.Growl variant="success">
-              <Toast.Title>Lorem ipsum dolor sit amet</Toast.Title>
+              <Toast.Title as="span">Lorem ipsum dolor sit amet</Toast.Title>
               Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
               himenaeos
             </Toast.Growl>

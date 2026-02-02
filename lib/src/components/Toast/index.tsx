@@ -4,7 +4,7 @@ import type { ToastPosition } from 'react-hot-toast'
 
 import type { IconProps } from '@/components/Icon/types'
 import type { TextProps } from '@/components/Text/types'
-import { classNames } from '@/utils'
+import { classNames, forwardRefWithAs } from '@/utils'
 
 import { Growl, GrowlAction } from './components/Growl'
 import { Snackbar, SnackbarAction } from './components/Snackbar'
@@ -27,10 +27,12 @@ const DURATION: Record<ToastVariant, number> = {
   warning: 8000,
 }
 
-const Title = ({ children, className, ...rest }: TextProps) => (
-  <p className={cx('title', className)} {...rest}>
-    {children}
-  </p>
+const Title = forwardRefWithAs<TextProps, 'p'>(
+  ({ as: Component = 'p', children, className, ...rest }, ref) => (
+    <Component className={cx('title', className)} ref={ref} {...rest}>
+      {children}
+    </Component>
+  )
 )
 
 Title.displayName = 'Toast.Title'
