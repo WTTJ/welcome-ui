@@ -1,3 +1,4 @@
+'use client'
 import NextLink from 'next/link'
 import React from 'react'
 
@@ -22,7 +23,12 @@ const Home = () => {
             Welcome UI is a customizable design system library made with react, typescript,
             tailwindcss, ariakit and a lot of love 💛
           </SectionDescription>
-          <Button as={NextLink} className="w-fit" href="/foundations/getting-started">
+          <Button
+            as={NextLink}
+            className="w-fit"
+            data-attr="ntm"
+            href="/foundations/getting-started"
+          >
             <span>Let’s started!</span>
           </Button>
         </div>
