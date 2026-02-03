@@ -15,8 +15,8 @@ const Example = () => {
           <Window.Header.Tab icon="folder" id="tab1" store={tabStore}>
             1st tab
           </Window.Header.Tab>
-          <Window.Header.Tab icon="file" id="tab2" store={tabStore}>
-            2nd tab
+          <Window.Header.Tab disabled icon="file" id="tab2" store={tabStore}>
+            2nd tab- disabled
           </Window.Header.Tab>
           <Window.Header.Tab icon="image" id="tab3" store={tabStore}>
             3rd tab

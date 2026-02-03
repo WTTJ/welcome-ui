@@ -1,3 +1,5 @@
+@use '../../utils/scss/striped-background' as *;
+
 @layer components {
   .root {
     border-style: solid;
@@ -56,18 +58,21 @@
     color: var(--windowTabItemColor, var(--window-header-tab-color-text-default));
 
     &:hover {
-      --windowTabItemBackgroundColor: var(
-        --window-header-tab-color-background-hover
-      );
+      --windowTabItemBackgroundColor: var(--window-header-tab-color-background-hover);
       --windowTabItemColor: var(--window-header-tab-color-text-hover);
     }
 
     &[aria-selected='true'] {
       --windowTabItemBorderColor: var(--color-border-brand-primary);
-      --windowTabItemBackgroundColor: var(
-        --window-header-tab-color-background-active
-      );
+      --windowTabItemBackgroundColor: var(--window-header-tab-color-background-active);
       --windowTabItemColor: var(--window-header-tab-color-text-active);
+    }
+
+    /* TODO(isaac): use window tokens when available */
+    &[aria-disabled='true'] {
+      cursor: not-allowed;
+      --windowTabItemColor: var(--button-color-text-secondary-main-disabled);
+      background: #{striped-background(var(--button-color-background-secondary-main-disabled))};
     }
   }
 
@@ -93,10 +98,7 @@
     );
 
     svg {
-      color: var(
-        --windowButtonIconColor,
-        var(--window-header-action-color-icon-common-default)
-      );
+      color: var(--windowButtonIconColor, var(--window-header-action-color-icon-common-default));
     }
 
     &[data-focus-visible],
@@ -106,21 +108,13 @@
     }
 
     &:hover {
-      --windowButtonBackgroundColor: var(
-        --window-header-action-color-background-common-hover
-      );
-      --windowButtonIconColor: var(
-        --window-header-action-color-icon-common-hover
-      );
+      --windowButtonBackgroundColor: var(--window-header-action-color-background-common-hover);
+      --windowButtonIconColor: var(--window-header-action-color-icon-common-hover);
     }
 
     &:active {
-      --windowButtonBackgroundColor: var(
-        --window-header-action-color-background-common-pressed
-      );
-      --windowButtonIconColor: var(
-        --window-header-action-color-icon-common-pressed
-      );
+      --windowButtonBackgroundColor: var(--window-header-action-color-background-common-pressed);
+      --windowButtonIconColor: var(--window-header-action-color-icon-common-pressed);
     }
   }
 
@@ -141,15 +135,11 @@
     }
 
     &:active {
-      background-color: var(
-        --window-header-action-color-background-close-pressed
-      );
+      background-color: var(--window-header-action-color-background-close-pressed);
       --windowHeaderCloseButtonBorderColor: var(
         --window-header-action-color-background-close-pressed
       );
-      --windowButtonIconColor: var(
-        --window-header-action-color-icon-close-pressed
-      );
+      --windowButtonIconColor: var(--window-header-action-color-icon-close-pressed);
     }
   }
 
