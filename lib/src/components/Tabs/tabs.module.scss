@@ -1,3 +1,5 @@
+@use '../../utils/scss/striped-background' as *;
+
 @layer components {
   .root {
     display: flex;
@@ -18,10 +20,7 @@
     padding-inline: var(--tabPaddingInline);
     font-size: var(--tabFontSize);
 
-    background-color: var(
-      --tabItemBackgroundColor,
-      var(--tab-color-background-unchecked-default)
-    );
+    background-color: var(--tabItemBackgroundColor, var(--tab-color-background-unchecked-default));
     color: var(--tabItemColor, var(--tab-color-text-unchecked-default));
     box-shadow:
       inset 0 0 0 var(--tabItemBorderSize, var(--tab-border-width-unchecked))
@@ -57,9 +56,11 @@
       }
     }
 
+    /* TODO(isaac): use tab tokens when available */
     &[aria-disabled='true'] {
-      --tabItemColor: var(--color-icon-neutral-subtle);
       cursor: not-allowed;
+      --tabItemColor: var(--button-color-text-secondary-main-disabled);
+      background: #{striped-background(var(--button-color-background-secondary-main-disabled))};
     }
 
     &:hover:not([aria-selected='true']):not([aria-disabled='true']) {
