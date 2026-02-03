@@ -2058,3 +2058,24 @@
   background-image: var(--grid-pattern);
   background-color: --value(--color-background- *);
 }
+
+@utility bg-striped {
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 2.4px,
+    color-mix(in srgb, var(--color-neutral-50) 12%, transparent) 2.4px,
+    color-mix(in srgb, var(--color-neutral-50) 12%, transparent) 4.3px
+  );
+}
+@utility bg-striped-* {
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 2.4px,
+      color-mix(in srgb, var(--color-neutral-50) 12%, transparent) 2.4px,
+      color-mix(in srgb, var(--color-neutral-50) 12%, transparent) 4.3px
+    ),
+    --value(--color-background- *);
+}
