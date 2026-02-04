@@ -18,7 +18,7 @@ const Example = () => {
         onClick={() =>
           toast(
             <Toast.Growl>
-              <Toast.Title as="span">Lorem ipsum dolor sit amet</Toast.Title>
+              <Toast.Title>Lorem ipsum dolor sit amet</Toast.Title>
               Class aptent taciti sociosqu ad
             </Toast.Growl>
           )
@@ -30,7 +30,7 @@ const Example = () => {
         onClick={() =>
           toast(
             <Toast.Growl showProgressBar>
-              <Toast.Title as="span">Lorem ipsum dolor sit amet</Toast.Title>
+              <Toast.Title>Lorem ipsum dolor sit amet</Toast.Title>
               Class aptent taciti sociosqu ad
             </Toast.Growl>
           )

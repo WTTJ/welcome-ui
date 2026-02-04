@@ -3,8 +3,9 @@ import { Toaster, toast as toastRHT } from 'react-hot-toast'
 import type { ToastPosition } from 'react-hot-toast'
 
 import type { IconProps } from '@/components/Icon/types'
+import { Text } from '@/components/Text'
 import type { TextProps } from '@/components/Text/types'
-import { classNames, forwardRefWithAs } from '@/utils'
+import { classNames } from '@/utils'
 
 import { Growl, GrowlAction } from './components/Growl'
 import { Snackbar, SnackbarAction } from './components/Snackbar'
@@ -27,15 +28,21 @@ const DURATION: Record<ToastVariant, number> = {
   warning: 8000,
 }
 
-const Title = forwardRefWithAs<TextProps, 'p'>(
-  ({ as: Component = 'p', children, className, ...rest }, ref) => (
-    <Component className={cx('title', className)} ref={ref} {...rest}>
-      {children}
-    </Component>
-  )
+const Title = ({ children, className, ...rest }: TextProps) => (
+  <Text className={cx('title', className)} variant="label-md-strong" {...rest}>
+    {children}
+  </Text>
 )
 
 Title.displayName = 'Toast.Title'
+
+const Subtitle = ({ children, className, ...rest }: TextProps) => (
+  <Text className={cx('subtitle', className)} variant="body-md" {...rest}>
+    {children}
+  </Text>
+)
+
+Subtitle.displayName = 'Toast.Subtitle'
 
 export const toast = (component: JSX.Element, options?: ToastOptions) => {
   const name = 'type' in component ? component.type.displayName || component.type.name : undefined
@@ -73,5 +80,6 @@ export const Toast = Object.assign(Toaster, {
   GrowlAction,
   Snackbar,
   SnackbarAction,
+  Subtitle,
   Title,
 })

@@ -11,8 +11,8 @@ const Example = () => {
       onClick={() =>
         toast(
           <Toast.Growl>
-            <Toast.Title as="span">Lorem ipsum dolor sit amet</Toast.Title>
-            Class aptent taciti sociosqu ad
+            <Toast.Title>Lorem ipsum dolor sit amet</Toast.Title>
+            <Toast.Subtitle>Class aptent taciti sociosqu ad</Toast.Subtitle>
           </Toast.Growl>,
           { onClose }
         )
