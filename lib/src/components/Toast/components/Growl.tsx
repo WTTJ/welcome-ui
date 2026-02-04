@@ -4,7 +4,6 @@ import { Button } from '@/components/Button'
 import type { ButtonProps } from '@/components/Button/types'
 import { CloseButton } from '@/components/CloseButton'
 import { Icon } from '@/components/Icon'
-import { Text } from '@/components/Text'
 import { classNames, forwardRefWithAs } from '@/utils'
 
 import { ICON } from '..'
@@ -26,7 +25,6 @@ export const Growl = forwardRef<HTMLDivElement, GrowlProps>(
       hasCloseButton = true,
       onClose,
       showProgressBar = false,
-      title,
       variant = 'info',
       ...rest
     },
@@ -43,10 +41,7 @@ export const Growl = forwardRef<HTMLDivElement, GrowlProps>(
         <div className={cx('growl')}>
           {variant ? <Icon className={cx('icon')} name={ICON[variant]} size="lg" /> : null}
           <div className={cx('content')}>
-            <span>
-              <Text variant="body-md-strong">{title}</Text>
-              <Text variant="body-md">{children}</Text>
-            </span>
+            <div>{children}</div>
             {cta ? <>{cta}</> : null}
           </div>
           {hasCloseButton ? (
