@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 
 export default {
   "/Accordion/docs/examples/avatar.tsx": dynamic(() => import("../../lib/src/components/Accordion/docs/examples/avatar.tsx").then(mod => mod), { ssr: false }),
+  "/Accordion/docs/examples/composition.tsx": dynamic(() => import("../../lib/src/components/Accordion/docs/examples/composition.tsx").then(mod => mod), { ssr: false }),
   "/Accordion/docs/examples/open-at-start.tsx": dynamic(() => import("../../lib/src/components/Accordion/docs/examples/open-at-start.tsx").then(mod => mod), { ssr: false }),
   "/Accordion/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Accordion/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Alert/docs/examples/close-button.tsx": dynamic(() => import("../../lib/src/components/Alert/docs/examples/close-button.tsx").then(mod => mod), { ssr: false }),
