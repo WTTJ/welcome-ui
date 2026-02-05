@@ -14,8 +14,9 @@ describe('<Accordion />', () => {
     } = renderHook(() => useAccordion())
 
     const { user } = render(
-      <Accordion dataTestId="accordion" store={store} title={title}>
-        {content}
+      <Accordion store={store}>
+        <Accordion.Heading data-testid="accordion-title">{title}</Accordion.Heading>
+        <Accordion.Content data-testid="accordion-content">{content}</Accordion.Content>
       </Accordion>
     )
 
@@ -39,8 +40,10 @@ describe('<Accordion />', () => {
     } = renderHook(() => useAccordion({ defaultOpen: true }))
 
     render(
-      <Accordion dataTestId="accordion" store={store} title={title}>
-        {content}
+      <Accordion data-testid="accordion" store={store}>
+        <Accordion.Heading data-testid="accordion-title">{title}</Accordion.Heading>
+
+        <Accordion.Content data-testid="accordion-content">{content}</Accordion.Content>
       </Accordion>
     )
 

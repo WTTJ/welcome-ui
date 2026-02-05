@@ -1,61 +1,65 @@
 @layer components {
   .root {
-    background-color: var(--color-background-neutral-inverse-fixed);
-    border: var(--border-width-xs) solid var(--color-background-neutral-subtlest);
-    border-radius: var(--border-radius-sm);
-    transition: var(--duration-medium);
-
-    &:hover {
-      border-color: var(--color-icon-neutral-subtlest);
-    }
-  }
-
-  .icon {
-    flex-shrink: 0;
-    transform: rotate3d(0);
-    transition: var(--duration-medium);
-    padding: var(--border-radius-md);
-    display: flex;
-    border-radius: var(--border-radius-full);
-    color: var(--color-background-neutral-primary-fixed);
-    & *:first-child {
-      margin: auto;
-    }
-  }
-
-  .disclosure {
     width: 100%;
-    padding: var(--border-radius-xl);
-    background-color: transparent;
-    border: 0;
+    background-color: var(--color-background-neutral-inverse-fixed);
+  }
+
+  .accordion-disclosure {
     display: flex;
-    justify-content: space-between;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+  }
+
+  .accordion-disclosure-wrapper {
+    display: flex;
+    gap: var(--spacing-md);
     align-items: center;
-    gap: var(--border-radius-xl);
+    flex-wrap: wrap;
+    flex: 1;
+  }
+
+  .accordion-disclosure-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .accordion-disclosure-arrow-button {
+    display: flex;
+    align-self: flex-start;
+
+    .accordion-disclosure-arrow-icon {
+      transform: rotate3d(0, 0, 1, 0deg);
+      transition: var(--duration-medium);
+    }
 
     &[aria-expanded='true'] {
-      .icon {
-        transform: rotate3d(0, 0, 1, 90deg);
-      }
-    }
-
-    &:focus,
-    &:hover {
-      cursor: pointer;
-      .icon {
-        background-color: var(--color-background-neutral-subtlest);
-      }
-    }
-
-    &:focus {
-      outline: 0;
-      .icon {
-        color: inherit;
+      .accordion-disclosure-arrow-icon {
+        transform: rotate3d(0, 0, 1, 180deg);
       }
     }
   }
 
-  .disclosure-content {
+  .accordion-heading {
+    display: flex;
+    gap: var(--spacing-xs);
+    flex-direction: column;
+    flex: 1 0 auto;
+    color: var(--color-background-neutral-primary-fixed);
+  }
+
+  .accordion-title {
+    display: flex;
+    gap: var(--spacing-8);
+    align-items: center;
+  }
+
+  .accordion-subtitle {
+    color: var(--color-text-neutral-secondary);
+  }
+
+  .accordion-content {
     display: grid;
     grid-template-rows: 0fr;
     transition-property: grid-template-rows;
@@ -63,7 +67,7 @@
     transition-duration: 200ms;
     animation-duration: 200ms;
 
-    > * {
+    > .accordion-content-wrapper {
       overflow: hidden;
       padding: 0;
     }
@@ -73,9 +77,7 @@
     }
   }
 
-  .content-child {
-    padding: var(--border-radius-xl);
-    padding-top: 0;
+  .accordion-content-wrapper {
     color: var(--color-background-neutral-tertiary);
     font-size: var(--font-size-14);
   }
