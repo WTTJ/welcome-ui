@@ -139,6 +139,7 @@ export const miscellaneous = [
   'gift',
   'birthday-cake', // (not unicons)
   'bunting-flags', // (not unicons)
+  'swatchbook',
   'tag-alt',
   'tablet',
   'mobile',
