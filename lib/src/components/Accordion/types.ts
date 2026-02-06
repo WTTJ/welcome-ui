@@ -1,8 +1,8 @@
 import type { DisclosureStore, DisclosureStoreProps, DisclosureStoreState } from '@ariakit/react'
-import type { ComponentPropsWithRef, HTMLAttributes, ReactNode } from 'react'
+import type { ComponentPropsWithRef, HTMLAttributes } from 'react'
 
 export interface AccordionOptions {
-  children: ReactNode
+  size?: 'lg' | 'md' | 'sm'
   store?: UseAccordion
 }
 

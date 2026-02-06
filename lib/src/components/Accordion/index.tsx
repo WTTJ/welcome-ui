@@ -1,6 +1,6 @@
 import { Disclosure, DisclosureContent, DisclosureProvider } from '@ariakit/react'
 import type { ComponentPropsWithRef } from 'react'
-import { forwardRef } from 'react'
+import { createContext, forwardRef, useContext } from 'react'
 
 import { Icon } from '@/components/Icon'
 import { Text } from '@/components/Text'
@@ -13,14 +13,20 @@ import type { AccordionProps } from './types'
 
 const cx = classNames(styles)
 
+const AccordionContext = createContext<{ size?: AccordionProps['size'] }>({})
+
+export const useAccordionContext = () => useContext(AccordionContext)
+
 const AccordionComponent = forwardRef<HTMLDivElement, AccordionProps>(
-  ({ children, className, store, ...rest }, ref) => {
+  ({ children, className, size = 'sm', store, ...rest }, ref) => {
     return (
-      <DisclosureProvider store={store}>
-        <div className={cx('root', className)} ref={ref} {...rest}>
-          {children}
-        </div>
-      </DisclosureProvider>
+      <AccordionContext.Provider value={{ size }}>
+        <DisclosureProvider store={store}>
+          <div className={cx('root', className)} ref={ref} {...rest}>
+            {children}
+          </div>
+        </DisclosureProvider>
+      </AccordionContext.Provider>
     )
   }
 )
@@ -31,6 +37,10 @@ const AccordionDisclosure = forwardRef<
   HTMLDivElement,
   ComponentPropsWithRef<'div'> & { actions?: React.ReactNode }
 >(({ actions, children, className, ...rest }, ref) => {
+  const { size } = useAccordionContext()
+  const arrowButtonVariant = size === 'lg' ? 'secondary' : 'tertiary'
+  const buttonSize = size === 'lg' ? 'md' : 'sm'
+
   return (
     <div className={cx('accordion-disclosure', className)} ref={ref} {...rest}>
       <div className={cx('accordion-disclosure-wrapper')}>{children}</div>
@@ -40,7 +50,8 @@ const AccordionDisclosure = forwardRef<
           render={props => (
             <Button
               className={cx('accordion-disclosure-arrow-button')}
-              variant="tertiary"
+              size={buttonSize}
+              variant={arrowButtonVariant}
               {...props}
             />
           )}
@@ -66,13 +77,21 @@ const AccordionHeading = forwardRef<HTMLDivElement, ComponentPropsWithRef<'div'>
 
 AccordionHeading.displayName = 'Accordion.Heading'
 
+const titleVariantMap = {
+  lg: 'heading-md-strong',
+  md: 'heading-sm',
+  sm: 'heading-xs',
+} as const
+
 const AccordionTitle = forwardRef<HTMLDivElement, ComponentPropsWithRef<'div'>>(
   ({ children, className, ...rest }, ref) => {
+    const { size } = useAccordionContext()
+
     return (
       <Text
         className={cx('accordion-title', className)}
         ref={ref}
-        variant="heading-sm-strong"
+        variant={titleVariantMap[size]}
         {...rest}
       >
         {children}
