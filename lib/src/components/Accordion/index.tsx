@@ -36,32 +36,43 @@ AccordionComponent.displayName = 'Accordion'
 const AccordionDisclosure = forwardRef<
   HTMLDivElement,
   ComponentPropsWithRef<'div'> & { actions?: React.ReactNode }
->(({ actions, children, className, ...rest }, ref) => {
-  const { size } = useAccordionContext()
-  const arrowButtonVariant = size === 'lg' ? 'secondary' : 'tertiary'
-  const buttonSize = size === 'lg' ? 'md' : 'sm'
+>(
+  (
+    { actions, children, className, 'data-testid': dataTestId = 'accordion-disclosure', ...rest },
+    ref
+  ) => {
+    const { size } = useAccordionContext()
+    const arrowButtonVariant = size === 'lg' ? 'secondary' : 'tertiary'
+    const buttonSize = size === 'lg' ? 'md' : 'sm'
 
-  return (
-    <div className={cx('accordion-disclosure', className)} ref={ref} {...rest}>
-      <div className={cx('accordion-disclosure-wrapper')}>{children}</div>
-      <div className={cx('accordion-disclosure-actions')}>
-        {actions}
-        <Disclosure
-          render={props => (
-            <Button
-              className={cx('accordion-disclosure-arrow-button')}
-              size={buttonSize}
-              variant={arrowButtonVariant}
-              {...props}
-            />
-          )}
-        >
-          <Icon className={cx('accordion-disclosure-arrow-icon')} name="angle-down" size="lg" />
-        </Disclosure>
+    return (
+      <div
+        className={cx('accordion-disclosure', className)}
+        ref={ref}
+        {...rest}
+        data-testid={dataTestId}
+      >
+        <div className={cx('accordion-disclosure-wrapper')}>{children}</div>
+        <div className={cx('accordion-disclosure-actions')}>
+          {actions}
+          <Disclosure
+            render={props => (
+              <Button
+                className={cx('accordion-disclosure-arrow-button')}
+                size={buttonSize}
+                variant={arrowButtonVariant}
+                {...props}
+                data-testid={`${dataTestId}-button`}
+              />
+            )}
+          >
+            <Icon className={cx('accordion-disclosure-arrow-icon')} name="angle-down" size="lg" />
+          </Disclosure>
+        </div>
       </div>
-    </div>
-  )
-})
+    )
+  }
+)
 
 AccordionDisclosure.displayName = 'Accordion.Disclosure'
 
