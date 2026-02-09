@@ -21,17 +21,16 @@ describe('<Accordion />', () => {
     )
 
     const accordionDisclosure = screen.getByTestId('accordion-disclosure')
-    const accordionTrigger = screen.getByTestId('accordion-disclosure-button')
     const accordionContent = screen.getByTestId('accordion-content')
 
     expect(accordionDisclosure).toHaveTextContent(title)
-    expect(accordionTrigger).toHaveAttribute('aria-expanded', 'false')
+    expect(accordionDisclosure).toHaveAttribute('aria-expanded', 'false')
     expect(accordionContent).toHaveTextContent(content)
     expect(accordionContent).toHaveAttribute('hidden')
 
-    await user.click(accordionTrigger)
+    await user.click(accordionDisclosure)
 
-    expect(accordionTrigger).toHaveAttribute('aria-expanded', 'true')
+    expect(accordionDisclosure).toHaveAttribute('aria-expanded', 'true')
     expect(accordionContent).not.toHaveAttribute('hidden')
   })
 
@@ -47,10 +46,10 @@ describe('<Accordion />', () => {
       </Accordion>
     )
 
-    const accordionTrigger = screen.getByTestId('accordion-disclosure-button')
+    const accordionDisclosure = screen.getByTestId('accordion-disclosure')
     const accordionContent = screen.getByTestId('accordion-content')
 
-    expect(accordionTrigger).toHaveAttribute('aria-expanded', 'true')
+    expect(accordionDisclosure).toHaveAttribute('aria-expanded', 'true')
     expect(accordionContent).not.toHaveAttribute('hidden')
   })
 })
