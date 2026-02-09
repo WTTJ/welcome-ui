@@ -7,12 +7,10 @@ const Example = () => {
   return (
     <Accordion className="mt-md" store={accordion}>
       <Accordion.Disclosure>
-        <Accordion.Heading>
-          <div className="items-center flex">
-            <Avatar className="mr-sm flex" name="accordion" />
-            <Accordion.Title>Accordion title</Accordion.Title>
-          </div>
-        </Accordion.Heading>
+        <div className="items-center flex">
+          <Avatar className="mr-sm flex" name="accordion" />
+          <Accordion.Title>Accordion title</Accordion.Title>
+        </div>
       </Accordion.Disclosure>
 
       <Accordion.Content>
