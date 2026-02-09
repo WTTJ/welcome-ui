@@ -1,4 +1,4 @@
-import { Disclosure, DisclosureContent, DisclosureProvider } from '@ariakit/react'
+import { Disclosure, DisclosureContent } from '@ariakit/react'
 import type { ComponentPropsWithRef } from 'react'
 import { createContext, forwardRef, useContext } from 'react'
 
@@ -7,6 +7,8 @@ import { Text } from '@/components/Text'
 import { classNames } from '@/utils'
 
 import { Button } from '../Button'
+import type { ButtonProps } from '../Button/types'
+import type { IconOptions, IconProps } from '../Icon/types'
 import { Tag } from '../Tag'
 import type { TagOptions } from '../Tag/types'
 
@@ -15,20 +17,20 @@ import type { AccordionProps } from './types'
 
 const cx = classNames(styles)
 
-const AccordionContext = createContext<{ size?: AccordionProps['size'] }>({})
+const AccordionContext = createContext<{
+  size?: AccordionProps['size']
+  store?: AccordionProps['store']
+}>({})
 
 export const useAccordionContext = () => useContext(AccordionContext)
 
-//TODO(isaac): merge providers
 const AccordionComponent = forwardRef<HTMLDivElement, AccordionProps>(
   ({ children, className, size = 'sm', store, ...rest }, ref) => {
     return (
-      <AccordionContext.Provider value={{ size }}>
-        <DisclosureProvider store={store}>
-          <div className={cx('root', className)} ref={ref} {...rest}>
-            {children}
-          </div>
-        </DisclosureProvider>
+      <AccordionContext.Provider value={{ size, store }}>
+        <div className={cx('root', className)} ref={ref} {...rest}>
+          {children}
+        </div>
       </AccordionContext.Provider>
     )
   }
@@ -36,17 +38,17 @@ const AccordionComponent = forwardRef<HTMLDivElement, AccordionProps>(
 
 AccordionComponent.displayName = 'Accordion'
 
-const AccordionDisclosure = forwardRef<
-  HTMLButtonElement,
-  ComponentPropsWithRef<'button'> & { actions?: React.ReactNode }
->(
-  (
-    { actions, children, className, 'data-testid': dataTestId = 'accordion-disclosure', ...rest },
-    ref
-  ) => {
-    const { size } = useAccordionContext()
+const buttonSizeMap: Record<AccordionProps['size'], ButtonProps['size']> = {
+  lg: 'md',
+  md: 'sm',
+  sm: 'sm',
+}
+
+const AccordionDisclosure = forwardRef<HTMLButtonElement, ComponentPropsWithRef<'button'>>(
+  ({ children, className, 'data-testid': dataTestId = 'accordion-disclosure', ...rest }, ref) => {
+    const { size, store } = useAccordionContext()
     const arrowButtonVariant = size === 'lg' ? 'secondary' : 'tertiary'
-    const buttonSize = size === 'lg' ? 'md' : 'sm'
+    const buttonSize = buttonSizeMap[size]
 
     return (
       <Disclosure
@@ -55,20 +57,18 @@ const AccordionDisclosure = forwardRef<
         data-testid={dataTestId}
         render={props => <div {...props} className={cx('accordion-disclosure', className)} />}
         role="button"
+        store={store}
         tabIndex={0}
       >
-        <div className={cx('accordion-disclosure-wrapper')}>{children}</div>
-        <div className={cx('accordion-disclosure-actions')}>
-          {actions}
-          <Button
-            className={cx('accordion-disclosure-arrow-button')}
-            data-testid={`${dataTestId}-button`}
-            size={buttonSize}
-            variant={arrowButtonVariant}
-          >
-            <Icon className={cx('accordion-disclosure-arrow-icon')} name="angle-down" size="lg" />
-          </Button>
-        </div>
+        {children}
+        <Button
+          className={cx('accordion-disclosure-actions')}
+          data-testid={`${dataTestId}-button`}
+          size={buttonSize}
+          variant={arrowButtonVariant}
+        >
+          <Icon className={cx('accordion-disclosure-arrow-icon')} name="angle-down" size="lg" />
+        </Button>
       </Disclosure>
     )
   }
@@ -76,10 +76,20 @@ const AccordionDisclosure = forwardRef<
 
 AccordionDisclosure.displayName = 'Accordion.Disclosure'
 
-const AccordionHeaderWithTags = forwardRef<HTMLDivElement, ComponentPropsWithRef<'div'>>(
+const AccordionHeader = forwardRef<HTMLDivElement, ComponentPropsWithRef<'div'>>(
   ({ children, className, ...rest }, ref) => {
     return (
       <div className={cx('accordion-header', className)} ref={ref} {...rest}>
+        {children}
+      </div>
+    )
+  }
+)
+
+const AccordionHeaderWithTags = forwardRef<HTMLDivElement, ComponentPropsWithRef<'div'>>(
+  ({ children, className, ...rest }, ref) => {
+    return (
+      <div className={cx('accordion-header-with-tags', className)} ref={ref} {...rest}>
         {children}
       </div>
     )
@@ -99,6 +109,19 @@ const AccordionTags = forwardRef<HTMLDivElement, ComponentPropsWithRef<'div'>>(
 )
 
 AccordionTags.displayName = 'Accordion.Tags'
+
+const iconSizeMap: Record<AccordionProps['size'], IconOptions['size']> = {
+  lg: 'xl',
+  md: 'lg',
+  sm: 'md',
+}
+
+const AccordionIcon = ({ className, name, ...rest }: IconProps) => {
+  const { size } = useAccordionContext()
+  const iconSize = iconSizeMap[size]
+
+  return <Icon className={cx('accordion-icon', className)} name={name} size={iconSize} {...rest} />
+}
 
 const titleVariantMap = {
   lg: 'heading-md-strong',
@@ -139,8 +162,14 @@ AccordionSubtitle.displayName = 'Accordion.Subtitle'
 
 const AccordionContent = forwardRef<HTMLDivElement, ComponentPropsWithRef<'div'>>(
   ({ children, className, ...rest }, ref) => {
+    const { store } = useAccordionContext()
     return (
-      <DisclosureContent className={cx('accordion-content', className)} ref={ref} {...rest}>
+      <DisclosureContent
+        className={cx('accordion-content', className)}
+        ref={ref}
+        store={store}
+        {...rest}
+      >
         <div className={cx('accordion-content-wrapper')}>{children}</div>
       </DisclosureContent>
     )
@@ -165,23 +194,39 @@ const AccordionTag = forwardRef<HTMLDivElement, ComponentPropsWithRef<'div'> & T
 
 AccordionTag.displayName = 'Accordion.Tag'
 
-const AccordionActions = forwardRef<HTMLDivElement, ComponentPropsWithRef<'div'>>(
-  ({ children, className, ...rest }, ref) => {
+const AccordionAction = forwardRef<HTMLButtonElement, ComponentPropsWithRef<'button'>>(
+  ({ children, className, onClick, ...rest }, ref) => {
+    const { size } = useAccordionContext()
+    const buttonSize = buttonSizeMap[size]
+
+    const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+      e.preventDefault()
+      onClick?.(e)
+    }
     return (
-      <div className={cx('accordion-actions', className)} ref={ref} {...rest}>
+      <Button
+        className={cx('accordion-action', className)}
+        onClick={handleClick}
+        ref={ref}
+        size={buttonSize}
+        variant="secondary"
+        {...rest}
+      >
         {children}
-      </div>
+      </Button>
     )
   }
 )
 
-AccordionActions.displayName = 'Accordion.Actions'
+AccordionAction.displayName = 'Accordion.Action'
 
 export const Accordion = Object.assign(AccordionComponent, {
-  Actions: AccordionActions,
+  Action: AccordionAction,
   Content: AccordionContent,
   Disclosure: AccordionDisclosure,
+  Header: AccordionHeader,
   HeaderWithTags: AccordionHeaderWithTags,
+  Icon: AccordionIcon,
   Subtitle: AccordionSubtitle,
   Tag: AccordionTag,
   Tags: AccordionTags,
