@@ -36,8 +36,8 @@ const Title = ({ children, className, ...rest }: TextProps) => (
 
 Title.displayName = 'Toast.Title'
 
-const Subtitle = ({ children, className, ...rest }: TextProps) => (
-  <Text className={cx('subtitle', className)} variant="body-md" {...rest}>
+const Subtitle = ({ children, ...rest }: TextProps) => (
+  <Text variant="body-md" {...rest}>
     {children}
   </Text>
 )
