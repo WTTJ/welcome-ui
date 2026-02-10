@@ -85,4 +85,95 @@ describe('Tabs', () => {
     expect(tab).toHaveTextContent('Tab 1')
     expect(tab).toHaveAttribute('aria-selected', 'true')
   })
+
+  it('forwards size prop to Tab nested in li wrapper', () => {
+    const TabsWithLiWrapper = () => {
+      const tab = useTab({ defaultSelectedId: 'tab1' })
+
+      return (
+        <Tabs aria-label="Tabs" size="md" store={tab}>
+          <li>
+            <Tabs.Tab data-testid="tab1-li" id="tab1" store={tab}>
+              Tab 1
+            </Tabs.Tab>
+          </li>
+          <li>
+            <Tabs.Tab data-testid="tab2-li" id="tab2" store={tab}>
+              Tab 2
+            </Tabs.Tab>
+          </li>
+        </Tabs>
+      )
+    }
+
+    render(<TabsWithLiWrapper />)
+
+    const tab1 = screen.getByTestId('tab1-li')
+    const tab2 = screen.getByTestId('tab2-li')
+
+    expect(tab1.classList.toString().includes('size-md')).toBe(true)
+    expect(tab2.classList.toString().includes('size-md')).toBe(true)
+  })
+
+  it('forwards size prop to Tab deeply nested in li > div wrapper', () => {
+    const TabsWithDeepWrapper = () => {
+      const tab = useTab({ defaultSelectedId: 'tab1' })
+
+      return (
+        <Tabs aria-label="Tabs" size="md" store={tab}>
+          <li>
+            <div>
+              <Tabs.Tab data-testid="tab1-deep" id="tab1" store={tab}>
+                Tab 1
+              </Tabs.Tab>
+            </div>
+          </li>
+          <li>
+            <div>
+              <Tabs.Tab data-testid="tab2-deep" id="tab2" store={tab}>
+                Tab 2
+              </Tabs.Tab>
+            </div>
+          </li>
+        </Tabs>
+      )
+    }
+    render(<TabsWithDeepWrapper />)
+
+    const tab1 = screen.getByTestId('tab1-deep')
+    const tab2 = screen.getByTestId('tab2-deep')
+
+    expect(tab1.classList.toString().includes('size-md')).toBe(true)
+    expect(tab2.classList.toString().includes('size-md')).toBe(true)
+  })
+
+  it('forwards size prop to Tab with siblings in wrapper', () => {
+    const TabsWithSiblings = () => {
+      const tab = useTab({ defaultSelectedId: 'tab1' })
+
+      return (
+        <Tabs aria-label="Tabs" size="lg" store={tab}>
+          <li>
+            <span>Icon 1</span>
+            <Tabs.Tab data-testid="tab1-sibling" id="tab1" store={tab}>
+              Tab 1
+            </Tabs.Tab>
+          </li>
+          <li>
+            <span>Icon 2</span>
+            <Tabs.Tab data-testid="tab2-sibling" id="tab2" store={tab}>
+              Tab 2
+            </Tabs.Tab>
+          </li>
+        </Tabs>
+      )
+    }
+    render(<TabsWithSiblings />)
+
+    const tab1 = screen.getByTestId('tab1-sibling')
+    const tab2 = screen.getByTestId('tab2-sibling')
+
+    expect(tab1.classList.toString().includes('size-lg')).toBe(true)
+    expect(tab2.classList.toString().includes('size-lg')).toBe(true)
+  })
 })
