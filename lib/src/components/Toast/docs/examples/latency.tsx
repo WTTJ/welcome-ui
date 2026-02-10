@@ -19,7 +19,7 @@ const Example = () => {
           toast(
             <Toast.Growl>
               <Toast.Title>Lorem ipsum dolor sit amet</Toast.Title>
-              Class aptent taciti sociosqu ad
+              <Toast.Subtitle>Class aptent taciti sociosqu ad</Toast.Subtitle>
             </Toast.Growl>
           )
         }
@@ -31,7 +31,7 @@ const Example = () => {
           toast(
             <Toast.Growl showProgressBar>
               <Toast.Title>Lorem ipsum dolor sit amet</Toast.Title>
-              Class aptent taciti sociosqu ad
+              <Toast.Subtitle>Class aptent taciti sociosqu ad</Toast.Subtitle>
             </Toast.Growl>
           )
         }
