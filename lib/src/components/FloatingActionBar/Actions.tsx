@@ -7,11 +7,13 @@ import type { FloatingActionBarActionsProps } from './types'
 export const Actions = ({
   children,
   dataTestId,
+  dropdownClassName,
+  placement = 'top-end',
   size = 'md',
   variant = 'secondary',
   ...props
 }: FloatingActionBarActionsProps) => {
-  const dropdownMenu = useDropdownMenu({ placement: 'top-end' })
+  const dropdownMenu = useDropdownMenu({ placement })
 
   return (
     <>
@@ -23,6 +25,7 @@ export const Actions = ({
         data-testid={dataTestId ? `${dataTestId}-menu` : undefined}
         {...props}
         aria-label="More actions"
+        className={dropdownClassName}
         portal
         size={size}
         store={dropdownMenu}

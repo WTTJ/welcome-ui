@@ -1,6 +1,17 @@
 @layer components {
+  .container {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--floating-action-bar-gap-items);
+
+    > * {
+      flex-shrink: 0;
+    }
+  }
+
   .floating-action-bar {
-    z-index: var(--z-index-sticky);
+    display: flex;
+    justify-content: center;
     padding: var(--floating-action-bar-padding-block) var(--floating-action-bar-padding-inline);
     border-radius: var(--floating-action-bar-border-radius);
     border: var(--floating-action-bar-border-width) solid var(--floating-action-bar-color-border);
@@ -8,18 +19,6 @@
     box-shadow: var(--elevation-30);
     overflow-x: auto;
     overflow-y: hidden;
-  }
-
-  .container {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--floating-action-bar-gap-items);
-    min-width: 100%;
-    justify-content: center;
-
-    > * {
-      flex-shrink: 0;
-    }
   }
 
   .pagination {
