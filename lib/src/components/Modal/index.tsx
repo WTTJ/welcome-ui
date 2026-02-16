@@ -65,9 +65,9 @@ const ModalComponent = forwardRefWithAs<ModalProps, 'div'>(
         backdrop={<Backdrop backdrop={backdrop} hideOnInteractOutside={hideOnInteractOutside} />}
         hideOnInteractOutside={hideOnInteractOutside}
         ref={ref}
-        render={
+        render={props =>
           Component ? (
-            <Component />
+            <Component {...props} />
           ) : (
             <div
               className={cx(
@@ -75,8 +75,10 @@ const ModalComponent = forwardRefWithAs<ModalProps, 'div'>(
                 `size-${size}`,
                 scrollable && 'scrollable',
                 fullscreen && 'fullscreen',
-                className
+                className,
+                props.className
               )}
+              {...props}
             />
           )
         }
