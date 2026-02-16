@@ -6,6 +6,8 @@ export type FloatingActionBarActionsProps = {
   children?: React.ReactNode
   className?: string
   dataTestId?: string
+  dropdownClassName?: string
+  placement?: 'bottom-end' | 'bottom-start' | 'top-end' | 'top-start'
   size?: 'lg' | 'md'
   variant?: 'primary' | 'secondary' | 'tertiary'
 }
