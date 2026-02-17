@@ -5,6 +5,7 @@
       'label'
       'input';
     width: 100%;
+    height: fit-content;
 
     &:has(.label):has(.hint) {
       grid-template-areas:
