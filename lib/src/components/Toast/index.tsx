@@ -3,6 +3,7 @@ import { Toaster, toast as toastRHT } from 'react-hot-toast'
 import type { ToastPosition } from 'react-hot-toast'
 
 import type { IconProps } from '@/components/Icon/types'
+import { Text } from '@/components/Text'
 import type { TextProps } from '@/components/Text/types'
 import { classNames } from '@/utils'
 
@@ -28,12 +29,20 @@ const DURATION: Record<ToastVariant, number> = {
 }
 
 const Title = ({ children, className, ...rest }: TextProps) => (
-  <p className={cx('title', className)} {...rest}>
+  <Text className={cx('title', className)} variant="label-md-strong" {...rest}>
     {children}
-  </p>
+  </Text>
 )
 
 Title.displayName = 'Toast.Title'
+
+const Subtitle = ({ children, ...rest }: TextProps) => (
+  <Text variant="body-md" {...rest}>
+    {children}
+  </Text>
+)
+
+Subtitle.displayName = 'Toast.Subtitle'
 
 export const toast = (component: JSX.Element, options?: ToastOptions) => {
   const name = 'type' in component ? component.type.displayName || component.type.name : undefined
@@ -71,5 +80,6 @@ export const Toast = Object.assign(Toaster, {
   GrowlAction,
   Snackbar,
   SnackbarAction,
+  Subtitle,
   Title,
 })

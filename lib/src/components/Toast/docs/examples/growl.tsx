@@ -12,8 +12,10 @@ const Example = () => {
               variant="info"
             >
               <Toast.Title>Lorem ipsum dolor sit amet</Toast.Title>
-              Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-              himenaeos
+              <Toast.Subtitle>
+                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+                himenaeos
+              </Toast.Subtitle>
             </Toast.Growl>
           )
         }
@@ -25,8 +27,10 @@ const Example = () => {
           toast(
             <Toast.Growl variant="error">
               <Toast.Title>Lorem ipsum dolor sit amet</Toast.Title>
-              Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-              himenaeos
+              <Toast.Subtitle>
+                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+                himenaeos
+              </Toast.Subtitle>
             </Toast.Growl>
           )
         }
@@ -38,8 +42,10 @@ const Example = () => {
           toast(
             <Toast.Growl variant="warning">
               <Toast.Title>Lorem ipsum dolor sit amet</Toast.Title>
-              Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-              himenaeos
+              <Toast.Subtitle>
+                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+                himenaeos
+              </Toast.Subtitle>
             </Toast.Growl>
           )
         }
@@ -51,8 +57,10 @@ const Example = () => {
           toast(
             <Toast.Growl variant="success">
               <Toast.Title>Lorem ipsum dolor sit amet</Toast.Title>
-              Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-              himenaeos
+              <Toast.Subtitle>
+                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+                himenaeos
+              </Toast.Subtitle>
             </Toast.Growl>
           )
         }
