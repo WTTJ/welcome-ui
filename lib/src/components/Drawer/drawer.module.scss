@@ -3,15 +3,13 @@
 @layer components {
   .root {
     background-color: var(--drawer-body-color-background-default);
-    border: var(--drawer-border-width) solid
-      var(--drawer-color-border-default);
+    border: var(--drawer-border-width) solid var(--drawer-color-border-default);
     box-shadow: var(--elevation-10);
     z-index: 999;
 
     position: fixed;
     display: flex;
     flex-direction: column;
-    overflow: auto;
     opacity: 0;
     transition: var(--duration-medium);
     max-width: 100%;
@@ -168,10 +166,7 @@
   .content {
     flex: 1;
     padding: var(--spacing-xxl);
-
-    @media screen and (min-width: breakpoints.$breakpoint-md) {
-      overflow-y: auto;
-    }
+    overflow-y: auto;
   }
 
   .content-header {
