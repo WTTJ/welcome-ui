@@ -1,11 +1,10 @@
 import { forwardRef } from 'react'
 
+import { Icon } from '@/components/Icon'
 import { Text } from '@/components/Text'
 import { classNames } from '@/utils'
 
-import { Icon } from '../Icon'
-
-import styles from './floatingBarAction.module.scss'
+import styles from './floating-action-bar.module.scss'
 import type { FloatingActionBarPaginationProps } from './types'
 
 const cx = classNames(styles)
@@ -40,12 +39,7 @@ export const Pagination = forwardRef<HTMLDivElement, FloatingActionBarPagination
     }
 
     return (
-      <div
-        {...rest}
-        className={cx('pagination', className)}
-        data-testid={dataTestId ? dataTestId : undefined}
-        ref={ref}
-      >
+      <div {...rest} className={cx('pagination', className)} data-testid={dataTestId} ref={ref}>
         <button
           aria-label={previousPageText}
           className={cx(
@@ -62,7 +56,11 @@ export const Pagination = forwardRef<HTMLDivElement, FloatingActionBarPagination
         >
           <Icon className={cx('icon')} name="angle-left" size="lg" />
         </button>
-        <Text className={cx('pagination-text')} variant="body-md">
+        <Text
+          aria-label={`Page ${page} of ${pageCount}`}
+          className={cx('pagination-text')}
+          variant="body-md"
+        >
           {page} / {pageCount}
         </Text>
         <button
@@ -80,7 +78,7 @@ export const Pagination = forwardRef<HTMLDivElement, FloatingActionBarPagination
           {...buttonNextProps}
         >
           {navigationTexts?.nextPage ? nextPageText : null}
-          <Icon name="angle-right" size="lg" />
+          <Icon className={cx('icon')} name="angle-right" size="lg" />
         </button>
       </div>
     )

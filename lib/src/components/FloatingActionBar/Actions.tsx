@@ -1,11 +1,12 @@
+import { Button } from '@/components/Button'
 import { DropdownMenu, useDropdownMenu } from '@/components/DropdownMenu'
 import { Icon } from '@/components/Icon'
 
-import { Button } from './Button'
 import type { FloatingActionBarActionsProps } from './types'
 
 export const Actions = ({
   children,
+  className,
   dataTestId,
   dropdownClassName,
   placement = 'top-end',
@@ -17,7 +18,13 @@ export const Actions = ({
 
   return (
     <>
-      <DropdownMenu.Trigger as={Button} size={size} store={dropdownMenu} variant={variant}>
+      <DropdownMenu.Trigger
+        as={Button}
+        className={className}
+        size={size}
+        store={dropdownMenu}
+        variant={variant}
+      >
         <Icon name="ellipsis-v" />
       </DropdownMenu.Trigger>
 

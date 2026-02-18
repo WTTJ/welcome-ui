@@ -23,7 +23,7 @@ export type FloatingActionBarPaginationProps = {
     nextPage?: string
     previousPage?: string
   }
-  onChange?: (page: string) => void
+  onChange: (page: number | string) => void
   page: number
   pageCount: number
   size?: 'lg' | 'md'

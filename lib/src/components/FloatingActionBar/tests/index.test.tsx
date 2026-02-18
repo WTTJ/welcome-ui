@@ -23,6 +23,22 @@ describe('<FloatingActionBar>', () => {
     expect(saveButton).toBeInTheDocument()
   })
 
+  it('should render button with icon', () => {
+    render(
+      <FloatingActionBar dataTestId="floating-action-bar">
+        <FloatingActionBar.Button icon={<span data-testid="save-icon" />} variant="primary">
+          Save
+        </FloatingActionBar.Button>
+      </FloatingActionBar>
+    )
+
+    const saveButton = screen.getByText('Save')
+    const icon = screen.getByTestId('save-icon')
+
+    expect(saveButton).toBeInTheDocument()
+    expect(icon).toBeInTheDocument()
+  })
+
   it('should render with pagination', () => {
     const handleChange = vi.fn()
     render(
