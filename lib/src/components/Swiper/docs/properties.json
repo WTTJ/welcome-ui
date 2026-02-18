@@ -1,9 +1,9 @@
 {
-  "Swiper": {
+  "useSwiper": {
     "props": {
       "autoplay": {
         "defaultValue": null,
-        "description": "",
+        "description": "If true the swiper will automatically transition between slides",
         "name": "autoplay",
         "parent": {
           "fileName": "welcome-ui/lib/src/components/Swiper/types.ts",
@@ -17,260 +17,13 @@
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "boolean",
-          "value": [
-            {
-              "value": "false"
-            },
-            {
-              "value": "true"
-            }
-          ]
+          "name": "{ duration?: number; enabled?: boolean; loop?: boolean; }"
         }
       },
-      "centeredSlides": {
+      "navigation": {
         "defaultValue": null,
-        "description": "If true the swiper will begin at the middle",
-        "name": "centeredSlides",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Swiper/types.ts",
-          "name": "UseSwiperOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Swiper/types.ts",
-            "name": "UseSwiperOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "enum",
-          "raw": "boolean",
-          "value": [
-            {
-              "value": "false"
-            },
-            {
-              "value": "true"
-            }
-          ]
-        }
-      },
-      "duration": {
-        "defaultValue": null,
-        "description": "",
-        "name": "duration",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Swiper/types.ts",
-          "name": "UseSwiperOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Swiper/types.ts",
-            "name": "UseSwiperOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "number"
-        }
-      },
-      "firstSlideToShow": {
-        "defaultValue": null,
-        "description": "Won't be used if centeredSlides is true",
-        "name": "firstSlideToShow",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Swiper/types.ts",
-          "name": "UseSwiperOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Swiper/types.ts",
-            "name": "UseSwiperOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "number"
-        }
-      },
-      "fullWidth": {
-        "defaultValue": null,
-        "description": "",
-        "name": "fullWidth",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Swiper/types.ts",
-          "name": "UseSwiperOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Swiper/types.ts",
-            "name": "UseSwiperOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "enum",
-          "raw": "boolean",
-          "value": [
-            {
-              "value": "false"
-            },
-            {
-              "value": "true"
-            }
-          ]
-        }
-      },
-      "id": {
-        "defaultValue": null,
-        "description": "",
-        "name": "id",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Swiper/types.ts",
-          "name": "UseSwiperOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Swiper/types.ts",
-            "name": "UseSwiperOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "string"
-        }
-      },
-      "loop": {
-        "defaultValue": null,
-        "description": "",
-        "name": "loop",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Swiper/types.ts",
-          "name": "UseSwiperOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Swiper/types.ts",
-            "name": "UseSwiperOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "enum",
-          "raw": "boolean",
-          "value": [
-            {
-              "value": "false"
-            },
-            {
-              "value": "true"
-            }
-          ]
-        }
-      },
-      "navigationSize": {
-        "defaultValue": null,
-        "description": "Size of left and right navigation arrows",
-        "name": "navigationSize",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Swiper/types.ts",
-          "name": "UseSwiperOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Swiper/types.ts",
-            "name": "UseSwiperOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "enum",
-          "raw": "ButtonSize",
-          "value": [
-            {
-              "value": "\"sm\""
-            },
-            {
-              "value": "\"md\""
-            },
-            {
-              "value": "\"lg\""
-            }
-          ]
-        }
-      },
-      "slidesPerView": {
-        "defaultValue": null,
-        "description": "Number of slides to show per view",
-        "name": "slidesPerView",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Swiper/types.ts",
-          "name": "UseSwiperOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Swiper/types.ts",
-            "name": "UseSwiperOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "{ desktop: number; mobile: number; tablet: number; }"
-        }
-      },
-      "spaceBetween": {
-        "defaultValue": null,
-        "description": "Space between each slides",
-        "name": "spaceBetween",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Swiper/types.ts",
-          "name": "UseSwiperOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Swiper/types.ts",
-            "name": "UseSwiperOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "number"
-        }
-      },
-      "withDarkUI": {
-        "defaultValue": null,
-        "description": "Use black colors for the pagination and arrows in case of slides too bright",
-        "name": "withDarkUI",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Swiper/types.ts",
-          "name": "UseSwiperOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Swiper/types.ts",
-            "name": "UseSwiperOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "enum",
-          "raw": "boolean",
-          "value": [
-            {
-              "value": "false"
-            },
-            {
-              "value": "true"
-            }
-          ]
-        }
-      },
-      "withNavigation": {
-        "defaultValue": null,
-        "description": "Show left and rigth navigation arrows on mobile/tablet or/and desktop",
-        "name": "withNavigation",
+        "description": "Navigation arrow visibility per breakpoint",
+        "name": "navigation",
         "parent": {
           "fileName": "welcome-ui/lib/src/components/Swiper/types.ts",
           "name": "UseSwiperOptions"
@@ -286,10 +39,10 @@
           "name": "{ desktop: boolean; mobile: boolean; }"
         }
       },
-      "withPagination": {
+      "slides": {
         "defaultValue": null,
-        "description": "Show bottom pagination on mobile/tablet or/and desktop",
-        "name": "withPagination",
+        "description": "Slide display and spacing configuration",
+        "name": "slides",
         "parent": {
           "fileName": "welcome-ui/lib/src/components/Swiper/types.ts",
           "name": "UseSwiperOptions"
@@ -302,7 +55,32 @@
         ],
         "required": false,
         "type": {
-          "name": "{ desktop: boolean; mobile: boolean; }"
+          "name": "{ alignment?: \"default\" | \"center\"; expandOnLargeScreens?: boolean; gap?: number; id?: string; initialIndex?: number; perView?: { desktop: number; mobile: number; tablet: number; }; }"
+        }
+      }
+    }
+  },
+  "Swiper": {
+    "props": {
+      "store": {
+        "defaultValue": {
+          "value": "{\n  autoplay: defaultOptions.autoplay!,\n  navigation: defaultOptions.navigation!,\n  slides: {\n    alignment: defaultOptions.slides!.alignment!,\n    currentSlidesPerView: defaultOptions.slides!.perView!.desktop,\n    expandOnLargeScreens: defaultOptions.slides!.expandOnLargeScreens!,\n    gap: defaultOptions.slides!.gap!,\n    id: defaultOptions.slides!.id!,\n    initialIndex: defaultOptions.slides!.initialIndex!,\n    perView: defaultOptions.slides!.perView!,\n  },\n}"
+        },
+        "description": "",
+        "name": "store",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Swiper/types.ts",
+          "name": "SwiperOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Swiper/types.ts",
+            "name": "SwiperOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "{ autoplay: { duration: number; enabled: boolean; loop: boolean; }; navigation: { desktop: boolean; mobile: boolean; }; slides: { alignment: \"default\" | \"center\"; currentSlidesPerView: number; expandOnLargeScreens: boolean; gap: number; id: string; initialIndex: number; perView: { ...; }; }; }"
         }
       }
     }
