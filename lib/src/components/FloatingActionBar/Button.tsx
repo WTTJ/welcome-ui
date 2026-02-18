@@ -8,14 +8,8 @@ export const Button = forwardRef<HTMLButtonElement, FloatingActionBarButtonProps
   ({ children, icon, size = 'md', variant = 'secondary', ...rest }, ref) => {
     return (
       <BaseButton {...rest} ref={ref} size={size} variant={variant}>
-        {icon ? (
-          <>
-            {icon}
-            <span>{children}</span>
-          </>
-        ) : (
-          children
-        )}
+        {icon}
+        {children}
       </BaseButton>
     )
   }

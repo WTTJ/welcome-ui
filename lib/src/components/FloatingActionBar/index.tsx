@@ -4,7 +4,7 @@ import { classNames } from '@/utils'
 
 import { Actions } from './Actions'
 import { Button } from './Button'
-import styles from './floatingBarAction.module.scss'
+import styles from './floating-action-bar.module.scss'
 import { Pagination } from './Pagination'
 import type { FloatingActionBarProps } from './types'
 
