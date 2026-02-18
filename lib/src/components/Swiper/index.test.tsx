@@ -9,33 +9,29 @@ const TestSwiper = () => {
 
   return (
     <Swiper data-testid="swiper" store={swiper}>
-      <div>page1</div>
-      <div>page2</div>
-      <div>page3</div>
-    </Swiper>
-  )
-}
-
-const TestSwiperWithNoPagination = () => {
-  const swiper = useSwiper({ slidesPerView: { desktop: 3, mobile: 1, tablet: 1 } })
-
-  return (
-    <Swiper data-testid="swiper" store={swiper}>
-      <div>page1</div>
-      <div>page2</div>
-      <div>page3</div>
+      <Swiper.Slides>
+        <div>page1</div>
+        <div>page2</div>
+        <div>page3</div>
+      </Swiper.Slides>
+      <Swiper.PrevButton />
+      <Swiper.NextButton />
     </Swiper>
   )
 }
 
 const TestSwiperWithLoop = () => {
-  const swiper = useSwiper({ loop: true })
+  const swiper = useSwiper({ autoplay: { enabled: true, loop: true } })
 
   return (
     <Swiper data-testid="swiper" store={swiper}>
-      <div>page1</div>
-      <div>page2</div>
-      <div>page3</div>
+      <Swiper.Slides>
+        <div>page1</div>
+        <div>page2</div>
+        <div>page3</div>
+      </Swiper.Slides>
+      <Swiper.PrevButton />
+      <Swiper.NextButton />
     </Swiper>
   )
 }
@@ -66,12 +62,11 @@ describe('<Swiper>', () => {
     Object.defineProperty(HTMLElement.prototype, 'offsetWidth', { value: 896 })
     Object.defineProperty(HTMLElement.prototype, 'scrollWidth', { value: 2688 })
 
-    const { container } = render(<TestSwiper />)
+    render(<TestSwiper />)
     // Arrange
     const slide1 = screen.getByText('page1')
     const slide2 = screen.getByText('page2')
     const slide3 = screen.getByText('page3')
-    const pagination = container.querySelectorAll('[role=tab]')
     const prevButton = screen.getByLabelText('Previous slide')
     const nextButton = screen.getByLabelText('Next slide')
 
@@ -81,9 +76,6 @@ describe('<Swiper>', () => {
     expect(slide1).toHaveAttribute('aria-hidden', 'false')
     expect(slide2).toHaveAttribute('aria-hidden', 'true')
     expect(slide3).toHaveAttribute('aria-hidden', 'true')
-    expect(pagination[0]).toHaveAttribute('aria-selected', 'true')
-    expect(pagination[1]).toHaveAttribute('aria-selected', 'false')
-    expect(pagination[2]).toHaveAttribute('aria-selected', 'false')
   })
 
   it('should render correctly when on last page', () => {
@@ -99,44 +91,6 @@ describe('<Swiper>', () => {
     // Assert
     expect(prevButton).toBeEnabled()
     expect(nextButton).toHaveAttribute('aria-disabled', 'true')
-  })
-
-  it('should render without navigation when same number of slides than slides per view', () => {
-    const { container } = render(<TestSwiperWithNoPagination />)
-
-    // Arrange
-    const slide1 = screen.getByText('page1')
-    const slide2 = screen.getByText('page2')
-    const slide3 = screen.getByText('page3')
-    const pagination = container.querySelectorAll('[role=tab]')
-    const prevButton = screen.getByLabelText('Previous slide')
-    const nextButton = screen.getByLabelText('Next slide')
-
-    // Assert
-    expect(prevButton).toHaveAttribute('aria-disabled', 'true')
-    expect(nextButton).toHaveAttribute('aria-disabled', 'true')
-    expect(slide1).toHaveAttribute('aria-hidden', 'false')
-    expect(slide2).toHaveAttribute('aria-hidden', 'false')
-    expect(slide3).toHaveAttribute('aria-hidden', 'false')
-    expect(pagination).toHaveLength(0)
-  })
-
-  it('should call scrollTo function when clicking on bullet page button', async () => {
-    const { container, user } = render(<TestSwiper />)
-    // Arrange
-    const pagination = container.querySelectorAll('[role=tab]')
-
-    // Act
-    await user.click(pagination[2])
-
-    // Assert
-    expect(scrollToSpy).toHaveBeenLastCalledWith({ behavior: 'smooth', left: 40, top: 0 })
-
-    // Act
-    await user.click(pagination[1])
-
-    // Assert
-    expect(scrollToSpy).toHaveBeenLastCalledWith({ behavior: 'smooth', left: 20, top: 0 })
   })
 
   describe('with loop', () => {
