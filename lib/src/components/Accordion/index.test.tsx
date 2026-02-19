@@ -14,23 +14,24 @@ describe('<Accordion />', () => {
     } = renderHook(() => useAccordion())
 
     const { user } = render(
-      <Accordion dataTestId="accordion" store={store} title={title}>
-        {content}
+      <Accordion store={store}>
+        <Accordion.Disclosure data-testid="accordion-disclosure">{title}</Accordion.Disclosure>
+        <Accordion.Content data-testid="accordion-content">{content}</Accordion.Content>
       </Accordion>
     )
 
-    const button = screen.getByTestId('accordion-title')
-    const children = screen.getByTestId('accordion-content')
+    const accordionDisclosure = screen.getByTestId('accordion-disclosure')
+    const accordionContent = screen.getByTestId('accordion-content')
 
-    expect(button).toHaveTextContent(title)
-    expect(button).toHaveAttribute('aria-expanded', 'false')
-    expect(children).toHaveTextContent(content)
-    expect(children).toHaveAttribute('hidden')
+    expect(accordionDisclosure).toHaveTextContent(title)
+    expect(accordionDisclosure).toHaveAttribute('aria-expanded', 'false')
+    expect(accordionContent).toHaveTextContent(content)
+    expect(accordionContent).toHaveAttribute('hidden')
 
-    await user.click(button)
+    await user.click(accordionDisclosure)
 
-    expect(button).toHaveAttribute('aria-expanded', 'true')
-    expect(children).not.toHaveAttribute('hidden')
+    expect(accordionDisclosure).toHaveAttribute('aria-expanded', 'true')
+    expect(accordionContent).not.toHaveAttribute('hidden')
   })
 
   it('should have correct attribute on open at start', () => {
@@ -39,15 +40,16 @@ describe('<Accordion />', () => {
     } = renderHook(() => useAccordion({ defaultOpen: true }))
 
     render(
-      <Accordion dataTestId="accordion" store={store} title={title}>
-        {content}
+      <Accordion data-testid="accordion" store={store}>
+        <Accordion.Disclosure data-testid="accordion-disclosure">{title}</Accordion.Disclosure>
+        <Accordion.Content data-testid="accordion-content">{content}</Accordion.Content>
       </Accordion>
     )
 
-    const button = screen.getByTestId('accordion-title')
-    const children = screen.getByTestId('accordion-content')
+    const accordionDisclosure = screen.getByTestId('accordion-disclosure')
+    const accordionContent = screen.getByTestId('accordion-content')
 
-    expect(button).toHaveAttribute('aria-expanded', 'true')
-    expect(children).not.toHaveAttribute('hidden')
+    expect(accordionDisclosure).toHaveAttribute('aria-expanded', 'true')
+    expect(accordionContent).not.toHaveAttribute('hidden')
   })
 })
