@@ -9,11 +9,15 @@ describe('<Link>', () => {
   expectAsSupport(Link)
 
   it('should render correctly', () => {
-    const { getByTestId } = render(<Link data-testid="link">{content}</Link>)
+    const { getByTestId } = render(
+      <div style={{ color: 'rgb(10, 20, 30)' }}>
+        <Link data-testid="link">{content}</Link>
+      </div>
+    )
     const link = getByTestId('link')
 
     expect(link).toHaveTextContent(content)
-    expect(link).toHaveStyle({ color: 'canvastext' })
+    expect(link).toHaveStyle({ color: 'rgb(10, 20, 30)' })
   })
 
   it('should render correctly with a target blank', () => {

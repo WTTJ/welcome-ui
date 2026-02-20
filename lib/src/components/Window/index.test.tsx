@@ -99,7 +99,11 @@ describe('<Window>', () => {
 
     await user.click(screen.getByText('2nd tab'))
 
-    expect(screen.getByText('Second tab content')).toBeVisible()
+    const firstPanel = screen.getByText('First tab content').closest('[role="tabpanel"]')
+    const secondPanel = screen.getByText('Second tab content').closest('[role="tabpanel"]')
+
+    expect(secondPanel).toHaveAttribute('data-open', 'true')
+    expect(firstPanel).not.toHaveAttribute('data-open')
   })
 
   it('should render with BoxText', () => {

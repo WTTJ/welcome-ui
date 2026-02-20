@@ -22,3 +22,7 @@ vite.config.mjs.*
 
 # scripts
 temp/
+
+# TypeScript incremental build info
+*.tsbuildinfo
+/lib/tsconfig.tsbuildinfo
