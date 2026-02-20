@@ -1,19 +1,33 @@
+/// <reference types="vitest" />
+
 import fs from 'fs'
+import { createRequire } from 'node:module'
+import { fileURLToPath } from 'node:url'
 import path from 'path'
 
 import preserveDirectives from 'rollup-preserve-directives'
+import type { Plugin, PluginOption, UserConfig } from 'vite'
 import { defineConfig } from 'vite'
-import dts from 'vite-plugin-dts'
 
 import { getLibEntries } from './scripts/get-lib-entries'
 
+const require = createRequire(import.meta.url)
+// which can make plugin types incompatible. We keep a small local type to satisfy TS.
+type DtsPluginFactory = (options: Record<string, unknown>) => PluginOption
+const dts = require('vite-plugin-dts').default as DtsPluginFactory
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
+type UserConfigWithTest = UserConfig & { test?: Record<string, unknown> }
+
 function addUseClientDirectivePlugin() {
-  return {
+  const plugin: Plugin = {
     name: 'add-use-client',
-    transform(code, path) {
+    transform(code: string, id: string) {
       let clientString = ''
       // Only add for client-side and not css or scss files (adjust the filter as needed)
-      if (!path.endsWith('.css') && !path.endsWith('.scss')) {
+      if (!id.endsWith('.css') && !id.endsWith('.scss')) {
         clientString = "'use client';\n"
       }
 
@@ -23,10 +37,12 @@ function addUseClientDirectivePlugin() {
       }
     },
   }
+
+  return plugin
 }
 
 function copyScssFilesPlugin() {
-  return {
+  const plugin: Plugin = {
     name: 'copy-scss-files',
     writeBundle() {
       const srcDir = path.resolve(__dirname, 'src/utils/scss')
@@ -48,9 +64,11 @@ function copyScssFilesPlugin() {
       })
     },
   }
+
+  return plugin
 }
 
-export default defineConfig({
+const config: UserConfigWithTest = {
   build: {
     cssCodeSplit: true,
     lib: {
@@ -94,4 +112,6 @@ export default defineConfig({
     retry: 3,
     setupFiles: 'tests/setup.ts',
   },
-})
+}
+
+export default defineConfig(config)

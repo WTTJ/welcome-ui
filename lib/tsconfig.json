@@ -1,6 +1,7 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
+    "baseUrl": ".",
     "sourceMap": true,
     "declaration": true,
     "target": "ES2018",

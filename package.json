@@ -4,14 +4,14 @@
   "scripts": {
     "build": "yarn workspace welcome-ui run build",
     "build:website": "yarn workspace website install && yarn workspace website build",
-    "check:audit": "bash ./scripts/audit.sh --level low",
+    "check:audit": "bash -c './scripts/audit.sh --severity low --no-deprecations --recursive'",
     "check:audit:fix": "npm_config_yes=true npx yarn-audit-fix",
     "check:docs": "node ./scripts/check-docs.mjs",
     "check:theme": "node --import=tsx lib/src/theme/scripts/generate-theme.ts",
     "lint:css": "stylelint **/*.scss --config ./stylelint.config.mjs",
     "lint:js": "eslint scripts lib website --max-warnings 0",
     "lint:mdx": "prettier --parser mdx --write '**/docs/index.mdx'",
-    "lint:ts": "yarn workspaces run tsc --noEmit",
+    "lint:ts": "tsc -b lib/tsconfig.json website/tsconfig.json --noEmit",
     "lint": "yarn lint:js && yarn lint:css && yarn lint:ts && yarn lint:mdx",
     "tokens:clean": "yarn workspace welcome-ui run tokens:clean",
     "tokens:build": "yarn workspace welcome-ui run tokens:build",
@@ -112,5 +112,5 @@
   "dependencies": {
     "tailwindcss": "^4.1.18"
   },
-  "packageManager": "yarn@1.22.22"
+  "packageManager": "yarn@4.7.0"
 }
