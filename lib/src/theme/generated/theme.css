@@ -181,7 +181,7 @@
 }
 
 @theme static {
---*: initial;
+  --*: initial;
   --spacing: 0.0625rem;
   --spacing-0: 0;
   --duration-fast: 100ms;
