@@ -21,6 +21,16 @@ executors:
     machine:
       image: ubuntu-2204:current
 
+commands:
+  setup_yarn:
+    steps:
+      - run:
+          name: Enable Corepack + Yarn 4.7.0
+          command: |
+            corepack enable
+            corepack prepare yarn@4.7.0 --activate
+            yarn --version
+
 default: &default
   working_directory: /home/circleci/welcome-ui
 
@@ -40,6 +50,7 @@ jobs:
     steps:
       - *checkout
       - *restore_node_modules
+      - setup_yarn
       - run:
           name: Run yarn install and save node modules
           command: yarn install --immutable
@@ -47,6 +58,9 @@ jobs:
           key: << pipeline.parameters.cache_version >>-yarn-{{ checksum "/home/circleci/welcome-ui/yarn.lock" }}
           paths:
             - ~/.cache/yarn
+            - ~/welcome-ui/.yarn/cache
+            - ~/welcome-ui/.yarn/unplugged
+            - ~/welcome-ui/.yarn/install-state.gz
             - ~/welcome-ui/node_modules
             - ~/welcome-ui/website/node_modules
             - ~/welcome-ui/lib/node_modules
@@ -58,6 +72,7 @@ jobs:
     steps:
       - *checkout
       - *restore_node_modules
+      - setup_yarn
       - attach_workspace:
           at: ~/welcome-ui
       - run:
@@ -71,6 +86,7 @@ jobs:
     steps:
       - *checkout
       - *restore_node_modules
+      - setup_yarn
       - run: yarn build
       - persist_to_workspace:
           root: ~/welcome-ui
@@ -83,6 +99,7 @@ jobs:
     steps:
       - *checkout
       - *restore_node_modules
+      - setup_yarn
       - attach_workspace:
           at: ~/welcome-ui
       - run: yarn lint
@@ -94,6 +111,7 @@ jobs:
     steps:
       - *checkout
       - *restore_node_modules
+      - setup_yarn
       - attach_workspace:
           at: ~/welcome-ui
       - run: cd lib && circleci tests glob "src/**/*.test.{ts,tsx}" | circleci tests run --command="xargs yarn test --fileParallelism=false"
@@ -105,6 +123,7 @@ jobs:
     steps:
       - *checkout
       - *restore_node_modules
+      - setup_yarn
       - attach_workspace:
           at: ~/welcome-ui
       - run: yarn build:website
@@ -120,6 +139,7 @@ jobs:
     steps:
       - *checkout
       - *restore_node_modules
+      - setup_yarn
       - attach_workspace:
           at: ~/welcome-ui
       - aws-cli/setup:
@@ -141,6 +161,7 @@ jobs:
     steps:
       - *checkout
       - *restore_node_modules
+      - setup_yarn
       - attach_workspace:
           at: ~/welcome-ui
       - aws-cli/setup:
@@ -160,6 +181,7 @@ jobs:
     steps:
       - *checkout
       - *restore_node_modules
+      - setup_yarn
       - attach_workspace:
           at: ~/welcome-ui
       - run:
