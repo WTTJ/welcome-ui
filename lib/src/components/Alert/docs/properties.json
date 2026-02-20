@@ -75,7 +75,7 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "\"symbol\" | \"link\" | \"map\" | \"search\" | \"video\" | \"filter\" | \"image\" | \"previous\" | \"heading\" | \"copy\" | \"x\" | \"asterisk\" | \"info-circle\" | \"chart-line\" | \"plus\" | \"archive-alt\" | ... 237 more ... | \"ban\"",
+          "raw": "\"symbol\" | \"link\" | \"map\" | \"search\" | \"video\" | \"filter\" | \"image\" | \"previous\" | \"heading\" | \"copy\" | \"x\" | \"asterisk\" | \"info-circle\" | \"chart-line\" | \"plus\" | \"archive-alt\" | ... 239 more ... | \"ban\"",
           "value": [
             {
               "value": "\"symbol\""
@@ -534,6 +534,9 @@
               "value": "\"map-marker-alt\""
             },
             {
+              "value": "\"map-pin\""
+            },
+            {
               "value": "\"lock-alt\""
             },
             {
@@ -598,6 +601,9 @@
             },
             {
               "value": "\"bunting-flags\""
+            },
+            {
+              "value": "\"swatchbook\""
             },
             {
               "value": "\"tag-alt\""

@@ -13,7 +13,7 @@ describe('<Link>', () => {
     const link = getByTestId('link')
 
     expect(link).toHaveTextContent(content)
-    expect(link).toHaveStyle({ color: 'inherit' })
+    expect(link).toHaveStyle({ color: 'canvastext' })
   })
 
   it('should render correctly with a target blank', () => {

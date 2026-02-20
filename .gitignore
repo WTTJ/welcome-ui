@@ -5,6 +5,12 @@ node_modules/
 .size-snapshot.json
 yarn-error.log
 
+# Yarn v4
+.yarn/cache
+.yarn/install-state.gz
+.yarn/unplugged
+.pnp.*
+
 # Output of 'npm pack'
 *.tgz
 

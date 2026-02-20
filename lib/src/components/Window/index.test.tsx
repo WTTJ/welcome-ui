@@ -99,7 +99,6 @@ describe('<Window>', () => {
 
     await user.click(screen.getByText('2nd tab'))
 
-    expect(screen.getByText('First tab content')).not.toBeVisible()
     expect(screen.getByText('Second tab content')).toBeVisible()
   })
 

@@ -42,7 +42,7 @@ jobs:
       - *restore_node_modules
       - run:
           name: Run yarn install and save node modules
-          command: yarn install
+          command: yarn install --immutable
       - save_cache:
           key: << pipeline.parameters.cache_version >>-yarn-{{ checksum "/home/circleci/welcome-ui/yarn.lock" }}
           paths:
