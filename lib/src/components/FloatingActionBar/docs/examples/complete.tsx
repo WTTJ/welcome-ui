@@ -1,6 +1,5 @@
 import { useState } from 'react'
 
-import { DropdownMenu } from '@/components/DropdownMenu'
 import { FloatingActionBar } from '@/components/FloatingActionBar'
 import { Icon } from '@/components/Icon'
 
@@ -20,14 +19,14 @@ const Example = () => {
         Action 3
       </FloatingActionBar.Button>
       <FloatingActionBar.Actions>
-        <DropdownMenu.Item>
+        <FloatingActionBar.ActionsItem onClick={() => alert('Action 4')}>
           <Icon name="sign-right" />
           Action 4
-        </DropdownMenu.Item>
-        <DropdownMenu.Item>
+        </FloatingActionBar.ActionsItem>
+        <FloatingActionBar.ActionsItem onClick={() => alert('Action 5')}>
           <Icon name="sign-right" />
           Action 5
-        </DropdownMenu.Item>
+        </FloatingActionBar.ActionsItem>
       </FloatingActionBar.Actions>
     </FloatingActionBar>
   )
