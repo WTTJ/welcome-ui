@@ -1,1 +1,1 @@
-yarn workspace welcome-ui-root run commitlint --edit "$1"
+yarn commitlint --edit "$1"
