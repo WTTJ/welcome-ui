@@ -34,7 +34,8 @@
   "private": true,
   "workspaces": [
     "website",
-    "lib"
+    "lib",
+    "welcome-ui"
   ],
   "repository": {
     "type": "git",
