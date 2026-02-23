@@ -17,11 +17,11 @@ const FloatingActionBarComponent = forwardRef<HTMLDivElement, FloatingActionBarP
   ({ children, className, dataTestId, ...rest }, ref) => {
     return (
       <div
-        {...rest}
         className={cx('floating-action-bar', className)}
         data-testid={dataTestId}
         ref={ref}
         role="toolbar"
+        {...rest}
       >
         <div className={cx('container')}>{children}</div>
       </div>
