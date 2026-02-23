@@ -26,4 +26,5 @@ interface StepperItemOptions {
 
 interface StepperOptions {
   children: React.ReactNode
+  wrapperProps?: React.HTMLAttributes<HTMLDivElement>
 }

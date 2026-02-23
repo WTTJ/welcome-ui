@@ -1,35 +1,23 @@
 {
   "Stepper": {
     "props": {
-      "status": {
+      "wrapperProps": {
         "defaultValue": null,
         "description": "",
-        "name": "status",
+        "name": "wrapperProps",
         "parent": {
           "fileName": "welcome-ui/lib/src/components/Stepper/types.ts",
-          "name": "StepperItemOptions"
+          "name": "StepperOptions"
         },
         "declarations": [
           {
             "fileName": "welcome-ui/lib/src/components/Stepper/types.ts",
-            "name": "StepperItemOptions"
+            "name": "StepperOptions"
           }
         ],
         "required": false,
         "type": {
-          "name": "enum",
-          "raw": "\"active\" | \"completed\" | \"default\"",
-          "value": [
-            {
-              "value": "\"active\""
-            },
-            {
-              "value": "\"completed\""
-            },
-            {
-              "value": "\"default\""
-            }
-          ]
+          "name": "HTMLAttributes<HTMLDivElement>"
         }
       }
     }

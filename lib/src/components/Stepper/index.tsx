@@ -12,7 +12,7 @@ import { getIcon } from './utils'
 const cx = classNames(styles)
 
 const StepperComponent = forwardRef<HTMLOListElement, StepperProps>(
-  ({ children, className }, ref) => {
+  ({ children, className, wrapperProps }, ref) => {
     const [showLeftFade, setShowLeftFade] = useState(false)
     const [showRightFade, setShowRightFade] = useState(false)
     const internalRef = useRef<HTMLOListElement>(null)
@@ -59,7 +59,7 @@ const StepperComponent = forwardRef<HTMLOListElement, StepperProps>(
     }, [children, olRef])
 
     return (
-      <div className={cx('root')}>
+      <div className={cx('root', wrapperProps?.className)} {...wrapperProps}>
         <ol
           className={cx(
             'wrapper',
