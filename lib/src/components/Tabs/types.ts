@@ -20,7 +20,6 @@ export interface TabOptions {
   icon?: IconName | React.ReactNode
   iconColor?: 'blue' | 'green' | 'orange' | 'pink' | 'teal' | 'violet' | 'warm'
   id?: string
-  size?: Size
   store: TabStore
 }
 

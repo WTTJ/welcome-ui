@@ -2,14 +2,14 @@ import { Icon } from '@/components/Icon'
 
 import { isValidIconName } from '../Icon/icons'
 
-import type { TabProps } from './types'
+import type { TabListProps, TabProps } from './types'
 
 export function getIcon({
   icon,
   iconColor,
   isActive,
   size,
-}: Pick<TabProps, 'icon' | 'iconColor' | 'size'> & { isActive: boolean }) {
+}: Pick<TabProps, 'icon' | 'iconColor'> & { isActive: boolean; size: TabListProps['size'] }) {
   if (!icon) return null
 
   if (typeof icon !== 'string' || !isValidIconName(icon)) return icon

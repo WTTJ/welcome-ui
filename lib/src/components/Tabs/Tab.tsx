@@ -13,22 +13,10 @@ const cx = classNames(styles)
 
 export const Tab = forwardRefWithAs<TabProps, 'button'>(
   (
-    {
-      as: Component,
-      badge,
-      children,
-      className,
-      icon,
-      iconColor = 'violet',
-      id,
-      size,
-      store,
-      ...rest
-    },
+    { as: Component, badge, children, className, icon, iconColor = 'violet', id, store, ...rest },
     ref
   ) => {
-    const contextSize = useTabSize()
-    const finalSize = size || contextSize
+    const size = useTabSize()
 
     const { selectedId } = useStoreState(store)
     const isActive = selectedId === id
@@ -37,14 +25,14 @@ export const Tab = forwardRefWithAs<TabProps, 'button'>(
       icon,
       iconColor,
       isActive,
-      size: finalSize,
+      size,
     })
 
     const badgeVariant = isActive ? 'neutral' : 'warm'
 
     return (
       <AriakitTab
-        className={cx('root', `size-${finalSize}`, className)}
+        className={cx('root', `size-${size}`, className)}
         id={id}
         ref={ref}
         render={Component ? <Component /> : undefined}
@@ -54,7 +42,7 @@ export const Tab = forwardRefWithAs<TabProps, 'button'>(
         {tabIcon}
         {children}
         {badge ? (
-          <Badge size={finalSize} variant={badgeVariant}>
+          <Badge size={size} variant={badgeVariant}>
             {badge}
           </Badge>
         ) : null}
