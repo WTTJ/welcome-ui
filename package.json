@@ -31,11 +31,9 @@
     "test:scripts:complex": "CI=1 vitest migrate-external-files-complex",
     "test:scripts:update": "vitest scripts/ -u"
   },
-  "private": true,
   "workspaces": [
     "website",
-    "lib",
-    "welcome-ui"
+    "lib"
   ],
   "repository": {
     "type": "git",
