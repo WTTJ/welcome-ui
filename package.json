@@ -1,5 +1,5 @@
 {
-  "name": "main",
+  "name": "welcome-ui-root",
   "description": "Customizable design system with react, typescript, tailwindcss and ariakit.",
   "scripts": {
     "build": "yarn workspace welcome-ui run build",
