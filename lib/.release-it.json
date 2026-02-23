@@ -5,7 +5,9 @@
   },
   "git": {
     "commitMessage": "chore: release v${version}",
-    "tagName": "v${version}"
+    "tagName": "v${version}",
+    "commitArgs": ["--no-verify"],
+    "pushArgs": ["--no-verify", "--tags"]
   },
   "github": {
     "release": true
