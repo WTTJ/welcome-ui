@@ -1,5 +1,6 @@
 import { forwardRef } from 'react'
 
+import { Button } from '@/components/Button'
 import { Icon } from '@/components/Icon'
 import { Text } from '@/components/Text'
 import { classNames } from '@/utils'
@@ -21,6 +22,7 @@ export const Pagination = forwardRef<HTMLDivElement, FloatingActionBarPagination
       page,
       pageCount,
       size = 'md',
+      variant = 'secondary',
       ...rest
     },
     ref
@@ -40,22 +42,21 @@ export const Pagination = forwardRef<HTMLDivElement, FloatingActionBarPagination
 
     return (
       <div {...rest} className={cx('pagination', className)} data-testid={dataTestId} ref={ref}>
-        <button
+        <Button
           aria-label={previousPageText}
           className={cx(
-            'item',
-            `size-${size}`,
             navigationTexts?.previousPage && 'with-text-right',
             isPrevButtonDisabled && 'disabled-arrow'
           )}
           data-testid={dataTestId ? `${dataTestId}-arrow-prev` : undefined}
           disabled={isPrevButtonDisabled}
           onClick={handlePrevious}
-          type="button"
+          size={size}
+          variant={variant}
           {...buttonPrevProps}
         >
           <Icon className={cx('icon')} name="angle-left" size="lg" />
-        </button>
+        </Button>
         <Text
           aria-label={`Page ${page} of ${pageCount}`}
           className={cx('pagination-text')}
@@ -63,23 +64,22 @@ export const Pagination = forwardRef<HTMLDivElement, FloatingActionBarPagination
         >
           {page} / {pageCount}
         </Text>
-        <button
+        <Button
           aria-label={nextPageText}
           className={cx(
-            'item',
-            `size-${size}`,
             navigationTexts?.nextPage && 'with-text-left',
             isNextButtonDisabled && 'disabled-arrow'
           )}
           data-testid={dataTestId ? `${dataTestId}-arrow-next` : undefined}
           disabled={isNextButtonDisabled}
           onClick={handleNext}
-          type="button"
+          size={size}
+          variant={variant}
           {...buttonNextProps}
         >
           {navigationTexts?.nextPage ? nextPageText : null}
           <Icon className={cx('icon')} name="angle-right" size="lg" />
-        </button>
+        </Button>
       </div>
     )
   }

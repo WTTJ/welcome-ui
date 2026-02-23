@@ -9,23 +9,24 @@ const Example = () => {
   return (
     <FloatingActionBar>
       <FloatingActionBar.Pagination onChange={p => setPage(Number(p))} page={page} pageCount={12} />
-      <FloatingActionBar.Button icon={<Icon name="sign-right" />}>
-        Action 1
+      <FloatingActionBar.Button>
+        <Icon name="sign-right" />
+        <span>Action 1</span>
       </FloatingActionBar.Button>
-      <FloatingActionBar.Button icon={<Icon name="sign-right" />}>
-        Action 2
+      <FloatingActionBar.Button>
+        <span>Action 2</span>
       </FloatingActionBar.Button>
-      <FloatingActionBar.Button icon={<Icon name="sign-right" />}>
-        Action 3
+      <FloatingActionBar.Button>
+        <span>Action 3</span>
       </FloatingActionBar.Button>
       <FloatingActionBar.Actions>
         <FloatingActionBar.ActionsItem onClick={() => alert('Action 4')}>
           <Icon name="sign-right" />
-          Action 4
+          <span>Action 4</span>
         </FloatingActionBar.ActionsItem>
         <FloatingActionBar.ActionsItem onClick={() => alert('Action 5')}>
           <Icon name="sign-right" />
-          Action 5
+          <span>Action 5</span>
         </FloatingActionBar.ActionsItem>
       </FloatingActionBar.Actions>
     </FloatingActionBar>
