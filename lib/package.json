@@ -32,7 +32,9 @@
     "tokens:build": "node ./src/theme/scripts/build-tokens.js",
     "tokens:generate-theme-variables": "tsx src/theme/scripts/generate-theme-variables.ts",
     "theme:generate": "yarn tokens:build && tsx src/theme/scripts/generate-theme.ts && yarn run -W prettier --write 'src/theme/generated/theme.css' && yarn tokens:generate-theme-variables",
-    "test": "vitest"
+    "test": "vitest",
+    "release:alpha": "release-it --preRelease=alpha",
+    "release": "release-it"
   },
   "repository": {
     "type": "git",
