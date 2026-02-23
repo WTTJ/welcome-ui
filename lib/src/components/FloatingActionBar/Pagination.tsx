@@ -17,7 +17,7 @@ export const Pagination = forwardRef<HTMLDivElement, FloatingActionBarPagination
       buttonPrevProps,
       className,
       dataTestId,
-      navigationTexts,
+      navigationAriaLabels,
       onChange,
       page,
       pageCount,
@@ -29,25 +29,22 @@ export const Pagination = forwardRef<HTMLDivElement, FloatingActionBarPagination
   ) => {
     const isPrevButtonDisabled = page === 1
     const isNextButtonDisabled = page === pageCount
-    const nextPageText = navigationTexts?.nextPage || 'Next Page'
-    const previousPageText = navigationTexts?.previousPage || 'Previous Page'
+    const nextPageText = navigationAriaLabels?.nextPage || 'Next Page'
+    const previousPageText = navigationAriaLabels?.previousPage || 'Previous Page'
 
     const handlePrevious = () => {
-      if (page > 1) onChange?.(String(page - 1))
+      if (!isPrevButtonDisabled) onChange?.(page - 1)
     }
 
     const handleNext = () => {
-      if (page < pageCount) onChange?.(String(page + 1))
+      if (!isNextButtonDisabled) onChange?.(page + 1)
     }
 
     return (
-      <div {...rest} className={cx('pagination', className)} data-testid={dataTestId} ref={ref}>
+      <div className={cx('pagination', className)} data-testid={dataTestId} ref={ref} {...rest}>
         <Button
           aria-label={previousPageText}
-          className={cx(
-            navigationTexts?.previousPage && 'with-text-right',
-            isPrevButtonDisabled && 'disabled-arrow'
-          )}
+          className={cx(isPrevButtonDisabled && 'disabled-arrow')}
           data-testid={dataTestId ? `${dataTestId}-arrow-prev` : undefined}
           disabled={isPrevButtonDisabled}
           onClick={handlePrevious}
@@ -66,10 +63,7 @@ export const Pagination = forwardRef<HTMLDivElement, FloatingActionBarPagination
         </Text>
         <Button
           aria-label={nextPageText}
-          className={cx(
-            navigationTexts?.nextPage && 'with-text-left',
-            isNextButtonDisabled && 'disabled-arrow'
-          )}
+          className={cx(isNextButtonDisabled && 'disabled-arrow')}
           data-testid={dataTestId ? `${dataTestId}-arrow-next` : undefined}
           disabled={isNextButtonDisabled}
           onClick={handleNext}
@@ -77,7 +71,6 @@ export const Pagination = forwardRef<HTMLDivElement, FloatingActionBarPagination
           variant={variant}
           {...buttonNextProps}
         >
-          {navigationTexts?.nextPage ? nextPageText : null}
           <Icon className={cx('icon')} name="angle-right" size="lg" />
         </Button>
       </div>

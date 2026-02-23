@@ -7,7 +7,7 @@ import type { FloatingActionBarButtonProps } from './types'
 export const Button = forwardRef<HTMLButtonElement, FloatingActionBarButtonProps>(
   ({ children, icon, size = 'md', variant = 'secondary', ...rest }, ref) => {
     return (
-      <BaseButton {...rest} ref={ref} size={size} variant={variant}>
+      <BaseButton ref={ref} size={size} variant={variant} {...rest}>
         {icon}
         {children}
       </BaseButton>

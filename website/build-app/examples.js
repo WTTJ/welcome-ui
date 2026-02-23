@@ -117,6 +117,7 @@ export default {
   "/FileUpload/docs/examples/preview.tsx": dynamic(() => import("../../lib/src/components/FileUpload/docs/examples/preview.tsx").then(mod => mod), { ssr: false }),
   "/FloatingActionBar/docs/examples/complete.tsx": dynamic(() => import("../../lib/src/components/FloatingActionBar/docs/examples/complete.tsx").then(mod => mod), { ssr: false }),
   "/FloatingActionBar/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/FloatingActionBar/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
+  "/FloatingActionBar/docs/examples/pagination.tsx": dynamic(() => import("../../lib/src/components/FloatingActionBar/docs/examples/pagination.tsx").then(mod => mod), { ssr: false }),
   "/GridBackgroundUtility/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/GridBackgroundUtility/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Hint/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Hint/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Hint/docs/examples/variants.tsx": dynamic(() => import("../../lib/src/components/Hint/docs/examples/variants.tsx").then(mod => mod), { ssr: false }),

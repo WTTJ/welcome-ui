@@ -19,11 +19,11 @@ export type FloatingActionBarPaginationProps = {
   buttonPrevProps?: ButtonHTMLAttributes<HTMLButtonElement>
   className?: string
   dataTestId?: string
-  navigationTexts?: {
+  navigationAriaLabels?: {
     nextPage?: string
     previousPage?: string
   }
-  onChange: (page: number | string) => void
+  onChange: (page: number) => void
   page: number
   pageCount: number
   size?: 'lg' | 'md'
