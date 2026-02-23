@@ -4,6 +4,7 @@ import { Badge } from '@/components/Badge'
 import { classNames } from '@/utils'
 import { forwardRefWithAs } from '@/utils/forwardRefWithAs'
 
+import { useTabSize } from './TabContext'
 import styles from './tabs.module.scss'
 import type { TabProps } from './types'
 import { getIcon } from './utils'
@@ -12,20 +13,11 @@ const cx = classNames(styles)
 
 export const Tab = forwardRefWithAs<TabProps, 'button'>(
   (
-    {
-      as: Component,
-      badge,
-      children,
-      className,
-      icon,
-      iconColor = 'violet',
-      id,
-      size = 'lg',
-      store,
-      ...rest
-    },
+    { as: Component, badge, children, className, icon, iconColor = 'violet', id, store, ...rest },
     ref
   ) => {
+    const size = useTabSize()
+
     const { selectedId } = useStoreState(store)
     const isActive = selectedId === id
 
