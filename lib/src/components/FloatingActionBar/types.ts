@@ -27,6 +27,7 @@ export type FloatingActionBarPaginationProps = {
   page: number
   pageCount: number
   size?: 'lg' | 'md'
+  variant?: 'primary' | 'secondary' | 'tertiary'
 }
 
 export type FloatingActionBarProps = {
