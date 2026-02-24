@@ -67,7 +67,7 @@ export const Tag = forwardRefWithAs<TagOptions, 'div'>((props, ref) => {
       {...rest}
     >
       {ai && variant !== 'dash' ? <Icon name="sparkles" size="md" /> : icon}
-      {children}
+      <span>{children}</span>
       {onRemove ? (
         <button
           aria-label="remove tag"

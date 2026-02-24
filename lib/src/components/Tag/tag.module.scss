@@ -31,7 +31,7 @@
     position: relative;
     display: inline-flex;
     align-items: center;
-    justify-content: center;
+    justify-content: var(--justifyContent, flex-start);
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
