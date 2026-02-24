@@ -1,42 +1,135 @@
 import debounce from 'lodash.debounce'
-import type { CSSProperties } from 'react'
-import { Children, cloneElement, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
 
-import { Button } from '@/components/Button'
-import { Icon } from '@/components/Icon'
 import { classNames } from '@/utils'
 import { useScreens } from '@/utils/use-screens'
 import { useViewportSize } from '@/utils/use-viewport'
 
+import { SwiperNextButton } from './components/SwiperNextButton'
+import { SwiperPrevButton } from './components/SwiperPrevButton'
+import { SwiperSlides } from './components/SwiperSlides'
 import swiperStyles from './swiper.module.scss'
-import type { SwiperProps, UseSwiperOptions } from './types'
-import { getSlideWidth, useInterval } from './utils'
+import type { SwiperComponent, SwiperProps, UseSwiperOptions } from './types'
+import { useInterval } from './utils'
 
 const cx = classNames(swiperStyles)
 
-export const useSwiper = (options: UseSwiperOptions = {}) => {
-  const {
-    autoplay = false,
-    centeredSlides = false,
-    duration = 5000,
-    firstSlideToShow = 0,
-    fullWidth = false,
-    id = 'swiper',
-    loop = false,
-    navigationSize = 'md',
-    slidesPerView = { desktop: 1, mobile: 1, tablet: 1 },
-    spaceBetween = 20,
-    withDarkUI = false,
-    withNavigation = { desktop: true, mobile: true },
-    withPagination = { desktop: false, mobile: false },
-  } = options
+type SwiperContextValue = {
+  navigation: {
+    desktop: boolean
+    goNext: () => void
+    goPrev: () => void
+    isNextDisabled: boolean
+    isPrevDisabled: boolean
+    mobile: boolean
+  }
+  slides: {
+    alignment: 'center' | 'default'
+    currentPage: number
+    currentSlidesPerView: number
+    expandOnLargeScreens: boolean
+    gap: number
+    handleScroll: () => void
+    id: string
+    initialIndex: number
+    isLastPage: boolean
+    length: number
+    perView: {
+      desktop: number
+      mobile: number
+      tablet: number
+    }
+    ref: React.RefObject<HTMLUListElement>
+    setLength: (length: number) => void
+  }
+}
 
-  const shouldLoop = loop || autoplay
+const SwiperContext = createContext<null | SwiperContextValue>(null)
+
+export const useSwiperContext = () => {
+  const context = useContext(SwiperContext)
+  if (!context) {
+    throw new Error('Swiper components must be used within a Swiper component')
+  }
+  return context
+}
+
+const defaultOptions = {
+  autoplay: { duration: 5000, enabled: false, loop: false },
+  navigation: { desktop: true, mobile: true },
+  slides: {
+    alignment: 'default' as const,
+    expandOnLargeScreens: false,
+    gap: 20,
+    id: 'swiper',
+    initialIndex: 0,
+    perView: { desktop: 1, mobile: 1, tablet: 1 },
+  },
+}
+
+const defaultStore: {
+  autoplay: { duration: number; enabled: boolean; loop: boolean }
+  navigation: { desktop: boolean; mobile: boolean }
+  slides: {
+    alignment: 'center' | 'default'
+    currentSlidesPerView: number
+    expandOnLargeScreens: boolean
+    gap: number
+    id: string
+    initialIndex: number
+    perView: { desktop: number; mobile: number; tablet: number }
+  }
+} = {
+  autoplay: defaultOptions.autoplay!,
+  navigation: defaultOptions.navigation!,
+  slides: {
+    alignment: defaultOptions.slides!.alignment!,
+    currentSlidesPerView: defaultOptions.slides!.perView!.desktop,
+    expandOnLargeScreens: defaultOptions.slides!.expandOnLargeScreens!,
+    gap: defaultOptions.slides!.gap!,
+    id: defaultOptions.slides!.id!,
+    initialIndex: defaultOptions.slides!.initialIndex!,
+    perView: defaultOptions.slides!.perView!,
+  },
+}
+
+export const useSwiper = (
+  options: UseSwiperOptions = defaultOptions
+): {
+  autoplay: { duration: number; enabled: boolean; loop: boolean }
+  navigation: { desktop: boolean; mobile: boolean }
+  slides: {
+    alignment: 'center' | 'default'
+    currentSlidesPerView: number
+    expandOnLargeScreens: boolean
+    gap: number
+    id: string
+    initialIndex: number
+    perView: { desktop: number; mobile: number; tablet: number }
+  }
+} => {
+  // Merge with defaults to handle partial options
+  const mergedOptions = {
+    autoplay: { ...defaultOptions.autoplay, ...options.autoplay },
+    navigation: { ...defaultOptions.navigation, ...options.navigation },
+    slides: {
+      ...defaultOptions.slides,
+      ...options.slides,
+      perView: {
+        ...defaultOptions.slides.perView,
+        ...options.slides?.perView,
+      },
+    },
+  }
+
+  const {
+    autoplay,
+    navigation,
+    slides: { expandOnLargeScreens, perView: slidesPerView },
+  } = mergedOptions
+
   const { width: viewportWidth } = useViewportSize()
-  const [currentPage, setCurrentPage] = useState(0)
-  const [showLeftArrow, setShowLeftArrow] = useState(false)
-  const [showRightArrow, setShowRightArrow] = useState(false)
-  const ref = useRef<HTMLUListElement>()
+
   const screens = useScreens()
 
   const currentSlidesPerView = useMemo(() => {
@@ -44,134 +137,97 @@ export const useSwiper = (options: UseSwiperOptions = {}) => {
       return slidesPerView.mobile
     } else if (viewportWidth <= screens.lg) {
       return slidesPerView.tablet
-    } else if (viewportWidth >= screens['4xl'] && fullWidth) {
+    } else if (viewportWidth >= screens['4xl'] && expandOnLargeScreens) {
       return slidesPerView.desktop + 2
     } else {
       return slidesPerView.desktop
     }
-  }, [viewportWidth, screens, fullWidth, slidesPerView])
+  }, [viewportWidth, screens, expandOnLargeScreens, slidesPerView])
 
   return {
     autoplay,
-    centeredSlides,
-    currentPage,
-    currentSlidesPerView,
-    duration,
-    firstSlideToShow,
-    fullWidth,
-    id,
-    navigationSize,
-    ref,
-    setCurrentPage,
-    setShowLeftArrow,
-    setShowRightArrow,
-    shouldLoop,
-    showLeftArrow,
-    showRightArrow,
-    slidesPerView,
-    spaceBetween,
-    withDarkUI,
-    withNavigation,
-    withPagination,
+    navigation,
+    slides: {
+      alignment: mergedOptions.slides.alignment!,
+      currentSlidesPerView,
+      expandOnLargeScreens: mergedOptions.slides.expandOnLargeScreens!,
+      gap: mergedOptions.slides.gap!,
+      id: mergedOptions.slides.id!,
+      initialIndex: mergedOptions.slides.initialIndex!,
+      perView: slidesPerView,
+    },
   }
 }
 
-export const Swiper = ({ children, className, store, ...rest }: SwiperProps) => {
-  const {
-    autoplay,
-    centeredSlides,
-    currentPage,
-    currentSlidesPerView,
-    duration,
-    firstSlideToShow,
-    fullWidth,
-    id,
-    navigationSize,
-    ref,
-    setCurrentPage,
-    setShowLeftArrow,
-    setShowRightArrow,
-    shouldLoop,
-    showLeftArrow,
-    showRightArrow,
-    slidesPerView,
-    spaceBetween,
-    withDarkUI,
-    withNavigation,
-    withPagination,
-  } = store
+export const Swiper: SwiperComponent = ({
+  children,
+  className,
+  store = defaultStore,
+  ...rest
+}: SwiperProps) => {
+  const { autoplay, navigation, slides } = store
 
-  const slidesLength = Children.toArray(children).length
-  const numberOfPage = Math.ceil(slidesLength / currentSlidesPerView)
-  const bullets = Array.from(Array(numberOfPage).keys())
-  const withNavigationMobile = withNavigation.mobile || false
-  const withNavigationDesktop = withNavigation.desktop || false
+  const [currentPage, setCurrentPage] = useState(0)
+  const ref = useRef<HTMLUListElement>()
+  const hasInitializedRef = useRef(false)
+
+  const [slidesLength, setSlidesLength] = useState(0)
+  const [isPrevDisabled, setIsPrevDisabled] = useState(false)
+  const [isNextDisabled, setIsNextDisabled] = useState(false)
+
+  const numberOfPage = Math.ceil(slidesLength / slides.currentSlidesPerView) || 1
 
   const isFirstPage = currentPage === 0
-  const isLastPage = currentPage === bullets.length - 1
+  const isLastPage = currentPage === numberOfPage - 1
 
-  const slides = Children.map(children, (child, i) => {
-    const key = `${id}-${i}`
-    const currentSlide = i + 1
-    const pageForThisSlide = Math.ceil(currentSlide / currentSlidesPerView) - 1
-    // item can be visible on the last page even if it isn't on the current page due to the automatic filling of the last page
-    const isHidden = isLastPage
-      ? slidesLength - currentSlide >= currentSlidesPerView
-      : pageForThisSlide !== currentPage
+  const firstPageToShow =
+    slides.alignment === 'center'
+      ? // if centeredSlides is true, we calculate which number is the middle page
+        Math.floor(numberOfPage / 2)
+      : // if centeredSlides is false, we calculate on which page the number in firstSlideToShow props is
+        Math.ceil(slides.initialIndex / slides.currentSlidesPerView) - 1
 
-    return cloneElement(child, {
-      ...child.props,
-      'aria-hidden': isHidden,
-      'aria-label': `${currentSlide} of ${slidesLength}`,
-      'aria-roledescription': 'slide',
-      id: key,
-      key,
-    })
-  })
-
-  const firstPageToShow = centeredSlides
-    ? // if centeredSlides is true, we calculate which number is the middle page
-      Math.floor(numberOfPage / 2)
-    : // if centeredSlides is false, we calculate on which page the number in firstSlideToShow props is
-      Math.ceil(firstSlideToShow / currentSlidesPerView) - 1
-
-  const getArrowStates = useCallback(() => {
+  const getNavigationState = useCallback(() => {
     const sliderContainer = ref?.current
-    if (sliderContainer && !shouldLoop) {
+    if (sliderContainer && !autoplay.enabled) {
       const { offsetWidth, scrollLeft, scrollWidth } = sliderContainer
-      const isFirstPage = !(scrollLeft > spaceBetween)
-      const isLastPage = !(scrollWidth - (scrollLeft + offsetWidth) > spaceBetween)
+      const isFirstPage = !(scrollLeft > slides.gap)
+      const isLastPage = !(scrollWidth - (scrollLeft + offsetWidth) > slides.gap)
 
-      setShowLeftArrow(!isFirstPage)
-      setShowRightArrow(!isLastPage)
+      setIsPrevDisabled(isFirstPage)
+      setIsNextDisabled(isLastPage)
     } else {
-      setShowLeftArrow(true)
-      setShowRightArrow(true)
+      setIsPrevDisabled(false)
+      setIsNextDisabled(false)
     }
-  }, [ref, setShowLeftArrow, setShowRightArrow, shouldLoop, spaceBetween])
+  }, [autoplay.enabled, slides.gap])
 
-  const updatePage = () => {
+  const updatePage = useCallback(() => {
     const sliderContainer = ref?.current
     if (sliderContainer) {
       const { children, offsetWidth, scrollLeft, scrollWidth } = sliderContainer
       const childWidth = children?.[0]?.getBoundingClientRect()?.width
 
-      const isLastPage = !(scrollWidth - (scrollLeft + offsetWidth) > spaceBetween)
+      const isLastPage = !(scrollWidth - (scrollLeft + offsetWidth) > slides.gap)
 
       const nextPage = isLastPage
-        ? bullets.length - 1
-        : Math.round(scrollLeft / ((childWidth + spaceBetween) * currentSlidesPerView))
+        ? numberOfPage - 1
+        : Math.round(scrollLeft / ((childWidth + slides.gap) * slides.currentSlidesPerView))
 
       if (nextPage !== currentPage) {
         setCurrentPage(nextPage)
       }
     }
-  }
+  }, [numberOfPage, currentPage, slides.currentSlidesPerView, ref, setCurrentPage, slides.gap])
 
-  const handleScroll = debounce(() => {
-    getArrowStates()
-    updatePage()
-  }, 100)
+  const handleScroll = useMemo(
+    () =>
+      debounce(() => {
+        getNavigationState()
+        updatePage()
+      }, 100),
+    [getNavigationState, updatePage]
+  )
 
   const goTo = useCallback(
     (page: number, isFirstInit = false) => {
@@ -181,37 +237,37 @@ export const Swiper = ({ children, className, store, ...rest }: SwiperProps) => 
       sliderContainer?.scrollTo({
         // We don't want to have a scroll effect when we first render the swiper
         behavior: !isFirstInit ? 'smooth' : 'auto',
-        left: page * (childWidth + spaceBetween) * currentSlidesPerView,
+        left: page * (childWidth + slides.gap) * slides.currentSlidesPerView,
         top: 0,
       })
     },
-    [currentSlidesPerView, spaceBetween, ref]
+    [slides.currentSlidesPerView, slides.gap, ref]
   )
 
   const goNext = useCallback(() => {
-    if (shouldLoop && isLastPage) {
+    if (autoplay.enabled && autoplay.loop && isLastPage) {
       goTo(0)
     } else {
       goTo(currentPage + 1)
     }
-  }, [currentPage, goTo, isLastPage, shouldLoop])
+  }, [currentPage, goTo, isLastPage, autoplay.enabled, autoplay.loop])
 
   const goPrev = useCallback(() => {
-    if (isFirstPage && shouldLoop) {
-      goTo(bullets.length - 1)
+    if (isFirstPage && autoplay.enabled && autoplay.loop) {
+      goTo(numberOfPage - 1)
     } else {
       goTo(currentPage - 1)
     }
-  }, [bullets.length, currentPage, goTo, isFirstPage, shouldLoop])
+  }, [numberOfPage, currentPage, goTo, isFirstPage, autoplay.enabled, autoplay.loop])
 
   // Add autoplay
   useInterval(
     () => {
-      if (autoplay) {
+      if (autoplay.enabled) {
         goNext()
       }
     },
-    autoplay ? duration : null
+    autoplay.enabled ? autoplay.duration : null
   )
 
   useEffect(() => {
@@ -231,104 +287,70 @@ export const Swiper = ({ children, className, store, ...rest }: SwiperProps) => 
   }, [goPrev, goNext])
 
   useEffect(() => {
-    goTo(firstPageToShow, true)
+    // Only navigate to initial page once, when slidesLength is first known
+    if (slidesLength > 0 && !hasInitializedRef.current) {
+      goTo(firstPageToShow, true)
+      hasInitializedRef.current = true
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [slidesLength])
 
   /** if the childrens changed we need to check again the arrow states */
   useEffect(() => {
-    getArrowStates()
-  }, [getArrowStates, children])
+    getNavigationState()
+  }, [getNavigationState, children])
+
+  const contextValue = useMemo(
+    () => ({
+      navigation: {
+        goNext,
+        goPrev,
+        isNextDisabled,
+        isPrevDisabled,
+        ...navigation,
+      },
+      slides: {
+        alignment: slides.alignment,
+        currentPage,
+        currentSlidesPerView: slides.currentSlidesPerView,
+        expandOnLargeScreens: slides.expandOnLargeScreens,
+        gap: slides.gap,
+        handleScroll,
+        id: slides.id,
+        initialIndex: slides.initialIndex,
+        isLastPage,
+        length: slidesLength,
+        perView: slides.perView,
+        ref,
+        setLength: setSlidesLength,
+      },
+    }),
+    [
+      goNext,
+      goPrev,
+      isNextDisabled,
+      isPrevDisabled,
+      navigation,
+      currentPage,
+      handleScroll,
+      isLastPage,
+      slidesLength,
+      slides,
+    ]
+  )
 
   return (
-    <div className={cx('root', withDarkUI && 'dark', className)} {...rest}>
-      <ul
-        className={cx(
-          'container',
-          slidesPerView.mobile && 'container-mobile',
-          slidesPerView.desktop && 'container-desktop',
-          slidesPerView.tablet && 'container-tablet',
-          slidesPerView.desktop && fullWidth && 'container-full-width'
-        )}
-        onScroll={handleScroll}
-        ref={ref}
-        style={
-          {
-            '--slideDesktop': slidesPerView.desktop,
-            '--slideMobile': slidesPerView.mobile,
-            '--slideTablet': slidesPerView.tablet,
-            '--slideWidthDesktop': getSlideWidth(slidesPerView.desktop, spaceBetween),
-            '--slideWidthMobile': getSlideWidth(slidesPerView.mobile, spaceBetween),
-            '--slideWidthTablet': getSlideWidth(slidesPerView.tablet, spaceBetween),
-            '--slideWithDesktopFullWidth': getSlideWidth(slidesPerView.desktop + 2, spaceBetween),
-            '--spaceBetween': `${spaceBetween / 16}rem`,
-          } as CSSProperties
-        }
-      >
-        {slides}
-      </ul>
-      <Button
-        aria-label="Previous slide"
-        className={cx(
-          'arrow',
-          'arrow-left',
-          !withDarkUI && 'arrow-background',
-          withNavigationMobile && 'arrow-mobile',
-          withNavigationDesktop && 'arrow-desktop'
-        )}
-        disabled={!showLeftArrow}
-        onClick={goPrev}
-        size={navigationSize}
-        variant={withDarkUI ? 'primary-neutral' : 'tertiary'}
-      >
-        <Icon name="angle-left-b" />
-      </Button>
-      <Button
-        aria-label="Next slide"
-        className={cx(
-          'arrow',
-          'arrow-right',
-          !withDarkUI && 'arrow-background',
-          withNavigationMobile && 'arrow-mobile',
-          withNavigationDesktop && 'arrow-desktop'
-        )}
-        disabled={!showRightArrow}
-        onClick={goNext}
-        size={navigationSize}
-        variant={withDarkUI ? 'primary-neutral' : 'tertiary'}
-      >
-        <Icon name="angle-right-b" />
-      </Button>
-      <div
-        className={cx(
-          'pagination',
-          withPagination.mobile && 'pagination-mobile',
-          withPagination.desktop && 'pagination-desktop'
-        )}
-        role="tablist"
-      >
-        {bullets.length > 1 &&
-          bullets.map((_, idx) => {
-            const props = {
-              'aria-controls': `${id}-${idx}`,
-              'aria-label': `${idx + 1} of ${bullets.length}`,
-              'aria-selected': idx === currentPage,
-              idx,
-              onClick: () => goTo(idx),
-              role: 'tab',
-            }
-
-            return (
-              <div
-                className={cx('bullet', idx === currentPage && 'bullet-active')}
-                key={`bullet-${idx + 1}`}
-                {...props}
-              />
-            )
-          })}
+    <SwiperContext.Provider value={contextValue}>
+      <div className={cx('root', className)} {...rest}>
+        {children}
       </div>
-    </div>
+    </SwiperContext.Provider>
   )
 }
+
+// Attach compound components
+Swiper.PrevButton = SwiperPrevButton
+Swiper.NextButton = SwiperNextButton
+Swiper.Slides = SwiperSlides
 
 Swiper.displayName = 'Swiper'
