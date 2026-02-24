@@ -59,7 +59,7 @@ const StepperComponent = forwardRef<HTMLOListElement, StepperProps>(
     }, [children, olRef])
 
     return (
-      <div className={cx('root', wrapperProps?.className)} {...wrapperProps}>
+      <div {...wrapperProps} className={cx('root', wrapperProps?.className)}>
         <ol
           className={cx(
             'wrapper',
