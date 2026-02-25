@@ -190,6 +190,18 @@
   --link-padding-inline-icon: 2px;
   --link-gap-content: 0;
   --link-gap-underline: -2px;
+  --floating-action-bar-color-border: #f3f3f3;
+  --floating-action-bar-color-background: #ffffff;
+  --floating-action-bar-color-text-default: #000000;
+  --floating-action-bar-border-radius: 8px;
+  --floating-action-bar-border-width: 1px;
+  --floating-action-bar-padding-inline: 16px;
+  --floating-action-bar-padding-block: 12px;
+  --floating-action-bar-gap-items: 12px;
+  --floating-action-bar-gap-actions: 8px;
+  --floating-action-bar-gap-pagination: 12px;
+  --floating-action-bar-size-max-height: 57px;
+  --number: 8px;
   --pattern-grid-color-stroke-default: rgba(0, 0, 0, 0.03);
   --pattern-grid-color-background-default: rgba(0, 0, 0, 0);
   --pattern-grid-stroke: 1px;
