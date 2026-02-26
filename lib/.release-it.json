@@ -7,7 +7,7 @@
     "commitMessage": "chore: release v${version}",
     "tagName": "v${version}",
     "commitArgs": ["--no-verify"],
-    "pushArgs": ["--no-verify", "--tags"]
+    "pushArgs": ["--no-verify", "--follow-tags"]
   },
   "github": {
     "release": true
