@@ -1,5 +1,17 @@
 @use '../../utils/scss/breakpoints' as breakpoints;
 
+@mixin drawer-fullscreen-media($max) {
+  @media screen and (max-width: $max) {
+    --drawerTransform: translate(0, 0);
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border-radius: 0;
+    transform: var(--drawerTransform);
+  }
+}
+
 @layer components {
   .root {
     background-color: var(--drawer-body-color-background-default);
@@ -30,18 +42,7 @@
     height: var(--drawerHeight);
     transform: var(--drawerTransform);
 
-    @media screen and (max-width: breakpoints.$breakpoint-md) {
-      --drawerTransform: translate(0, 0);
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      border-radius: 0;
-      transform: var(--drawerTransform);
-    }
+    @include drawer-fullscreen-media(breakpoints.$breakpoint-md);
 
     /* Hide the standalone close button when the Drawer contains a header
      (the header already contains its own close button). Scope :has to the
@@ -92,13 +93,19 @@
       &-right {
         &.size {
           &-sm {
-            --drawerWidth: 25rem; /* 400px */
+            --drawerWidth: 32.25rem; /* 516px */
+
+            @include drawer-fullscreen-media(32.25rem);
           }
           &-md {
-            --drawerWidth: 34.375rem; /* 550px */
+            --drawerWidth: 44.25rem; /* 708x */
+
+            @include drawer-fullscreen-media(44.25rem);
           }
           &-lg {
-            --drawerWidth: 42.5rem; /* 680px */
+            --drawerWidth: 56.25rem; /* 900px */
+
+            @include drawer-fullscreen-media(56.25rem);
           }
         }
       }
@@ -147,10 +154,7 @@
     background-color: var(--color-background-transparent-black-subtle);
     z-index: 999;
     position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
+    inset: 0;
     opacity: 0;
     transition: opacity 150ms ease-in-out;
 
