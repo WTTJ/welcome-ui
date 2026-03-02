@@ -6,7 +6,7 @@ const Example = () => {
   return (
     <Accordion store={accordion}>
       <Accordion.Disclosure>
-        <Accordion.Title>Accordion title</Accordion.Title>
+        <Accordion.Header title="Accordion title" />
       </Accordion.Disclosure>
       <Accordion.Content>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut

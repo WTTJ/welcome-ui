@@ -9,7 +9,7 @@ const Example = () => {
     <div className="flex flex-col gap-lg">
       <Accordion size="sm" store={smallAccordionStore}>
         <Accordion.Disclosure>
-          <Accordion.Title>small Accordion </Accordion.Title>
+          <Accordion.Header title="Accordion - small" />
         </Accordion.Disclosure>
         <Accordion.Content>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
@@ -20,7 +20,7 @@ const Example = () => {
 
       <Accordion size="md" store={mediumAccordionStore}>
         <Accordion.Disclosure>
-          <Accordion.Title>medium Accordion </Accordion.Title>
+          <Accordion.Header title="Accordion - medium" />
         </Accordion.Disclosure>
         <Accordion.Content>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
@@ -31,7 +31,7 @@ const Example = () => {
 
       <Accordion size="lg" store={largeAccordionStore}>
         <Accordion.Disclosure>
-          <Accordion.Title>large Accordion </Accordion.Title>
+          <Accordion.Header title="Accordion - large" />
         </Accordion.Disclosure>
         <Accordion.Content>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt

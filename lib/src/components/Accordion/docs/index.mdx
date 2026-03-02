@@ -8,29 +8,26 @@ usage: Accordion, useAccordion
 ---
 
 ### Composition
-
+Compose your own accordion with the provided components (Action, Icon, Tags) or use your own:
 <div data-playground="composition.tsx" data-component="Accordion"></div>
 
-### Size
+### Tags 
+Use the `Tags` component to display tags in the accordion header.
+<div data-playground="tags.tsx" data-component="Accordion"></div>
 
+### Size 
+`Size` prop will propagate to the accordion components: actions, icons, title, etc.
 <div data-playground="size.tsx" data-component="Accordion"></div>
 
-### Size + composition
-
+**Size propagation with composition:**
 <div data-playground="size-composition.tsx" data-component="Accordion"></div>
 
-### Avatar
-
-<div data-playground="avatar.tsx" data-component="Accordion"></div>
-
 ### Open at start
-
 Add `defaultOpen` options to `useAccordion` to open the accordion at the start.
 
 <div data-playground="open-at-start.tsx" data-component="Accordion"></div>
 
 ## useAccordion
-
 We use `useDisclosureStore` from [Ariakit Disclosure](https://ariakit.org/reference/use-disclosure-store) for the state of the accordion, with the `animated` flag set to true by default.
 
 Pass options to `useAccordion`:

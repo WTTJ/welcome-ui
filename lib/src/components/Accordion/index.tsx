@@ -1,11 +1,13 @@
 import { Disclosure, DisclosureContent } from '@ariakit/react'
 import type { ComponentPropsWithRef } from 'react'
-import { createContext, forwardRef, useContext } from 'react'
+import { createContext, forwardRef, useCallback, useContext } from 'react'
 
 import { Icon } from '@/components/Icon'
 import { Text } from '@/components/Text'
 import { classNames } from '@/utils'
 
+import { Badge } from '../Badge'
+import type { BadgeProps } from '../Badge/types'
 import { Button } from '../Button'
 import type { ButtonProps } from '../Button/types'
 import type { IconOptions, IconProps } from '../Icon/types'
@@ -76,15 +78,52 @@ const AccordionDisclosure = forwardRef<HTMLButtonElement, ComponentPropsWithRef<
 
 AccordionDisclosure.displayName = 'Accordion.Disclosure'
 
-const AccordionHeader = forwardRef<HTMLDivElement, ComponentPropsWithRef<'div'>>(
+const AccordionHeaderWrapper = forwardRef<HTMLDivElement, ComponentPropsWithRef<'div'>>(
   ({ children, className, ...rest }, ref) => {
     return (
-      <div className={cx('accordion-header', className)} ref={ref} {...rest}>
+      <div className={cx('accordion-header-wrapper', className)} ref={ref} {...rest}>
         {children}
       </div>
     )
   }
 )
+AccordionHeaderWrapper.displayName = 'Accordion.HeaderWrapper'
+
+const titleVariantMap = {
+  lg: 'heading-md-strong',
+  md: 'heading-sm',
+  sm: 'heading-xs',
+} as const
+
+const AccordionHeader = forwardRef<
+  HTMLDivElement,
+  ComponentPropsWithRef<'div'> & {
+    badgeValue?: number | string
+    badgeVariant?: BadgeProps['variant']
+    subtitle?: string
+    title: string
+  }
+>(({ badgeValue, badgeVariant, className, subtitle, title, ...rest }, ref) => {
+  const { size } = useAccordionContext()
+
+  return (
+    <div className={cx('accordion-header', className)} {...rest} ref={ref}>
+      <div className={cx('accordion-header-title-wrapper')}>
+        <Text className={cx('accordion-title')} variant={titleVariantMap[size]}>
+          {title}
+        </Text>
+        {badgeValue ? <Badge variant={badgeVariant}>{badgeValue}</Badge> : null}
+      </div>
+      {subtitle ? (
+        <Text className={cx('accordion-subtitle')} variant="body-md">
+          {subtitle}
+        </Text>
+      ) : null}
+    </div>
+  )
+})
+
+AccordionHeader.displayName = 'Accordion.Header'
 
 const AccordionHeaderWithTags = forwardRef<HTMLDivElement, ComponentPropsWithRef<'div'>>(
   ({ children, className, ...rest }, ref) => {
@@ -97,6 +136,18 @@ const AccordionHeaderWithTags = forwardRef<HTMLDivElement, ComponentPropsWithRef
 )
 
 AccordionHeaderWithTags.displayName = 'Accordion.HeaderWithTags'
+
+const AccordionHeaderWithTagsWrapper = forwardRef<HTMLDivElement, ComponentPropsWithRef<'div'>>(
+  ({ children, className, ...rest }, ref) => {
+    return (
+      <div className={cx('accordion-header-with-tags-wrapper', className)} ref={ref} {...rest}>
+        {children}
+      </div>
+    )
+  }
+)
+
+AccordionHeaderWithTagsWrapper.displayName = 'Accordion.HeaderWithTagsWrapper'
 
 const AccordionTags = forwardRef<HTMLDivElement, ComponentPropsWithRef<'div'>>(
   ({ children, className, ...rest }, ref) => {
@@ -120,45 +171,8 @@ const AccordionIcon = ({ className, name, ...rest }: IconProps) => {
   const { size } = useAccordionContext()
   const iconSize = iconSizeMap[size]
 
-  return <Icon className={cx('accordion-icon', className)} name={name} size={iconSize} {...rest} />
+  return <Icon className={className} name={name} size={iconSize} {...rest} />
 }
-
-const titleVariantMap = {
-  lg: 'heading-md-strong',
-  md: 'heading-sm',
-  sm: 'heading-xs',
-} as const
-
-const AccordionTitle = forwardRef<HTMLDivElement, ComponentPropsWithRef<'div'>>(
-  ({ children, className, ...rest }, ref) => {
-    const { size } = useAccordionContext()
-
-    return (
-      <Text
-        className={cx('accordion-title', className)}
-        ref={ref}
-        variant={titleVariantMap[size]}
-        {...rest}
-      >
-        {children}
-      </Text>
-    )
-  }
-)
-
-AccordionTitle.displayName = 'Accordion.Title'
-
-const AccordionSubtitle = forwardRef<HTMLDivElement, ComponentPropsWithRef<'div'>>(
-  ({ children, className, ...rest }, ref) => {
-    return (
-      <Text className={cx('accordion-subtitle', className)} ref={ref} variant="body-md" {...rest}>
-        {children}
-      </Text>
-    )
-  }
-)
-
-AccordionSubtitle.displayName = 'Accordion.Subtitle'
 
 const AccordionContent = forwardRef<HTMLDivElement, ComponentPropsWithRef<'div'>>(
   ({ children, className, ...rest }, ref) => {
@@ -185,7 +199,7 @@ const AccordionTag = forwardRef<HTMLDivElement, ComponentPropsWithRef<'div'> & T
     const tagSize = size === 'lg' ? 'lg' : 'md'
 
     return (
-      <Tag className={cx('accordion-tag', className)} ref={ref} size={tagSize} {...rest}>
+      <Tag className={className} ref={ref} size={tagSize} {...rest}>
         {children}
       </Tag>
     )
@@ -199,13 +213,17 @@ const AccordionAction = forwardRef<HTMLButtonElement, ComponentPropsWithRef<'but
     const { size } = useAccordionContext()
     const buttonSize = buttonSizeMap[size]
 
-    const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-      e.preventDefault()
-      onClick?.(e)
-    }
+    const handleClick = useCallback(
+      (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        e.preventDefault()
+        onClick?.(e)
+      },
+      [onClick]
+    )
+
     return (
       <Button
-        className={cx('accordion-action', className)}
+        className={className}
         onClick={handleClick}
         ref={ref}
         size={buttonSize}
@@ -226,11 +244,11 @@ export const Accordion = Object.assign(AccordionComponent, {
   Disclosure: AccordionDisclosure,
   Header: AccordionHeader,
   HeaderWithTags: AccordionHeaderWithTags,
+  HeaderWithTagsWrapper: AccordionHeaderWithTagsWrapper,
+  HeaderWrapper: AccordionHeaderWrapper,
   Icon: AccordionIcon,
-  Subtitle: AccordionSubtitle,
   Tag: AccordionTag,
   Tags: AccordionTags,
-  Title: AccordionTitle,
 })
 
 export { useDisclosureStore as useAccordion } from '@ariakit/react'

@@ -1,7 +1,7 @@
 @layer components {
   .root {
     width: 100%;
-    background-color: var(--color-background-neutral-inverse-fixed);
+    background-color: var(--color-background-neutral-inverse);
   }
 
   .accordion-disclosure {
@@ -22,33 +22,49 @@
     }
   }
 
-  .accordion-header {
+  .accordion-header-wrapper {
     display: flex;
-    gap: var(--spacing-md);
+    gap: var(--accordion-padding-gap-content);
     flex-wrap: wrap;
     align-items: center;
     flex: 1;
-    color: var(--color-background-neutral-primary-fixed);
+  }
+
+  .accordion-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--accordion-padding-gap-subtitle);
+  }
+
+  .accordion-header-title-wrapper {
+    display: flex;
+    gap: var(--accordion-padding-gap-content);
+    align-items: center;
+  }
+
+  .accordion-header-with-tags-wrapper {
+    display: flex;
+    gap: var(--accordion-padding-gap-content);
+    flex-wrap: wrap;
+    align-items: flex-start;
+    flex: 1;
   }
 
   .accordion-header-with-tags {
     display: flex;
-    gap: var(--spacing-md);
+    gap: var(--accordion-padding-gap-content);
     align-items: center;
     margin-right: auto;
   }
 
   .accordion-tags {
     display: flex;
-    gap: var(--spacing-xs);
+    gap: var(--accordion-padding-gap-tags);
     flex-wrap: wrap;
     align-self: flex-start;
   }
 
   .accordion-disclosure-actions {
-    display: flex;
-    gap: var(--spacing-sm);
-    align-items: flex-start;
     flex-shrink: 0;
   }
 
@@ -59,14 +75,11 @@
   }
 
   .accordion-title {
-    display: flex;
-    gap: var(--spacing-8);
-    align-items: center;
-    color: var(--color-text-neutral-primary);
+    color: var(--accordion-title-color-text-default);
   }
 
   .accordion-subtitle {
-    color: var(--color-text-neutral-secondary);
+    color: var(--accordion-subtitle-color-text-default);
   }
 
   .accordion-content {
@@ -85,10 +98,5 @@
     &[data-enter] {
       grid-template-rows: 1fr;
     }
-  }
-
-  .accordion-content-wrapper {
-    color: var(--color-background-neutral-tertiary);
-    font-size: var(--font-size-14);
   }
 }
