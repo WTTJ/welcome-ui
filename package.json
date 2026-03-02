@@ -83,7 +83,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "esm": "^3.2.25",
     "generic-names": "^4.0.0",
-    "glob": "^13.0.0",
+    "glob": "13.0.6",
     "globals": "^16.0.0",
     "husky": "8.0.3",
     "lodash.difference": "^4.5.0",
@@ -107,7 +107,8 @@
     "yargs": "^17.7.2"
   },
   "resolutions": {
-    "@isaacs/brace-expansion": "5.0.1"
+    "@isaacs/brace-expansion": "5.0.1",
+    "minimatch": "10.2.3"
   },
   "dependencies": {
     "tailwindcss": "^4.1.18"
