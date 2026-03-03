@@ -169,34 +169,6 @@
           "name": "string"
         }
       },
-      "size": {
-        "defaultValue": null,
-        "description": "",
-        "name": "size",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Tabs/types.ts",
-          "name": "TabOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Tabs/types.ts",
-            "name": "TabOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "enum",
-          "raw": "Size",
-          "value": [
-            {
-              "value": "\"lg\""
-            },
-            {
-              "value": "\"md\""
-            }
-          ]
-        }
-      },
       "store": {
         "defaultValue": null,
         "description": "Another store object that will be kept in sync with the original store.\n\nLive examples:\n- [Navigation Menubar](https://ariakit.org/examples/menubar-navigation)",

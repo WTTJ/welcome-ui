@@ -16,8 +16,19 @@ export type IconStampVariant =
   | 'violet'
   | 'warm'
 
-interface IconStampOptions {
+export type ImageStampProps = ComponentPropsWithRef<'div'> &
+  HTMLAttributes<HTMLDivElement> &
+  ImageStampOptions
+
+interface IconStampOptions extends StampOptions {
   name: IconName
-  size?: 'lg' | 'md' | 'sm'
   variant?: IconStampVariant
+}
+
+interface ImageStampOptions extends StampOptions {
+  src: string
+}
+
+interface StampOptions {
+  size?: 'lg' | 'md' | 'sm'
 }

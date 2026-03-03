@@ -31,7 +31,7 @@
     "build": "vite build && node ./scripts/patch-css-imports.js",
     "tokens:build": "node ./src/theme/scripts/build-tokens.js",
     "tokens:generate-theme-variables": "tsx src/theme/scripts/generate-theme-variables.ts",
-    "theme:generate": "yarn tokens:build && tsx src/theme/scripts/generate-theme.ts && yarn run -W prettier --write 'src/theme/generated/theme.css' && yarn tokens:generate-theme-variables",
+    "theme:generate": "yarn tokens:build && tsx src/theme/scripts/generate-theme.ts && yarn run -T prettier --write 'src/theme/generated/theme.css' && yarn tokens:generate-theme-variables",
     "test": "vitest"
   },
   "repository": {

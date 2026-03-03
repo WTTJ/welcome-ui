@@ -6,19 +6,19 @@
         "description": "",
         "name": "name",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/IconStamp/types.ts",
+          "fileName": "welcome-ui/lib/src/components/Stamp/types.ts",
           "name": "IconStampOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/IconStamp/types.ts",
+            "fileName": "welcome-ui/lib/src/components/Stamp/types.ts",
             "name": "IconStampOptions"
           }
         ],
         "required": true,
         "type": {
           "name": "enum",
-          "raw": "\"symbol\" | \"link\" | \"map\" | \"search\" | \"video\" | \"filter\" | \"image\" | \"previous\" | \"heading\" | \"copy\" | \"asterisk\" | \"info-circle\" | \"chart-line\" | \"plus\" | \"archive-alt\" | \"arrows-merge-v\" | ... 239 more ... | \"ban\"",
+          "raw": "\"symbol\" | \"link\" | \"map\" | \"search\" | \"video\" | \"filter\" | \"image\" | \"previous\" | \"heading\" | \"copy\" | \"asterisk\" | \"info-circle\" | \"chart-line\" | \"plus\" | \"archive-alt\" | \"arrows-merge-v\" | ... 240 more ... | \"ban\"",
           "value": [
             {
               "value": "\"symbol\""
@@ -642,6 +642,9 @@
               "value": "\"bill\""
             },
             {
+              "value": "\"invoice\""
+            },
+            {
               "value": "\"book-alt\""
             },
             {
@@ -798,13 +801,13 @@
         "description": "",
         "name": "size",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/IconStamp/types.ts",
-          "name": "IconStampOptions"
+          "fileName": "welcome-ui/lib/src/components/Stamp/types.ts",
+          "name": "StampOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/IconStamp/types.ts",
-            "name": "IconStampOptions"
+            "fileName": "welcome-ui/lib/src/components/Stamp/types.ts",
+            "name": "StampOptions"
           }
         ],
         "required": false,
@@ -829,12 +832,12 @@
         "description": "",
         "name": "variant",
         "parent": {
-          "fileName": "welcome-ui/lib/src/components/IconStamp/types.ts",
+          "fileName": "welcome-ui/lib/src/components/Stamp/types.ts",
           "name": "IconStampOptions"
         },
         "declarations": [
           {
-            "fileName": "welcome-ui/lib/src/components/IconStamp/types.ts",
+            "fileName": "welcome-ui/lib/src/components/Stamp/types.ts",
             "name": "IconStampOptions"
           }
         ],
@@ -868,6 +871,62 @@
               "value": "\"warm\""
             }
           ]
+        }
+      }
+    }
+  },
+  "ImageStamp": {
+    "props": {
+      "size": {
+        "defaultValue": {
+          "value": "md"
+        },
+        "description": "",
+        "name": "size",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Stamp/types.ts",
+          "name": "StampOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Stamp/types.ts",
+            "name": "StampOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"lg\" | \"md\" | \"sm\"",
+          "value": [
+            {
+              "value": "\"lg\""
+            },
+            {
+              "value": "\"md\""
+            },
+            {
+              "value": "\"sm\""
+            }
+          ]
+        }
+      },
+      "src": {
+        "defaultValue": null,
+        "description": "",
+        "name": "src",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Stamp/types.ts",
+          "name": "ImageStampOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Stamp/types.ts",
+            "name": "ImageStampOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "string"
         }
       }
     }

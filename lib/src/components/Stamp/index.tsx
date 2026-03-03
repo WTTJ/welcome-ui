@@ -4,7 +4,7 @@ import { Icon } from '@/components/Icon'
 import { classNames } from '@/utils'
 
 import iconStampStyles from './icon-stamp.module.scss'
-import type { IconStampProps } from './types'
+import type { IconStampProps, ImageStampProps } from './types'
 
 const cx = classNames(iconStampStyles)
 
@@ -23,3 +23,18 @@ export const IconStamp = forwardRef<HTMLDivElement, IconStampProps>(
 )
 
 IconStamp.displayName = 'IconStamp'
+
+export const ImageStamp = forwardRef<HTMLImageElement, ImageStampProps>(
+  ({ className, size = 'md', src, ...rest }, ref) => {
+    return (
+      <img
+        src={src}
+        {...rest}
+        className={cx('root', size && `size-${size}`, className)}
+        ref={ref}
+      />
+    )
+  }
+)
+
+ImageStamp.displayName = 'ImageStamp'

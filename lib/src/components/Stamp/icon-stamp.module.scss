@@ -1,0 +1,81 @@
+@layer components {
+  .root {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    border-color: var(--stamp-color-border-default);
+    border-width: var(--stamp-border-width);
+    border-style: solid;
+    box-shadow: var(--elevation-10);
+    box-sizing: border-box;
+    transform: rotate(-2deg);
+
+    /* VARIABLES THAT CHANGE WITH REACT PROPS */
+    color: var(--color, var(--color-icon-neutral-subtle));
+    background: var(--backgroundColor);
+    border-radius: var(--borderRadius);
+    height: var(--size);
+    width: var(--size);
+  }
+
+  .variant {
+    &-brand {
+      --backgroundColor: var(--stamp-color-background-brand);
+      --color: var(--stamp-color-icon-brand);
+    }
+
+    &-warm {
+      --backgroundColor: var(--stamp-color-background-warm);
+      --color: var(--stamp-color-icon-warm);
+    }
+
+    &-red {
+      --backgroundColor: var(--stamp-color-background-red);
+      --color: var(--stamp-color-icon-red);
+    }
+
+    &-blue {
+      --backgroundColor: var(--stamp-color-background-blue);
+      --color: var(--stamp-color-icon-blue);
+    }
+
+    &-green {
+      --backgroundColor: var(--stamp-color-background-green);
+      --color: var(--stamp-color-icon-green);
+    }
+
+    &-orange {
+      --backgroundColor: var(--stamp-color-background-orange);
+      --color: var(--stamp-color-icon-orange);
+    }
+
+    &-teal {
+      --backgroundColor: var(--stamp-color-background-teal);
+      --color: var(--stamp-color-icon-teal);
+    }
+
+    &-violet {
+      --backgroundColor: var(--stamp-color-background-violet);
+      --color: var(--stamp-color-icon-violet);
+    }
+  }
+
+  .size {
+    &-sm {
+      --borderRadius: var(--stamp-border-radius-sm);
+      --size: var(--stamp-size-sm);
+    }
+
+    &-md {
+      --borderRadius: var(--stamp-border-radius-md);
+      --size: var(--stamp-size-md);
+    }
+
+    &-lg {
+      --borderRadius: var(--stamp-border-radius-lg);
+      --size: var(--stamp-size-lg);
+    }
+  }
+}
