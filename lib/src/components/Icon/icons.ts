@@ -181,6 +181,7 @@ export const wtf = [
   'package',
   'basketball',
   'bill',
+  'invoice',
   'book-alt',
   'lightbulb-alt',
   'life-ring',
