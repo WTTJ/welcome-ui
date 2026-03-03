@@ -1,0 +1,42 @@
+@layer components {
+  .container {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--floating-action-bar-gap-items);
+
+    > * {
+      flex-shrink: 0;
+    }
+  }
+
+  .floating-action-bar {
+    display: flex;
+    justify-content: center;
+    padding: var(--floating-action-bar-padding-block) var(--floating-action-bar-padding-inline);
+    border-radius: var(--floating-action-bar-border-radius);
+    border: var(--floating-action-bar-border-width) solid var(--floating-action-bar-color-border);
+    background: var(--floating-action-bar-color-background);
+    box-shadow: var(--elevation-30);
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .pagination {
+    display: flex;
+    align-items: center;
+    gap: var(--pagination-gap-pages);
+    margin-right: auto;
+    flex-shrink: 0;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+  }
+
+  .pagination-text {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .icon {
+    flex-shrink: 0;
+  }
+}

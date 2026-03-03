@@ -1,0 +1,18 @@
+import { forwardRef } from 'react'
+
+import { Button as BaseButton } from '@/components/Button'
+
+import type { FloatingActionBarButtonProps } from './types'
+
+export const Button = forwardRef<HTMLButtonElement, FloatingActionBarButtonProps>(
+  ({ children, icon, size = 'md', variant = 'secondary', ...rest }, ref) => {
+    return (
+      <BaseButton ref={ref} size={size} variant={variant} {...rest}>
+        {icon}
+        {children}
+      </BaseButton>
+    )
+  }
+)
+
+Button.displayName = 'FloatingActionBar.Button'
