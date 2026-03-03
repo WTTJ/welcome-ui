@@ -8,16 +8,6 @@
     height: 100%;
   }
 
-  .dark {
-    .bullet {
-      --bulletBackgroundColor: var(--color-icon-neutral-subtlest);
-
-      &-active {
-        --bulletBackgroundColor: var(--color-icon-brand-primary);
-      }
-    }
-  }
-
   .container {
     scroll-snap-type: x mandatory;
     display: flex;
@@ -106,23 +96,22 @@
   }
 
   .arrow {
-    position: absolute;
-    top: 50%;
-    transform: translate3d(0, -50%, 0);
-    display: none;
-    z-index: -1;
+    &-placement {
+      &-side {
+        position: absolute;
+        top: 50%;
+        transform: translate3d(0, -50%, 0);
+        display: none;
+        z-index: 1;
 
-    &[aria-disabled='true'] {
-      display: none;
-      z-index: -1;
-    }
+        &-left {
+          left: 10px;
+        }
 
-    &-left {
-      left: 10px;
-    }
-
-    &-right {
-      right: 10px;
+        &-right {
+          right: 10px;
+        }
+      }
     }
 
     &-mobile {
@@ -146,49 +135,6 @@
       &:hover {
         background-color: var(--color-background-neutral-subtle);
       }
-    }
-  }
-
-  .pagination {
-    justify-content: center;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: var(--border-radius-lg);
-    display: none;
-    z-index: -1;
-
-    &-mobile {
-      display: flex;
-      z-index: 1;
-    }
-
-    @media (min-width: breakpoints.$breakpoint-md) {
-      display: none;
-      z-index: -1;
-
-      &-desktop {
-        display: flex;
-        z-index: 1;
-      }
-    }
-  }
-
-  .bullet {
-    background-color: var(--bulletBackgroundColor, var(--color-background-warm-stronger));
-    border-radius: 50%;
-    cursor: pointer;
-    display: inline-block;
-    height: 10px;
-    margin: 0 var(--border-radius-xs);
-    width: 10px;
-
-    &:hover {
-      --bulletBackgroundColor: var(--color-icon-neutral-subtlest);
-    }
-
-    &-active {
-      --bulletBackgroundColor: var(--color-background-brand-primary);
     }
   }
 }

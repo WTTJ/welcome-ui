@@ -4,7 +4,7 @@ import { Swiper, useSwiper } from '@/components/Swiper'
 
 const Example = () => {
   const modal = useModal()
-  const swiper = useSwiper({ firstSlideToShow: 2, spaceBetween: 0 })
+  const swiper = useSwiper({ slides: { gap: 0, initialIndex: 2 } })
 
   const isOpen = modal.useState().open
 
