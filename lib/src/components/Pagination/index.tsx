@@ -119,7 +119,6 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
                   aria-label="Collapsed Pages"
                   className={cx('item', `size-${size}`)}
                   type="button"
-                  {...buttonNextProps}
                 >
                   ...
                 </button>
