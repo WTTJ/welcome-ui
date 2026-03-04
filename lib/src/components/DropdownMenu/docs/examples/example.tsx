@@ -1,8 +1,6 @@
-import { useStoreState } from '@ariakit/react'
-
 import { Button } from '@/components/Button'
 import { ButtonGroup } from '@/components/ButtonGroup'
-import { DropdownMenu, useDropdownMenu } from '@/components/DropdownMenu'
+import { DropdownMenu, useDropdownMenu, useStoreState } from '@/components/DropdownMenu'
 import { Icon } from '@/components/Icon'
 
 const Example = () => {
