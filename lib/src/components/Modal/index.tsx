@@ -16,6 +16,8 @@ import { WindowMedia } from './components/WindowMedia'
 import modalStyles from './modal.module.scss'
 import type { ModalProps, UseModal, UseModalProps } from './types'
 
+export * from './types'
+
 const cx = classNames(modalStyles)
 
 export function useModal(options?: UseModalProps): UseModal {
