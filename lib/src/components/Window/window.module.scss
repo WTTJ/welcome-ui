@@ -22,6 +22,8 @@
     padding-inline: var(--window-header-padding-inline-xs);
     padding-block: var(--window-header-padding-block-xs);
     gap: var(--window-header-gap-content);
+    border-top-left-radius: var(--window-border-radius);
+    border-top-right-radius: var(--window-border-radius);
   }
 
   .header-title {
