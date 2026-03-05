@@ -8,26 +8,52 @@ usage: Accordion, useAccordion
 ---
 
 ### Composition
+
 Compose your own accordion with the provided components (Action, Icon, Tags) or use your own:
+
 <div data-playground="composition.tsx" data-component="Accordion"></div>
 
-### Tags 
+### Tags
+
 Use the `Tags` component to display tags in the accordion header.
+
 <div data-playground="tags.tsx" data-component="Accordion"></div>
 
-### Size 
+### Wrapper components
+
+The `Accordion` sub-components serve different usage, but they come with restriction. For example, to use the accordion with composed actions, or with tags, you'll have to use the right wrappers because they work together to create the accordion's responsive behaviors.
+
+<details>
+<summary>How to use them</summary>
+
+In it's most simple form, the accordion's layout looks like this: ![](/accordion/accordion-simple.jpg)
+
+If you want to compose actions, icons, or your own components, you have to use the **Accordion.HeaderWrapper** component. It will ensure that the accordion's responsive behaviors work as expected, and that the layout is consistent across all use cases. ![](/accordion/accordion-actions-desktop.jpg)
+
+Here's ow it behaves on a small screen: ![](/accordion/accordion-actions-mobile.jpg)
+
+For the tags, we use two additional wrappers: **Accordion.HeaderWithTagsWrapper** and **Accordion.HeaderWithTags**. They serve the same purpose as before, but they also ensure that the tags are wrapped correctly while the right actions stays aligned with the arrow button. ![](/accordion/accordion-tags-desktop.jpg) ![](/accordion/accordion-tags-mobile.jpg)
+
+</details>
+
+### Size
+
 `Size` prop will propagate to the accordion components: actions, icons, title, etc.
+
 <div data-playground="size.tsx" data-component="Accordion"></div>
 
 **Size propagation with composition:**
+
 <div data-playground="size-composition.tsx" data-component="Accordion"></div>
 
 ### Open at start
+
 Add `defaultOpen` options to `useAccordion` to open the accordion at the start.
 
 <div data-playground="open-at-start.tsx" data-component="Accordion"></div>
 
 ## useAccordion
+
 We use `useDisclosureStore` from [Ariakit Disclosure](https://ariakit.org/reference/use-disclosure-store) for the state of the accordion, with the `animated` flag set to true by default.
 
 Pass options to `useAccordion`:
