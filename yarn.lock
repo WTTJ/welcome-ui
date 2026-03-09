@@ -6849,10 +6849,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:^16.0.0":
-  version: 16.0.0
-  resolution: "globals@npm:16.0.0"
-  checksum: 10c0/8906d5f01838df64a81d6c2a7b7214312e2216cf65c5ed1546dc9a7d0febddf55ffa906cf04efd5b01eec2534d6f14859a89535d1a68241832810e41ef3fd5bb
+"globals@npm:^17.4.0":
+  version: 17.4.0
+  resolution: "globals@npm:17.4.0"
+  checksum: 10c0/2be9e8c2b9035836f13d420b22f0247a328db82967d3bebfc01126d888ed609305f06c05895914e969653af5c6ba35fd7a0920f3e6c869afa60666c810630feb
   languageName: node
   linkType: hard
 
@@ -8822,7 +8822,7 @@ __metadata:
     esm: "npm:^3.2.25"
     generic-names: "npm:^4.0.0"
     glob: "npm:13.0.6"
-    globals: "npm:^16.0.0"
+    globals: "npm:^17.4.0"
     husky: "npm:8.0.3"
     lodash.difference: "npm:^4.5.0"
     minimist: "npm:1.2.8"
