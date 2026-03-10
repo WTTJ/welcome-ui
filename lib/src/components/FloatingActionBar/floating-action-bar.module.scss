@@ -20,23 +20,4 @@
     overflow-x: auto;
     overflow-y: hidden;
   }
-
-  .pagination {
-    display: flex;
-    align-items: center;
-    gap: var(--pagination-gap-pages);
-    margin-right: auto;
-    flex-shrink: 0;
-    flex-wrap: nowrap;
-    white-space: nowrap;
-  }
-
-  .pagination-text {
-    flex-shrink: 0;
-    white-space: nowrap;
-  }
-
-  .icon {
-    flex-shrink: 0;
-  }
 }

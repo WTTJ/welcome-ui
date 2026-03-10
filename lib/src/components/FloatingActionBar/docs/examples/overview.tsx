@@ -1,10 +1,11 @@
+import { Button } from '@/components/Button'
 import { FloatingActionBar } from '@/components/FloatingActionBar'
 
 const Example = () => {
   return (
     <FloatingActionBar>
-      <FloatingActionBar.Button>Action 1</FloatingActionBar.Button>
-      <FloatingActionBar.Button>Action 2</FloatingActionBar.Button>
+      <Button variant="secondary">Action 1</Button>
+      <Button variant="secondary">Action 2</Button>
     </FloatingActionBar>
   )
 }
