@@ -10,7 +10,7 @@ const Example = () => {
   const menu2 = useDropdownMenu({ placement: 'top-end' })
 
   const isOpen = useStoreState(menu, 'open')
-  const isOpen2 = useStoreState(menu, 'open')
+  const isOpen2 = useStoreState(menu2, 'open')
 
   const handleClick = () => {
     // your code

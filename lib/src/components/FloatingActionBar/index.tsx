@@ -1,6 +1,5 @@
 import { forwardRef } from 'react'
 
-import { DropdownMenu } from '@/components/DropdownMenu'
 import { classNames } from '@/utils'
 
 import styles from './floating-action-bar.module.scss'
@@ -8,9 +7,7 @@ import type { FloatingActionBarProps } from './types'
 
 const cx = classNames(styles)
 
-const FloatingActionBarActionsItem = DropdownMenu.Item
-
-const FloatingActionBarComponent = forwardRef<HTMLDivElement, FloatingActionBarProps>(
+export const FloatingActionBar = forwardRef<HTMLDivElement, FloatingActionBarProps>(
   ({ children, className, dataTestId, ...rest }, ref) => {
     return (
       <div
@@ -25,9 +22,3 @@ const FloatingActionBarComponent = forwardRef<HTMLDivElement, FloatingActionBarP
     )
   }
 )
-
-FloatingActionBarComponent.displayName = 'FloatingActionBar'
-
-export const FloatingActionBar = Object.assign(FloatingActionBarComponent, {
-  ActionsItem: FloatingActionBarActionsItem,
-})
