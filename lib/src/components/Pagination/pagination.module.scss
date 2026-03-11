@@ -10,6 +10,10 @@
     flex-wrap: wrap;
   }
 
+  .list-condensed {
+    gap: var(--floating-action-bar-gap-pagination);
+  }
+
   /* Pagination button or link - default state */
   .item {
     color: var(--color, var(--pagination-color-icon-unchecked-pressed));

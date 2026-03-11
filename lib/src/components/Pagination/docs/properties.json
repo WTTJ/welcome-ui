@@ -77,6 +77,36 @@
           "name": "ButtonHTMLAttributes<HTMLButtonElement>"
         }
       },
+      "condensed": {
+        "defaultValue": {
+          "value": false
+        },
+        "description": "",
+        "name": "condensed",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
+          "name": "PaginationOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Pagination/types.ts",
+            "name": "PaginationOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
       "dataTestId": {
         "defaultValue": null,
         "description": "",

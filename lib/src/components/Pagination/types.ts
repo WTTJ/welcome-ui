@@ -12,6 +12,7 @@ export interface PaginationOptions {
   buttonLastProps?: React.ButtonHTMLAttributes<HTMLButtonElement>
   buttonNextProps?: React.ButtonHTMLAttributes<HTMLButtonElement>
   buttonPrevProps?: React.ButtonHTMLAttributes<HTMLButtonElement>
+  condensed?: boolean
   dataTestId?: string
   getHref?: (page: number | string) => string
   listProps?: React.OlHTMLAttributes<HTMLOListElement>
