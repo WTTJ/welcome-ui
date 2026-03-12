@@ -121,6 +121,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
                 as="span"
                 className={cx(`inline`, `size-${size}`)}
                 data-testid={dataTestId ? `${dataTestId}-range` : undefined}
+                role="status"
                 variant="body-md"
               >
                 {`${page} / ${pageCount}`}
