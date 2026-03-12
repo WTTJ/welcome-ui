@@ -4,7 +4,7 @@ import { FloatingActionBar } from '@/components/FloatingActionBar'
 import { Pagination } from '@/components/Pagination'
 
 const Example = () => {
-  const [page, setPage] = useState(8)
+  const [page, setPage] = useState(1)
 
   return (
     <FloatingActionBar>
@@ -14,7 +14,7 @@ const Example = () => {
         getHref={page => `?page=${page}`}
         onChange={page => setPage(Number(page))}
         page={page}
-        pageCount={99}
+        pageCount={12}
       />
     </FloatingActionBar>
   )

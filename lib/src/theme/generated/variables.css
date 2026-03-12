@@ -798,7 +798,6 @@
   --floating-action-bar-border-width: 1px;
   --floating-action-bar-color-background: #ffffff;
   --floating-action-bar-color-border: #f3f3f3;
-  --floating-action-bar-color-text-default: #000000;
   --floating-action-bar-gap-actions: 8px;
   --floating-action-bar-gap-items: 12px;
   --floating-action-bar-gap-pagination: 12px;
@@ -1045,6 +1044,7 @@
   --pagination-color-text-checked-disabled: #585858;
   --pagination-color-text-checked-hover: #423500;
   --pagination-color-text-checked-pressed: #604d00;
+  --pagination-color-text-condensed-default: #000000;
   --pagination-color-text-unchecked-default: #000000;
   --pagination-color-text-unchecked-disabled: #585858;
   --pagination-color-text-unchecked-hover: #212121;

@@ -4,7 +4,7 @@ import { Pagination } from '@/components/Pagination'
 import type { PaginationProps } from '@/components/Pagination/types'
 
 const Example = () => {
-  const [page, setPage] = useState<PaginationProps['page']>(8)
+  const [page, setPage] = useState<PaginationProps['page']>(1)
 
   return (
     <Pagination
@@ -13,8 +13,7 @@ const Example = () => {
       getHref={page => `?page=${page}`}
       onChange={page => setPage(Number(page))}
       page={page}
-      pageCount={99}
-      size="md"
+      pageCount={12}
     />
   )
 }

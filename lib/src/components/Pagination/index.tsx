@@ -72,7 +72,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
 
     return (
       <nav aria-label={ariaLabel ?? 'Pagination'} data-testid={dataTestId} ref={ref} {...rest}>
-        <ol className={cx('list', condensed && 'list-condensed')} {...listProps}>
+        <ol className={cx('list')} {...listProps}>
           {showEdgeControls ? (
             <li>
               <button
