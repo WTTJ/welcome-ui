@@ -110,7 +110,7 @@
     "@isaacs/brace-expansion": "5.0.1",
     "minimatch": "10.2.3",
     "immutable": "5.1.5",
-    "tar": "7.5.10"
+    "tar": "7.5.11"
   },
   "dependencies": {
     "tailwindcss": "^4.1.18"
