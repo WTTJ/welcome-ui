@@ -153,6 +153,7 @@ export const miscellaneous = [
 
 export const player = [
   'play',
+  'play-solid',
   'stop-circle-solid',
   'pause-circle-solid',
   'previous',
