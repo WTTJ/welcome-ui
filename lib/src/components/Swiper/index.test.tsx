@@ -51,77 +51,51 @@ describe('<Swiper>', () => {
     Object.defineProperty(HTMLElement.prototype, 'scrollWidth', { configurable: true, value: 0 })
   })
 
-  it('should render correctly with no props', () => {
-    const { container } = render(<TestSwiper />)
+  describe('rendering', () => {
+    it('should render correctly with no props', () => {
+      const { container } = render(<TestSwiper />)
 
-    expect(container).toHaveTextContent('page1')
+      expect(container).toHaveTextContent('page1')
+    })
+
+    it('should render correctly at init', () => {
+      // Set values to have first page context
+      Object.defineProperty(HTMLElement.prototype, 'offsetWidth', { value: 896 })
+      Object.defineProperty(HTMLElement.prototype, 'scrollWidth', { value: 2688 })
+
+      render(<TestSwiper />)
+      // Arrange
+      const slide1 = screen.getByText('page1')
+      const slide2 = screen.getByText('page2')
+      const slide3 = screen.getByText('page3')
+      const prevButton = screen.getByLabelText('Previous slide')
+      const nextButton = screen.getByLabelText('Next slide')
+
+      // Assert
+      expect(prevButton).toHaveAttribute('aria-disabled', 'true')
+      expect(nextButton).toBeEnabled()
+      expect(slide1).toHaveAttribute('aria-hidden', 'false')
+      expect(slide2).toHaveAttribute('aria-hidden', 'true')
+      expect(slide3).toHaveAttribute('aria-hidden', 'true')
+    })
+
+    it('should render correctly when on last page', () => {
+      // Set values to have last page context
+      Object.defineProperty(HTMLElement.prototype, 'offsetWidth', { value: 896 })
+      Object.defineProperty(HTMLElement.prototype, 'scrollWidth', { value: 2688 })
+      Object.defineProperty(HTMLElement.prototype, 'scrollLeft', { value: 1792 })
+
+      render(<TestSwiper />)
+      // Arrange
+      const prevButton = screen.getByLabelText('Previous slide')
+      const nextButton = screen.getByLabelText('Next slide')
+      // Assert
+      expect(prevButton).toBeEnabled()
+      expect(nextButton).toHaveAttribute('aria-disabled', 'true')
+    })
   })
 
-  it('should render correctly at init', () => {
-    // Set values to have first page context
-    Object.defineProperty(HTMLElement.prototype, 'offsetWidth', { value: 896 })
-    Object.defineProperty(HTMLElement.prototype, 'scrollWidth', { value: 2688 })
-
-    render(<TestSwiper />)
-    // Arrange
-    const slide1 = screen.getByText('page1')
-    const slide2 = screen.getByText('page2')
-    const slide3 = screen.getByText('page3')
-    const prevButton = screen.getByLabelText('Previous slide')
-    const nextButton = screen.getByLabelText('Next slide')
-
-    // Assert
-    expect(prevButton).toHaveAttribute('aria-disabled', 'true')
-    expect(nextButton).toBeEnabled()
-    expect(slide1).toHaveAttribute('aria-hidden', 'false')
-    expect(slide2).toHaveAttribute('aria-hidden', 'true')
-    expect(slide3).toHaveAttribute('aria-hidden', 'true')
-  })
-
-  it('should render correctly when on last page', () => {
-    // Set values to have last page context
-    Object.defineProperty(HTMLElement.prototype, 'offsetWidth', { value: 896 })
-    Object.defineProperty(HTMLElement.prototype, 'scrollWidth', { value: 2688 })
-    Object.defineProperty(HTMLElement.prototype, 'scrollLeft', { value: 1792 })
-
-    render(<TestSwiper />)
-    // Arrange
-    const prevButton = screen.getByLabelText('Previous slide')
-    const nextButton = screen.getByLabelText('Next slide')
-    // Assert
-    expect(prevButton).toBeEnabled()
-    expect(nextButton).toHaveAttribute('aria-disabled', 'true')
-  })
-
-  it('should navigate when calling setCurrentPage directly from store', async () => {
-    const TestManualNavigation = () => {
-      const swiper = useSwiper()
-      return (
-        <>
-          <Swiper store={swiper}>
-            <Swiper.Slides>
-              <div>page1</div>
-              <div>page2</div>
-            </Swiper.Slides>
-          </Swiper>
-          <button onClick={() => swiper.slides.setCurrentPage(1)}>Go to page 2</button>
-        </>
-      )
-    }
-
-    const { user } = render(<TestManualNavigation />)
-    const slide2 = screen.getByText('page2')
-    const navButton = screen.getByText('Go to page 2')
-
-    expect(slide2).toHaveAttribute('aria-hidden', 'true')
-
-    await user.click(navButton)
-
-    expect(slide2).toHaveAttribute('aria-hidden', 'false')
-    expect(scrollToSpy).toHaveBeenCalled()
-  })
-
-  describe('with loop', () => {
+  describe('navigation', () => {
     it('should have arrow buttons enabled and call scrollTo when clicking on it', async () => {
       const { user } = render(<TestSwiperWithLoop />)
 
@@ -144,6 +118,34 @@ describe('<Swiper>', () => {
 
       // Assert
       expect(scrollToSpy).toHaveBeenLastCalledWith({ behavior: 'smooth', left: 20, top: 0 })
+    })
+
+    it('should navigate when calling setCurrentPage directly from store', async () => {
+      const TestManualNavigation = () => {
+        const swiper = useSwiper()
+        return (
+          <>
+            <Swiper store={swiper}>
+              <Swiper.Slides>
+                <div>page1</div>
+                <div>page2</div>
+              </Swiper.Slides>
+            </Swiper>
+            <button onClick={() => swiper.slides.setCurrentPage(1)}>Go to page 2</button>
+          </>
+        )
+      }
+
+      const { user } = render(<TestManualNavigation />)
+      const slide2 = screen.getByText('page2')
+      const navButton = screen.getByText('Go to page 2')
+
+      expect(slide2).toHaveAttribute('aria-hidden', 'true')
+
+      await user.click(navButton)
+
+      expect(slide2).toHaveAttribute('aria-hidden', 'false')
+      expect(scrollToSpy).toHaveBeenCalled()
     })
   })
 })
