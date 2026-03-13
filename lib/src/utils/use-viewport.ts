@@ -10,15 +10,24 @@ type Size = {
 export function useViewportSize(): Size {
   const [size, setSize] = useState<Size>({ height: undefined, width: undefined })
 
+  // Throttle resize events to prevent excessive updates
+  const handleResize = ({ height, width }: { height: number; width: number }) => {
+    let timer: NodeJS.Timeout = undefined
+    clearTimeout(timer)
+    timer = setTimeout(() => {
+      setSize({ height, width })
+    }, 300)
+  }
+
   useIsomorphicLayoutEffect(() => {
-    setSize({ height: window.innerHeight, width: window.innerWidth })
+    // ResizeObserver is more performant than the window resize event
+    const observer = new ResizeObserver(([entry]) => {
+      const { blockSize: height, inlineSize: width } = entry.contentBoxSize[0]
+      handleResize({ height, width })
+    })
 
-    function handleResize() {
-      setSize({ height: window.innerHeight, width: window.innerWidth })
-    }
-
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
+    observer.observe(document.documentElement)
+    return () => observer.disconnect()
   }, [])
 
   return size

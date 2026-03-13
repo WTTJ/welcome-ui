@@ -58,38 +58,28 @@ const defaultOptions = {
   autoplay: { duration: 5000, enabled: false, loop: false },
   navigation: { desktop: true, mobile: true },
   slides: {
-    alignment: 'default' as const,
+    alignment: 'default',
     expandOnLargeScreens: false,
     gap: 20,
     id: 'swiper',
     initialIndex: 0,
     perView: { desktop: 1, mobile: 1, tablet: 1 },
   },
-}
+} satisfies UseSwiperOptions
 
-const defaultStore: {
-  autoplay: { duration: number; enabled: boolean; loop: boolean }
-  navigation: { desktop: boolean; mobile: boolean }
-  slides: {
-    alignment: 'center' | 'default'
-    currentSlidesPerView: number
-    expandOnLargeScreens: boolean
-    gap: number
-    id: string
-    initialIndex: number
-    perView: { desktop: number; mobile: number; tablet: number }
-  }
-} = {
+const defaultStore = {
   autoplay: defaultOptions.autoplay!,
   navigation: defaultOptions.navigation!,
   slides: {
     alignment: defaultOptions.slides!.alignment!,
+    currentPage: 0,
     currentSlidesPerView: defaultOptions.slides!.perView!.desktop,
     expandOnLargeScreens: defaultOptions.slides!.expandOnLargeScreens!,
     gap: defaultOptions.slides!.gap!,
     id: defaultOptions.slides!.id!,
     initialIndex: defaultOptions.slides!.initialIndex!,
     perView: defaultOptions.slides!.perView!,
+    setCurrentPage: () => {},
   },
 }
 
@@ -100,14 +90,18 @@ export const useSwiper = (
   navigation: { desktop: boolean; mobile: boolean }
   slides: {
     alignment: 'center' | 'default'
+    currentPage: number
     currentSlidesPerView: number
     expandOnLargeScreens: boolean
     gap: number
     id: string
     initialIndex: number
     perView: { desktop: number; mobile: number; tablet: number }
+    setCurrentPage: React.Dispatch<React.SetStateAction<number>>
   }
 } => {
+  const [currentPage, setCurrentPage] = useState(0)
+
   // Merge with defaults to handle partial options
   const mergedOptions = {
     autoplay: { ...defaultOptions.autoplay, ...options.autoplay },
@@ -149,12 +143,14 @@ export const useSwiper = (
     navigation,
     slides: {
       alignment: mergedOptions.slides.alignment!,
+      currentPage,
       currentSlidesPerView,
       expandOnLargeScreens: mergedOptions.slides.expandOnLargeScreens!,
       gap: mergedOptions.slides.gap!,
       id: mergedOptions.slides.id!,
       initialIndex: mergedOptions.slides.initialIndex!,
       perView: slidesPerView,
+      setCurrentPage,
     },
   }
 }
@@ -166,8 +162,7 @@ export const Swiper: SwiperComponent = ({
   ...rest
 }: SwiperProps) => {
   const { autoplay, navigation, slides } = store
-
-  const [currentPage, setCurrentPage] = useState(0)
+  const { currentPage, setCurrentPage } = slides
   const ref = useRef<HTMLUListElement>()
   const hasInitializedRef = useRef(false)
 
@@ -176,16 +171,6 @@ export const Swiper: SwiperComponent = ({
   const [isNextDisabled, setIsNextDisabled] = useState(false)
 
   const numberOfPage = Math.ceil(slidesLength / slides.currentSlidesPerView) || 1
-
-  const isFirstPage = currentPage === 0
-  const isLastPage = currentPage === numberOfPage - 1
-
-  const firstPageToShow =
-    slides.alignment === 'center'
-      ? // if centeredSlides is true, we calculate which number is the middle page
-        Math.floor(numberOfPage / 2)
-      : // if centeredSlides is false, we calculate on which page the number in firstSlideToShow props is
-        Math.ceil(slides.initialIndex / slides.currentSlidesPerView) - 1
 
   const getNavigationState = useCallback(() => {
     const sliderContainer = ref?.current
@@ -229,6 +214,8 @@ export const Swiper: SwiperComponent = ({
     [getNavigationState, updatePage]
   )
 
+  // Navigation functions
+
   const goTo = useCallback(
     (page: number, isFirstInit = false) => {
       const sliderContainer = ref?.current
@@ -243,6 +230,9 @@ export const Swiper: SwiperComponent = ({
     },
     [slides.currentSlidesPerView, slides.gap, ref]
   )
+
+  const isFirstPage = currentPage === 0
+  const isLastPage = currentPage === numberOfPage - 1
 
   const goNext = useCallback(() => {
     if (autoplay.enabled && autoplay.loop && isLastPage) {
@@ -286,6 +276,13 @@ export const Swiper: SwiperComponent = ({
     return () => window.removeEventListener('keydown', handleKeys)
   }, [goPrev, goNext])
 
+  const firstPageToShow =
+    slides.alignment === 'center'
+      ? // if centeredSlides is true, we calculate which number is the middle page
+        Math.floor(numberOfPage / 2)
+      : // if centeredSlides is false, we calculate on which page the number in firstSlideToShow props is
+        Math.ceil(slides.initialIndex / slides.currentSlidesPerView) - 1
+
   useEffect(() => {
     // Only navigate to initial page once, when slidesLength is first known
     if (slidesLength > 0 && !hasInitializedRef.current) {
@@ -295,10 +292,17 @@ export const Swiper: SwiperComponent = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slidesLength])
 
-  /** if the childrens changed we need to check again the arrow states */
+  // if the childrens changed we need to check again the arrow states
   useEffect(() => {
     getNavigationState()
   }, [getNavigationState, children])
+
+  // Triggers navigation when currentPage is changed by external setCurrentPage calls
+  useEffect(() => {
+    if (hasInitializedRef.current) {
+      goTo(currentPage)
+    }
+  }, [currentPage, goTo])
 
   const contextValue = useMemo(
     () => ({
