@@ -11,6 +11,4 @@ export interface RadioOptions {
   variant?: 'danger' | 'default'
 }
 
-export type RadioProps = ComponentPropsWithRef<'input'> &
-  Omit<LabelProps, 'children'> &
-  RadioOptions
+export type RadioProps = ComponentPropsWithRef<'input'> & LabelProps & RadioOptions
