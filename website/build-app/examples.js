@@ -224,6 +224,7 @@ export default {
   "/StickyNote/docs/examples/variants.tsx": dynamic(() => import("../../lib/src/components/StickyNote/docs/examples/variants.tsx").then(mod => mod), { ssr: false }),
   "/Swiper/docs/examples/autoplay.tsx": dynamic(() => import("../../lib/src/components/Swiper/docs/examples/autoplay.tsx").then(mod => mod), { ssr: false }),
   "/Swiper/docs/examples/centered.tsx": dynamic(() => import("../../lib/src/components/Swiper/docs/examples/centered.tsx").then(mod => mod), { ssr: false }),
+  "/Swiper/docs/examples/controls.tsx": dynamic(() => import("../../lib/src/components/Swiper/docs/examples/controls.tsx").then(mod => mod), { ssr: false }),
   "/Swiper/docs/examples/custom-content.tsx": dynamic(() => import("../../lib/src/components/Swiper/docs/examples/custom-content.tsx").then(mod => mod), { ssr: false }),
   "/Swiper/docs/examples/first.tsx": dynamic(() => import("../../lib/src/components/Swiper/docs/examples/first.tsx").then(mod => mod), { ssr: false }),
   "/Swiper/docs/examples/no-navigation.tsx": dynamic(() => import("../../lib/src/components/Swiper/docs/examples/no-navigation.tsx").then(mod => mod), { ssr: false }),

@@ -93,6 +93,34 @@ describe('<Swiper>', () => {
     expect(nextButton).toHaveAttribute('aria-disabled', 'true')
   })
 
+  it('should navigate when calling setCurrentPage directly from store', async () => {
+    const TestManualNavigation = () => {
+      const swiper = useSwiper()
+      return (
+        <>
+          <Swiper store={swiper}>
+            <Swiper.Slides>
+              <div>page1</div>
+              <div>page2</div>
+            </Swiper.Slides>
+          </Swiper>
+          <button onClick={() => swiper.slides.setCurrentPage(1)}>Go to page 2</button>
+        </>
+      )
+    }
+
+    const { user } = render(<TestManualNavigation />)
+    const slide2 = screen.getByText('page2')
+    const navButton = screen.getByText('Go to page 2')
+
+    expect(slide2).toHaveAttribute('aria-hidden', 'true')
+
+    await user.click(navButton)
+
+    expect(slide2).toHaveAttribute('aria-hidden', 'false')
+    expect(scrollToSpy).toHaveBeenCalled()
+  })
+
   describe('with loop', () => {
     it('should have arrow buttons enabled and call scrollTo when clicking on it', async () => {
       const { user } = render(<TestSwiperWithLoop />)
