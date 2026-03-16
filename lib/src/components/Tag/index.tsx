@@ -72,6 +72,7 @@ export const Tag = forwardRefWithAs<TagOptions, 'div'>((props, ref) => {
         <button
           aria-label="remove tag"
           disabled={disabled}
+          type="button"
           {...removeButtonProps}
           className={cx('removeButton', removeButtonProps?.className)}
           onClick={handleRemove}
