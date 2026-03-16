@@ -17,7 +17,7 @@ export type SwiperPrevButtonProps = Omit<ButtonProps, 'aria-label' | 'disabled' 
   placement?: 'inline' | 'side'
 }
 export type SwiperProps = ComponentProps<'div'> & SwiperOptions
-export type SwiperSlidesProps = { children: ReactNode }
+export type SwiperSlidesProps = { children: ReactNode; className?: string }
 
 export interface UseSwiperOptions {
   /** If true the swiper will automatically transition between slides */
