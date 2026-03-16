@@ -9,7 +9,7 @@ import { getSlideWidth } from '../utils'
 
 const cx = classNames(styles)
 
-export const SwiperSlides = ({ children }: SwiperSlidesProps) => {
+export const SwiperSlides = ({ children, className }: SwiperSlidesProps) => {
   const {
     slides: {
       currentPage,
@@ -62,7 +62,8 @@ export const SwiperSlides = ({ children }: SwiperSlidesProps) => {
         perView.mobile && 'container-mobile',
         perView.desktop && 'container-desktop',
         perView.tablet && 'container-tablet',
-        perView.desktop && expandOnLargeScreens && 'container-full-width'
+        perView.desktop && expandOnLargeScreens && 'container-full-width',
+        className
       )}
       onScroll={handleScroll}
       ref={ref}
