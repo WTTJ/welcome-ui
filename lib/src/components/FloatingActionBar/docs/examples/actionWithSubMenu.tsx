@@ -26,10 +26,10 @@ const Example = () => {
 
       <DropdownMenu aria-label="Complexity" store={menu}>
         <DropdownMenu.Item onClick={handleClick}>
-          <span>Action 4</span>
+          <span>Action 1</span>
         </DropdownMenu.Item>
         <DropdownMenu.Item onClick={handleClick}>
-          <span>Action 5</span>
+          <span>Action 2</span>
         </DropdownMenu.Item>
       </DropdownMenu>
 
@@ -41,10 +41,10 @@ const Example = () => {
 
       <DropdownMenu aria-label="Complexity" store={menu2}>
         <DropdownMenu.Item onClick={handleClick}>
-          <span>Action 4</span>
+          <span>Action 3</span>
         </DropdownMenu.Item>
         <DropdownMenu.Item onClick={handleClick}>
-          <span>Action 5</span>
+          <span>Action 4</span>
         </DropdownMenu.Item>
       </DropdownMenu>
     </FloatingActionBar>

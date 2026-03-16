@@ -1,24 +1,22 @@
-import { forwardRef } from 'react'
-
-import { classNames } from '@/utils'
+import { classNames, forwardRefWithAs } from '@/utils'
 
 import styles from './floating-action-bar.module.scss'
 import type { FloatingActionBarProps } from './types'
 
 const cx = classNames(styles)
 
-export const FloatingActionBar = forwardRef<HTMLDivElement, FloatingActionBarProps>(
-  ({ children, className, dataTestId, ...rest }, ref) => {
+export const FloatingActionBar = forwardRefWithAs<FloatingActionBarProps, 'div'>(
+  ({ as: Component = 'div', children, className, dataTestId, ...rest }, ref) => {
     return (
-      <div
+      <Component
         className={cx('floating-action-bar', className)}
         data-testid={dataTestId}
-        ref={ref}
         role="toolbar"
         {...rest}
+        ref={ref}
       >
         <div className={cx('container')}>{children}</div>
-      </div>
+      </Component>
     )
   }
 )
