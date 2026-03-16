@@ -119,10 +119,10 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
               <Text
                 aria-label={`Page ${page} of ${pageCount}`}
                 as="span"
-                className={cx(`inline`, `size-${size}`)}
+                className={cx(`inline`)}
                 data-testid={dataTestId ? `${dataTestId}-range` : undefined}
                 role="status"
-                variant="body-md"
+                variant={`body-${size}`}
               >
                 {`${page} / ${pageCount}`}
               </Text>

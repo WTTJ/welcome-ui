@@ -14,6 +14,7 @@ const Example = () => {
       onChange={page => setPage(Number(page))}
       page={page}
       pageCount={12}
+      size="md"
     />
   )
 }
