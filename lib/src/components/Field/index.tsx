@@ -53,14 +53,10 @@ export const Field = forwardRefWithAs<FieldOptions, 'div'>((props, ref) => {
         ? 'warning'
         : undefined
 
-  const hintText =
-    error ??
-    warning ??
-    success ??
-    hint ??
-    (maxLength
-      ? `${new Intl.NumberFormat().format(maxLength.count)} / ${new Intl.NumberFormat().format(maxLength.max)}`
-      : undefined)
+  const hintText = error ?? warning ?? success ?? hint
+  const hintMaxLength = maxLength
+    ? `${new Intl.NumberFormat().format(maxLength.count)} / ${new Intl.NumberFormat().format(maxLength.max)}`
+    : undefined
 
   const labelID = useDefaultID(labelProps?.id)
   const hintID = useDefaultID(hintProps?.id)
@@ -69,7 +65,9 @@ export const Field = forwardRefWithAs<FieldOptions, 'div'>((props, ref) => {
     () => ({
       getInputProps(ownProps) {
         const ariaDescribedBy =
-          [ownProps['aria-describedby'], hintText && hintID].filter(Boolean).join(' ') || undefined
+          [ownProps['aria-describedby'], (hintText || hintMaxLength) && hintID]
+            .filter(Boolean)
+            .join(' ') || undefined
         const ariaLabelledBy = [ownProps['aria-labelledby'], labelID].filter(Boolean).join(' ')
 
         return {
@@ -90,7 +88,7 @@ export const Field = forwardRefWithAs<FieldOptions, 'div'>((props, ref) => {
       labelID,
       variant,
     }),
-    [hintID, labelID, variant, hintText, disabled, inputId, maxLength?.max, required]
+    [hintID, labelID, variant, hintText, hintMaxLength, disabled, inputId, maxLength?.max, required]
   )
 
   return (
@@ -107,14 +105,10 @@ export const Field = forwardRefWithAs<FieldOptions, 'div'>((props, ref) => {
         {label}
       </Label>
       <FieldContext.Provider value={state}>{children}</FieldContext.Provider>
-      {hintText ? (
-        <Hint
-          className={cx('hint', !!maxLength && 'hint-max-length')}
-          id={hintID}
-          variant={variant}
-          {...hintProps}
-        >
+      {hintText || hintMaxLength ? (
+        <Hint className={cx('hint')} id={hintID} variant={variant} {...hintProps}>
           {hintText}
+          {hintMaxLength ? <span className={cx('hint-max-length')}>{hintMaxLength}</span> : null}
         </Hint>
       ) : null}
     </div>

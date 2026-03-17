@@ -7,17 +7,32 @@ const Example = () => {
   const [value, setValue] = useState('')
 
   return (
-    <div className="flex flex-col gap-lg">
-      <Field
-        label="Label"
-        maxLength={{
-          count: value.length,
-          max: 20,
-        }}
-      >
-        <InputText onChange={event => setValue(event.target.value)} placeholder="Placeholder" />
-      </Field>
-    </div>
+    <>
+      <div className="flex flex-col gap-lg">
+        <Field
+          label="Label"
+          maxLength={{
+            count: value.length,
+            max: 20,
+          }}
+        >
+          <InputText onChange={event => setValue(event.target.value)} placeholder="Placeholder" />
+        </Field>
+      </div>
+
+      <div className="flex flex-col gap-lg mt-lg">
+        <Field
+          hint="This is a hint"
+          label="Label with hint"
+          maxLength={{
+            count: value.length,
+            max: 20,
+          }}
+        >
+          <InputText onChange={event => setValue(event.target.value)} placeholder="Placeholder" />
+        </Field>
+      </div>
+    </>
   )
 }
 

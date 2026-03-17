@@ -65,9 +65,11 @@
 
   .hint {
     grid-area: hint;
+    display: flex;
+    gap: var(--field-gap-label);
 
     &-max-length {
-      justify-self: end;
+      margin-left: auto;
     }
   }
 
