@@ -1,0 +1,63 @@
+{
+  "FloatingActionBar": {
+    "props": {
+      "children": {
+        "defaultValue": null,
+        "description": "",
+        "name": "children",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/FloatingActionBar/types.ts",
+          "name": "FloatingActionBarProps"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/FloatingActionBar/types.ts",
+            "name": "FloatingActionBarProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "ReactNode"
+        }
+      },
+      "className": {
+        "defaultValue": null,
+        "description": "",
+        "name": "className",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/FloatingActionBar/types.ts",
+          "name": "FloatingActionBarProps"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/FloatingActionBar/types.ts",
+            "name": "FloatingActionBarProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "dataTestId": {
+        "defaultValue": null,
+        "description": "",
+        "name": "dataTestId",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/FloatingActionBar/types.ts",
+          "name": "FloatingActionBarProps"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/FloatingActionBar/types.ts",
+            "name": "FloatingActionBarProps"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      }
+    }
+  }
+}
