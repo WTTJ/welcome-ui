@@ -175,6 +175,19 @@ describe('<Pagination>', () => {
     expect(onChange).toHaveBeenCalledWith(10)
   })
 
+  it('should render condensed range instead of page buttons', async () => {
+    const onChange = vi.fn()
+
+    render(
+      <Pagination condensed dataTestId="pagination" onChange={onChange} page={1} pageCount={12} />
+    )
+
+    const range = screen.getByTestId('pagination-range')
+
+    expect(range).toHaveTextContent('1 / 12')
+    expect(screen.queryByTestId('pagination-1')).not.toBeInTheDocument()
+  })
+
   describe('usePages', () => {
     it('should return correct values', () => {
       const { result } = renderHook(() => usePages({ page: 1, pageCount: 10, rangeDisplay: 5 }))

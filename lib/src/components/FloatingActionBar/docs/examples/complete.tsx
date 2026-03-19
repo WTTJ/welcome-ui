@@ -1,13 +1,16 @@
 import { useStoreState } from '@ariakit/react'
+import { useState } from 'react'
 
 import { Button } from '@/components/Button'
 import { DropdownMenu, useDropdownMenu } from '@/components/DropdownMenu'
 import { FloatingActionBar } from '@/components/FloatingActionBar'
 import { Icon } from '@/components/Icon'
+import { Pagination } from '@/components/Pagination'
 
 const Example = () => {
   const menu = useDropdownMenu({ placement: 'top-end' })
   const isOpen = useStoreState(menu, 'open')
+  const [page, setPage] = useState(1)
 
   const handleClick = () => {
     // your code
@@ -15,6 +18,16 @@ const Example = () => {
 
   return (
     <FloatingActionBar>
+      <Pagination
+        aria-label="Example Pagination"
+        condensed
+        getHref={page => `?page=${page}`}
+        onChange={page => setPage(Number(page))}
+        page={page}
+        pageCount={12}
+        size="md"
+      />
+
       <Button size="md" variant="secondary">
         <Icon name="sign-right" />
         <span>Action 3</span>

@@ -4465,34 +4465,6 @@
           },
           "com.figma.isOverride": true
         }
-      },
-      "text": {
-        "default": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0,
-              0,
-              0
-            ],
-            "alpha": 1,
-            "hex": "#000000"
-          },
-          "$extensions": {
-            "com.figma.variableId": "VariableID:2612:1070",
-            "com.figma.scopes": [
-              "ALL_SCOPES"
-            ],
-            "com.figma.aliasData": {
-              "targetVariableId": "VariableID:720e1a8cfd9166881aa068e27fba3703456e7b5f/1660:553",
-              "targetVariableName": "color/text/neutral/primary",
-              "targetVariableSetId": "VariableCollectionId:c63d851fbfa7f020daa54dd5d4d433436faec0f9/1660:534",
-              "targetVariableSetName": "Semantic - Colors"
-            },
-            "com.figma.isOverride": true
-          }
-        }
       }
     },
     "border": {

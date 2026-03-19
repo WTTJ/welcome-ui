@@ -611,6 +611,34 @@
           "com.figma.isOverride": true
         }
       },
+      "icon": {
+        "default": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.2666666805744171,
+              0.2666666805744171,
+              0.2666666805744171
+            ],
+            "alpha": 1,
+            "hex": "#444444"
+          },
+          "$extensions": {
+            "com.figma.variableId": "VariableID:4:232",
+            "com.figma.scopes": [
+              "SHAPE_FILL"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:bec5c3b0ba38847523b79776181a6b9152b911b5/1660:614",
+              "targetVariableName": "color/icon/neutral/tertiary",
+              "targetVariableSetId": "VariableCollectionId:c63d851fbfa7f020daa54dd5d4d433436faec0f9/1660:534",
+              "targetVariableSetName": "Semantic - Colors"
+            },
+            "com.figma.isOverride": true
+          }
+        }
+      },
       "border": {
         "default": {
           "$type": "color",
@@ -658,34 +686,6 @@
             "com.figma.aliasData": {
               "targetVariableId": "VariableID:13f3ba2b3d3e87c02f620251820a66a2cef9854b/1660:714",
               "targetVariableName": "color/border/warm/tertiary",
-              "targetVariableSetId": "VariableCollectionId:c63d851fbfa7f020daa54dd5d4d433436faec0f9/1660:534",
-              "targetVariableSetName": "Semantic - Colors"
-            },
-            "com.figma.isOverride": true
-          }
-        }
-      },
-      "icon": {
-        "default": {
-          "$type": "color",
-          "$value": {
-            "colorSpace": "srgb",
-            "components": [
-              0.2666666805744171,
-              0.2666666805744171,
-              0.2666666805744171
-            ],
-            "alpha": 1,
-            "hex": "#444444"
-          },
-          "$extensions": {
-            "com.figma.variableId": "VariableID:4:232",
-            "com.figma.scopes": [
-              "SHAPE_FILL"
-            ],
-            "com.figma.aliasData": {
-              "targetVariableId": "VariableID:bec5c3b0ba38847523b79776181a6b9152b911b5/1660:614",
-              "targetVariableName": "color/icon/neutral/tertiary",
               "targetVariableSetId": "VariableCollectionId:c63d851fbfa7f020daa54dd5d4d433436faec0f9/1660:534",
               "targetVariableSetName": "Semantic - Colors"
             },
@@ -1626,6 +1626,34 @@
               "com.figma.aliasData": {
                 "targetVariableId": "VariableID:c95f3e103737cc993420df4346f14846f4df7458/1660:556",
                 "targetVariableName": "color/text/neutral/subtle",
+                "targetVariableSetId": "VariableCollectionId:c63d851fbfa7f020daa54dd5d4d433436faec0f9/1660:534",
+                "targetVariableSetName": "Semantic - Colors"
+              },
+              "com.figma.isOverride": true
+            }
+          }
+        },
+        "condensed": {
+          "default": {
+            "$type": "color",
+            "$value": {
+              "colorSpace": "srgb",
+              "components": [
+                0,
+                0,
+                0
+              ],
+              "alpha": 1,
+              "hex": "#000000"
+            },
+            "$extensions": {
+              "com.figma.variableId": "VariableID:1330:1656",
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ],
+              "com.figma.aliasData": {
+                "targetVariableId": "VariableID:720e1a8cfd9166881aa068e27fba3703456e7b5f/1660:553",
+                "targetVariableName": "color/text/neutral/primary",
                 "targetVariableSetId": "VariableCollectionId:c63d851fbfa7f020daa54dd5d4d433436faec0f9/1660:534",
                 "targetVariableSetName": "Semantic - Colors"
               },

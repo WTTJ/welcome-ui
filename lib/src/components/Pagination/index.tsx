@@ -1,6 +1,7 @@
 import { forwardRef, useCallback, useRef } from 'react'
 
 import { Icon } from '@/components/Icon'
+import { Text } from '@/components/Text'
 import { classNames } from '@/utils'
 
 import styles from './pagination.module.scss'
@@ -17,6 +18,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
       buttonLastProps,
       buttonNextProps,
       buttonPrevProps,
+      condensed = false,
       dataTestId,
       getHref,
       listProps,
@@ -112,34 +114,49 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
               {navigationTexts?.previousPage ? previousPageText : null}
             </button>
           </li>
-          {pages.map((iPage: number | string, i: number) =>
-            iPage === '-' ? (
-              <li key={`${i}-`}>
-                <button
-                  aria-label="Collapsed Pages"
-                  className={cx('item', `size-${size}`)}
-                  type="button"
-                >
-                  ...
-                </button>
-              </li>
-            ) : (
-              <li key={iPage}>
-                <a
-                  aria-current={iPage === page}
-                  className={cx('item', 'page', `size-${size}`)}
-                  data-testid={dataTestId ? `${dataTestId}-${iPage}` : undefined}
-                  href={getHref?.(iPage)}
-                  onClick={event => {
-                    if (onChange) {
-                      event.preventDefault()
-                      onChange(iPage)
-                    }
-                  }}
-                >
-                  {iPage}
-                </a>
-              </li>
+          {condensed ? (
+            <li>
+              <Text
+                aria-label={`Page ${page} of ${pageCount}`}
+                as="span"
+                className="inline"
+                data-testid={dataTestId ? `${dataTestId}-range` : undefined}
+                role="status"
+                variant={`body-${size}`}
+              >
+                {`${page} / ${pageCount}`}
+              </Text>
+            </li>
+          ) : (
+            pages.map((iPage: number | string, i: number) =>
+              iPage === '-' ? (
+                <li key={`${i}-`}>
+                  <button
+                    aria-label="Collapsed Pages"
+                    className={cx('item', `size-${size}`)}
+                    type="button"
+                  >
+                    ...
+                  </button>
+                </li>
+              ) : (
+                <li key={iPage}>
+                  <a
+                    aria-current={iPage === page}
+                    className={cx('item', 'page', `size-${size}`)}
+                    data-testid={dataTestId ? `${dataTestId}-${iPage}` : undefined}
+                    href={getHref?.(iPage)}
+                    onClick={event => {
+                      if (onChange) {
+                        event.preventDefault()
+                        onChange(iPage)
+                      }
+                    }}
+                  >
+                    {iPage}
+                  </a>
+                </li>
+              )
             )
           )}
           <li>
