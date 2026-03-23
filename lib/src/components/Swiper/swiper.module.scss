@@ -9,7 +9,7 @@
   }
 
   .container {
-    scroll-snap-type: x mandatory;
+    scroll-snap-type: x proximity;
     display: flex;
     -webkit-overflow-scrolling: touch;
     overflow-x: scroll;

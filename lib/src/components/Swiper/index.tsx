@@ -172,6 +172,11 @@ export const Swiper: SwiperComponent = ({
 
   const numberOfPage = Math.ceil(slidesLength / slides.currentSlidesPerView) || 1
 
+  const clampPage = useCallback(
+    (page: number) => Math.min(Math.max(page, 0), numberOfPage - 1),
+    [numberOfPage]
+  )
+
   const getNavigationState = useCallback(() => {
     const sliderContainer = ref?.current
     if (sliderContainer && !autoplay.enabled) {
@@ -193,17 +198,33 @@ export const Swiper: SwiperComponent = ({
       const { children, offsetWidth, scrollLeft, scrollWidth } = sliderContainer
       const childWidth = children?.[0]?.getBoundingClientRect()?.width
 
-      const isLastPage = !(scrollWidth - (scrollLeft + offsetWidth) > slides.gap)
+      if (childWidth == null) {
+        return
+      }
 
-      const nextPage = isLastPage
-        ? numberOfPage - 1
-        : Math.round(scrollLeft / ((childWidth + slides.gap) * slides.currentSlidesPerView))
+      const tolerance = Math.max(childWidth * 0.15, 10)
 
-      if (nextPage !== currentPage) {
-        setCurrentPage(nextPage)
+      const isLastPage = !(scrollWidth - (scrollLeft + offsetWidth) > slides.gap + tolerance)
+
+      const pageWidth = (childWidth + slides.gap) * slides.currentSlidesPerView
+
+      const nextPage = isLastPage ? numberOfPage - 1 : Math.floor(scrollLeft / pageWidth)
+
+      const boundedNextPage = clampPage(nextPage)
+
+      if (boundedNextPage !== currentPage) {
+        setCurrentPage(boundedNextPage)
       }
     }
-  }, [numberOfPage, currentPage, slides.currentSlidesPerView, ref, setCurrentPage, slides.gap])
+  }, [
+    numberOfPage,
+    currentPage,
+    slides.currentSlidesPerView,
+    ref,
+    setCurrentPage,
+    slides.gap,
+    clampPage,
+  ])
 
   const handleScroll = useMemo(
     () =>
@@ -221,14 +242,20 @@ export const Swiper: SwiperComponent = ({
       const sliderContainer = ref?.current
       const childWidth = sliderContainer?.children?.[0]?.getBoundingClientRect()?.width
 
-      sliderContainer?.scrollTo({
+      if (!sliderContainer || childWidth == null) {
+        return
+      }
+
+      const boundedPage = clampPage(page)
+
+      sliderContainer.scrollTo({
         // We don't want to have a scroll effect when we first render the swiper
         behavior: !isFirstInit ? 'smooth' : 'auto',
-        left: page * (childWidth + slides.gap) * slides.currentSlidesPerView,
+        left: boundedPage * (childWidth + slides.gap) * slides.currentSlidesPerView,
         top: 0,
       })
     },
-    [slides.currentSlidesPerView, slides.gap, ref]
+    [slides.currentSlidesPerView, slides.gap, ref, clampPage]
   )
 
   const isFirstPage = currentPage === 0
@@ -238,17 +265,17 @@ export const Swiper: SwiperComponent = ({
     if (autoplay.enabled && autoplay.loop && isLastPage) {
       goTo(0)
     } else {
-      goTo(currentPage + 1)
+      goTo(clampPage(currentPage + 1))
     }
-  }, [currentPage, goTo, isLastPage, autoplay.enabled, autoplay.loop])
+  }, [currentPage, goTo, isLastPage, autoplay.enabled, autoplay.loop, clampPage])
 
   const goPrev = useCallback(() => {
     if (isFirstPage && autoplay.enabled && autoplay.loop) {
       goTo(numberOfPage - 1)
     } else {
-      goTo(currentPage - 1)
+      goTo(clampPage(currentPage - 1))
     }
-  }, [numberOfPage, currentPage, goTo, isFirstPage, autoplay.enabled, autoplay.loop])
+  }, [numberOfPage, currentPage, goTo, isFirstPage, autoplay.enabled, autoplay.loop, clampPage])
 
   // Add autoplay
   useInterval(
