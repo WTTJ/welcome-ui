@@ -1,3 +1,8 @@
+/**
+ * Swiper Component - A carousel/slider component with touch support, keyboard navigation, and autoplay
+ * Features: responsive slides, navigation buttons, autoplay with loop option, keyboard controls
+ */
+
 import debounce from 'lodash.debounce'
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
 
@@ -14,6 +19,7 @@ import { useInterval } from './utils'
 
 const cx = classNames(swiperStyles)
 
+// Context type that provides swiper state and functions to child components
 type SwiperContextValue = {
   navigation: {
     desktop: boolean
@@ -46,6 +52,7 @@ type SwiperContextValue = {
 
 const SwiperContext = createContext<null | SwiperContextValue>(null)
 
+// Custom hook to access swiper context - must be used within a Swiper component
 export const useSwiperContext = () => {
   const context = useContext(SwiperContext)
   if (!context) {
@@ -54,16 +61,17 @@ export const useSwiperContext = () => {
   return context
 }
 
+// Default configuration for swiper component
 const defaultOptions = {
-  autoplay: { duration: 5000, enabled: false, loop: false },
-  navigation: { desktop: true, mobile: true },
+  autoplay: { duration: 5000, enabled: false, loop: false }, // Autoplay settings (disabled by default)
+  navigation: { desktop: true, mobile: true }, // Show navigation buttons on all devices
   slides: {
-    alignment: 'default',
-    expandOnLargeScreens: false,
-    gap: 20,
-    id: 'swiper',
-    initialIndex: 0,
-    perView: { desktop: 1, mobile: 1, tablet: 1 },
+    alignment: 'default', // Slide alignment mode
+    expandOnLargeScreens: false, // Whether to show extra slides on large screens
+    gap: 20, // Gap between slides in pixels
+    id: 'swiper', // Unique identifier for the swiper
+    initialIndex: 0, // Starting slide index
+    perView: { desktop: 1, mobile: 1, tablet: 1 }, // Number of slides visible per breakpoint
   },
 } satisfies UseSwiperOptions
 
@@ -83,6 +91,7 @@ const defaultStore = {
   },
 }
 
+// Hook to initialize and manage swiper state with responsive slide calculations
 export const useSwiper = (
   options: UseSwiperOptions = defaultOptions
 ): {
@@ -100,9 +109,10 @@ export const useSwiper = (
     setCurrentPage: React.Dispatch<React.SetStateAction<number>>
   }
 } => {
+  // Track the current page/slide index
   const [currentPage, setCurrentPage] = useState(0)
 
-  // Merge with defaults to handle partial options
+  // Merge provided options with defaults to handle partial options
   const mergedOptions = {
     autoplay: { ...defaultOptions.autoplay, ...options.autoplay },
     navigation: { ...defaultOptions.navigation, ...options.navigation },
@@ -126,15 +136,16 @@ export const useSwiper = (
 
   const screens = useScreens()
 
+  // Calculate responsive slides per view based on viewport width
   const currentSlidesPerView = useMemo(() => {
     if (viewportWidth <= screens.md) {
-      return slidesPerView.mobile
+      return slidesPerView.mobile // Mobile breakpoint
     } else if (viewportWidth <= screens.lg) {
-      return slidesPerView.tablet
+      return slidesPerView.tablet // Tablet breakpoint
     } else if (viewportWidth >= screens['4xl'] && expandOnLargeScreens) {
-      return slidesPerView.desktop + 2
+      return slidesPerView.desktop + 2 // Extra slides on very large screens if enabled
     } else {
-      return slidesPerView.desktop
+      return slidesPerView.desktop // Desktop breakpoint
     }
   }, [viewportWidth, screens, expandOnLargeScreens, slidesPerView])
 
@@ -155,6 +166,7 @@ export const useSwiper = (
   }
 }
 
+// Main Swiper component - manages slide navigation, autoplay, and keyboard controls
 export const Swiper: SwiperComponent = ({
   children,
   className,
@@ -163,14 +175,20 @@ export const Swiper: SwiperComponent = ({
 }: SwiperProps) => {
   const { autoplay, navigation, slides } = store
   const { currentPage, setCurrentPage } = slides
-  const ref = useRef<HTMLUListElement>()
-  const hasInitializedRef = useRef(false)
+  const ref = useRef<HTMLUListElement>() // Reference to the slides container
+  const hasInitializedRef = useRef(false) // Track if initial page has been set
 
-  const [slidesLength, setSlidesLength] = useState(0)
-  const [isPrevDisabled, setIsPrevDisabled] = useState(false)
-  const [isNextDisabled, setIsNextDisabled] = useState(false)
+  const [slidesLength, setSlidesLength] = useState(0) // Total number of slides
+  const [isPrevDisabled, setIsPrevDisabled] = useState(false) // Disable prev button at start
+  const [isNextDisabled, setIsNextDisabled] = useState(false) // Disable next button at end
 
   const numberOfPage = Math.ceil(slidesLength / slides.currentSlidesPerView) || 1
+
+  // Ensure page index stays within valid range (0 to numberOfPage - 1)
+  const clampPageIndex = useCallback(
+    (page: number) => Math.min(Math.max(page, 0), numberOfPage - 1),
+    [numberOfPage]
+  )
 
   const getNavigationState = useCallback(() => {
     const sliderContainer = ref?.current
@@ -182,29 +200,47 @@ export const Swiper: SwiperComponent = ({
       setIsPrevDisabled(isFirstPage)
       setIsNextDisabled(isLastPage)
     } else {
+      // If autoplay is enabled, always allow navigation
       setIsPrevDisabled(false)
       setIsNextDisabled(false)
     }
   }, [autoplay.enabled, slides.gap])
 
+  // Update current page based on scroll position of the container
   const updatePage = useCallback(() => {
     const sliderContainer = ref?.current
     if (sliderContainer) {
       const { children, offsetWidth, scrollLeft, scrollWidth } = sliderContainer
+      // Get width of first slide to calculate page width
       const childWidth = children?.[0]?.getBoundingClientRect()?.width
+
+      if (childWidth == null) {
+        return
+      }
 
       const isLastPage = !(scrollWidth - (scrollLeft + offsetWidth) > slides.gap)
 
-      const nextPage = isLastPage
-        ? numberOfPage - 1
-        : Math.round(scrollLeft / ((childWidth + slides.gap) * slides.currentSlidesPerView))
+      const pageWidth = (childWidth + slides.gap) * slides.currentSlidesPerView
 
-      if (nextPage !== currentPage) {
-        setCurrentPage(nextPage)
+      const nextPage = isLastPage ? numberOfPage - 1 : Math.floor(scrollLeft / pageWidth)
+
+      const estimatedNextPage = clampPageIndex(nextPage)
+
+      if (estimatedNextPage !== currentPage) {
+        setCurrentPage(estimatedNextPage)
       }
     }
-  }, [numberOfPage, currentPage, slides.currentSlidesPerView, ref, setCurrentPage, slides.gap])
+  }, [
+    numberOfPage,
+    currentPage,
+    slides.currentSlidesPerView,
+    ref,
+    setCurrentPage,
+    slides.gap,
+    clampPageIndex,
+  ])
 
+  // Debounced scroll handler to update navigation state and current page with 100ms delay
   const handleScroll = useMemo(
     () =>
       debounce(() => {
@@ -214,43 +250,61 @@ export const Swiper: SwiperComponent = ({
     [getNavigationState, updatePage]
   )
 
-  // Navigation functions
+  // ===== Navigation Functions =====
 
+  // Navigate to a specific page with smooth (or instant) scroll animation
   const goTo = useCallback(
     (page: number, isFirstInit = false) => {
       const sliderContainer = ref?.current
       const childWidth = sliderContainer?.children?.[0]?.getBoundingClientRect()?.width
 
-      sliderContainer?.scrollTo({
+      if (!sliderContainer || childWidth == null) {
+        return
+      }
+
+      const estimatedPage = clampPageIndex(page)
+
+      sliderContainer.scrollTo({
         // We don't want to have a scroll effect when we first render the swiper
         behavior: !isFirstInit ? 'smooth' : 'auto',
-        left: page * (childWidth + slides.gap) * slides.currentSlidesPerView,
+        left: estimatedPage * (childWidth + slides.gap) * slides.currentSlidesPerView,
         top: 0,
       })
     },
-    [slides.currentSlidesPerView, slides.gap, ref]
+    [slides.currentSlidesPerView, slides.gap, ref, clampPageIndex]
   )
 
   const isFirstPage = currentPage === 0
   const isLastPage = currentPage === numberOfPage - 1
 
+  // Navigate to next page (with loop support)
   const goNext = useCallback(() => {
     if (autoplay.enabled && autoplay.loop && isLastPage) {
       goTo(0)
     } else {
-      goTo(currentPage + 1)
+      goTo(clampPageIndex(currentPage + 1))
     }
-  }, [currentPage, goTo, isLastPage, autoplay.enabled, autoplay.loop])
+  }, [currentPage, goTo, isLastPage, autoplay.enabled, autoplay.loop, clampPageIndex])
 
+  // Navigate to previous page (with loop support)
   const goPrev = useCallback(() => {
     if (isFirstPage && autoplay.enabled && autoplay.loop) {
       goTo(numberOfPage - 1)
     } else {
-      goTo(currentPage - 1)
+      goTo(clampPageIndex(currentPage - 1))
     }
-  }, [numberOfPage, currentPage, goTo, isFirstPage, autoplay.enabled, autoplay.loop])
+  }, [
+    numberOfPage,
+    currentPage,
+    goTo,
+    isFirstPage,
+    autoplay.enabled,
+    autoplay.loop,
+    clampPageIndex,
+  ])
 
-  // Add autoplay
+  // ===== Autoplay Effect =====
+  // Automatically advance to next slide at specified duration if enabled
   useInterval(
     () => {
       if (autoplay.enabled) {
@@ -260,14 +314,16 @@ export const Swiper: SwiperComponent = ({
     autoplay.enabled ? autoplay.duration : null
   )
 
+  // ===== Keyboard Navigation =====
+  // Allow users to navigate with arrow keys
   useEffect(() => {
     const handleKeys = (e: KeyboardEvent) => {
       if (e.code === 'ArrowLeft') {
-        goPrev()
+        goPrev() // Left arrow goes to previous slide
       }
 
       if (e.code === 'ArrowRight') {
-        goNext()
+        goNext() // Right arrow goes to next slide
       }
     }
 
@@ -276,13 +332,14 @@ export const Swiper: SwiperComponent = ({
     return () => window.removeEventListener('keydown', handleKeys)
   }, [goPrev, goNext])
 
+  // ===== Initial Page Calculation =====
+  // Calculate which page to show initially based on alignment setting
   const firstPageToShow =
     slides.alignment === 'center'
-      ? // if centeredSlides is true, we calculate which number is the middle page
-        Math.floor(numberOfPage / 2)
-      : // if centeredSlides is false, we calculate on which page the number in firstSlideToShow props is
-        Math.ceil(slides.initialIndex / slides.currentSlidesPerView) - 1
+      ? Math.floor(numberOfPage / 2)
+      : Math.ceil(slides.initialIndex / slides.currentSlidesPerView) - 1
 
+  // Navigate to initial page once when slides are loaded
   useEffect(() => {
     // Only navigate to initial page once, when slidesLength is first known
     if (slidesLength > 0 && !hasInitializedRef.current) {
@@ -292,18 +349,21 @@ export const Swiper: SwiperComponent = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slidesLength])
 
-  // if the childrens changed we need to check again the arrow states
+  // ===== Navigation State Updates =====
+  // Recalculate navigation button states when children change
   useEffect(() => {
     getNavigationState()
   }, [getNavigationState, children])
 
-  // Triggers navigation when currentPage is changed by external setCurrentPage calls
+  // Respond to external currentPage changes (from setCurrentPage calls)
   useEffect(() => {
     if (hasInitializedRef.current) {
       goTo(currentPage)
     }
   }, [currentPage, goTo])
 
+  // ===== Context Setup =====
+  // Memoize context value to provide to child components
   const contextValue = useMemo(
     () => ({
       navigation: {
@@ -343,6 +403,7 @@ export const Swiper: SwiperComponent = ({
     ]
   )
 
+  // Render context provider with swiper container
   return (
     <SwiperContext.Provider value={contextValue}>
       <div className={cx('root', className)} {...rest}>
@@ -352,7 +413,7 @@ export const Swiper: SwiperComponent = ({
   )
 }
 
-// Attach compound components
+// Attach compound components for easier composition
 Swiper.PrevButton = SwiperPrevButton
 Swiper.NextButton = SwiperNextButton
 Swiper.Slides = SwiperSlides

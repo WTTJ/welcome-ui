@@ -1,4 +1,5 @@
 import { screen } from '@testing-library/react'
+import { useState } from 'react'
 
 import { render } from '@tests'
 
@@ -146,6 +147,45 @@ describe('<Swiper>', () => {
 
       expect(slide2).toHaveAttribute('aria-hidden', 'false')
       expect(scrollToSpy).toHaveBeenCalled()
+    })
+
+    it('should stay on last slide when loop is disabled', async () => {
+      const TestNoWrapWhenLoopDisabled = () => {
+        const [currentPage, setCurrentPage] = useState(2)
+
+        return (
+          <Swiper
+            store={{
+              autoplay: { duration: 5000, enabled: false, loop: false },
+              navigation: { desktop: true, mobile: true },
+              slides: {
+                alignment: 'default',
+                currentPage,
+                currentSlidesPerView: 1,
+                expandOnLargeScreens: false,
+                gap: 20,
+                id: 'swiper',
+                initialIndex: 0,
+                perView: { desktop: 1, mobile: 1, tablet: 1 },
+                setCurrentPage,
+              },
+            }}
+          >
+            <Swiper.Slides>
+              <div>page1</div>
+              <div>page2</div>
+              <div>page3</div>
+            </Swiper.Slides>
+            <Swiper.NextButton />
+          </Swiper>
+        )
+      }
+
+      render(<TestNoWrapWhenLoopDisabled />)
+
+      window.dispatchEvent(new KeyboardEvent('keydown', { code: 'ArrowRight' }))
+
+      expect(scrollToSpy).toHaveBeenLastCalledWith({ behavior: 'smooth', left: 40, top: 0 })
     })
   })
 })
