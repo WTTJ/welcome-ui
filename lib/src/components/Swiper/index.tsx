@@ -1,3 +1,8 @@
+/**
+ * Swiper Component - A carousel/slider component with touch support, keyboard navigation, and autoplay
+ * Features: responsive slides, navigation buttons, autoplay with loop option, keyboard controls
+ */
+
 import debounce from 'lodash.debounce'
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
 
@@ -102,7 +107,6 @@ export const useSwiper = (
 } => {
   const [currentPage, setCurrentPage] = useState(0)
 
-  // Merge with defaults to handle partial options
   const mergedOptions = {
     autoplay: { ...defaultOptions.autoplay, ...options.autoplay },
     navigation: { ...defaultOptions.navigation, ...options.navigation },
@@ -172,6 +176,12 @@ export const Swiper: SwiperComponent = ({
 
   const numberOfPage = Math.ceil(slidesLength / slides.currentSlidesPerView) || 1
 
+  // Ensure page index stays within valid range (0 to numberOfPage - 1)
+  const clampPageIndex = useCallback(
+    (page: number) => Math.min(Math.max(page, 0), numberOfPage - 1),
+    [numberOfPage]
+  )
+
   const getNavigationState = useCallback(() => {
     const sliderContainer = ref?.current
     if (sliderContainer && !autoplay.enabled) {
@@ -191,19 +201,34 @@ export const Swiper: SwiperComponent = ({
     const sliderContainer = ref?.current
     if (sliderContainer) {
       const { children, offsetWidth, scrollLeft, scrollWidth } = sliderContainer
+      // Get width of first slide to calculate page width
       const childWidth = children?.[0]?.getBoundingClientRect()?.width
+
+      if (childWidth == null) {
+        return
+      }
 
       const isLastPage = !(scrollWidth - (scrollLeft + offsetWidth) > slides.gap)
 
-      const nextPage = isLastPage
-        ? numberOfPage - 1
-        : Math.round(scrollLeft / ((childWidth + slides.gap) * slides.currentSlidesPerView))
+      const pageWidth = (childWidth + slides.gap) * slides.currentSlidesPerView
 
-      if (nextPage !== currentPage) {
-        setCurrentPage(nextPage)
+      const nextPage = isLastPage ? numberOfPage - 1 : Math.floor(scrollLeft / pageWidth)
+
+      const estimatedNextPage = clampPageIndex(nextPage)
+
+      if (estimatedNextPage !== currentPage) {
+        setCurrentPage(estimatedNextPage)
       }
     }
-  }, [numberOfPage, currentPage, slides.currentSlidesPerView, ref, setCurrentPage, slides.gap])
+  }, [
+    numberOfPage,
+    currentPage,
+    slides.currentSlidesPerView,
+    ref,
+    setCurrentPage,
+    slides.gap,
+    clampPageIndex,
+  ])
 
   const handleScroll = useMemo(
     () =>
@@ -214,21 +239,25 @@ export const Swiper: SwiperComponent = ({
     [getNavigationState, updatePage]
   )
 
-  // Navigation functions
-
   const goTo = useCallback(
     (page: number, isFirstInit = false) => {
       const sliderContainer = ref?.current
       const childWidth = sliderContainer?.children?.[0]?.getBoundingClientRect()?.width
 
-      sliderContainer?.scrollTo({
+      if (!sliderContainer || childWidth == null) {
+        return
+      }
+
+      const estimatedPage = clampPageIndex(page)
+
+      sliderContainer.scrollTo({
         // We don't want to have a scroll effect when we first render the swiper
         behavior: !isFirstInit ? 'smooth' : 'auto',
-        left: page * (childWidth + slides.gap) * slides.currentSlidesPerView,
+        left: estimatedPage * (childWidth + slides.gap) * slides.currentSlidesPerView,
         top: 0,
       })
     },
-    [slides.currentSlidesPerView, slides.gap, ref]
+    [slides.currentSlidesPerView, slides.gap, ref, clampPageIndex]
   )
 
   const isFirstPage = currentPage === 0
@@ -238,19 +267,27 @@ export const Swiper: SwiperComponent = ({
     if (autoplay.enabled && autoplay.loop && isLastPage) {
       goTo(0)
     } else {
-      goTo(currentPage + 1)
+      goTo(clampPageIndex(currentPage + 1))
     }
-  }, [currentPage, goTo, isLastPage, autoplay.enabled, autoplay.loop])
+  }, [currentPage, goTo, isLastPage, autoplay.enabled, autoplay.loop, clampPageIndex])
 
   const goPrev = useCallback(() => {
     if (isFirstPage && autoplay.enabled && autoplay.loop) {
       goTo(numberOfPage - 1)
     } else {
-      goTo(currentPage - 1)
+      goTo(clampPageIndex(currentPage - 1))
     }
-  }, [numberOfPage, currentPage, goTo, isFirstPage, autoplay.enabled, autoplay.loop])
+  }, [
+    numberOfPage,
+    currentPage,
+    goTo,
+    isFirstPage,
+    autoplay.enabled,
+    autoplay.loop,
+    clampPageIndex,
+  ])
 
-  // Add autoplay
+  // Automatically advance to next slide at specified duration if enabled
   useInterval(
     () => {
       if (autoplay.enabled) {
@@ -260,6 +297,7 @@ export const Swiper: SwiperComponent = ({
     autoplay.enabled ? autoplay.duration : null
   )
 
+  // Allow users to navigate with arrow keys
   useEffect(() => {
     const handleKeys = (e: KeyboardEvent) => {
       if (e.code === 'ArrowLeft') {
@@ -278,11 +316,10 @@ export const Swiper: SwiperComponent = ({
 
   const firstPageToShow =
     slides.alignment === 'center'
-      ? // if centeredSlides is true, we calculate which number is the middle page
-        Math.floor(numberOfPage / 2)
-      : // if centeredSlides is false, we calculate on which page the number in firstSlideToShow props is
-        Math.ceil(slides.initialIndex / slides.currentSlidesPerView) - 1
+      ? Math.floor(numberOfPage / 2)
+      : Math.ceil(slides.initialIndex / slides.currentSlidesPerView) - 1
 
+  // Navigate to initial page once when slides are loaded
   useEffect(() => {
     // Only navigate to initial page once, when slidesLength is first known
     if (slidesLength > 0 && !hasInitializedRef.current) {
@@ -292,12 +329,10 @@ export const Swiper: SwiperComponent = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slidesLength])
 
-  // if the childrens changed we need to check again the arrow states
   useEffect(() => {
     getNavigationState()
   }, [getNavigationState, children])
 
-  // Triggers navigation when currentPage is changed by external setCurrentPage calls
   useEffect(() => {
     if (hasInitializedRef.current) {
       goTo(currentPage)
@@ -352,7 +387,6 @@ export const Swiper: SwiperComponent = ({
   )
 }
 
-// Attach compound components
 Swiper.PrevButton = SwiperPrevButton
 Swiper.NextButton = SwiperNextButton
 Swiper.Slides = SwiperSlides
