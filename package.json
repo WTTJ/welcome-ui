@@ -108,7 +108,7 @@
   },
   "resolutions": {
     "@isaacs/brace-expansion": "5.0.1",
-    "minimatch": "10.2.3",
+    "minimatch": "10.2.4",
     "immutable": "5.1.5",
     "tar": "7.5.11",
     "flatted": "3.4.0"
