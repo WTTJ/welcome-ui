@@ -111,7 +111,7 @@
     "minimatch": "10.2.3",
     "immutable": "5.1.5",
     "tar": "7.5.11",
-    "flatted": "3.4.0"
+    "flatted": "3.4.2"
   },
   "dependencies": {
     "tailwindcss": "^4.1.18"
