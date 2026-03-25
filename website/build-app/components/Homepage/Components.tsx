@@ -20,7 +20,7 @@ type ComponentProps = {
 const components: ComponentProps[] = [
   {
     children: (
-      <div className="flex gap-md">
+      <div className="nine:flex nine:gap-md">
         <Tag>Default</Tag>
         <Tag variant="success">Success</Tag>
         <Tag variant="violet">Violet</Tag>
@@ -32,8 +32,8 @@ const components: ComponentProps[] = [
   },
   {
     children: (
-      <div className="flex gap-md">
-        <Toggle aria-label="Toggle unchecked" className="mb-md" />
+      <div className="nine:flex nine:gap-md">
+        <Toggle aria-label="Toggle unchecked" className="nine:mb-md" />
         <Toggle aria-label="Toggle checked" />
       </div>
     ),
@@ -68,7 +68,7 @@ const components: ComponentProps[] = [
   },
   {
     children: (
-      <div className="flex gap-md">
+      <div className="nine:flex nine:gap-md">
         <Avatar name="Welcome jungle" size="lg" />
         <Avatar name="Other name" size="lg" />
         <Avatar
@@ -85,7 +85,7 @@ const components: ComponentProps[] = [
   },
   {
     children: (
-      <div className="flex gap-md">
+      <div className="nine:flex nine:gap-md">
         <Link>Primary</Link>
         <Link variant="secondary">Secondary</Link>
       </div>
@@ -99,11 +99,13 @@ const components: ComponentProps[] = [
 const Component = ({ children, description, link, title }: ComponentProps) => {
   return (
     <div>
-      <Card className="flex h-[10.625rem] items-center justify-center w-full">{children}</Card>
-      <Link as={NextLink} className="font-bold mt-md uppercase" href={link}>
+      <Card className="nine:flex nine:h-[10.625rem] nine:items-center nine:justify-center nine:w-full">
+        {children}
+      </Card>
+      <Link as={NextLink} className="nine:font-bold nine:mt-md nine:uppercase" href={link}>
         {title}
       </Link>
-      <Text className="mb-0 mt-sm" variant="sm">
+      <Text className="nine:mb-0 nine:mt-sm" variant="sm">
         {description}
       </Text>
     </div>
@@ -112,7 +114,7 @@ const Component = ({ children, description, link, title }: ComponentProps) => {
 
 export const Components = () => {
   return (
-    <div className="gap-xxl grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
+    <div className="nine:gap-xxl nine:grid nine:lg:grid-cols-3 nine:md:grid-cols-2 nine:grid-cols-1">
       {components.map(component => (
         <Component key={component.title} {...component} />
       ))}

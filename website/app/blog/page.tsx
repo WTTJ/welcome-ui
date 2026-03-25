@@ -87,21 +87,21 @@ const posts = [
 
 const Home = () => {
   return (
-    <main className="p-xl">
-      <div className="max-w-[37.5rem] mt-xl mx-auto">
-        <Text className="text-center" variant="subtitle-md">
+    <main className="nine:p-xl">
+      <div className="nine:max-w-[37.5rem] nine:mt-xl nine:mx-auto">
+        <Text className="nine:text-center" variant="subtitle-md">
           Blog
         </Text>
-        <Text className="text-center" variant="h1">
+        <Text className="nine:text-center" variant="h1">
           The latest about us
         </Text>
-        <ul className="list-none m-0 mt-xxl md:mt-5xl p-0">
+        <ul className="nine:list-none nine:m-0 nine:mt-xxl nine:md:mt-5xl nine:p-0">
           {posts.map(({ authors, cover, date, description, link, tags, title }) => (
-            <li className="mb-3xl" key={link}>
+            <li className="nine:mb-3xl" key={link}>
               <Card>
                 {cover ? <Card.Cover alt="Cover" src={cover} /> : null}
                 <Card.Body>
-                  <div className="flex gap-xxs mb-xl">
+                  <div className="nine:flex nine:gap-xxs nine:mb-xl">
                     {tags?.map(tag => (
                       <Tag key={`${link}_${tag}`} size="sm" variant="info">
                         {tag}
@@ -111,15 +111,15 @@ const Home = () => {
                   <Link href={link} rel="noopener nofollow" target="_blank">
                     {title}
                   </Link>
-                  <div className="md:flex md:items-end">
-                    <div className="flex flex-col gap-md">
-                      <Text className="mt-md">{description}</Text>
-                      <div className="flex mb-xxs">
+                  <div className="nine:md:flex nine:md:items-end">
+                    <div className="nine:flex nine:flex-col nine:gap-md">
+                      <Text className="nine:mt-md">{description}</Text>
+                      <div className="nine:flex nine:mb-xxs">
                         {authors?.map(({ name, url }) => (
                           <Avatar key={`${link}_authors_${url}`} name={name} src={url} />
                         ))}
                       </div>
-                      <Text as="span" className="font-bold" variant="sm">
+                      <Text as="span" className="nine:font-bold" variant="sm">
                         {authors?.map(({ name }, idx) => (
                           <>
                             {idx !== 0 && ', '}
@@ -130,7 +130,7 @@ const Home = () => {
                       <Text variant="xs">{date.toDateString()}</Text>
                       <Button
                         as="a"
-                        className="w-fit shrink-0"
+                        className="nine:w-fit nine:shrink-0"
                         href={link}
                         rel="noopener nofollow"
                         size="sm"

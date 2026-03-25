@@ -18,18 +18,18 @@ export const Highlight = ({ children, language = 'tsx' }: HighlightProps) => {
   return (
     <HighlightPrism code={children.trim()} language={language} theme={themes.vsDark}>
       {({ getLineProps, getTokenProps, style, tokens }) => (
-        <div className="mt-sm relative">
+        <div className="nine:mt-sm nine:relative">
           <Button
-            className="absolute right-md top-md"
+            className="nine:absolute nine:right-md nine:top-md"
             onClick={copy}
             shape="circle"
             size="xs"
             variant={copied ? 'primary' : 'ghost'}
           >
-            {copied ? <CheckIcon /> : <CopyIcon className="text-neutral-10" />}
+            {copied ? <CheckIcon /> : <CopyIcon className="nine:text-neutral-10" />}
           </Button>
           <pre
-            className="border border-neutral-30 pt-lg pr-3xl pb-lg pl-xl rounded-lg"
+            className="nine:border nine:border-neutral-30 nine:pt-lg nine:pr-3xl nine:pb-lg nine:pl-xl nine:rounded-lg"
             style={style}
           >
             {tokens.map((line, i) => (
@@ -38,15 +38,19 @@ export const Highlight = ({ children, language = 'tsx' }: HighlightProps) => {
                   const isAdded = token.content.startsWith('+')
                   const isRemoved = token.content.startsWith('-')
                   const isDiff = isAdded || isRemoved
-                  const textColor = isRemoved ? 'text-red-30' : isAdded ? 'text-green-40' : ''
+                  const textColor = isRemoved
+                    ? 'nine:text-red-30'
+                    : isAdded
+                      ? 'nine:text-green-40'
+                      : ''
 
                   const { className, ...tokenProps } = getTokenProps({ token })
                   return (
                     <span
                       className={cx(
-                        'text-[14px] whitespace-pre-wrap',
+                        'nine:text-[14px] nine:whitespace-pre-wrap',
                         textColor,
-                        isDiff && 'text-[#2f2f2f]',
+                        isDiff && 'nine:text-[#2f2f2f]',
                         className
                       )}
                       key={key}

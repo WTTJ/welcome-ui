@@ -21,9 +21,9 @@ export const NavBar = ({ className, onClick }: NavBarProps) => {
   const currentRoute = usePathname()
 
   return (
-    <div className={`flex gap-xl items-center lg:h-full ${className}`}>
-      <nav className="lg:h-full">
-        <ul aria-label="Main navigation" className="flex gap-xxl lg:h-full">
+    <div className={`nine:flex nine:gap-xl nine:items-center nine:lg:h-full ${className}`}>
+      <nav className="nine:lg:h-full">
+        <ul aria-label="Main navigation" className="nine:flex nine:gap-xxl nine:lg:h-full">
           {navigation.map(item => (
             <li key={`header_navigation_${item}`}>
               <Text

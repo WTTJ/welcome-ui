@@ -3,9 +3,9 @@ import { PositiveStraightIcon } from '@/components/Icon'
 const Example = () => {
   return (
     <>
-      <PositiveStraightIcon className="text-secondary-blue" size="xl" />
-      <PositiveStraightIcon className="text-secondary-violet" size="xl" />
-      <PositiveStraightIcon className="text-secondary-pink" size="xl" />
+      <PositiveStraightIcon className="nine:text-secondary-blue" size="xl" />
+      <PositiveStraightIcon className="nine:text-secondary-violet" size="xl" />
+      <PositiveStraightIcon className="nine:text-secondary-pink" size="xl" />
     </>
   )
 }

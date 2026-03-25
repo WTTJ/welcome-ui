@@ -36,33 +36,33 @@
 
   .size {
     &-xs {
-      --size: var(--height-8);
+      --size: var(--nine-height-8);
     }
 
     &-sm {
-      --size: var(--height-elements-xxs);
+      --size: var(--nine-height-elements-xxs);
     }
 
     &-md {
-      --size: var(--height-elements-xs);
+      --size: var(--nine-height-elements-xs);
     }
 
     &-lg {
-      --size: var(--height-20);
+      --size: var(--nine-height-20);
     }
   }
 
   .variant {
     &-primary {
-      --color: var(--color-brand-40);
+      --color: var(--nine-color-brand-40);
     }
 
     &-neutral {
-      --color: var(--color-neutral-90);
+      --color: var(--nine-color-neutral-90);
     }
 
     &-violet {
-      --color: var(--color-violet-70);
+      --color: var(--nine-color-violet-70);
     }
   }
 

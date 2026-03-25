@@ -11,7 +11,7 @@ const Example = () => {
               <Toast.Title>Lorem ipsum dolor sit amet</Toast.Title>
               Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
               himenaeos
-              <div className="mt-[1rem]">
+              <div className="nine:mt-[1rem]">
                 <Button onClick={() => alert('action')} size="sm" variant="secondary">
                   Action
                 </Button>
@@ -29,7 +29,7 @@ const Example = () => {
               <Toast.Title>Lorem ipsum dolor sit amet</Toast.Title>
               Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
               himenaeos
-              <div className="mt-[1rem]">
+              <div className="nine:mt-[1rem]">
                 <Button onClick={() => alert('action')} size="sm" variant="secondary">
                   Action
                 </Button>
@@ -86,7 +86,7 @@ const Example = () => {
               <Toast.Title>Lorem ipsum dolor sit amet</Toast.Title>
               Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
               himenaeos
-              <div className="mt-[1rem]">
+              <div className="nine:mt-[1rem]">
                 <Button onClick={() => alert('action')} size="sm" variant="primary-ai">
                   Action
                 </Button>

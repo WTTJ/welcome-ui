@@ -17,7 +17,7 @@ export const WelcomeLoader = forwardRef<HTMLDivElement, React.HTMLAttributes<HTM
     const { View } = useLottie(options)
 
     return (
-      <div className={cx(`w-150`, className)} ref={ref} {...props}>
+      <div className={cx('nine:w-150', className)} ref={ref} {...props}>
         {View}
       </div>
     )

@@ -1,27 +1,27 @@
 @mixin input-range-slider-thumb {
   appearance: none;
-  background-color: var(--color-neutral-90);
-  border: var(--border-width-md) solid var(--color-neutral-10);
+  background-color: var(--nine-color-neutral-90);
+  border: var(--nine-border-width-md) solid var(--nine-color-neutral-10);
   border-radius: 50%;
   cursor: pointer;
   height: 1.25rem;
   width: 1.25rem;
   transform: scale(1);
-  border: var(--border-width-md) solid var(--borderColor, var(--color-neutral-10));
+  border: var(--nine-border-width-md) solid var(--borderColor, var(--nine-color-neutral-10));
 
   transition:
-    background-color var(--duration-medium),
-    border-color var(--duration-medium),
+    background-color var(--nine-duration-medium),
+    border-color var(--nine-duration-medium),
     transform 100ms ease-in-out;
 }
 
 @mixin input-range-slider-trumb-focus-and-active {
   transform: scale(1.2);
-  outline: var(--border-width-md) solid var(--color-yellow-40);
+  outline: var(--nine-border-width-md) solid var(--nine-color-yellow-40);
 }
 
 @mixin input-range-slider-thumb-disabled {
-  background-color: var(--color-beige-60);
+  background-color: var(--nine-color-beige-60);
   cursor: not-allowed;
 }
 
@@ -53,7 +53,7 @@
   .input-wrapper {
     align-items: center;
     display: flex;
-    gap: var(--spacing-sm);
+    gap: var(--nine-spacing-sm);
     --inputTextWrapperWidth: 72px;
   }
 
@@ -84,9 +84,9 @@
 
   .input-range-wrapper {
     height: 1.25rem;
-    padding-bottom: var(--spacing-sm);
+    padding-bottom: var(--nine-spacing-sm);
     position: relative;
-    padding-top: var(--spacing-sm);
+    padding-top: var(--nine-spacing-sm);
     width: 100%;
      --inputTextWrapperWidth: 72px;
   }
@@ -94,7 +94,7 @@
   .input-range {
     appearance: none;
     width: 100%;
-    height: var(--spacing-xs);
+    height: var(--nine-spacing-xs);
     margin: auto 0;
 
     &::-webkit-slider-thumb {
@@ -119,7 +119,7 @@
     }
 
     &:disabled {
-      background-image: linear-gradient(var(--color-beige-60), var(--color-beige-60));
+      background-image: linear-gradient(var(--nine-color-beige-60), var(--nine-color-beige-60));
       cursor: not-allowed;
 
       &::-webkit-slider-thumb {
@@ -144,33 +144,33 @@
 
   .border-selector {
     &-secondary-blue {
-      --borderColor: var(--color-secondary-blue);
+      --borderColor: var(--nine-color-secondary-blue);
     }
 
     &-secondary-green {
-      --borderColor: var(--color-secondary-green);
+      --borderColor: var(--nine-color-secondary-green);
     }
 
     &-secondary-orange {
-      --borderColor: var(--color-secondary-orange);
+      --borderColor: var(--nine-color-secondary-orange);
     }
 
     &-secondary-pink {
-      --borderColor: var(--color-secondary-pink);
+      --borderColor: var(--nine-color-secondary-pink);
     }
 
     &-secondary-teal {
-      --borderColor: var(--color-secondary-teal);
+      --borderColor: var(--nine-color-secondary-teal);
     }
 
     &-secondary-violet {
-      --borderColor: var(--color-secondary-violet);
+      --borderColor: var(--nine-color-secondary-violet);
     }
   }
 
   .slider-input-range {
-    background-color: var(--color-beige-40);
-    background-image: linear-gradient(var(--color-yellow-40), var(--color-yellow-40));
+    background-color: var(--nine-color-beige-40);
+    background-image: linear-gradient(var(--nine-color-yellow-40), var(--nine-color-yellow-40));
     cursor: pointer;
     background-repeat: no-repeat;
     border-radius: 0;
@@ -200,23 +200,23 @@
       transform 150ms ease-in-out;
     position: absolute;
     text-align: center;
-    transform: translate(-50%, calc(-100% + -var(--spacing-xs)));
+    transform: translate(-50%, calc(-100% + -var(--nine-spacing-xs)));
   }
 
   .output-visible {
     opacity: 100;
     visibility: visible;
-    transform: translate(-50%, calc(-100% + -var(--spacing-sm)));
+    transform: translate(-50%, calc(-100% + -var(--nine-spacing-sm)));
   }
 
   .tooltip {
-    background-color: var(--color-neutral-90);
-    border: var(--border-width-sm) solid var(--color-neutral-70);
-    color: var(--color-neutral-10);
+    background-color: var(--nine-color-neutral-90);
+    border: var(--nine-border-width-sm) solid var(--nine-color-neutral-70);
+    color: var(--nine-color-neutral-10);
     flex: 1 1 auto;
     margin: auto;
-    min-width: var(--spacing-xxs);
-    padding: var(--spacing-xs) var(--spacing-sm);
+    min-width: var(--nine-spacing-xxs);
+    padding: var(--nine-spacing-xs) var(--nine-spacing-sm);
   }
 
   .thick {
@@ -226,7 +226,7 @@
     &::before {
       content: '';
       position: absolute;
-      background-color: var(--color-neutral-30);
+      background-color: var(--nine-color-neutral-30);
       height: 6px;
       width: 1px;
     }
@@ -242,19 +242,19 @@
   .range-track {
     position: absolute;
     width: 100%;
-    height: var(--spacing-xs);
-    background-color: var(--color-beige-40);
+    height: var(--nine-spacing-xs);
+    background-color: var(--nine-color-beige-40);
   }
 
   .range {
     position: absolute;
     width: 100%;
-    height: var(--spacing-xs);
-    background-color: var(--color-yellow-40);
+    height: var(--nine-spacing-xs);
+    background-color: var(--nine-color-yellow-40);
   }
 
   .range-disabled {
-    background-image: linear-gradient(var(--color-beige-60), var(--color-beige-60));
+    background-image: linear-gradient(var(--nine-color-beige-60), var(--nine-color-beige-60));
     cursor: not-allowed;
   }
 }

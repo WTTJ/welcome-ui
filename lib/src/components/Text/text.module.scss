@@ -6,7 +6,7 @@
     line-height: var(--lineHeight);
     letter-spacing: var(--letterSpacing);
     font-weight: var(--fontWeight);
-    font-family: var(--fontFamily, var(--font-family-default));
+    font-family: var(--fontFamily, var(--nine-font-family-default));
     text-transform: var(--textTransform, none);
     line-clamp: var(--lineClamp, none);
     -webkit-line-clamp: var(--lineClamp, none);
@@ -22,102 +22,102 @@
     &-h4,
     &-h5,
     &-h6 {
-      --fontWeight: var(--font-weight-bold);
-      --fontFamily: var(--font-family-headings);
-      --color: var(--color-neutral-90);
+      --fontWeight: var(--nine-font-weight-bold);
+      --fontFamily: var(--nine-font-family-headings);
+      --color: var(--nine-color-neutral-90);
     }
 
     &-h0 {
-      --fontSize: var(--font-size-h0);
-      --lineHeight: var(--line-height-h0);
-      --letterSpacing: var(--letter-spacing-h0);
+      --fontSize: var(--nine-font-size-h0);
+      --lineHeight: var(--nine-line-height-h0);
+      --letterSpacing: var(--nine-letter-spacing-h0);
     }
 
     &-h1 {
-      --fontSize: var(--font-size-h1);
-      --lineHeight: var(--line-height-h1);
-      --letterSpacing: var(--letter-spacing-h1);
+      --fontSize: var(--nine-font-size-h1);
+      --lineHeight: var(--nine-line-height-h1);
+      --letterSpacing: var(--nine-letter-spacing-h1);
     }
 
     &-h2 {
-      --fontSize: var(--font-size-h2);
-      --lineHeight: var(--line-height-h2);
-      --letterSpacing: var(--letter-spacing-h2);
+      --fontSize: var(--nine-font-size-h2);
+      --lineHeight: var(--nine-line-height-h2);
+      --letterSpacing: var(--nine-letter-spacing-h2);
     }
 
     &-h3 {
-      --fontSize: var(--font-size-h3);
-      --lineHeight: var(--line-height-h3);
-      --letterSpacing: var(--letter-spacing-h3);
+      --fontSize: var(--nine-font-size-h3);
+      --lineHeight: var(--nine-line-height-h3);
+      --letterSpacing: var(--nine-letter-spacing-h3);
     }
 
     &-h4 {
-      --fontSize: var(--font-size-h4);
-      --lineHeight: var(--line-height-h4);
-      --letterSpacing: var(--letter-spacing-h4);
+      --fontSize: var(--nine-font-size-h4);
+      --lineHeight: var(--nine-line-height-h4);
+      --letterSpacing: var(--nine-letter-spacing-h4);
     }
 
     &-h5 {
-      --fontSize: var(--font-size-h5);
-      --lineHeight: var(--line-height-h5);
-      --letterSpacing: var(--letter-spacing-h5);
+      --fontSize: var(--nine-font-size-h5);
+      --lineHeight: var(--nine-line-height-h5);
+      --letterSpacing: var(--nine-letter-spacing-h5);
     }
 
     &-h6 {
-      --fontSize: var(--font-size-h6);
-      --lineHeight: var(--line-height-h6);
-      --letterSpacing: var(--letter-spacing-h6);
+      --fontSize: var(--nine-font-size-h6);
+      --lineHeight: var(--nine-line-height-h6);
+      --letterSpacing: var(--nine-letter-spacing-h6);
     }
 
     &-xs,
     &-sm,
     &-md,
     &-lg {
-      --fontWeight: var(--font-weight-regular);
+      --fontWeight: var(--nine-font-weight-regular);
     }
 
     &-xs {
-      --fontSize: var(--font-size-xs);
-      --lineHeight: var(--line-height-xs);
-      --letterSpacing: var(--letter-spacing-xs);
+      --fontSize: var(--nine-font-size-xs);
+      --lineHeight: var(--nine-line-height-xs);
+      --letterSpacing: var(--nine-letter-spacing-xs);
     }
 
     &-sm {
-      --fontSize: var(--font-size-sm);
-      --lineHeight: var(--line-height-sm);
-      --letterSpacing: var(--letter-spacing-sm);
+      --fontSize: var(--nine-font-size-sm);
+      --lineHeight: var(--nine-line-height-sm);
+      --letterSpacing: var(--nine-letter-spacing-sm);
     }
 
     &-md {
-      --fontSize: var(--font-size-md);
-      --lineHeight: var(--line-height-md);
-      --letterSpacing: var(--letter-spacing-md);
+      --fontSize: var(--nine-font-size-md);
+      --lineHeight: var(--nine-line-height-md);
+      --letterSpacing: var(--nine-letter-spacing-md);
     }
 
     &-lg {
-      --fontSize: var(--font-size-lg);
-      --lineHeight: var(--line-height-lg);
-      --letterSpacing: var(--letter-spacing-lg);
+      --fontSize: var(--nine-font-size-lg);
+      --lineHeight: var(--nine-line-height-lg);
+      --letterSpacing: var(--nine-letter-spacing-lg);
     }
 
     &-subtitle-sm,
     &-subtitle-md {
-      --fontFamily: var(--font-family-headings);
+      --fontFamily: var(--nine-font-family-headings);
       --textTransform: uppercase;
     }
 
     &-subtitle-sm {
-      --fontSize: var(--font-size-subtitle-sm);
-      --lineHeight: var(--line-height-subtitle-sm);
-      --letterSpacing: var(--letter-spacing-subtitle-sm);
-      --fontWeight: var(--font-weight-medium);
+      --fontSize: var(--nine-font-size-subtitle-sm);
+      --lineHeight: var(--nine-line-height-subtitle-sm);
+      --letterSpacing: var(--nine-letter-spacing-subtitle-sm);
+      --fontWeight: var(--nine-font-weight-medium);
     }
 
     &-subtitle-md {
-      --fontSize: var(--font-size-subtitle-md);
-      --lineHeight: var(--line-height-subtitle-md);
-      --letterSpacing: var(--letter-spacing-subtitle-md);
-      --fontWeight: var(--font-weight-bold);
+      --fontSize: var(--nine-font-size-subtitle-md);
+      --lineHeight: var(--nine-line-height-subtitle-md);
+      --letterSpacing: var(--nine-letter-spacing-subtitle-md);
+      --fontWeight: var(--nine-font-weight-bold);
     }
   }
 
@@ -145,10 +145,10 @@
   .with-dash::before {
     --display: inline-block;
     content: '';
-    width: var(--spacing-lg);
-    height: var(--height-4);
-    background-color: var(--color-brand-40);
-    margin-right: var(--spacing-lg);
+    width: var(--nine-spacing-lg);
+    height: var(--nine-height-4);
+    background-color: var(--nine-color-brand-40);
+    margin-right: var(--nine-spacing-lg);
     flex-shrink: 0;
   }
 }

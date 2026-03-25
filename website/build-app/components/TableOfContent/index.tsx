@@ -55,28 +55,28 @@ export const TableOfContent = ({ isSubPage, tree }: TableOfContentProps) => {
   if (!tree) return null
 
   return (
-    <div className="hidden xl:block">
+    <div className="nine:hidden nine:xl:block">
       <nav className={cx('nav', isSubPage && 'nav-subpage')}>
-        <Text className="mb-lg ml-lg" variant="subtitle-sm">
+        <Text className="nine:mb-lg nine:ml-lg" variant="subtitle-sm">
           On this page
         </Text>
-        <ul className="flex flex-col gap-lg">
+        <ul className="nine:flex nine:flex-col nine:gap-lg">
           {tree.map(item => (
-            <li className="flex flex-col gap-sm" key={item.href}>
+            <li className="nine:flex nine:flex-col nine:gap-sm" key={item.href}>
               <NextLink
                 aria-current={`#${activeId}` === item.href ? 'page' : undefined}
-                className={cx('link', 'pl-lg')}
+                className={cx('link', 'nine:pl-lg')}
                 href={item.href}
               >
                 {item.title}
               </NextLink>
               {item.children ? (
-                <ul className="flex flex-col gap-xs">
+                <ul className="nine:flex nine:flex-col nine:gap-xs">
                   {item.children.map(child => (
                     <li key={child.href}>
                       <NextLink
                         aria-current={`#${activeId}` === child.href ? 'page' : undefined}
-                        className={cx('link', 'pl-xxl')}
+                        className={cx('link', 'nine:pl-xxl')}
                         href={child.href}
                       >
                         {child.title}

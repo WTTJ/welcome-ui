@@ -13,7 +13,7 @@ const Example = () => {
       <AssetDrawer aria-label="Asset drawer" maxWidth="42rem" store={drawer}>
         <AssetDrawer.Header
           action={
-            <div className="flex gap-md">
+            <div className="nine:flex nine:gap-md">
               <Button>Primary</Button>
               <Button variant="secondary">Secondary</Button>
             </div>

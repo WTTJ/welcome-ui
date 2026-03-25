@@ -24,14 +24,17 @@ export const Theme = ({ entry }: ColorsProps) => {
   }, {} as FlatTokens)
 
   return (
-    <div className="bg-beige-20 gap-sm grid mt-lg p-xxl rounded-lg">
+    <div className="nine:bg-beige-20 nine:gap-sm nine:grid nine:mt-lg nine:p-xxl nine:rounded-lg">
       {Object.entries(filteredEntries).map(([key, value], index) => {
-        const border = index !== 0 ? 'border-t border-t-neutral-30' : ''
+        const border = index !== 0 ? 'nine:border-t nine:border-t-neutral-30' : ''
 
         return (
-          <div className={`${border} gap-xxl grid grid-cols-[150px_150px_150px] pt-sm`} key={key}>
-            <Text className="font-bold text-violet-80">{key}</Text>
-            <Text className="text-neutral-70">
+          <div
+            className={`${border} nine:gap-xxl nine:grid nine:grid-cols-[150px_150px_150px] nine:pt-sm`}
+            key={key}
+          >
+            <Text className="nine:font-bold nine:text-violet-80">{key}</Text>
+            <Text className="nine:text-neutral-70">
               {value as string}
               {typeof value === 'number' && 'px'}
             </Text>

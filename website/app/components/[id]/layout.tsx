@@ -43,18 +43,18 @@ const Layout = async ({ children, params }: LayoutProps) => {
 
   return (
     <Documentation.Layout>
-      <Sidebar className="hidden lg:flex" isSubPage menu={pages} />
+      <Sidebar className="nine:hidden nine:lg:flex" isSubPage menu={pages} />
       <div>
-        <div className="flex flex-col gap-xl mb-lg">
-          <Text className="mt-3xl" variant="h1">
+        <div className="nine:flex nine:flex-col nine:gap-xl nine:mb-lg">
+          <Text className="nine:mt-3xl" variant="h1">
             {title}
           </Text>
           {description ? (
-            <Text className="text-neutral-60 pt-lg" variant="lg">
+            <Text className="nine:text-neutral-60 nine:pt-lg" variant="lg">
               {description}
             </Text>
           ) : null}
-          <div className="flex gap-md items-center">
+          <div className="nine:flex nine:gap-md nine:items-center">
             <Button
               as="a"
               href={`https://github.com/WTTJ/welcome-ui/tree/main/lib/src/components/${title}`}

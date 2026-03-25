@@ -16,16 +16,16 @@ const Page = () => {
   const pages = getPages()
 
   return (
-    <main className="flex flex-col gap-xxl max-w-[62.5rem] mx-auto p-lg">
-      <Text className="py-3xl" variant="h1">
+    <main className="nine:flex nine:flex-col nine:gap-xxl nine:max-w-[62.5rem] nine:mx-auto nine:p-lg">
+      <Text className="nine:py-3xl" variant="h1">
         Components
       </Text>
       {pages.map(category => (
-        <div className="flex flex-col gap-md" key={category.category}>
-          <Text as="h2" className="uppercase" variant="h6">
+        <div className="nine:flex nine:flex-col nine:gap-md" key={category.category}>
+          <Text as="h2" className="nine:uppercase" variant="h6">
             {getName(category.category as string)}
           </Text>
-          <div className="gap-lg grid grid-cols-1 lg:grid-cols-2">
+          <div className="nine:gap-lg nine:grid nine:grid-cols-1 nine:lg:grid-cols-2">
             {category.pages.map(page => {
               const { data } = getPageContent({
                 filename: `${getRepository(page.id)}/docs/index.mdx`,
@@ -34,13 +34,13 @@ const Page = () => {
 
               return (
                 <Link href={`/components/${page.id}`} key={page.id}>
-                  <Card className="flex gap-lg hover:border-neutral-30 items-center p-md rounded-md">
-                    <div className="bg-neutral-30 size-[5rem] rounded-md shrink-0"></div>
+                  <Card className="nine:flex nine:gap-lg nine:hover:border-neutral-30 nine:items-center nine:p-md nine:rounded-md">
+                    <div className="nine:bg-neutral-30 nine:size-[5rem] nine:rounded-md nine:shrink-0"></div>
                     <div>
                       <Text as="h3" variant="h4">
                         {page.title}
                       </Text>
-                      <Text className="text-neutral-70 mt-sm" lines={3} variant="sm">
+                      <Text className="nine:text-neutral-70 nine:mt-sm" lines={3} variant="sm">
                         {data?.description}
                       </Text>
                     </div>

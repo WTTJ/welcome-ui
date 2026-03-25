@@ -2,21 +2,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: var(--spacing-xl);
-  color: var(--color-neutral-90);
-  border-radius: var(--radius-xl);
+  padding: var(--nine-spacing-xl);
+  color: var(--nine-color-neutral-90);
+  border-radius: var(--nine-radius-xl);
   cursor: pointer;
 
   &,
   & span {
-    transition: color var(--duration-medium);
+    transition: color var(--nine-duration-medium);
   }
 
   &:hover {
-    border-color: var(--color-neutral-50);
+    border-color: var(--nine-color-neutral-50);
 
     span {
-      color: var(--color-neutral-90);
+      color: var(--nine-color-neutral-90);
     }
   }
 }

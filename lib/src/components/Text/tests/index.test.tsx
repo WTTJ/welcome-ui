@@ -62,12 +62,12 @@ describe('<Text>', () => {
 
   it('should render correctly with wordBreak property', () => {
     const { getByTestId } = render(
-      <Text className="break-all" data-testid="text">
+      <Text className="nine:break-all" data-testid="text">
         {longContent}
       </Text>
     )
     const text = getByTestId('text')
 
-    expect(text).toHaveClass('break-all')
+    expect(text).toHaveClass('nine:break-all')
   })
 })

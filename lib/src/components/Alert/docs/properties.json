@@ -21,9 +21,7 @@
         }
       },
       "variant": {
-        "defaultValue": {
-          "value": "tertiary"
-        },
+        "defaultValue": null,
         "description": "",
         "name": "variant",
         "parent": {
@@ -259,9 +257,7 @@
         }
       },
       "variant": {
-        "defaultValue": {
-          "value": "tertiary"
-        },
+        "defaultValue": null,
         "description": "",
         "name": "variant",
         "parent": {

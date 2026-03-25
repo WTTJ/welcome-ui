@@ -14,7 +14,7 @@ const Example = () => {
   }
 
   return (
-    <div className="relative">
+    <div className="nine:relative">
       <ButtonGroup variant="tertiary">
         <Button onClick={handleClick}>
           <AddIcon />
@@ -26,11 +26,11 @@ const Example = () => {
       </ButtonGroup>
       <DropdownMenu aria-label="Complexity" store={dropdownMenu}>
         <DropdownMenu.Item onClick={handleClick} store={dropdownMenu}>
-          <TrashIcon className="mr-sm" size="sm" />
+          <TrashIcon className="nine:mr-sm" size="sm" />
           <span>Second Action</span>
         </DropdownMenu.Item>
         <DropdownMenu.Item onClick={handleClick} store={dropdownMenu}>
-          <AttachmentIcon className="mr-sm" size="sm" />
+          <AttachmentIcon className="nine:mr-sm" size="sm" />
           <span>Third Action</span>
         </DropdownMenu.Item>
       </DropdownMenu>

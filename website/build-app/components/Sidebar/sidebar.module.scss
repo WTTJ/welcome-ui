@@ -1,13 +1,13 @@
 .link {
-  color: var(--color-neutral-70);
+  color: var(--nine-color-neutral-70);
   position: relative;
   transition:
-    color var(--duration-medium),
-    padding-left var(--duration-medium);
+    color var(--nine-duration-medium),
+    padding-left var(--nine-duration-medium);
 
   &:hover,
   &:focus {
-    color: var(--color-neutral-90);
+    color: var(--nine-color-neutral-90);
   }
 
   &::before {
@@ -18,16 +18,16 @@
     left: 0;
     top: 1px;
     background-color: transparent;
-    transition: background-color var(--duration-medium);
+    transition: background-color var(--nine-duration-medium);
   }
 
   &[aria-current='page'] {
-    padding-left: var(--spacing-sm);
-    color: var(--color-neutral-90);
-    font-weight: var(--font-weight-bold);
+    padding-left: var(--nine-spacing-sm);
+    color: var(--nine-color-neutral-90);
+    font-weight: var(--nine-font-weight-bold);
 
     &::before {
-      background-color: var(--color-brand-40);
+      background-color: var(--nine-color-brand-40);
     }
   }
 }

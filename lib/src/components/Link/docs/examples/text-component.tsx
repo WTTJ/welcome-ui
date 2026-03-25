@@ -5,7 +5,7 @@ const Example = () => {
   return (
     <Text variant="h5">
       A text with h5{' '}
-      <Link className="[font-weight:inherit]" href="#" target="_blank">
+      <Link className="nine:[font-weight:inherit]" href="#" target="_blank">
         variant
       </Link>
     </Text>

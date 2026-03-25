@@ -4,62 +4,62 @@
     display: flex;
     align-items: flex-start;
     width: 100%;
-    border-radius: var(--radius-lg);
-    border: var(--border-width-sm) solid;
+    border-radius: var(--nine-radius-lg);
+    border: var(--nine-border-width-sm) solid;
 
     /* VARIABLES THAT CHANGE WITH REACT PROPS */
     padding: var(--padding);
     max-width: var(--maxWidth, max-content);
-    background-color: var(--backgroundColor, var(--color-neutral-10));
-    border-color: var(--borderColor, var(--color-neutral-30));
-    color: var(--color, var(--color-neutral-80));
+    background-color: var(--backgroundColor, var(--nine-color-neutral-10));
+    border-color: var(--borderColor, var(--nine-color-neutral-30));
+    color: var(--color, var(--nine-color-neutral-80));
   }
 
   .size {
     &-sm {
-      --padding: var(--spacing-lg);
+      --padding: var(--nine-spacing-lg);
     }
 
     &-md {
-      --padding: var(--spacing-xl);
+      --padding: var(--nine-spacing-xl);
     }
   }
 
   .variant {
     &-ai {
-      --backgroundColor: var(--color-violet-10);
-      --borderColor: var(--color-violet-10);
-      --color: var(--color-violet-90);
+      --backgroundColor: var(--nine-color-violet-10);
+      --borderColor: var(--nine-color-violet-10);
+      --color: var(--nine-color-violet-90);
     }
 
     &-beige {
-      --backgroundColor: var(--color-beige-20);
-      --borderColor: var(--color-beige-20);
-      --color: var(--color-beige-80);
+      --backgroundColor: var(--nine-color-beige-20);
+      --borderColor: var(--nine-color-beige-20);
+      --color: var(--nine-color-beige-80);
     }
 
     &-danger {
-      --backgroundColor: var(--color-red-10);
-      --borderColor: var(--color-red-10);
-      --color: var(--color-red-90);
+      --backgroundColor: var(--nine-color-red-10);
+      --borderColor: var(--nine-color-red-10);
+      --color: var(--nine-color-red-90);
     }
 
     &-info {
-      --backgroundColor: var(--color-blue-10);
-      --borderColor: var(--color-blue-10);
-      --color: var(--color-blue-90);
+      --backgroundColor: var(--nine-color-blue-10);
+      --borderColor: var(--nine-color-blue-10);
+      --color: var(--nine-color-blue-90);
     }
 
     &-success {
-      --backgroundColor: var(--color-green-10);
-      --borderColor: var(--color-green-10);
-      --color: var(--color-green-90);
+      --backgroundColor: var(--nine-color-green-10);
+      --borderColor: var(--nine-color-green-10);
+      --color: var(--nine-color-green-90);
     }
 
     &-warning {
-      --backgroundColor: var(--color-orange-10);
-      --borderColor: var(--color-orange-10);
-      --color: var(--color-orange-90);
+      --backgroundColor: var(--nine-color-orange-10);
+      --borderColor: var(--nine-color-orange-10);
+      --color: var(--nine-color-orange-90);
     }
   }
 
@@ -73,7 +73,7 @@
     }
 
     .content {
-      margin-left: var(--spacing-md);
+      margin-left: var(--nine-spacing-md);
     }
   }
 
@@ -83,7 +83,7 @@
     }
 
     .content {
-      margin-left: var(--spacing-lg);
+      margin-left: var(--nine-spacing-lg);
     }
   }
 
@@ -91,7 +91,7 @@
 
   .content {
     display: flex;
-    gap: var(--spacing-md);
+    gap: var(--nine-spacing-md);
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
@@ -105,7 +105,7 @@
   .content-actions {
     display: flex;
     align-items: center;
-    gap: var(--spacing-sm);
+    gap: var(--nine-spacing-sm);
   }
 
   .variant-icon {
@@ -115,7 +115,7 @@
   /** Title */
 
   .title {
-    font-weight: var(--font-weight-500);
+    font-weight: var(--nine-font-weight-500);
 
     /* VARIABLES THAT CHANGE WITH REACT PROPS */
     margin-bottom: var(--titleMarginBottom);
@@ -123,22 +123,22 @@
 
   .title-size {
     &-sm {
-      --titleMarginBottom: var(--spacing-xs);
+      --titleMarginBottom: var(--nine-spacing-xs);
     }
 
     &-md {
-      --titleMarginBottom: var(--spacing-sm);
+      --titleMarginBottom: var(--nine-spacing-sm);
     }
   }
 
   .title-close-button {
-    margin-right: var(--spacing-xl);
+    margin-right: var(--nine-spacing-xl);
   }
 
   /* Close button */
   .close-button {
     position: absolute;
-    right: var(--spacing-sm);
-    top: var(--spacing-sm);
+    right: var(--nine-spacing-sm);
+    top: var(--nine-spacing-sm);
   }
 }

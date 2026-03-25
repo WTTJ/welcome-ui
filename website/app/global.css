@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import 'tailwindcss' prefix(nine);
 @import '../../lib/src/theme/theme.css';
 
 @source '../../lib/src/**/*.{ts,tsx}';

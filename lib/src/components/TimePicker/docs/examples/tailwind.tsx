@@ -5,7 +5,7 @@ const Example = () => {
   return (
     <>
       <TimePicker
-        className="border-2 border-neutral-40 bg-neutral-30"
+        className="nine:border-2 nine:border-neutral-40 nine:bg-neutral-30"
         icon={<DateIcon />}
         name="welcome"
         value={new Date()}

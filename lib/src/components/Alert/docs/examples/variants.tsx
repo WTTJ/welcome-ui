@@ -2,7 +2,7 @@ import { Alert } from '@/components/Alert'
 
 const Example = () => {
   return (
-    <div className="flex flex-col gap-xl">
+    <div className="nine:flex nine:flex-col nine:gap-xl">
       <Alert>
         <Alert.Title>Default variant</Alert.Title>
         Nunc laoreet egestas nulla, et dapibus sem malesuada in. Suspendisse eleifend accumsan

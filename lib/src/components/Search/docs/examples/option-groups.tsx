@@ -35,9 +35,9 @@ const Example = () => {
       name="movies"
       placeholder="Search a movie"
       renderGroupHeader={({ label, options }) => (
-        <div className="p-var(--space-xxs)">
-          <div className="flex justify-between items-center">
-            <Text className="m-0" variant="lg">
+        <div className="nine:p-var(--space-xxs)">
+          <div className="nine:flex nine:justify-between nine:items-center">
+            <Text className="nine:m-0" variant="lg">
               {label}
             </Text>
             <Tag>{options.length}</Tag>

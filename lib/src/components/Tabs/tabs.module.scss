@@ -2,48 +2,48 @@
   .root {
     border: 0;
     background: none;
-    color: var(--tabs-color, var(--color-neutral-70));
-    font-weight: var(--font-weight-medium);
-    line-height: var(--line-height-md);
+    color: var(--tabs-color, var(--nine-color-neutral-70));
+    font-weight: var(--nine-font-weight-medium);
+    line-height: var(--nine-line-height-md);
     text-decoration: none;
     display: flex;
     align-items: center;
     flex: none;
-    padding: var(--spacing-md) 0;
-    transition: var(--duration-medium);
+    padding: var(--nine-spacing-md) 0;
+    transition: var(--nine-duration-medium);
     text-transform: none;
     cursor: pointer;
-    gap: var(--spacing-sm);
+    gap: var(--nine-spacing-sm);
 
     &:focus {
       outline: none !important; /* important for firefox */
 
       &:not([aria-selected='true']) {
-        --tabs-color: var(--color-neutral-90);
+        --tabs-color: var(--nine-color-neutral-90);
       }
     }
 
     &[aria-selected='true'] {
-      --tabs-color: var(--color-neutral-90);
+      --tabs-color: var(--nine-color-neutral-90);
     }
 
     &[aria-disabled='true'] {
-      --tabs-color: var(--color-neutral-60);
+      --tabs-color: var(--nine-color-neutral-60);
       cursor: not-allowed;
     }
 
     &:hover:not([aria-selected='true']):not([aria-disabled='true']) {
-      --tabs-color: var(--color-neutral-90);
+      --tabs-color: var(--nine-color-neutral-90);
     }
 
     & > svg,
     img {
-      max-height: var(--spacing-lg);
-      max-width: var(--spacing-lg);
+      max-height: var(--nine-spacing-lg);
+      max-width: var(--nine-spacing-lg);
     }
 
     & > span {
-      max-height: var(--spacing-lg);
+      max-height: var(--nine-spacing-lg);
     }
   }
 }

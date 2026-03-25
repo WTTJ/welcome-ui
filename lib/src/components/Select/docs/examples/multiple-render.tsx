@@ -30,7 +30,7 @@ const Example = () => {
           {values.map(option => {
             return (
               <Tag
-                className="mr-sm mt-sm"
+                className="nine:mr-sm nine:mt-sm"
                 key={option.value}
                 onRemove={() => handleRemove(option.value as string)}
                 size="sm"

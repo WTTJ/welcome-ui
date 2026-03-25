@@ -93,12 +93,12 @@ const AlertComponent = forwardRef<HTMLDivElement, AlertProps>(
 // We need this component to check its existence in <Alert> and to allow users to add Button in <Alert> content
 const AlertButton = forwardRefWithAs<Omit<ButtonProps, 'size'>, 'button'>(
   ({ variant = 'secondary', ...props }, ref) => (
-    <Button className="shrink-0 w-fit" ref={ref} {...props} variant={variant} />
+    <Button className="nine:shrink-0 nine:w-fit" ref={ref} {...props} variant={variant} />
   )
 )
 const AlertSecondaryButton = forwardRefWithAs<Omit<ButtonProps, 'size'>, 'button'>(
   ({ variant = 'tertiary', ...props }, ref) => (
-    <Button className="shrink-0 w-fit" ref={ref} {...props} variant={variant} />
+    <Button className="nine:shrink-0 nine:w-fit" ref={ref} {...props} variant={variant} />
   )
 )
 export const AlertTitle = ({ children, hasCloseButton, variant, ...rest }: AlertTitleProps) => {

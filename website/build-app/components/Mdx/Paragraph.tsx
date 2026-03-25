@@ -15,5 +15,5 @@ export const Paragraph = ({ children }: { children: JSX.Element | JSX.Element[] 
   //@ts-ignore
   if (isToken) return <Tokens>{children}</Tokens>
 
-  return <Text className="mt-md">{children}</Text>
+  return <Text className="nine:mt-md">{children}</Text>
 }

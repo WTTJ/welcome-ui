@@ -52,7 +52,7 @@ export const Blockquote = ({ children }: { children: JSX.Element[] }) => {
   }, [])
 
   return (
-    <Alert className="max-w-[100vh] w-full" variant={variant}>
+    <Alert className="nine:max-w-[100vh] nine:w-full" variant={variant}>
       {title ? <Alert.Title>{title}</Alert.Title> : null}
       {childFormatted}
     </Alert>

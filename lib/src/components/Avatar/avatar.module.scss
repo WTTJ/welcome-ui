@@ -8,9 +8,9 @@
     overflow: hidden;
     aspect-ratio: 1 / 1;
 
-    border-radius: var(--radius-circle);
-    color: var(--color-neutral-90);
-    font-weight: var(--font-weight-medium);
+    border-radius: var(--nine-radius-circle);
+    color: var(--nine-color-neutral-90);
+    font-weight: var(--nine-font-weight-medium);
 
     /* VARIABLES THAT CHANGE WITH REACT PROPS */
     width: var(--size);
@@ -27,49 +27,49 @@
 
   .size {
     &-sm {
-      --size: var(--height-20);
+      --size: var(--nine-height-20);
     }
 
     &-md {
-      --size: var(--height-30);
+      --size: var(--nine-height-30);
     }
 
     &-lg {
-      --size: var(--height-40);
+      --size: var(--nine-height-40);
     }
 
     &-xl {
-      --size: var(--height-50);
+      --size: var(--nine-height-50);
     }
 
     &-xxl {
-      --size: var(--height-60);
+      --size: var(--nine-height-60);
     }
   }
 
   .background {
     &-secondary-blue {
-      --backgroundColor: var(--color-secondary-blue);
+      --backgroundColor: var(--nine-color-secondary-blue);
     }
 
     &-secondary-green {
-      --backgroundColor: var(--color-secondary-green);
+      --backgroundColor: var(--nine-color-secondary-green);
     }
 
     &-secondary-orange {
-      --backgroundColor: var(--color-secondary-orange);
+      --backgroundColor: var(--nine-color-secondary-orange);
     }
 
     &-secondary-pink {
-      --backgroundColor: var(--color-secondary-pink);
+      --backgroundColor: var(--nine-color-secondary-pink);
     }
 
     &-secondary-teal {
-      --backgroundColor: var(--color-secondary-teal);
+      --backgroundColor: var(--nine-color-secondary-teal);
     }
 
     &-secondary-violet {
-      --backgroundColor: var(--color-secondary-violet);
+      --backgroundColor: var(--nine-color-secondary-violet);
     }
   }
 }

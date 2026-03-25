@@ -12,7 +12,7 @@ const Example = () => {
   }
 
   return (
-    <div className="flex flex-col gap-lg">
+    <div className="nine:flex nine:flex-col nine:gap-lg">
       <Field label="I'm a field with a ref on my child component">
         <InputText ref={inputRef} />
       </Field>

@@ -4,8 +4,8 @@ const Example = () => {
   const tab = useTab({ defaultSelectedId: 'tab2', orientation: 'vertical' })
 
   return (
-    <div className="flex">
-      <Tab.List aria-label="Tabs" className="mr-lg w-[200px]" store={tab}>
+    <div className="nine:flex">
+      <Tab.List aria-label="Tabs" className="nine:mr-lg nine:w-[200px]" store={tab}>
         <Tab id="tab1" store={tab}>
           Tab 1
         </Tab>

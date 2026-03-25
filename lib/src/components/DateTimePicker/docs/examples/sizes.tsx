@@ -4,7 +4,7 @@ import { TimePicker } from '@/components/TimePicker'
 
 const Example = () => {
   return (
-    <div className="flex flex-col gap-xl">
+    <div className="nine:flex nine:flex-col nine:gap-xl">
       <DateTimePicker name="welcome" size="xs" value={new Date()}>
         <DatePicker />
         <TimePicker />

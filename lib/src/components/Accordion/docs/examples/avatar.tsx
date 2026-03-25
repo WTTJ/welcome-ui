@@ -10,11 +10,11 @@ const Example = () => {
 
   return (
     <Accordion
-      className={cx('mt-md')}
+      className={cx('nine:mt-md')}
       store={accordion}
       title={
-        <div className={cx('items-center', 'flex')}>
-          <Avatar className={cx('mr-sm', 'flex')} name="accordion" />
+        <div className={cx('nine:items-center', 'nine:flex')}>
+          <Avatar className={cx('nine:mr-sm', 'nine:flex')} name="accordion" />
           <Text variant="h5">Accordion title</Text>
         </div>
       }

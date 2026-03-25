@@ -6,10 +6,10 @@ const Example = () => {
     'https://m.media-amazon.com/images/M/MV5BMzE0NzgyODIxN15BMl5BanBnXkFtZTgwNDU0NjU5NzE@._V1_SX1777_CR0,0,1777,994_AL_.jpg'
 
   return (
-    <Card className="max-w-1/2">
-      <Card.Cover alt="The Jungle Book" className="w-full" src={url} />
+    <Card className="nine:max-w-1/2">
+      <Card.Cover alt="The Jungle Book" className="nine:w-full" src={url} />
       <Card.Body>
-        <Text as="h4" className="font-bold text-neutral-90 mb-lg mt-0">
+        <Text as="h4" className="nine:font-bold nine:text-neutral-90 nine:mb-lg nine:mt-0">
           The Jungle Book
         </Text>
         After a threat from the tiger Shere Khan forces him to flee the jungle, a man-cub named

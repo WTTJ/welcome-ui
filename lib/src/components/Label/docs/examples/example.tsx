@@ -10,7 +10,7 @@ const Example = () => {
   const handleToggle = () => setChecked(!checked)
 
   return (
-    <div className="flex gap-sm items-center">
+    <div className="nine:flex nine:gap-sm nine:items-center">
       <Checkbox checked={checked} id="example-1" name="labelExample" onChange={handleToggle} />
       <Label htmlFor="example-1" variant="danger">
         <div>

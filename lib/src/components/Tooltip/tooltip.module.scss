@@ -1,16 +1,16 @@
 @layer components {
   .root {
-    background-color: var(--color-neutral-90);
-    border: var(--border-width-sm) solid var(--color-neutral-60);
-    border-radius: var(--radius-md);
+    background-color: var(--nine-color-neutral-90);
+    border: var(--nine-border-width-sm) solid var(--nine-color-neutral-60);
+    border-radius: var(--nine-radius-md);
     box-sizing: border-box;
-    color: var(--color-neutral-10);
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-medium);
+    color: var(--nine-color-neutral-10);
+    font-size: var(--nine-font-size-xs);
+    font-weight: var(--nine-font-weight-medium);
     max-width: 12.5rem;
-    padding: var(--spacing-xs) var(--spacing-sm);
+    padding: var(--nine-spacing-xs) var(--nine-spacing-sm);
     transition-property: opacity, visibility;
-    transition-duration: var(--duration-medium);
+    transition-duration: var(--nine-duration-medium);
     z-index: 10;
     visibility: var(--visibility, hidden);
     opacity: var(--opacity, 0);

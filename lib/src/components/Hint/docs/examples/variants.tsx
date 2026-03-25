@@ -2,7 +2,7 @@ import { Hint } from '@/components/Hint'
 
 const Example = () => {
   return (
-    <div className="flex flex-col gap-xl">
+    <div className="nine:flex nine:flex-col nine:gap-xl">
       <Hint>default</Hint>
       <Hint variant="warning">warning</Hint>
       <Hint variant="danger">danger</Hint>

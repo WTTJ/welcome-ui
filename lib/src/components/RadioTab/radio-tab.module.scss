@@ -2,18 +2,18 @@
 
 @layer components {
   .label {
-    transition: var(--duration-medium);
+    transition: var(--nine-duration-medium);
 
     &:not(.checked):not(:disabled):not([aria-disabled]) {
-      border-color: var(--color-neutral-30);
+      border-color: var(--nine-color-neutral-30);
 
       &:hover {
-        background-color: var(--color-neutral-30);
+        background-color: var(--nine-color-neutral-30);
       }
 
       &:focus,
       &:active {
-        background-color: var(--color-neutral-50);
+        background-color: var(--nine-color-neutral-50);
       }
     }
     padding-top: 0;

@@ -5,7 +5,7 @@ const Example = () => {
 
   return (
     <>
-      <Tab.List aria-label="Tabs" className="shadow-none" store={tab}>
+      <Tab.List aria-label="Tabs" className="nine:shadow-none" store={tab}>
         <Tab id="tab1" store={tab}>
           Tab 1
         </Tab>

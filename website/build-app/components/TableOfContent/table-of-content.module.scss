@@ -1,5 +1,5 @@
 .nav {
-  box-shadow: var(--color-neutral-30) 1px 0px 0px inset;
+  box-shadow: var(--nine-color-neutral-30) 1px 0px 0px inset;
   position: sticky;
   top: calc(4.375rem + 3rem);
   max-height: calc(100vh - 12rem);
@@ -13,15 +13,15 @@
 
 .link {
   display: block;
-  color: var(--color-neutral-70);
+  color: var(--nine-color-neutral-70);
   position: relative;
   transition:
-    color var(--duration-medium),
-    padding-left var(--duration-medium);
+    color var(--nine-duration-medium),
+    padding-left var(--nine-duration-medium);
 
   &:hover,
   &:focus {
-    color: var(--color-neutral-90);
+    color: var(--nine-color-neutral-90);
   }
 
   &::before {
@@ -31,16 +31,16 @@
     position: absolute;
     left: 0;
     background-color: transparent;
-    transition: background-color var(--duration-medium);
+    transition: background-color var(--nine-duration-medium);
   }
 
   &[aria-current='page'] {
-    color: var(--color-neutral-90);
-    font-weight: var(--font-weight-bold);
-    border-bottom-color: var(--color-brand-40);
+    color: var(--nine-color-neutral-90);
+    font-weight: var(--nine-font-weight-bold);
+    border-bottom-color: var(--nine-color-brand-40);
 
     &::before {
-      background-color: var(--color-brand-40);
+      background-color: var(--nine-color-brand-40);
     }
   }
 }

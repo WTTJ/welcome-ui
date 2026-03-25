@@ -8,7 +8,9 @@ const Example = () => {
   const modal3 = useModal()
   const title = 'Nullam non lacinia'
   const subtitle = 'Praesent sit amet quam ac velit faucibus dapibus, quisque sapien ligula.'
-  const icon = <ActionsIcon className="h-40 w-[2.5rem] text-(--color-neutral-90)" />
+  const icon = (
+    <ActionsIcon className="nine:h-40 nine:w-[2.5rem] nine:text-(--nine-color-neutral-90)" />
+  )
   const informations = {
     subtitle:
       'Sed lorem lacus, hendrerit non sodales id, consectetur quis magna. Mauris auctor blandit porta. In imperdiet rutrum nunc.',
@@ -28,8 +30,8 @@ const Example = () => {
             aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
           </Modal.Body>
           <Modal.Footer information={informations}>
-            <div className="w-full">
-              <Button className="mr-(--spacing-sm)" variant="secondary">
+            <div className="nine:w-full">
+              <Button className="nine:mr-(--nine-spacing-sm)" variant="secondary">
                 Lorem dolir
               </Button>
               <Button onClick={() => modal.hide()}>Close</Button>
@@ -49,8 +51,8 @@ const Example = () => {
             aliquam nec, convallis sit amet erat. Mauris auctor blandit porta.
           </Modal.Body>
           <Modal.Footer>
-            <div className="w-full">
-              <Button className="mr-(--spacing-sm)" variant="secondary">
+            <div className="nine:w-full">
+              <Button className="nine:mr-(--nine-spacing-sm)" variant="secondary">
                 Lorem dolir
               </Button>
               <Button onClick={() => modal2.hide()}>Close</Button>

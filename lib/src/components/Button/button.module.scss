@@ -8,11 +8,11 @@
     border-style: solid;
 
     /* VARIABLES FROM THEME - DONT CHANGE WITH REACT PROPS */
-    border-width: var(--border-width-sm);
+    border-width: var(--nine-border-width-sm);
     transition-property: all;
-    transition-duration: var(--duration-medium);
-    outline: transparent solid var(--border-width-md);
-    font-weight: var(--font-weight-bold);
+    transition-duration: var(--nine-duration-medium);
+    outline: transparent solid var(--nine-border-width-md);
+    font-weight: var(--nine-font-weight-bold);
 
     /* VARIABLES THAT CHANGE WITH REACT PROPS */
     aspect-ratio: var(--aspectRatio, auto);
@@ -20,7 +20,7 @@
     padding-inline: var(--paddingInline);
     border-radius: var(--borderRadius);
     font-size: var(--fontSize);
-    color: var(--color, var(--color-neutral-90));
+    color: var(--color, var(--nine-color-neutral-90));
     background-color: var(--backgroundColor);
     border-color: var(--borderColor);
     line-height: var(--lineHeight);
@@ -75,27 +75,27 @@
       }
 
       &:first-child:not(:only-child) {
-        margin-inline-end: var(--spacing-xs);
+        margin-inline-end: var(--nine-spacing-xs);
       }
 
       &:last-child:not(:only-child) {
-        margin-inline-start: var(--spacing-xs);
+        margin-inline-start: var(--nine-spacing-xs);
       }
     }
   }
 
   .shape {
     &-default {
-      --borderRadius: var(--radius-md);
+      --borderRadius: var(--nine-radius-md);
     }
 
     &-circle {
       /* width: var(--height); */
-      --borderRadius: var(--radius-circle);
+      --borderRadius: var(--nine-radius-circle);
     }
 
     &-square {
-      --borderRadius: var(--radius-md);
+      --borderRadius: var(--nine-radius-md);
     }
 
     /* compouned variant equivalent for size + shape */
@@ -111,170 +111,170 @@
       }
 
       &-lg {
-        --fontSize: var(--font-size-xl);
+        --fontSize: var(--nine-font-size-xl);
       }
 
       &-md {
-        --fontSize: var(--font-size-md);
+        --fontSize: var(--nine-font-size-md);
       }
 
       &-sm {
-        --fontSize: var(--font-size-md);
+        --fontSize: var(--nine-font-size-md);
       }
 
       &-xs {
-        --fontSize: var(--font-size-md);
+        --fontSize: var(--nine-font-size-md);
       }
     }
   }
 
   .size {
     &-xs {
-      --fontSize: var(--font-size-xs);
-      --height: var(--height-elements-sm);
-      --paddingInline: var(--spacing-sm);
-      --paddingInlineHasIcon: var(--spacing-sm);
+      --fontSize: var(--nine-font-size-xs);
+      --height: var(--nine-height-elements-sm);
+      --paddingInline: var(--nine-spacing-sm);
+      --paddingInlineHasIcon: var(--nine-spacing-sm);
       --iconDefaultSize: 0.75rem; /* 12px */
       --iconOnlySize: 1rem; /* 16px */
-      --lineHeight: var(--line-height-xs);
+      --lineHeight: var(--nine-line-height-xs);
     }
 
     &-sm {
-      --fontSize: var(--font-size-xs);
-      --height: var(--height-elements-md);
-      --paddingInline: var(--spacing-sm);
-      --paddingInlineHasIcon: var(--spacing-md);
+      --fontSize: var(--nine-font-size-xs);
+      --height: var(--nine-height-elements-md);
+      --paddingInline: var(--nine-spacing-sm);
+      --paddingInlineHasIcon: var(--nine-spacing-md);
       --iconDefaultSize: 1rem; /* 16px */
       --iconOnlySize: 1rem; /* 16px */
-      --lineHeight: var(--line-height-xs);
+      --lineHeight: var(--nine-line-height-xs);
     }
 
     &-md {
-      --fontSize: var(--font-size-sm);
-      --height: var(--height-elements-lg);
-      --paddingInline: var(--spacing-xl);
-      --paddingInlineHasIcon: var(--spacing-md);
+      --fontSize: var(--nine-font-size-sm);
+      --height: var(--nine-height-elements-lg);
+      --paddingInline: var(--nine-spacing-xl);
+      --paddingInlineHasIcon: var(--nine-spacing-md);
       --iconDefaultSize: 1rem; /* 16px */
       --iconOnlySize: 1rem; /* 16px */
-      --lineHeight: var(--line-height-sm);
+      --lineHeight: var(--nine-line-height-sm);
     }
 
     &-lg {
-      --fontSize: var(--font-size-sm);
-      --height: var(--height-elements-xl);
-      --paddingInline: var(--spacing-xl);
-      --paddingInlineHasIcon: var(--spacing-lg);
+      --fontSize: var(--nine-font-size-sm);
+      --height: var(--nine-height-elements-xl);
+      --paddingInline: var(--nine-spacing-xl);
+      --paddingInlineHasIcon: var(--nine-spacing-lg);
       --iconDefaultSize: 1rem; /* 16px */
       --iconOnlySize: 1.5rem; /* 24px */
-      --lineHeight: var(--line-height-sm);
+      --lineHeight: var(--nine-line-height-sm);
     }
   }
 
   .variant {
     &-disabled {
-      --backgroundColorDisabled: var(--color-beige-40);
-      --borderColorDisabled: var(--color-beige-40);
-      --colorDisabled: var(--color-beige-70);
+      --backgroundColorDisabled: var(--nine-color-beige-40);
+      --borderColorDisabled: var(--nine-color-beige-40);
+      --colorDisabled: var(--nine-color-beige-70);
       --cursorDisabled: not-allowed;
-      --outlineColorFocus: var(--color-beige-10);
+      --outlineColorFocus: var(--nine-color-beige-10);
     }
 
     &-ghost {
-      --backgroundColorActive: color-mix(in oklab, var(--color-neutral-90) 40%, transparent);
-      --backgroundColorHover: color-mix(in oklab, var(--color-neutral-90) 10%, transparent);
+      --backgroundColorActive: color-mix(in oklab, var(--nine-color-neutral-90) 40%, transparent);
+      --backgroundColorHover: color-mix(in oklab, var(--nine-color-neutral-90) 10%, transparent);
       --borderColor: transparent;
       --borderColorActive: transparent;
       --borderColorHover: transparent;
-      --outlineColorFocus: color-mix(in oklab, var(--color-neutral-90) 10%, transparent);
+      --outlineColorFocus: color-mix(in oklab, var(--nine-color-neutral-90) 10%, transparent);
     }
 
     &-ghost-ai {
-      --backgroundColorActive: var(--color-violet-30);
-      --backgroundColorHover: var(--color-violet-10);
+      --backgroundColorActive: var(--nine-color-violet-30);
+      --backgroundColorHover: var(--nine-color-violet-10);
       --borderColor: transparent;
-      --borderColorActive: var(--color-violet-30);
-      --borderColorHover: var(--color-violet-10);
-      --color: var(--color-violet-70);
-      --outlineColorFocus: var(--color-violet-50);
+      --borderColorActive: var(--nine-color-violet-30);
+      --borderColorHover: var(--nine-color-violet-10);
+      --color: var(--nine-color-violet-70);
+      --outlineColorFocus: var(--nine-color-violet-50);
     }
 
     &-ghost-danger {
-      --backgroundColorActive: var(--color-red-20);
-      --backgroundColorHover: var(--color-red-10);
+      --backgroundColorActive: var(--nine-color-red-20);
+      --backgroundColorHover: var(--nine-color-red-10);
       --borderColor: transparent;
-      --borderColorActive: var(--color-red-20);
-      --borderColorHover: var(--color-red-10);
-      --color: var(--color-red-80);
-      --outlineColorFocus: var(--color-red-40);
+      --borderColorActive: var(--nine-color-red-20);
+      --borderColorHover: var(--nine-color-red-10);
+      --color: var(--nine-color-red-80);
+      --outlineColorFocus: var(--nine-color-red-40);
     }
 
     &-primary {
-      --backgroundColor: var(--color-brand-40);
-      --backgroundColorActive: var(--color-brand-10);
-      --backgroundColorHover: var(--color-brand-30);
-      --borderColor: var(--color-brand-40);
-      --borderColorActive: var(--color-brand-10);
-      --borderColorHover: var(--color-brand-30);
-      --outlineColorFocus: var(--color-brand-20);
+      --backgroundColor: var(--nine-color-brand-40);
+      --backgroundColorActive: var(--nine-color-brand-10);
+      --backgroundColorHover: var(--nine-color-brand-30);
+      --borderColor: var(--nine-color-brand-40);
+      --borderColorActive: var(--nine-color-brand-10);
+      --borderColorHover: var(--nine-color-brand-30);
+      --outlineColorFocus: var(--nine-color-brand-20);
     }
 
     &-primary-ai {
-      --backgroundColor: var(--color-violet-70);
-      --backgroundColorActive: var(--color-violet-40);
-      --backgroundColorHover: var(--color-violet-60);
-      --borderColor: var(--color-violet-70);
-      --borderColorActive: var(--color-violet-40);
-      --borderColorHover: var(--color-violet-60);
-      --color: var(--color-neutral-10);
-      --outlineColorFocus: var(--color-violet-50);
+      --backgroundColor: var(--nine-color-violet-70);
+      --backgroundColorActive: var(--nine-color-violet-40);
+      --backgroundColorHover: var(--nine-color-violet-60);
+      --borderColor: var(--nine-color-violet-70);
+      --borderColorActive: var(--nine-color-violet-40);
+      --borderColorHover: var(--nine-color-violet-60);
+      --color: var(--nine-color-neutral-10);
+      --outlineColorFocus: var(--nine-color-violet-50);
     }
 
     &-primary-danger {
-      --backgroundColor: var(--color-red-70);
-      --backgroundColorActive: var(--color-red-50);
-      --backgroundColorHover: var(--color-red-60);
-      --borderColor: var(--color-red-70);
-      --borderColorActive: var(--color-red-50);
-      --borderColorHover: var(--color-red-60);
-      --color: var(--color-neutral-10);
-      --outlineColorFocus: var(--color-red-40);
+      --backgroundColor: var(--nine-color-red-70);
+      --backgroundColorActive: var(--nine-color-red-50);
+      --backgroundColorHover: var(--nine-color-red-60);
+      --borderColor: var(--nine-color-red-70);
+      --borderColorActive: var(--nine-color-red-50);
+      --borderColorHover: var(--nine-color-red-60);
+      --color: var(--nine-color-neutral-10);
+      --outlineColorFocus: var(--nine-color-red-40);
     }
 
     &-secondary {
-      --backgroundColor: var(--color-neutral-90);
-      --backgroundColorActive: var(--color-neutral-50);
-      --backgroundColorHover: var(--color-neutral-70);
-      --borderColor: var(--color-neutral-90);
-      --borderColorActive: var(--color-neutral-50);
-      --borderColorHover: var(--color-neutral-70);
-      --color: var(--color-neutral-10);
-      --outlineColorFocus: var(--color-neutral-40);
+      --backgroundColor: var(--nine-color-neutral-90);
+      --backgroundColorActive: var(--nine-color-neutral-50);
+      --backgroundColorHover: var(--nine-color-neutral-70);
+      --borderColor: var(--nine-color-neutral-90);
+      --borderColorActive: var(--nine-color-neutral-50);
+      --borderColorHover: var(--nine-color-neutral-70);
+      --color: var(--nine-color-neutral-10);
+      --outlineColorFocus: var(--nine-color-neutral-40);
     }
 
     &-tertiary {
-      --backgroundColor: var(--color-neutral-10);
-      --backgroundColorActive: color-mix(in oklab, var(--color-neutral-90) 40%, transparent);
-      --backgroundColorHover: color-mix(in oklab, var(--color-neutral-90) 10%, transparent);
-      --borderColor: var(--color-neutral-90);
-      --outlineColorFocus: var(--color-neutral-40);
+      --backgroundColor: var(--nine-color-neutral-10);
+      --backgroundColorActive: color-mix(in oklab, var(--nine-color-neutral-90) 40%, transparent);
+      --backgroundColorHover: color-mix(in oklab, var(--nine-color-neutral-90) 10%, transparent);
+      --borderColor: var(--nine-color-neutral-90);
+      --outlineColorFocus: var(--nine-color-neutral-40);
     }
 
     &-tertiary-ai {
-      --backgroundColor: var(--color-neutral-10);
-      --backgroundColorActive: var(--color-violet-30);
-      --backgroundColorHover: var(--color-violet-10);
-      --borderColor: var(--color-violet-70);
-      --color: var(--color-violet-70);
-      --outlineColorFocus: var(--color-violet-50);
+      --backgroundColor: var(--nine-color-neutral-10);
+      --backgroundColorActive: var(--nine-color-violet-30);
+      --backgroundColorHover: var(--nine-color-violet-10);
+      --borderColor: var(--nine-color-violet-70);
+      --color: var(--nine-color-violet-70);
+      --outlineColorFocus: var(--nine-color-violet-50);
     }
 
     &-tertiary-danger {
-      --backgroundColor: var(--color-neutral-10);
-      --backgroundColorActive: var(--color-red-20);
-      --backgroundColorHover: var(--color-red-10);
-      --borderColor: var(--color-red-80);
-      --color: var(--color-red-80);
-      --outlineColorFocus: var(--color-red-40);
+      --backgroundColor: var(--nine-color-neutral-10);
+      --backgroundColorActive: var(--nine-color-red-20);
+      --backgroundColorHover: var(--nine-color-red-10);
+      --borderColor: var(--nine-color-red-80);
+      --color: var(--nine-color-red-80);
+      --outlineColorFocus: var(--nine-color-red-40);
     }
   }
 

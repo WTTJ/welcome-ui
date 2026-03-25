@@ -10,7 +10,7 @@ const Example = () => {
 
   return (
     <>
-      <div className="flex gap-xl">
+      <div className="nine:flex nine:gap-xl">
         <Drawer.Trigger as={Button} onClick={() => setSize('sm')} store={drawer}>
           sm
         </Drawer.Trigger>

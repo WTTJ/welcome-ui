@@ -3,5 +3,5 @@ type AProps = React.HTMLAttributes<HTMLImageElement> & {
 }
 
 export const Image = (props: AProps) => {
-  return <img className="max-w-full" {...props} />
+  return <img className="nine:max-w-full" {...props} />
 }

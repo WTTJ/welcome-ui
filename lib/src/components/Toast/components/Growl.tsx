@@ -21,7 +21,7 @@ export const Growl = forwardRef<HTMLDivElement, GrowlProps>(
         variant={variant}
         {...rest}
       >
-        <div className={cx('pr-xl')}>{children}</div>
+        <div className={cx('nine:pr-xl')}>{children}</div>
       </Alert>
     )
   }
