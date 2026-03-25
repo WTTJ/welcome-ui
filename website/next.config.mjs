@@ -69,6 +69,12 @@ const nextConfig = {
       }
     }
     config.module.rules.push({
+      // These files are pure data (no React, no browser APIs) and need to be
+      // importable server-side for llms route generation.
+      exclude: [
+        resolve('../lib/src/components/Icon/icons.ts'),
+        resolve('../lib/src/theme/generated/variables.ts'),
+      ],
       include: [resolve('../lib/src')],
       test: /\.(js|jsx|ts|tsx)$/,
       use: [resolve('./loaders/use-client-loader.js')],
