@@ -1,6 +1,7 @@
-import { Tab as AriakitTab, TabList as AriakitTabList } from '@ariakit/react'
+import { Tab as AriakitTab, TabList as AriakitTabList, useStoreState } from '@ariakit/react'
 import { forwardRef, useState } from 'react'
 
+import { Badge } from '@/components/Badge'
 import { Icon } from '@/components/Icon'
 import { Text } from '@/components/Text'
 import type { As, PropsWithAs } from '@/utils'
@@ -64,7 +65,10 @@ const Tabs = ({ children, store }: HeaderTabsProps) => {
 }
 
 const Tab = forwardRefWithAs<HeaderTabItem, 'button'>(
-  ({ as: Component, children, icon, id, store, ...rest }, ref) => {
+  ({ as: Component, badge, children, icon, id, store, ...rest }, ref) => {
+    const { selectedId } = useStoreState(store)
+    const isActive = selectedId === id
+
     return (
       <AriakitTab
         className={cx('header-tab-item')}
@@ -77,6 +81,7 @@ const Tab = forwardRefWithAs<HeaderTabItem, 'button'>(
       >
         {icon ? <Icon name={icon} /> : null}
         <Text variant="label-sm">{children}</Text>
+        {badge ? <Badge variant={isActive ? 'neutral' : 'warm'}>{badge}</Badge> : null}
       </AriakitTab>
     )
   }

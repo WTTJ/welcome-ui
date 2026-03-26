@@ -41,6 +41,7 @@ export type HeaderRightActionsProps = MergeProps<
 >
 
 export type HeaderTabItem = TabProps & {
+  badge?: number | React.ReactElement | string
   icon?: IconName
   id: string
 }
