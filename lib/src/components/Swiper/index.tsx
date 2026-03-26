@@ -331,7 +331,11 @@ export const Swiper: SwiperComponent = ({
 
   useEffect(() => {
     getNavigationState()
-  }, [getNavigationState, children])
+
+    const raf = window.requestAnimationFrame(getNavigationState)
+
+    return () => window.cancelAnimationFrame(raf)
+  }, [getNavigationState, children, slidesLength, slides.currentSlidesPerView])
 
   useEffect(() => {
     if (hasInitializedRef.current) {
