@@ -50,7 +50,7 @@ On your theme or global css import:
 - Welcome UI components style
 
 ```css
-@import 'tailwindcss';
+@import 'tailwindcss' prefix(nine);
 
 @import 'welcome-ui/theme.css';
 

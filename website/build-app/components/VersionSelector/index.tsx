@@ -24,7 +24,7 @@ export const VersionSelector = () => {
 
   return (
     <Select
-      className="hidden md:block"
+      className="nine:hidden nine:md:block"
       name="welcome"
       onChange={handleChange}
       options={versions}

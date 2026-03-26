@@ -22,7 +22,7 @@ const Example = () => {
         files.length === 0 ? (
           <Button onClick={() => openFile()}>Upload files</Button>
         ) : (
-          <div className="flex flex-col gap-sm">
+          <div className="nine:flex nine:flex-col nine:gap-sm">
             {files.map(file => {
               const name = typeof file === 'string' ? file : file.name
               const preview = typeof file === 'string' ? file : file.preview

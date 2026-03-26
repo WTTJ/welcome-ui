@@ -74,7 +74,7 @@ export const IconsList = ({ name }: IconListProps) => {
   }
 
   return (
-    <div className="gap-lg grid lg:grid-cols-4 grid-cols-2">
+    <div className="nine:gap-lg nine:grid nine:lg:grid-cols-4 nine:grid-cols-2">
       {iconsByName[name]?.map(key => {
         const name = startCase(camelCase(key)).replace(/ /g, '')
         const componentName = `${name}Icon`
@@ -91,7 +91,7 @@ export const IconsList = ({ name }: IconListProps) => {
             {Icon ? <Icon size="lg" /> : <Icons.CrossIcon size="lg" />}
             <Text
               as="span"
-              className="pt-md px-sm text-beige-70 text-center break-words"
+              className="nine:pt-md nine:px-sm nine:text-beige-70 nine:text-center nine:break-words"
               lines={2}
               variant="sm"
             >

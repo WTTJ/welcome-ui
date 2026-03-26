@@ -25,24 +25,24 @@ const components = {
   hr: (): null => null,
   img: Image,
   li: ({ children }: { children: React.ReactElement }) => (
-    <li className="ml-xxl mt-xs">{children}</li>
+    <li className="nine:ml-xxl nine:mt-xs">{children}</li>
   ),
   ol: ({ children }: { children: React.ReactElement }) => (
-    <ol className="list-decimal mt-sm">{children}</ol>
+    <ol className="nine:list-decimal nine:mt-sm">{children}</ol>
   ),
   p: Paragraph,
   pre: Pre,
   strong: ({ children }: { children: React.ReactElement }) => (
-    <strong className="font-medium text-neutral-90">{children}</strong>
+    <strong className="nine:font-medium nine:text-neutral-90">{children}</strong>
   ),
   ul: ({ children }: { children: React.ReactElement }) => (
-    <ul className="list-disc mt-sm">{children}</ul>
+    <ul className="nine:list-disc nine:mt-sm">{children}</ul>
   ),
 }
 
 export const Mdx = ({ children = '' }) => {
   return (
-    <div className="max-w-full">
+    <div className="nine:max-w-full">
       <ReactMarkdown
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         //@ts-ignore

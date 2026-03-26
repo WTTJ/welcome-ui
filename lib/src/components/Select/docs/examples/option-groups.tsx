@@ -37,9 +37,9 @@ const Example = () => {
       onChange={handleChange}
       options={GROUP_ITEMS}
       renderGroupHeader={({ label, options }) => (
-        <div className="p-(--spacing-xxs))">
-          <div className="flex items-center justify-between">
-            <Text className="ml-(--spacing-sm) font-medium" variant="sm">
+        <div className="nine:p-(--nine-spacing-xxs))">
+          <div className="nine:flex nine:items-center nine:justify-between">
+            <Text className="nine:ml-(--nine-spacing-sm) nine:font-medium" variant="sm">
               {label}
             </Text>
             <Tag>{options.length}</Tag>

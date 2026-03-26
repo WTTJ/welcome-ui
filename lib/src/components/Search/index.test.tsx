@@ -41,7 +41,7 @@ const defaultProps = {
   itemToString: (item: Item) => item.title,
   renderItem: (item: Item) => (
     <div style={{ alignItems: 'center', display: 'flex' }}>
-      <div className="mr-(var(--space-xs) w-[20px]">
+      <div className="nine:mr-(var(--space-xs) nine:w-[20px]">
         <img src={item.poster} />
       </div>
       <span>{item.title}</span>

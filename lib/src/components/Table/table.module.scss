@@ -14,7 +14,7 @@
       border: 0;
 
       td {
-        padding: var(--spacing-xl);
+        padding: var(--nine-spacing-xl);
         text-align: left;
 
         &:first-child {
@@ -27,11 +27,11 @@
       }
 
       th {
-        border-bottom: var(--border-width-sm) solid var(--color-neutral-90);
-        color: var(--color-neutral-60);
-        font-weight: var(--font-weight-500);
+        border-bottom: var(--nine-border-width-sm) solid var(--nine-color-neutral-90);
+        color: var(--nine-color-neutral-60);
+        font-weight: var(--nine-font-weight-500);
         text-align: left;
-        padding: var(--spacing-xl);
+        padding: var(--nine-spacing-xl);
         vertical-align: middle;
 
         &:first-child {
@@ -44,10 +44,10 @@
       }
 
       tr {
-        border-bottom: var(--border-width-sm) solid var(--color-neutral-30);
+        border-bottom: var(--nine-border-width-sm) solid var(--nine-color-neutral-30);
         background-color: var(--trBackgroundColor, 'transparent');
         color: var(--trColor, 'inherit');
-        transition: background-color var(--duration-medium) ease-in-out;
+        transition: background-color var(--nine-duration-medium) ease-in-out;
 
         &:last-child {
           border: 0;
@@ -57,29 +57,29 @@
           cursor: pointer;
 
           &:hover {
-            background-color: var(--color-beige-10);
+            background-color: var(--nine-color-beige-10);
           }
         }
 
         &.variant {
           &-danger {
-            --trBackgroundColor: var(--color-red-10);
-            --trColor: var(--color-red-70);
+            --trBackgroundColor: var(--nine-color-red-10);
+            --trColor: var(--nine-color-red-70);
           }
 
           &-warning {
-            --trBackgroundColor: var(--color-orange-10);
-            --trColor: var(--color-orange-80);
+            --trBackgroundColor: var(--nine-color-orange-10);
+            --trColor: var(--nine-color-orange-80);
           }
 
           &-success {
-            --trBackgroundColor: var(--color-green-10);
-            --trColor: var(--color-green-70);
+            --trBackgroundColor: var(--nine-color-green-10);
+            --trColor: var(--nine-color-green-70);
           }
 
           &-info {
-            --trBackgroundColor: var(--color-blue-10);
-            --trColor: var(--color-blue-70);
+            --trBackgroundColor: var(--nine-color-blue-10);
+            --trColor: var(--nine-color-blue-70);
           }
         }
       }
@@ -91,11 +91,11 @@
       td,
       th {
         &:first-child {
-          padding-left: var(--spacing-xl);
+          padding-left: var(--nine-spacing-xl);
         }
 
         &:last-child {
-          padding-right: var(--spacing-xl);
+          padding-right: var(--nine-spacing-xl);
         }
       }
     }

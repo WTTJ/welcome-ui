@@ -22,7 +22,7 @@ export const PrevNextPage = ({ basePage, currentId, pages }: PrevNextPageProps) 
   const currentPageIndex = items.indexOf(currentId)
 
   return (
-    <div className="flex justify-between mt-3xl">
+    <div className="nine:flex nine:justify-between nine:mt-3xl">
       {currentPageIndex > 0 ? (
         <Button as={Link} href={`/${basePage}/${items[currentPageIndex - 1]}`} variant="tertiary">
           <LeftIcon />

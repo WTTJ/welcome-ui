@@ -7,7 +7,7 @@ const Example = () => {
   const [isHide, setHide] = React.useState(false)
 
   return isHide ? (
-    <Text className="text-red-70 font-bold m-0">Tag removed</Text>
+    <Text className="nine:text-red-70 nine:font-bold nine:m-0">Tag removed</Text>
   ) : (
     <Tag onRemove={() => setHide(true)}>Example of a removable tag</Tag>
   )

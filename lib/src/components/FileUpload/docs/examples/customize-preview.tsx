@@ -20,15 +20,21 @@ const Example = () => {
 
       return (
         <Tag
-          className="items-center bg-neutral-10 h-[60px] mt-sm px-xl"
+          className="nine:items-center nine:bg-neutral-10 nine:h-[60px] nine:mt-sm nine:px-xl"
           data-id={name}
           key={name}
           size="md"
         >
-          <Icon className="mr-sm" size="lg" />
+          <Icon className="nine:mr-sm" size="lg" />
           {name}
-          {size ? <div className="text-beige-60">({size})</div> : null}
-          <Button className="ml-xxl" onClick={onRemove} shape="square" size="sm" variant="ghost">
+          {size ? <div className="nine:text-beige-60">({size})</div> : null}
+          <Button
+            className="nine:ml-xxl"
+            onClick={onRemove}
+            shape="square"
+            size="sm"
+            variant="ghost"
+          >
             <CrossIcon />
           </Button>
         </Tag>

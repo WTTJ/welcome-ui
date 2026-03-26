@@ -137,14 +137,14 @@ const useGradient = () => {
   // Components
   const startGradient = isOverflowing ? (
     <span
-      className={cx('start-gradient', 'bg-linear-to-r  from-neutral-10 to-transparent')}
+      className={cx('start-gradient', 'bg-linear-to-r nine:from-neutral-10 nine:to-transparent')}
       ref={startGradientRef}
     />
   ) : null
 
   const endGradient = isOverflowing ? (
     <span
-      className={cx('end-gradient', 'bg-linear-to-l from-neutral-10 to-transparent')}
+      className={cx('end-gradient', 'bg-linear-to-l nine:from-neutral-10 nine:to-transparent')}
       ref={endGradientRef}
     />
   ) : null

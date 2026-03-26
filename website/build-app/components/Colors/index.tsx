@@ -34,25 +34,25 @@ export const Colors = ({ name }: ColorsProps) => {
   }
 
   return (
-    <div className="gap-md grid grid-cols-3 mt-md">
+    <div className="nine:gap-md nine:grid nine:grid-cols-3 nine:mt-md">
       {colors.map(({ value, variant }) => {
         const isWhite = variant === 'neutral-10'
 
         return (
-          <div className="flex items-center" key={`${name}.${variant}`}>
+          <div className="nine:flex nine:items-center" key={`${name}.${variant}`}>
             <div
               className={cx(
-                'bg-(--backgroundColor)',
-                isWhite && `border border-neutral-30`,
-                'size-[3.125rem] rounded-lg'
+                'nine:bg-(--backgroundColor)',
+                isWhite && `nine:border nine:border-neutral-30`,
+                'nine:size-[3.125rem] nine:rounded-lg'
               )}
-              style={{ '--backgroundColor': `var(--color-${variant})` } as CSSProperties}
+              style={{ '--backgroundColor': `var(--nine-color-${variant})` } as CSSProperties}
             />
-            <div className="px-sm">
+            <div className="nine:px-sm">
               <Text as="span" variant="h6">
                 {variant}
               </Text>
-              <Text as="span" className="mt-[0.1875rem] text-sm">
+              <Text as="span" className="nine:mt-[0.1875rem] nine:text-sm">
                 {value}
               </Text>
             </div>

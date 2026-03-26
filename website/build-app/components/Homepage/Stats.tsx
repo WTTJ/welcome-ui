@@ -39,16 +39,19 @@ const stats = [
 
 export const Stats = () => {
   return (
-    <div className="bg-neutral-10 flex justify-between max-w-[29.375rem] md:px-4xl px-xxl py-xxl rounded-2xl w-full">
+    <div className="nine:bg-neutral-10 nine:flex nine:justify-between nine:max-w-[29.375rem] nine:md:px-4xl nine:px-xxl nine:py-xxl nine:rounded-2xl nine:w-full">
       {stats?.map(stat => (
-        <div className="flex flex-col items-center text-center" key={stat.number}>
-          <div className="bg-neutral-90 flex h-[3.4375rem] items-center justify-center rounded-full text-neutral-10 w-[3.4375rem]">
+        <div
+          className="nine:flex nine:flex-col nine:items-center nine:text-center"
+          key={stat.number}
+        >
+          <div className="nine:bg-neutral-90 nine:flex nine:h-[3.4375rem] nine:items-center nine:justify-center nine:rounded-full nine:text-neutral-10 nine:w-[3.4375rem]">
             {stat.icon}
           </div>
-          <Text as="span" className="mt-lg" variant="h3">
+          <Text as="span" className="nine:mt-lg" variant="h3">
             {stat.number}
           </Text>
-          <Text as="span" className="mt-sm" variant="sm">
+          <Text as="span" className="nine:mt-sm" variant="sm">
             {stat.name}
           </Text>
         </div>

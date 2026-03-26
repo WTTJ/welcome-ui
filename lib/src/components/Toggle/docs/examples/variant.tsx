@@ -7,7 +7,7 @@ const Example = () => {
   const [toggle, setToggle] = React.useState(false)
 
   return (
-    <div className="flex gap-xl flex-col">
+    <div className="nine:flex nine:gap-xl nine:flex-col">
       <Field error="an error" hint="a hint" inline label="Toggle">
         <Toggle checked={toggle} onClick={() => setToggle(!toggle)} />
       </Field>

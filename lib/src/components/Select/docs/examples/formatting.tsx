@@ -25,7 +25,7 @@ const Example = () => {
       options={ITEMS}
       renderItem={(item: SelectOption) => (
         <div style={{ alignItems: 'center', display: 'flex' }}>
-          <WttjIcon className="mr-(--spacing-sm)" size="xs" />
+          <WttjIcon className="nine:mr-(--nine-spacing-sm)" size="xs" />
           <span>{item.label}</span>
         </div>
       )}

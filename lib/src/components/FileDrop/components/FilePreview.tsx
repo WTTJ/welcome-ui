@@ -34,7 +34,7 @@ export const FilePreview = ({
       {isUrl ? (
         <Button
           as="a"
-          className="mt-md"
+          className="nine:mt-md"
           href={file}
           rel="noopener noreferrer"
           size="sm"

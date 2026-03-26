@@ -21,10 +21,10 @@
 
     &:not(.inline) {
       .hint {
-        margin-top: var(--spacing-xs);
+        margin-top: var(--nine-spacing-xs);
       }
       .label {
-        margin-bottom: var(--spacing-sm);
+        margin-bottom: var(--nine-spacing-sm);
       }
     }
   }
@@ -34,8 +34,8 @@
     grid-template-columns: min-content 1fr;
     height: fit-content;
 
-    grid-row-gap: var(--spacing-xs);
-    grid-column-gap: var(--spacing-sm);
+    grid-row-gap: var(--nine-spacing-xs);
+    grid-column-gap: var(--nine-spacing-sm);
 
     &:has(.label):has(.hint) {
       grid-template-areas:

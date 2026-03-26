@@ -2,7 +2,7 @@
   .root {
     display: flex;
     align-items: flex-start;
-    gap: var(--spacing-sm);
+    gap: var(--nine-spacing-sm);
     flex-direction: row;
   }
 
@@ -15,66 +15,66 @@
   }
 
   .input {
-    border-radius: var(--radius-circle);
+    border-radius: var(--nine-radius-circle);
     order: -1;
     position: relative;
     outline: none;
     padding: 0;
-    transition: var(--duration-medium) var(--timing-primary);
+    transition: var(--nine-duration-medium) var(--nine-timing-primary);
     border-style: solid;
-    border-width: var(--border-width-sm);
-    border-color: var(--borderColor, var(--color-neutral-30));
-    color: var(--color-neutral-10);
-    height: var(--height-16);
-    width: var(--height-16);
-    margin-top: var(--spacing-xs);
+    border-width: var(--nine-border-width-sm);
+    border-color: var(--borderColor, var(--nine-color-neutral-30));
+    color: var(--nine-color-neutral-10);
+    height: var(--nine-height-16);
+    width: var(--nine-height-16);
+    margin-top: var(--nine-spacing-xs);
     cursor: var(--inputCursor, pointer);
 
     &:hover {
-      --borderColor: var(--color-neutral-40);
+      --borderColor: var(--nine-color-neutral-40);
     }
 
     &.disabled {
-      background-color: var(--color-beige-40);
+      background-color: var(--nine-color-beige-40);
       --inputCursor: not-allowed;
     }
 
     &.variant {
       &-danger {
-        --borderColor: var(--color-red-70);
+        --borderColor: var(--nine-color-red-70);
       }
 
       &-warning {
-        --borderColor: var(--color-orange-60);
+        --borderColor: var(--nine-color-orange-60);
       }
     }
 
     &::after {
       content: '';
       position: absolute;
-      width: var(--height-8);
-      height: var(--height-8);
-      border-radius: var(--radius-circle);
-      top: var(--spacing-3);
-      left: var(--spacing-3);
-      transition: var(--duration-medium);
-      background-color: var(--backgroundColor, var(--color-transparent));
+      width: var(--nine-height-8);
+      height: var(--nine-height-8);
+      border-radius: var(--nine-radius-circle);
+      top: var(--nine-spacing-3);
+      left: var(--nine-spacing-3);
+      transition: var(--nine-duration-medium);
+      background-color: var(--backgroundColor, var(--nine-color-transparent));
     }
 
     &[aria-checked='true'] {
       &:not([disabled]) {
-        --borderColor: var(--color-brand-40);
-        color: var(--color-neutral-90);
+        --borderColor: var(--nine-color-brand-40);
+        color: var(--nine-color-neutral-90);
       }
 
       &[disabled] {
         &::after {
-          --backgroundColor: var(--color-brand-30);
+          --backgroundColor: var(--nine-color-brand-30);
         }
       }
 
       &::after {
-        --backgroundColor: var(--color-brand-40);
+        --backgroundColor: var(--nine-color-brand-40);
       }
     }
   }

@@ -7,10 +7,10 @@ const Example = () => {
 
   return (
     <Card
-      className={`items-end bg-cover bg-center bg-no-repeat h-7xl max-w-400 flex bg-[url(${url})]`}
+      className={`items-end bg-cover bg-center bg-no-repeat nine:h-7xl nine:max-w-400 flex bg-[url(${url})]`}
     >
-      <div className="bg-linear-to-t from-neutral-80 to-neutral-80/0 p-xl w-full">
-        <Text as="h4" className="font-bold text-neutral-10 m-0">
+      <div className="nine:bg-linear-to-t nine:from-neutral-80 nine:to-neutral-80/0 nine:p-xl nine:w-full">
+        <Text as="h4" className="nine:font-bold nine:text-neutral-10 nine:m-0">
           The Jungle Book
         </Text>
       </div>

@@ -3,7 +3,7 @@ import { DateIcon } from '@/components/Icon'
 
 const Example = () => {
   return (
-    <div className="flex flex-col gap-xl">
+    <div className="nine:flex nine:flex-col nine:gap-xl">
       <DatePicker name="welcome" size="xs" value={new Date()} />
       <DatePicker name="welcome" size="sm" value={new Date()} />
       <DatePicker name="welcome" value={new Date()} />

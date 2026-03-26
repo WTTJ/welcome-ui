@@ -8,7 +8,7 @@ const Example = () => {
       <Avatar name="Wel" size="lg" />
       <Avatar name="Welc" size="xl" />
       <Avatar name="Welco" size="xxl" />
-      <Avatar className="bg-brand-40 size-[130px] text-[60px]" name="Custom" />
+      <Avatar className="nine:bg-brand-40 nine:size-[130px] nine:text-[60px]" name="Custom" />
     </>
   )
 }

@@ -12,7 +12,7 @@ export const Tokens = ({ children }: { children: React.ReactNode[] }) => {
     ?.props?.children?.replace('Token Group ', '')
 
   return (
-    <div className="flex flex-col gap-md">
+    <div className="nine:flex nine:flex-col nine:gap-md">
       {children.map((child, index) => {
         const key = `${snakeCase(tokenName)}-${index}`
 
@@ -23,7 +23,7 @@ export const Tokens = ({ children }: { children: React.ReactNode[] }) => {
         //@ts-ignore
         if (child?.props?.children?.startsWith('Token Group')) {
           return (
-            <Text className="mx-lg" key={key} variant="h4">
+            <Text className="nine:mx-lg" key={key} variant="h4">
               {/* @ts-ignore */}
               {child?.props?.children?.replace('Token Group ', '')}
             </Text>

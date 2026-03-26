@@ -1,7 +1,7 @@
 import { WelcomeUILogo } from '@/components/Logo'
 
 const Example = () => {
-  return <WelcomeUILogo className="h-[100px]" />
+  return <WelcomeUILogo className="nine:h-[100px]" />
 }
 
 export default Example

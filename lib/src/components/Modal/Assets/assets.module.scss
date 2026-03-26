@@ -22,7 +22,7 @@
   }
 
   .asset-backdrop {
-    background-color: color-mix(in oklab, var(--color-neutral-90) 90%, transparent);
+    background-color: color-mix(in oklab, var(--nine-color-neutral-90) 90%, transparent);
     z-index: 999;
     position: fixed;
     top: 0;
@@ -61,23 +61,23 @@
 
     display: flex;
     flex-direction: column;
-    border-radius: var(--spacing-xxl);
+    border-radius: var(--nine-spacing-xxl);
     overflow: hidden;
 
     .asset-title-wrapper {
-      background-color: var(--color-neutral-10);
+      background-color: var(--nine-color-neutral-10);
       display: flex;
       flex-direction: column;
       justify-content: center;
       flex-shrink: 0;
-      gap: var(--spacing-xxs);
+      gap: var(--nine-spacing-xxs);
       width: 100%;
       height: var(--titleBlockMobile);
-      padding-inline: var(--spacing-md);
+      padding-inline: var(--nine-spacing-md);
 
       @media (min-width: breakpoints.$breakpoint-md) {
         height: var(--titleBlockDesktop);
-        padding-inline: var(--spacing-xl);
+        padding-inline: var(--nine-spacing-xl);
       }
     }
 
@@ -93,7 +93,7 @@
     }
 
     .iframe-wrapper {
-      background-color: var(--color-neutral-90);
+      background-color: var(--nine-color-neutral-90);
       max-height: calc(100vh - 2 * 5rem - var(--titleBlockMobile));
 
       @media (min-width: breakpoints.$breakpoint-md) {
@@ -103,7 +103,7 @@
   }
 
   .asset-title {
-    margin: var(--spacing-0);
+    margin: var(--nine-spacing-0);
   }
 
   .asset-content {
@@ -134,7 +134,7 @@
     height: fit-content;
     width: fit-content;
     flex-direction: column;
-    border-radius: var(--radius-md);
+    border-radius: var(--nine-radius-md);
     opacity: 0;
     transition: opacity 250ms ease-in-out;
 
@@ -148,7 +148,7 @@
     }
 
     .asset-content {
-      margin-top: var(--spacing-xl);
+      margin-top: var(--nine-spacing-xl);
     }
 
     &[data-enter] {
@@ -162,17 +162,17 @@
 
   .close-button {
     position: absolute;
-    right: var(--spacing-xl);
-    top: var(--spacing-xl);
+    right: var(--nine-spacing-xl);
+    top: var(--nine-spacing-xl);
 
     /* Hack for secondary variant on dark mode */
     /* FIXME(isaac) this hack was already there, don't know what it does */
-    color: var(--color-neutral-90);
-    border-color: var(--color-neutral-10);
-    background-color: var(--color-neutral-10);
+    color: var(--nine-color-neutral-90);
+    border-color: var(--nine-color-neutral-10);
+    background-color: var(--nine-color-neutral-10);
 
     &:hover {
-      background-color: var(--color-neutral-40);
+      background-color: var(--nine-color-neutral-40);
     }
   }
 }

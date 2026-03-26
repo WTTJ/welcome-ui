@@ -30,9 +30,9 @@ const Example = () => {
       onChange={handleChange}
       options={ITEMS}
       renderItem={(item: SelectOption, selected?: boolean) => (
-        <div className="flex justify-between">
+        <div className="nine:flex nine:justify-between">
           {item.label}
-          <div className="flex">
+          <div className="nine:flex">
             <Checkbox checked={selected} type="checkbox" />
           </div>
         </div>

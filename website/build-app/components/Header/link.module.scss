@@ -1,7 +1,7 @@
 .header {
   height: 70px;
-  box-shadow: var(--color-neutral-30) 0px -1px 0px inset;
-  background-color: var(--color-neutral-10);
+  box-shadow: var(--nine-color-neutral-30) 0px -1px 0px inset;
+  background-color: var(--nine-color-neutral-10);
   position: sticky;
   top: 0;
   z-index: 2;
@@ -12,20 +12,20 @@
   display: flex;
   align-items: center;
 
-  color: var(--color-neutral-60);
+  color: var(--nine-color-neutral-60);
   border-bottom: 2px solid;
   border-bottom-color: transparent;
   transition:
-    border-bottom-color var(--duration-medium),
-    color var(--duration-medium);
+    border-bottom-color var(--nine-duration-medium),
+    color var(--nine-duration-medium);
 
   &:hover,
   &:focus {
-    color: var(--color-neutral-90);
+    color: var(--nine-color-neutral-90);
   }
 
   &[aria-current='page'] {
-    color: var(--color-neutral-90);
-    border-bottom-color: var(--color-brand-40);
+    color: var(--nine-color-neutral-90);
+    border-bottom-color: var(--nine-color-brand-40);
   }
 }

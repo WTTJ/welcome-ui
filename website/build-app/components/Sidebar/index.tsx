@@ -39,17 +39,17 @@ export const Sidebar = ({ className, isSubPage, menu, onClick }: SidebarProps) =
 
   return (
     <nav
-      className={`flex flex-col gap-3xl h-[calc(100vh - 5.5rem)] overflow-y-auto pt-3xl sticky top-[4.375rem] ${className}`}
+      className={`nine:flex nine:flex-col nine:gap-3xl nine:h-[calc(100vh-5.5rem)] nine:overflow-y-auto nine:pt-3xl nine:sticky nine:top-[4.375rem] ${className}`}
       ref={ref}
     >
       {menu.map(({ category, pages, parent }) => (
-        <ul className="flex flex-col shrink-0" key={`sidebar_${category}`}>
+        <ul className="nine:flex nine:flex-col nine:shrink-0" key={`sidebar_${category}`}>
           {category ? (
-            <Text className="mb-lg" variant="subtitle-sm">
+            <Text className="nine:mb-lg" variant="subtitle-sm">
               {getName(category)}
             </Text>
           ) : null}
-          <ul className="flex flex-col gap-lg">
+          <ul className="nine:flex nine:flex-col nine:gap-lg">
             {pages.map(({ id, parent: pageParent, title }) => {
               const href = `/${parent}/${pageParent ? `${pageParent}/` : ''}${id}`
               const isCurrent =

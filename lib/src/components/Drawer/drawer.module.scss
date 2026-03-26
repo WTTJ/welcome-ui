@@ -2,8 +2,8 @@
 
 @layer components {
   .root {
-    background-color: var(--color-neutral-10);
-    border: var(--border-width-sm) solid var(--color-neutral-30);
+    background-color: var(--nine-color-neutral-10);
+    border: var(--nine-border-width-sm) solid var(--nine-color-neutral-30);
     z-index: 999;
 
     position: fixed;
@@ -11,7 +11,7 @@
     flex-direction: column;
     overflow: auto;
     opacity: 0;
-    transition: var(--duration-medium);
+    transition: var(--nine-duration-medium);
     max-width: 100%;
 
     --drawer-left: 0;
@@ -85,7 +85,7 @@
   }
 
   .backdrop {
-    background-color: var(--color-overlay);
+    background-color: var(--nine-color-overlay);
     z-index: 999;
     position: fixed;
     top: 0;
@@ -106,7 +106,7 @@
 
   .content {
     flex: 1;
-    padding: var(--spacing-xl);
+    padding: var(--nine-spacing-xl);
 
     @media screen and (min-width: breakpoints.$breakpoint-md) {
       overflow-y: auto;
@@ -118,8 +118,8 @@
     position: sticky;
     z-index: 1;
     width: 100%;
-    background-color: var(--color-neutral-0);
-    padding: var(--spacing-xl);
+    background-color: var(--nine-color-neutral-0);
+    padding: var(--nine-spacing-xl);
 
     @media screen and (min-width: breakpoints.$breakpoint-md) {
       bottom: auto;
@@ -136,15 +136,15 @@
     top: 0;
     width: 100%;
 
-    background-color: var(--color-neutral-10);
+    background-color: var(--nine-color-neutral-10);
     margin: 0;
-    padding: var(--spacing-xl) var(--spacing-5xl) var(--spacing-xl) var(--spacing-xl);
+    padding: var(--nine-spacing-xl) var(--nine-spacing-5xl) var(--nine-spacing-xl) var(--nine-spacing-xl);
   }
 
   .drawer-close {
     position: absolute;
-    right: var(--spacing-lg);
-    top: var(--spacing-lg);
+    right: var(--nine-spacing-lg);
+    top: var(--nine-spacing-lg);
     z-index: 10;
   }
 }

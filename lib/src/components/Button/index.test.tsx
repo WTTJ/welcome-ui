@@ -112,31 +112,31 @@ describe('Button', () => {
 
   it('should allow tailwind classes override', () => {
     render(
-      <Button className="mt-3xl" data-testid="button">
+      <Button className="nine:mt-3xl" data-testid="button">
         {content}
       </Button>
     )
 
     const button = screen.getByTestId('button')
 
-    expect(button).toHaveClass('mt-3xl')
+    expect(button).toHaveClass('nine:mt-3xl')
   })
 
   it('should allow tailwind classes override when using render prop', () => {
     render(
-      <Button as="a" className="px-3xl" data-testid="button">
+      <Button as="a" className="nine:px-3xl" data-testid="button">
         {content}
       </Button>
     )
 
     const button = screen.getByTestId('button')
 
-    expect(button).toHaveClass('px-3xl')
+    expect(button).toHaveClass('nine:px-3xl')
   })
 
   it('should forward as Link', () => {
     render(
-      <Button as={Link} className="wui-test mt-3xl" data-testid="button" target="_blank">
+      <Button as={Link} className="wui-test nine:mt-3xl" data-testid="button" target="_blank">
         {content}
       </Button>
     )
@@ -145,7 +145,7 @@ describe('Button', () => {
 
     expect(button.tagName.toLowerCase()).toBe('a')
     expect(button).toHaveClass('wui-test')
-    expect(button).toHaveClass('mt-3xl')
+    expect(button).toHaveClass('nine:mt-3xl')
     expect(button).toHaveAttribute('rel', 'noopener noreferrer') // added by target="_blank" on Link
   })
 

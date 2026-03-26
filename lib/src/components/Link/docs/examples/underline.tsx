@@ -4,8 +4,8 @@ import { Text } from '@/components/Text'
 
 const Example = () => {
   return (
-    <div className="flex flex-col gap-xl">
-      <Link className="flex flex-row gap-xs" href="#">
+    <div className="nine:flex nine:flex-col nine:gap-xl">
+      <Link className="nine:flex nine:flex-row nine:gap-xs" href="#">
         <Avatar
           name="jungle"
           size="lg"
@@ -13,19 +13,19 @@ const Example = () => {
         />
         This is a text node
       </Link>
-      <Link className="flex flex-row gap-xs" href="#">
+      <Link className="nine:flex nine:flex-row nine:gap-xs" href="#">
         <Avatar name="jungle" size="lg" />
         <span>This is a text in a span tag</span>
       </Link>
-      <Link className="flex flex-row gap-xs" href="#">
+      <Link className="nine:flex nine:flex-row nine:gap-xs" href="#">
         <Avatar name="jungle" size="lg" />
         <Text>This is a text in a Text component</Text>
       </Link>
-      <Link className="flex flex-row gap-xs" href="#">
+      <Link className="nine:flex nine:flex-row nine:gap-xs" href="#">
         <Avatar name="jungle" size="lg" />
         <div>This is a text in a div tag</div>
       </Link>
-      <Link className="flex flex-row gap-xs" href="#">
+      <Link className="nine:flex nine:flex-row nine:gap-xs" href="#">
         <Avatar name="jungle" size="lg" />
         <Text as="span">This is a Text component as span</Text>
       </Link>

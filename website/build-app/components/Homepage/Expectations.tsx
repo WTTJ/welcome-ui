@@ -70,12 +70,12 @@ const expectations: ExpectationProps[] = [
 
 const Expectation = ({ description, icon: Icon, title }: ExpectationProps) => {
   return (
-    <Card className="p-md w-full">
+    <Card className="nine:p-md nine:w-full">
       <Icon color="neutral-90" size="xl" />
-      <Text as="span" className="mb-md mt-lg uppercase" variant="h6">
+      <Text as="span" className="nine:mb-md nine:mt-lg nine:uppercase" variant="h6">
         {title}
       </Text>
-      <Text className="m-0" variant="sm">
+      <Text className="nine:m-0" variant="sm">
         {description}
       </Text>
     </Card>
@@ -84,7 +84,7 @@ const Expectation = ({ description, icon: Icon, title }: ExpectationProps) => {
 
 export const Expectations = () => {
   return (
-    <div className="gap-lg grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1">
+    <div className="nine:gap-lg nine:grid nine:lg:grid-cols-4 nine:md:grid-cols-3 nine:grid-cols-1">
       {expectations.map(expectation => (
         <Expectation key={expectation.title} {...expectation} />
       ))}

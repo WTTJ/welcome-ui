@@ -46,11 +46,11 @@ export const Header = ({ components, foundations }: HeaderProps) => {
   return (
     <header className={cx('header')}>
       <Toast />
-      <div className="flex gap-lg h-full items-center justify-between max-w-[87.5rem] mx-auto px-md text-neutral-60">
-        <div className="flex gap-lg items-center">
-          <div className="shrink-0">
+      <div className="nine:flex nine:gap-lg nine:h-full nine:items-center nine:justify-between nine:max-w-[87.5rem] nine:mx-auto nine:px-md nine:text-neutral-60">
+        <div className="nine:flex nine:gap-lg nine:items-center">
+          <div className="nine:shrink-0">
             <Link href="/">
-              <WelcomeUILogo className="h-[40px]" />
+              <WelcomeUILogo className="nine:h-[40px]" />
             </Link>
           </div>
           <VersionSelector />
@@ -58,16 +58,16 @@ export const Header = ({ components, foundations }: HeaderProps) => {
         </div>
         <Drawer.Trigger
           as={Button}
-          className="lg:hidden shrink-0"
+          className="nine:lg:hidden nine:shrink-0"
           shape="circle"
           size="sm"
           store={drawer}
         >
           <MenuIcon />
         </Drawer.Trigger>
-        <NavBar className="hidden lg:flex" />
-        <Drawer className="lg:hidden z-[999]" size="100%" store={drawer} withBackdrop>
-          <Drawer.Content className="pt-4xl">
+        <NavBar className="nine:hidden nine:lg:flex" />
+        <Drawer className="nine:lg:hidden nine:z-[999]" size="100%" store={drawer} withBackdrop>
+          <Drawer.Content className="nine:pt-4xl">
             <NavBar onClick={handleCloseDrawer} />
             {menu ? <Sidebar isSubPage menu={menu} onClick={handleCloseDrawer} /> : null}
           </Drawer.Content>

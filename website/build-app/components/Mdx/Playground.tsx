@@ -62,12 +62,12 @@ export const Playground = ({
 
   return (
     <>
-      <div className="block">
+      <div className="nine:block">
         <div
           className={cx(
-            'bg-neutral-10 border border-beige-40 flex-wrap gap-lg mt-xl p-sm lg:p-3xl relative rounded-lg',
-            columnDirection ? 'flex-col items-left' : 'items-center',
-            removeFlex ? 'block' : 'flex',
+            'nine:bg-neutral-10 nine:border nine:border-beige-40 nine:flex-wrap nine:gap-lg nine:mt-xl nine:p-sm nine:lg:p-3xl nine:relative nine:rounded-lg',
+            columnDirection ? 'nine:flex-col nine:items-left' : 'nine:items-center',
+            removeFlex ? 'nine:block' : 'nine:flex',
             className
           )}
         >
@@ -76,8 +76,8 @@ export const Playground = ({
       </div>
       {withCodeEditor ? (
         <>
-          <div className="bg-beige-30 border border-beige-40 -mt-md overflow-hidden pt-lg rounded-lg pb-xs">
-            <div className="flex gap-xs pl-sm">
+          <div className="nine:bg-beige-30 nine:border nine:border-beige-40 nine:-mt-md nine:overflow-hidden nine:pt-lg nine:rounded-lg nine:pb-xs">
+            <div className="nine:flex nine:gap-xs nine:pl-sm">
               <Tooltip content="View code">
                 <Button
                   onClick={() => setIsHighlightOpen(!isHighlightOpen)}

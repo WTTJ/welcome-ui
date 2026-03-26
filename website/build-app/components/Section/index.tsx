@@ -9,8 +9,8 @@ export const Section = ({
   ...rest
 }: SectionProps) => {
   return (
-    <Element className={`md:py-[90px] py-xxl relative ${className}`} {...rest}>
-      <div className="max-w-[75rem] mx-auto px-lg relative">{children}</div>
+    <Element className={`nine:md:py-[90px] nine:py-xxl nine:relative ${className}`} {...rest}>
+      <div className="nine:max-w-[75rem] nine:mx-auto nine:px-lg nine:relative">{children}</div>
     </Element>
   )
 }

@@ -26,7 +26,7 @@ const Example = () => {
         Tab.Panel 3
       </Tab.Panel>
       {/* sm size */}
-      <Tab.List aria-label="Tabs" className="mt-xxl" size="sm" store={tab}>
+      <Tab.List aria-label="Tabs" className="nine:mt-xxl" size="sm" store={tab}>
         <Tab id="tab1" store={tab}>
           Tab 1
         </Tab>

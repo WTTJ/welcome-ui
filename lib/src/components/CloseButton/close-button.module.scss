@@ -1,14 +1,14 @@
 @layer components {
   .root {
     & > svg:only-child {
-      width: var(--spacing-md);
-      height: var(--spacing-md);
+      width: var(--nine-spacing-md);
+      height: var(--nine-spacing-md);
     }
   }
 
   .animate-presence {
-    animation-duration: var(--duration-medium);
-    animation-timing-function: var(--timing-primary);
+    animation-duration: var(--nine-duration-medium);
+    animation-timing-function: var(--nine-timing-primary);
     animation-name: fade;
   }
 

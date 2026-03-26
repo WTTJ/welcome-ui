@@ -9,7 +9,7 @@ const Example = () => {
       <PositiveStraightIcon size="lg" />
       <PositiveStraightIcon size="xl" />
       <PositiveStraightIcon size="xxl" />
-      <PositiveStraightIcon className="size-[90px]" />
+      <PositiveStraightIcon className="nine:size-[90px]" />
     </>
   )
 }

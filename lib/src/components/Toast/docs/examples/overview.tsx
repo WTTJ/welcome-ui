@@ -7,13 +7,13 @@ const cx = classNames()
 const Element = () => (
   <div
     className={cx(
-      'bg-neutral-10',
-      'border-beige-30',
-      'border-solid',
-      'border-1px',
-      'rounded-lg',
-      'text-neutral-90',
-      'p-sm'
+      'nine:bg-neutral-10',
+      'nine:border-beige-30',
+      'nine:border-solid',
+      'nine:border-1px',
+      'nine:rounded-lg',
+      'nine:text-neutral-90',
+      'nine:p-sm'
     )}
   >
     Lorem ipsum dolor sit amet

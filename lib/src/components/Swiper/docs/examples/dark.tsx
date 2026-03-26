@@ -8,9 +8,9 @@ const Example = () => {
   })
 
   return (
-    <Swiper className="h-[350px]" store={swiper}>
+    <Swiper className="nine:h-[350px]" store={swiper}>
       {[...Array(6)].map(item => (
-        <div className="border border-neutral-30 h-[18.75rem]" key={item}></div>
+        <div className="nine:border nine:border-neutral-30 nine:h-[18.75rem]" key={item}></div>
       ))}
     </Swiper>
   )

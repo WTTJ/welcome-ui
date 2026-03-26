@@ -2,9 +2,9 @@
   .title {
     display: flex;
     align-items: center;
-    padding-bottom: var(--spacing-xs);
-    color: var(--color-neutral-90);
-    font-weight: var(--font-weight-bold);
+    padding-bottom: var(--nine-spacing-xs);
+    color: var(--nine-color-neutral-90);
+    font-weight: var(--nine-font-weight-bold);
 
     & > *:first-child {
       flex-shrink: 0;
@@ -13,15 +13,15 @@
 
   .growl {
     position: relative;
-    padding: var(--spacing-lg);
-    border-radius: var(--radius-lg);
+    padding: var(--nine-spacing-lg);
+    border-radius: var(--nine-radius-lg);
     border-style: solid;
-    border-width: var(--border-width-sm);
+    border-width: var(--nine-border-width-sm);
     max-width: 340px;
 
     & div:first-of-type {
       align-self: baseline;
-      font-size: var(--font-size-sm);
+      font-size: var(--nine-font-size-sm);
     }
 
     & button {
@@ -32,38 +32,38 @@
   .snackbar {
     display: flex;
     align-items: center;
-    padding: var(--spacing-sm) var(--spacing-md);
-    border-radius: var(--radius-lg);
+    padding: var(--nine-spacing-sm) var(--nine-spacing-md);
+    border-radius: var(--nine-radius-lg);
     width: max-content;
-    gap: var(--spacing-sm);
+    gap: var(--nine-spacing-sm);
 
     & div:first-of-type {
       align-self: center;
-      font-size: var(--font-size-sm);
+      font-size: var(--nine-font-size-sm);
     }
 
     & div:last-of-type {
       flex-direction: row;
-      margin-left: var(--spacing-xs) !important;
+      margin-left: var(--nine-spacing-xs) !important;
     }
   }
 
   .snackbar-separator {
-    padding-left: var(--spacing-sm);
+    padding-left: var(--nine-spacing-sm);
     border-left: 1px solid;
     border-left-color: var(--borderLeftColor, --color-neutral-90);
 
     &.info {
-      --borderLeftColor: var(--color-blue-30);
+      --borderLeftColor: var(--nine-color-blue-30);
     }
     &.success {
-      --borderLeftColor: var(--color-green-30);
+      --borderLeftColor: var(--nine-color-green-30);
     }
     &.warning {
-      --borderLeftColor: var(--color-orange-20);
+      --borderLeftColor: var(--nine-color-orange-20);
     }
     &.danger {
-      --borderLeftColor: var(--color-red-20);
+      --borderLeftColor: var(--nine-color-red-20);
     }
   }
 }

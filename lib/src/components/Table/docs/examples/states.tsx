@@ -10,7 +10,7 @@ const Example = () => {
           <Table.Th>Name</Table.Th>
           <Table.Th>Description</Table.Th>
           <Table.Th>Number</Table.Th>
-          <Table.Th className="text-right">Actions</Table.Th>
+          <Table.Th className="nine:text-right">Actions</Table.Th>
         </Table.Tr>
       </Table.Thead>
       <Table.Tbody>
@@ -18,7 +18,7 @@ const Example = () => {
           <Table.Td>Consectetur</Table.Td>
           <Table.Td>Lorem ipsum dolor sit amet</Table.Td>
           <Table.Td>23</Table.Td>
-          <Table.Td className="text-right">
+          <Table.Td className="nine:text-right">
             <Button shape="circle" size="sm" variant="secondary">
               <SettingsIcon size="sm" />
             </Button>
@@ -28,7 +28,7 @@ const Example = () => {
           <Table.Td>Suspendisse</Table.Td>
           <Table.Td>Pellentesque a maximus magna</Table.Td>
           <Table.Td>41</Table.Td>
-          <Table.Td className="text-right">
+          <Table.Td className="nine:text-right">
             <Button shape="circle" size="sm" variant="secondary">
               <SettingsIcon size="sm" />
             </Button>
@@ -38,7 +38,7 @@ const Example = () => {
           <Table.Td>Ullamcorper</Table.Td>
           <Table.Td>Cras viverra ac erat ullamcorper maximus</Table.Td>
           <Table.Td>8</Table.Td>
-          <Table.Td className="text-right">
+          <Table.Td className="nine:text-right">
             <Button shape="circle" size="sm" variant="secondary">
               <SettingsIcon size="sm" />
             </Button>
@@ -48,7 +48,7 @@ const Example = () => {
           <Table.Td>Vestibulum</Table.Td>
           <Table.Td>Aliquam erat volutpat</Table.Td>
           <Table.Td>102</Table.Td>
-          <Table.Td className="text-right">
+          <Table.Td className="nine:text-right">
             <Button shape="circle" size="sm" variant="secondary">
               <SettingsIcon size="sm" />
             </Button>

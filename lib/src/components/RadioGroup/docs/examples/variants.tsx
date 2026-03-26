@@ -12,7 +12,7 @@ const Example = () => {
   return (
     <Field error="an error" label="Label">
       <RadioGroup
-        className="flex-col"
+        className="nine:flex-col"
         hideLabel
         label="Radio Group with error"
         name="social"

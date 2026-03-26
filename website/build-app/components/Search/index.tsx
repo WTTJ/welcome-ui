@@ -31,7 +31,7 @@ export const Search = () => {
   return (
     <>
       <InputText
-        className="max-w-full w-[18.75rem]"
+        className="nine:max-w-full nine:w-[18.75rem]"
         icon={<SearchIcon />}
         onClick={() => setIsOpen(true)}
         onFocus={() => setIsOpen(true)}

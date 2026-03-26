@@ -6,7 +6,7 @@ const Example = () => {
   const [checkbox, setCheckbox] = React.useState(false)
 
   return (
-    <div className="items-center flex gap-sm">
+    <div className="nine:items-center nine:flex nine:gap-sm">
       <Checkbox
         checked={checkbox}
         name="default-variant"

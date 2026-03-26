@@ -2,7 +2,7 @@ import { Loader } from '../../index'
 
 const Example = () => {
   return (
-    <div className="flex flex-col gap-xl">
+    <div className="nine:flex nine:flex-col nine:gap-xl">
       <Loader size="xs" />
       <Loader />
       <Loader size="md" />

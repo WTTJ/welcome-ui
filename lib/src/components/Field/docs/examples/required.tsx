@@ -4,7 +4,7 @@ import { InputText } from '@/components/InputText'
 
 const Example = () => {
   return (
-    <div className="flex flex-col gap-lg">
+    <div className="nine:flex nine:flex-col nine:gap-lg">
       <Field label="Label" required>
         <InputText placeholder="Placeholder" />
       </Field>

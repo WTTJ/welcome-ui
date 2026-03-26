@@ -102,19 +102,19 @@ export const Property = ({ id, name, options }: PropertyProps) => {
   }
 
   return (
-    <div className="mt-lg scroll-mt-[170px]" id={id}>
-      <div className="border-b border-b-neutral-30 flex gap-md items-center mb-md pb-md">
+    <div className="nine:mt-lg nine:scroll-mt-[170px]" id={id}>
+      <div className="nine:border-b nine:border-b-neutral-30 nine:flex nine:gap-md nine:items-center nine:mb-md nine:pb-md">
         <Code>{name}</Code>
         {required ? <Badge variant="primary">Required</Badge> : null}
       </div>
-      <Text className="text-neutral-90">
+      <Text className="nine:text-neutral-90">
         {getType(type)}
-        <span className="text-neutral-70">
+        <span className="nine:text-neutral-70">
           {defaultLabel ? ` | undefined = ${defaultLabel}` : null}
         </span>
       </Text>
       {description ? (
-        <Text className="mt-sm" variant="sm">
+        <Text className="nine:mt-sm" variant="sm">
           {description}
         </Text>
       ) : null}
@@ -124,19 +124,19 @@ export const Property = ({ id, name, options }: PropertyProps) => {
 
 export const Properties = ({ items }: PropertiesProps) => {
   if (!items) {
-    return <p className="pt-lg">No props specified</p>
+    return <p className="nine:pt-lg">No props specified</p>
   }
 
   return (
-    <div className="flex flex-col gap-3xl">
+    <div className="nine:flex nine:flex-col nine:gap-3xl">
       {Object.entries(items).map(props => {
         const name = props[0]
         const { props: properties } = props[1]
 
         return (
           <section key={kebabCase(`property_${name}`)}>
-            {name ? <H2 className="mt-0">{name}</H2> : null}
-            <div className="flex flex-col gap-xl mt-md">
+            {name ? <H2 className="nine:mt-0">{name}</H2> : null}
+            <div className="nine:flex nine:flex-col nine:gap-xl nine:mt-md">
               {Object.entries(properties).map(item => (
                 <Property
                   id={kebabCase(`${name}_${item[0]}`)}

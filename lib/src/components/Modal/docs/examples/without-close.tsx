@@ -11,7 +11,7 @@ const Example = () => {
       </Modal.Trigger>
       <Modal ariaLabel="example" store={modal}>
         <Modal.Content withClosingButton={false}>
-          <div className="flex flex-col gap-(--spacing-xxl) p-(--spacing-3xl)">
+          <div className="nine:flex nine:flex-col nine:gap-(--nine-spacing-xxl) nine:p-(--nine-spacing-3xl)">
             <span>
               Praesent sit amet quam ac velit faucibus dapibus. Quisque sapien ligula, rutrum quis
               aliquam nec, convallis sit amet erat. Mauris auctor blandit porta. In imperdiet rutrum

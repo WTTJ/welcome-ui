@@ -1,11 +1,11 @@
 /* stylelint-disable no-descending-specificity */
 .react-datepicker {
-  padding: var(--spacing-lg);
+  padding: var(--nine-spacing-lg);
   font-family: inherit;
-  font-size: var(--font-size-sm);
-  background-color: var(--color-neutral-10);
-  border: var(--border-width-sm) solid var(--color-neutral-30);
-  border-radius: var(--radius-md);
+  font-size: var(--nine-font-size-sm);
+  background-color: var(--nine-color-neutral-10);
+  border: var(--nine-border-width-sm) solid var(--nine-color-neutral-30);
+  border-radius: var(--nine-radius-md);
 
   &--time-only {
     padding: 0;
@@ -58,7 +58,7 @@
 
         li.react-datepicker__time-list-item {
           height: auto;
-          padding: var(--spacing-sm);
+          padding: var(--nine-spacing-sm);
           cursor: pointer;
         }
       }
@@ -68,15 +68,15 @@
 
 .react-datepicker__header {
   padding: 0;
-  background-color: var(--color-neutral-10);
+  background-color: var(--nine-color-neutral-10);
   border: none;
 }
 
 .react-datepicker__day,
 .react-datepicker__day-name,
 .react-datepicker__time-list-item {
-  color: var(--color-beige-70);
-  font-weight: var(--font-weight-regular);
+  color: var(--nine-color-beige-70);
+  font-weight: var(--nine-font-weight-regular);
 }
 
 .react-datepicker__day {
@@ -86,19 +86,19 @@
   }
   &-name {
     text-transform: uppercase;
-    font-weight: var(--font-weight-medium);
-    font-size: var(--font-size-xs);
+    font-weight: var(--nine-font-weight-medium);
+    font-size: var(--nine-font-size-xs);
     letter-spacing: 1px;
   }
   &--outside-month {
-    color: var(--color-beige-60);
+    color: var(--nine-color-beige-60);
   }
 }
 
 .react-datepicker__day--today {
-  color: var(--color-neutral-90);
-  font-weight: var(--font-weight-bold);
-  background-color: var(--color-brand-40);
+  color: var(--nine-color-neutral-90);
+  font-weight: var(--nine-font-weight-bold);
+  background-color: var(--nine-color-brand-40);
 }
 
 .react-datepicker__day:hover,
@@ -108,7 +108,7 @@
   .react-datepicker__time-box
   ul.react-datepicker__time-list
   li.react-datepicker__time-list-item:hover {
-  background-color: var(--color-beige-20);
+  background-color: var(--nine-color-beige-20);
 }
 
 .react-datepicker__day,
@@ -117,9 +117,9 @@
 .react-datepicker__day--in-selecting-range,
 .react-datepicker__day--in-range,
 .react-datepicker__day:not([aria-disabled='true']) {
-  border-radius: var(--radius-circle);
+  border-radius: var(--nine-radius-circle);
   &:hover {
-    border-radius: var(--radius-circle);
+    border-radius: var(--nine-radius-circle);
   }
 }
 
@@ -130,15 +130,15 @@
   .react-datepicker__month-text--in-selecting-range,
   .react-datepicker__month-text--in-range,
   .react-datepicker__month-text:hover {
-    width: var(--spacing-4xl);
-    height: var(--spacing-xxl);
+    width: var(--nine-spacing-4xl);
+    height: var(--nine-spacing-xxl);
     margin: 2px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: var(--spacing-xxl);
+    border-radius: var(--nine-spacing-xxl);
     &:hover {
-      border-radius: var(--spacing-xxl);
+      border-radius: var(--nine-spacing-xxl);
     }
   }
 }
@@ -157,15 +157,15 @@
 .react-datepicker__month .react-datepicker__month-text--selected,
 .react-datepicker__month .react-datepicker__month-text--in-selecting-range,
 .react-datepicker__month .react-datepicker__month-text--in-range {
-  background-color: var(--color-brand-40);
-  color: var(--color-neutral-90);
-  font-weight: var(--font-weight-bold);
+  background-color: var(--nine-color-brand-40);
+  color: var(--nine-color-neutral-90);
+  font-weight: var(--nine-font-weight-bold);
   outline: none;
 
   &:hover {
-    background-color: var(--color-brand-40);
-    color: var(--color-neutral-90);
-    font-weight: var(--font-weight-bold);
+    background-color: var(--nine-color-brand-40);
+    color: var(--nine-color-neutral-90);
+    font-weight: var(--nine-font-weight-bold);
     outline: none;
   }
 }
@@ -179,5 +179,5 @@
 .react-datepicker__current-month,
 .react-datepicker-time__header,
 .react-datepicker-year-header {
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--nine-font-weight-medium);
 }
