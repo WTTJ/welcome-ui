@@ -26,6 +26,13 @@
       "types": "./*.d.ts"
     }
   },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "dist/types/components/*/index.d.ts"
+      ]
+    }
+  },
   "scripts": {
     "start": "vite build --watch",
     "build": "vite build && node ./scripts/patch-css-imports.js",
