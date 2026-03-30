@@ -8,11 +8,11 @@ const Example = () => {
   })
 
   return (
-    <Window className="max-w-400">
+    <Window className="max-w-500">
       <Window.Header>
         <Window.Header.LeftActions isExpandable />
         <Window.Header.Tabs store={tabStore}>
-          <Window.Header.Tab icon="folder" id="tab1" store={tabStore}>
+          <Window.Header.Tab badge="1" icon="folder" id="tab1" store={tabStore}>
             1st tab
           </Window.Header.Tab>
           <Window.Header.Tab disabled icon="file" id="tab2" store={tabStore}>
