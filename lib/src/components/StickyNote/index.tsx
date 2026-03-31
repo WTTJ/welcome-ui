@@ -8,6 +8,8 @@ import { Title } from './components/Title'
 import styles from './sticky-note.module.scss'
 import type { StickyNoteProps } from './types'
 
+export { styles as stickyNoteClasses }
+
 const cx = classNames(styles)
 
 const StickyNoteComponent = forwardRef<HTMLDivElement, StickyNoteProps>(

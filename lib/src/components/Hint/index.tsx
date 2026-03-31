@@ -6,6 +6,8 @@ import { classNames } from '@/utils'
 import hintStyles from './hint.module.scss'
 import type { HintProps } from './types'
 
+export { hintStyles as hintClasses }
+
 const cx = classNames(hintStyles)
 
 export const Hint = forwardRef<HTMLSpanElement, HintProps>(

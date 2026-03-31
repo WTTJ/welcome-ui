@@ -9,6 +9,8 @@ import styles from './stepper.module.scss'
 import type { StepperItemProps, StepperProps } from './types'
 import { getIcon } from './utils'
 
+export { styles as stepperClasses }
+
 const cx = classNames(styles)
 
 const StepperComponent = forwardRef<HTMLOListElement, StepperProps>(

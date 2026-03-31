@@ -8,6 +8,8 @@ import { forwardRefWithAs } from '@/utils/forwardRefWithAs'
 import buttonStyles from './button.module.scss'
 import type { ButtonProps } from './types'
 
+export { buttonStyles as buttonClasses }
+
 const cx = classNames(buttonStyles)
 
 export const Button = forwardRefWithAs<ButtonProps, 'button'>(

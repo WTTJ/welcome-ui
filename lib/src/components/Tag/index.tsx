@@ -7,6 +7,8 @@ import { classNames, forwardRefWithAs } from '@/utils'
 import tagStyles from './tag.module.scss'
 import type { TagOptions } from './types'
 
+export { tagStyles as tagClasses }
+
 const cx = classNames(tagStyles)
 
 function getTextLength(children: React.ReactNode): number | undefined {

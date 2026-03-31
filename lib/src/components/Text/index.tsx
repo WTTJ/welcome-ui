@@ -5,6 +5,8 @@ import { classNames, forwardRefWithAs } from '@/utils'
 import textStyles from './text.module.scss'
 import type { TextProps } from './types'
 
+export { textStyles as textClasses }
+
 const cx = classNames(textStyles)
 
 export const Text = forwardRefWithAs<TextProps, 'p'>(

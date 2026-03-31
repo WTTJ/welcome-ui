@@ -12,6 +12,8 @@ import { Icon } from '../Icon'
 import checkboxStyles from './checkbox.module.scss'
 import type { CheckboxProps } from './types'
 
+export { checkboxStyles as checkboxClasses }
+
 const cx = classNames(checkboxStyles)
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(

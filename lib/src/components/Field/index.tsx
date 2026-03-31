@@ -7,6 +7,8 @@ import { classNames, forwardRefWithAs } from '@/utils'
 import fieldStyles from './field.module.scss'
 import type { FieldOptions, FieldState, FieldStateVariant } from './types'
 
+export { fieldStyles as fieldClasses }
+
 const cx = classNames(fieldStyles)
 
 export const FieldContext = createContext<FieldState>({

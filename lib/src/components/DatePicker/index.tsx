@@ -15,6 +15,8 @@ import { classNames } from '@/utils'
 
 import type { DatePickerProps } from './types'
 
+export { styles as datePickerClasses }
+
 const cx = classNames(styles)
 
 export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(

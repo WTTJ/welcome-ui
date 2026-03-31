@@ -8,6 +8,8 @@ import { classNames } from '@/utils'
 import toggleStyles from './toggle.module.scss'
 import type { ToggleProps } from './types'
 
+export { toggleStyles as toggleClasses }
+
 const cx = classNames(toggleStyles)
 
 export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(

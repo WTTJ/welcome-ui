@@ -12,6 +12,8 @@ import { Snackbar, SnackbarAction } from './components/Snackbar'
 import toastStyles from './toast.module.scss'
 import type { ToastOptions, ToastVariant } from './types'
 
+export { toastStyles as toastClasses }
+
 const cx = classNames(toastStyles)
 
 export const ICON: Record<ToastVariant, IconProps['name']> = {

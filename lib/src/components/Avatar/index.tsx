@@ -11,6 +11,8 @@ import styles from './avatar.module.scss'
 import type { AvatarProps } from './types'
 import { getInitials as defaultGetInitials, getColorFromName } from './utils'
 
+export { styles as avatarClasses }
+
 const cx = classNames(styles)
 
 const iconSizes: { [size in AvatarProps['size']]: IconProps['size'] } = {

@@ -5,6 +5,8 @@ import { classNames } from '@/utils'
 import tableStyles from './table.module.scss'
 import type { TableProps, TableTrProps } from './types'
 
+export { tableStyles as tableClasses }
+
 const cx = classNames(tableStyles)
 
 export const TableComponent = forwardRef<HTMLDivElement, TableProps>(

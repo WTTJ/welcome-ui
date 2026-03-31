@@ -8,6 +8,8 @@ import { classNames } from '@/utils'
 import inputTextStyles from './input-text.module.scss'
 import type { InputTextProps, Size } from './types'
 
+export { inputTextStyles as inputTextClasses }
+
 const cx = classNames(inputTextStyles)
 
 const FIELD_ICON_SIZE: { [key in Size]: string } = { lg: 'md', md: 'md', sm: 'sm' }

@@ -9,6 +9,8 @@ import { Range } from './Range'
 import SliderStyles from './slider.module.scss'
 import type { RangeOptions, RangeProps, RangeType, SliderOptions, SliderProps } from './types'
 
+export { SliderStyles as sliderClasses }
+
 export type { RangeOptions, RangeProps, RangeType, SliderOptions, SliderProps }
 export const thumbWidth = 20
 

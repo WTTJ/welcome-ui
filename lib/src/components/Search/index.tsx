@@ -11,6 +11,8 @@ import { throttle as handleThrottle } from '@/utils/throttle'
 import searchStyles from './search.module.scss'
 import type { Item, SearchOption, SearchOptionGroup, SearchProps } from './types'
 
+export { searchStyles as searchClasses }
+
 const EMPTY_STRING = ''
 
 const cx = classNames(searchStyles)

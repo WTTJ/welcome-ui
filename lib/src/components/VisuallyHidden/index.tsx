@@ -3,6 +3,8 @@ import { classNames, forwardRefWithAs } from '@/utils'
 import type { VisuallyHiddenProps } from './types'
 import styles from './visually-hidden.module.scss'
 
+export { styles as visuallyHiddenClasses }
+
 const cx = classNames(styles)
 
 export const VisuallyHidden = forwardRefWithAs<VisuallyHiddenProps, 'span'>(

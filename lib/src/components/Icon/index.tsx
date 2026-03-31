@@ -5,6 +5,8 @@ import { classNames } from '@/utils'
 import iconStyles from './icon.module.scss'
 import type { IconProps } from './types'
 
+export { iconStyles as iconClasses }
+
 const cx = classNames(iconStyles)
 
 export const Icon = forwardRef<SVGSVGElement, IconProps>(

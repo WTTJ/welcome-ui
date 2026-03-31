@@ -10,6 +10,8 @@ import { createEvent } from '@/utils/create-event'
 import FileUploadStyles from './file-upload.module.scss'
 import type { FileUploadPreviewProps, FileUploadProps, FileWithPreview } from './types'
 
+export { FileUploadStyles as fileUploadClasses }
+
 const cx = classNames(FileUploadStyles)
 
 const DEFAULT_FILE_TYPES = '*/*'

@@ -12,6 +12,8 @@ import swiperStyles from './swiper.module.scss'
 import type { SwiperComponent, SwiperProps, UseSwiperOptions } from './types'
 import { useInterval } from './utils'
 
+export { swiperStyles as swiperClasses }
+
 const cx = classNames(swiperStyles)
 
 type SwiperContextValue = {

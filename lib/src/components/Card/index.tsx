@@ -7,6 +7,8 @@ import { classNames, forwardRefWithAs } from '@/utils'
 import cardStyles from './card.module.scss'
 import type { CardProps } from './types'
 
+export { cardStyles as cardClasses }
+
 const cx = classNames(cardStyles)
 
 export const CardComponent = forwardRefWithAs<CardProps, 'div'>(

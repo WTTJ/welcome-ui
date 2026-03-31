@@ -6,6 +6,8 @@ import { classNames } from '@/utils'
 import fieldGroupStyles from './field-group.module.scss'
 import type { FieldGroupProps } from './types'
 
+export { fieldGroupStyles as fieldGroupClasses }
+
 const cx = classNames(fieldGroupStyles)
 
 export const FieldGroup = forwardRef<HTMLFieldSetElement, FieldGroupProps>(

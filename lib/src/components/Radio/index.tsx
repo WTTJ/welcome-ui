@@ -8,6 +8,8 @@ import { classNames } from '@/utils'
 import radioStyles from './radio.module.scss'
 import type { RadioProps } from './types'
 
+export { radioStyles as radioClasses }
+
 const cx = classNames(radioStyles)
 
 export const Radio = forwardRef<HTMLInputElement, RadioProps>(

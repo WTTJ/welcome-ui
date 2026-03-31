@@ -9,6 +9,8 @@ import { TabPanel } from './TabPanel'
 import styles from './tabs.module.scss'
 import type { TabListProps } from './types'
 
+export { styles as tabsClasses }
+
 const cx = classNames(styles)
 
 export const TabsComponent = forwardRef<HTMLDivElement, TabListProps>(

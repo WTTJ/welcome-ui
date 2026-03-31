@@ -9,6 +9,8 @@ import { TabPanel } from './components/TabPanel'
 import type { WindowProps } from './types'
 import windowStyles from './window.module.scss'
 
+export { windowStyles as windowClasses }
+
 const cx = classNames(windowStyles)
 
 const WindowComponent = forwardRefWithAs<WindowProps, 'div'>(

@@ -7,6 +7,8 @@ import { classNames } from '@/utils'
 import radioGroupStyles from './radio-group.module.scss'
 import type { RadioGroupOption, RadioGroupProps } from './types'
 
+export { radioGroupStyles as radioGroupClasses }
+
 const cx = classNames(radioGroupStyles)
 
 export const RadioGroup = ({
