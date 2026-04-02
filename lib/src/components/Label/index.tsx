@@ -5,6 +5,8 @@ import { classNames, forwardRefWithAs } from '@/utils'
 import labelStyles from './label.module.scss'
 import type { LabelProps } from './types'
 
+export { labelStyles as labelClasses }
+
 const cx = classNames(labelStyles)
 
 export const Label = forwardRefWithAs<LabelProps, 'label'>(

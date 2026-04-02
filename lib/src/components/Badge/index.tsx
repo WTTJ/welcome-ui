@@ -6,6 +6,8 @@ import { classNames } from '@/utils'
 import badgeStyles from './badge.module.scss'
 import type { BadgeProps } from './types'
 
+export { badgeStyles as badgeClasses }
+
 const cx = classNames(badgeStyles)
 
 export const Badge = forwardRef<HTMLDivElement, BadgeProps>(

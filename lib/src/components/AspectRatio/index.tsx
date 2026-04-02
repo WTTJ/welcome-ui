@@ -4,6 +4,8 @@ import { forwardRefWithAs } from '@/utils/forwardRefWithAs'
 import styles from './aspect-ratio.module.scss'
 import type { AspectRatioProps } from './types'
 
+export { styles as aspectRatioClasses }
+
 const cx = classNames(styles)
 
 export const AspectRatio = forwardRefWithAs<AspectRatioProps, 'div'>(

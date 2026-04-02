@@ -12,6 +12,8 @@ import { classNames } from '@/utils'
 import tooltipStyles from './tooltip.module.scss'
 import type { TooltipProps } from './types'
 
+export { tooltipStyles as tooltipClasses }
+
 const cx = classNames(tooltipStyles)
 
 export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(

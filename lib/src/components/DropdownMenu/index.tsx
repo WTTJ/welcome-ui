@@ -13,6 +13,8 @@ import { Separator } from './Separator'
 import { Trigger } from './Trigger'
 import type { DropdownMenuOptions } from './types'
 
+export { dropdownMenuStyles as dropdownMenuClasses }
+
 export * from './types'
 export { useMenuStore as useDropdownMenu, useStoreState } from '@ariakit/react'
 

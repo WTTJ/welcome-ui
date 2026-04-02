@@ -6,6 +6,8 @@ import { forwardRefWithAs } from '@/utils/forwardRefWithAs'
 import buttonGroupStyles from './button-group.module.scss'
 import type { ButtonGroupProps, ButtonGroupState } from './types'
 
+export { buttonGroupStyles as buttonGroupClasses }
+
 const cx = classNames(buttonGroupStyles)
 
 export const ButtonGroupContext = createContext<ButtonGroupState>({} as ButtonGroupState)

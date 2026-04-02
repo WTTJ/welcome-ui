@@ -5,6 +5,8 @@ import { classNames } from '@/utils'
 
 import logoStyles from './logo.module.scss'
 
+export { logoStyles as logoClasses }
+
 const cx = classNames(logoStyles)
 
 export const Symbol = forwardRef<SVGSVGElement, ComponentPropsWithRef<'svg'>>((props, ref) => (

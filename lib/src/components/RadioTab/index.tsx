@@ -7,6 +7,8 @@ import { classNames } from '@/utils'
 import styles from './radio-tab.module.scss'
 import type { RadioTabsProps } from './types'
 
+export { styles as radioTabClasses }
+
 const cx = classNames(styles)
 
 export const RadioTab = forwardRef<HTMLInputElement, RadioTabsProps>(

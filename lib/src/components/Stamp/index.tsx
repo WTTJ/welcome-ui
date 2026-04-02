@@ -6,6 +6,8 @@ import { classNames } from '@/utils'
 import iconStampStyles from './icon-stamp.module.scss'
 import type { IconStampProps, ImageStampProps } from './types'
 
+export { iconStampStyles as stampClasses }
+
 const cx = classNames(iconStampStyles)
 
 export const IconStamp = forwardRef<HTMLDivElement, IconStampProps>(

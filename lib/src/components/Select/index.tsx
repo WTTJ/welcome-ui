@@ -20,6 +20,8 @@ import type {
   SelectOptionValue,
   SelectProps,
 } from './types'
+
+export { selectStyles as selectClasses }
 import {
   getInputValue,
   getNewOptions,

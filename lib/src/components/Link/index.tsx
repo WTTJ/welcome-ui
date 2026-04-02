@@ -7,6 +7,8 @@ import { forwardRefWithAs } from '@/utils/forwardRefWithAs'
 import linkStyles from './link.module.scss'
 import type { LinkOptions } from './types'
 
+export { linkStyles as linkClasses }
+
 const cx = classNames(linkStyles)
 
 interface WrapperProps {

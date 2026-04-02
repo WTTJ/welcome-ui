@@ -7,6 +7,8 @@ import { classNames } from '@/utils'
 import closeButtonStyles from './close-button.module.scss'
 import type { CloseButtonProps } from './types'
 
+export { closeButtonStyles as closeButtonClasses }
+
 const cx = classNames(closeButtonStyles)
 
 export const CloseButton = forwardRef<HTMLButtonElement, CloseButtonProps>(

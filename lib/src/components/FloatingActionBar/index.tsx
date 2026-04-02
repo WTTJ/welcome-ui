@@ -3,6 +3,8 @@ import { classNames, forwardRefWithAs } from '@/utils'
 import styles from './floating-action-bar.module.scss'
 import type { FloatingActionBarProps } from './types'
 
+export { styles as floatingActionBarClasses }
+
 const cx = classNames(styles)
 
 export const FloatingActionBar = forwardRefWithAs<FloatingActionBarProps, 'div'>(

@@ -12,6 +12,8 @@ import { AlertButton, AlertSecondaryButton } from './components/Buttons'
 import { AlertTitle } from './components/Title'
 import type { AlertProps } from './types'
 
+export { alertStyles as alertClasses }
+
 const cx = classNames(alertStyles)
 
 export const ICON: Record<AlertProps['variant'], IconProps['name']> = {

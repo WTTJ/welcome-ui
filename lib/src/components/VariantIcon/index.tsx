@@ -7,6 +7,8 @@ import { classNames } from '@/utils'
 import type { VariantIconProps } from './types'
 import variantIconStyles from './variant-icon.module.scss'
 
+export { variantIconStyles as variantIconClasses }
+
 const cx = classNames(variantIconStyles)
 
 export const VariantIcon = forwardRef<HTMLDivElement, VariantIconProps>(

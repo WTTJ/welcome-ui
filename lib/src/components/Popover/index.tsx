@@ -11,6 +11,8 @@ import { Title } from './Title'
 import { PopoverTrigger } from './Trigger'
 import type { UsePopover } from './usePopover'
 
+export { popoverStyles as popoverClasses }
+
 export * from './PopoverHover'
 export * from './usePopover'
 

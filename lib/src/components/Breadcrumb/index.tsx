@@ -19,6 +19,8 @@ import breadcrumbStyles from './breadcrumb.module.scss'
 import { Item } from './Item'
 import type { BreadcrumbProps } from './types'
 
+export { breadcrumbStyles as breadcrumbClasses }
+
 const cx = classNames(breadcrumbStyles)
 
 export const BreadcrumbComponent = forwardRef<HTMLDivElement, BreadcrumbProps>(

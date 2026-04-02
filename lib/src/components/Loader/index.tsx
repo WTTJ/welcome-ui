@@ -4,6 +4,8 @@ import LoaderStyles from './loader.module.scss'
 import type { LoaderProps, LoaderSize } from './types'
 import { ValidSize } from './types'
 
+export { LoaderStyles as loaderClasses }
+
 const cx = classNames(LoaderStyles)
 
 const isValidSize = (size: unknown): size is LoaderSize => {

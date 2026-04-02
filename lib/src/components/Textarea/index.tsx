@@ -6,6 +6,8 @@ import { classNames } from '@/utils'
 import textareaStyles from './textarea.module.scss'
 import type { TextareaProps } from './types'
 
+export { textareaStyles as textareaClasses }
+
 const cx = classNames(textareaStyles)
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(

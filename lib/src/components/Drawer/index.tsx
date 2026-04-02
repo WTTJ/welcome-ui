@@ -16,6 +16,8 @@ import { Trigger } from './components/Trigger'
 import styles from './drawer.module.scss'
 import type { DrawerProps } from './types'
 
+export { styles as drawerClasses }
+
 const cx = classNames(styles)
 
 const DrawerComponent = forwardRef<HTMLDivElement, DrawerProps>(

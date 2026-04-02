@@ -12,6 +12,8 @@ import filedropStyles from './filedrop.module.scss'
 import type { FileDropProps, FileWithPreview } from './types'
 import { getPreviewUrl, isAnImage } from './utils'
 
+export { filedropStyles as fileDropClasses }
+
 const DEFAULT_MAX_FILE_SIZE = 2000000
 const ERROR_INVALID_TYPE = 'ERROR_INVALID_TYPE'
 const ERROR_INVALID_SIZE = 'ERROR_INVALID_SIZE'

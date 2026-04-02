@@ -8,6 +8,8 @@ import { Drawer } from '../index'
 import styles from './asset-drawer.module.scss'
 import type { AssetDrawerProps } from './types'
 
+export { styles as assetDrawerClasses }
+
 const cx = classNames(styles)
 
 export const AssetDrawerComponent = forwardRefWithAs<AssetDrawerProps, 'div'>(

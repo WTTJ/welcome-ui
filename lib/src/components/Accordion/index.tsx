@@ -17,6 +17,8 @@ import type { TagOptions } from '../Tag/types'
 import styles from './accordion.module.scss'
 import type { AccordionProps } from './types'
 
+export { styles as accordionClasses }
+
 const cx = classNames(styles)
 
 const AccordionContext = createContext<{

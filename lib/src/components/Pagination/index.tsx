@@ -8,6 +8,8 @@ import styles from './pagination.module.scss'
 import type { PaginationProps } from './types'
 import { usePages } from './utils'
 
+export { styles as paginationClasses }
+
 const cx = classNames(styles)
 
 export const Pagination = forwardRef<HTMLElement, PaginationProps>(
