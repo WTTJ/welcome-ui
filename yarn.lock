@@ -3217,10 +3217,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:*, @types/lodash@npm:4.17.21":
+"@types/lodash@npm:*":
   version: 4.17.21
   resolution: "@types/lodash@npm:4.17.21"
   checksum: 10c0/73cb006e047d8871e9d63f3a165543bf16c44a5b6fe3f9f6299e37cb8d67a7b1d55ac730959a81f9def510fd07232ff7e30e05413e5d5a12793baad84ebe36c3
+  languageName: node
+  linkType: hard
+
+"@types/lodash@npm:4.17.24":
+  version: 4.17.24
+  resolution: "@types/lodash@npm:4.17.24"
+  checksum: 10c0/b72f60d4daacdad1fa643edb3faba204c02a01eb1ac00a83ff73496a6d236fc55e459c06106e8ced42277dba932d087d8fc090f8de4ef590d3f91e6d6f7ce85a
   languageName: node
   linkType: hard
 
@@ -14168,7 +14175,7 @@ __metadata:
     "@docsearch/react": "npm:^3.9.0"
     "@stackblitz/sdk": "npm:^1.11.0"
     "@tailwindcss/postcss": "npm:^4.1.18"
-    "@types/lodash": "npm:4.17.21"
+    "@types/lodash": "npm:4.17.24"
     autoprefixer: "npm:^10.4.22"
     gray-matter: "npm:4.0.3"
     lodash: "npm:4.18.1"
