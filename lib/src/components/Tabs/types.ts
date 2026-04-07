@@ -1,4 +1,4 @@
-import type { TabStore, TabStoreProps } from '@ariakit/react'
+import type { TabPanelProps as AriakitTabPanelProps, TabStore, TabStoreProps } from '@ariakit/react'
 
 import type { IconName } from '@/components/Icon/types'
 
@@ -23,10 +23,6 @@ export interface TabOptions {
   store: TabStore
 }
 
-export type TabPanelProps = {
-  children: React.ReactNode
-  store: UseTab
-  tabId?: string
-}
+export type TabPanelProps = AriakitTabPanelProps
 
 export type TabProps = TabOptions & TabStoreProps
