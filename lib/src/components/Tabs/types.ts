@@ -23,6 +23,10 @@ export interface TabOptions {
   store: TabStore
 }
 
-export type TabPanelProps = AriakitTabPanelProps
+export type TabPanelProps = AriakitTabPanelProps & {
+  children: React.ReactNode
+  store: UseTab
+  tabId?: string
+}
 
 export type TabProps = TabOptions & TabStoreProps
