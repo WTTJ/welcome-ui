@@ -447,7 +447,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
 
               {!options.length && renderNoResults ? (
                 <ul className={cx('menu')} {...getMenuProps()}>
-                  <li className={`${cx('item')} cursor-default`}>{renderNoResults(inputValue)}</li>
+                  <li className={cx('item', 'no-results')}>{renderNoResults(inputValue)}</li>
                 </ul>
               ) : null}
 

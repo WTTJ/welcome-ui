@@ -65,10 +65,7 @@
 
   .root {
     --selectPlaceholderColor: var(--input-color-text-placeholder);
-    background-color: var(
-      --selectBackgroundColor,
-      var(--input-color-background-default)
-    );
+    background-color: var(--selectBackgroundColor, var(--input-color-background-default));
     border-color: var(--selectBorderColor, var(--input-color-border-default));
     border-radius: var(--input-border-radius);
     border-style: solid;
@@ -86,7 +83,9 @@
     height: var(--selectHeight);
     padding-bottom: var(--selectPaddingBottom);
     padding-left: var(--selectPaddingLeft);
-    padding-right: calc(var(--selectPaddingRight) + var(--spacing-xl)); /* extra space for dropdown indicator */
+    padding-right: calc(
+      var(--selectPaddingRight) + var(--spacing-xl)
+    ); /* extra space for dropdown indicator */
     padding-top: var(--selectPaddingTop);
     @include ellipsis.text-ellipsis;
     box-shadow: var(--selectBoxShadow, var(--inset-10)) inset;
@@ -103,17 +102,13 @@
     &.clearable,
     &.icon-placement-right,
     &.icon-placement-both {
-      padding-right: calc(
-        var(--selectPaddingRight) + var(--selectIconSize, 1rem) + var(--spacing-sm) + var(--spacing-xl)
-      );
+      padding-right: calc(var(--selectPaddingRight) + var(--selectIconSize, 1rem) + var(--spacing-sm) + var(--spacing-xl));
     }
 
     /* is clearable and got a right/both icon */
     &.clearable.icon-placement-right,
     &.clearable.icon-placement-both {
-      padding-right: calc(
-        var(--selectPaddingRight) + (var(--selectIconSize, 1rem) + var(--spacing-sm)) * 2 + var(--spacing-xl)
-      );
+      padding-right: calc(var(--selectPaddingRight) + (var(--selectIconSize, 1rem) + var(--spacing-sm)) * 2 + var(--spacing-xl));
     }
 
     &.disabled {
@@ -306,6 +301,10 @@
     transition-duration: var(--duration-medium);
     transition-timing-function: var(--timing-primary);
     @include ellipsis.text-ellipsis;
+
+    &.no-results {
+      cursor: default;
+    }
 
     &.highlighted {
       background-color: var(--color-background-warm-primary);

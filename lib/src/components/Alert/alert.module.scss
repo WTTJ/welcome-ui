@@ -148,10 +148,7 @@
     flex-shrink: 0;
     padding: var(--alert-icon-padding-block);
     border-radius: var(--alert-icon-border-radius);
-    background-color: var(
-      --iconWrapperBackgroundColor,
-      var(--alert-icon-color-background-brand)
-    );
+    background-color: var(--iconWrapperBackgroundColor, var(--alert-icon-color-background-brand));
     color: var(--iconWrapperColor, var(--alert-icon-color-icon-brand));
 
     &-success {
@@ -165,9 +162,7 @@
     }
 
     &-info {
-      --iconWrapperBackgroundColor: var(
-        --alert-icon-color-background-information
-      );
+      --iconWrapperBackgroundColor: var(--alert-icon-color-background-information);
       --iconWrapperColor: var(--alert-icon-color-icon-information);
     }
 
@@ -192,5 +187,11 @@
       );
       --iconWrapperColor: var(--alert-icon-color-icon-ai);
     }
+  }
+
+  /** Buttons */
+  .alert-buttons {
+    flex-shrink: 0;
+    width: fit-content;
   }
 }
