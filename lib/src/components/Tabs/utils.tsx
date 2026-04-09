@@ -1,8 +1,12 @@
 import { Icon } from '@/components/Icon'
+import { classNames } from '@/utils'
 
 import { isValidIconName } from '../Icon/icons'
 
+import styles from './tabs.module.scss'
 import type { TabListProps, TabProps } from './types'
+
+const cx = classNames(styles)
 
 export function getIcon({
   icon,
@@ -14,38 +18,15 @@ export function getIcon({
 
   if (typeof icon !== 'string' || !isValidIconName(icon)) return icon
 
-  const iconClassName = (() => {
-    switch (iconColor) {
-      case 'blue':
-        return isActive
-          ? 'text-background-accent-blue-strong'
-          : 'text-background-accent-blue-primary'
-      case 'green':
-        return isActive
-          ? 'text-background-accent-green-strong'
-          : 'text-background-accent-green-primary'
-      case 'orange':
-        return isActive
-          ? 'text-background-accent-orange-strong'
-          : 'text-background-accent-orange-primary'
-      case 'pink':
-        return isActive
-          ? 'text-background-accent-pink-strong'
-          : 'text-background-accent-pink-primary'
-      case 'teal':
-        return isActive
-          ? 'text-background-accent-teal-strong'
-          : 'text-background-accent-teal-primary'
-      case 'violet':
-        return isActive
-          ? 'text-background-accent-violet-strong'
-          : 'text-background-accent-violet-primary'
-      case 'warm':
-        return isActive ? 'text-beige-60' : 'text-background-warm-stronger'
-      default:
-        return ''
-    }
-  })()
-
-  return <Icon className={iconClassName} name={icon} size={size} />
+  return (
+    <Icon
+      className={
+        iconColor
+          ? cx('folder-icon', `folder-icon-${iconColor}${isActive ? '-active' : ''}`)
+          : undefined
+      }
+      name={icon}
+      size={size}
+    />
+  )
 }

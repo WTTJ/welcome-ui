@@ -90,6 +90,56 @@
   }
 
   /**
+  * Folder icon colors
+  */
+  .folder-icon {
+    color: var(--tabIconColor);
+
+    &-blue {
+      --tabIconColor: var(--color-background-accent-blue-primary);
+      &-active {
+        --tabIconColor: var(--color-background-accent-blue-strong);
+      }
+    }
+    &-green {
+      --tabIconColor: var(--color-background-accent-green-primary);
+      &-active {
+        --tabIconColor: var(--color-background-accent-green-strong);
+      }
+    }
+    &-orange {
+      --tabIconColor: var(--color-background-accent-orange-primary);
+      &-active {
+        --tabIconColor: var(--color-background-accent-orange-strong);
+      }
+    }
+    &-pink {
+      --tabIconColor: var(--color-background-accent-pink-primary);
+      &-active {
+        --tabIconColor: var(--color-background-accent-pink-strong);
+      }
+    }
+    &-teal {
+      --tabIconColor: var(--color-background-accent-teal-primary);
+      &-active {
+        --tabIconColor: var(--color-background-accent-teal-strong);
+      }
+    }
+    &-violet {
+      --tabIconColor: var(--color-background-accent-violet-primary);
+      &-active {
+        --tabIconColor: var(--color-background-accent-violet-strong);
+      }
+    }
+    &-warm {
+      --tabIconColor: var(--color-background-warm-stronger);
+      &-active {
+        --tabIconColor: var(--color-beige-60);
+      }
+    }
+  }
+
+  /**
   * Tab List
   */
   .tab-list {

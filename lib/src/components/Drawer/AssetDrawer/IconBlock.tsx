@@ -12,7 +12,7 @@ const ICON_SIZE: { [key in IconBlockProps['size']]: IconProps['size'] } = { md: 
 export const IconBlock = ({ iconName, size = 'md' }: IconBlockProps) => {
   return (
     <div className={cx('icon-block', `size-${size}`)}>
-      <Icon className="text-neutral-90" name={iconName} size={ICON_SIZE[size]} />
+      <Icon className={cx('icon-element')} name={iconName} size={ICON_SIZE[size]} />
     </div>
   )
 }

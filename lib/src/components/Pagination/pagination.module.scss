@@ -1,5 +1,9 @@
 @layer components {
   /* Main pagination list */
+  .condensed-range {
+    display: inline;
+  }
+
   .list {
     list-style-type: none;
     padding: 0;
@@ -49,12 +53,13 @@
     cursor: not-allowed;
     color: var(--pagination-color-text-unchecked-disabled);
     background: repeating-linear-gradient(
-      -45deg,
-      var(--color-neutral-30),
-      var(--color-neutral-30) 1.75px,
-      var(--color-background-warm-stronger) 3.75px,
-      var(--color-background-warm-stronger) 3.25px
-    ) padding-box;
+        -45deg,
+        var(--color-neutral-30),
+        var(--color-neutral-30) 1.75px,
+        var(--color-background-warm-stronger) 3.75px,
+        var(--color-background-warm-stronger) 3.25px
+      )
+      padding-box;
     box-shadow: none;
     border-color: transparent;
   }
@@ -81,7 +86,8 @@
     color: var(--pagination-color-text-checked-pressed);
   }
 
-  .with-text-left, .with-text-right {
+  .with-text-left,
+  .with-text-right {
     gap: var(--pagination-gap-content);
   }
 

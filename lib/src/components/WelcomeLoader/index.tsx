@@ -4,8 +4,9 @@ import { forwardRef } from 'react'
 import { classNames } from '@/utils'
 
 import loader from './loader.json'
+import styles from './welcome-loader.module.scss'
 
-const cx = classNames()
+const cx = classNames(styles)
 
 export const WelcomeLoader = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => {
@@ -17,7 +18,7 @@ export const WelcomeLoader = forwardRef<HTMLDivElement, React.HTMLAttributes<HTM
     const { View } = useLottie(options)
 
     return (
-      <div className={cx(`w-150`, className)} ref={ref} {...props}>
+      <div className={cx('root', className)} ref={ref} {...props}>
         {View}
       </div>
     )
