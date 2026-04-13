@@ -18,7 +18,7 @@ export const Tab = forwardRefWithAs<TabProps, 'button'>(
   ) => {
     const size = useTabSize()
 
-    const { selectedId } = useStoreState(store)
+    const selectedId = useStoreState(store, 'selectedId')
     const isActive = selectedId === id
 
     const tabIcon = getIcon({

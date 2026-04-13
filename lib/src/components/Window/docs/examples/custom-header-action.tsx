@@ -4,7 +4,10 @@ const Example = () => {
   return (
     <>
       <Window.Header>
-        <Window.Header.LeftActions isExpandable />
+        <Window.Header.LeftActions isExpandable>
+          {/* eslint-disable-next-line no-console */}
+          <Window.Header.Button icon="bell" onClick={() => console.log('custom action')} />
+        </Window.Header.LeftActions>
         <Window.Header.Title title="My Window Title" />
         <Window.Header.RightActions isClosable>
           {/* eslint-disable-next-line no-console */}

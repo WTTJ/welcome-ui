@@ -43,6 +43,7 @@ const Button = ({
 const CloseButton = ({
   as,
   className,
+  icon = 'times',
   onClick,
 }: PropsWithAs<As, Omit<ActionButtonProps, 'icon'>>) => {
   return (
@@ -50,7 +51,7 @@ const CloseButton = ({
       aria-label="Close window"
       as={as}
       className={cx('header-close-button', className)}
-      icon="times"
+      icon={icon}
       onClick={onClick}
     />
   )
@@ -66,7 +67,7 @@ const Tabs = ({ children, store }: HeaderTabsProps) => {
 
 const Tab = forwardRefWithAs<HeaderTabItem, 'button'>(
   ({ as: Component, badge, children, icon, id, store, ...rest }, ref) => {
-    const { selectedId } = useStoreState(store)
+    const selectedId = useStoreState(store, 'selectedId')
     const isActive = selectedId === id
 
     return (
@@ -100,7 +101,11 @@ const RightActions = ({ children, isClosable = false, onClose }: HeaderRightActi
   )
 }
 
-const LeftActions = ({ isExpandable = false, onExpandChange }: HeaderLeftActionsProps) => {
+const LeftActions = ({
+  children,
+  isExpandable = false,
+  onExpandChange,
+}: HeaderLeftActionsProps) => {
   const [isExpanded, setIsExpanded] = useState(false)
 
   const handleExpandWindow = () => {
@@ -112,16 +117,14 @@ const LeftActions = ({ isExpandable = false, onExpandChange }: HeaderLeftActions
   return (
     <div className={cx('header-actions')}>
       {isExpandable ? (
-        <button
+        <Button
           aria-expanded={isExpanded}
           aria-label={isExpanded ? 'Collapse window' : 'Expand window'}
-          className={cx('header-action-button')}
+          icon={isExpanded ? 'compress-alt' : 'arrow-resize-diagonal'}
           onClick={handleExpandWindow}
-          type="button"
-        >
-          <Icon name={isExpanded ? 'compress-alt' : 'arrow-resize-diagonal'} />
-        </button>
+        />
       ) : null}
+      {children}
     </div>
   )
 }
