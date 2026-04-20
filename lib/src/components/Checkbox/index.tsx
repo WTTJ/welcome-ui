@@ -18,7 +18,6 @@ const cx = classNames(checkboxStyles)
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   ({ checked = false, className, indeterminate = false, onChange, variant, ...rest }, ref) => {
-    const [isChecked, setIsChecked] = useState(checked)
     const [focusVisible, setFocusVisible] = useState(false)
     const { getInputProps, variant: fieldVariant } = useField()
 
@@ -26,16 +25,14 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     const { disabled } = getInputProps(rest)
 
     const handleChange = () => {
-      setIsChecked(!isChecked)
-
       if (onChange) {
-        onChange(!isChecked)
+        onChange(!checked)
       }
     }
 
     return (
       <div
-        aria-checked={isChecked}
+        aria-checked={checked}
         aria-disabled={disabled}
         className={cx(
           'root',
@@ -50,14 +47,14 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         <VisuallyHidden>
           <AriaKitCheckbox
             {...getInputProps(rest)}
-            checked={isChecked}
+            checked={checked}
             onBlur={() => setFocusVisible(false)}
             onFocusVisible={() => setFocusVisible(true)}
             ref={ref}
           />
         </VisuallyHidden>
-        {isChecked ? <Icon name="check" size="sm" /> : null}
-        {!isChecked && indeterminate ? <Icon name="minus" size="sm" /> : null}
+        {checked ? <Icon name="check" size="sm" /> : null}
+        {!checked && indeterminate ? <Icon name="minus" size="sm" /> : null}
       </div>
     )
   }
