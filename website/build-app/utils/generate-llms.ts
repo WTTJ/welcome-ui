@@ -194,6 +194,10 @@ export function generateFoundationMarkdown(slugParts: string[]): GenerationResul
 export function generateLlmsTxt(baseUrl = ''): string {
   const components = getComponentList()
   const foundations = getFoundationList()
+
+  const guidelinesPath = join(process.cwd(), 'app/llms.txt/agent-guidelines.md')
+  const guidelinesContent = readFileSync(guidelinesPath, 'utf8').trim()
+
   const lines = [
     '# Welcome UI',
     '> A React component library by Welcome to the Jungle.',
@@ -204,6 +208,10 @@ export function generateLlmsTxt(baseUrl = ''): string {
       ({ slugParts, title }) =>
         `- [${title}](${baseUrl}/llms/foundations/${slugParts.join('/')}.md)`
     ),
+    '',
+    '## Guidelines',
+    '',
+    guidelinesContent,
     '',
     '## Components',
     '',

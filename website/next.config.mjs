@@ -74,6 +74,7 @@ const nextConfig = {
       exclude: [
         resolve('../lib/src/components/Icon/icons.ts'),
         resolve('../lib/src/theme/generated/variables.ts'),
+        resolve('../lib/src/theme/generated/variables.js'),
       ],
       include: [resolve('../lib/src')],
       test: /\.(js|jsx|ts|tsx)$/,
