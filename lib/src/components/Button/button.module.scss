@@ -87,7 +87,7 @@
       }
     }
 
-    &:active:not(:disabled):not([aria-disabled]) {
+    &:is(:active, [aria-pressed='true']):not(:disabled):not([aria-disabled]) {
       --buttonBackground: var(--buttonBackgroundActive);
       --buttonBorderColor: var(--buttonBorderColorActive, transparent);
       --buttonColor: var(--buttonColorPressed);
