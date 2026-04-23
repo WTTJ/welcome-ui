@@ -267,6 +267,7 @@ export default {
   "/Toast/docs/examples/growl.tsx": dynamic(() => import("../../lib/src/components/Toast/docs/examples/growl.tsx").then(mod => mod), { ssr: false }),
   "/Toast/docs/examples/latency.tsx": dynamic(() => import("../../lib/src/components/Toast/docs/examples/latency.tsx").then(mod => mod), { ssr: false }),
   "/Toast/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Toast/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
+  "/Toast/docs/examples/programmatically.tsx": dynamic(() => import("../../lib/src/components/Toast/docs/examples/programmatically.tsx").then(mod => mod), { ssr: false }),
   "/Toast/docs/examples/snackbar.tsx": dynamic(() => import("../../lib/src/components/Toast/docs/examples/snackbar.tsx").then(mod => mod), { ssr: false }),
   "/Toast/docs/examples/toast.tsx": dynamic(() => import("../../lib/src/components/Toast/docs/examples/toast.tsx").then(mod => mod), { ssr: false }),
   "/Toast/docs/examples/without-close.tsx": dynamic(() => import("../../lib/src/components/Toast/docs/examples/without-close.tsx").then(mod => mod), { ssr: false }),

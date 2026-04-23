@@ -13,6 +13,7 @@ import toastStyles from './toast.module.scss'
 import type { ToastOptions, ToastVariant } from './types'
 
 export { toastStyles as toastClasses }
+export const { dismiss, remove } = toastRHT
 
 const cx = classNames(toastStyles)
 
