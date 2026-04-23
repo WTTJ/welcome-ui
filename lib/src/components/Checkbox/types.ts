@@ -7,7 +7,7 @@ export interface CheckboxOptions {
 
 export type CheckboxProps = CheckboxOptions &
   Omit<ComponentProps<'input'>, 'onChange'> & {
-    onChange?: (isChecked: boolean) => void
+    onChange?: (isChecked: boolean, e: React.MouseEvent<HTMLDivElement>) => void
   }
 
 export type Variant = 'danger' | 'success' | 'warning'

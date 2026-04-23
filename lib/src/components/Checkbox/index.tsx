@@ -24,9 +24,9 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     const _variant = fieldVariant || variant
     const { disabled } = getInputProps(rest)
 
-    const handleChange = () => {
+    const handleChange = (e: React.MouseEvent<HTMLDivElement>) => {
       if (onChange) {
-        onChange(!checked)
+        onChange(!checked, e)
       }
     }
 
