@@ -83,14 +83,4 @@ For the Growl, the progress bar is hidden by default, you can show it with the `
 
 You can close or dismiss a toast programmatically with the `dismiss` and `remove` functions. Dismiss will hide the toast with a fade out animation, while remove will hide the toast immediately.
 
-```jsx
-const toastId = toast(<Toast />)
-
-// Remove or dismiss this specific toast
-remove(toastId)
-dismiss(toastId)
-
-// Remove or dismiss all toasts
-remove()
-dismiss()
-```
+<div data-playground="programmatically.tsx" data-component="Toast"></div>
