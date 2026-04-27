@@ -17,17 +17,11 @@
 
     /* VARIABLES THAT CHANGE WITH REACT PROPS */
     color: var(--color, var(--checkbox-color-icon-default));
-    background-color: var(
-      --backgroundColor,
-      var(--checkbox-color-background-unchecked-default)
-    );
-    border-color: var(
-      --borderColor,
-      var(--checkbox-color-border-unchecked-default)
-    );
+    background-color: var(--backgroundColor, var(--checkbox-color-background-unchecked-default));
+    border-color: var(--borderColor, var(--checkbox-color-border-unchecked-default));
 
     &:disabled,
-    &[aria-disabled] {
+    &[aria-disabled='true'] {
       --color: var(--checkbox-color-icon-disabled);
       --backgroundColor: var(--checkbox-color-border-disabled);
       --borderColor: var(--checkbox-color-border-disabled);
@@ -36,22 +30,13 @@
     }
 
     &:not([aria-disabled]):hover {
-      --borderColor: var(
-        --borderColorHover,
-        var(--checkbox-color-border-unchecked-hover)
-      );
+      --borderColor: var(--borderColorHover, var(--checkbox-color-border-unchecked-hover));
     }
 
     &[data-focus-visible],
     &:focus-visible {
-      --borderColor: var(
-        --borderColorFocused,
-        var(--checkbox-color-border-focused)
-      );
-      outline-color: var(
-        --outlineColorFocus,
-        var(--checkbox-color-border-focused)
-      );
+      --borderColor: var(--borderColorFocused, var(--checkbox-color-border-focused));
+      outline-color: var(--outlineColorFocus, var(--checkbox-color-border-focused));
     }
 
     &[aria-checked='true'] {
