@@ -56,6 +56,7 @@ export const actions = [
   'link',
   'sign-out-alt',
   'bars',
+  'sort-amount-down',
   'ellipsis-v',
   'ellipsis-h',
   'move-arrow', // (not unicons)
