@@ -56,3 +56,17 @@ If you want to see the production sprite icons locally, follow these steps:
 ---
 
 > **💡 Note:** Make sure you're on the correct branches before running the sprite generation commands.
+
+## 🐛 Troubleshooting
+
+<details>
+<summary>Icon background color</summary>
+
+By default, all icons use the `fill="currentColor"` attribute.
+
+If your icon requires a different fill color:
+
+1. Add the `fill` attribute directly to the `path` element in your icon’s SVG file.
+2. In the `wtt/front` project, update the `build-sprite` script by adding your icon’s name to the `keepFillAttributesIntact` list.
+
+</details>

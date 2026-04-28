@@ -68,6 +68,8 @@ export const actions = [
   'setting',
   'share-alt',
   'share',
+  'bulk',
+  'bulk-active',
 ] as const
 
 export const chat = ['chat', 'chat-bubble-user', 'comment', 'comment-alt-lines'] as const
