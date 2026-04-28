@@ -8538,12 +8538,12 @@ __metadata:
   linkType: hard
 
 "match-sorter@npm:^8.2.0":
-  version: 8.2.0
-  resolution: "match-sorter@npm:8.2.0"
+  version: 8.3.0
+  resolution: "match-sorter@npm:8.3.0"
   dependencies:
     "@babel/runtime": "npm:^7.23.8"
     remove-accents: "npm:0.5.0"
-  checksum: 10c0/1fe2b5d4121c9f804cbb9cd4d2187fe1265fde6aa2c4359083b9ab477508b7782fc52ac112be0624ee65daea5502d52cd1c8589bcc20e4793631d678b7930c6c
+  checksum: 10c0/e71a7aa75e87d356867a12f61af7cf9236806d6c58550d7b057f567ff7baa177a7b0f1311cbce528797043cd75463274db43a8139002ba708401e4a84dce1083
   languageName: node
   linkType: hard
 
