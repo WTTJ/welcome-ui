@@ -88,7 +88,7 @@
     "husky": "8.0.3",
     "lodash.difference": "^4.5.0",
     "minimist": "1.2.8",
-    "postcss": "^8.5.3",
+    "postcss": "^8.5.10",
     "postcss-scss": "^4.0.9",
     "postcss-styled-syntax": "^0.7.1",
     "prettier": "3.5.3",
@@ -104,15 +104,6 @@
     "typescript-eslint": "^8.54.0",
     "typescript-plugin-css-modules": "^5.2.0",
     "yargs": "^17.7.2"
-  },
-  "resolutions": {
-    "brace-expansion": "5.0.5",
-    "immutable": "5.1.5",
-    "tar": "7.5.11",
-    "flatted": "3.4.2",
-    "yaml": "1.10.3",
-    "handlebars": "4.7.9",
-    "picomatch": "4.0.4"
   },
   "dependencies": {
     "tailwindcss": "^4.1.18"
