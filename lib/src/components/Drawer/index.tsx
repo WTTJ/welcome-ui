@@ -50,6 +50,9 @@ const DrawerComponent = forwardRef<HTMLDivElement, DrawerProps>(
     const hideOnInteractOutsideFn = useCallback(
       (event: Event) => {
         if (!hideOnInteractOutside) return false
+        if (typeof hideOnInteractOutside === 'function') {
+          return hideOnInteractOutside(event)
+        }
 
         const target = event.target as HTMLElement
         const isTargetWithinPersistentElements = getPersistentElements().some(element =>
