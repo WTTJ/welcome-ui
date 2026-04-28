@@ -53,6 +53,7 @@ export const actions = [
   'filter',
   'eye',
   'eye-slash',
+  'sliders-v-alt',
   'link',
   'sign-out-alt',
   'bars',
