@@ -5,6 +5,8 @@
 - Make the changes you want and test them out in the demo website before sending a pull request.
 - Add all necessary information and examples in your pull request.
 
+For explicit component authoring and consumption guidance, see [components-workflow.mdx](https://github.com/WTTJ/welcome-ui/blob/main/components-workflow.mdx).
+
 ## Commit message convention
 
 We follow [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) convention ✨
@@ -21,42 +23,26 @@ The commit contains the following structural elements, to communicate intent to 
 
 We have a pre-commit hook to verify if your commit is correct 🚔
 
-## Writing components
-
-Each component will consist of:
-
-- `ComponentName`: Folder with name of component (PascalCase)
-  - `index.tsx`: The React component
-  - `component-name.module.scss`: Any related styles with sass
-  - `types.ts`: Typescript types for this component
-  - `utils.ts` : Utilities for this component
-  - `docs` : Documentation for this component [See more](#documentation)
-  - `index.test.ts`: vitest + react-testing-library tests
-
 ## Reporting issues
 
 You can report issues on our [github project](https://github.com/WTTJ/welcome-ui/issues) 🐛
 
+## Components Workflow
+
+Use [components-workflow.mdx](https://github.com/WTTJ/welcome-ui/blob/main/components-workflow.mdx) as the canonical guide for:
+
+- writing or updating components inside WUI,
+- consuming components outside WUI,
+- required tests and docs,
+- local validation before opening a pull request.
+
+### Quick decision guide
+
+- You are building or changing component code in this repository: follow **Inside WUI**.
+- You are integrating the published package in another repository: follow **Outside WUI**.
+
 ## Documentation
 
-Our documentation is based on NextJS with mdx files and nodejs script.
+Our documentation is based on Next.js + MDX.
 
-### For a Component
-
-All component documentation is now located in its repository's `docs` folder:
-
-- `index.mdx`:
-  - **Header**: Contains the following information:
-    - `ariakit`: Link (if used in this component, will be transformed into a button on the page header)
-    - `description`: From ChatGPT
-    - `name`
-    - `packageName`: Name of the npm package
-    - `usage`: If needed, for example, if the import is different from the component name
-- `/examples`:
-  - **overview.mdx**: The main example shown at the top of the component page
-  - Others: Your other examples
-- `properties.json`: Auto-generated with `yarn watch`. It includes the list of the component's properties.
-
-### For a foundation page
-
-Simply add your new page on it, it's magic!
+For foundation pages, add a new MDX file in `website/build-app/pages/foundations`.

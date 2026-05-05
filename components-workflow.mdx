@@ -1,0 +1,265 @@
+# Components Workflow
+
+This guide explains two different workflows:
+
+- **Inside WUI**: how to write or update components in this repository.
+- **Outside WUI**: how to consume components in an application.
+
+Use the section that matches your context.
+
+## Inside WUI: writing components
+
+### 1. Create or update a component folder
+
+Component source code lives in `lib/src/components`.
+
+Expected structure for a component:
+
+```text
+lib/src/components/ComponentName/
+	index.tsx
+	component-name.module.scss
+	types.ts
+	utils.ts
+	index.test.tsx
+	docs/
+		index.mdx
+		examples/
+			overview.mdx
+```
+
+Notes:
+
+- Folder name is PascalCase (example: `ButtonGroup`).
+- The stylesheet file should be kebab-case and use the `.module.scss` pattern.
+- Keep `types.ts` focused on public and local component types.
+- Use `utils.ts` only for component-specific helpers.
+
+### 2. Implement the component
+
+In `index.tsx`:
+
+- Export the component from the folder entrypoint.
+- Keep class name generation centralized and predictable. (e.g: `import componentNameStyles from './component-name.module.scss`)
+- Do not use Tailwind classes in `className` inside WUI components. Use component SCSS modules and shared utilities instead.
+- Keep variants and sizes typed and aligned with design tokens.
+
+### 2.1 Use SCSS variables correctly in `.module.scss`
+
+Inside WUI, component styles are built from CSS custom properties and theme tokens.
+
+Use two variable layers:
+
+- **Theme tokens (kebab-case)**: stable values coming from generated theme variables. Example: `var(--button-color-background-primary-main-default)`.
+- **Component runtime variables (camelCase)**: local variables that can change with variant/size/state. Example: `--buttonBackground`, `--buttonColor`, `--paddingInline`.
+
+Recommended pattern:
+
+1. In `.root`, consume local runtime variables:
+
+```scss
+.root {
+  color: var(--buttonColor);
+  background: var(--buttonBackground);
+  padding-inline: var(--buttonPaddingInline);
+}
+```
+
+2. In modifier classes (`.size-*`, `.variant-*`, states), map runtime variables to theme tokens:
+
+```scss
+.size {
+  &-lg {
+    --buttonPaddingInline: var(--button-padding-inline-lg);
+  }
+}
+
+.variant {
+  &-primary {
+    --buttonBackground: var(--button-color-background-primary-main-default);
+    --buttonColor: var(--button-color-text-primary-main-default);
+  }
+}
+```
+
+3. In pseudo states (`:hover`, `:active`, `:disabled`), update runtime variables instead of duplicating full declarations.
+
+Do:
+
+- Prefer `var(--token-name)` values from the generated theme.
+- Keep token names kebab-case and runtime variables camelCase.
+- Keep fallback values explicit when needed: `var(--buttonColor, var(--color-neutral-90))`.
+
+Do not:
+
+- Use Tailwind classes in `className` inside WUI components.
+- Hardcode raw values when an equivalent token exists.
+
+### 2.2 Accessibility (a11y)
+
+All Welcome UI components must be accessible and follow Web Content Accessibility Guidelines (WCAG).
+
+When implementing a component:
+
+- Use semantic HTML when possible (`<button>`, `<input>`, `<label>`, etc.).
+- Add `aria-*` attributes for roles, states, and properties when semantic HTML alone is insufficient.
+- Test keyboard navigation and (screen reader -> bonus) compatibility.
+- Reference [W3C Web Accessibility Initiative (WAI)](https://www.w3.org/WAI/) for guidelines and best practices.
+
+We use [Ariakit](https://ariakit.org/) for accessible React components and patterns; check its documentation when building interactive components.
+
+### 3. Add tests
+
+Add or update `index.test.tsx` with at least:
+
+- Render test with expected content.
+- State tests (default, disabled, loading, or equivalent states).
+- Variant and size coverage for the main visual states.
+- Polymorphic/as behavior when supported by the component.
+
+### 4. Write component docs
+
+Documentation lives in the component `docs` folder.
+
+Required files:
+
+- `docs/index.mdx`
+- `docs/examples/overview.mdx`
+
+`docs/index.mdx` should include frontmatter with:
+
+- `title`
+- `description`
+- `packageName`
+- `category`
+- `ariakit` when relevant
+- `usage` when the import differs from the default pattern
+
+`properties.json` is auto-generated during docs/watch workflows.
+
+## Outside WUI: consuming components
+
+Use this path when integrating Welcome UI in a product/application.
+
+### 1. Install dependencies
+
+```bash
+yarn add welcome-ui tailwindcss react@^19.0.0
+yarn add postcss --dev
+```
+
+For Vite projects:
+
+```bash
+yarn add @tailwindcss/vite sass-embedded --dev
+```
+
+### 2. Configure Vite with Tailwind plugin
+
+```ts
+import { defineConfig } from 'vite'
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [tailwindcss()],
+})
+```
+
+### 3. Import global styles
+
+In your global stylesheet:
+
+```css
+@import 'tailwindcss';
+@import 'welcome-ui/theme.css';
+```
+
+### 4. Import and use components
+
+Use component-level imports:
+
+```tsx
+import { Button } from 'welcome-ui/Button'
+
+export function Example() {
+  return <Button>Submit</Button>
+}
+```
+
+Styling rule outside WUI:
+
+- Do not style Welcome UI components with the `style` prop.
+- Prefer `className` and define styles in your stylesheet.
+- Exception: use the `style` prop only when style values depend on JavaScript at runtime (dynamic style).
+
+```tsx
+// Do
+<Button className="myPrimaryButton">Submit</Button>
+
+// Don't
+<Button style={{ background: 'red' }}>Submit</Button>
+
+// Exception (override scss variables)
+<Drawer style={{ '--drawerWidth': '400px' }} />
+```
+
+### Tailwind vs SCSS modules
+
+Use **Tailwind classes** when the styling is simple and the number of classes stays manageable:
+
+```tsx
+<div className="flex items-center gap-xs p-sm">...</div>
+```
+
+Switch to a **SCSS module** when complexity grows — for example when responsive breakpoints, pseudo selectors, or state combinations produce an unreadable pile of className strings:
+
+```tsx
+// Getting hard to read with Tailwind alone
+<div className="flex items-center gap-xs p-sm md:flex-col md:gap-xs md:p-sm lg:p-md hover:bg-neutral-10 data-[active]:bg-brand-20">
+
+// Cleaner with a SCSS module
+
+import cardStyles from './card.module.scss'
+import classNames from '@/utils/classNames'
+
+const cx = classNames(cardStyles)
+
+<div className={cx('root')}>
+```
+
+```scss
+// card.module.scss
+.root {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-lg);
+
+  @media (width >= breakpoint(md)) {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm);
+  }
+
+  &:hover {
+    background-color: var(--color-neutral-10);
+  }
+  &[data-active] {
+    background-color: var(--color-brand-20);
+  }
+}
+```
+
+### 4.1 Need a component variation that doesn't exist in WUI?
+
+If you need a component variation, size, or state that is not available in Welcome UI:
+
+1. Check with your designer to confirm the need.
+2. Discuss whether this variation should be added to the design system itself.
+3. If yes, create a Linear ticket in the WUI team:
+
+   [WUI team in Linear](https://linear.app/wttj/team/WUI/all)
+
+4. Reference your use case and the requested variation in the ticket.
+
+This keeps the design system growing intentionally and ensures consistency across projects.
