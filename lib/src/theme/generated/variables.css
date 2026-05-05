@@ -55,7 +55,7 @@
   --alert-padding-inline-lg: 32px;
   --alert-padding-inline-md: 16px;
   --alert-size-icon: 24px;
-  --avatar-border-radius: 9999px;
+  --avatar-border-radius: calc(infinity * 1px);
   --avatar-color-background-initials-blue: #55c3e9;
   --avatar-color-background-initials-green: #bade94;
   --avatar-color-background-initials-orange: #ff9868;
@@ -76,7 +76,7 @@
   --avatar-size-xs: 24px;
   --badge-border-radius-lg: 8px;
   --badge-border-radius-md: 4px;
-  --badge-border-radius-sm: 9999px;
+  --badge-border-radius-sm: calc(infinity * 1px);
   --badge-color-background-blue: #27a5d0;
   --badge-color-background-brand: #ffcd00;
   --badge-color-background-neutral: #000000;
@@ -1097,7 +1097,7 @@
   --pattern-grid-color-stroke-default: rgba(0, 0, 0, 0.03);
   --pattern-grid-size: 16px;
   --pattern-grid-stroke: 1px;
-  --radio-border-radius: 9999px;
+  --radio-border-radius: calc(infinity * 1px);
   --radio-border-width-checked: 2px;
   --radio-border-width-focused: 2px;
   --radio-border-width-unchecked: 1px;
@@ -1112,7 +1112,7 @@
   --radio-color-border-unchecked-default: #dedede;
   --radio-color-border-unchecked-disabled: #d2cbc3;
   --radio-color-border-unchecked-hover: #bdbdbd;
-  --radio-indicator-border-radius: 9999px;
+  --radio-indicator-border-radius: calc(infinity * 1px);
   --radio-indicator-color-background-default: #ffcd00;
   --radio-indicator-color-background-disabled: #d2cbc3;
   --radio-indicator-color-background-hover: #ffe166;
@@ -1135,8 +1135,8 @@
   --size-icon-sm: 0.75rem;
   --size-icon-xl: 2rem;
   --size-icon-xs: 0.5rem;
-  --slider-border-radius-bar: 9999px;
-  --slider-border-radius-thumb: 9999px;
+  --slider-border-radius-bar: calc(infinity * 1px);
+  --slider-border-radius-thumb: calc(infinity * 1px);
   --slider-border-width-bar: 1px;
   --slider-border-width-thumb: 2px;
   --slider-color-background-fill-default: #f6f3ef;
@@ -1148,7 +1148,7 @@
   --slider-color-thumb-fill-disabled: #eae4de;
   --slider-color-thumb-fill-hover: #fff1b2;
   --slider-color-thumb-fill-pressed: #ffcd00;
-  --slider-indicator-border-radius: 9999px;
+  --slider-indicator-border-radius: calc(infinity * 1px);
   --spacing-12: 0.75rem;
   --spacing-16: 1rem;
   --spacing-192: 12rem;
@@ -1669,7 +1669,7 @@
   --toggle-thumb-size-lg: 20px;
   --toggle-thumb-size-md: 16px;
   --toggle-thumb-size-sm: 12px;
-  --toggle-track-border-radius: 9999px;
+  --toggle-track-border-radius: calc(infinity * 1px);
   --toggle-track-border-width-focused: 2px;
   --toggle-track-color-background-checked-default: #ffcd00;
   --toggle-track-color-background-checked-hover: #ffe166;
