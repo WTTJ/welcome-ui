@@ -108,5 +108,8 @@
   "dependencies": {
     "tailwindcss": "4.1.18"
   },
+  "resolutions": {
+    "socks": "2.8.8"
+  },
   "packageManager": "yarn@4.12.0"
 }
