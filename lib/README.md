@@ -62,6 +62,12 @@ import { Button } from 'welcome-ui/Button'
 return <Button>Ok let's go</Button>
 ```
 
+## Components workflow (inside vs outside WUI)
+
+For explicit guidance on writing components inside WUI and consuming them outside WUI, see:
+
+- [components-workflow.mdx](../components-workflow.mdx)
+
 ## Develop on local
 
 1. Install
