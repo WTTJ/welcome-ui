@@ -30,7 +30,7 @@ commands:
             corepack enable
             corepack prepare yarn@4.7.0 --activate
             yarn --version
-  setup_npm:
+  upgrade_npm_version:
     steps:
       - run:
           name: Upgrade npm to latest v11
@@ -208,7 +208,7 @@ jobs:
       - *checkout
       - attach_workspace:
           at: ~/welcome-ui
-      - setup_npm
+      - upgrade_npm_version
       - run:
           name: Authenticate and publish to registry using OIDC
           command: |
@@ -221,7 +221,7 @@ jobs:
       - *checkout
       - attach_workspace:
           at: ~/welcome-ui
-      - setup_npm
+      - upgrade_npm_version
       - run:
           name: Authenticate and publish to registry using OIDC
           command: |
@@ -234,7 +234,7 @@ jobs:
       - *checkout
       - attach_workspace:
           at: ~/welcome-ui
-      - setup_npm
+      - upgrade_npm_version
       - run:
           name: Authenticate and publish to registry using OIDC
           command: |
