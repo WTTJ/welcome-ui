@@ -30,6 +30,11 @@ commands:
             corepack enable
             corepack prepare yarn@4.7.0 --activate
             yarn --version
+  upgrade_npm_version:
+    steps:
+      - run:
+          name: Upgrade npm to latest v11
+          command: npm install -g npm@^11.5.1
 
 default: &default
   working_directory: /home/circleci/welcome-ui
@@ -203,12 +208,12 @@ jobs:
       - *checkout
       - attach_workspace:
           at: ~/welcome-ui
+      - upgrade_npm_version
       - run:
-          name: Login to registry
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
-      - run:
-          name: publish
-          command: cd /home/circleci/welcome-ui/lib && npm publish --registry https://registry.npmjs.org
+          name: Authenticate and publish to registry using OIDC
+          command: |
+            export NPM_ID_TOKEN=$(circleci run oidc get --claims '{"aud": "npm:registry.npmjs.org"}')
+            cd /home/circleci/welcome-ui/lib && npm publish --registry https://registry.npmjs.org
 
   alpha_release:
     executor: nodejs
@@ -216,12 +221,12 @@ jobs:
       - *checkout
       - attach_workspace:
           at: ~/welcome-ui
+      - upgrade_npm_version
       - run:
-          name: Login to registry
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
-      - run:
-          name: publish
-          command: cd /home/circleci/welcome-ui/lib && npm publish --tag beta --registry https://registry.npmjs.org
+          name: Authenticate and publish to registry using OIDC
+          command: |
+            export NPM_ID_TOKEN=$(circleci run oidc get --claims '{"aud": "npm:registry.npmjs.org"}')
+            cd /home/circleci/welcome-ui/lib && npm publish --tag beta --registry https://registry.npmjs.org
 
   dev_release:
     executor: nodejs
@@ -229,12 +234,12 @@ jobs:
       - *checkout
       - attach_workspace:
           at: ~/welcome-ui
+      - upgrade_npm_version
       - run:
-          name: Login to registry
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
-      - run:
-          name: publish
-          command: node /home/circleci/welcome-ui/.dev-releases/publish.mjs
+          name: Authenticate and publish to registry using OIDC
+          command: |
+            export NPM_ID_TOKEN=$(circleci run oidc get --claims '{"aud": "npm:registry.npmjs.org"}')
+            node /home/circleci/welcome-ui/.dev-releases/publish.mjs
 
 workflows:
   btd:
