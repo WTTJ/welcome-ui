@@ -56,22 +56,22 @@ const CloseButton = ({
   )
 }
 
-const Tabs = ({ children, store }: HeaderTabsProps) => {
+const Tabs = ({ children, className, store, ...rest }: HeaderTabsProps) => {
   return (
-    <AriakitTabList className={cx('header-tabs')} store={store}>
+    <AriakitTabList className={cx('header-tabs', className)} store={store} {...rest}>
       {children}
     </AriakitTabList>
   )
 }
 
 const Tab = forwardRefWithAs<HeaderTabItem, 'button'>(
-  ({ as: Component, badge, children, icon, id, store, ...rest }, ref) => {
-    const { selectedId } = useStoreState(store)
+  ({ as: Component, badge, children, className, icon, id, store, ...rest }, ref) => {
+    const selectedId = useStoreState(store, 'selectedId')
     const isActive = selectedId === id
 
     return (
       <AriakitTab
-        className={cx('header-tab-item')}
+        className={cx('header-tab-item', className)}
         id={id}
         key={id}
         ref={ref}
