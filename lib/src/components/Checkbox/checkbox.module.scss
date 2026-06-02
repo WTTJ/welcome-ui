@@ -29,7 +29,7 @@
       cursor: not-allowed;
     }
 
-    &:not([aria-disabled]):hover {
+    &:not([aria-disabled='true']):hover {
       --borderColor: var(--borderColorHover, var(--checkbox-color-border-unchecked-hover));
     }
 
@@ -40,7 +40,7 @@
     }
 
     &[aria-checked='true'] {
-      &:not([aria-disabled]) {
+      &:not([aria-disabled='true']) {
         --backgroundColor: var(--checkbox-color-background-checked-default);
         --borderColor: var(--checkbox-color-background-checked-default);
 
@@ -76,7 +76,7 @@
   }
 
   .indeterminate {
-    &:not([aria-disabled]) {
+    &:not([aria-disabled='true']) {
       --backgroundColor: var(--checkbox-color-background-checked-default);
       --borderColor: var(--checkbox-color-background-checked-default);
 
