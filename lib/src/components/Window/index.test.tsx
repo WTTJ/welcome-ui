@@ -8,6 +8,10 @@ import { render } from '@tests'
 const onClose = vi.fn()
 const onExpand = vi.fn()
 
+const WindowButtonWrapper = ({ isActive = false, ...rest }) => (
+  <Window.Header.Button aria-label="Pin window" icon="setting" isActive={isActive} {...rest} />
+)
+
 describe('<Window>', () => {
   it('should render correctly', () => {
     const { container } = render(<Window>Content</Window>)
@@ -126,6 +130,24 @@ describe('<Window>', () => {
     )
 
     expect(screen.getByAltText('Test image')).toBeInTheDocument()
+  })
+
+  it('should set aria-pressed to true when isActive is true on Header.Button', () => {
+    render(<WindowButtonWrapper data-testid="window-header-button-active" isActive={true} />)
+
+    expect(screen.getByTestId('window-header-button-active')).toHaveAttribute(
+      'aria-pressed',
+      'true'
+    )
+  })
+
+  it('should set aria-pressed to false when isActive is not set on Header.Button', () => {
+    render(<WindowButtonWrapper data-testid="window-header-button-inactive" />)
+
+    expect(screen.getByTestId('window-header-button-inactive')).toHaveAttribute(
+      'aria-pressed',
+      'false'
+    )
   })
 
   it('should render with different body sizes', () => {

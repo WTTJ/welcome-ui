@@ -24,7 +24,7 @@ const Button = ({
   'aria-label': ariaLabel,
   className,
   icon,
-  isActive,
+  isActive = false,
   onClick,
   ...rest
 }: PropsWithAs<As, ActionButtonProps>) => {
