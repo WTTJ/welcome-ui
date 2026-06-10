@@ -31,6 +31,12 @@ Use `Window.Header.RightActions` for closable controls and custom action buttons
 
 <div data-playground="custom-header-action.tsx" data-component="Window"></div>
 
+#### Active button
+
+Use the `isActive` prop on `Window.Header.Button` to keep a button in its pressed state — useful for toggle actions like pinning a window.
+
+<div data-playground="header-active-button.tsx" data-component="Window"></div>
+
 ### Tab Panels
 
 Use `Window.TabPanel` to create content sections that correspond to tabs in the header. Each tab panel requires both a `store` prop (the same tab store used in `Window.Header.Tabs`) and a `tabId` prop that matches the id of its corresponding tab.

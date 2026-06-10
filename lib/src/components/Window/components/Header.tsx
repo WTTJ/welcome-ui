@@ -24,12 +24,14 @@ const Button = ({
   'aria-label': ariaLabel,
   className,
   icon,
+  isActive,
   onClick,
   ...rest
 }: PropsWithAs<As, ActionButtonProps>) => {
   return (
     <button
       aria-label={ariaLabel}
+      aria-pressed={isActive}
       className={cx('header-action-button', className)}
       onClick={onClick}
       type="button"
