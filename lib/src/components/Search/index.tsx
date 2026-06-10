@@ -182,10 +182,10 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
                     className={cx(
                       'icon-wrapper',
                       `icon-placement-${iconPlacement}`,
-                      `size-${size}`
+                      `icon-placement-${iconPlacement}-${size}`
                     )}
                   >
-                    <Icon {...icon.props} size="lg" />
+                    <Icon {...icon.props} size={size} />
                   </div>
                 ) : null}
                 <div className={cx('indicators', `size-${size}`)}>
