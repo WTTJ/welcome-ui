@@ -10,7 +10,7 @@
     padding: 0;
     top: 0;
     height: var(--searchHeight, 100%);
-    right: var(--indicatorsRight, 0);
+    right: var(--indicatorsRight, var(--searchPaddingInline));
     display: flex;
     gap: var(--border-radius-sm);
   }
@@ -34,7 +34,7 @@
 
     &:has(> .icon-placement-right) {
       .indicators {
-        --indicatorsRight: calc((var(--searchIconSize, 1rem) + var(--border-radius-md)));
+        --indicatorsRight: calc(var(--searchPaddingInline) + var(--searchIconSize, var(--size-icon-md)));
       }
     }
   }
@@ -65,17 +65,22 @@
     padding-inline: var(--searchPaddingInline);
     padding-block: var(--searchPaddingBlock);
 
-    /* left icon */
+    /* left icon: equal padding on both sides — border→paddingInline→icon→paddingInline→text */
     &.icon-placement-left {
-      padding-left: calc(
-        var(--searchPaddingLeft) + var(--searchIconSize, 1rem) + var(--border-radius-md)
+      padding-left: calc(var(--searchPaddingInline) * 2 + var(--searchIconSize, var(--size-icon-md)));
+    }
+
+    /* right icon: reserve space for icon + clear button + padding */
+    &.icon-placement-right {
+      padding-right: calc(
+        var(--searchPaddingInline) * 2 + var(--searchIconSize, var(--size-icon-md)) + var(--button-size-icon-sm)
       );
     }
 
-    /*  right icon */
-    &.icon-placement-right {
+    /* no right icon: reserve space for clear button when there's a value */
+    &:not(.icon-placement-right):not(:placeholder-shown) {
       padding-right: calc(
-        var(--searchPaddingRight) + (var(--searchIconSize, 1rem) + var(--border-radius-md)) * 2
+        var(--searchPaddingInline) * 2 + var(--button-size-icon-sm)
       );
     }
 
@@ -133,18 +138,21 @@
       --searchHeight: var(--input-max-height-lg);
       --searchPaddingBlock: var(--input-padding-block-lg);
       --searchPaddingInline: var(--input-padding-inline-lg);
+      --searchIconSize: var(--size-icon-lg);
     }
 
     &-md {
       --searchHeight: var(--input-max-height-md);
       --searchPaddingBlock: var(--input-padding-block-md);
       --searchPaddingInline: var(--input-padding-inline-md);
+      --searchIconSize: var(--size-icon-md);
     }
 
     &-sm {
       --searchHeight: var(--input-max-height-sm);
       --searchPaddingBlock: var(--input-padding-block-sm);
       --searchPaddingInline: var(--input-padding-inline-sm);
+      --searchIconSize: var(--size-icon-sm);
     }
   }
 
@@ -185,6 +193,10 @@
       &-md {
         --searchIconLeft: var(--input-padding-inline-md);
       }
+
+      &-lg {
+        --searchIconLeft: var(--input-padding-inline-lg);
+      }
     }
 
     &-right {
@@ -194,6 +206,10 @@
 
       &-md {
         --searchIconRight: var(--input-padding-inline-md);
+      }
+
+      &-lg {
+        --searchIconRight: var(--input-padding-inline-lg);
       }
     }
   }
