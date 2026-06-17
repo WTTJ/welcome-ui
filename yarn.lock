@@ -6637,6 +6637,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"gray-matter@patch:gray-matter@npm%3A4.0.3#~/.yarn/patches/gray-matter-npm-4.0.3-852ae4f34c.patch":
+  version: 4.0.3
+  resolution: "gray-matter@patch:gray-matter@npm%3A4.0.3#~/.yarn/patches/gray-matter-npm-4.0.3-852ae4f34c.patch::version=4.0.3&hash=84a6c2"
+  dependencies:
+    js-yaml: "npm:^3.13.1"
+    kind-of: "npm:^6.0.2"
+    section-matter: "npm:^1.0.0"
+    strip-bom-string: "npm:^1.0.0"
+  checksum: 10c0/96aef796192d730b7a042f0308fbea98fae068fc393122feee289fd9de439ed91be989ae74aac1db2be34e2f809e55ad95b74a1004356656f5ed1b9a08d0ab41
+  languageName: node
+  linkType: hard
+
 "has-bigints@npm:^1.0.2":
   version: 1.0.2
   resolution: "has-bigints@npm:1.0.2"
@@ -13226,7 +13238,7 @@ __metadata:
     "@tailwindcss/postcss": "npm:^4.1.18"
     "@types/lodash": "npm:4.17.24"
     autoprefixer: "npm:^10.4.22"
-    gray-matter: "npm:4.0.3"
+    gray-matter: "patch:gray-matter@npm%3A4.0.3#~/.yarn/patches/gray-matter-npm-4.0.3-852ae4f34c.patch"
     lodash: "npm:4.18.1"
     marked: "npm:16.4.1"
     next: "npm:16.1.5"
