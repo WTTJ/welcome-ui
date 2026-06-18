@@ -4,7 +4,7 @@
   "scripts": {
     "build": "yarn workspace welcome-ui run build",
     "build:website": "yarn workspace website install && yarn workspace website build",
-    "check:audit": "bash -c './scripts/audit.sh --severity low --no-deprecations --recursive'",
+    "check:audit": "yarn && bash -c './scripts/audit.sh --severity low --no-deprecations --recursive'",
     "check:audit:fix": "npm_config_yes=true npx yarn-audit-fix",
     "check:docs": "node ./scripts/check-docs.mjs",
     "check:theme": "node --import=tsx lib/src/theme/scripts/generate-theme.ts",
@@ -111,7 +111,9 @@
   "resolutions": {
     "socks": "2.8.8",
     "fast-uri": "3.1.2",
-    "brace-expansion@^5.0.2": "^5.0.6"
+    "brace-expansion@^5.0.2": "^5.0.6",
+    "tar": "7.5.16",
+    "js-yaml": "4.2.0"
   },
   "packageManager": "yarn@4.12.0"
 }
