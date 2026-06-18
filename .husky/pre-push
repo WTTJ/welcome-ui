@@ -1,1 +1,1 @@
-yarn lint && yarn test run
+yarn check:audit && yarn lint && yarn test run
