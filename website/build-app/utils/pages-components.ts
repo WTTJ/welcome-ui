@@ -1,10 +1,18 @@
 import { existsSync, readdirSync, readFileSync } from 'fs'
 import { join } from 'path'
 
-import matter from 'gray-matter'
 import kebabCase from 'lodash/kebabCase'
 
 import type { PageTree } from '../types'
+
+import { parseFrontmatter } from './frontmatter'
+
+type ComponentFrontmatter = {
+  category?: string
+  isNew?: boolean
+  title?: string
+  type?: string
+}
 
 type Parent = 'components'
 
@@ -24,7 +32,7 @@ export function getFilesFromPackages(selectedParent: Parent) {
       const content = readFileSync(path, 'utf8')
       const {
         data: { category, isNew = false, title, type = 'components' },
-      } = matter(content)
+      } = parseFrontmatter<ComponentFrontmatter>(content)
 
       if (selectedParent !== type) continue
 

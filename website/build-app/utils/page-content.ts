@@ -1,8 +1,7 @@
 import { existsSync, readFileSync } from 'fs'
 import { join } from 'path'
 
-import matter from 'gray-matter'
-
+import { parseFrontmatter } from './frontmatter'
 import { getPageTree } from './page-tree'
 
 type Data = {
@@ -32,7 +31,7 @@ export function getPageContent({ filename, isPackage }: { filename: string; isPa
     return { isNotFound: true }
   } else {
     const content = readFileSync(file, 'utf8')
-    const { content: contentWithoutMatter, data }: { content: string; data: Data } = matter(content)
+    const { content: contentWithoutMatter, data } = parseFrontmatter<Data>(content)
 
     const tree = getPageTree(contentWithoutMatter, isPackage)
 
