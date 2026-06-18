@@ -1,11 +1,10 @@
 import { existsSync, readFileSync } from 'fs'
 import { join } from 'path'
 
-import matter from 'gray-matter'
-
 import * as iconCollections from '@/components/Icon/icons'
 import { themeVariables } from '@/theme/generated/variables'
 
+import { parseFrontmatter } from './frontmatter'
 import { getFilesFromPackages } from './pages-components'
 import { getRepository } from './transform-name'
 
@@ -23,6 +22,11 @@ export type FoundationInfo = {
 export type GenerationResult = {
   markdown: string
   warnings: string[]
+}
+
+type MdxFrontmatter = {
+  description?: string
+  title?: string
 }
 
 type PropDef = {
@@ -139,7 +143,7 @@ export function generateComponentMarkdown(id: string): GenerationResult {
     }
   }
 
-  const { content: mdxContent, data } = matter(mdxRaw)
+  const { content: mdxContent, data } = parseFrontmatter<MdxFrontmatter>(mdxRaw)
   const title: string = data.title ?? name
 
   const overviewCode = readComponentFile(name, 'docs/examples/overview.tsx')
@@ -185,7 +189,7 @@ export function generateFoundationMarkdown(slugParts: string[]): GenerationResul
     }
   }
 
-  const { content } = matter(raw)
+  const { content } = parseFrontmatter(raw)
   // No component context needed, foundations have no data-playground divs
   const markdown = replaceAllDivs(content.trim(), '', warnings)
   return { markdown, warnings }

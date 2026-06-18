@@ -5,7 +5,7 @@ import type {
 
 export interface TooltipOptions {
   children: React.ReactNode
-  content: JSX.Element | string
+  content: React.ReactNode
   fixed?: boolean
   gutter?: number
   placement?: TooltipPlacement
