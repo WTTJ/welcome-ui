@@ -8,6 +8,7 @@ import type { IconName } from '../Icon/types'
 
 export interface ActionButtonOptions {
   icon: IconName
+  isActive?: boolean
 }
 
 export type ActionButtonProps = MergeProps<HTMLAttributes<HTMLButtonElement>, ActionButtonOptions>
