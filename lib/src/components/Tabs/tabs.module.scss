@@ -35,9 +35,9 @@
       --tabItemBorderColor: var(--tab-color-border-unchecked-pressed);
 
       &[aria-selected='true'] {
-        --tabItemColor: var(--tab-color-text-checked-pressed);
-        --tabItemBackgroundColor: var(--tab-color-background-checked-pressed);
-        --tabItemBorderColor: var(--tab-color-border-checked-pressed);
+        --tabItemColor: var(--tab-color-text-checked-default);
+        --tabItemBackgroundColor: var(--tab-color-background-checked-default);
+        --tabItemBorderColor: var(--tab-color-border-checked-default);
       }
     }
 
