@@ -61,5 +61,10 @@
       --backgroundColor: var(--badge-color-background-blue);
       --color: var(--badge-color-text-blue);
     }
+
+    &-red {
+      --backgroundColor: var(--badge-color-background-red);
+      --color: var(--badge-color-text-red);
+    }
   }
 }

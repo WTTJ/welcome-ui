@@ -10351,6 +10351,31 @@
               "targetVariableSetName": "Semantic - Colors"
             }
           }
+        },
+        "red": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.8823529481887817,
+              0,
+              0.22745098173618317
+            ],
+            "alpha": 1,
+            "hex": "#E1003A"
+          },
+          "$extensions": {
+            "com.figma.variableId": "VariableID:4598:3342",
+            "com.figma.scopes": [
+              "ALL_SCOPES"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:0f5a75fb8e52168d66efcc3d39944e57235dc788/-1:-1",
+              "targetVariableName": "color/background/danger/stronger",
+              "targetVariableSetId": "VariableCollectionId:c63d851fbfa7f020daa54dd5d4d433436faec0f9/-1:-1",
+              "targetVariableSetName": "Semantic - Colors"
+            }
+          }
         }
       },
       "text": {
@@ -10443,6 +10468,31 @@
           },
           "$extensions": {
             "com.figma.variableId": "VariableID:2487:87",
+            "com.figma.scopes": [
+              "TEXT_FILL"
+            ],
+            "com.figma.aliasData": {
+              "targetVariableId": "VariableID:66ed4803c3b832ed787d25df4d75907830bc1a75/-1:-1",
+              "targetVariableName": "color/text/neutral/inverse",
+              "targetVariableSetId": "VariableCollectionId:c63d851fbfa7f020daa54dd5d4d433436faec0f9/-1:-1",
+              "targetVariableSetName": "Semantic - Colors"
+            }
+          }
+        },
+        "red": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              1,
+              1
+            ],
+            "alpha": 1,
+            "hex": "#FFFFFF"
+          },
+          "$extensions": {
+            "com.figma.variableId": "VariableID:4598:3347",
             "com.figma.scopes": [
               "TEXT_FILL"
             ],

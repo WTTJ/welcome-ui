@@ -5,6 +5,7 @@ const Example = () => {
     <>
       <Badge variant="brand">brand</Badge>
       <Badge variant="blue">blue</Badge>
+      <Badge variant="red">red</Badge>
       <Badge variant="neutral">neutral</Badge>
       <Badge>warm</Badge>
     </>
