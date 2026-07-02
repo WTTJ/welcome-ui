@@ -53,7 +53,7 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "\"blue\" | \"brand\" | \"neutral\" | \"warm\"",
+          "raw": "\"blue\" | \"brand\" | \"neutral\" | \"red\" | \"warm\"",
           "value": [
             {
               "value": "\"blue\""
@@ -63,6 +63,9 @@
             },
             {
               "value": "\"neutral\""
+            },
+            {
+              "value": "\"red\""
             },
             {
               "value": "\"warm\""
