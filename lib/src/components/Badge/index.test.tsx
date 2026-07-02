@@ -45,4 +45,16 @@ describe('<Badge>', () => {
 
     expect(component.className).toMatch(/variant-blue/)
   })
+
+  it('should have correct red variant color', () => {
+    render(
+      <Badge data-testid="badge" variant="red">
+        {content}
+      </Badge>
+    )
+
+    const component = screen.getByTestId('badge')
+
+    expect(component.className).toMatch(/variant-red/)
+  })
 })

@@ -7,7 +7,7 @@ export type BadgeProps = BadgeOptions &
 interface BadgeOptions {
   children?: number | React.ReactElement | string
   size?: 'lg' | 'md' | 'sm'
-  variant?: 'blue' | 'brand' | 'neutral' | 'warm'
+  variant?: 'blue' | 'brand' | 'neutral' | 'red' | 'warm'
   // if a number is higher than 99, we replace this number by 99+
   withNumberAbbreviation?: boolean
 }

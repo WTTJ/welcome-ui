@@ -286,10 +286,12 @@
   --badge-color-background-blue: #27a5d0;
   --badge-color-background-brand: #ffcd00;
   --badge-color-background-neutral: #000000;
+  --badge-color-background-red: #e1003a;
   --badge-color-background-warm: #eae4de;
   --badge-color-text-blue: #ffffff;
   --badge-color-text-brand: #000000;
   --badge-color-text-neutral: #ffffff;
+  --badge-color-text-red: #ffffff;
   --badge-color-text-warm: #1e1c1a;
   --badge-padding-block-lg: 4px;
   --badge-padding-block-md: 2px;
