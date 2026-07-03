@@ -114,7 +114,8 @@
       --windowButtonIconColor: var(--window-header-action-color-icon-common-hover);
     }
 
-    &:active {
+    &:active,
+    &[aria-pressed='true'] {
       --windowButtonBackgroundColor: var(--window-header-action-color-background-common-pressed);
       --windowButtonIconColor: var(--window-header-action-color-icon-common-pressed);
     }
