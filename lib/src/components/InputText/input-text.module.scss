@@ -19,10 +19,7 @@
     appearance: none;
 
     /* VARIABLES THAT CHANGE WITH REACT PROPS */
-    background-color: var(
-      --inputTextBackgroundColor,
-      var(--input-color-background-default)
-    );
+    background-color: var(--inputTextBackgroundColor, var(--input-color-background-default));
     color: var(--inputTextColor, var(--input-color-text-default));
     border-color: var(--inputTextBorderColor, var(--input-color-border-default));
     box-shadow: var(--inputTextBoxShadow, var(--inset-10)) inset;
@@ -96,6 +93,7 @@
     --borderColor: transparent;
     --inputTextBackgroundColor: var(--input-color-background-transparent);
     --borderColorHover: var(--input-color-border-hover-transparent);
+    --inputTextBorderColor: transparent;
   }
 
   .size {
