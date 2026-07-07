@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 
 import { useIsomorphicLayoutEffect } from './use-isomorphic-layout-effect'
 
@@ -7,27 +7,29 @@ type Size = {
   width: number
 }
 
+const RESIZE_THROTTLE_MS = 300
+
 export function useViewportSize(): Size {
   const [size, setSize] = useState<Size>({ height: undefined, width: undefined })
-
-  // Throttle resize events to prevent excessive updates
-  const handleResize = ({ height, width }: { height: number; width: number }) => {
-    let timer: NodeJS.Timeout = undefined
-    clearTimeout(timer)
-    timer = setTimeout(() => {
-      setSize({ height, width })
-    }, 300)
-  }
+  // Persisted across resize events so each new resize cancels the previous pending update
+  const timerRef = useRef<NodeJS.Timeout>()
 
   useIsomorphicLayoutEffect(() => {
     // ResizeObserver is more performant than the window resize event
     const observer = new ResizeObserver(([entry]) => {
       const { blockSize: height, inlineSize: width } = entry.contentBoxSize[0]
-      handleResize({ height, width })
+
+      clearTimeout(timerRef.current)
+      timerRef.current = setTimeout(() => {
+        setSize({ height, width })
+      }, RESIZE_THROTTLE_MS)
     })
 
     observer.observe(document.documentElement)
-    return () => observer.disconnect()
+    return () => {
+      clearTimeout(timerRef.current)
+      observer.disconnect()
+    }
   }, [])
 
   return size
