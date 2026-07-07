@@ -3,7 +3,7 @@
 import { useScreens } from './use-screens'
 
 describe('useScreens', () => {
-  it('should return the correct screen sizes', async () => {
+  it('should return the correct screen sizes', () => {
     const screens = useScreens()
     expect(screens).toEqual({
       xs: 0,

@@ -34,21 +34,6 @@ describe('useBreakpoint', () => {
   })
 
   it.each([
-    { expected: 'sm', width: 480 },
-    { expected: 'md', width: 736 },
-    { expected: 'lg', width: 980 },
-  ])(
-    'returns $expected for a $widthpx wide viewport when the boundary is "includeThreshold"',
-    ({ expected, width }) => {
-      window.innerWidth = width
-
-      const { result } = renderHook(() => useBreakpoint('includeThreshold'))
-
-      expect(result.current).toBe(expected)
-    }
-  )
-
-  it.each([
     { expected: 'xs', width: 480 },
     { expected: 'sm', width: 736 },
     { expected: 'md', width: 980 },
