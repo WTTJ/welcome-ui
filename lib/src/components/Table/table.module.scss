@@ -55,6 +55,12 @@
         text-align: left;
       }
 
+      // td and th containing <Checkbox /> as only child have a fixed width
+      th:has(> [aria-checked]:only-child),
+      td:has(> [aria-checked]:only-child) {
+        max-width: var(--table-cell-size-checkbox);
+      }
+
       tr {
         border-bottom-color: var(--table-cell-color-border-default);
         border-bottom-width: var(--table-cell-border-width);

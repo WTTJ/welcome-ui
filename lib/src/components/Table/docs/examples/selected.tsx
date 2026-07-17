@@ -52,7 +52,7 @@ const Example = () => {
     <Table>
       <Table.Thead>
         <Table.Tr>
-          <Table.Th className="w-80">
+          <Table.Th>
             <Checkbox
               checked={checkAllState}
               indeterminate={isIndeterminate}
