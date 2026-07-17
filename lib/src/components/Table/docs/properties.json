@@ -1,10 +1,12 @@
 {
   "Table": {
     "props": {
-      "indent": {
-        "defaultValue": null,
-        "description": "Add space on first and last child on the Td and Th component",
-        "name": "indent",
+      "withColumnDivider": {
+        "defaultValue": {
+          "value": false
+        },
+        "description": "Add vertical divider between columns",
+        "name": "withColumnDivider",
         "parent": {
           "fileName": "welcome-ui/lib/src/components/Table/types.ts",
           "name": "TableOptions"

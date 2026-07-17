@@ -4,33 +4,33 @@ import { Table } from '@/components/Table'
 
 const Example = () => {
   return (
-    <Table indent>
+    <Table>
       <Table.Thead>
         <Table.Tr>
           <Table.Th>Name</Table.Th>
           <Table.Th>Description</Table.Th>
-          <Table.Th>Number</Table.Th>
-          <Table.Th className="text-right">Actions</Table.Th>
+          <Table.Th className="text-right">Number</Table.Th>
+          <Table.Th className="text-center">Actions</Table.Th>
         </Table.Tr>
       </Table.Thead>
       <Table.Tbody>
         <Table.Tr onClick={() => alert('Row clicked!')}>
           <Table.Td>Consectetur</Table.Td>
           <Table.Td>Lorem ipsum dolor sit amet</Table.Td>
-          <Table.Td>23</Table.Td>
-          <Table.Td className="text-right">
-            <Button size="md" variant="primary-neutral">
-              <Icon name="setting" size="sm" />
+          <Table.Td className="text-right">23</Table.Td>
+          <Table.Td className="text-center">
+            <Button size="md" variant="tertiary">
+              <Icon name="pen" size="sm" />
             </Button>
           </Table.Td>
         </Table.Tr>
-        <Table.Tr>
+        <Table.Tr onClick={() => alert('Row clicked!')}>
           <Table.Td>Suspendisse</Table.Td>
           <Table.Td>Pellentesque a maximus magna</Table.Td>
-          <Table.Td>41</Table.Td>
-          <Table.Td className="text-right">
-            <Button size="md" variant="primary-neutral">
-              <Icon name="setting" size="sm" />
+          <Table.Td className="text-right">41</Table.Td>
+          <Table.Td className="text-center">
+            <Button size="md" variant="tertiary">
+              <Icon name="pen" size="sm" />
             </Button>
           </Table.Td>
         </Table.Tr>

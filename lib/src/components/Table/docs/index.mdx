@@ -7,14 +7,20 @@ title: Table
 
 Use `Table`, `Table.Thead`, `Table.Th`, `Table.Tbody`, `Table.Td`, `Table.Tr`.
 
-### With state
-
-You can use one of `success`, `error`, `warning` or `info` and add `indent` on Table for more spacing.
-
-<div data-playground="states.tsx" data-component="Table"></div>
-
 ### Clickable rows
 
 You can make rows clickable by adding the `onClick` prop to `Table.Tr`.
 
 <div data-playground="clickable.tsx" data-component="Table"></div>
+
+### Selected rows
+
+You can show a selected state by adding `aria-selected` to `Table.Tr`.
+
+<div data-playground="selected.tsx" data-component="Table"></div>
+
+### With vertical divider
+
+You can show vertical divider between columns by adding `withColumnDivider` to `Table`.
+
+<div data-playground="divider.tsx" data-component="Table"></div>

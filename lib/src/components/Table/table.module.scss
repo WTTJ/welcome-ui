@@ -2,6 +2,8 @@
   .root {
     width: 100%;
     overflow: hidden;
+    border-top-left-radius: var(--radius-md);
+    border-top-right-radius: var(--radius-md);
   }
 
   .content {
@@ -11,94 +13,86 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      border: 0;
 
-      td {
-        padding: var(--tab-size-icon-lg);
-        text-align: left;
+      thead {
+        background-color: var(--table-header-color-background-warm);
 
-        &:first-child {
-          padding-left: 0;
-        }
-
-        &:last-child {
-          padding-right: 0;
+        tr {
+          line-height: var(--font-line-height-xs);
+          font-family: var(--font-family-body);
+          font-weight: var(--font-weight-medium);
+          font-size: var(--font-size-sm);
         }
       }
 
-      th {
-        border-bottom: var(--tab-border-width-unchecked) solid
-          var(--tab-color-text-unchecked-pressed);
-        color: var(--color-icon-neutral-subtle);
-        font-weight: var(--font-weight-medium);
+      tbody {
+        tr {
+          line-height: var(--font-line-height-md);
+          font-family: var(--font-family-body);
+          font-weight: var(--font-weight-regular);
+          font-size: var(--font-size-sm);
+
+          &[aria-selected='true'] {
+            background-color: var(--table-cell-color-background-checked);
+            border-bottom-width: 0px;
+          }
+
+          &[aria-selected='true']:not(tr[aria-selected='true'] + tr[aria-selected='true']) {
+            border-top-width: var(--table-cell-border-width);
+            border-top-color: var(--table-cell-color-border-checked);
+          }
+
+          &[aria-selected='true']:not(:has(+ tr[aria-selected='true'])) {
+            border-bottom-width: var(--table-cell-border-width);
+            border-bottom-color: var(--table-cell-color-border-checked);
+          }
+        }
+      }
+
+      th,
+      td {
+        padding: var(--table-cell-padding);
         text-align: left;
-        padding: var(--tab-size-icon-lg);
-        vertical-align: middle;
-
-        &:first-child {
-          padding-left: 0;
-        }
-
-        &:last-child {
-          padding-right: 0;
-        }
       }
 
       tr {
-        border-bottom: var(--tab-border-width-unchecked) solid
-          var(--color-background-neutral-subtlest);
-        background-color: var(--trBackgroundColor, 'transparent');
-        color: var(--trColor, 'inherit');
-        transition: background-color var(--duration-medium) ease-in-out;
+        border-bottom-color: var(--table-cell-color-border-default);
+        border-bottom-width: var(--table-cell-border-width);
+        border-bottom-style: solid;
 
-        &:last-child {
-          border: 0;
-        }
-
-        &.clickable {
+        &[data-clickable='true'] {
           cursor: pointer;
 
           &:hover {
-            background-color: var(--color-background-warm-minimal);
+            border-top-width: var(--table-cell-border-width);
+            border-top-style: solid;
+            background-color: var(--table-cell-color-background-hover);
+            border-color: var(--table-cell-color-border-checked);
           }
         }
+      }
 
-        &.variant {
-          &-danger {
-            --trBackgroundColor: var(--color-background-danger-minimal);
-            --trColor: var(--color-background-danger-strongest);
-          }
-
-          &-warning {
-            --trBackgroundColor: var(--color-background-warning-minimal);
-            --trColor: var(--color-icon-warning-secondary);
-          }
-
-          &-success {
-            --trBackgroundColor: var(--color-green-10);
-            --trColor: var(--color-icon-accent-green-tertiary);
-          }
-
-          &-info {
-            --trBackgroundColor: var(--color-background-accent-blue-minimal);
-            --trColor: var(--color-background-accent-blue-strongest);
-          }
-        }
+      // Hide the tr border-bottom when the following tr is hovered or selected
+      &:has(tbody tr[data-clickable='true']:first-child:hover) thead tr,
+      &:has(tbody tr:first-child[aria-selected='true']) thead tr {
+        border-bottom-width: 0;
+      }
+      tr:has(+ tr[data-clickable='true']:hover),
+      tr:has(+ tr[aria-selected='true']) {
+        border-bottom-width: 0px;
       }
     }
   }
 
-  .indent {
+  .withColumnDivider {
     table {
-      td,
-      th {
-        &:first-child {
-          padding-left: var(--tab-size-icon-lg);
-        }
-
-        &:last-child {
-          padding-right: var(--tab-size-icon-lg);
-        }
+      tbody td {
+        border-right-color: var(--table-cell-color-border-default);
+        border-right-width: var(--table-cell-border-width);
+        border-right-style: solid;
+      }
+      tbody td:last-child {
+        border-right: none;
       }
     }
   }

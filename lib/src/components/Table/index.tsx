@@ -10,10 +10,10 @@ export { tableStyles as tableClasses }
 const cx = classNames(tableStyles)
 
 export const TableComponent = forwardRef<HTMLDivElement, TableProps>(
-  ({ children, className, indent, ...rest }, ref) => {
+  ({ children, className, withColumnDivider = false, ...rest }, ref) => {
     return (
       <div className={cx('root', className)} ref={ref} {...rest}>
-        <div className={cx('content', indent && 'indent')}>
+        <div className={cx('content', withColumnDivider && 'withColumnDivider')}>
           <table>{children}</table>
         </div>
       </div>
@@ -50,7 +50,8 @@ Td.displayName = 'Table.Td'
 const Tr = ({ className, onClick, variant, ...rest }: TableTrProps) => {
   return (
     <tr
-      className={cx(variant && `variant-${variant}`, !!onClick && `clickable`, className)}
+      className={cx(variant && `variant-${variant}`, className)}
+      data-clickable={!!onClick}
       onClick={onClick}
       {...rest}
     />

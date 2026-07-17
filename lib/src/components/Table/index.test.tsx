@@ -26,20 +26,6 @@ describe('Table', () => {
     expect(screen.getByText('Cell')).toBeInTheDocument()
   })
 
-  it('applies indent class when indent prop is true', () => {
-    render(
-      <Table data-testid="table" indent>
-        <Table.Tbody>
-          <Table.Tr>
-            <Table.Td>Content</Table.Td>
-          </Table.Tr>
-        </Table.Tbody>
-      </Table>
-    )
-
-    expect(screen.getByTestId('table').firstChild).toHaveClass(/indent/)
-  })
-
   describe('Table.Tr', () => {
     it('applies variant class when variant prop is provided', () => {
       render(

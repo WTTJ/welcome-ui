@@ -4,7 +4,7 @@ import { Table } from '@/components/Table'
 
 const Example = () => {
   return (
-    <Table>
+    <Table withColumnDivider>
       <Table.Thead>
         <Table.Tr>
           <Table.Th>Name</Table.Th>
