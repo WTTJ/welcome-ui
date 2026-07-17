@@ -11,40 +11,27 @@
     overflow-x: auto;
 
     table {
+      --borderWidth: var(--table-cell-border-width);
+      --borderColorChecked: var(--table-cell-color-border-checked);
+
       width: 100%;
       border-collapse: collapse;
 
-      thead {
-        background-color: var(--table-header-color-background-warm);
+      tr {
+        font-family: var(--font-family-body);
+        font-size: var(--font-size-sm);
+        border-bottom-color: var(--table-cell-color-border-default);
+        border-bottom-width: var(--borderWidth);
+        border-bottom-style: solid;
 
-        tr {
-          line-height: var(--font-line-height-xs);
-          font-family: var(--font-family-body);
-          font-weight: var(--font-weight-medium);
-          font-size: var(--font-size-sm);
-        }
-      }
+        &[data-clickable='true'] {
+          cursor: pointer;
 
-      tbody {
-        tr {
-          line-height: var(--font-line-height-md);
-          font-family: var(--font-family-body);
-          font-weight: var(--font-weight-regular);
-          font-size: var(--font-size-sm);
-
-          &[aria-selected='true'] {
-            background-color: var(--table-cell-color-background-checked);
-            border-bottom-width: 0px;
-          }
-
-          &[aria-selected='true']:not(tr[aria-selected='true'] + tr[aria-selected='true']) {
-            border-top-width: var(--table-cell-border-width);
-            border-top-color: var(--table-cell-color-border-checked);
-          }
-
-          &[aria-selected='true']:not(:has(+ tr[aria-selected='true'])) {
-            border-bottom-width: var(--table-cell-border-width);
-            border-bottom-color: var(--table-cell-color-border-checked);
+          &:hover {
+            border-top-width: var(--borderWidth);
+            border-top-style: solid;
+            background-color: var(--table-cell-color-background-hover);
+            border-color: var(--borderColorChecked);
           }
         }
       }
@@ -61,19 +48,35 @@
         max-width: var(--table-cell-size-checkbox);
       }
 
-      tr {
-        border-bottom-color: var(--table-cell-color-border-default);
-        border-bottom-width: var(--table-cell-border-width);
-        border-bottom-style: solid;
+      thead {
+        background-color: var(--table-header-color-background-warm);
 
-        &[data-clickable='true'] {
-          cursor: pointer;
+        tr {
+          line-height: var(--font-line-height-xs);
+          font-weight: var(--font-weight-medium);
+        }
+      }
 
-          &:hover {
-            border-top-width: var(--table-cell-border-width);
-            border-top-style: solid;
-            background-color: var(--table-cell-color-background-hover);
-            border-color: var(--table-cell-color-border-checked);
+      tbody {
+        tr {
+          line-height: var(--font-line-height-md);
+          font-weight: var(--font-weight-regular);
+
+          &[aria-selected='true'] {
+            background-color: var(--table-cell-color-background-checked);
+            border-bottom-width: 0;
+          }
+
+          // When selected tr are next to each other, the first one has a border-top
+          &[aria-selected='true']:not(tr[aria-selected='true'] + tr[aria-selected='true']) {
+            border-top-width: var(--borderWidth);
+            border-top-color: var(--borderColorChecked);
+          }
+
+          // When selected tr are next to each other, the last one has a border-bottom
+          &[aria-selected='true']:not(:has(+ tr[aria-selected='true'])) {
+            border-bottom-width: var(--borderWidth);
+            border-bottom-color: var(--borderColorChecked);
           }
         }
       }
@@ -85,7 +88,7 @@
       }
       tr:has(+ tr[data-clickable='true']:hover),
       tr:has(+ tr[aria-selected='true']) {
-        border-bottom-width: 0px;
+        border-bottom-width: 0;
       }
     }
   }

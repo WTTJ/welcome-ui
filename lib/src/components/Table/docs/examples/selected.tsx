@@ -45,7 +45,7 @@ const Example = () => {
     }
   }
 
-  const checkAllState = DATA.length === selected.length
+  const allChecked = DATA.length === selected.length
   const isIndeterminate = selected.length > 0 && selected.length < DATA.length
 
   return (
@@ -53,11 +53,7 @@ const Example = () => {
       <Table.Thead>
         <Table.Tr>
           <Table.Th>
-            <Checkbox
-              checked={checkAllState}
-              indeterminate={isIndeterminate}
-              onChange={toggleAll}
-            />
+            <Checkbox checked={allChecked} indeterminate={isIndeterminate} onChange={toggleAll} />
           </Table.Th>
           <Table.Th>Name</Table.Th>
           <Table.Th>Job</Table.Th>
