@@ -10,9 +10,9 @@ export type TableTrProps = ComponentPropsWithoutRef<'tr'> &
 
 interface TableOptions {
   /**
-   * Add space on first and last child on the Td and Th component
+   * Add vertical divider between columns
    */
-  indent?: boolean
+  withColumnDivider?: boolean
 }
 
 interface TableTrOptions {
