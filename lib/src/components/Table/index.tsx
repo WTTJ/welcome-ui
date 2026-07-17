@@ -47,15 +47,8 @@ const Td = (props: React.TdHTMLAttributes<HTMLTableCellElement>) => {
 
 Td.displayName = 'Table.Td'
 
-const Tr = ({ className, onClick, variant, ...rest }: TableTrProps) => {
-  return (
-    <tr
-      className={cx(variant && `variant-${variant}`, className)}
-      data-clickable={!!onClick}
-      onClick={onClick}
-      {...rest}
-    />
-  )
+const Tr = ({ className, onClick, ...rest }: TableTrProps) => {
+  return <tr className={className} data-clickable={!!onClick} onClick={onClick} {...rest} />
 }
 
 Tr.displayName = 'Table.Tr'

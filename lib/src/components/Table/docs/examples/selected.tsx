@@ -66,18 +66,18 @@ const Example = () => {
         </Table.Tr>
       </Table.Thead>
       <Table.Tbody>
-        {DATA.map(applicant => {
-          const checked = selected.includes(applicant.id)
+        {DATA.map(({ id, job, name, score }) => {
+          const checked = selected.includes(id)
 
           return (
             <Table.Tr aria-selected={checked}>
               <Table.Td>
-                <Checkbox checked={checked} onChange={() => selectRow(applicant.id)} />
+                <Checkbox checked={checked} onChange={() => selectRow(id)} />
               </Table.Td>
 
-              <Table.Td>{applicant.name}</Table.Td>
-              <Table.Td>{applicant.job}</Table.Td>
-              <Table.Td>{applicant.score}</Table.Td>
+              <Table.Td>{name}</Table.Td>
+              <Table.Td>{job}</Table.Td>
+              <Table.Td>{score}</Table.Td>
 
               <Table.Td className="text-center">
                 <Button size="md" variant="tertiary">
