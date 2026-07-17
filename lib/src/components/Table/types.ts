@@ -20,8 +20,4 @@ interface TableTrOptions {
    * Change the cursor to pointer to indicate the row is clickable
    */
   onClick?: (props?: unknown) => void
-  /**
-   * Change the background color of the row to represent a specific state
-   */
-  variant?: 'danger' | 'info' | 'success' | 'warning'
 }

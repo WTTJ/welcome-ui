@@ -10,7 +10,7 @@ const Example = () => {
           <Table.Th>Name</Table.Th>
           <Table.Th>Description</Table.Th>
           <Table.Th className="text-right">Number</Table.Th>
-          <Table.Th className="text-center w-80">Actions</Table.Th>
+          <Table.Th className="text-center">Actions</Table.Th>
         </Table.Tr>
       </Table.Thead>
       <Table.Tbody>
