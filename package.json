@@ -113,7 +113,7 @@
     "fast-uri": "3.1.2",
     "brace-expansion@^5.0.2": "^5.0.6",
     "tar": "7.5.16",
-    "js-yaml": "4.2.0"
+    "js-yaml": "4.3.0"
   },
   "packageManager": "yarn@4.12.0"
 }
