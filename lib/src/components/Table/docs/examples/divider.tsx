@@ -4,7 +4,7 @@ import { Table } from '@/components/Table'
 
 const Example = () => {
   return (
-    <Table>
+    <Table withColumnDivider>
       <Table.Thead>
         <Table.Tr>
           <Table.Th>Name</Table.Th>
@@ -14,23 +14,33 @@ const Example = () => {
         </Table.Tr>
       </Table.Thead>
       <Table.Tbody>
-        <Table.Tr onClick={() => alert('Row clicked!')}>
+        <Table.Tr>
           <Table.Td>Consectetur</Table.Td>
           <Table.Td>Lorem ipsum dolor sit amet</Table.Td>
           <Table.Td className="text-right">23</Table.Td>
           <Table.Td className="text-center">
             <Button size="md" variant="tertiary">
-              <Icon name="pen" size="sm" />
+              <Icon name="ellipsis-v" size="sm" />
             </Button>
           </Table.Td>
         </Table.Tr>
-        <Table.Tr onClick={() => alert('Row clicked!')}>
+        <Table.Tr>
           <Table.Td>Suspendisse</Table.Td>
           <Table.Td>Pellentesque a maximus magna</Table.Td>
           <Table.Td className="text-right">41</Table.Td>
           <Table.Td className="text-center">
             <Button size="md" variant="tertiary">
-              <Icon name="pen" size="sm" />
+              <Icon name="ellipsis-v" size="sm" />
+            </Button>
+          </Table.Td>
+        </Table.Tr>
+        <Table.Tr>
+          <Table.Td>Ullamcorper</Table.Td>
+          <Table.Td>Cras viverra ac erat ullamcorper maximus</Table.Td>
+          <Table.Td className="text-right">8</Table.Td>
+          <Table.Td className="text-center">
+            <Button size="md" variant="tertiary">
+              <Icon name="ellipsis-v" size="sm" />
             </Button>
           </Table.Td>
         </Table.Tr>

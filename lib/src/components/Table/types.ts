@@ -10,9 +10,9 @@ export type TableTrProps = ComponentPropsWithoutRef<'tr'> &
 
 interface TableOptions {
   /**
-   * Add space on first and last child on the Td and Th component
+   * Add vertical divider between columns
    */
-  indent?: boolean
+  withColumnDivider?: boolean
 }
 
 interface TableTrOptions {
@@ -20,8 +20,4 @@ interface TableTrOptions {
    * Change the cursor to pointer to indicate the row is clickable
    */
   onClick?: (props?: unknown) => void
-  /**
-   * Change the background color of the row to represent a specific state
-   */
-  variant?: 'danger' | 'info' | 'success' | 'warning'
 }

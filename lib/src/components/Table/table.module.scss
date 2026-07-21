@@ -2,6 +2,8 @@
   .root {
     width: 100%;
     overflow: hidden;
+    border-top-left-radius: var(--radius-md);
+    border-top-right-radius: var(--radius-md);
   }
 
   .content {
@@ -9,96 +11,97 @@
     overflow-x: auto;
 
     table {
+      --borderWidth: var(--table-cell-border-width);
+      --borderColorChecked: var(--table-cell-color-border-checked);
+
       width: 100%;
       border-collapse: collapse;
-      border: 0;
-
-      td {
-        padding: var(--tab-size-icon-lg);
-        text-align: left;
-
-        &:first-child {
-          padding-left: 0;
-        }
-
-        &:last-child {
-          padding-right: 0;
-        }
-      }
-
-      th {
-        border-bottom: var(--tab-border-width-unchecked) solid
-          var(--tab-color-text-unchecked-pressed);
-        color: var(--color-icon-neutral-subtle);
-        font-weight: var(--font-weight-medium);
-        text-align: left;
-        padding: var(--tab-size-icon-lg);
-        vertical-align: middle;
-
-        &:first-child {
-          padding-left: 0;
-        }
-
-        &:last-child {
-          padding-right: 0;
-        }
-      }
 
       tr {
-        border-bottom: var(--tab-border-width-unchecked) solid
-          var(--color-background-neutral-subtlest);
-        background-color: var(--trBackgroundColor, 'transparent');
-        color: var(--trColor, 'inherit');
-        transition: background-color var(--duration-medium) ease-in-out;
+        font-family: var(--font-family-body);
+        font-size: var(--font-size-sm);
+        border-bottom-color: var(--table-cell-color-border-default);
+        border-bottom-width: var(--borderWidth);
+        border-bottom-style: solid;
 
-        &:last-child {
-          border: 0;
-        }
-
-        &.clickable {
+        &[data-clickable='true'] {
           cursor: pointer;
 
           &:hover {
-            background-color: var(--color-background-warm-minimal);
+            border-top-width: var(--borderWidth);
+            border-top-style: solid;
+            background-color: var(--table-cell-color-background-hover);
+            border-color: var(--borderColorChecked);
           }
         }
+      }
 
-        &.variant {
-          &-danger {
-            --trBackgroundColor: var(--color-background-danger-minimal);
-            --trColor: var(--color-background-danger-strongest);
+      th,
+      td {
+        padding: var(--table-cell-padding);
+        text-align: left;
+      }
+
+      // td and th containing <Checkbox /> as only child have a fixed width
+      th:has(> [aria-checked]:only-child),
+      td:has(> [aria-checked]:only-child) {
+        max-width: var(--table-cell-size-checkbox);
+      }
+
+      thead {
+        background-color: var(--table-header-color-background-warm);
+
+        tr {
+          line-height: var(--font-line-height-xs);
+          font-weight: var(--font-weight-medium);
+        }
+      }
+
+      tbody {
+        tr {
+          line-height: var(--font-line-height-md);
+          font-weight: var(--font-weight-regular);
+
+          &[aria-selected='true'] {
+            background-color: var(--table-cell-color-background-checked);
+            border-bottom-width: 0;
           }
 
-          &-warning {
-            --trBackgroundColor: var(--color-background-warning-minimal);
-            --trColor: var(--color-icon-warning-secondary);
+          // When selected tr are next to each other, the first one has a border-top
+          &[aria-selected='true']:not(tr[aria-selected='true'] + tr[aria-selected='true']) {
+            border-top-width: var(--borderWidth);
+            border-top-color: var(--borderColorChecked);
           }
 
-          &-success {
-            --trBackgroundColor: var(--color-green-10);
-            --trColor: var(--color-icon-accent-green-tertiary);
-          }
-
-          &-info {
-            --trBackgroundColor: var(--color-background-accent-blue-minimal);
-            --trColor: var(--color-background-accent-blue-strongest);
+          // When selected tr are next to each other, the last one has a border-bottom
+          &[aria-selected='true']:not(:has(+ tr[aria-selected='true'])) {
+            border-bottom-width: var(--borderWidth);
+            border-bottom-color: var(--borderColorChecked);
           }
         }
+      }
+
+      // Hide the tr border-bottom when the following tr is hovered or selected
+      &:has(tbody tr[data-clickable='true']:first-child:hover) thead tr,
+      &:has(tbody tr:first-child[aria-selected='true']) thead tr {
+        border-bottom-width: 0;
+      }
+      tr:has(+ tr[data-clickable='true']:hover),
+      tr:has(+ tr[aria-selected='true']) {
+        border-bottom-width: 0;
       }
     }
   }
 
-  .indent {
+  .withColumnDivider {
     table {
-      td,
-      th {
-        &:first-child {
-          padding-left: var(--tab-size-icon-lg);
-        }
-
-        &:last-child {
-          padding-right: var(--tab-size-icon-lg);
-        }
+      tbody td {
+        border-right-color: var(--table-cell-color-border-default);
+        border-right-width: var(--table-cell-border-width);
+        border-right-style: solid;
+      }
+      tbody td:last-child {
+        border-right: none;
       }
     }
   }

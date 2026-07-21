@@ -26,26 +26,42 @@ describe('Table', () => {
     expect(screen.getByText('Cell')).toBeInTheDocument()
   })
 
-  it('applies indent class when indent prop is true', () => {
+  it('does not apply the withColumnDivider class by default', () => {
     render(
-      <Table data-testid="table" indent>
+      <Table>
         <Table.Tbody>
           <Table.Tr>
-            <Table.Td>Content</Table.Td>
+            <Table.Td>Cell</Table.Td>
           </Table.Tr>
         </Table.Tbody>
       </Table>
     )
 
-    expect(screen.getByTestId('table').firstChild).toHaveClass(/indent/)
+    const contentWrapper = screen.getByRole('table').parentElement
+    expect(contentWrapper).not.toHaveClass(/withColumnDivider/)
+  })
+
+  it('applies the withColumnDivider class when withColumnDivider is true', () => {
+    render(
+      <Table withColumnDivider>
+        <Table.Tbody>
+          <Table.Tr>
+            <Table.Td>Cell</Table.Td>
+          </Table.Tr>
+        </Table.Tbody>
+      </Table>
+    )
+
+    const contentWrapper = screen.getByRole('table').parentElement
+    expect(contentWrapper).toHaveClass(/withColumnDivider/)
   })
 
   describe('Table.Tr', () => {
-    it('applies variant class when variant prop is provided', () => {
+    it('sets data-clickable to false when onClick is not provided', () => {
       render(
         <table>
           <tbody>
-            <Table.Tr variant="success">
+            <Table.Tr>
               <Table.Td>Content</Table.Td>
             </Table.Tr>
           </tbody>
@@ -53,10 +69,10 @@ describe('Table', () => {
       )
 
       const row = screen.getByRole('row')
-      expect(row).toHaveClass(/variant-success/)
+      expect(row).toHaveAttribute('data-clickable', 'false')
     })
 
-    it('applies clickable class when onClick is provided', async () => {
+    it('sets data-clickable to true and calls onClick when onClick is provided', async () => {
       const handleClick = vi.fn()
 
       const { user } = render(
@@ -70,7 +86,7 @@ describe('Table', () => {
       )
 
       const row = screen.getByRole('row')
-      expect(row).toHaveClass(/clickable/)
+      expect(row).toHaveAttribute('data-clickable', 'true')
 
       await user.click(row)
       expect(handleClick).toHaveBeenCalledTimes(1)
