@@ -241,6 +241,7 @@ export default {
   "/Table/docs/examples/divider.tsx": dynamic(() => import("../../lib/src/components/Table/docs/examples/divider.tsx").then(mod => mod), { ssr: false }),
   "/Table/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Table/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Table/docs/examples/selected.tsx": dynamic(() => import("../../lib/src/components/Table/docs/examples/selected.tsx").then(mod => mod), { ssr: false }),
+  "/Table/docs/examples/sort.tsx": dynamic(() => import("../../lib/src/components/Table/docs/examples/sort.tsx").then(mod => mod), { ssr: false }),
   "/Tabs/docs/examples/badge.tsx": dynamic(() => import("../../lib/src/components/Tabs/docs/examples/badge.tsx").then(mod => mod), { ssr: false }),
   "/Tabs/docs/examples/icon.tsx": dynamic(() => import("../../lib/src/components/Tabs/docs/examples/icon.tsx").then(mod => mod), { ssr: false }),
   "/Tabs/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Tabs/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),

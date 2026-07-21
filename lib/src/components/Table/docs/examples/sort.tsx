@@ -1,7 +1,6 @@
 import { useState } from 'react'
 
 import { Button } from '@/components/Button'
-import { Checkbox } from '@/components/Checkbox'
 import { Icon } from '@/components/Icon'
 import { Table } from '@/components/Table'
 
@@ -27,50 +26,41 @@ const DATA = [
 ]
 
 const Example = () => {
-  const [selected, setSelected] = useState<number[]>([])
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc')
 
-  const toggleAll = () => {
-    if (selected.length === DATA.length) {
-      setSelected([])
-    } else {
-      setSelected(DATA.map(({ id }) => id))
-    }
+  const toggleSort = () => {
+    setSortOrder(prevSortOrder => (prevSortOrder === 'asc' ? 'desc' : 'asc'))
   }
 
-  const selectRow = (id: number) => {
-    if (selected.includes(id)) {
-      setSelected(selected.filter(prevId => prevId !== id))
-    } else {
-      setSelected([...selected, id])
+  const sortedData = [...DATA].sort((a, b) => {
+    if (sortOrder === 'asc') {
+      return a.name > b.name ? 1 : -1
     }
-  }
 
-  const allChecked = DATA.length === selected.length
-  const isIndeterminate = selected.length > 0 && selected.length < DATA.length
+    return a.name < b.name ? 1 : -1
+  })
 
   return (
     <Table>
       <Table.Thead>
         <Table.Tr>
-          <Table.Th>
-            <Checkbox checked={allChecked} indeterminate={isIndeterminate} onChange={toggleAll} />
+          <Table.Th className="flex gap-sm">
+            Name
+            <Icon
+              className="cursor-pointer"
+              name={sortOrder === 'asc' ? 'arrow-down' : 'arrow-up'}
+              onClick={toggleSort}
+            />
           </Table.Th>
-          <Table.Th>Name</Table.Th>
           <Table.Th>Job</Table.Th>
           <Table.Th className="text-right">Score</Table.Th>
           <Table.Th className="text-center">Actions</Table.Th>
         </Table.Tr>
       </Table.Thead>
       <Table.Tbody>
-        {DATA.map(({ id, job, name, score }) => {
-          const checked = selected.includes(id)
-
+        {sortedData.map(({ job, name, score }) => {
           return (
-            <Table.Tr aria-selected={checked}>
-              <Table.Td>
-                <Checkbox checked={checked} onChange={() => selectRow(id)} />
-              </Table.Td>
-
+            <Table.Tr>
               <Table.Td>{name}</Table.Td>
               <Table.Td>{job}</Table.Td>
               <Table.Td className="text-right">{score}</Table.Td>
