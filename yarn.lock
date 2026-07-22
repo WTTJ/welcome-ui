@@ -223,36 +223,84 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ariakit/core@npm:0.4.18":
-  version: 0.4.18
-  resolution: "@ariakit/core@npm:0.4.18"
-  checksum: 10c0/3c78b3679b52b289ed08653a51ccf165fc0372c864c5d08ca0186921ea1cde9fdad525f94fe1035399dbedaca247253183f6b9b01047f55ea5f6d042ee8f8e59
+"@ariakit/components@npm:0.1.7":
+  version: 0.1.7
+  resolution: "@ariakit/components@npm:0.1.7"
+  dependencies:
+    "@ariakit/store": "npm:0.1.6"
+    "@ariakit/utils": "npm:0.1.4"
+  checksum: 10c0/05e875c787e071d1060d5680952e9efb738febef19ca285cf9da4ae2bc7359a5a3ba21bf3986c1d9c6b5656dfcc7c3f2a9f0a586f4d25e7253fa36055119d565
   languageName: node
   linkType: hard
 
-"@ariakit/react-core@npm:0.4.23":
-  version: 0.4.23
-  resolution: "@ariakit/react-core@npm:0.4.23"
+"@ariakit/react-components@npm:0.3.3":
+  version: 0.3.3
+  resolution: "@ariakit/react-components@npm:0.3.3"
   dependencies:
-    "@ariakit/core": "npm:0.4.18"
+    "@ariakit/components": "npm:0.1.7"
+    "@ariakit/react-store": "npm:0.1.7"
+    "@ariakit/react-utils": "npm:0.2.2"
+    "@ariakit/store": "npm:0.1.6"
+    "@ariakit/utils": "npm:0.1.4"
     "@floating-ui/dom": "npm:^1.0.0"
-    use-sync-external-store: "npm:^1.2.0"
   peerDependencies:
     react: ^17.0.0 || ^18.0.0 || ^19.0.0
     react-dom: ^17.0.0 || ^18.0.0 || ^19.0.0
-  checksum: 10c0/5f9d0ac2ba3bd251c181edce0aea0d93b76c8274f37afef3cb7f5942a898f48d60403d62777271398e0ab063174fce6aa5a3d0b201b61fc27701e7cda0bf0067
+  checksum: 10c0/7c3dd9d5dc67060f2d12713b6351f5e3e59c14998d5d0684cbd026b7aa15cc13448ede5980a5a8534a8f0af5bf62f999a594d94857171de31858f7f2f29a81e8
   languageName: node
   linkType: hard
 
-"@ariakit/react@npm:0.4.23":
-  version: 0.4.23
-  resolution: "@ariakit/react@npm:0.4.23"
+"@ariakit/react-store@npm:0.1.7":
+  version: 0.1.7
+  resolution: "@ariakit/react-store@npm:0.1.7"
   dependencies:
-    "@ariakit/react-core": "npm:0.4.23"
+    "@ariakit/react-utils": "npm:0.2.2"
+    "@ariakit/store": "npm:0.1.6"
+    "@ariakit/utils": "npm:0.1.4"
+    use-sync-external-store: "npm:^1.6.0"
+  peerDependencies:
+    react: ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: 10c0/0649c26f4c7d5e1213d1c9985978345b8735f3fe7597dae342c28b4b0739536c37511890b78a6cba70364f274a84fc48a020acecede1fe79a99808bd77328d55
+  languageName: node
+  linkType: hard
+
+"@ariakit/react-utils@npm:0.2.2":
+  version: 0.2.2
+  resolution: "@ariakit/react-utils@npm:0.2.2"
+  dependencies:
+    "@ariakit/store": "npm:0.1.6"
+    "@ariakit/utils": "npm:0.1.4"
+  peerDependencies:
+    react: ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: 10c0/12d136449cb8e12ec13f880398a087bf48c4d8079bca700711cd827480cbdc95b9de426dbba37e35c6679bb14582a443f1b7508652701e114ad5506e7de680f2
+  languageName: node
+  linkType: hard
+
+"@ariakit/react@npm:0.4.34":
+  version: 0.4.34
+  resolution: "@ariakit/react@npm:0.4.34"
+  dependencies:
+    "@ariakit/react-components": "npm:0.3.3"
   peerDependencies:
     react: ^17.0.0 || ^18.0.0 || ^19.0.0
     react-dom: ^17.0.0 || ^18.0.0 || ^19.0.0
-  checksum: 10c0/885ae47caeadca724bc748972c7958367a778af0d03ef1d38343e1c5352c239901735d0c103d4523e22cd7ddc431105e056ff0c669d1bb2f4976c38fc0d0774d
+  checksum: 10c0/4a55fc7e99e214d21ad298e43a8f5a92855a13c7bd02567d20c49029e5980fe38d245ec5b9706ca13b559f359a1669999bcb61df7a61e7bfc9771903d154303f
+  languageName: node
+  linkType: hard
+
+"@ariakit/store@npm:0.1.6":
+  version: 0.1.6
+  resolution: "@ariakit/store@npm:0.1.6"
+  dependencies:
+    "@ariakit/utils": "npm:0.1.4"
+  checksum: 10c0/a26aa53e801bcac997f50822cdeecc9ba66842bb26ebf242a621be88e491221289e50a4f9109072ff2ed11afe5e6d1adaec7f17e51ebf0907b6b124cbfa49c46
+  languageName: node
+  linkType: hard
+
+"@ariakit/utils@npm:0.1.4":
+  version: 0.1.4
+  resolution: "@ariakit/utils@npm:0.1.4"
+  checksum: 10c0/068f5f884a5ea92d34ccfce328940728bc6c0bdfc6e4319532b78ee72ce614d50eae5037f3fdc71f77f147a8435f6add18d50f16a304edac8d529d63df5bb345
   languageName: node
   linkType: hard
 
@@ -12870,12 +12918,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"use-sync-external-store@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "use-sync-external-store@npm:1.2.0"
+"use-sync-external-store@npm:^1.6.0":
+  version: 1.6.0
+  resolution: "use-sync-external-store@npm:1.6.0"
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 10c0/ac4814e5592524f242921157e791b022efe36e451fe0d4fd4d204322d5433a4fc300d63b0ade5185f8e0735ded044c70bcf6d2352db0f74d097a238cebd2da02
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: 10c0/35e1179f872a53227bdf8a827f7911da4c37c0f4091c29b76b1e32473d1670ebe7bcd880b808b7549ba9a5605c233350f800ffab963ee4a4ee346ee983b6019b
   languageName: node
   linkType: hard
 
@@ -13210,7 +13258,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "welcome-ui@workspace:lib"
   dependencies:
-    "@ariakit/react": "npm:0.4.23"
+    "@ariakit/react": "npm:0.4.34"
     "@emotion/is-prop-valid": "npm:^1.4.0"
     "@juggle/resize-observer": "npm:^3.4.0"
     "@testing-library/dom": "npm:^10.4.1"
