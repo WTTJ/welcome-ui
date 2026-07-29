@@ -22,33 +22,38 @@ const Example = () => {
         >
           <AssetModal.Content>
             <Swiper store={swiper}>
-              <AssetModal.AssetWithTitle subtitle="THE JOB IS YOURS" title="Sapin & Rétroviseur">
-                <AssetModal.Iframe>
-                  <iframe
-                    allowFullScreen
-                    src="https://www.youtube.com/embed/uSTy3cT5hbw"
-                    title="YouTube video player"
-                  />
-                </AssetModal.Iframe>
-              </AssetModal.AssetWithTitle>
-              <AssetModal.AssetWithTitle subtitle="THE JOB IS YOURS" title="Claquette & Chaussette">
-                <AssetModal.Iframe>
-                  <iframe
-                    allowFullScreen
-                    src="https://www.youtube.com/embed/1kjATTF4v5A"
-                    title="YouTube video player"
-                  />
-                </AssetModal.Iframe>
-              </AssetModal.AssetWithTitle>
-              <AssetModal.AssetWithTitle subtitle="THE JOB IS YOURS" title="Pizza & Ananas">
-                <AssetModal.Iframe>
-                  <iframe
-                    allowFullScreen
-                    src="https://www.youtube.com/embed/YlEMLSsv_3w"
-                    title="YouTube video player"
-                  />
-                </AssetModal.Iframe>
-              </AssetModal.AssetWithTitle>
+              <Swiper.Slides>
+                <AssetModal.AssetWithTitle subtitle="THE JOB IS YOURS" title="Sapin & Rétroviseur">
+                  <AssetModal.Iframe>
+                    <iframe
+                      allowFullScreen
+                      src="https://www.youtube.com/embed/uSTy3cT5hbw"
+                      title="YouTube video player"
+                    />
+                  </AssetModal.Iframe>
+                </AssetModal.AssetWithTitle>
+                <AssetModal.AssetWithTitle
+                  subtitle="THE JOB IS YOURS"
+                  title="Claquette & Chaussette"
+                >
+                  <AssetModal.Iframe>
+                    <iframe
+                      allowFullScreen
+                      src="https://www.youtube.com/embed/1kjATTF4v5A"
+                      title="YouTube video player"
+                    />
+                  </AssetModal.Iframe>
+                </AssetModal.AssetWithTitle>
+                <AssetModal.AssetWithTitle subtitle="THE JOB IS YOURS" title="Pizza & Ananas">
+                  <AssetModal.Iframe>
+                    <iframe
+                      allowFullScreen
+                      src="https://www.youtube.com/embed/YlEMLSsv_3w"
+                      title="YouTube video player"
+                    />
+                  </AssetModal.Iframe>
+                </AssetModal.AssetWithTitle>
+              </Swiper.Slides>
             </Swiper>
           </AssetModal.Content>
         </Modal>
