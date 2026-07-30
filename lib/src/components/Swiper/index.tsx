@@ -347,9 +347,17 @@ export const Swiper: SwiperComponent = ({
         skipSnapBackRef.current = true
         goTo(initialPage, true)
         // `currentPage` is otherwise only synced by the scroll handler, which we
-        // just told to skip this scroll, so set it here.
-        skipNextPageScrollRef.current = true
-        setCurrentPage(initialPage)
+        // just told to skip this scroll — so set it here, reading the freshest
+        // value to arm the redundant-scroll skip only if the page really changes.
+        setCurrentPage(current => {
+          if (current === initialPage) {
+            return current
+          }
+
+          skipNextPageScrollRef.current = true
+
+          return initialPage
+        })
       })
     })
 
