@@ -1,4 +1,4 @@
-import { screen } from '@testing-library/react'
+import { act, fireEvent, screen } from '@testing-library/react'
 
 import { render } from '@tests'
 
@@ -146,6 +146,167 @@ describe('<Swiper>', () => {
 
       expect(slide2).toHaveAttribute('aria-hidden', 'false')
       expect(scrollToSpy).toHaveBeenCalled()
+    })
+  })
+
+  // These tests pin the contract, they cannot reproduce the bug they guard
+  // against: jsdom has no layout and no scroll snapping, `getBoundingClientRect`
+  // always reports a width of 0, and `ResizeObserver` is stubbed out globally in
+  // tests/setup.ts (so `useViewportSize` never resolves). What they cover is that
+  // the initial scroll is deferred, that the target page is clamped, that state
+  // is synced without a second scroll, and that the one-shot snap guard neither
+  // swallows a user scroll nor wedges navigation.
+  describe('initialIndex', () => {
+    const TestSwiperWithInitialIndex = ({ initialIndex }: { initialIndex?: number }) => {
+      const swiper = useSwiper({ slides: { initialIndex } })
+
+      return (
+        <Swiper store={swiper}>
+          <Swiper.Slides>
+            <div>page1</div>
+            <div>page2</div>
+            <div>page3</div>
+          </Swiper.Slides>
+        </Swiper>
+      )
+    }
+
+    let requestAnimationFrameSpy: ReturnType<typeof vi.spyOn>
+    let cancelAnimationFrameSpy: ReturnType<typeof vi.spyOn>
+
+    /** Runs frames synchronously, so init lands inside `render`'s `act` */
+    const useSyncAnimationFrames = () => {
+      requestAnimationFrameSpy = vi
+        .spyOn(window, 'requestAnimationFrame')
+        .mockImplementation(callback => {
+          callback(0)
+
+          return 0
+        })
+      cancelAnimationFrameSpy = vi
+        .spyOn(window, 'cancelAnimationFrame')
+        .mockImplementation(() => {})
+    }
+
+    /** Captures frames instead of running them, so deferral is observable */
+    const useCapturedAnimationFrames = () => {
+      const frames: FrameRequestCallback[] = []
+
+      requestAnimationFrameSpy = vi
+        .spyOn(window, 'requestAnimationFrame')
+        .mockImplementation(callback => {
+          frames.push(callback)
+
+          return frames.length
+        })
+      cancelAnimationFrameSpy = vi
+        .spyOn(window, 'cancelAnimationFrame')
+        .mockImplementation(() => {})
+
+      return {
+        flush: () => {
+          const pending = frames.splice(0, frames.length)
+
+          act(() => {
+            pending.forEach(callback => callback(0))
+          })
+        },
+      }
+    }
+
+    beforeEach(() => {
+      scrollToSpy.mockClear()
+    })
+
+    afterEach(() => {
+      // Restore these two specifically: `Element.prototype.scrollTo` is assigned
+      // in the outer `beforeAll` and `scrollToSpy` is shared across the file, so
+      // a blanket restore would break the tests above.
+      requestAnimationFrameSpy?.mockRestore()
+      cancelAnimationFrameSpy?.mockRestore()
+      vi.useRealTimers()
+    })
+
+    it('should scroll to the page holding the initial slide', () => {
+      useSyncAnimationFrames()
+
+      render(<TestSwiperWithInitialIndex initialIndex={2} />)
+
+      // initialIndex is 1-based, so slide 2 with 1 slide per view is page 1.
+      // childWidth is 0 in jsdom, gap is 20, hence left: 1 * (0 + 20) * 1
+      expect(scrollToSpy).toHaveBeenCalledWith({ behavior: 'auto', left: 20, top: 0 })
+      expect(screen.getByText('page1')).toHaveAttribute('aria-hidden', 'true')
+      expect(screen.getByText('page2')).toHaveAttribute('aria-hidden', 'false')
+    })
+
+    it('should defer the initial scroll until after the first paint', () => {
+      const { flush } = useCapturedAnimationFrames()
+
+      render(<TestSwiperWithInitialIndex initialIndex={2} />)
+
+      expect(scrollToSpy).not.toHaveBeenCalled()
+
+      // First frame only schedules the second one
+      flush()
+
+      expect(scrollToSpy).not.toHaveBeenCalled()
+
+      flush()
+
+      expect(scrollToSpy).toHaveBeenCalledWith({ behavior: 'auto', left: 20, top: 0 })
+    })
+
+    it('should not scroll when the initial slide is already the first one', () => {
+      useSyncAnimationFrames()
+
+      render(<TestSwiperWithInitialIndex />)
+
+      // The default initialIndex of 0 computes to page -1 before clamping
+      expect(scrollToSpy).not.toHaveBeenCalled()
+      expect(screen.getByText('page1')).toHaveAttribute('aria-hidden', 'false')
+    })
+
+    it('should clamp an initial slide past the last page', () => {
+      useSyncAnimationFrames()
+
+      render(<TestSwiperWithInitialIndex initialIndex={99} />)
+
+      // 3 slides, 1 per view, so the last page is 2: left: 2 * (0 + 20) * 1
+      expect(scrollToSpy).toHaveBeenCalledWith({ behavior: 'auto', left: 40, top: 0 })
+      expect(screen.getByText('page3')).toHaveAttribute('aria-hidden', 'false')
+    })
+
+    it('should still follow user scrolls after the initial one', () => {
+      vi.useFakeTimers()
+      useSyncAnimationFrames()
+
+      render(<TestSwiperWithInitialIndex initialIndex={2} />)
+
+      const track = screen.getByRole('list')
+
+      // Consumes the one-shot guard
+      fireEvent.scroll(track)
+      act(() => {
+        vi.advanceTimersByTime(150)
+      })
+
+      // A genuine scroll back to the first page, with enough geometry for
+      // updatePage to take its non-last-page branch
+      Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
+        configurable: true,
+        value: 896,
+      })
+      Object.defineProperty(HTMLElement.prototype, 'scrollWidth', {
+        configurable: true,
+        value: 2688,
+      })
+      fireEvent.scroll(track)
+      act(() => {
+        vi.advanceTimersByTime(150)
+      })
+
+      expect(screen.getByText('page1')).toHaveAttribute('aria-hidden', 'false')
+      expect(screen.getByText('page2')).toHaveAttribute('aria-hidden', 'true')
     })
   })
 })
