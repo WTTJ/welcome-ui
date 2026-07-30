@@ -4,6 +4,9 @@
     overflow: hidden;
     border-top-left-radius: var(--radius-md);
     border-top-right-radius: var(--radius-md);
+    border-width: var(--table-cell-border-width);
+    border-color: var(--color-border-neutral-subtle);
+    box-shadow: var(--elevation-20);
   }
 
   .content {
@@ -51,7 +54,7 @@
       thead {
         background-color: var(--table-header-color-background-warm);
 
-        tr {
+        th {
           line-height: var(--font-line-height-xs);
           font-weight: var(--font-weight-medium);
         }
