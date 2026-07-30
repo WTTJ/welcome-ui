@@ -16,10 +16,6 @@ export { swiperStyles as swiperClasses }
 
 const cx = classNames(swiperStyles)
 
-// Fallback release for the one-shot guard below, in case our own initial scroll
-// never emits a scroll event to consume it.
-const INITIAL_SCROLL_GUARD_TIMEOUT = 500
-
 type SwiperContextValue = {
   navigation: {
     desktop: boolean
@@ -173,13 +169,10 @@ export const Swiper: SwiperComponent = ({
   const hasInitializedRef = useRef(false)
   // Pending frame of the deferred initial scroll, `undefined` once it has run.
   const initFrameRef = useRef<number>()
-  const hasScheduledInitialScrollRef = useRef(false)
-  // Set while the browser settles our own initial scroll, so the scroll-snap
-  // correction that follows it can't be read back as the current page.
-  const initialScrollGuardRef = useRef(false)
-  const initialScrollGuardTimerRef = useRef<ReturnType<typeof setTimeout>>()
+  // Swallows the scroll-snap correction that follows our own initial scroll.
+  const skipSnapBackRef = useRef(false)
   const skipNextPageScrollRef = useRef(false)
-  // Read inside the deferred frame so it picks up the viewport-corrected value.
+  // Read inside the deferred frame so it reflects the viewport-corrected perView.
   const firstPageToShowRef = useRef(0)
 
   const [slidesLength, setSlidesLength] = useState(0)
@@ -227,9 +220,8 @@ export const Swiper: SwiperComponent = ({
         // Navigation state should always reflect the real geometry, guard or not
         getNavigationState()
 
-        if (initialScrollGuardRef.current) {
-          initialScrollGuardRef.current = false
-          clearTimeout(initialScrollGuardTimerRef.current)
+        if (skipSnapBackRef.current) {
+          skipSnapBackRef.current = false
 
           return
         }
@@ -239,9 +231,8 @@ export const Swiper: SwiperComponent = ({
     [getNavigationState, updatePage]
   )
 
-  // Keep the latest debounced instance in a ref so we can cancel exactly one
-  // pending call, on unmount. Cancelling on `[handleScroll]` instead would drop
-  // legitimate updates, since `handleScroll` is re-memoized on every
+  // Cancel exactly one pending call on unmount. Depending on `[handleScroll]`
+  // would drop legitimate updates, since it is re-memoized on every
   // `currentPage` change — that is, mid-swipe.
   const handleScrollRef = useRef(handleScroll)
   handleScrollRef.current = handleScroll
@@ -328,56 +319,41 @@ export const Swiper: SwiperComponent = ({
   firstPageToShowRef.current = firstPageToShow
 
   useEffect(() => {
-    // Only navigate to initial page once, when slidesLength is first known
-    if (!slidesLength || hasScheduledInitialScrollRef.current) {
+    // Only navigate to the initial page once, when slidesLength is first known.
+    // `hasInitializedRef` is set synchronously as it also gates the
+    // external-`setCurrentPage` effect below.
+    if (!slidesLength || hasInitializedRef.current) {
       return
     }
 
-    hasScheduledInitialScrollRef.current = true
-    // Flagged synchronously: it gates the external-`setCurrentPage` effect below,
-    // which has to keep working even before the deferred scroll has run.
     hasInitializedRef.current = true
 
-    // The initial scroll has to land after the first paint. Issued during the
-    // first layout pass it is reverted to 0 by the browser's
-    // `scroll-snap-type: x mandatory` correction, and `updatePage` then latches
-    // that revert as the current page — which is why `initialIndex` was ignored
-    // in hosts that mount the swiper into an already-painting subtree (a dialog
-    // in a Next.js app, for instance) but worked in a plain client-only mount.
-    // One frame is not enough: a callback scheduled from a passive effect still
-    // runs before the next paint. The second frame also lets `useViewportSize`
-    // commit, so `firstPageToShowRef` holds the width-corrected page.
+    // The scroll must land after the first paint: issued during the first layout
+    // pass it is reverted to 0 by the browser's `scroll-snap-type: x mandatory`
+    // correction. One frame is not enough — a callback scheduled from a passive
+    // effect still runs before the next paint. The second frame also lets
+    // `useViewportSize` commit, so `firstPageToShowRef` is breakpoint-correct.
     initFrameRef.current = requestAnimationFrame(() => {
       initFrameRef.current = requestAnimationFrame(() => {
         initFrameRef.current = undefined
 
         const initialPage = firstPageToShowRef.current
 
-        // The track already starts at 0, so the first page needs no scroll
+        // The track already starts on the first page, so it needs no scroll
         if (initialPage <= 0) {
           return
         }
 
-        initialScrollGuardRef.current = true
-        initialScrollGuardTimerRef.current = setTimeout(() => {
-          initialScrollGuardRef.current = false
-        }, INITIAL_SCROLL_GUARD_TIMEOUT)
-
+        skipSnapBackRef.current = true
         goTo(initialPage, true)
-
-        if (initialPage !== currentPage) {
-          // `currentPage` is otherwise only ever synced by the scroll handler,
-          // which the guard above suppresses for this very scroll
-          skipNextPageScrollRef.current = true
-          setCurrentPage(initialPage)
-        }
+        // `currentPage` is otherwise only synced by the scroll handler, which we
+        // just told to skip this scroll, so set it here.
+        skipNextPageScrollRef.current = true
+        setCurrentPage(initialPage)
       })
     })
 
     return () => {
-      clearTimeout(initialScrollGuardTimerRef.current)
-      initialScrollGuardRef.current = false
-
       if (initFrameRef.current === undefined) {
         return
       }
@@ -386,7 +362,7 @@ export const Swiper: SwiperComponent = ({
       // the next mount schedule it again
       cancelAnimationFrame(initFrameRef.current)
       initFrameRef.current = undefined
-      hasScheduledInitialScrollRef.current = false
+      hasInitializedRef.current = false
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slidesLength])
