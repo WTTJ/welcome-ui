@@ -225,6 +225,10 @@ describe('<Swiper>', () => {
       requestAnimationFrameSpy?.mockRestore()
       cancelAnimationFrameSpy?.mockRestore()
       vi.useRealTimers()
+
+      // undo the per-test geometry stubs
+      Object.defineProperty(HTMLElement.prototype, 'offsetWidth', { value: 0 })
+      Object.defineProperty(HTMLElement.prototype, 'scrollWidth', { value: 0 })
     })
 
     it('should scroll to the page holding the initial slide', () => {
