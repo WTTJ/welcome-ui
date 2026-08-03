@@ -88,7 +88,7 @@
     "husky": "8.0.3",
     "lodash.difference": "4.5.0",
     "minimist": "1.2.8",
-    "postcss": "8.5.18",
+    "postcss": "8.5.23",
     "postcss-scss": "4.0.9",
     "postcss-styled-syntax": "0.7.1",
     "prettier": "3.5.3",
@@ -114,7 +114,7 @@
     "fast-uri": "3.1.4",
     "immutable": "5.1.8",
     "js-yaml": "4.3.0",
-    "postcss": "8.5.18",
+    "postcss": "8.5.23",
     "tar": "7.5.21",
     "socks": "2.8.8"
   },
