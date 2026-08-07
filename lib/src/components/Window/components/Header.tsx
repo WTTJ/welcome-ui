@@ -102,7 +102,11 @@ const RightActions = ({ children, isClosable = false, onClose }: HeaderRightActi
   )
 }
 
-const LeftActions = ({ isExpandable = false, onExpandChange }: HeaderLeftActionsProps) => {
+const LeftActions = ({
+  children,
+  isExpandable = false,
+  onExpandChange,
+}: HeaderLeftActionsProps) => {
   const [isExpanded, setIsExpanded] = useState(false)
 
   const handleExpandWindow = () => {
@@ -124,6 +128,7 @@ const LeftActions = ({ isExpandable = false, onExpandChange }: HeaderLeftActions
           <Icon name={isExpanded ? 'compress-alt' : 'arrow-resize-diagonal'} />
         </button>
       ) : null}
+      {children}
     </div>
   )
 }
