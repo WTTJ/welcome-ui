@@ -149,6 +149,138 @@ describe('<Swiper>', () => {
     })
   })
 
+  describe('autoplay', () => {
+    const TestSwiperAutoplay = ({
+      duration = 1000,
+      loop = false,
+    }: {
+      duration?: number
+      loop?: boolean
+    }) => {
+      const swiper = useSwiper({ autoplay: { duration, enabled: true, loop } })
+
+      return (
+        <>
+          <Swiper store={swiper}>
+            <Swiper.Slides>
+              <div>page1</div>
+              <div>page2</div>
+              <div>page3</div>
+            </Swiper.Slides>
+          </Swiper>
+          <button onClick={() => swiper.slides.setCurrentPage(2)}>go to last</button>
+        </>
+      )
+    }
+
+    it('should auto-advance to the next page after the duration elapses', () => {
+      vi.useFakeTimers()
+
+      render(<TestSwiperAutoplay />)
+
+      act(() => {
+        vi.advanceTimersByTime(1000)
+      })
+
+      // From page 0, one tick calls goNext -> goTo(1): left 1 * (0 + 20) * 1
+      expect(scrollToSpy).toHaveBeenLastCalledWith({ behavior: 'smooth', left: 20, top: 0 })
+
+      vi.useRealTimers()
+    })
+
+    it('should loop back to the first page when auto-advancing past the last', () => {
+      vi.useFakeTimers()
+
+      render(<TestSwiperAutoplay loop />)
+
+      // Jump to the last page first
+      act(() => {
+        fireEvent.click(screen.getByText('go to last'))
+      })
+
+      act(() => {
+        vi.advanceTimersByTime(1000)
+      })
+
+      // goNext on the last page with loop enabled -> goTo(0)
+      expect(scrollToSpy).toHaveBeenLastCalledWith({ behavior: 'smooth', left: 0, top: 0 })
+
+      vi.useRealTimers()
+    })
+  })
+
+  describe('keyboard', () => {
+    it('should navigate with the arrow keys', () => {
+      render(<TestSwiper />)
+
+      fireEvent.keyDown(window, { code: 'ArrowRight' })
+
+      // goNext from page 0 -> goTo(1): left 1 * (0 + 20) * 1
+      expect(scrollToSpy).toHaveBeenLastCalledWith({ behavior: 'smooth', left: 20, top: 0 })
+
+      const callsBeforePrev = scrollToSpy.mock.calls.length
+      fireEvent.keyDown(window, { code: 'ArrowLeft' })
+
+      // goPrev is wired to ArrowLeft
+      expect(scrollToSpy.mock.calls.length).toBeGreaterThan(callsBeforePrev)
+    })
+
+    it('should loop to the last page on ArrowLeft from the first when looping', () => {
+      const TestLoopKeyboard = () => {
+        const swiper = useSwiper({ autoplay: { enabled: true, loop: true } })
+
+        return (
+          <Swiper store={swiper}>
+            <Swiper.Slides>
+              <div>page1</div>
+              <div>page2</div>
+              <div>page3</div>
+            </Swiper.Slides>
+          </Swiper>
+        )
+      }
+
+      render(<TestLoopKeyboard />)
+
+      fireEvent.keyDown(window, { code: 'ArrowLeft' })
+
+      // goPrev on the first page with loop -> goTo(numberOfPage - 1): left 2 * 20
+      expect(scrollToSpy).toHaveBeenLastCalledWith({ behavior: 'smooth', left: 40, top: 0 })
+    })
+  })
+
+  describe('single slide', () => {
+    it('should disable both arrows when there is only one slide', () => {
+      Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
+        configurable: true,
+        value: 896,
+      })
+      Object.defineProperty(HTMLElement.prototype, 'scrollWidth', {
+        configurable: true,
+        value: 896,
+      })
+
+      const TestSingleSlide = () => {
+        const swiper = useSwiper()
+
+        return (
+          <Swiper store={swiper}>
+            <Swiper.Slides>
+              <div>only</div>
+            </Swiper.Slides>
+            <Swiper.PrevButton />
+            <Swiper.NextButton />
+          </Swiper>
+        )
+      }
+
+      render(<TestSingleSlide />)
+
+      expect(screen.getByLabelText('Previous slide')).toHaveAttribute('aria-disabled', 'true')
+      expect(screen.getByLabelText('Next slide')).toHaveAttribute('aria-disabled', 'true')
+    })
+  })
+
   // These tests pin the contract, they cannot reproduce the bug they guard
   // against: jsdom has no layout and no scroll snapping, `getBoundingClientRect`
   // always reports a width of 0, and `ResizeObserver` is stubbed out globally in

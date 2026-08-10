@@ -2,7 +2,7 @@ import { Button } from '@/components/Button'
 import { Icon } from '@/components/Icon'
 import { classNames } from '@/utils'
 
-import { useSwiperContext } from '..'
+import { useSwiperContext } from '../context'
 import styles from '../swiper.module.scss'
 import type { SwiperNextButtonProps } from '../types'
 

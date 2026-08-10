@@ -59,30 +59,5 @@
         }
       }
     }
-  },
-  "Swiper": {
-    "props": {
-      "store": {
-        "defaultValue": {
-          "value": "{\n  autoplay: defaultOptions.autoplay!,\n  navigation: defaultOptions.navigation!,\n  slides: {\n    alignment: defaultOptions.slides!.alignment!,\n    currentPage: 0,\n    currentSlidesPerView: defaultOptions.slides!.perView!.desktop,\n    expandOnLargeScreens: defaultOptions.slides!.expandOnLargeScreens!,\n    gap: defaultOptions.slides!.gap!,\n    id: defaultOptions.slides!.id!,\n    initialIndex: defaultOptions.slides!.initialIndex!,\n    perView: defaultOptions.slides!.perView!,\n    setCurrentPage: () => {},\n  },\n}"
-        },
-        "description": "",
-        "name": "store",
-        "parent": {
-          "fileName": "welcome-ui/lib/src/components/Swiper/types.ts",
-          "name": "SwiperOptions"
-        },
-        "declarations": [
-          {
-            "fileName": "welcome-ui/lib/src/components/Swiper/types.ts",
-            "name": "SwiperOptions"
-          }
-        ],
-        "required": false,
-        "type": {
-          "name": "{ autoplay: { duration: number; enabled: boolean; loop: boolean; }; navigation: { desktop: boolean; mobile: boolean; }; slides: { alignment: \"default\" | \"center\"; currentPage: number; currentSlidesPerView: number; ... 5 more ...; setCurrentPage: Dispatch<...>; }; }"
-        }
-      }
-    }
   }
 }
