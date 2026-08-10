@@ -2,20 +2,13 @@ import debounce from 'lodash.debounce'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import type { SwiperContextValue, SwiperProps } from './types'
+import { useInitialScroll } from './useInitialScroll'
 import { useInterval } from './utils'
 
 export const useSwiperViewModel = ({ children, store }: SwiperProps): SwiperContextValue => {
   const { autoplay, navigation, slides } = store
   const { currentPage, setCurrentPage } = slides
   const ref = useRef<HTMLUListElement | null>(null)
-  const hasInitializedRef = useRef(false)
-  // Pending frame of the deferred initial scroll, `undefined` once it has run.
-  const initFrameRef = useRef<number>()
-  // Swallows the scroll-snap correction that follows our own initial scroll.
-  const skipSnapBackRef = useRef(false)
-  const skipNextPageScrollRef = useRef(false)
-  // Read inside the deferred frame so it reflects the viewport-corrected perView.
-  const firstPageToShowRef = useRef(0)
 
   const [slidesLength, setSlidesLength] = useState(0)
   const [isPrevDisabled, setIsPrevDisabled] = useState(false)
@@ -56,31 +49,6 @@ export const useSwiperViewModel = ({ children, store }: SwiperProps): SwiperCont
     }
   }, [numberOfPage, currentPage, slides.currentSlidesPerView, ref, setCurrentPage, slides.gap])
 
-  const handleScroll = useMemo(
-    () =>
-      debounce(() => {
-        // Navigation state should always reflect the real geometry, guard or not
-        getNavigationState()
-
-        if (skipSnapBackRef.current) {
-          skipSnapBackRef.current = false
-
-          return
-        }
-
-        updatePage()
-      }, 100),
-    [getNavigationState, updatePage]
-  )
-
-  // Cancel exactly one pending call on unmount. Depending on `[handleScroll]`
-  // would drop legitimate updates, since it is re-memoized on every
-  // `currentPage` change — that is, mid-swipe.
-  const handleScrollRef = useRef(handleScroll)
-  handleScrollRef.current = handleScroll
-
-  useEffect(() => () => handleScrollRef.current.cancel(), [])
-
   // Navigation functions
 
   const goTo = useCallback(
@@ -97,6 +65,40 @@ export const useSwiperViewModel = ({ children, store }: SwiperProps): SwiperCont
     },
     [slides.currentSlidesPerView, slides.gap, ref]
   )
+
+  const consumeSnapBackSkip = useInitialScroll({
+    alignment: slides.alignment,
+    currentPage,
+    currentSlidesPerView: slides.currentSlidesPerView,
+    goTo,
+    initialIndex: slides.initialIndex,
+    numberOfPage,
+    setCurrentPage,
+    slidesLength,
+  })
+
+  const handleScroll = useMemo(
+    () =>
+      debounce(() => {
+        // Navigation state should always reflect the real geometry, guard or not
+        getNavigationState()
+
+        if (consumeSnapBackSkip()) {
+          return
+        }
+
+        updatePage()
+      }, 100),
+    [getNavigationState, updatePage, consumeSnapBackSkip]
+  )
+
+  // Cancel exactly one pending call on unmount. Depending on `[handleScroll]`
+  // would drop legitimate updates, since it is re-memoized on every
+  // `currentPage` change — that is, mid-swipe.
+  const handleScrollRef = useRef(handleScroll)
+  handleScrollRef.current = handleScroll
+
+  useEffect(() => () => handleScrollRef.current.cancel(), [])
 
   const isFirstPage = currentPage === 0
   const isLastPage = currentPage === numberOfPage - 1
@@ -143,98 +145,10 @@ export const useSwiperViewModel = ({ children, store }: SwiperProps): SwiperCont
     return () => window.removeEventListener('keydown', handleKeys)
   }, [goPrev, goNext])
 
-  const pageForInitialIndex =
-    slides.alignment === 'center'
-      ? // if centeredSlides is true, we calculate which number is the middle page
-        Math.floor(numberOfPage / 2)
-      : // if centeredSlides is false, we calculate on which page the number in firstSlideToShow props is
-        Math.ceil(slides.initialIndex / slides.currentSlidesPerView) - 1
-
-  // `initialIndex` is 1-based, so its default of `0` computes to page -1, and a
-  // value past the last slide would scroll beyond the end and then fight the
-  // `isLastPage` branch of `updatePage`. An explicit `initialIndex: undefined`
-  // shadows the default and computes to NaN, so guard that too.
-  const firstPageToShow = Number.isFinite(pageForInitialIndex)
-    ? Math.min(Math.max(pageForInitialIndex, 0), numberOfPage - 1)
-    : 0
-
-  firstPageToShowRef.current = firstPageToShow
-
-  useEffect(() => {
-    // Only navigate to the initial page once, when slidesLength is first known.
-    // `hasInitializedRef` is set synchronously as it also gates the
-    // external-`setCurrentPage` effect below.
-    if (!slidesLength || hasInitializedRef.current) {
-      return
-    }
-
-    hasInitializedRef.current = true
-
-    // The scroll must land after the first paint: issued during the first layout
-    // pass it is reverted to 0 by the browser's `scroll-snap-type: x mandatory`
-    // correction. One frame is not enough — a callback scheduled from a passive
-    // effect still runs before the next paint. The second frame also lets
-    // `useViewportSize` commit, so `firstPageToShowRef` is breakpoint-correct.
-    initFrameRef.current = requestAnimationFrame(() => {
-      initFrameRef.current = requestAnimationFrame(() => {
-        initFrameRef.current = undefined
-
-        const initialPage = firstPageToShowRef.current
-
-        // The track already starts on the first page, so it needs no scroll
-        if (initialPage <= 0) {
-          return
-        }
-
-        skipSnapBackRef.current = true
-        goTo(initialPage, true)
-        // `currentPage` is otherwise only synced by the scroll handler, which we
-        // just told to skip this scroll — so set it here, reading the freshest
-        // value to arm the redundant-scroll skip only if the page really changes.
-        setCurrentPage(current => {
-          if (current === initialPage) {
-            return current
-          }
-
-          skipNextPageScrollRef.current = true
-
-          return initialPage
-        })
-      })
-    })
-
-    return () => {
-      if (initFrameRef.current === undefined) {
-        return
-      }
-
-      // The deferred scroll never ran (unmount, or a StrictMode remount) — let
-      // the next mount schedule it again
-      cancelAnimationFrame(initFrameRef.current)
-      initFrameRef.current = undefined
-      hasInitializedRef.current = false
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [slidesLength])
-
   // if the childrens changed we need to check again the arrow states
   useEffect(() => {
     getNavigationState()
   }, [getNavigationState, children])
-
-  // Triggers navigation when currentPage is changed by external setCurrentPage calls
-  useEffect(() => {
-    if (skipNextPageScrollRef.current) {
-      // The initial scroll already put us on this page, no need to scroll again
-      skipNextPageScrollRef.current = false
-
-      return
-    }
-
-    if (hasInitializedRef.current) {
-      goTo(currentPage)
-    }
-  }, [currentPage, goTo])
 
   const contextValue = useMemo(
     () => ({
