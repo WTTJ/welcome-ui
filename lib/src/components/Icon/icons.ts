@@ -74,7 +74,13 @@ export const actions = [
   'bulk-active',
 ] as const
 
-export const chat = ['chat', 'chat-bubble-user', 'comment', 'comment-alt-lines'] as const
+export const chat = [
+  'chat',
+  'chat-bubble-user',
+  'comment',
+  'comment-alt-lines',
+  'comment-chart-line',
+] as const
 
 export const miscellaneous = [
   'music',
@@ -83,6 +89,7 @@ export const miscellaneous = [
   'user-square',
   'book-reader',
   'file-question-alt',
+  'file-slash',
   'sad-solid',
   'smile-beam-solid',
   'sad',
@@ -109,6 +116,7 @@ export const miscellaneous = [
   'globe',
   'graduation-cap',
   'envelope',
+  'envelope-star',
   'equal-circle',
   'minus',
   'venus',
@@ -122,6 +130,7 @@ export const miscellaneous = [
   'map-marker-alt',
   'map-pin',
   'lock-alt',
+  'unlock',
   'flag', // (not unicons)
   'at',
   'user',
@@ -248,7 +257,14 @@ export const wtf = [
   'ban',
 ] as const
 
-export const foldersAndFiles = ['folder', 'folder-open', 'folder-full', 'file', 'image'] as const
+export const foldersAndFiles = [
+  'folder',
+  'folder-open',
+  'folder-full',
+  'folder-plus',
+  'file',
+  'image',
+] as const
 
 export const markdown = [
   'bold',
