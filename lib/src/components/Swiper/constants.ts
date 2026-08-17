@@ -14,17 +14,17 @@ export const defaultOptions = {
 } satisfies UseSwiperOptions
 
 export const defaultStore = {
-  autoplay: defaultOptions.autoplay!,
-  navigation: defaultOptions.navigation!,
+  autoplay: defaultOptions.autoplay,
+  navigation: defaultOptions.navigation,
   slides: {
-    alignment: defaultOptions.slides!.alignment!,
+    alignment: defaultOptions.slides.alignment,
     currentPage: 0,
-    currentSlidesPerView: defaultOptions.slides!.perView!.desktop,
-    expandOnLargeScreens: defaultOptions.slides!.expandOnLargeScreens!,
-    gap: defaultOptions.slides!.gap!,
-    id: defaultOptions.slides!.id!,
-    initialIndex: defaultOptions.slides!.initialIndex!,
-    perView: defaultOptions.slides!.perView!,
+    currentSlidesPerView: defaultOptions.slides.perView.desktop,
+    expandOnLargeScreens: defaultOptions.slides.expandOnLargeScreens,
+    gap: defaultOptions.slides.gap,
+    id: defaultOptions.slides.id,
+    initialIndex: defaultOptions.slides.initialIndex,
+    perView: defaultOptions.slides.perView,
     setCurrentPage: () => {},
   },
 }
