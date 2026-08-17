@@ -1,13 +1,37 @@
-import type { ComponentProps, FC, ReactNode } from 'react'
+import type { ComponentProps, ReactNode, RefObject } from 'react'
 
 import type { ButtonProps } from '@/components/Button/types'
 
-import type { useSwiper } from '.'
+import type { useSwiper } from './useSwiper'
 
-export interface SwiperComponent extends FC<SwiperProps> {
-  NextButton: FC<SwiperNextButtonProps>
-  PrevButton: FC<SwiperPrevButtonProps>
-  Slides: FC<SwiperSlidesProps>
+export type SwiperContextValue = {
+  navigation: {
+    desktop: boolean
+    goNext: () => void
+    goPrev: () => void
+    isNextDisabled: boolean
+    isPrevDisabled: boolean
+    mobile: boolean
+  }
+  slides: {
+    alignment: 'center' | 'default'
+    currentPage: number
+    currentSlidesPerView: number
+    expandOnLargeScreens: boolean
+    gap: number
+    handleScroll: () => void
+    id: string
+    initialIndex: number
+    isLastPage: boolean
+    length: number
+    perView: {
+      desktop: number
+      mobile: number
+      tablet: number
+    }
+    ref: RefObject<HTMLUListElement | null>
+    setLength: (length: number) => void
+  }
 }
 
 export type SwiperNextButtonProps = Omit<ButtonProps, 'aria-label' | 'disabled' | 'onClick'> & {

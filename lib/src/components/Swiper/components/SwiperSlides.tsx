@@ -2,7 +2,7 @@ import { Children, cloneElement, type CSSProperties, useEffect } from 'react'
 
 import { classNames } from '@/utils'
 
-import { useSwiperContext } from '..'
+import { useSwiperContext } from '../context'
 import styles from '../swiper.module.scss'
 import type { SwiperSlidesProps } from '../types'
 import { getSlideWidth } from '../utils'
