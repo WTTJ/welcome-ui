@@ -1,37 +1,28 @@
 import { act, fireEvent, screen } from '@testing-library/react'
+import type { PropsWithChildren } from 'react'
 
 import { render } from '@tests'
 
+import type { UseSwiperOptions } from './types'
+
 import { Swiper, useSwiper } from './'
 
-const TestSwiper = () => {
-  const swiper = useSwiper()
+const DEFAULT_SLIDES = [
+  <div key="page1">page1</div>,
+  <div key="page2">page2</div>,
+  <div key="page3">page3</div>,
+]
+
+const TestSwiper = ({ children, options }: PropsWithChildren<{ options?: UseSwiperOptions }>) => {
+  const swiper = useSwiper(options)
 
   return (
     <Swiper data-testid="swiper" store={swiper}>
-      <Swiper.Slides>
-        <div>page1</div>
-        <div>page2</div>
-        <div>page3</div>
-      </Swiper.Slides>
+      <Swiper.Slides>{children ?? DEFAULT_SLIDES}</Swiper.Slides>
       <Swiper.PrevButton />
       <Swiper.NextButton />
-    </Swiper>
-  )
-}
-
-const TestSwiperWithLoop = () => {
-  const swiper = useSwiper({ autoplay: { enabled: true, loop: true } })
-
-  return (
-    <Swiper data-testid="swiper" store={swiper}>
-      <Swiper.Slides>
-        <div>page1</div>
-        <div>page2</div>
-        <div>page3</div>
-      </Swiper.Slides>
-      <Swiper.PrevButton />
-      <Swiper.NextButton />
+      <button onClick={() => swiper.slides.setCurrentPage(1)}>Go to page 2</button>
+      <button onClick={() => swiper.slides.setCurrentPage(2)}>go to last</button>
     </Swiper>
   )
 }
@@ -97,7 +88,7 @@ describe('<Swiper>', () => {
 
   describe('navigation', () => {
     it('should have arrow buttons enabled and call scrollTo when clicking on it', async () => {
-      const { user } = render(<TestSwiperWithLoop />)
+      const { user } = render(<TestSwiper options={{ autoplay: { enabled: true, loop: true } }} />)
 
       // Arrange
       const prevButton = screen.getByLabelText('Previous slide')
@@ -121,22 +112,7 @@ describe('<Swiper>', () => {
     })
 
     it('should navigate when calling setCurrentPage directly from store', async () => {
-      const TestManualNavigation = () => {
-        const swiper = useSwiper()
-        return (
-          <>
-            <Swiper store={swiper}>
-              <Swiper.Slides>
-                <div>page1</div>
-                <div>page2</div>
-              </Swiper.Slides>
-            </Swiper>
-            <button onClick={() => swiper.slides.setCurrentPage(1)}>Go to page 2</button>
-          </>
-        )
-      }
-
-      const { user } = render(<TestManualNavigation />)
+      const { user } = render(<TestSwiper />)
       const slide2 = screen.getByText('page2')
       const navButton = screen.getByText('Go to page 2')
 
@@ -150,33 +126,10 @@ describe('<Swiper>', () => {
   })
 
   describe('autoplay', () => {
-    const TestSwiperAutoplay = ({
-      duration = 1000,
-      loop = false,
-    }: {
-      duration?: number
-      loop?: boolean
-    }) => {
-      const swiper = useSwiper({ autoplay: { duration, enabled: true, loop } })
-
-      return (
-        <>
-          <Swiper store={swiper}>
-            <Swiper.Slides>
-              <div>page1</div>
-              <div>page2</div>
-              <div>page3</div>
-            </Swiper.Slides>
-          </Swiper>
-          <button onClick={() => swiper.slides.setCurrentPage(2)}>go to last</button>
-        </>
-      )
-    }
-
     it('should auto-advance to the next page after the duration elapses', () => {
       vi.useFakeTimers()
 
-      render(<TestSwiperAutoplay />)
+      render(<TestSwiper options={{ autoplay: { duration: 1000, enabled: true, loop: false } }} />)
 
       act(() => {
         vi.advanceTimersByTime(1000)
@@ -191,7 +144,7 @@ describe('<Swiper>', () => {
     it('should loop back to the first page when auto-advancing past the last', () => {
       vi.useFakeTimers()
 
-      render(<TestSwiperAutoplay loop />)
+      render(<TestSwiper options={{ autoplay: { duration: 1000, enabled: true, loop: true } }} />)
 
       // Jump to the last page first
       act(() => {
@@ -226,21 +179,7 @@ describe('<Swiper>', () => {
     })
 
     it('should loop to the last page on ArrowLeft from the first when looping', () => {
-      const TestLoopKeyboard = () => {
-        const swiper = useSwiper({ autoplay: { enabled: true, loop: true } })
-
-        return (
-          <Swiper store={swiper}>
-            <Swiper.Slides>
-              <div>page1</div>
-              <div>page2</div>
-              <div>page3</div>
-            </Swiper.Slides>
-          </Swiper>
-        )
-      }
-
-      render(<TestLoopKeyboard />)
+      render(<TestSwiper options={{ autoplay: { enabled: true, loop: true } }} />)
 
       fireEvent.keyDown(window, { code: 'ArrowLeft' })
 
@@ -260,21 +199,11 @@ describe('<Swiper>', () => {
         value: 896,
       })
 
-      const TestSingleSlide = () => {
-        const swiper = useSwiper()
-
-        return (
-          <Swiper store={swiper}>
-            <Swiper.Slides>
-              <div>only</div>
-            </Swiper.Slides>
-            <Swiper.PrevButton />
-            <Swiper.NextButton />
-          </Swiper>
-        )
-      }
-
-      render(<TestSingleSlide />)
+      render(
+        <TestSwiper>
+          <div>only</div>
+        </TestSwiper>
+      )
 
       expect(screen.getByLabelText('Previous slide')).toHaveAttribute('aria-disabled', 'true')
       expect(screen.getByLabelText('Next slide')).toHaveAttribute('aria-disabled', 'true')
@@ -289,20 +218,6 @@ describe('<Swiper>', () => {
   // is synced without a second scroll, and that the one-shot snap guard neither
   // swallows a user scroll nor wedges navigation.
   describe('initialIndex', () => {
-    const TestSwiperWithInitialIndex = ({ initialIndex }: { initialIndex?: number }) => {
-      const swiper = useSwiper({ slides: { initialIndex } })
-
-      return (
-        <Swiper store={swiper}>
-          <Swiper.Slides>
-            <div>page1</div>
-            <div>page2</div>
-            <div>page3</div>
-          </Swiper.Slides>
-        </Swiper>
-      )
-    }
-
     let requestAnimationFrameSpy: ReturnType<typeof vi.spyOn>
     let cancelAnimationFrameSpy: ReturnType<typeof vi.spyOn>
 
@@ -366,7 +281,7 @@ describe('<Swiper>', () => {
     it('should scroll to the page holding the initial slide', () => {
       useSyncAnimationFrames()
 
-      render(<TestSwiperWithInitialIndex initialIndex={2} />)
+      render(<TestSwiper options={{ slides: { initialIndex: 2 } }} />)
 
       // initialIndex is 1-based, so slide 2 with 1 slide per view is page 1.
       // childWidth is 0 in jsdom, gap is 20, hence left: 1 * (0 + 20) * 1
@@ -378,7 +293,7 @@ describe('<Swiper>', () => {
     it('should defer the initial scroll until after the first paint', () => {
       const { flush } = useCapturedAnimationFrames()
 
-      render(<TestSwiperWithInitialIndex initialIndex={2} />)
+      render(<TestSwiper options={{ slides: { initialIndex: 2 } }} />)
 
       expect(scrollToSpy).not.toHaveBeenCalled()
 
@@ -395,7 +310,7 @@ describe('<Swiper>', () => {
     it('should not scroll when the initial slide is already the first one', () => {
       useSyncAnimationFrames()
 
-      render(<TestSwiperWithInitialIndex />)
+      render(<TestSwiper />)
 
       // The default initialIndex of 0 computes to page -1 before clamping
       expect(scrollToSpy).not.toHaveBeenCalled()
@@ -405,7 +320,7 @@ describe('<Swiper>', () => {
     it('should clamp an initial slide past the last page', () => {
       useSyncAnimationFrames()
 
-      render(<TestSwiperWithInitialIndex initialIndex={99} />)
+      render(<TestSwiper options={{ slides: { initialIndex: 99 } }} />)
 
       // 3 slides, 1 per view, so the last page is 2: left: 2 * (0 + 20) * 1
       expect(scrollToSpy).toHaveBeenCalledWith({ behavior: 'auto', left: 40, top: 0 })
@@ -416,7 +331,7 @@ describe('<Swiper>', () => {
       vi.useFakeTimers()
       useSyncAnimationFrames()
 
-      render(<TestSwiperWithInitialIndex initialIndex={2} />)
+      render(<TestSwiper options={{ slides: { initialIndex: 2 } }} />)
 
       const track = screen.getByRole('list')
 
