@@ -377,31 +377,31 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bundled-es-modules/deepmerge@npm:^4.3.1":
-  version: 4.3.1
-  resolution: "@bundled-es-modules/deepmerge@npm:4.3.1"
+"@bundled-es-modules/deepmerge@npm:^4.3.2":
+  version: 4.3.2
+  resolution: "@bundled-es-modules/deepmerge@npm:4.3.2"
   dependencies:
     deepmerge: "npm:^4.3.1"
-  checksum: 10c0/50493fb741d588aa358edc5e844cbf31493cb64aca0a5ca0d33d73f61eb9eb853f7038074429343afbe199e614a6be8400abfd31909f9e5f14a53a4cff39b894
+  checksum: 10c0/e868004dc4474b68efdd83306a13402aeb5ff748542397549ff2d8f922ce51f657792e115b28bfe31245a6fe591cb7a76f944e55ef51baf621366cca6af6f5dc
   languageName: node
   linkType: hard
 
-"@bundled-es-modules/glob@npm:^11.0.3":
-  version: 11.0.3
-  resolution: "@bundled-es-modules/glob@npm:11.0.3"
+"@bundled-es-modules/glob@npm:^13.0.6":
+  version: 13.0.6
+  resolution: "@bundled-es-modules/glob@npm:13.0.6"
   dependencies:
     buffer: "npm:^6.0.3"
     events: "npm:^3.3.0"
-    glob: "npm:^11.0.3"
+    glob: "npm:^13.0.6"
     path: "npm:^0.12.7"
     stream: "npm:^0.0.3"
     string_decoder: "npm:^1.3.0"
-    url: "npm:^0.11.3"
-  checksum: 10c0/ab433851186fc319243007b43e574eeceafad1361c6ee5ba1865f852b4a54c34f1addda3e5bc4f2cb1350b1ba9167cad1268e4466266e0cd24bb209bbd4ecbae
+    url: "npm:^0.11.4"
+  checksum: 10c0/efe6879e8b33425d50a2cf01ff1a2ccc42b76e2a1fec26ac7293fdd229931554f053edcda6eabc2ee97ad7209b885c74278427357e8e7f41c15cc56438eb7b58
   languageName: node
   linkType: hard
 
-"@bundled-es-modules/memfs@npm:^4.9.4":
+"@bundled-es-modules/memfs@npm:^4.17.0":
   version: 4.17.0
   resolution: "@bundled-es-modules/memfs@npm:4.17.0"
   dependencies:
@@ -1799,13 +1799,6 @@ __metadata:
   peerDependencies:
     "@types/node": ">=18"
   checksum: 10c0/01a9b33aa88a47d3756fca6fae3d1a1bab88b8bdb5033ab8c3446963593be54173873f9fa63f6ea04c100bf950e88b62643042c5393ac3363d201be33c0b3eca
-  languageName: node
-  linkType: hard
-
-"@isaacs/cliui@npm:^9.0.0":
-  version: 9.0.0
-  resolution: "@isaacs/cliui@npm:9.0.0"
-  checksum: 10c0/971063b7296419f85053dacd0a0285dcadaa3dfc139228b23e016c1a9848121ad4aa5e7fcca7522062014e1eb6239a7424188b9f2cba893a79c90aae5710319c
   languageName: node
   linkType: hard
 
@@ -4562,7 +4555,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"colorjs.io@npm:^0.5.0":
+"colorjs.io@npm:^0.5.0, colorjs.io@npm:^0.5.2":
   version: 0.5.2
   resolution: "colorjs.io@npm:0.5.2"
   checksum: 10c0/2e6ea43629e325e721b92429239de3a6f42fb6d88ba6e4c2aeff0288c196d876f2f7ee82aea95bd40072d5cdc8cb87f042f4d94c134dcabf0e34a717e4caacb9
@@ -6220,16 +6213,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"foreground-child@npm:^3.3.1":
-  version: 3.3.1
-  resolution: "foreground-child@npm:3.3.1"
-  dependencies:
-    cross-spawn: "npm:^7.0.6"
-    signal-exit: "npm:^4.0.1"
-  checksum: 10c0/8986e4af2430896e65bc2788d6679067294d6aee9545daefc84923a0a4b399ad9c7a3ea7bd8c0b2b80fdf4a92de4c69df3f628233ff3224260e9c1541a9e9ed3
-  languageName: node
-  linkType: hard
-
 "form-data@npm:^4.0.1":
   version: 4.0.4
   resolution: "form-data@npm:4.0.4"
@@ -6482,7 +6465,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:13.0.6, glob@npm:^13.0.0":
+"glob@npm:13.0.6, glob@npm:^13.0.0, glob@npm:^13.0.6":
   version: 13.0.6
   resolution: "glob@npm:13.0.6"
   dependencies:
@@ -6490,22 +6473,6 @@ __metadata:
     minipass: "npm:^7.1.3"
     path-scurry: "npm:^2.0.2"
   checksum: 10c0/269c236f11a9b50357fe7a8c6aadac667e01deb5242b19c84975628f05f4438d8ee1354bb62c5d6c10f37fd59911b54d7799730633a2786660d8c69f1d18120a
-  languageName: node
-  linkType: hard
-
-"glob@npm:^11.0.3":
-  version: 11.1.0
-  resolution: "glob@npm:11.1.0"
-  dependencies:
-    foreground-child: "npm:^3.3.1"
-    jackspeak: "npm:^4.1.1"
-    minimatch: "npm:^10.1.1"
-    minipass: "npm:^7.1.2"
-    package-json-from-dist: "npm:^1.0.0"
-    path-scurry: "npm:^2.0.0"
-  bin:
-    glob: dist/esm/bin.mjs
-  checksum: 10c0/1ceae07f23e316a6fa74581d9a74be6e8c2e590d2f7205034dd5c0435c53f5f7b712c2be00c3b65bf0a49294a1c6f4b98cd84c7637e29453b5aa13b79f1763a2
   languageName: node
   linkType: hard
 
@@ -7610,15 +7577,6 @@ __metadata:
     has-symbols: "npm:^1.1.0"
     set-function-name: "npm:^2.0.2"
   checksum: 10c0/f7a262808e1b41049ab55f1e9c29af7ec1025a000d243b83edf34ce2416eedd56079b117fa59376bb4a724110690f13aa8427f2ee29a09eec63a7e72367626d0
-  languageName: node
-  linkType: hard
-
-"jackspeak@npm:^4.1.1":
-  version: 4.2.3
-  resolution: "jackspeak@npm:4.2.3"
-  dependencies:
-    "@isaacs/cliui": "npm:^9.0.0"
-  checksum: 10c0/b5c0c414f1607c2aa0597f4bf2c03b8443897fccd5fd3c2b3e4f77d556b2bc7c3d3413828ba91e0789f6fb40ad90242f7f89fb20aee9e9d705bc1681f7564f67
   languageName: node
   linkType: hard
 
@@ -9160,7 +9118,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimatch@npm:^10.1.1, minimatch@npm:^10.2.2":
+"minimatch@npm:^10.2.2":
   version: 10.2.4
   resolution: "minimatch@npm:10.2.4"
   dependencies:
@@ -9820,13 +9778,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"package-json-from-dist@npm:^1.0.0":
-  version: 1.0.1
-  resolution: "package-json-from-dist@npm:1.0.1"
-  checksum: 10c0/62ba2785eb655fec084a257af34dbe24292ab74516d6aecef97ef72d4897310bc6898f6c85b5cd22770eaa1ce60d55a0230e150fb6a966e3ecd6c511e23d164b
-  languageName: node
-  linkType: hard
-
 "package-json@npm:^10.0.0":
   version: 10.0.1
   resolution: "package-json@npm:10.0.1"
@@ -9960,7 +9911,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"path-scurry@npm:^2.0.0, path-scurry@npm:^2.0.2":
+"path-scurry@npm:^2.0.2":
   version: 2.0.2
   resolution: "path-scurry@npm:2.0.2"
   dependencies:
@@ -11962,15 +11913,16 @@ __metadata:
   linkType: hard
 
 "style-dictionary@npm:^5.0.4":
-  version: 5.0.4
-  resolution: "style-dictionary@npm:5.0.4"
+  version: 5.5.2
+  resolution: "style-dictionary@npm:5.5.2"
   dependencies:
-    "@bundled-es-modules/deepmerge": "npm:^4.3.1"
-    "@bundled-es-modules/glob": "npm:^11.0.3"
-    "@bundled-es-modules/memfs": "npm:^4.9.4"
+    "@bundled-es-modules/deepmerge": "npm:^4.3.2"
+    "@bundled-es-modules/glob": "npm:^13.0.6"
+    "@bundled-es-modules/memfs": "npm:^4.17.0"
     "@zip.js/zip.js": "npm:^2.7.44"
     chalk: "npm:^5.3.0"
     change-case: "npm:^5.3.0"
+    colorjs.io: "npm:^0.5.2"
     commander: "npm:^12.1.0"
     is-plain-obj: "npm:^4.1.0"
     json5: "npm:^2.2.2"
@@ -11979,7 +11931,7 @@ __metadata:
     tinycolor2: "npm:^1.6.0"
   bin:
     style-dictionary: bin/style-dictionary.js
-  checksum: 10c0/b6ad2d1fd24c22c7e2e8d92b5c6fcfae8a0093f7eafb4f82af71ce86ade73b68b4932df34583628a891f5a8da778f5177c4f76f494e55a3e2eaff0db46089452
+  checksum: 10c0/aca48bc157f37861414240202a459020c66334ecbe6932f75f8bb2e313cc60b0f56ea78a1e22f8427da0cb162f42a372bc235821dd9fe0a696832afd21d8ac24
   languageName: node
   linkType: hard
 
@@ -12858,7 +12810,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"url@npm:^0.11.3":
+"url@npm:^0.11.4":
   version: 0.11.4
   resolution: "url@npm:0.11.4"
   dependencies:
