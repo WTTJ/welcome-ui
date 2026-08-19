@@ -4,7 +4,6 @@ import { forwardRef, useState } from 'react'
 import { Badge } from '@/components/Badge'
 import { Icon } from '@/components/Icon'
 import { Text } from '@/components/Text'
-import type { As, PropsWithAs } from '@/utils'
 import { classNames, forwardRefWithAs } from '@/utils'
 
 import type {
@@ -20,43 +19,38 @@ import windowStyles from '../window.module.scss'
 
 const cx = classNames(windowStyles)
 
-const Button = ({
-  'aria-label': ariaLabel,
-  className,
-  icon,
-  isActive,
-  onClick,
-  ...rest
-}: PropsWithAs<As, ActionButtonProps>) => {
-  return (
-    <button
-      aria-label={ariaLabel}
-      aria-pressed={isActive}
-      className={cx('header-action-button', className)}
-      onClick={onClick}
-      type="button"
-      {...rest}
-    >
-      <Icon name={icon} />
-    </button>
-  )
-}
+const Button = forwardRefWithAs<ActionButtonProps, 'button'>(
+  ({ 'aria-label': ariaLabel, className, icon, isActive, onClick, ...rest }, ref) => {
+    return (
+      <button
+        aria-label={ariaLabel}
+        aria-pressed={isActive}
+        className={cx('header-action-button', className)}
+        onClick={onClick}
+        ref={ref}
+        type="button"
+        {...rest}
+      >
+        <Icon name={icon} />
+      </button>
+    )
+  }
+)
 
-const CloseButton = ({
-  as,
-  className,
-  onClick,
-}: PropsWithAs<As, Omit<ActionButtonProps, 'icon'>>) => {
-  return (
-    <Button
-      aria-label="Close window"
-      as={as}
-      className={cx('header-close-button', className)}
-      icon="times"
-      onClick={onClick}
-    />
-  )
-}
+const CloseButton = forwardRefWithAs<Omit<ActionButtonProps, 'icon'>, 'button'>(
+  ({ as, className, onClick }, ref) => {
+    return (
+      <Button
+        aria-label="Close window"
+        as={as}
+        className={cx('header-close-button', className)}
+        icon="times"
+        onClick={onClick}
+        ref={ref}
+      />
+    )
+  }
+)
 
 const Tabs = ({ children, className, store, ...rest }: HeaderTabsProps) => {
   return (
