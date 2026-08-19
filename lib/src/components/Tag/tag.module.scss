@@ -108,14 +108,14 @@
   @media (hover: hover) and (pointer: fine) {
     button.root:hover:not(.disabled),
     a.root:hover:not(.disabled),
-    .root:has(> .label:hover):not(.disabled) {
+    .root:has(> .label):hover:not(.disabled) {
       --backgroundColor: var(--backgroundColorHover);
       --boxShadow: var(--elevation-20);
     }
 
     button.root.variant-dash:hover:not(.disabled),
     a.root.variant-dash:hover:not(.disabled),
-    .root.variant-dash:has(> .label:hover):not(.disabled) {
+    .root.variant-dash:has(> .label):hover:not(.disabled) {
       border-color: var(--tag-color-border-dash-hover);
     }
   }
