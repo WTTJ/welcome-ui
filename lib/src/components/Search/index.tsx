@@ -29,6 +29,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
       autoFocus,
       className,
       dataTestId,
+      defaultHighlightedIndex,
       disabled,
       groupsEnabled,
       icon,
@@ -108,6 +109,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
 
     return (
       <Downshift
+        defaultHighlightedIndex={defaultHighlightedIndex}
         initialInputValue={initialInputValue}
         itemToString={handleItemToString}
         onInputValueChange={handleInputChange}
