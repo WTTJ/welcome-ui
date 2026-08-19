@@ -33,6 +33,7 @@ export const Tag = forwardRefWithAs<TagOptions, 'div'>((props, ref) => {
     onRemove,
     removeButtonProps,
     size = 'lg',
+    style,
     variant = 'warm',
     ...rest
   } = props
@@ -90,7 +91,7 @@ export const Tag = forwardRefWithAs<TagOptions, 'div'>((props, ref) => {
 
   if (needsSplitLayout) {
     return (
-      <div className={rootClassName}>
+      <div className={rootClassName} style={style}>
         <Component className={cx('label')} onClick={handleClick} ref={ref} {...rest}>
           {labelContent}
         </Component>
@@ -100,7 +101,7 @@ export const Tag = forwardRefWithAs<TagOptions, 'div'>((props, ref) => {
   }
 
   return (
-    <Component className={rootClassName} onClick={handleClick} ref={ref} {...rest}>
+    <Component className={rootClassName} onClick={handleClick} ref={ref} style={style} {...rest}>
       {labelContent}
       {removeButtonEl}
     </Component>
