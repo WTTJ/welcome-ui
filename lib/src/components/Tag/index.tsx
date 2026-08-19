@@ -33,7 +33,6 @@ export const Tag = forwardRefWithAs<TagOptions, 'div'>((props, ref) => {
     onRemove,
     removeButtonProps,
     size = 'lg',
-    style,
     variant = 'warm',
     ...rest
   } = props
@@ -43,8 +42,8 @@ export const Tag = forwardRefWithAs<TagOptions, 'div'>((props, ref) => {
 
   // A native button/anchor root can't legally contain the remove button, so that combination
   // needs to split into sibling interactive elements instead of nesting one inside the other
-  const rootTag = Component as unknown as string
-  const needsSplitLayout = (rootTag === 'button' || rootTag === 'a') && !!onRemove
+  const rootTag = Component as React.ElementType
+  const isInteractiveTagWithRemove = (rootTag === 'button' || rootTag === 'a') && !!onRemove
 
   const handleRemove = (e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation()
@@ -89,9 +88,9 @@ export const Tag = forwardRefWithAs<TagOptions, 'div'>((props, ref) => {
     </button>
   ) : null
 
-  if (needsSplitLayout) {
+  if (isInteractiveTagWithRemove) {
     return (
-      <div className={rootClassName} style={style}>
+      <div className={rootClassName}>
         <Component className={cx('label')} onClick={handleClick} ref={ref} {...rest}>
           {labelContent}
         </Component>
@@ -101,7 +100,7 @@ export const Tag = forwardRefWithAs<TagOptions, 'div'>((props, ref) => {
   }
 
   return (
-    <Component className={rootClassName} onClick={handleClick} ref={ref} style={style} {...rest}>
+    <Component className={rootClassName} onClick={handleClick} ref={ref} {...rest}>
       {labelContent}
       {removeButtonEl}
     </Component>

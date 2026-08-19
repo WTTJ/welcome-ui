@@ -88,19 +88,13 @@
     font: inherit;
     text-decoration: none;
     cursor: pointer;
-    outline: transparent solid var(--border-width-md);
-
-    &:focus-visible {
-      outline-width: var(--button-border-width-focused);
-      outline-color: var(--button-color-border-focused);
-    }
   }
 
   /* Interactive states for button and anchor tags */
   button.root,
   a.root,
   /* ...or a root wrapping the split-layout .label */
-  .root:has(> .label) {
+  .root:has(> .label):not(.disabled) {
     cursor: pointer;
     text-decoration: none;
   }
