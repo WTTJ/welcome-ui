@@ -24,6 +24,7 @@
   }
 
   .childItem {
-    display: inline;
+    display: inline-block;
+    width: fit-content;
   }
 }
