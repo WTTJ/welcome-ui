@@ -55,34 +55,62 @@
 
     /* Text overflow for children */
     > span,
-    > p {
+    > p,
+    .label > span,
+    .label > p {
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
     /* Icon sizing */
-    > svg {
+    > svg,
+    .label > svg {
       flex-shrink: 0;
       width: var(--tag-size-icon);
       height: var(--tag-size-icon);
     }
   }
 
+  /*
+   * The clickable label when the root can't be the interactive element itself
+   * (root + remove button are split into siblings, see .hasRemoveAction below)
+   */
+  .label {
+    display: inline-flex;
+    align-items: center;
+    overflow: hidden;
+    min-width: 0;
+    gap: var(--gap);
+    background: none;
+    border: none;
+    padding: 0;
+    color: inherit;
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
   /* Interactive states for button and anchor tags */
   button.root,
-  a.root {
+  a.root,
+  /* ...or a root wrapping the split-layout .label */
+  .root:has(> .label):not(.disabled) {
     cursor: pointer;
     text-decoration: none;
+  }
 
-    @media (hover: hover) and (pointer: fine) {
-      &:hover:not(.disabled) {
-        --backgroundColor: var(--backgroundColorHover);
-        --boxShadow: var(--elevation-20);
-      }
+  @media (hover: hover) and (pointer: fine) {
+    button.root:hover:not(.disabled),
+    a.root:hover:not(.disabled),
+    .root:has(> .label):hover:not(.disabled) {
+      --backgroundColor: var(--backgroundColorHover);
+      --boxShadow: var(--elevation-20);
+    }
 
-      &.variant-dash:hover:not(.disabled) {
-        border-color: var(--tag-color-border-dash-hover);
-      }
+    button.root.variant-dash:hover:not(.disabled),
+    a.root.variant-dash:hover:not(.disabled),
+    .root.variant-dash:has(> .label):hover:not(.disabled) {
+      border-color: var(--tag-color-border-dash-hover);
     }
   }
 
@@ -97,7 +125,8 @@
       border: inherit;
     }
 
-    .removeButton {
+    .removeButton,
+    .label {
       cursor: inherit;
     }
   }

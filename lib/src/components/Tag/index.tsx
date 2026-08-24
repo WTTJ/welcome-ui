@@ -40,6 +40,11 @@ export const Tag = forwardRefWithAs<TagOptions, 'div'>((props, ref) => {
   // Determine if the tag should have a square shape (only one character and no remove action)
   const isSquare = getTextLength(children) === 1 && !onRemove
 
+  // A native button/anchor root can't legally contain the remove button, so that combination
+  // needs to split into sibling interactive elements instead of nesting one inside the other
+  const rootTag = Component as React.ElementType
+  const isInteractiveTagWithRemove = (rootTag === 'button' || rootTag === 'a') && !!onRemove
+
   const handleRemove = (e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation()
     if (disabled) return
@@ -52,36 +57,52 @@ export const Tag = forwardRefWithAs<TagOptions, 'div'>((props, ref) => {
     if (onClick) onClick(e)
   }
 
-  return (
-    <Component
-      className={cx(
-        'root',
-        `variant-${variant}`,
-        `size-${size}`,
-        !!onRemove && 'hasRemoveAction',
-        isSquare && 'isSquare',
-        ai && 'ai',
-        disabled && 'disabled',
-        className
-      )}
-      onClick={handleClick}
-      ref={ref}
-      {...rest}
-    >
+  const rootClassName = cx(
+    'root',
+    `variant-${variant}`,
+    `size-${size}`,
+    !!onRemove && 'hasRemoveAction',
+    isSquare && 'isSquare',
+    ai && 'ai',
+    disabled && 'disabled',
+    className
+  )
+
+  const labelContent = (
+    <>
       {ai && variant !== 'dash' ? <Icon name="sparkles" size="md" /> : icon}
       <span>{children}</span>
-      {onRemove ? (
-        <button
-          aria-label="remove tag"
-          disabled={disabled}
-          type="button"
-          {...removeButtonProps}
-          className={cx('removeButton', removeButtonProps?.className)}
-          onClick={handleRemove}
-        >
-          <Icon name="times" size="md" />
-        </button>
-      ) : null}
+    </>
+  )
+
+  const removeButtonEl = onRemove ? (
+    <button
+      aria-label="remove tag"
+      disabled={disabled}
+      type="button"
+      {...removeButtonProps}
+      className={cx('removeButton', removeButtonProps?.className)}
+      onClick={handleRemove}
+    >
+      <Icon name="times" size="md" />
+    </button>
+  ) : null
+
+  if (isInteractiveTagWithRemove) {
+    return (
+      <div className={rootClassName}>
+        <Component className={cx('label')} onClick={handleClick} ref={ref} {...rest}>
+          {labelContent}
+        </Component>
+        {removeButtonEl}
+      </div>
+    )
+  }
+
+  return (
+    <Component className={rootClassName} onClick={handleClick} ref={ref} {...rest}>
+      {labelContent}
+      {removeButtonEl}
     </Component>
   )
 })
