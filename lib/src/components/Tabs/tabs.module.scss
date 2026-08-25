@@ -69,6 +69,17 @@
       --tabItemBorderColor: var(--tab-color-border-unchecked-hover);
       --tabItemBoxShadow: var(--elevation-20);
     }
+
+    &.orientation-vertical {
+      justify-content: flex-start;
+      width: 100%;
+    }
+  }
+
+  .content {
+    display: flex;
+    align-items: center;
+    gap: var(--tabGap);
   }
 
   .size {
@@ -156,6 +167,11 @@
       &-md {
         --tabsGap: var(--tab-gap-content-md);
       }
+    }
+
+    &.orientation-vertical {
+      flex-direction: column;
+      align-items: stretch;
     }
   }
 }
