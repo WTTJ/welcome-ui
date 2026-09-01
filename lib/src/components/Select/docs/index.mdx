@@ -73,3 +73,11 @@ These two options combined allows you, for example, to build a filter dropdown w
 To use option groups, you must provide two additional props: `groupsEnabled` that allow nested options and `renderGroupHeader` that renders the header of a specific group
 
 <div data-playground="option-groups.tsx" data-component="Select"></div>
+
+### Options list height
+
+The dropdown list is capped at `155px` by default. Override it with the `--selectMenuMaxHeight` CSS variable, set through `className` (the prop lands on the component wrapper), inline, or from any parent:
+
+```jsx
+<Select className="[--selectMenuMaxHeight:20rem]" options={options} />
+```
