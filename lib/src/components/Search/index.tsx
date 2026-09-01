@@ -166,7 +166,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
           }) as React.InputHTMLAttributes<HTMLInputElement>
 
           return (
-            <div {...rootProps} className={cx('wrapper', 'field-input')}>
+            <div {...rootProps} className={cx('wrapper', 'field-input', className)}>
               <div className={cx('input-wrapper')}>
                 <input
                   className={cx(
@@ -174,8 +174,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
                     `size-${size}`,
                     variant && `variant-${variant}`,
                     transparent && 'transparent',
-                    icon && `icon-placement-${iconPlacement}`,
-                    className
+                    icon && `icon-placement-${iconPlacement}`
                   )}
                   {...inputProps}
                 />

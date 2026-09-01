@@ -319,7 +319,6 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
       isClearable && 'clearable',
       transparent && 'transparent',
       icon && `icon-placement-${iconPlacement}`,
-      className,
       disabled && 'disabled'
     )
 
@@ -399,7 +398,10 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
           }) as React.InputHTMLAttributes<HTMLInputElement>
 
           return (
-            <div {...rootProps} className={cx('wrapper', disabled && 'disabled', 'field-input')}>
+            <div
+              {...rootProps}
+              className={cx('wrapper', disabled && 'disabled', 'field-input', className)}
+            >
               <div className={cx('input-wrapper')}>
                 {isSearchable ? (
                   <input
