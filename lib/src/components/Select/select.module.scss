@@ -261,7 +261,7 @@
   }
 
   .menu {
-    max-height: 9.6875rem; /* 155px */
+    max-height: var(--selectMenuMaxHeight, 9.6875rem); /* 155px */
     background-color: var(--input-color-background-default);
     border-color: var(--input-color-border-hover);
     border-radius: var(--input-border-radius);

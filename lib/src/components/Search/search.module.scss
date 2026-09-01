@@ -215,7 +215,7 @@
   }
 
   .menu {
-    max-height: 9.6875rem; /* 155px */
+    max-height: var(--searchMenuMaxHeight, 9.6875rem); /* 155px */
     background-color: var(--color-background-neutral-inverse-fixed);
     border-color: var(--color-background-neutral-subtlest);
     border-radius: var(--border-radius-md);
