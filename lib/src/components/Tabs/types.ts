@@ -11,6 +11,7 @@ export type TabListProps = {
   className?: string
   size?: Size
   store: UseTab
+  vertical?: boolean
 }
 
 export interface TabOptions {

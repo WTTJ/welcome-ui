@@ -246,6 +246,7 @@ export default {
   "/Tabs/docs/examples/icon.tsx": dynamic(() => import("../../lib/src/components/Tabs/docs/examples/icon.tsx").then(mod => mod), { ssr: false }),
   "/Tabs/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Tabs/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Tabs/docs/examples/sizes.tsx": dynamic(() => import("../../lib/src/components/Tabs/docs/examples/sizes.tsx").then(mod => mod), { ssr: false }),
+  "/Tabs/docs/examples/vertical.tsx": dynamic(() => import("../../lib/src/components/Tabs/docs/examples/vertical.tsx").then(mod => mod), { ssr: false }),
   "/Tag/docs/examples/ai.tsx": dynamic(() => import("../../lib/src/components/Tag/docs/examples/ai.tsx").then(mod => mod), { ssr: false }),
   "/Tag/docs/examples/clickable.tsx": dynamic(() => import("../../lib/src/components/Tag/docs/examples/clickable.tsx").then(mod => mod), { ssr: false }),
   "/Tag/docs/examples/disabled.tsx": dynamic(() => import("../../lib/src/components/Tag/docs/examples/disabled.tsx").then(mod => mod), { ssr: false }),
