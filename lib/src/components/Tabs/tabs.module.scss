@@ -71,13 +71,13 @@
     }
 
     &.orientation-vertical {
-      justify-content: flex-start;
       width: 100%;
     }
   }
 
   .content {
     display: flex;
+    flex: 1;
     align-items: center;
     gap: var(--tabGap);
   }
@@ -156,14 +156,12 @@
   .tab-list {
     display: flex;
     align-items: center;
-
     gap: var(--tabsGap, 0);
 
     &.size {
       &-lg {
         --tabsGap: var(--tab-gap-content-lg);
       }
-
       &-md {
         --tabsGap: var(--tab-gap-content-md);
       }
@@ -172,6 +170,7 @@
     &.orientation-vertical {
       flex-direction: column;
       align-items: stretch;
+      --tabsGap: var(--tab-gap-content-lg); // vertical always uses the lg gap, any size
     }
   }
 }
