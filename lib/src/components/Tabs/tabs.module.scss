@@ -71,7 +71,6 @@
     }
 
     &.orientation-vertical {
-      justify-content: flex-start;
       width: 100%;
     }
   }
@@ -165,7 +164,7 @@
       }
 
       &-md {
-        --tabsGap: var(--tab-gap-content-md);
+        --tabsGap: var(--tab-gap-content-lg);
       }
     }
 
