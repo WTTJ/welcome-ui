@@ -162,6 +162,7 @@ export const miscellaneous = [
   'check-circle',
   'certified', // (not unicons, personal mashup)
   'plug',
+  'hourglass',
 ] as const
 
 export const player = [
