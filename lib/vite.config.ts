@@ -68,6 +68,48 @@ function copyScssFilesPlugin() {
   return plugin
 }
 
+function injectCssImportsPlugin() {
+  const plugin: Plugin = {
+    generateBundle(_options, bundle) {
+      const claimedCss = new Set<string>()
+
+      for (const file of Object.values(bundle)) {
+        if (file.type !== 'chunk') continue
+
+        const importedCss = (file as { viteMetadata?: { importedCss?: Set<string> } }).viteMetadata
+          ?.importedCss
+
+        if (!importedCss || importedCss.size === 0) continue
+
+        for (const cssFile of importedCss) claimedCss.add(cssFile)
+
+        const imports = [...importedCss].map(cssFile => `import './${cssFile}';\n`).join('')
+        const useClientMatch = file.code.match(/^(["']use client["'];\s*)/)
+
+        file.code = useClientMatch
+          ? file.code.replace(useClientMatch[0], `${useClientMatch[0]}${imports}`)
+          : imports + file.code
+      }
+
+      // Fail loudly rather than silently publishing a CSS asset no chunk ever loads.
+      for (const file of Object.values(bundle)) {
+        if (
+          file.type === 'asset' &&
+          file.fileName.endsWith('.css') &&
+          !claimedCss.has(file.fileName)
+        ) {
+          this.error(
+            `Orphaned CSS asset "${file.fileName}": no JS chunk imports it. Check assetFileNames/chunkFileNames in rollupOptions.output.`
+          )
+        }
+      }
+    },
+    name: 'inject-css-imports',
+  }
+
+  return plugin
+}
+
 const config: UserConfigWithTest = {
   build: {
     cssCodeSplit: true,
@@ -91,6 +133,7 @@ const config: UserConfigWithTest = {
   plugins: [
     preserveDirectives(),
     addUseClientDirectivePlugin(),
+    injectCssImportsPlugin(),
     copyScssFilesPlugin(),
     dts({
       entryRoot: 'src',
