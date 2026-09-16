@@ -4,7 +4,6 @@ import { forwardRef } from 'react'
 import ReactDatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 
-import '@/components/DateTimePickerCommon/date-time-picker.scss'
 import { CustomHeader } from '@/components/DateTimePickerCommon/CustomHeader'
 import { CustomPopper } from '@/components/DateTimePickerCommon/CustomPopper'
 import styles from '@/components/DateTimePickerCommon/date-time-picker.module.scss'
@@ -18,6 +17,7 @@ import type { DatePickerProps } from './types'
 export { styles as datePickerClasses }
 
 const cx = classNames(styles)
+const joinClassNames = classNames()
 
 export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
   (
@@ -111,7 +111,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
         customInput={
           <InputText
             autoFocus={autoFocus}
-            className={cx('date-picker', className)}
+            className={joinClassNames(cx('date-picker'), className)}
             data-testid={rest['data-testid']}
             disabled={disabled}
             icon={icon}
@@ -143,7 +143,12 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
         showMonthYearPicker={showMonthYearPicker}
         useWeekdaysShort={useWeekdaysShort}
         {...rest}
-        wrapperClassName={cx(rest.wrapperClassName, 'date-picker-wrapper', 'field-input')}
+        wrapperClassName={joinClassNames(
+          cx('picker-input-root'),
+          'date-picker-wrapper',
+          'field-input',
+          rest.wrapperClassName
+        )}
       />
     )
   }
