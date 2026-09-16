@@ -3,7 +3,6 @@ import { forwardRef, useEffect, useRef, useState } from 'react'
 import ReactDatePicker from 'react-datepicker'
 
 import { CustomPopper } from '@/components/DateTimePickerCommon/CustomPopper'
-import '@/components/DateTimePickerCommon/date-time-picker.scss'
 import styles from '@/components/DateTimePickerCommon/date-time-picker.module.scss'
 import { DEFAULT_DATE, getDate } from '@/components/DateTimePickerCommon/utils'
 import { InputText } from '@/components/InputText'
@@ -12,6 +11,7 @@ import { classNames } from '@/utils'
 import type { TimePickerProps } from './types'
 
 const cx = classNames(styles)
+const joinClassNames = classNames()
 
 export const TimePicker = forwardRef<HTMLInputElement, TimePickerProps>(
   (
@@ -87,11 +87,11 @@ export const TimePicker = forwardRef<HTMLInputElement, TimePickerProps>(
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-expect-error
       <ReactDatePicker
-        calendarClassName="time-picker-popper"
+        calendarClassName={cx('picker-popper-root')}
         customInput={
           <InputText
             autoFocus={autoFocus}
-            className={cx('time-picker', className)}
+            className={joinClassNames(cx('time-picker'), className)}
             data-testid={rest['data-testid']}
             disabled={disabled}
             icon={icon}
@@ -112,7 +112,12 @@ export const TimePicker = forwardRef<HTMLInputElement, TimePickerProps>(
         showTimeSelectOnly
         timeIntervals={timeIntervals}
         {...rest}
-        wrapperClassName={cx(rest.wrapperClassName, 'date-picker-wrapper', 'field-input')}
+        wrapperClassName={joinClassNames(
+          cx('picker-input-root'),
+          'time-picker-wrapper',
+          'field-input',
+          rest.wrapperClassName
+        )}
       />
     )
   }

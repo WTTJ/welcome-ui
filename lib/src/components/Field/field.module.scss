@@ -32,7 +32,8 @@
     :global(.field-input) {
       align-self: center;
       grid-area: input;
-      &:global(.date-picker-wrapper) {
+      &:global(.date-picker-wrapper),
+      &:global(.time-picker-wrapper) {
         justify-self: start;
       }
     }
