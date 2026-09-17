@@ -163,6 +163,7 @@ export const miscellaneous = [
   'certified', // (not unicons, personal mashup)
   'plug',
   'hourglass',
+  'focus-target',
 ] as const
 
 export const player = [
