@@ -1,10 +1,10 @@
 import { Tabs, useTab } from '@/components/Tabs'
 
 const Example = () => {
-  const tab = useTab({ defaultSelectedId: 'tab1' })
+  const tab = useTab({ defaultSelectedId: 'tab1', orientation: 'vertical' })
 
   return (
-    <Tabs aria-label="Tabs" className="w-300 mx-auto" store={tab} vertical>
+    <Tabs aria-label="Tabs" className="w-300 mx-auto" store={tab}>
       <Tabs.Tab id="tab1" store={tab}>
         Tab 1
       </Tabs.Tab>

@@ -183,12 +183,12 @@ describe('Tabs', () => {
     expect(screen.getByRole('tablist')).toHaveAttribute('aria-orientation', 'horizontal')
   })
 
-  it('renders vertically when vertical prop is set', () => {
+  it('renders vertically when store orientation is vertical', () => {
     const TabsListVertical = () => {
-      const tab = useTab({ defaultSelectedId: 'tab1' })
+      const tab = useTab({ defaultSelectedId: 'tab1', orientation: 'vertical' })
 
       return (
-        <Tabs aria-label="Tabs" store={tab} vertical>
+        <Tabs aria-label="Tabs" store={tab}>
           <Tabs.Tab data-testid="tab1" id="tab1" store={tab}>
             Tab 1
           </Tabs.Tab>

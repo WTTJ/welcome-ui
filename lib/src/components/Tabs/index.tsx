@@ -1,5 +1,5 @@
-import { TabList as AriakitTabList } from '@ariakit/react'
-import { forwardRef, useEffect } from 'react'
+import { TabList as AriakitTabList, useStoreState } from '@ariakit/react'
+import { forwardRef } from 'react'
 
 import { classNames } from '@/utils'
 
@@ -14,10 +14,9 @@ export { styles as tabsClasses }
 const cx = classNames(styles)
 
 export const TabsComponent = forwardRef<HTMLDivElement, TabListProps>(
-  ({ children, className, size = 'lg', store, vertical = false, ...rest }, ref) => {
-    useEffect(() => {
-      store?.setState('orientation', vertical ? 'vertical' : 'horizontal')
-    }, [store, vertical])
+  ({ children, className, size = 'lg', store, ...rest }, ref) => {
+    const { orientation } = useStoreState(store)
+    const vertical = orientation === 'vertical'
 
     return (
       <AriakitTabList
