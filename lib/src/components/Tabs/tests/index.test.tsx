@@ -176,4 +176,36 @@ describe('Tabs', () => {
     expect(tab1.classList.toString().includes('size-lg')).toBe(true)
     expect(tab2.classList.toString().includes('size-lg')).toBe(true)
   })
+
+  it('renders horizontally by default', () => {
+    render(<TabsList />)
+
+    expect(screen.getByRole('tablist')).toHaveAttribute('aria-orientation', 'horizontal')
+  })
+
+  it('renders vertically when store orientation is vertical', () => {
+    const TabsListVertical = () => {
+      const tab = useTab({ defaultSelectedId: 'tab1', orientation: 'vertical' })
+
+      return (
+        <Tabs aria-label="Tabs" store={tab}>
+          <Tabs.Tab data-testid="tab1" id="tab1" store={tab}>
+            Tab 1
+          </Tabs.Tab>
+          <Tabs.Tab data-testid="tab2" id="tab2" store={tab}>
+            Tab 2
+          </Tabs.Tab>
+        </Tabs>
+      )
+    }
+
+    render(<TabsListVertical />)
+
+    const tabList = screen.getByRole('tablist')
+    expect(tabList).toHaveAttribute('aria-orientation', 'vertical')
+    expect(tabList.classList.toString().includes('orientation-vertical')).toBe(true)
+
+    const tab1 = screen.getByTestId('tab1')
+    expect(tab1.classList.toString().includes('orientation-vertical')).toBe(true)
+  })
 })

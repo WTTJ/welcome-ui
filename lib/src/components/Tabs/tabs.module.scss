@@ -69,6 +69,17 @@
       --tabItemBorderColor: var(--tab-color-border-unchecked-hover);
       --tabItemBoxShadow: var(--elevation-20);
     }
+
+    &.orientation-vertical {
+      width: 100%;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: var(--tabGap);
   }
 
   .size {
@@ -145,17 +156,21 @@
   .tab-list {
     display: flex;
     align-items: center;
-
     gap: var(--tabsGap, 0);
 
     &.size {
       &-lg {
         --tabsGap: var(--tab-gap-content-lg);
       }
-
       &-md {
         --tabsGap: var(--tab-gap-content-md);
       }
+    }
+
+    &.orientation-vertical {
+      flex-direction: column;
+      align-items: stretch;
+      --tabsGap: var(--tab-gap-content-lg); // vertical always uses the lg gap, any size
     }
   }
 }
