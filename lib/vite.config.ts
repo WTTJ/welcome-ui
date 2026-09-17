@@ -1,15 +1,17 @@
 /// <reference types="vitest" />
 
-import fs from 'fs'
 import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
 import path from 'path'
 
 import preserveDirectives from 'rollup-preserve-directives'
-import type { Plugin, PluginOption, UserConfig } from 'vite'
+import type { PluginOption, UserConfig } from 'vite'
 import { defineConfig } from 'vite'
 
-import { getLibEntries } from './scripts/get-lib-entries'
+import { addUseClientDirectivePlugin } from './vite/add-use-client'
+import { copyScssFilesPlugin } from './vite/copy-scss-files'
+import { getLibEntries } from './vite/get-lib-entries'
+import { injectCssImportsPlugin } from './vite/inject-css-imports'
 
 const require = createRequire(import.meta.url)
 // which can make plugin types incompatible. We keep a small local type to satisfy TS.
@@ -20,53 +22,6 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 type UserConfigWithTest = UserConfig & { test?: Record<string, unknown> }
-
-function addUseClientDirectivePlugin() {
-  const plugin: Plugin = {
-    name: 'add-use-client',
-    transform(code: string, id: string) {
-      let clientString = ''
-      // Only add for client-side and not css or scss files (adjust the filter as needed)
-      if (!id.endsWith('.css') && !id.endsWith('.scss')) {
-        clientString = "'use client';\n"
-      }
-
-      return {
-        code: `${clientString}${code}`,
-        map: null,
-      }
-    },
-  }
-
-  return plugin
-}
-
-function copyScssFilesPlugin() {
-  const plugin: Plugin = {
-    name: 'copy-scss-files',
-    writeBundle() {
-      const srcDir = path.resolve(__dirname, 'src/utils/scss')
-      const destDir = path.resolve(__dirname, 'dist/scss')
-
-      // Ensure destination directory exists
-      if (!fs.existsSync(destDir)) {
-        fs.mkdirSync(destDir, { recursive: true })
-      }
-
-      // Read all SCSS files from source directory
-      const scssFiles = fs.readdirSync(srcDir).filter(file => file.endsWith('.scss'))
-
-      // Copy each SCSS file to destination
-      scssFiles.forEach(file => {
-        const srcPath = path.join(srcDir, file)
-        const destPath = path.join(destDir, file)
-        fs.copyFileSync(srcPath, destPath)
-      })
-    },
-  }
-
-  return plugin
-}
 
 const config: UserConfigWithTest = {
   build: {
@@ -91,7 +46,8 @@ const config: UserConfigWithTest = {
   plugins: [
     preserveDirectives(),
     addUseClientDirectivePlugin(),
-    copyScssFilesPlugin(),
+    injectCssImportsPlugin(),
+    copyScssFilesPlugin(__dirname),
     dts({
       entryRoot: 'src',
       exclude: ['**/tests/**', '**/docs/**', '*.json'],
