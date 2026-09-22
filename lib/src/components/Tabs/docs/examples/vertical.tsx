@@ -12,7 +12,7 @@ const Example = () => {
         <span>Tab 2</span>
       </Tabs.Tab>
       <Tabs.Tab badge={1} className="justify-between" icon="plus" id="tab3" store={tab}>
-        Tab 3
+        Tab 3 with a very long text that gets truncated
       </Tabs.Tab>
     </Tabs>
   )
