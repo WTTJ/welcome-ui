@@ -7,7 +7,6 @@ import { classNames } from '@/utils'
 import type { DateTimePickerProps } from './types'
 
 const cx = classNames(styles)
-const joinClassNames = classNames()
 
 export const DateTimePicker = forwardRef<HTMLInputElement, DateTimePickerProps>(
   (
@@ -69,7 +68,7 @@ export const DateTimePicker = forwardRef<HTMLInputElement, DateTimePickerProps>(
     }, [value])
 
     return (
-      <div className={joinClassNames(cx('date-time-picker'), 'field-input')}>
+      <div className={cx('date-time-picker', 'field-input')}>
         {Children.map(children, (child: React.ReactElement, i) => {
           const isDatePicker = i === 0
 

@@ -17,7 +17,6 @@ import type { DatePickerProps } from './types'
 export { styles as datePickerClasses }
 
 const cx = classNames(styles)
-const joinClassNames = classNames()
 
 export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
   (
@@ -111,7 +110,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
         customInput={
           <InputText
             autoFocus={autoFocus}
-            className={joinClassNames(cx('date-picker'), className)}
+            className={cx('date-picker', className)}
             data-testid={rest['data-testid']}
             disabled={disabled}
             icon={icon}
@@ -143,8 +142,8 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
         showMonthYearPicker={showMonthYearPicker}
         useWeekdaysShort={useWeekdaysShort}
         {...rest}
-        wrapperClassName={joinClassNames(
-          cx('picker-input-root'),
+        wrapperClassName={cx(
+          'picker-input-root',
           'date-picker-wrapper',
           'field-input',
           rest.wrapperClassName

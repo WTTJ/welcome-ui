@@ -11,7 +11,6 @@ import { classNames } from '@/utils'
 import type { TimePickerProps } from './types'
 
 const cx = classNames(styles)
-const joinClassNames = classNames()
 
 export const TimePicker = forwardRef<HTMLInputElement, TimePickerProps>(
   (
@@ -91,7 +90,7 @@ export const TimePicker = forwardRef<HTMLInputElement, TimePickerProps>(
         customInput={
           <InputText
             autoFocus={autoFocus}
-            className={joinClassNames(cx('time-picker'), className)}
+            className={cx('time-picker', className)}
             data-testid={rest['data-testid']}
             disabled={disabled}
             icon={icon}
@@ -112,8 +111,8 @@ export const TimePicker = forwardRef<HTMLInputElement, TimePickerProps>(
         showTimeSelectOnly
         timeIntervals={timeIntervals}
         {...rest}
-        wrapperClassName={joinClassNames(
-          cx('picker-input-root'),
+        wrapperClassName={cx(
+          'picker-input-root',
           'time-picker-wrapper',
           'field-input',
           rest.wrapperClassName
