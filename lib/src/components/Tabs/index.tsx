@@ -15,17 +15,18 @@ const cx = classNames(styles)
 
 export const TabsComponent = forwardRef<HTMLDivElement, TabListProps>(
   ({ children, className, size = 'lg', store, ...rest }, ref) => {
-    const { orientation } = useStoreState(store)
-    const vertical = orientation === 'vertical'
+    const { orientation: storeOrientation } = useStoreState(store)
+    const isVertical = storeOrientation === 'vertical'
+    const orientation = isVertical ? 'vertical' : 'horizontal'
 
     return (
       <AriakitTabList
-        className={cx('tab-list', `size-${size}`, vertical && 'orientation-vertical', className)}
+        className={cx('tab-list', `size-${size}`, isVertical && 'orientation-vertical', className)}
         ref={ref}
         store={store}
         {...rest}
       >
-        <TabContext.Provider value={{ size, vertical }}>{children}</TabContext.Provider>
+        <TabContext.Provider value={{ orientation, size }}>{children}</TabContext.Provider>
       </AriakitTabList>
     )
   }

@@ -4,7 +4,7 @@ import { Badge } from '@/components/Badge'
 import { classNames } from '@/utils'
 import { forwardRefWithAs } from '@/utils/forwardRefWithAs'
 
-import { useTabSize, useTabVertical } from './TabContext'
+import { useTabOrientation, useTabSize } from './TabContext'
 import styles from './tabs.module.scss'
 import type { TabProps } from './types'
 import { getIcon } from './utils'
@@ -17,7 +17,7 @@ export const Tab = forwardRefWithAs<TabProps, 'button'>(
     ref
   ) => {
     const size = useTabSize()
-    const vertical = useTabVertical()
+    const orientation = useTabOrientation()
 
     const { selectedId } = useStoreState(store)
     const isActive = selectedId === id
@@ -33,7 +33,12 @@ export const Tab = forwardRefWithAs<TabProps, 'button'>(
 
     return (
       <AriakitTab
-        className={cx('root', `size-${size}`, vertical && 'orientation-vertical', className)}
+        className={cx(
+          'root',
+          `size-${size}`,
+          orientation === 'vertical' && 'orientation-vertical',
+          className
+        )}
         id={id}
         ref={ref}
         render={Component ? <Component /> : undefined}
