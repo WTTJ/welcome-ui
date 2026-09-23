@@ -4,7 +4,6 @@ import { forwardRef } from 'react'
 import ReactDatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 
-import '@/components/DateTimePickerCommon/date-time-picker.scss'
 import { CustomHeader } from '@/components/DateTimePickerCommon/CustomHeader'
 import { CustomPopper } from '@/components/DateTimePickerCommon/CustomPopper'
 import styles from '@/components/DateTimePickerCommon/date-time-picker.module.scss'
@@ -143,7 +142,12 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
         showMonthYearPicker={showMonthYearPicker}
         useWeekdaysShort={useWeekdaysShort}
         {...rest}
-        wrapperClassName={cx(rest.wrapperClassName, 'date-picker-wrapper', 'field-input')}
+        wrapperClassName={cx(
+          'picker-input-root',
+          'date-picker-wrapper',
+          'field-input',
+          rest.wrapperClassName
+        )}
       />
     )
   }
