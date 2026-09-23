@@ -3,9 +3,10 @@ import { screen } from '@testing-library/react'
 import { render } from '@tests'
 
 import { Tabs, useTab } from '../index'
+import type { UseTabProps } from '../index'
 
-const TabsList = () => {
-  const tab = useTab({ defaultSelectedId: 'tab1' })
+const TabsList = ({ options }: { options?: UseTabProps }) => {
+  const tab = useTab({ defaultSelectedId: 'tab1', ...options })
 
   return (
     <>
@@ -175,5 +176,22 @@ describe('Tabs', () => {
 
     expect(tab1.classList.toString().includes('size-lg')).toBe(true)
     expect(tab2.classList.toString().includes('size-lg')).toBe(true)
+  })
+
+  it('renders horizontally by default', () => {
+    render(<TabsList />)
+
+    expect(screen.getByRole('tablist')).toHaveAttribute('aria-orientation', 'horizontal')
+  })
+
+  it('renders vertically when store orientation is vertical', () => {
+    render(<TabsList options={{ orientation: 'vertical' }} />)
+
+    const tabList = screen.getByRole('tablist')
+    expect(tabList).toHaveAttribute('aria-orientation', 'vertical')
+    expect(tabList.classList.toString().includes('orientation-vertical')).toBe(true)
+
+    const tab1 = screen.getByTestId('tab1')
+    expect(tab1.classList.toString().includes('orientation-vertical')).toBe(true)
   })
 })

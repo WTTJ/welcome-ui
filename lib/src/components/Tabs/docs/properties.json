@@ -160,7 +160,7 @@
             "name": "TabOptions"
           },
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/core/esm/composite/composite-store.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/components/dist/composite-store-C5m2qUBo.d.ts",
             "name": "CompositeStoreState"
           }
         ],
@@ -171,7 +171,7 @@
       },
       "store": {
         "defaultValue": null,
-        "description": "Another store object that will be kept in sync with the original store.\n\nLive examples:\n- [Navigation Menubar](https://ariakit.org/examples/menubar-navigation)",
+        "description": "Another store object that will be kept in sync with the original store.\n\nLive examples:\n- [Navigation Menubar](https://ariakit.com/examples/menubar-navigation)",
         "name": "store",
         "parent": {
           "fileName": "welcome-ui/lib/src/components/Tabs/types.ts",
@@ -183,7 +183,7 @@
             "name": "TabOptions"
           },
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/core/esm/utils/store.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/store/dist/index.d.ts",
             "name": "StoreProps"
           }
         ],
