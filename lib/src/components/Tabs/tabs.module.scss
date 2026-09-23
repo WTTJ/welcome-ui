@@ -1,5 +1,4 @@
 @use '../../utils/scss/striped-background' as *;
-@use '../../utils/scss/text-ellipsis.scss' as ellipsis;
 
 @layer components {
   .root {
@@ -86,11 +85,6 @@
     .icon {
       display: flex;
       flex-shrink: 0;
-    }
-
-    .label {
-      @include ellipsis.text-ellipsis;
-      min-width: 0;
     }
   }
 

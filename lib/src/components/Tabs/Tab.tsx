@@ -1,7 +1,6 @@
 import { Tab as AriakitTab, useStoreState } from '@ariakit/react'
 
 import { Badge } from '@/components/Badge'
-import { Tooltip } from '@/components/Tooltip'
 import { classNames } from '@/utils'
 import { forwardRefWithAs } from '@/utils/forwardRefWithAs'
 
@@ -43,9 +42,7 @@ export const Tab = forwardRefWithAs<TabProps, 'button'>(
       >
         <span className={cx('content')}>
           {tabIcon ? <span className={cx('icon')}>{tabIcon}</span> : null}
-          <Tooltip content={children}>
-            <span className={cx('label')}>{children}</span>
-          </Tooltip>
+          {children}
         </span>
         {badge ? (
           <Badge size={size} variant={badgeVariant}>
