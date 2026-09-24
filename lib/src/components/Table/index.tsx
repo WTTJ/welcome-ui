@@ -10,9 +10,9 @@ export { tableStyles as tableClasses }
 const cx = classNames(tableStyles)
 
 export const TableComponent = forwardRef<HTMLDivElement, TableProps>(
-  ({ children, className, withColumnDivider = false, ...rest }, ref) => {
+  ({ children, className, withColumnDivider = false, withElevation = false, ...rest }, ref) => {
     return (
-      <div className={cx('root', className)} ref={ref} {...rest}>
+      <div className={cx('root', withElevation && 'withElevation', className)} ref={ref} {...rest}>
         <div className={cx('content', withColumnDivider && 'withColumnDivider')}>
           <table>{children}</table>
         </div>

@@ -13,6 +13,10 @@ interface TableOptions {
    * Add vertical divider between columns
    */
   withColumnDivider?: boolean
+  /**
+   * Add borders and elevation to the Table
+   */
+  withElevation?: boolean
 }
 
 interface TableTrOptions {
