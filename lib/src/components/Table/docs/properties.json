@@ -30,6 +30,36 @@
             }
           ]
         }
+      },
+      "withElevation": {
+        "defaultValue": {
+          "value": false
+        },
+        "description": "Add borders and elevation to the Table",
+        "name": "withElevation",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Table/types.ts",
+          "name": "TableOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Table/types.ts",
+            "name": "TableOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
       }
     }
   }

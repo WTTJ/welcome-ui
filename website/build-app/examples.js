@@ -239,6 +239,7 @@ export default {
   "/Swiper/docs/examples/slides-per-view.tsx": dynamic(() => import("../../lib/src/components/Swiper/docs/examples/slides-per-view.tsx").then(mod => mod), { ssr: false }),
   "/Table/docs/examples/clickable.tsx": dynamic(() => import("../../lib/src/components/Table/docs/examples/clickable.tsx").then(mod => mod), { ssr: false }),
   "/Table/docs/examples/divider.tsx": dynamic(() => import("../../lib/src/components/Table/docs/examples/divider.tsx").then(mod => mod), { ssr: false }),
+  "/Table/docs/examples/elevation.tsx": dynamic(() => import("../../lib/src/components/Table/docs/examples/elevation.tsx").then(mod => mod), { ssr: false }),
   "/Table/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Table/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
   "/Table/docs/examples/selected.tsx": dynamic(() => import("../../lib/src/components/Table/docs/examples/selected.tsx").then(mod => mod), { ssr: false }),
   "/Table/docs/examples/sort.tsx": dynamic(() => import("../../lib/src/components/Table/docs/examples/sort.tsx").then(mod => mod), { ssr: false }),
