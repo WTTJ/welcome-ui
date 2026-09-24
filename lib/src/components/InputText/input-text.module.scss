@@ -19,13 +19,10 @@
     appearance: none;
 
     /* VARIABLES THAT CHANGE WITH REACT PROPS */
-    background-color: var(
-      --inputTextBackgroundColor,
-      var(--input-color-background-default)
-    );
+    background-color: var(--inputTextBackgroundColor, var(--input-color-background-default));
     color: var(--inputTextColor, var(--input-color-text-default));
     border-color: var(--inputTextBorderColor, var(--input-color-border-default));
-    box-shadow: var(--inputTextBoxShadow, var(--inset-10)) inset;
+    box-shadow: var(--inputTextBoxShadow, inset var(--inset-10));
     height: var(--inputTextHeight);
     padding-inline: var(--inputTextPaddingInline);
     padding-block: var(--inputTextPaddingBlock);
@@ -42,12 +39,13 @@
 
     &:hover:not(:disabled):not([aria-disabled]) {
       --borderColor: var(--borderColorHover, var(--color-border-neutral-subtlest));
-      --inputTextBoxShadow: var(--inset-20);
+      --inputTextBoxShadow: var(--inputTextBoxShadowHover, inset var(--inset-20));
     }
 
-    &:active,
-    &:focus {
+    &:active:not(:disabled):not([aria-disabled]),
+    &:focus:not(:disabled):not([aria-disabled]) {
       --inputTextBorderColor: var(--input-color-border-focused);
+      --inputTextBoxShadow: none;
     }
 
     &::placeholder {
@@ -58,14 +56,20 @@
   .variant {
     &-danger {
       --inputTextBorderColor: var(--input-color-border-error);
+      --inputTextBoxShadow: none;
+      --inputTextBoxShadowHover: none;
     }
 
     &-warning {
       --inputTextBorderColor: var(--input-color-border-warning);
+      --inputTextBoxShadow: none;
+      --inputTextBoxShadowHover: none;
     }
 
     &-success {
       --inputTextBorderColor: var(--input-color-border-success);
+      --inputTextBoxShadow: none;
+      --inputTextBoxShadowHover: none;
     }
   }
 
@@ -93,9 +97,28 @@
   }
 
   .transparent {
-    --borderColor: transparent;
     --inputTextBackgroundColor: var(--input-color-background-transparent);
-    --borderColorHover: var(--input-color-border-hover-transparent);
+
+    &:not(:disabled):not([aria-disabled]) {
+      --inputTextBoxShadow: none;
+      --inputTextBoxShadowHover: none;
+    }
+
+    &:not(
+        :focus,
+        :active,
+        :disabled,
+        [aria-disabled],
+        .variant-danger,
+        .variant-warning,
+        .variant-success
+      ) {
+      --inputTextBorderColor: transparent;
+
+      &:hover {
+        --inputTextBorderColor: var(--input-color-border-hover-transparent);
+      }
+    }
   }
 
   .size {
