@@ -29,6 +29,43 @@
           ]
         }
       },
+      "badgeVariant": {
+        "defaultValue": null,
+        "description": "",
+        "name": "badgeVariant",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Tabs/types.ts",
+          "name": "TabOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Tabs/types.ts",
+            "name": "TabOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "\"blue\" | \"brand\" | \"neutral\" | \"red\" | \"warm\"",
+          "value": [
+            {
+              "value": "\"blue\""
+            },
+            {
+              "value": "\"brand\""
+            },
+            {
+              "value": "\"neutral\""
+            },
+            {
+              "value": "\"red\""
+            },
+            {
+              "value": "\"warm\""
+            }
+          ]
+        }
+      },
       "className": {
         "defaultValue": null,
         "description": "",
@@ -148,10 +185,13 @@
         "required": false,
         "type": {
           "name": "enum",
-          "raw": "\"blue\" | \"green\" | \"orange\" | \"pink\" | \"teal\" | \"violet\" | \"warm\"",
+          "raw": "\"blue\" | \"warm\" | \"green\" | \"orange\" | \"pink\" | \"teal\" | \"violet\"",
           "value": [
             {
               "value": "\"blue\""
+            },
+            {
+              "value": "\"warm\""
             },
             {
               "value": "\"green\""
@@ -167,9 +207,6 @@
             },
             {
               "value": "\"violet\""
-            },
-            {
-              "value": "\"warm\""
             }
           ]
         }

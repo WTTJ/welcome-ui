@@ -16,6 +16,7 @@ export const Tab = forwardRefWithAs<TabProps, 'button'>(
     {
       as: Component,
       badge,
+      badgeVariant: badgeVariantProp,
       children,
       className,
       dashed,
@@ -40,7 +41,9 @@ export const Tab = forwardRefWithAs<TabProps, 'button'>(
       size,
     })
 
-    const badgeVariant = isActive ? 'neutral' : 'warm'
+    // always neutral when tab is active
+    // use variant prop otherwise
+    const badgeVariant = isActive ? 'neutral' : badgeVariantProp || 'warm'
 
     return (
       <AriakitTab
