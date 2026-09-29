@@ -48,6 +48,34 @@
           "name": "string"
         }
       },
+      "dashed": {
+        "defaultValue": null,
+        "description": "",
+        "name": "dashed",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Tabs/types.ts",
+          "name": "TabOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Tabs/types.ts",
+            "name": "TabOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "boolean",
+          "value": [
+            {
+              "value": "false"
+            },
+            {
+              "value": "true"
+            }
+          ]
+        }
+      },
       "icon": {
         "defaultValue": null,
         "description": "",

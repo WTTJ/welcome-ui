@@ -17,6 +17,7 @@ export interface TabOptions {
   badge?: number | string
   children: React.ReactNode
   className?: string
+  dashed?: boolean
   icon?: IconName | React.ReactNode
   iconColor?: 'blue' | 'green' | 'orange' | 'pink' | 'teal' | 'violet' | 'warm'
   id?: string

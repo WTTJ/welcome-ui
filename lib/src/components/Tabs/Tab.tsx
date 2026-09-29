@@ -13,7 +13,18 @@ const cx = classNames(styles)
 
 export const Tab = forwardRefWithAs<TabProps, 'button'>(
   (
-    { as: Component, badge, children, className, icon, iconColor = 'violet', id, store, ...rest },
+    {
+      as: Component,
+      badge,
+      children,
+      className,
+      dashed,
+      icon,
+      iconColor = 'violet',
+      id,
+      store,
+      ...rest
+    },
     ref
   ) => {
     const size = useTabSize()
@@ -37,6 +48,7 @@ export const Tab = forwardRefWithAs<TabProps, 'button'>(
           'root',
           `size-${size}`,
           orientation === 'vertical' && 'orientation-vertical',
+          dashed && 'dashed',
           className
         )}
         id={id}

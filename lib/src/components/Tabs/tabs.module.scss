@@ -4,7 +4,7 @@
   .root {
     display: flex;
     align-items: center;
-    transition-property: background-color, border-color, color, box-shadow;
+    transition-property: background-color, border-color, color, box-shadow, outline;
     transition-timing-function: ease-in-out;
     cursor: pointer;
 
@@ -21,34 +21,28 @@
     font-size: var(--tabFontSize);
 
     background-color: var(--tabItemBackgroundColor, var(--tab-color-background-unchecked-default));
-    color: var(--tabItemColor, var(--tab-color-text-unchecked-default));
+    color: var(--tabItemTextColor, var(--tab-color-text-unchecked-default));
     box-shadow:
       inset 0 0 0 var(--tabItemBorderSize, var(--tab-border-width-unchecked))
         var(--tabItemBorderColor, var(--tab-color-border-unchecked-default)),
       var(--tabItemBoxShadow, var(--elevation-10));
 
-    &:focus {
-      outline: none !important; /* important for firefox */
+    &:focus:not(.dashed, &[aria-selected='true']) {
+      outline: none !important; /* important for firefox: it applies default focus outline on focused elements */
 
-      --tabItemColor: var(--tab-color-text-unchecked-pressed);
+      --tabItemTextColor: var(--tab-color-text-unchecked-pressed);
       --tabItemBackgroundColor: var(--tab-color-background-unchecked-pressed);
       --tabItemBorderColor: var(--tab-color-border-unchecked-pressed);
-
-      &[aria-selected='true'] {
-        --tabItemColor: var(--tab-color-text-checked-default);
-        --tabItemBackgroundColor: var(--tab-color-background-checked-default);
-        --tabItemBorderColor: var(--tab-color-border-checked-default);
-      }
     }
 
     &[aria-selected='true'] {
-      --tabItemColor: var(--tab-color-text-checked-default);
+      --tabItemTextColor: var(--tab-color-text-checked-default);
       --tabItemBackgroundColor: var(--tab-color-background-checked-default);
       --tabItemBorderColor: var(--tab-color-border-checked-default);
       --tabItemBorderSize: var(--tab-border-width-checked);
 
       &:hover {
-        --tabItemColor: var(--tab-color-text-checked-hover);
+        --tabItemTextColor: var(--tab-color-text-checked-hover);
         --tabItemBackgroundColor: var(--tab-color-background-checked-hover);
         --tabItemBorderColor: var(--tab-color-border-checked-hover);
         --tabItemBorderSize: var(--tab-border-width-checked);
@@ -56,15 +50,50 @@
       }
     }
 
+    &.dashed {
+      --tabItemBackgroundColor: transparent;
+      --tabItemBorderColor: transparent; /* disabled box-shadow solid border */
+      --tabItemDashedBorderSize: 1px;
+      outline-style: dashed;
+      outline-color: var(--tab-color-border-dashed-default);
+      outline-width: var(--tabItemDashedBorderSize);
+      outline-offset: calc(var(--tabItemDashedBorderSize) * -1);
+      --tabItemTextColor: var(--tab-color-text-dashed-default);
+
+      &:active:not([aria-disabled='true']) {
+        outline-color: var(--tab-color-border-dashed-pressed);
+      }
+
+      &[aria-selected='true'] {
+        outline-color: var(--tab-color-border-checked-default);
+        --tabItemDashedBorderSize: var(--tab-border-width-checked);
+        --tabItemTextColor: var(--tab-color-text-checked-default);
+        --tabItemBackgroundColor: var(--tab-color-background-checked-default);
+
+        &:hover {
+          outline-color: var(--tab-color-border-checked-hover);
+          --tabItemBorderColor: transparent; /* disabled box-shadow solid border */
+          --tabItemDashedBorderSize: var(--tab-border-width-checked);
+          --tabItemBackgroundColor: var(--tab-color-background-checked-hover);
+        }
+      }
+
+      &:hover {
+        outline-color: var(--tab-color-border-dashed-hover);
+        --tabItemBackgroundColor: var(--tab-color-background-unchecked-hover);
+        --tabItemBoxShadow: var(--elevation-20);
+      }
+    }
+
     /* TODO(isaac): use tab tokens when available */
     &[aria-disabled='true'] {
       cursor: not-allowed;
-      --tabItemColor: var(--button-color-text-secondary-main-disabled);
+      --tabItemTextColor: var(--button-color-text-secondary-main-disabled);
       background: #{striped-background(var(--button-color-background-secondary-main-disabled))};
     }
 
-    &:hover:not([aria-selected='true']):not([aria-disabled='true']) {
-      --tabItemColor: var(--tab-color-text-unchecked-hover);
+    &:hover:not([aria-selected='true'], [aria-disabled='true'], .dashed) {
+      --tabItemTextColor: var(--tab-color-text-unchecked-hover);
       --tabItemBackgroundColor: var(--tab-color-background-unchecked-hover);
       --tabItemBorderColor: var(--tab-color-border-unchecked-hover);
       --tabItemBoxShadow: var(--elevation-20);
