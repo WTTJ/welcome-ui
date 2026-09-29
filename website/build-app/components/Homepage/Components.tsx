@@ -50,15 +50,7 @@ const components: ComponentProps[] = [
     title: 'Alert',
   },
   {
-    children: (
-      <Pagination
-        aria-label="Pagination"
-        getHref={page => `?page=${page}`}
-        onChange={() => {}}
-        page={1}
-        pageCount={3}
-      />
-    ),
+    children: <Pagination aria-label="Pagination" onChange={() => {}} page={1} pageCount={3} />,
     link: 'components/pagination',
     title: 'Pagination',
   },
