@@ -51,14 +51,21 @@
     }
 
     &.dashed {
-      --tabItemBackgroundColor: transparent;
-      --tabItemBorderColor: transparent; /* disabled box-shadow solid border */
-      --tabItemDashedBorderSize: 1px;
+      --tabItemBackgroundColor: var(--color-background-transparent-white-none);
+      --tabItemBorderColor: var(
+        --color-background-transparent-white-none
+      ); /* disabled box-shadow solid border */
+      --tabItemDashedBorderSize: var(--tab-border-width-unchecked);
       outline-style: dashed;
       outline-color: var(--tab-color-border-dashed-default);
       outline-width: var(--tabItemDashedBorderSize);
       outline-offset: calc(var(--tabItemDashedBorderSize) * -1);
       --tabItemTextColor: var(--tab-color-text-dashed-default);
+
+      &:focus-visible:not([aria-disabled='true']) {
+        outline-color: var(--tab-color-border-dashed-pressed);
+        --tabItemDashedBorderSize: var(--tab-border-width-checked);
+      }
 
       &:active:not([aria-disabled='true']) {
         outline-color: var(--tab-color-border-dashed-pressed);
@@ -72,7 +79,9 @@
 
         &:hover {
           outline-color: var(--tab-color-border-checked-hover);
-          --tabItemBorderColor: transparent; /* disabled box-shadow solid border */
+          --tabItemBorderColor: var(
+            --color-background-transparent-white-none
+          ); /* disabled box-shadow solid border */
           --tabItemDashedBorderSize: var(--tab-border-width-checked);
           --tabItemBackgroundColor: var(--tab-color-background-checked-hover);
         }
