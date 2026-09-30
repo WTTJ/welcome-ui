@@ -16,7 +16,7 @@ const Example = () => {
           <Tabs.Tab id="tab3" store={tab}>
             Tab 3
           </Tabs.Tab>
-          <Tabs.Tab id="tab4" store={tab}>
+          <Tabs.Tab dashed id="tab4" store={tab}>
             Tab 4
           </Tabs.Tab>
           <Tabs.Tab disabled id="tab5" store={tab}>
