@@ -20,6 +20,7 @@
   .size {
     &-md {
       --padding: var(--alert-padding-inline-md);
+      --iconOffset: 2px;
 
       .content-actions {
         --gap: var(--alert-gap-actions-md);
@@ -29,8 +30,14 @@
         .icon-wrapper {
           // Hack because of our font-size line-height calculation
           // to vertically align the icon with the text when there's no title only on md size
-          margin-top: -2px;
+          margin-top: calc(-1 * var(--iconOffset));
         }
+      }
+
+      // Grow the overflow-hidden content box by the same offset so the shifted icon is not clipped
+      .content:has(> .without-title) {
+        margin-top: calc(-1 * var(--iconOffset));
+        padding-top: var(--iconOffset);
       }
     }
 
