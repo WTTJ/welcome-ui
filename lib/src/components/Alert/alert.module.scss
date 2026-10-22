@@ -32,6 +32,12 @@
           margin-top: -2px;
         }
       }
+
+      // Grow the overflow-hidden content box by the same 2px so the shifted icon is not clipped
+      .content:has(> .without-title) {
+        margin-top: -2px;
+        padding-top: 2px;
+      }
     }
 
     &-lg {
