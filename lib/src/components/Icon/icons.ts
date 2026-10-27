@@ -129,6 +129,7 @@ export const miscellaneous = [
   'chart-line',
   'map-marker-alt',
   'map-pin',
+  'lock',
   'lock-alt',
   'unlock',
   'flag', // (not unicons)
