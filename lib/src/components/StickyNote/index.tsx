@@ -13,7 +13,10 @@ export { styles as stickyNoteClasses }
 const cx = classNames(styles)
 
 const StickyNoteComponent = forwardRef<HTMLDivElement, StickyNoteProps>(
-  ({ children, className, handleClose, isFullWidth, shape = 'square', variant = 'brand' }, ref) => {
+  (
+    { children, className, handleClose, isFullWidth, shape = 'square', variant = 'brand', ...rest },
+    ref
+  ) => {
     const hasCloseButton = Boolean(handleClose)
 
     return (
@@ -26,6 +29,7 @@ const StickyNoteComponent = forwardRef<HTMLDivElement, StickyNoteProps>(
           className
         )}
         ref={ref}
+        {...rest}
       >
         {hasCloseButton ? (
           <CloseButton className={cx('close-button')} onClick={handleClose} size="sm" />
