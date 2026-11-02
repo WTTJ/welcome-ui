@@ -24,6 +24,17 @@ describe('StickyNote', () => {
     expect(container.firstChild).toHaveClass(/shape-rectangle/)
   })
 
+  it('should render with spread attributes', () => {
+    const testId = 'sticky-note'
+    render(
+      <StickyNote data-testid={testId} shape="rectangle" variant="pink">
+        Sample content
+      </StickyNote>
+    )
+
+    expect(screen.getByTestId(testId)).toBeVisible()
+  })
+
   it('should render close button when handleClose is provided', () => {
     const handleClose = vi.fn()
 
