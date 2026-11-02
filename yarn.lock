@@ -8428,7 +8428,7 @@ __metadata:
     eslint-plugin-react-hooks: "npm:5.2.0"
     esm: "npm:3.2.25"
     generic-names: "npm:4.0.0"
-    glob: "npm:13.0.6"
+    glob: "npm:14.0.2"
     globals: "npm:17.4.0"
     husky: "npm:8.0.3"
     lodash.difference: "npm:4.5.0"
