@@ -166,6 +166,7 @@ export const miscellaneous = [
   'certified', // (not unicons, personal mashup)
   'plug',
   'hourglass',
+  'spinner-alt',
   'focus-target',
 ] as const
 
