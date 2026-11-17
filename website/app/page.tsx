@@ -29,7 +29,7 @@ const Home = () => {
             data-attr="ntm"
             href="/foundations/getting-started"
           >
-            <span>Let’s started!</span>
+            <span>Let’s Get Started!</span>
           </Button>
         </div>
         <Stats />
