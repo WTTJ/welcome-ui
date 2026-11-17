@@ -16,6 +16,7 @@
     visibility: var(--visibility, hidden);
     opacity: var(--opacity, 0);
     box-shadow: var(--elevation-20);
+    overflow-wrap: break-word;
 
     &[data-enter='true'] {
       --visibility: visible;
