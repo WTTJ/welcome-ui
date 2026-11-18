@@ -225,7 +225,7 @@
             "name": "TabOptions"
           },
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/components/dist/composite-store-C5m2qUBo.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/core/esm/composite/composite-store.d.ts",
             "name": "CompositeStoreState"
           }
         ],
@@ -236,7 +236,7 @@
       },
       "store": {
         "defaultValue": null,
-        "description": "Another store object that will be kept in sync with the original store.\n\nLive examples:\n- [Navigation Menubar](https://ariakit.com/examples/menubar-navigation)",
+        "description": "Another store object that will be kept in sync with the original store.\n\nLive examples:\n- [Navigation Menubar](https://ariakit.org/examples/menubar-navigation)",
         "name": "store",
         "parent": {
           "fileName": "welcome-ui/lib/src/components/Tabs/types.ts",
@@ -248,13 +248,85 @@
             "name": "TabOptions"
           },
           {
-            "fileName": "welcome-ui/node_modules/@ariakit/store/dist/index.d.ts",
+            "fileName": "welcome-ui/node_modules/@ariakit/core/esm/utils/store.d.ts",
             "name": "StoreProps"
           }
         ],
         "required": false,
         "type": {
           "name": "TabStore & Store<Partial<TabStoreState>>"
+        }
+      }
+    }
+  },
+  "Tabs": {
+    "props": {
+      "className": {
+        "defaultValue": null,
+        "description": "",
+        "name": "className",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Tabs/types.ts",
+          "name": "TabListOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Tabs/types.ts",
+            "name": "TabListOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "string"
+        }
+      },
+      "size": {
+        "defaultValue": {
+          "value": "lg"
+        },
+        "description": "",
+        "name": "size",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Tabs/types.ts",
+          "name": "TabListOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Tabs/types.ts",
+            "name": "TabListOptions"
+          }
+        ],
+        "required": false,
+        "type": {
+          "name": "enum",
+          "raw": "Size",
+          "value": [
+            {
+              "value": "\"lg\""
+            },
+            {
+              "value": "\"md\""
+            }
+          ]
+        }
+      },
+      "store": {
+        "defaultValue": null,
+        "description": "",
+        "name": "store",
+        "parent": {
+          "fileName": "welcome-ui/lib/src/components/Tabs/types.ts",
+          "name": "TabListOptions"
+        },
+        "declarations": [
+          {
+            "fileName": "welcome-ui/lib/src/components/Tabs/types.ts",
+            "name": "TabListOptions"
+          }
+        ],
+        "required": true,
+        "type": {
+          "name": "TabStore"
         }
       }
     }

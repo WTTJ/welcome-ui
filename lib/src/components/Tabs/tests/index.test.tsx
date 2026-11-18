@@ -116,6 +116,26 @@ describe('Tabs', () => {
     expect(tab2.classList.toString().includes('size-md')).toBe(true)
   })
 
+  it('renders the tablist as the element passed to render', () => {
+    const TabsAsList = () => {
+      const tab = useTab({ defaultSelectedId: 'tab1' })
+
+      return (
+        <Tabs aria-label="Tabs" render={<ul />} store={tab}>
+          <li>
+            <Tabs.Tab id="tab1" store={tab}>
+              Tab 1
+            </Tabs.Tab>
+          </li>
+        </Tabs>
+      )
+    }
+
+    render(<TabsAsList />)
+
+    expect(screen.getByRole('tablist')).toBeInstanceOf(HTMLUListElement)
+  })
+
   it('forwards size prop to Tab deeply nested in li > div wrapper', () => {
     const TabsWithDeepWrapper = () => {
       const tab = useTab({ defaultSelectedId: 'tab1' })
