@@ -63,6 +63,8 @@ const config: UserConfigWithTest = {
   },
   test: {
     css: true,
+    // cleanup runs in tests/a11y.ts, after the axe check
+    env: { RTL_SKIP_AUTO_CLEANUP: 'true' },
     environment: 'jsdom',
     globals: true,
     retry: 3,
