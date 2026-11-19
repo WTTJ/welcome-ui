@@ -9,7 +9,7 @@ import styles from './welcome-loader.module.scss'
 const cx = classNames(styles)
 
 export const WelcomeLoader = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => {
+  ({ 'aria-label': ariaLabel = 'Loading', className, ...props }, ref) => {
     const options = {
       animationData: loader,
       loop: true,
@@ -18,8 +18,14 @@ export const WelcomeLoader = forwardRef<HTMLDivElement, React.HTMLAttributes<HTM
     const { View } = useLottie(options)
 
     return (
-      <div className={cx('root', className)} ref={ref} {...props}>
-        {View}
+      <div
+        aria-label={ariaLabel}
+        className={cx('root', className)}
+        ref={ref}
+        role="status"
+        {...props}
+      >
+        <div aria-hidden="true">{View}</div>
       </div>
     )
   }

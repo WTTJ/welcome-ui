@@ -37,4 +37,24 @@ describe('<Loader>', () => {
     expect(dot.className).toMatch('size-16')
     expect(dot).toHaveStyle({ '--size': '16px' })
   })
+
+  it('should be announced as a loading status', () => {
+    render(<Loader />)
+
+    expect(screen.getByRole('status', { name: 'Loading' })).toBeInTheDocument()
+  })
+
+  it('should accept a custom label', () => {
+    render(<Loader aria-label="Chargement" />)
+
+    expect(screen.getByRole('status', { name: 'Chargement' })).toBeInTheDocument()
+  })
+
+  it('should hide the dots from assistive technologies', () => {
+    render(<Loader data-testid="loader" />)
+
+    for (const dot of Array.from(screen.getByTestId('loader').children)) {
+      expect(dot).toHaveAttribute('aria-hidden', 'true')
+    }
+  })
 })
