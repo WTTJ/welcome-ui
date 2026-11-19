@@ -133,13 +133,9 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
             pages.map((iPage: number | string, i: number) =>
               iPage === '-' ? (
                 <li key={`${i}-`}>
-                  <button
-                    aria-label="Collapsed Pages"
-                    className={cx('item', `size-${size}`)}
-                    type="button"
-                  >
+                  <span aria-hidden="true" className={cx('item', 'ellipsis', `size-${size}`)}>
                     ...
-                  </button>
+                  </span>
                 </li>
               ) : (
                 <li key={iPage}>
