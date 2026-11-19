@@ -42,6 +42,16 @@ describe('<Pagination>', () => {
     expect(onChange).toHaveBeenCalledWith(3)
   })
 
+  it('should render collapsed pages as non-interactive text', () => {
+    render(<Pagination aria-label="pagination" onChange={vi.fn()} page={1} pageCount={10} />)
+
+    const ellipsis = screen.getByText('...')
+
+    expect(ellipsis.tagName).toBe('SPAN')
+    expect(ellipsis).toHaveAttribute('aria-hidden', 'true')
+    expect(screen.queryByRole('button', { name: /collapsed/i })).not.toBeInTheDocument()
+  })
+
   it('should render correctly with prev Button', async () => {
     const onChange = vi.fn()
     const getHref = vi.fn()
