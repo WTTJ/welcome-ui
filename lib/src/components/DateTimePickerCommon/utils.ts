@@ -1,5 +1,4 @@
 import type { Locale, Month } from 'date-fns'
-import range from 'lodash.range'
 
 import type { SelectOption, SelectOptions } from '@/components/Select/types'
 
@@ -52,7 +51,7 @@ export const getMonths = (locale: Locale): SelectOptions['options'] => {
 }
 
 export const getYears = (startYear: number, endYear: number): SelectOption[] =>
-  range(startYear, endYear + 1)
+  Array.from({ length: endYear - startYear + 1 }, (_, i) => startYear + i)
     .map(year => ({
       label: year.toString(),
       value: year,
