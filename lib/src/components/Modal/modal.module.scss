@@ -1,4 +1,5 @@
 /* stylelint-disable no-descending-specificity */
+@use '../../utils/scss/reduced-motion' as *;
 @use '../../utils/scss/breakpoints.scss' as breakpoints;
 
 @layer components {
@@ -29,6 +30,10 @@
       margin-top 250ms ease-in-out,
       height var(--duration-fast) linear,
       width var(--duration-fast) linear;
+
+    @include reduced-motion {
+      transition: opacity 250ms ease-in-out;
+    }
 
     --dialogWidth: 100%;
 

@@ -1,3 +1,5 @@
+@use '../../utils/scss/reduced-motion' as *;
+
 @function striped-background($background-color) {
   @return repeating-linear-gradient(
       -45deg,
@@ -25,6 +27,10 @@
     transition:
       all var(--duration-medium) ease-in-out,
       opacity var(--duration-fast) ease-in-out;
+
+    @include reduced-motion {
+      transition: opacity var(--duration-fast) ease-in-out;
+    }
     box-sizing: border-box;
     outline: none !important; /* important for firefox */
 
