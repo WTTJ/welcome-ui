@@ -1999,13 +1999,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@juggle/resize-observer@npm:^3.4.0":
-  version: 3.4.0
-  resolution: "@juggle/resize-observer@npm:3.4.0"
-  checksum: 10c0/12930242357298c6f2ad5d4ec7cf631dfb344ca7c8c830ab7f64e6ac11eb1aae486901d8d880fd08fb1b257800c160a0da3aee1e7ed9adac0ccbb9b7c5d93347
-  languageName: node
-  linkType: hard
-
 "@keyv/bigmap@npm:^1.0.2":
   version: 1.0.2
   resolution: "@keyv/bigmap@npm:1.0.2"
@@ -3495,15 +3488,6 @@ __metadata:
   dependencies:
     "@types/lodash": "npm:*"
   checksum: 10c0/2e2ccacdceb2e23343a514e8c24540fc4e1f1ffd616b645eb72ec685da9389d99a2544f04d61921e46a6768f8cc0fe5f58d4f7edaba9bc50552f0ca7df905e83
-  languageName: node
-  linkType: hard
-
-"@types/lodash.range@npm:^3.2.9":
-  version: 3.2.9
-  resolution: "@types/lodash.range@npm:3.2.9"
-  dependencies:
-    "@types/lodash": "npm:*"
-  checksum: 10c0/d21ed4c18f958aa447520eaf6e5113415bec2c2a7e016a54aa39228f45179ee3523732f4959ea31cffcf8dcf9d28d17c7188e38a835dfad54d5fe3d457d5bcf9
   languageName: node
   linkType: hard
 
@@ -8469,13 +8453,6 @@ __metadata:
   version: 4.6.2
   resolution: "lodash.mergewith@npm:4.6.2"
   checksum: 10c0/4adbed65ff96fd65b0b3861f6899f98304f90fd71e7f1eb36c1270e05d500ee7f5ec44c02ef979b5ddbf75c0a0b9b99c35f0ad58f4011934c4d4e99e5200b3b5
-  languageName: node
-  linkType: hard
-
-"lodash.range@npm:^3.2.0":
-  version: 3.2.0
-  resolution: "lodash.range@npm:3.2.0"
-  checksum: 10c0/b1db80e6bcd92dd89e1ea42bf9f7ac4f1f04d53bc2e1da9589414f3ce50bb4a8558dbd2848ff800e6b455662ec707eab6aeba3cfebe3443e1712778d16829bae
   languageName: node
   linkType: hard
 
@@ -13574,7 +13551,6 @@ __metadata:
   dependencies:
     "@ariakit/react": "npm:0.4.38"
     "@emotion/is-prop-valid": "npm:^1.4.0"
-    "@juggle/resize-observer": "npm:^3.4.0"
     "@testing-library/dom": "npm:^10.4.1"
     "@testing-library/jest-dom": "npm:^6.9.1"
     "@testing-library/react": "npm:^16.3.0"
@@ -13582,7 +13558,6 @@ __metadata:
     "@types/lodash.capitalize": "npm:^4.2.9"
     "@types/lodash.debounce": "npm:^4.0.6"
     "@types/lodash.merge": "npm:^4.6.9"
-    "@types/lodash.range": "npm:^3.2.9"
     "@types/ramda": "npm:^0.31.1"
     "@types/react-datepicker": "npm:^7.0.0"
     copy-to-clipboard: "npm:^3.3.3"
@@ -13592,7 +13567,6 @@ __metadata:
     lodash.capitalize: "npm:^4.2.1"
     lodash.debounce: "npm:^4.0.8"
     lodash.merge: "npm:^4.6.2"
-    lodash.range: "npm:^3.2.0"
     lottie-light-react: "npm:^2.4.0"
     match-sorter: "npm:^8.2.0"
     ramda: "npm:^0.32.0"
