@@ -1,4 +1,6 @@
 import '@testing-library/jest-dom/vitest'
+
+import './a11y'
 import { vi } from 'vitest'
 
 // Mock ResizeObserver globally

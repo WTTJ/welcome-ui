@@ -4455,6 +4455,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"axe-core@npm:4.10.3":
+  version: 4.10.3
+  resolution: "axe-core@npm:4.10.3"
+  checksum: 10c0/1b1c24f435b2ffe89d76eca0001cbfff42dbf012ad9bd37398b70b11f0d614281a38a28bc3069e8972e3c90ec929a8937994bd24b0ebcbaab87b8d1e241ab0c7
+  languageName: node
+  linkType: hard
+
 "bail@npm:^2.0.0":
   version: 2.0.2
   resolution: "bail@npm:2.0.2"
@@ -13585,6 +13592,7 @@ __metadata:
     "@types/lodash.range": "npm:^3.2.9"
     "@types/ramda": "npm:^0.31.1"
     "@types/react-datepicker": "npm:^7.0.0"
+    axe-core: "npm:4.10.3"
     copy-to-clipboard: "npm:^3.3.3"
     date-fns: "npm:^4.1.0"
     downshift: "npm:^7.4.1"
