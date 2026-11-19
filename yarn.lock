@@ -870,22 +870,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/is-prop-valid@npm:^1.4.0":
-  version: 1.4.0
-  resolution: "@emotion/is-prop-valid@npm:1.4.0"
-  dependencies:
-    "@emotion/memoize": "npm:^0.9.0"
-  checksum: 10c0/5f857814ec7d8c7e727727346dfb001af6b1fb31d621a3ce9c3edf944a484d8b0d619546c30899ae3ade2f317c76390ba4394449728e9bf628312defc2c41ac3
-  languageName: node
-  linkType: hard
-
-"@emotion/memoize@npm:^0.9.0":
-  version: 0.9.0
-  resolution: "@emotion/memoize@npm:0.9.0"
-  checksum: 10c0/13f474a9201c7f88b543e6ea42f55c04fb2fdc05e6c5a3108aced2f7e7aa7eda7794c56bba02985a46d8aaa914fcdde238727a98341a96e2aec750d372dadd15
-  languageName: node
-  linkType: hard
-
 "@esbuild/aix-ppc64@npm:0.25.12":
   version: 0.25.12
   resolution: "@esbuild/aix-ppc64@npm:0.25.12"
@@ -3489,15 +3473,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash.merge@npm:^4.6.9":
-  version: 4.6.9
-  resolution: "@types/lodash.merge@npm:4.6.9"
-  dependencies:
-    "@types/lodash": "npm:*"
-  checksum: 10c0/2e2ccacdceb2e23343a514e8c24540fc4e1f1ffd616b645eb72ec685da9389d99a2544f04d61921e46a6768f8cc0fe5f58d4f7edaba9bc50552f0ca7df905e83
-  languageName: node
-  linkType: hard
-
 "@types/lodash.range@npm:^3.2.9":
   version: 3.2.9
   resolution: "@types/lodash.range@npm:3.2.9"
@@ -3591,15 +3566,6 @@ __metadata:
   version: 15.7.5
   resolution: "@types/prop-types@npm:15.7.5"
   checksum: 10c0/648aae41423821c61c83823ae36116c8d0f68258f8b609bdbc257752dcd616438d6343d554262aa9a7edaee5a19aca2e028a74fa2d0f40fffaf2816bc7056857
-  languageName: node
-  linkType: hard
-
-"@types/ramda@npm:^0.31.1":
-  version: 0.31.1
-  resolution: "@types/ramda@npm:0.31.1"
-  dependencies:
-    types-ramda: "npm:^0.31.0"
-  checksum: 10c0/60c11e66730e2d1c96d480a9e4474be0ae82a84700a34937032c1e46147b8625e1a977361c37ca65e8b29d4368dc942354c7942aebda91b0fd416beac87646d6
   languageName: node
   linkType: hard
 
@@ -10581,13 +10547,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ramda@npm:^0.32.0":
-  version: 0.32.0
-  resolution: "ramda@npm:0.32.0"
-  checksum: 10c0/6ad24338813cbf91932f7f160e33af9159a540580a43386b974365a8c98b8aa63e2a9d98affa9b2ac4b6628ff34705ddf9ced8f2987c04e3562f58f202c41cf9
-  languageName: node
-  linkType: hard
-
 "rc@npm:1.2.8":
   version: 1.2.8
   resolution: "rc@npm:1.2.8"
@@ -10647,13 +10606,6 @@ __metadata:
   peerDependencies:
     react: ">= 16.8 || 18.0.0"
   checksum: 10c0/e17b1832783cda7b8824fe9370e99185d1abbdd5e4980b2985d6321c5768c8de18ff7b9ad550c809ee9743269dea608ff74d5208062754ce8377ad022897b278
-  languageName: node
-  linkType: hard
-
-"react-flatten-children@npm:^1.0.0":
-  version: 1.1.2
-  resolution: "react-flatten-children@npm:1.1.2"
-  checksum: 10c0/3c51045f244cb8e23543fdad4e737ba9c460728d91f2e12c607b50a6a38a939450a5db9287b91bae859b817f5065e7886e7b4e764b7dc7f97ba5a78b2e105b4a
   languageName: node
   linkType: hard
 
@@ -12790,13 +12742,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-toolbelt@npm:^9.6.0":
-  version: 9.6.0
-  resolution: "ts-toolbelt@npm:9.6.0"
-  checksum: 10c0/838f9a2f0fe881d5065257a23b402c41315b33ff987b73db3e2b39fcb70640c4c7220e1ef118ed5676763543724fdbf4eda7b0e2c17acb667ed1401336af9f8c
-  languageName: node
-  linkType: hard
-
 "tsconfig-paths@npm:^4.2.0":
   version: 4.2.0
   resolution: "tsconfig-paths@npm:4.2.0"
@@ -12911,15 +12856,6 @@ __metadata:
     possible-typed-array-names: "npm:^1.0.0"
     reflect.getprototypeof: "npm:^1.0.6"
   checksum: 10c0/e38f2ae3779584c138a2d8adfa8ecf749f494af3cd3cdafe4e688ce51418c7d2c5c88df1bd6be2bbea099c3f7cea58c02ca02ed438119e91f162a9de23f61295
-  languageName: node
-  linkType: hard
-
-"types-ramda@npm:^0.31.0":
-  version: 0.31.0
-  resolution: "types-ramda@npm:0.31.0"
-  dependencies:
-    ts-toolbelt: "npm:^9.6.0"
-  checksum: 10c0/fcdd4673fb9a08f82e5f72071200c662cdeb5b785556186645af0c43f9ab999de64c110c4f2a83b508aae985f014839799d2e3c552473543e8458733e6d0174a
   languageName: node
   linkType: hard
 
@@ -13573,7 +13509,6 @@ __metadata:
   resolution: "welcome-ui@workspace:lib"
   dependencies:
     "@ariakit/react": "npm:0.4.38"
-    "@emotion/is-prop-valid": "npm:^1.4.0"
     "@juggle/resize-observer": "npm:^3.4.0"
     "@testing-library/dom": "npm:^10.4.1"
     "@testing-library/jest-dom": "npm:^6.9.1"
@@ -13581,9 +13516,7 @@ __metadata:
     "@testing-library/user-event": "npm:^14.6.1"
     "@types/lodash.capitalize": "npm:^4.2.9"
     "@types/lodash.debounce": "npm:^4.0.6"
-    "@types/lodash.merge": "npm:^4.6.9"
     "@types/lodash.range": "npm:^3.2.9"
-    "@types/ramda": "npm:^0.31.1"
     "@types/react-datepicker": "npm:^7.0.0"
     copy-to-clipboard: "npm:^3.3.3"
     date-fns: "npm:^4.1.0"
@@ -13591,14 +13524,11 @@ __metadata:
     jsdom: "npm:^26.0.0"
     lodash.capitalize: "npm:^4.2.1"
     lodash.debounce: "npm:^4.0.8"
-    lodash.merge: "npm:^4.6.2"
     lodash.range: "npm:^3.2.0"
     lottie-light-react: "npm:^2.4.0"
     match-sorter: "npm:^8.2.0"
-    ramda: "npm:^0.32.0"
     react-datepicker: "npm:^8.4.0"
     react-dropzone: "npm:^14.3.8"
-    react-flatten-children: "npm:^1.0.0"
     react-hot-toast: "npm:^2.6.0"
     release-it: "npm:^18.1.2"
     rollup: "npm:^4.53.3"
