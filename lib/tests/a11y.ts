@@ -1,7 +1,7 @@
 import { cleanup } from '@testing-library/react'
 import type { Result, RunOptions } from 'axe-core'
 import axe from 'axe-core'
-import { afterEach, expect } from 'vitest'
+import { afterAll, afterEach, beforeAll, expect } from 'vitest'
 
 import { a11yBaseline } from './a11y-baseline'
 
@@ -21,6 +21,19 @@ const format = (violations: Result[]) =>
         `- ${id} (${impact}, ${nodes.length} node(s)): ${helpUrl}\n  ${nodes[0]?.html}`
     )
     .join('\n')
+
+// RTL_SKIP_AUTO_CLEANUP also skips RTL's act-environment setup, so restore it
+const actGlobal = globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }
+let previousActEnvironment: boolean | undefined
+
+beforeAll(() => {
+  previousActEnvironment = actGlobal.IS_REACT_ACT_ENVIRONMENT
+  actGlobal.IS_REACT_ACT_ENVIRONMENT = true
+})
+
+afterAll(() => {
+  actGlobal.IS_REACT_ACT_ENVIRONMENT = previousActEnvironment
+})
 
 /**
  * Runs axe on whatever each test left rendered, then cleans up.
