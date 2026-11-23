@@ -132,10 +132,8 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
           ) : (
             pages.map((iPage: number | string, i: number) =>
               iPage === '-' ? (
-                <li key={`${i}-`}>
-                  <span aria-hidden="true" className={cx('item', 'ellipsis', `size-${size}`)}>
-                    ...
-                  </span>
+                <li aria-hidden="true" key={`${i}-`}>
+                  <span className={cx('item', 'ellipsis', `size-${size}`)}>...</span>
                 </li>
               ) : (
                 <li key={iPage}>

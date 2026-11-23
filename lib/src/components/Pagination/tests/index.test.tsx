@@ -48,7 +48,9 @@ describe('<Pagination>', () => {
     const ellipsis = screen.getByText('...')
 
     expect(ellipsis.tagName).toBe('SPAN')
-    expect(ellipsis).toHaveAttribute('aria-hidden', 'true')
+    expect(ellipsis.closest('li')).toHaveAttribute('aria-hidden', 'true')
+    // prev + pages 1 to 5 + page 10 + next: the ellipsis item is not exposed
+    expect(screen.getAllByRole('listitem')).toHaveLength(8)
     expect(screen.queryByRole('button', { name: /collapsed/i })).not.toBeInTheDocument()
   })
 
