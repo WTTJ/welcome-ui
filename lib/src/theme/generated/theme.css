@@ -2158,12 +2158,13 @@
   /*
    * Forced colors drop the box-shadow, background and border-color changes
    * components use as focus indicators. !important in this earlier layer
-   * outranks the components' `outline: none !important`.
+   * outranks the components' `outline: none !important`. Highlight sets it
+   * apart from the always-on outlines (e.g. Button) that turn CanvasText.
    */
   @media (forced-colors: active) {
     :focus-visible {
-      outline: 2px solid CanvasText !important;
-      outline-offset: 2px;
+      outline: 4px solid Highlight !important;
+      outline-offset: 2px !important;
     }
   }
 }
