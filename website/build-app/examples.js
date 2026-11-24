@@ -296,6 +296,7 @@ export default {
   "/Window/docs/examples/body-text.tsx": dynamic(() => import("../../lib/src/components/Window/docs/examples/body-text.tsx").then(mod => mod), { ssr: false }),
   "/Window/docs/examples/custom-header-action.tsx": dynamic(() => import("../../lib/src/components/Window/docs/examples/custom-header-action.tsx").then(mod => mod), { ssr: false }),
   "/Window/docs/examples/header-active-button.tsx": dynamic(() => import("../../lib/src/components/Window/docs/examples/header-active-button.tsx").then(mod => mod), { ssr: false }),
+  "/Window/docs/examples/header-right-actions-only.tsx": dynamic(() => import("../../lib/src/components/Window/docs/examples/header-right-actions-only.tsx").then(mod => mod), { ssr: false }),
   "/Window/docs/examples/header.tsx": dynamic(() => import("../../lib/src/components/Window/docs/examples/header.tsx").then(mod => mod), { ssr: false }),
   "/Window/docs/examples/media.tsx": dynamic(() => import("../../lib/src/components/Window/docs/examples/media.tsx").then(mod => mod), { ssr: false }),
   "/Window/docs/examples/overview.tsx": dynamic(() => import("../../lib/src/components/Window/docs/examples/overview.tsx").then(mod => mod), { ssr: false }),
