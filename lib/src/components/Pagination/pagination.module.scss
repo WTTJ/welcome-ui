@@ -33,8 +33,8 @@
   }
 
   /* State: hover and focus (not selected, not disabled) */
-  .item:not([disabled]):not([aria-current='true']):not(.ellipsis):hover,
-  .item:not([disabled]):not([aria-current='true']):not(.ellipsis):focus-visible {
+  .item:not([disabled]):not([aria-current='true']):hover,
+  .item:not([disabled]):not([aria-current='true']):focus-visible {
     background-color: var(--pagination-color-background-unchecked-hover);
     border-color: var(--pagination-color-border-unchecked-hover);
     box-shadow: var(--elevation-20);
@@ -42,14 +42,14 @@
   }
 
   /* State: active (not selected, not disabled) */
-  .item:not([disabled]):not([aria-current='true']):not(.ellipsis):active {
+  .item:not([disabled]):not([aria-current='true']):active {
     background-color: var(--pagination-color-background-unchecked-pressed);
     border-color: var(--pagination-color-border-unchecked-pressed);
   }
 
   /* Collapsed pages: decorative, not interactive */
   .item.ellipsis {
-    cursor: default;
+    pointer-events: none;
   }
 
   /* State: disabled (arrows) */
