@@ -1,5 +1,6 @@
-import debounce from 'lodash.debounce'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+
+import { debounce } from '@/utils/debounce'
 
 import type { SwiperContextValue, SwiperProps } from './types'
 import { useInitialScroll } from './useInitialScroll'
