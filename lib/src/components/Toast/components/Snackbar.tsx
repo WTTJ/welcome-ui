@@ -40,7 +40,9 @@ export const Snackbar = forwardRef<HTMLDivElement, SnackbarProps>(
     >
       <div className={cx('snackbar')}>
         {variant ? <Icon className={cx('icon')} name={ICON[variant]} size="lg" /> : null}
-        <Text variant="body-md-strong">{children}</Text>
+        <Text as="div" variant="body-md-strong">
+          {children}
+        </Text>
         {cta ? <>{cta}</> : null}
         {hasCloseButton ? (
           <CloseButton
