@@ -39,6 +39,14 @@
       outline-color: var(--outlineColorFocus, var(--checkbox-color-border-focused));
     }
 
+    /* The focused input is visually hidden, so its outline is too: draw it on the root. */
+    @media (forced-colors: active) {
+      &[data-focus-visible] {
+        outline: 4px solid Highlight;
+        outline-offset: 2px;
+      }
+    }
+
     &[aria-checked='true'] {
       &:not([aria-disabled='true']) {
         --backgroundColor: var(--checkbox-color-background-checked-default);
