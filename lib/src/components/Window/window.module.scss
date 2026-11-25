@@ -151,6 +151,10 @@
     gap: var(--window-header-gap-content);
   }
 
+  .header-actions-right {
+    margin-inline-start: auto;
+  }
+
   .tab-panel {
     &[hidden] {
       display: none;

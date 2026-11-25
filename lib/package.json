@@ -1,6 +1,6 @@
 {
   "name": "welcome-ui",
-  "version": "10.7.6",
+  "version": "10.7.7",
   "description": "Customizable design system with react, typescript, tailwindcss and ariakit.",
   "files": [
     "dist"
@@ -60,17 +60,14 @@
   },
   "dependencies": {
     "@ariakit/react": "0.4.38",
-    "@emotion/is-prop-valid": "^1.4.0",
     "copy-to-clipboard": "^3.3.3",
     "date-fns": "^4.1.0",
     "downshift": "^7.4.1",
-    "lodash.capitalize": "^4.2.1",
     "lodash.debounce": "^4.0.8",
     "lottie-light-react": "^2.4.0",
     "match-sorter": "^8.2.0",
     "react-datepicker": "^8.4.0",
     "react-dropzone": "^14.3.8",
-    "react-flatten-children": "^1.0.0",
     "react-hot-toast": "^2.6.0"
   },
   "devDependencies": {
@@ -80,12 +77,9 @@
     "@testing-library/user-event": "^14.6.1",
     "@types/lodash.capitalize": "^4.2.9",
     "@types/lodash.debounce": "^4.0.6",
-    "@types/lodash.merge": "^4.6.9",
-    "@types/ramda": "^0.31.1",
     "@types/react-datepicker": "^7.0.0",
     "jsdom": "^26.0.0",
-    "lodash.merge": "^4.6.2",
-    "ramda": "^0.32.0",
+    "lodash.capitalize": "^4.2.1",
     "release-it": "^18.1.2",
     "rollup": "^4.53.3",
     "rollup-preserve-directives": "^1.1.3",

@@ -47,6 +47,11 @@
     border-color: var(--pagination-color-border-unchecked-pressed);
   }
 
+  /* Collapsed pages: decorative, not interactive */
+  .item.ellipsis {
+    pointer-events: none;
+  }
+
   /* State: disabled (arrows) */
   .item.disabled-arrow,
   .item[disabled] {

@@ -88,7 +88,7 @@ const RightActions = ({ children, isClosable = false, onClose }: HeaderRightActi
   }
 
   return (
-    <div className={cx('header-actions')}>
+    <div className={cx('header-actions', 'header-actions-right')}>
       {children}
       {isClosable ? <CloseButton onClick={handleCloseWindow} /> : null}
     </div>
