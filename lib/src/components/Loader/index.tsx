@@ -13,6 +13,7 @@ const isValidSize = (size: unknown): size is LoaderSize => {
 }
 
 export const Loader = ({
+  'aria-label': ariaLabel = 'Loading',
   className = '',
   size = 'sm',
   variant = 'neutral',
@@ -25,10 +26,15 @@ export const Loader = ({
   ) as React.CSSProperties
 
   return (
-    <div {...rest} className={cx('root', `variant-${variant}`, className)}>
-      <span className={cx('dot', `size-${size}`)} style={dotStyle} />
-      <span className={cx('dot', `size-${size}`)} style={dotStyle} />
-      <span className={cx('dot', `size-${size}`)} style={dotStyle} />
+    <div
+      aria-label={ariaLabel}
+      role="status"
+      {...rest}
+      className={cx('root', `variant-${variant}`, className)}
+    >
+      <span aria-hidden="true" className={cx('dot', `size-${size}`)} style={dotStyle} />
+      <span aria-hidden="true" className={cx('dot', `size-${size}`)} style={dotStyle} />
+      <span aria-hidden="true" className={cx('dot', `size-${size}`)} style={dotStyle} />
     </div>
   )
 }

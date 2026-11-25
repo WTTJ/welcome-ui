@@ -164,6 +164,12 @@ describe('Button', () => {
     expect(icon.classList.toString().includes('size-md')).toBe(true)
   })
 
+  it('should prefix its name with the loader label while loading', () => {
+    render(<Button isLoading>{content}</Button>)
+
+    expect(screen.getByRole('button', { name: `Loading ${content}` })).toBeInTheDocument()
+  })
+
   // FIXME: enable when loading style fixed
   it.skip('should have data-loading attribute', () => {
     render(
