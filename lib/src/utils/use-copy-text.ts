@@ -1,3 +1,4 @@
+import copyToClipboard from 'copy-to-clipboard'
 import { useCallback, useState } from 'react'
 
 type Content = number | React.RefObject<HTMLElement | HTMLInputElement> | string
@@ -17,22 +18,12 @@ export function useCopyText(content: Content, timeout: Timeout): useCopyTextRetu
       value = content.current.textContent
     }
 
-    // Undefined outside secure contexts (plain HTTP)
-    if (!navigator.clipboard) {
-      setCopied(false)
-      return
+    const copiedString = copyToClipboard(value)
+    setCopied(copiedString)
+
+    if (timeout) {
+      setTimeout(setCopied, timeout)
     }
-
-    navigator.clipboard.writeText(value ?? '').then(
-      () => {
-        setCopied(true)
-
-        if (timeout) {
-          setTimeout(setCopied, timeout)
-        }
-      },
-      () => setCopied(false)
-    )
   }, [content, timeout])
 
   return [copy, copied]
