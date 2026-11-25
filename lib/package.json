@@ -60,10 +60,8 @@
   },
   "dependencies": {
     "@ariakit/react": "0.4.38",
-    "copy-to-clipboard": "^3.3.3",
     "date-fns": "^4.1.0",
     "downshift": "^7.4.1",
-    "lodash.debounce": "^4.0.8",
     "lottie-light-react": "^2.4.0",
     "match-sorter": "^8.2.0",
     "react-datepicker": "^8.4.0",
@@ -76,7 +74,6 @@
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
     "@types/lodash.capitalize": "^4.2.9",
-    "@types/lodash.debounce": "^4.0.6",
     "@types/react-datepicker": "^7.0.0",
     "jsdom": "^26.0.0",
     "lodash.capitalize": "^4.2.1",
