@@ -8,6 +8,14 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+
+    /* The root clips the focused slide list's outline: draw it on the root. */
+    @media (forced-colors: active) {
+      &:has(.container:focus-visible) {
+        outline: 4px solid Highlight;
+        outline-offset: 2px;
+      }
+    }
   }
 
   .container {

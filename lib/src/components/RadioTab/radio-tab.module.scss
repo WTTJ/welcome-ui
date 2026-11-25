@@ -18,6 +18,14 @@
     }
     padding-top: 0;
     padding-bottom: 0;
+
+    /* The focused radio is transparent, so its outline is too: draw it on the label. */
+    @media (forced-colors: active) {
+      &:has(:focus-visible) {
+        outline: 4px solid Highlight;
+        outline-offset: 2px;
+      }
+    }
   }
 
   .input-wrapper {

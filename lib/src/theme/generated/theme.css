@@ -2154,6 +2154,19 @@
   h6 {
     font-family: var(--font-family-title);
   }
+
+  /*
+   * Forced colors drop the box-shadow, background and border-color changes
+   * components use as focus indicators. !important in this earlier layer
+   * outranks the components' `outline: none !important`. Highlight sets it
+   * apart from the always-on outlines (e.g. Button) that turn CanvasText.
+   */
+  @media (forced-colors: active) {
+    :focus-visible {
+      outline: 4px solid Highlight !important;
+      outline-offset: 2px !important;
+    }
+  }
 }
 
 @utility bg-grid {
