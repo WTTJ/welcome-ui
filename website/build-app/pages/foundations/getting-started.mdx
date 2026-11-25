@@ -43,6 +43,18 @@ On your theme or global css import:
 @import 'welcome-ui/theme.css';
 ```
 
+## Testing with jsdom
+
+`Breadcrumb`, `Stepper`, `Swiper` and `useBreakpoint` use the native `ResizeObserver`, which jsdom does not provide. Mock it in your test setup:
+
+```js
+globalThis.ResizeObserver = class {
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+}
+```
+
 ## Enjoy! 🌞
 
 ```jsx

@@ -37,4 +37,26 @@ describe('getDate', () => {
       { label: '1990', value: 1990 },
     ])
   })
+
+  it('getYears should include both bounds', () => {
+    const years = getYears(1900, 2100)
+
+    expect(years).toHaveLength(201)
+    expect(years[0]).toStrictEqual({ label: '2100', value: 2100 })
+    expect(years.at(-1)).toStrictEqual({ label: '1900', value: 1900 })
+  })
+
+  it('getYears with the same start and end year should return a single option', () => {
+    expect(getYears(2026, 2026)).toStrictEqual([{ label: '2026', value: 2026 }])
+  })
+
+  it('getYears should return consecutive years without gaps', () => {
+    const values = getYears(2020, 2025).map(({ value }) => value)
+
+    expect(values).toStrictEqual([2025, 2024, 2023, 2022, 2021, 2020])
+  })
+
+  it('getYears with an end year before the start year should return no option', () => {
+    expect(getYears(2025, 2020)).toStrictEqual([])
+  })
 })
