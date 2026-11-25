@@ -1,6 +1,5 @@
 import kebabCase from 'lodash/kebabCase'
-import { marked } from 'marked'
-import rehypeParse from 'rehype-parse'
+import remarkParse from 'remark-parse'
 import { unified } from 'unified'
 import { visit } from 'unist-util-visit'
 
@@ -19,9 +18,7 @@ export type TocItem = {
 export function getPageTree(content: string, isOverview?: boolean) {
   if (!content) return
 
-  const tree = unified()
-    .use(rehypeParse, { fragment: true })
-    .parse(marked(content) as string)
+  const tree = unified().use(remarkParse).parse(content)
 
   const tableOfContents = [] as Toc[]
 
@@ -34,24 +31,21 @@ export function getPageTree(content: string, isOverview?: boolean) {
     })
   }
 
-  // @ts-expect-error (node is Element)
-  visit(tree, 'element', (node: Element) => {
-    if (node.tagName === 'h2') {
-      // @ts-expect-error (node is Element)
-      const title = node.children[0]?.value
+  visit(tree, 'heading', node => {
+    const title =
+      node.children[0] && 'value' in node.children[0] ? node.children[0].value : undefined
+
+    if (node.depth === 2) {
       const id = kebabCase(title)
 
       tableOfContents.push({ href: `#${id}`, id, title })
     }
 
-    if (node.tagName === 'h3') {
+    if (node.depth === 3) {
       const parentHeading = tableOfContents[tableOfContents.length - 1]
 
       if (!parentHeading) return
 
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      const title = node.children[0].value
       const id = kebabCase(title)
 
       parentHeading.children = parentHeading.children || []

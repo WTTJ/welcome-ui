@@ -7,8 +7,6 @@ import { Tag } from '@/components/Tag'
 
 import { H2 } from '../Mdx/Headings'
 
-import * as TYPES from './propTypes'
-
 export type PropertiesProps = {
   items: {
     [name: string]: { props: Property }
@@ -72,8 +70,6 @@ const getType = (type: Property[1]['type']) => {
     let values
     if (isArray(value)) {
       values = value.map(v => v.value)
-    } else if (isArray(TYPES[value])) {
-      values = TYPES[value]
     }
 
     if (values) {

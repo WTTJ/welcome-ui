@@ -6909,20 +6909,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hast-util-from-html@npm:^2.0.0":
-  version: 2.0.1
-  resolution: "hast-util-from-html@npm:2.0.1"
-  dependencies:
-    "@types/hast": "npm:^3.0.0"
-    devlop: "npm:^1.1.0"
-    hast-util-from-parse5: "npm:^8.0.0"
-    parse5: "npm:^7.0.0"
-    vfile: "npm:^6.0.0"
-    vfile-message: "npm:^4.0.0"
-  checksum: 10c0/856ceec209940ac4f9db52bf6338b97fb11f27e6d5b930f89676bc16ee282c06f9ff2a17254280803aefdf740507cf3004f181d0286b04dda11907852decbe77
-  languageName: node
-  linkType: hard
-
 "hast-util-from-parse5@npm:^8.0.0":
   version: 8.0.1
   resolution: "hast-util-from-parse5@npm:8.0.1"
@@ -8684,15 +8670,6 @@ __metadata:
   version: 3.0.3
   resolution: "markdown-table@npm:3.0.3"
   checksum: 10c0/47433a3f31e4637a184e38e873ab1d2fadfb0106a683d466fec329e99a2d8dfa09f091fa42202c6f13ec94aef0199f449a684b28042c636f2edbc1b7e1811dcd
-  languageName: node
-  linkType: hard
-
-"marked@npm:16.4.2":
-  version: 16.4.2
-  resolution: "marked@npm:16.4.2"
-  bin:
-    marked: bin/marked.js
-  checksum: 10c0/fc6051142172454f2023f3d6b31cca92879ec8e1b96457086a54c70354c74b00e1b6543a76a1fad6d399366f52b90a848f6ffb8e1d65a5baff87f3ba9b8f1847
   languageName: node
   linkType: hard
 
@@ -10753,17 +10730,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rehype-parse@npm:9.0.1":
-  version: 9.0.1
-  resolution: "rehype-parse@npm:9.0.1"
-  dependencies:
-    "@types/hast": "npm:^3.0.0"
-    hast-util-from-html: "npm:^2.0.0"
-    unified: "npm:^11.0.0"
-  checksum: 10c0/efa9ca17673fe70e2d322a1d262796bbed5f6a89382f8f8393352bbd6f6bbf1d4d1d050984b86ff9cb6c0fa2535175ab0829e53c94b1e38fc3c158e6c0ad90bc
-  languageName: node
-  linkType: hard
-
 "rehype-raw@npm:7.0.0":
   version: 7.0.0
   resolution: "rehype-raw@npm:7.0.0"
@@ -10824,7 +10790,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"remark-parse@npm:^11.0.0":
+"remark-parse@npm:11.0.0, remark-parse@npm:^11.0.0":
   version: 11.0.0
   resolution: "remark-parse@npm:11.0.0"
   dependencies:
@@ -13466,15 +13432,13 @@ __metadata:
     autoprefixer: "npm:^10.4.22"
     js-yaml: "npm:4.3.2"
     lodash: "npm:4.18.1"
-    marked: "npm:16.4.2"
     next: "npm:16.3.3"
     postcss: "npm:^8.5.10"
     prism-react-renderer: "npm:2.4.1"
-    prop-types: "npm:^15.8.1"
     react-markdown: "npm:10.1.0"
-    rehype-parse: "npm:9.0.1"
     rehype-raw: "npm:7.0.0"
     remark-gfm: "npm:4.0.1"
+    remark-parse: "npm:11.0.0"
     tailwindcss: "npm:^4.1.18"
     unified: "npm:11.0.5"
     unist-util-visit: "npm:5.1.0"
