@@ -3441,15 +3441,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash.capitalize@npm:^4.2.9":
-  version: 4.2.9
-  resolution: "@types/lodash.capitalize@npm:4.2.9"
-  dependencies:
-    "@types/lodash": "npm:*"
-  checksum: 10c0/4a4bc23bc82a8a0952bf75712cea34cd9e6eb15ef77a58352d19f387be50cdea0b6f2b21e7f0d87c1623bfd42b8d4fd2384478901702b146f016f4c7c11e1abb
-  languageName: node
-  linkType: hard
-
 "@types/lodash.debounce@npm:^4.0.6":
   version: 4.0.9
   resolution: "@types/lodash.debounce@npm:4.0.9"
@@ -4734,13 +4725,6 @@ __metadata:
   version: 0.5.2
   resolution: "colorjs.io@npm:0.5.2"
   checksum: 10c0/2e6ea43629e325e721b92429239de3a6f42fb6d88ba6e4c2aeff0288c196d876f2f7ee82aea95bd40072d5cdc8cb87f042f4d94c134dcabf0e34a717e4caacb9
-  languageName: node
-  linkType: hard
-
-"colors@npm:1.4.0":
-  version: 1.4.0
-  resolution: "colors@npm:1.4.0"
-  checksum: 10c0/9af357c019da3c5a098a301cf64e3799d27549d8f185d86f79af23069e4f4303110d115da98483519331f6fb71c8568d5688fa1c6523600044fd4a54e97c4efb
   languageName: node
   linkType: hard
 
@@ -8400,7 +8384,6 @@ __metadata:
     "@types/node": "npm:22.14.0"
     "@types/react": "npm:18.3.31"
     "@types/react-dom": "npm:18.3.7"
-    colors: "npm:1.4.0"
     eslint: "npm:9.39.5"
     eslint-config-prettier: "npm:10.1.8"
     eslint-plugin-perfectionist: "npm:4.15.1"
@@ -13156,13 +13139,11 @@ __metadata:
     "@testing-library/jest-dom": "npm:^6.9.1"
     "@testing-library/react": "npm:^16.3.0"
     "@testing-library/user-event": "npm:^14.6.1"
-    "@types/lodash.capitalize": "npm:^4.2.9"
     "@types/lodash.debounce": "npm:^4.0.6"
     copy-to-clipboard: "npm:^3.3.3"
     date-fns: "npm:^4.1.0"
     downshift: "npm:^7.4.1"
     jsdom: "npm:^26.0.0"
-    lodash.capitalize: "npm:^4.2.1"
     lodash.debounce: "npm:^4.0.8"
     lottie-light-react: "npm:^2.4.0"
     match-sorter: "npm:^8.2.0"

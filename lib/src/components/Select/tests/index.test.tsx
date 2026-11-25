@@ -1,5 +1,4 @@
 import { act, screen, waitFor } from '@testing-library/react'
-import capitalize from 'lodash.capitalize'
 import React, { useState } from 'react'
 
 import { Icon } from '@/components/Icon'
@@ -8,6 +7,8 @@ import { render } from '@tests'
 
 import { Select } from '../'
 import type { SelectOption, SelectProps } from '../types'
+
+const capitalize = (value: string) => value.charAt(0).toUpperCase() + value.slice(1)
 
 const SelectWrapper: React.FC<SelectProps> = props => {
   const [value, setValue] = useState<SelectProps['value']>()

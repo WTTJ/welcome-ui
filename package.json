@@ -71,7 +71,6 @@
     "@types/node": "22.14.0",
     "@types/react": "18.3.31",
     "@types/react-dom": "18.3.7",
-    "colors": "1.4.0",
     "eslint": "9.39.5",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-perfectionist": "4.15.1",
