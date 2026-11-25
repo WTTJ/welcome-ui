@@ -1,3 +1,5 @@
+@use '../../utils/scss/reduced-motion' as *;
+
 @layer components {
   .root {
     display: flex;
@@ -15,6 +17,10 @@
     background-color: currentColor;
 
     animation: dot-bounce 1.5s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+
+    @include reduced-motion {
+      animation-name: dot-fade;
+    }
 
     &:nth-child(1) {
       animation-delay: 0s;
@@ -63,6 +69,17 @@
 
     &-violet {
       --color: var(--color-violet-70);
+    }
+  }
+
+  @keyframes dot-fade {
+    0%,
+    100% {
+      opacity: 0.5;
+    }
+    30%,
+    60% {
+      opacity: 1;
     }
   }
 

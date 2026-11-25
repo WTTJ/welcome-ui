@@ -1,3 +1,5 @@
+@use '../../utils/scss/reduced-motion' as *;
+
 @property --gradient-angle {
   syntax: '<angle>';
   initial-value: -60deg;
@@ -201,6 +203,10 @@
       --buttonColorPressed: var(--button-color-text-primary-ai-pressed);
       --buttonOutlineColorFocus: var(--button-color-border-focused);
       animation: rotate-gradient 3s linear infinite paused;
+
+      @include reduced-motion {
+        animation: none;
+      }
 
       @media (hover: hover) and (pointer: fine) {
         &:hover:not(:disabled):not([aria-disabled]) {

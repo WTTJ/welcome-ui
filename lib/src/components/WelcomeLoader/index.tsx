@@ -8,11 +8,16 @@ import styles from './welcome-loader.module.scss'
 
 const cx = classNames(styles)
 
+const prefersReducedMotion = () =>
+  typeof window !== 'undefined' &&
+  window.matchMedia?.('(prefers-reduced-motion: reduce)').matches === true
+
 export const WelcomeLoader = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => {
     const options = {
       animationData: loader,
-      loop: true,
+      // play once instead of looping when the user asks to reduce motion
+      loop: !prefersReducedMotion(),
     }
 
     const { View } = useLottie(options)

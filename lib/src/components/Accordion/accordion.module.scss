@@ -1,3 +1,5 @@
+@use '../../utils/scss/reduced-motion' as *;
+
 @layer components {
   .root {
     width: 100%;
@@ -71,6 +73,10 @@
   .accordion-disclosure-arrow-icon {
     transform: rotate3d(0, 0, 1, 0deg);
     transition: var(--duration-medium);
+
+    @include reduced-motion {
+      transition: none;
+    }
     place-self: center;
   }
 
@@ -89,6 +95,10 @@
     transition-timing-function: linear;
     transition-duration: 200ms;
     animation-duration: 200ms;
+
+    @include reduced-motion {
+      transition: none;
+    }
 
     > .accordion-content-wrapper {
       overflow: hidden;

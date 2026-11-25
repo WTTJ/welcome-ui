@@ -1,0 +1,6 @@
+/* Styles applied when the user asks the OS to reduce motion */
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
