@@ -1,5 +1,3 @@
-import capitalize from 'lodash.capitalize'
-
 import type { SelectValue } from '../types'
 import {
   getInputValue,
@@ -11,6 +9,8 @@ import {
   isValueSelected,
   itemToString,
 } from '../utils'
+
+const capitalize = (value: string) => value.charAt(0).toUpperCase() + value.slice(1)
 
 const OPTIONS = [
   'january',
