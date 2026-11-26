@@ -59,7 +59,7 @@
     "url": "https://github.com/WTTJ/welcome-ui/issues"
   },
   "dependencies": {
-    "@ariakit/react": "0.4.38",
+    "@ariakit/react": "0.4.43",
     "copy-to-clipboard": "^3.3.3",
     "date-fns": "^4.1.0",
     "downshift": "^7.4.1",
