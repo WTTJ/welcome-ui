@@ -1,3 +1,5 @@
+import { useStoreState } from '@ariakit/react'
+
 import { Button } from '@/components/Button'
 import { AssetModal, Modal, useModal } from '@/components/Modal'
 import { Swiper, useSwiper } from '@/components/Swiper'
@@ -6,7 +8,7 @@ const Example = () => {
   const modal = useModal()
   const swiper = useSwiper({ slides: { gap: 0, initialIndex: 2 } })
 
-  const isOpen = modal.useState().open
+  const isOpen = useStoreState(modal, 'open')
 
   return (
     <>
