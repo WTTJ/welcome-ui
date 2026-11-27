@@ -78,6 +78,7 @@
     "@types/lodash.capitalize": "^4.2.9",
     "@types/lodash.debounce": "^4.0.6",
     "@types/react-datepicker": "^7.0.0",
+    "axe-core": "4.10.3",
     "jsdom": "^26.0.0",
     "lodash.capitalize": "^4.2.1",
     "release-it": "^18.1.2",
